@@ -18551,103 +18551,103 @@ Tải Điện Parasitic Trong Quá Trình Xả</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Nhiệt độ Không khí Trả về Đã điều chỉnh Zone ITE</translation>
+        <translation>Nhiệt độ Không khí Trả về Đã điều chỉnh Zone ITE </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Lưu lượng khối lượng không khí ITE theo vùng</translation>
+        <translation>Lưu lượng khối lượng không khí ITE theo vùng </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Thời gian Nhiệt độ Bóng Khô Tại Cửa Hút Gió Bất Kỳ của Vùng ITE Vượt Quá Phạm Vi Hoạt Động</translation>
+        <translation>Thời gian Nhiệt độ Bóng Khô Tại Cửa Hút Gió Bất Kỳ của Vùng ITE Vượt Quá Phạm Vi Hoạt Động </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Thời gian vượt quá phạm vi hoạt động của Khe hút khí bất kỳ Zone ITE</translation>
+        <translation>Thời gian vượt quá phạm vi hoạt động của Khe hút khí bất kỳ Zone ITE </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Thời gian Độ ẩm tương đối tại Lối vào không khí bất kỳ của Khu vực ITE Dưới phạm vi vận hành</translation>
+        <translation>Thời gian Độ ẩm tương đối tại Lối vào không khí bất kỳ của Khu vực ITE Dưới phạm vi vận hành </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index</translation>
+        <translation>Zone ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Năng lượng điện CPU ITE của Khu vực</translation>
+        <translation>Năng lượng điện CPU ITE của Khu vực </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Electricity Energy at Design Inlet Conditions</translation>
+        <translation>Zone ITE CPU Electricity Energy at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Tốc độ tiêu thụ điện CPUcủa Zone ITE</translation>
+        <translation>Tốc độ tiêu thụ điện CPUcủa Zone ITE </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tốc độ tiêu thụ điện CPU ITE khu vực tại điều kiện lối vào thiết kế</translation>
+        <translation>Tốc độ tiêu thụ điện CPU ITE khu vực tại điều kiện lối vào thiết kế </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Năng lượng điện quạt ITE khu vực</translation>
+        <translation>Năng lượng điện quạt ITE khu vực </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Năng lượng điện của quạt ITE trong Zone ở điều kiện inlet thiết kế</translation>
+        <translation>Năng lượng điện của quạt ITE trong Zone ở điều kiện inlet thiết kế </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Tỷ lệ Điện năng Quạt ITE theo Khu vực</translation>
+        <translation>Tỷ lệ Điện năng Quạt ITE theo Khu vực </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE Vùng ở Điều kiện Inlet Thiết kế</translation>
+        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE Vùng ở Điều kiện Inlet Thiết kế </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Tốc độ dòng chảy không khí mật độ tiêu chuẩn ITE trong Zone</translation>
+        <translation>Tốc độ dòng chảy không khí mật độ tiêu chuẩn ITE trong Zone </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Tổng Lợi Tức Nhiệt ITE Đối Với Năng Lượng Vùng</translation>
+        <translation>Tổng Lợi Tức Nhiệt ITE Đối Với Năng Lượng Vùng </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Tốc độ Tổng Lợi Toả Nhiệt ITE sang Zone</translation>
+        <translation>Tốc độ Tổng Lợi Toả Nhiệt ITE sang Zone </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Năng lượng điện UPS vùng Zone (ITE)</translation>
+        <translation>Năng lượng điện UPS vùng Zone (ITE) </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Tỷ lệ điện Zone ITE UPS</translation>
+        <translation>Tỷ lệ điện Zone ITE UPS </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Tốc độ Tỏa nhiệt ITE UPS vào Khu vực</translation>
+        <translation>Tốc độ Tỏa nhiệt ITE UPS vào Khu vực </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -19991,103 +19991,103 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>Nhiệt độ Không khí Trở về được Điều chỉnh ITE</translation>
+        <translation>Nhiệt độ Không khí Trở về được Điều chỉnh ITE </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>Tốc độ dòng chảy khối lượng không khí ITE</translation>
+        <translation>Tốc độ dòng chảy khối lượng không khí ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Thời gian Nhiệt độ Bóng Khô Đầu Vào Khí ITE Vượt Quá Phạm Vi Hoạt Động</translation>
+        <translation>Thời gian Nhiệt độ Bóng Khô Đầu Vào Khí ITE Vượt Quá Phạm Vi Hoạt Động </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Thời gian vượt quá phạm vi hoạt động cửa hút không khí của ITE</translation>
+        <translation>Thời gian vượt quá phạm vi hoạt động cửa hút không khí của ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Thời gian độ ẩm tương đối đầu vào không khí vượt quá phạm vi hoạt động của ITE</translation>
+        <translation>Thời gian độ ẩm tương đối đầu vào không khí vượt quá phạm vi hoạt động của ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>Chỉ số Nhiệt Cung Cấp Trung Bình ITE</translation>
+        <translation>Chỉ số Nhiệt Cung Cấp Trung Bình ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>Năng lượng điện CPU ITE</translation>
+        <translation>Năng lượng điện CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Năng lượng điện CPU của ITE ở điều kiện inlet thiết kế</translation>
+        <translation>Năng lượng điện CPU của ITE ở điều kiện inlet thiết kế </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>Tỷ Lệ Tiêu Thụ Điện Của CPU ITE</translation>
+        <translation>Tỷ Lệ Tiêu Thụ Điện Của CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tỷ lệ tiêu thụ điện năng CPU ITE tại điều kiện cửa vào thiết kế</translation>
+        <translation>Tỷ lệ tiêu thụ điện năng CPU ITE tại điều kiện cửa vào thiết kế </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>Năng lượng điện của quạt ITE</translation>
+        <translation>Năng lượng điện của quạt ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Năng lượng điện quạt ITE tại điều kiện đầu vào thiết kế</translation>
+        <translation>Năng lượng điện quạt ITE tại điều kiện đầu vào thiết kế </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE</translation>
+        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE ở Điều kiện Đầu vào Thiết kế</translation>
+        <translation>Tốc độ Tiêu thụ Điện của Quạt ITE ở Điều kiện Đầu vào Thiết kế </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Tốc độ dòng chảy thể tích không khí tiêu chuẩn ITE</translation>
+        <translation>Tốc độ dòng chảy thể tích không khí tiêu chuẩn ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>Tổng Lợi Tức Nhiệt ITE vào Năng Lượng Khu Vực</translation>
+        <translation>Tổng Lợi Tức Nhiệt ITE vào Năng Lượng Khu Vực </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>Tốc độ Tổng Lợi Lạc Nhiệt từ ITE vào Khu Vực</translation>
+        <translation>Tốc độ Tổng Lợi Lạc Nhiệt từ ITE vào Khu Vực </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>Năng lượng điện UPS ITE</translation>
+        <translation>Năng lượng điện UPS ITE </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>Tỷ giá điện ITE UPS</translation>
+        <translation>Tỷ giá điện ITE UPS </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Tốc độ Tỏa nhiệt UPS ITE vào Zone</translation>
+        <translation>Tốc độ Tỏa nhiệt UPS ITE vào Zone </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -21611,17 +21611,17 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
-        <translation>Tên hiển thị:</translation>
+        <translation>Tên hiển thị: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
-        <translation>CAD Object Id:</translation>
+        <translation>CAD Object Id: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
@@ -21631,62 +21631,62 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
-        <translation>Mẫu Tiêu chuẩn:</translation>
+        <translation>Mẫu Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
-        <translation>Loại Tòa Nhà Tiêu Chuẩn:</translation>
+        <translation>Loại Tòa Nhà Tiêu Chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>Chiều cao danh định từ sàn đến trần:</translation>
+        <translation>Chiều cao danh định từ sàn đến trần: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>Chiều cao sàn đến sàn danh định:</translation>
+        <translation>Chiều cao sàn đến sàn danh định: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
-        <translation>Số tầng theo Tiêu chuẩn:</translation>
+        <translation>Số tầng theo Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Số tầng trên mặt đất theo tiêu chuẩn:</translation>
+        <translation>Số tầng trên mặt đất theo tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
-        <translation>Số lượng đơn vị sống tiêu chuẩn:</translation>
+        <translation>Số lượng đơn vị sống tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
-        <translation>Có thể di chuyển:</translation>
+        <translation>Có thể di chuyển: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
-        <translation>Trục Bắc:</translation>
+        <translation>Trục Bắc: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
-        <translation>Loại Không gian:</translation>
+        <translation>Loại Không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
-        <translation>Bộ xây dựng mặc định:</translation>
+        <translation>Bộ xây dựng mặc định: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
-        <translation>Bộ Lịch Biểu Mặc Định:</translation>
+        <translation>Bộ Lịch Biểu Mặc Định: </translation>
     </message>
 </context>
 <context>
@@ -21809,17 +21809,17 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
-        <translation>Phương pháp Trao đổi không khí:</translation>
+        <translation>Phương pháp Trao đổi không khí: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Lượng Thay Đổi Không Khí Trộn Đơn Giản mỗi Giờ:</translation>
+        <translation>Lượng Thay Đổi Không Khí Trộn Đơn Giản mỗi Giờ: </translation>
     </message>
 </context>
 <context>
@@ -21827,17 +21827,17 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
-        <translation>C-Factor:</translation>
+        <translation>C-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
-        <translation>Chiều cao:</translation>
+        <translation>Chiều cao: </translation>
     </message>
 </context>
 <context>
@@ -21845,22 +21845,22 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
-        <translation>Diện tích:</translation>
+        <translation>Diện tích: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
-        <translation>Chu vi phơi bày:</translation>
+        <translation>Chu vi phơi bày: </translation>
     </message>
 </context>
 <context>
@@ -21868,12 +21868,12 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
-        <translation>Lớp:</translation>
+        <translation>Lớp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
@@ -21896,12 +21896,12 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
-        <translation>Lớp:</translation>
+        <translation>Lớp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
@@ -21921,22 +21921,22 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
-        <translation>Nguồn xuất hiện sau lớp:</translation>
+        <translation>Nguồn xuất hiện sau lớp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>Yêu cầu tính toán nhiệt độ sau lớp số:</translation>
+        <translation>Yêu cầu tính toán nhiệt độ sau lớp số: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>Kích thước cho Phép tính CTF:</translation>
+        <translation>Kích thước cho Phép tính CTF: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
-        <translation>Khoảng cách ống:</translation>
+        <translation>Khoảng cách ống: </translation>
     </message>
 </context>
 <context>
@@ -22193,7 +22193,9 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
         <source>Pressure
 Wind
 Precipitation</source>
-        <translation>Áp suất Gió Lượng mưa</translation>
+        <translation>Áp suất
+Gió
+Lượng mưa</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
@@ -22363,7 +22365,8 @@ Precipitation</source>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
-        <translation>Khu vực thả (drag-drop)</translation>
+        <translation>Khu vực thả
+(drag-drop)</translation>
     </message>
 </context>
 <context>
@@ -22532,37 +22535,37 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Mức Thiết Kế:</translation>
+        <translation>Mức Thiết Kế: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Per Space Floor Area:</translation>
+        <translation>Watts Per Space Floor Area: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>Watt trên một người:</translation>
+        <translation>Watt trên một người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Tỷ lệ Tiềm ẩn:</translation>
+        <translation>Tỷ lệ Tiềm ẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Trăm Bức Xạ:</translation>
+        <translation>Phần Trăm Bức Xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Tỷ lệ mất:</translation>
+        <translation>Tỷ lệ mất: </translation>
     </message>
 </context>
 <context>
@@ -22585,7 +22588,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>Chọn đường dẫn tới</translation>
+        <translation>Chọn đường dẫn tới </translation>
     </message>
 </context>
 <context>
@@ -23057,42 +23060,42 @@ Tầng</translation>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Mức Thiết Kế:</translation>
+        <translation>Mức Thiết Kế: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Công suất trên diện tích sàn không gian:</translation>
+        <translation>Công suất trên diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Công suất trên mỗi người:</translation>
+        <translation>Công suất trên mỗi người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Phần Ẩm:</translation>
+        <translation>Phần Ẩm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Tỷ Lệ Bức Xạ:</translation>
+        <translation>Phần Tỷ Lệ Bức Xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Phần Mất:</translation>
+        <translation>Phần Mất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Tốc độ phát sinh Carbon Dioxide:</translation>
+        <translation>Tốc độ phát sinh Carbon Dioxide: </translation>
     </message>
 </context>
 <context>
@@ -23212,12 +23215,12 @@ Tầng</translation>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
-        <translation>Loại làm lạnh:</translation>
+        <translation>Loại làm lạnh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
-        <translation>Loại Sưởi:</translation>
+        <translation>Loại Sưởi: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
@@ -23351,7 +23354,7 @@ Tầng</translation>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
-        <translation>Loại Vòng Lặp Nhà máy:</translation>
+        <translation>Loại Vòng Lặp Nhà máy: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
@@ -23497,37 +23500,37 @@ Tầng</translation>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
-        <translation>Mức Thiết Kế:</translation>
+        <translation>Mức Thiết Kế: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Per Space Floor Area: Watts trên diện tích sàn không gian:</translation>
+        <translation>Watts Per Space Floor Area: Watts trên diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
-        <translation>Watt Trên Mỗi Người:</translation>
+        <translation>Watt Trên Mỗi Người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
-        <translation>Phân số ẩm:</translation>
+        <translation>Phân số ẩm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Bức Xạ:</translation>
+        <translation>Phần Bức Xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
-        <translation>Tỷ lệ Mất mát:</translation>
+        <translation>Tỷ lệ Mất mát: </translation>
     </message>
 </context>
 <context>
@@ -23543,27 +23546,27 @@ Tầng</translation>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
-        <translation>Diện tích bề mặt:</translation>
+        <translation>Diện tích bề mặt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Diện tích bề mặt trên mỗi diện tích sàn không gian:</translation>
+        <translation>Diện tích bề mặt trên mỗi diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
-        <translation>Diện tích bề mặt trên người:</translation>
+        <translation>Diện tích bề mặt trên người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
-        <translation>Cấu trúc xây dựng:</translation>
+        <translation>Cấu trúc xây dựng: </translation>
     </message>
 </context>
 <context>
@@ -23740,37 +23743,37 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Công suất chiếu sáng:</translation>
+        <translation>Công suất chiếu sáng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Per Space Floor Area: Watts trên diện tích sàn không gian:</translation>
+        <translation>Watts Per Space Floor Area: Watts trên diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>Watts Trên Mỗi Người:</translation>
+        <translation>Watts Trên Mỗi Người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Trăm Bức Xạ:</translation>
+        <translation>Phần Trăm Bức Xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
-        <translation>Phần nhìn thấy được:</translation>
+        <translation>Phần nhìn thấy được: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
-        <translation>Tỷ lệ không khí trả về:</translation>
+        <translation>Tỷ lệ không khí trả về: </translation>
     </message>
 </context>
 <context>
@@ -23900,23 +23903,23 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>Vĩ độ:</translation>
+        <translation>Vĩ độ: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>Kinh độ:</translation>
+        <translation>Kinh độ: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>Cao độ :</translation>
+        <translation>Cao độ : </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>Múi giờ:</translation>
+        <translation>Múi giờ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
@@ -24009,7 +24012,7 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>Lỗi khi thiết lập file thời tiết tới</translation>
+        <translation>Lỗi khi thiết lập file thời tiết tới </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -24094,79 +24097,57 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
-        <source>Packaged DX Rooftop VAV 
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Hệ thống VAV trên mái nhà DX tích hợp với Reheat</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
-        <source>Packaged Rooftop 
-VAV with Parallel Fan 
-Power Boxes and reheat</source>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>Hệ thống VAV trên mái được đóng gói với các hộp quạt song song và làm lại nhiệt</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
-        <source>Packaged Rooftop 
-VAV with Reheat</source>
-        <translation>Máy điều hòa không khí trên mái
-VAV với Reheat</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Máy điều hòa không khí trên mái VAV với Reheat</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
-        <source>VAV with Parallel Fan-Powered 
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV với Hộp Quạt Song Song và Làm Nóng Lại</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
-        <source>Warm Air Furnace 
-Gas Fired</source>
-        <translation>Lò sưởi không khí nóng
-Chạy bằng khí</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Lò sưởi không khí nóng Chạy bằng khí</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
-        <source>Warm Air Furnace 
-Electric</source>
-        <translation>Lò sưởi không khí nóng
-Điện</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Lò sưởi không khí nóng Điện</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Packaged DX Rooftop VAV với Reheat</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>Hệ thống trên mái nhà đóng gói
-VAV với Quạt song song
-Hộp điều chỉnh công suất và làm nóng lại</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Hệ thống trên mái nhà đóng gói VAV với Quạt song song Hộp điều chỉnh công suất và làm nóng lại</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Hệ thống trên mái nhà được đóng gói
-VAV với Tái sưởi ấm</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Hệ thống trên mái nhà được đóng gói VAV với Tái sưởi ấm</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV với Các Hộp Cấp Gió Song Song và Sưởi Lại</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Lò sưởi không khí nóng
-Chạy bằng khí đốt</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Lò sưởi không khí nóng Chạy bằng khí đốt</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Lò Sưởi Không Khí Nóng
-Điện</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Lò Sưởi Không Khí Nóng Điện</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
@@ -24197,7 +24178,7 @@ Electric</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>Kết nối Internet:</translation>
+        <translation>Kết nối Internet: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -24209,7 +24190,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>Log-in vào đám mây:</translation>
+        <translation>Log-in vào đám mây: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -24221,7 +24202,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>Kết nối đám mây:</translation>
+        <translation>Kết nối đám mây: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -24229,7 +24210,7 @@ Electric</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>không thể kết nối lại.</translation>
+        <translation>không thể kết nối lại. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -24241,7 +24222,7 @@ Electric</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>Thử lại sau.</translation>
+        <translation>Thử lại sau. </translation>
     </message>
     <message>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
@@ -24253,7 +24234,7 @@ Electric</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>Dừng đám mây.</translation>
+        <translation>Dừng đám mây. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -24261,7 +24242,7 @@ Electric</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>Khởi động bảng điều khiển AWS.</translation>
+        <translation>Khởi động bảng điều khiển AWS. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -24273,27 +24254,27 @@ Electric</source>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Công Suất Chiếu Sáng:</translation>
+        <translation>Công Suất Chiếu Sáng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Trăm Bức Xạ:</translation>
+        <translation>Phần Trăm Bức Xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
-        <translation>Phần Nhìn Thấy:</translation>
+        <translation>Phần Nhìn Thấy: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
-        <translation>Tỷ lệ không khí quay trở lại:</translation>
+        <translation>Tỷ lệ không khí quay trở lại: </translation>
     </message>
 </context>
 <context>
@@ -25932,7 +25913,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Trao đổi Nhiệt Địa Chất - Dạng Thẳng Đứng</translation>
+        <translation>Trao đổi Nhiệt Địa Chất - Dạng Thẳng Đứng </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
@@ -26300,12 +26281,12 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
-        <translation>Điện trở nhiệt:</translation>
+        <translation>Điện trở nhiệt: </translation>
     </message>
 </context>
 <context>
@@ -26313,47 +26294,47 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
-        <translation>Độ nhám:</translation>
+        <translation>Độ nhám: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
-        <translation>Độ dẫn nhiệt:</translation>
+        <translation>Độ dẫn nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
-        <translation>Mật độ:</translation>
+        <translation>Mật độ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
-        <translation>Nhiệt dung riêng:</translation>
+        <translation>Nhiệt dung riêng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
-        <translation>Hệ số hấp thụ nhiệt:</translation>
+        <translation>Hệ số hấp thụ nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
-        <translation>Độ hấp thụ năng lượng mặt trời:</translation>
+        <translation>Độ hấp thụ năng lượng mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
-        <translation>Độ hấp thụ ánh sáng nhìn thấy:</translation>
+        <translation>Độ hấp thụ ánh sáng nhìn thấy: </translation>
     </message>
 </context>
 <context>
@@ -26361,32 +26342,32 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
-        <translation>Độ nhám:</translation>
+        <translation>Độ nhám: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
-        <translation>Khả năng cách nhiệt:</translation>
+        <translation>Khả năng cách nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
-        <translation>Hệ số hấp thụ nhiệt:</translation>
+        <translation>Hệ số hấp thụ nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
-        <translation>Độ Hấp Thụ Năng Lượng Mặt Trời:</translation>
+        <translation>Độ Hấp Thụ Năng Lượng Mặt Trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
-        <translation>Độ hấp thụ nhìn thấy được:</translation>
+        <translation>Độ hấp thụ nhìn thấy được: </translation>
     </message>
 </context>
 <context>
@@ -26394,97 +26375,97 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
-        <translation>Chiều cao của cây:</translation>
+        <translation>Chiều cao của cây: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
-        <translation>Chỉ số Diện tích Lá cây:</translation>
+        <translation>Chỉ số Diện tích Lá cây: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
-        <translation>Độ phản xạ của lá:</translation>
+        <translation>Độ phản xạ của lá: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
-        <translation>Độ phát xạ của lá:</translation>
+        <translation>Độ phát xạ của lá: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>Điện trở khí khổng tối thiểu:</translation>
+        <translation>Điện trở khí khổng tối thiểu: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
-        <translation>Tên Lớp Đất:</translation>
+        <translation>Tên Lớp Đất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
-        <translation>Độ nhám:</translation>
+        <translation>Độ nhám: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>Độ dẫn nhiệt của đất khô:</translation>
+        <translation>Độ dẫn nhiệt của đất khô: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
-        <translation>Mật độ đất khô:</translation>
+        <translation>Mật độ đất khô: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>Nhiệt dung riêng của đất khô:</translation>
+        <translation>Nhiệt dung riêng của đất khô: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
-        <translation>Hệ số hấp thụ nhiệt:</translation>
+        <translation>Hệ số hấp thụ nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
-        <translation>Độ hấp thụ năng lượng mặt trời:</translation>
+        <translation>Độ hấp thụ năng lượng mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
-        <translation>Độ Hấp Thụ Nhìn Thấy Được:</translation>
+        <translation>Độ Hấp Thụ Nhìn Thấy Được: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Hàm lượng ẩm thể tích bão hòa của lớp đất:</translation>
+        <translation>Hàm lượng ẩm thể tích bão hòa của lớp đất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Hàm lượng ẩm thể tích còn lại của lớp đất:</translation>
+        <translation>Hàm lượng ẩm thể tích còn lại của lớp đất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Hàm lượng ẩm thể tích ban đầu của lớp đất:</translation>
+        <translation>Hàm lượng ẩm thể tích ban đầu của lớp đất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Phương pháp Tính toán Khuếch tán Độ ẩm:</translation>
+        <translation>Phương pháp Tính toán Khuếch tán Độ ẩm: </translation>
     </message>
 </context>
 <context>
@@ -26577,7 +26558,8 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>các biện pháp đã được cập nhật trên BCL so với thư mục BCL cục bộ của bạn.</translation>
+        <translation> các biện pháp đã được cập nhật trên BCL so với thư mục BCL cục bộ của
+bạn.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -26768,7 +26750,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>Tạo một hồ sơ mới để ghi đè hồ sơ khoảng thời gian chạy mặc định.</translation>
+        <translation>  Tạo một hồ sơ mới để ghi đè hồ sơ khoảng thời gian chạy mặc định.</translation>
     </message>
 </context>
 <context>
@@ -27014,13 +26996,13 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>Dịch từ phiên bản</translation>
+        <translation>Dịch từ phiên bản </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
-        <translation>tới</translation>
+        <translation> tới </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
@@ -27070,7 +27052,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) và tất cả các trường đều hợp lệ với Energy + .idd.</translation>
+        <translation>) và tất cả các trường đều hợp lệ với Energy + .idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -27085,38 +27067,44 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>Nhập file IDF không thành công</translation>
+        <translation> Nhập file IDF không thành công</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Các lỗi ===============</translation>
+        <translation>=============== Các
+lỗi
+===============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Cảnh báo ==============</translation>
+        <translation>============== Cảnh
+báo
+==============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Các đối tượng idf sau không được nhập ====</translation>
+        <translation>==== Các đối tượng idf sau không được
+nhập
+====</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation>đã đặt tên</translation>
+        <translation> đã đặt tên </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation>Chưa đặt tên</translation>
+        <translation>Chưa đặt tên </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
@@ -27136,7 +27124,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
-        <translation>Nhập file</translation>
+        <translation>Nhập file </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
@@ -27146,7 +27134,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Đã xảy ra lỗi hoặc cảnh báo khi nhập</translation>
+        <translation>Đã xảy ra lỗi hoặc cảnh báo khi nhập </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -27156,12 +27144,12 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
-        <translation>Không thể nhập</translation>
+        <translation>Không thể nhập </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
-        <translation>file tại</translation>
+        <translation> file tại </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
@@ -27207,7 +27195,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>Máy chủ quản lý Measure:</translation>
+        <translation>Máy chủ quản lý Measure: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -27217,7 +27205,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>Thư mục tạm thời:</translation>
+        <translation>Thư mục tạm thời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -27231,7 +27219,7 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     </message>
     <message>
         <source>About </source>
-        <translation>Giới thiệu</translation>
+        <translation>Giới thiệu </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
@@ -27241,17 +27229,17 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>Mở phiên bản tương lai</translation>
+        <translation>Mở phiên bản tương lai </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>đang sử dụng</translation>
+        <translation> đang sử dụng </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
-        <translation>Mô hình được cập nhật từ</translation>
+        <translation>Mô hình được cập nhật từ </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
@@ -27263,7 +27251,7 @@ Các tập lệnh Ruby không còn được hỗ trợ và đã được thay th
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>Không mở được tệp tại</translation>
+        <translation>Không mở được tệp tại </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -27305,7 +27293,9 @@ Bạn có muốn tạo một mô hình mới không?</translation>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Trình quản lý Measure đã gặp sự cố, đang cố gắng khởi động lại</translation>
+        <translation>Trình quản lý Measure đã gặp sự cố, đang cố gắng khởi
+động
+lại</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -27333,14 +27323,18 @@ Bạn có muốn khởi động lại ngay bây giờ?</translation>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Không tải được các thư viện sau ...</translation>
+        <translation>Không tải được các thư viện
+sau
+...</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Bạn có muốn Khôi phục đường dẫn thư viện về giá trị mặc định hay Mở cài đặt thư viện để thay đổi chúng theo cách thủ công?</translation>
+        <translation>Bạn
+có
+muốn Khôi phục đường dẫn thư viện về giá trị mặc định hay Mở cài đặt thư viện để thay đổi chúng theo cách thủ công?</translation>
     </message>
 </context>
 <context>
@@ -27348,37 +27342,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Mức Thiết Kế:</translation>
+        <translation>Mức Thiết Kế: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Công Suất Trên Diện Tích Sàn Không Gian:</translation>
+        <translation>Công Suất Trên Diện Tích Sàn Không Gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Công suất trên mỗi người:</translation>
+        <translation>Công suất trên mỗi người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Phần Ẩm:</translation>
+        <translation>Phần Ẩm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần trăm bức xạ:</translation>
+        <translation>Phần trăm bức xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Phân số Mất:</translation>
+        <translation>Phân số Mất: </translation>
     </message>
 </context>
 <context>
@@ -27409,37 +27403,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
-        <translation>Số Người:</translation>
+        <translation>Số Người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
-        <translation>Số người trên diện tích sàn không gian:</translation>
+        <translation>Số người trên diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
-        <translation>Diện tích sàn không gian trên một người:</translation>
+        <translation>Diện tích sàn không gian trên một người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần Bức xạ:</translation>
+        <translation>Phần Bức xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
-        <translation>Tỉ lệ Nhiệt Nhạy cảm:</translation>
+        <translation>Tỉ lệ Nhiệt Nhạy cảm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Tốc độ phát sinh Carbon Dioxide:</translation>
+        <translation>Tốc độ phát sinh Carbon Dioxide: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
@@ -27527,7 +27521,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
-        <translation>Công suất làm lạnh</translation>
+        <translation>Công suất
+làm lạnh</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
@@ -27544,7 +27539,9 @@ Capacity</source>
         <source>Case
 Anti-Sweat
 Heaters</source>
-        <translation>Máy sưởi chống đổ mồ hôi tủ lạnh</translation>
+        <translation>Máy sưởi
+chống đổ mồ
+hôi tủ lạnh</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249"/>
@@ -27623,7 +27620,8 @@ Máy nén</translation>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
-        <translation>Chữ thường</translation>
+        <translation>Chữ
+thường</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
@@ -27777,7 +27775,7 @@ Báo Cáo Chi Tiết</translation>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
-        <translation>Báo cáo:</translation>
+        <translation>Báo cáo: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
@@ -27805,7 +27803,8 @@ trong Tùy chọn</translation>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView không được tìm thấy ở vị trí dự kiến:</translation>
+        <translation>DView không được tìm thấy ở vị trí dự
+kiến:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
@@ -27819,7 +27818,7 @@ trong Tùy chọn</translation>
     </message>
     <message>
         <source>Custom Report </source>
-        <translation>Báo cáo Tùy chỉnh</translation>
+        <translation>Báo cáo Tùy chỉnh </translation>
     </message>
 </context>
 <context>
@@ -27835,12 +27834,12 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Mô phỏng không thể chạy, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Mô phỏng không thể chạy, QProcess::ProcessError: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>Mô phỏng không chạy được, mã thoát</translation>
+        <translation>Mô phỏng không chạy được, mã thoát </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27948,12 +27947,12 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
-        <translation>Nội dung:</translation>
+        <translation>Nội dung: </translation>
     </message>
 </context>
 <context>
@@ -27961,16 +27960,16 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
-        <translation>Giá trị:</translation>
+        <translation>Giá trị: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>Giá trị:</translation>
+        <translation> Giá trị: </translation>
     </message>
 </context>
 <context>
@@ -28016,17 +28015,17 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
-        <translation>Kiểu Số:</translation>
+        <translation>Kiểu Số: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
-        <translation>Giới hạn dưới:</translation>
+        <translation>Giới hạn dưới: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
-        <translation>Giới hạn trên:</translation>
+        <translation>Giới hạn trên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
@@ -28046,32 +28045,32 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
-        <translation>Đường dẫn tệp:</translation>
+        <translation>Đường dẫn tệp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
-        <translation>Số Cột:</translation>
+        <translation>Số Cột: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
-        <translation>Số hàng bỏ qua ở đầu:</translation>
+        <translation>Số hàng bỏ qua ở đầu: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
-        <translation>Số giờ dữ liệu:</translation>
+        <translation>Số giờ dữ liệu: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
-        <translation>Dấu phân cách cột:</translation>
+        <translation>Dấu phân cách cột: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
@@ -28096,37 +28095,37 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
-        <translation>Nội suy theo Bước thời gian:</translation>
+        <translation>Nội suy theo Bước thời gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
-        <translation>Phút mỗi mục:</translation>
+        <translation>Phút mỗi mục: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Điều chỉnh Lịch cho Tiết Kiệm Ánh Sáng Ban Ngày:</translation>
+        <translation>Điều chỉnh Lịch cho Tiết Kiệm Ánh Sáng Ban Ngày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
-        <translation>Dịch Tệp Có Đường Dẫn Tương Đối:</translation>
+        <translation>Dịch Tệp Có Đường Dẫn Tương Đối: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
-        <translation>Nội dung:</translation>
+        <translation>Nội dung: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
-        <translation>Số dòng trong file:</translation>
+        <translation>Số dòng trong file: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
-        <translation>Hiển thị Toàn bộ Nội dung Tệp:</translation>
+        <translation>Hiển thị Toàn bộ Nội dung Tệp: </translation>
     </message>
 </context>
 <context>
@@ -28134,12 +28133,12 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
-        <translation>Giới hạn dưới:</translation>
+        <translation>Giới hạn dưới: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
-        <translation>Giới hạn trên:</translation>
+        <translation>Giới hạn trên: </translation>
     </message>
 </context>
 <context>
@@ -28554,72 +28553,72 @@ trong Tùy chọn</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
-        <translation>Tia Tích Lũy trên Một Bản Ghi:</translation>
+        <translation>Tia Tích Lũy trên Một Bản Ghi: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
-        <translation>Ngưỡng Trực Tiếp:</translation>
+        <translation>Ngưỡng Trực Tiếp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
-        <translation>Độ chắc chắn trực tiếp:</translation>
+        <translation>Độ chắc chắn trực tiếp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
-        <translation>Rung Trực Tiếp:</translation>
+        <translation>Rung Trực Tiếp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
-        <translation>Kiểm tra trước trực tiếp:</translation>
+        <translation>Kiểm tra trước trực tiếp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ambient Bounces DMX:</translation>
+        <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
-        <translation>Ambient Divisions VMX:</translation>
+        <translation>Ambient Divisions VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
-        <translation>Ambient Divisions DMX:</translation>
+        <translation>Ambient Divisions DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
-        <translation>Ambient Supersamples:</translation>
+        <translation>Ambient Supersamples: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
-        <translation>Giới hạn Trọng lượng VMX:</translation>
+        <translation>Giới hạn Trọng lượng VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
-        <translation>Giới hạn Trọng số DMX:</translation>
+        <translation>Giới hạn Trọng số DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
-        <translation>Mật độ lấy mẫu Klems:</translation>
+        <translation>Mật độ lấy mẫu Klems: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
-        <translation>Độ Phân Giải Rời Rạc Bầu Trời:</translation>
+        <translation>Độ Phân Giải Rời Rạc Bầu Trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
@@ -28985,13 +28984,13 @@ trong Tùy chọn</translation>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
@@ -29102,7 +29101,8 @@ trong Tùy chọn</translation>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Sai Khác Cực Đại Trong Nhiệt Độ Không Khí Ngoài Trung Bình Hàng Tháng</translation>
+        <translation>Sai Khác Cực Đại Trong Nhiệt Độ Không Khí
+Ngoài Trung Bình Hàng Tháng</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
@@ -29334,7 +29334,8 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286"/>
         <source>Measure
 Tags</source>
-        <translation>Thẻ đo lường</translation>
+        <translation>Thẻ đo
+lường</translation>
     </message>
 </context>
 <context>
@@ -30729,62 +30730,62 @@ Không gian</translation>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
-        <translation>Tiêu chuẩn:</translation>
+        <translation>Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
-        <translation>Nguồn Tiêu Chuẩn:</translation>
+        <translation>Nguồn Tiêu Chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
-        <translation>Loại bề mặt dự định:</translation>
+        <translation>Loại bề mặt dự định: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
-        <translation>Loại Xây dựng Tiêu chuẩn:</translation>
+        <translation>Loại Xây dựng Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
-        <translation>Loại cửa sổ:</translation>
+        <translation>Loại cửa sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
-        <translation>Bối cảnh Lắp ráp Cửa sổ:</translation>
+        <translation>Bối cảnh Lắp ráp Cửa sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
-        <translation>Số tấm kính của cửa sổ:</translation>
+        <translation>Số tấm kính của cửa sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
-        <translation>Loại khung cửa:</translation>
+        <translation>Loại khung cửa: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
-        <translation>Loại Chia Cửa Sổ:</translation>
+        <translation>Loại Chia Cửa Sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
-        <translation>Tint Cửa Kính:</translation>
+        <translation>Tint Cửa Kính: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
-        <translation>Khí Độc Lập của Cửa Sổ:</translation>
+        <translation>Khí Độc Lập của Cửa Sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Lớp phủ độ phát xạ thấp cho cửa sổ:</translation>
+        <translation>Lớp phủ độ phát xạ thấp cho cửa sổ: </translation>
     </message>
 </context>
 <context>
@@ -30797,47 +30798,47 @@ Không gian</translation>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
-        <translation>Tiêu chuẩn:</translation>
+        <translation>Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
-        <translation>Nguồn Tiêu chuẩn:</translation>
+        <translation>Nguồn Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
-        <translation>Danh mục Tiêu chuẩn:</translation>
+        <translation>Danh mục Tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
-        <translation>Mã tiêu chuẩn:</translation>
+        <translation>Mã tiêu chuẩn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
-        <translation>Vật Liệu Khung Tổng Hợp:</translation>
+        <translation>Vật Liệu Khung Tổng Hợp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
-        <translation>Cấu hình Khung Kết Hợp:</translation>
+        <translation>Cấu hình Khung Kết Hợp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
-        <translation>Độ sâu khung ghép:</translation>
+        <translation>Độ sâu khung ghép: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
-        <translation>Kích thước khung hợp chất:</translation>
+        <translation>Kích thước khung hợp chất: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
-        <translation>Cách nhiệt Sân phía sau Tổng hợp:</translation>
+        <translation>Cách nhiệt Sân phía sau Tổng hợp: </translation>
     </message>
 </context>
 <context>
@@ -30918,37 +30919,37 @@ Không gian</translation>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Mức Thiết Kế:</translation>
+        <translation>Mức Thiết Kế: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Công suất trên diện tích sàn không gian:</translation>
+        <translation>Công suất trên diện tích sàn không gian: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Công Suất Trên Một Người:</translation>
+        <translation>Công Suất Trên Một Người: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Phần latent:</translation>
+        <translation>Phần latent: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Phần trăm bức xạ:</translation>
+        <translation>Phần trăm bức xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Phân số bị mất:</translation>
+        <translation>Phân số bị mất: </translation>
     </message>
 </context>
 <context>
@@ -31059,7 +31060,8 @@ Tải không khí</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371"/>
         <source>Cooling Thermostat
 Schedule</source>
-        <translation>Lịch Biểu Hệ Thống Điều Hoà Làm Lạnh</translation>
+        <translation>Lịch Biểu Hệ Thống Điều
+Hoà Làm Lạnh</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114"/>
@@ -31067,7 +31069,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415"/>
         <source>Heating Thermostat
 Schedule</source>
-        <translation>Lịch trình Nhiệt độ Sưởi Ấm</translation>
+        <translation>Lịch trình Nhiệt độ
+Sưởi Ấm</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115"/>
@@ -31075,7 +31078,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>Lịch trình Điểm đặt Tăm độ ẩm</translation>
+        <translation>Lịch trình Điểm đặt
+Tăm độ ẩm</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
@@ -31083,7 +31087,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505"/>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>Lịch Biểu Điểm Đặt Hạ Độ Ẩm</translation>
+        <translation>Lịch Biểu Điểm Đặt Hạ
+Độ Ẩm</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117"/>
@@ -31099,7 +31104,9 @@ Schedule</source>
         <source>Zone Cooling
 Design Supply
 Air Temperature</source>
-        <translation>Nhiệt độ Không khí Cung cấp Thiết kế Làm lạnh Khu vực</translation>
+        <translation>Nhiệt độ Không
+khí Cung cấp Thiết
+kế Làm lạnh Khu vực</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126"/>
@@ -31108,7 +31115,9 @@ Air Temperature</source>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
-        <translation>Tỷ Độ Ẩm Không Khí Cấp Thiết Kế Làm Mát Khu Vực</translation>
+        <translation>Tỷ Độ Ẩm Không
+Khí Cấp Thiết
+Kế Làm Mát Khu Vực</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127"/>
@@ -31145,7 +31154,8 @@ in Cooling Mode</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
-        <translation>Phần trăm lưu lượng không khí tối thiểu khi làm lạnh</translation>
+        <translation>Phần trăm lưu lượng không
+khí tối thiểu khi làm lạnh</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
@@ -31171,7 +31181,8 @@ Tốc độ Dòng chảy Không khí</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>Lưu lượng Không Khí Tối Thiểu Khi Làm Lạnh</translation>
+        <translation>Lưu lượng Không Khí Tối Thiểu
+Khi Làm Lạnh</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
@@ -31180,7 +31191,9 @@ Air Flow</source>
         <source>Zone Heating
 Design Supply
 Air Temperature</source>
-        <translation>Nhiệt độ cung cấp không khí thiết kế sưởi ấm vùng</translation>
+        <translation>Nhiệt độ cung
+cấp không khí thiết
+kế sưởi ấm vùng</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142"/>
@@ -31189,7 +31202,9 @@ Air Temperature</source>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
-        <translation>Thiết kế Cấp Cơm Không Khí Độ Ẩm Tỷ Lệ Sưởi Ấm Khu Vực</translation>
+        <translation>Thiết kế Cấp Cơm
+Không Khí Độ Ẩm
+Tỷ Lệ Sưởi Ấm Khu Vực</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143"/>
@@ -31197,7 +31212,8 @@ Air Humidity Ratio</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
-        <translation>Hệ số Kích thước Sưởi Ấm Vùng</translation>
+        <translation>Hệ số Kích thước
+Sưởi Ấm Vùng</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
@@ -31206,7 +31222,9 @@ Sizing Factor</source>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Lưu lượng không khí tối đa sưởi ấm trên mỗi diện tích sàn vùng</translation>
+        <translation>Lưu lượng không khí tối đa
+sưởi ấm trên mỗi diện
+tích sàn vùng</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
@@ -31225,7 +31243,8 @@ Vùng Thiết Kế
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288"/>
         <source>Heating Maximum
 Air Flow Fraction</source>
-        <translation>Phân số lưu lượng không khí tối đa sưởi ấm</translation>
+        <translation>Phân số lưu lượng
+không khí tối đa sưởi ấm</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147"/>
@@ -31273,7 +31292,8 @@ tối đa khi sưởi</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
-        <translation>Hệ thống HVAC</translation>
+        <translation>Hệ
+thống HVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
@@ -31306,7 +31326,8 @@ Sưởi ấm</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
-        <translation>Khu vực thả (drag-drop)</translation>
+        <translation>Khu vực thả
+(drag-drop)</translation>
     </message>
 </context>
 <context>
@@ -31322,12 +31343,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
-        <translation>Ngày bắt đầu</translation>
+        <translation>Ngày bắt đầu </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
-        <translation>Ngày kết thúc</translation>
+        <translation>   Ngày kết thúc </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
@@ -31591,32 +31612,32 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
-        <translation>Danh mục con Loại sử dụng cuối cùng:</translation>
+        <translation>Danh mục con Loại sử dụng cuối cùng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
-        <translation>Lưu lượng Đỉnh:</translation>
+        <translation>Lưu lượng Đỉnh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
-        <translation>Lịch Nhiệt Độ Mục Tiêu:</translation>
+        <translation>Lịch Nhiệt Độ Mục Tiêu: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
-        <translation>Lịch biểu Phần Trăm Nhiệt Sensible:</translation>
+        <translation>Lịch biểu Phần Trăm Nhiệt Sensible: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
-        <translation>Lịch trình Tỷ lệ Tiềm ẩn:</translation>
+        <translation>Lịch trình Tỷ lệ Tiềm ẩn: </translation>
     </message>
 </context>
 <context>
@@ -31632,147 +31653,147 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
-        <translation>Hướng của thanh dọc:</translation>
+        <translation>Hướng của thanh dọc: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
-        <translation>Độ rộng nan:</translation>
+        <translation>Độ rộng nan: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
-        <translation>Khoảng cách giữa các thanh:</translation>
+        <translation>Khoảng cách giữa các thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
-        <translation>Độ dày nan gỗ:</translation>
+        <translation>Độ dày nan gỗ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
-        <translation>Góc thanh mặt:</translation>
+        <translation>Góc thanh mặt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
-        <translation>Độ dẫn nhiệt của thanh:</translation>
+        <translation>Độ dẫn nhiệt của thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>Độ truyền xạ mặt trời của tấm chắn:</translation>
+        <translation>Độ truyền xạ mặt trời của tấm chắn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>Độ phản xạ năng lượng mặt trời của thanh tia trước:</translation>
+        <translation>Độ phản xạ năng lượng mặt trời của thanh tia trước: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>Độ phản xạ chùm mặt trời của tấm chắn mặt sau:</translation>
+        <translation>Độ phản xạ chùm mặt trời của tấm chắn mặt sau: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Độ truyền sáng mặt trời khuếch tán của thanh:</translation>
+        <translation>Độ truyền sáng mặt trời khuếch tán của thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Độ phản xạ tán xạ mặt trời mặt trước thanh dọc:</translation>
+        <translation>Độ phản xạ tán xạ mặt trời mặt trước thanh dọc: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Phản xạ Năng lượng Mặt trời Khuếch tán Phía sau của Thanh:</translation>
+        <translation>Phản xạ Năng lượng Mặt trời Khuếch tán Phía sau của Thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>Độ truyển sáng có nhìn thấy của thanh chắn:</translation>
+        <translation>Độ truyển sáng có nhìn thấy của thanh chắn: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Độ phản xạ chùm tia khả kiến của tấm chắn mặt trước:</translation>
+        <translation>Độ phản xạ chùm tia khả kiến của tấm chắn mặt trước: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>Độ phản chiếu chùm tia có thể nhìn thấy mặt sau nan:</translation>
+        <translation>Độ phản chiếu chùm tia có thể nhìn thấy mặt sau nan: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>Độ truyền sáng khả kiến khuếch tán của thanh mắt:</translation>
+        <translation>Độ truyền sáng khả kiến khuếch tán của thanh mắt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Phản xạ Visible khuếch tán mặt trước thanh:</translation>
+        <translation>Phản xạ Visible khuếch tán mặt trước thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Độ phản xạ khuyếch tán khả kiến mặt sau lam:</translation>
+        <translation>Độ phản xạ khuyếch tán khả kiến mặt sau lam: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Độ truyền bán cầu hồng ngoại của tấm cắt:</translation>
+        <translation>Độ truyền bán cầu hồng ngoại của tấm cắt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ hồng ngoại bán cầu của mặt trước thanh che:</translation>
+        <translation>Độ phát xạ hồng ngoại bán cầu của mặt trước thanh che: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ hồng ngoại bán cầu mặt sau của thanh:</translation>
+        <translation>Độ phát xạ hồng ngoại bán cầu mặt sau của thanh: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
-        <translation>Khoảng cách từ Mù cửa đến Kính:</translation>
+        <translation>Khoảng cách từ Mù cửa đến Kính: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Hệ số mở cửa trên cửa sáng:</translation>
+        <translation>Hệ số mở cửa trên cửa sáng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Hệ số mở phía dưới của rèm che:</translation>
+        <translation>Hệ số mở phía dưới của rèm che: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Hệ số mở cửa bên trái của rèm:</translation>
+        <translation>Hệ số mở cửa bên trái của rèm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Hệ số mở cửa bên phải của mù nhắm:</translation>
+        <translation>Hệ số mở cửa bên phải của mù nhắm: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
-        <translation>Góc Slat Tối Thiểu:</translation>
+        <translation>Góc Slat Tối Thiểu: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
-        <translation>Góc thanh sáng tối đa:</translation>
+        <translation>Góc thanh sáng tối đa: </translation>
     </message>
 </context>
 <context>
@@ -31780,12 +31801,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
-        <translation>Loại thiết bị chuyển hướng ánh sáng ban ngày:</translation>
+        <translation>Loại thiết bị chuyển hướng ánh sáng ban ngày: </translation>
     </message>
 </context>
 <context>
@@ -31793,52 +31814,52 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
-        <translation>Loại khí:</translation>
+        <translation>Loại khí: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
-        <translation>Hệ số dẫn nhiệt A:</translation>
+        <translation>Hệ số dẫn nhiệt A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
-        <translation>Hệ số dẫn điện B:</translation>
+        <translation>Hệ số dẫn điện B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
-        <translation>Hệ số Độ Nhớt A:</translation>
+        <translation>Hệ số Độ Nhớt A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
-        <translation>Hệ số Độ nhớt B:</translation>
+        <translation>Hệ số Độ nhớt B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
-        <translation>Hệ số A của Nhiệt lượng riêng:</translation>
+        <translation>Hệ số A của Nhiệt lượng riêng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
-        <translation>Hệ số B của Nhiệt dung riêng:</translation>
+        <translation>Hệ số B của Nhiệt dung riêng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
-        <translation>Khối lượng Phân tử:</translation>
+        <translation>Khối lượng Phân tử: </translation>
     </message>
 </context>
 <context>
@@ -31846,57 +31867,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
-        <translation>Số lượng khí trong hỗn hợp:</translation>
+        <translation>Số lượng khí trong hỗn hợp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
-        <translation>Tỷ lệ Gas 1:</translation>
+        <translation>Tỷ lệ Gas 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
-        <translation>Loại khí 1:</translation>
+        <translation>Loại khí 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
-        <translation>Tỷ lệ Gas 2:</translation>
+        <translation>Tỷ lệ Gas 2: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
-        <translation>Loại Khí 2:</translation>
+        <translation>Loại Khí 2: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
-        <translation>Tỉ lệ khí 3:</translation>
+        <translation>Tỉ lệ khí 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
-        <translation>Loại khí 3:</translation>
+        <translation>Loại khí 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
-        <translation>Phân số Gas 4:</translation>
+        <translation>Phân số Gas 4: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
-        <translation>Loại khí 4:</translation>
+        <translation>Loại khí 4: </translation>
     </message>
 </context>
 <context>
@@ -31904,82 +31925,82 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
-        <translation>Kiểu Dữ Liệu Quang Học:</translation>
+        <translation>Kiểu Dữ Liệu Quang Học: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>Tên Tập Dữ Liệu Phổ Kính Cửa Sổ:</translation>
+        <translation>Tên Tập Dữ Liệu Phổ Kính Cửa Sổ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>Độ truyền qua năng lượng mặt trời ở góc tới bình thường:</translation>
+        <translation>Độ truyền qua năng lượng mặt trời ở góc tới bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Độ phản xạ mặt trời mặt trước ở góc tới bình thường:</translation>
+        <translation>Độ phản xạ mặt trời mặt trước ở góc tới bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Độ phản xạ năng lượng mặt trời phía sau ở tới tuyến pháp tuyến:</translation>
+        <translation>Độ phản xạ năng lượng mặt trời phía sau ở tới tuyến pháp tuyến: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>Độ truyền sáng khả kiến ở góc tới bình thường:</translation>
+        <translation>Độ truyền sáng khả kiến ở góc tới bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Độ phản xạ nhìn thấy được phía trước ở góc tới bình thường:</translation>
+        <translation>Độ phản xạ nhìn thấy được phía trước ở góc tới bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Độ phản xạ khả kiến mặt sau ở tới tượng thẳng góc:</translation>
+        <translation>Độ phản xạ khả kiến mặt sau ở tới tượng thẳng góc: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Tính truyền xạ hồng ngoại ở góc tới bình thường:</translation>
+        <translation>Tính truyền xạ hồng ngoại ở góc tới bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ hồng ngoại bán cầu mặt trước:</translation>
+        <translation>Độ phát xạ hồng ngoại bán cầu mặt trước: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ hồng ngoại bán cầu mặt sau:</translation>
+        <translation>Độ phát xạ hồng ngoại bán cầu mặt sau: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
-        <translation>Độ dẫn nhiệt:</translation>
+        <translation>Độ dẫn nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Hệ số hiệu chỉnh bụi cho truyền năng lượng mặt trời và ánh sáng nhìn thấy:</translation>
+        <translation>Hệ số hiệu chỉnh bụi cho truyền năng lượng mặt trời và ánh sáng nhìn thấy: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
-        <translation>Khuếch tán mặt trời:</translation>
+        <translation>Khuếch tán mặt trời: </translation>
     </message>
 </context>
 <context>
@@ -31987,57 +32008,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
-        <translation>Chỉ số khúc xạ mặt trời:</translation>
+        <translation>Chỉ số khúc xạ mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Hệ số tuyệt chủng mặt trời:</translation>
+        <translation>Hệ số tuyệt chủng mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
-        <translation>Chỉ số khúc xạ ánh sáng nhìn thấy được:</translation>
+        <translation>Chỉ số khúc xạ ánh sáng nhìn thấy được: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Hệ số tuyệt diệt khả kiến:</translation>
+        <translation>Hệ số tuyệt diệt khả kiến: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>Độ truyền hóa tỏa nhiệt hồng ngoại ở góc bình thường:</translation>
+        <translation>Độ truyền hóa tỏa nhiệt hồng ngoại ở góc bình thường: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ bán cầu hồng ngoại:</translation>
+        <translation>Độ phát xạ bán cầu hồng ngoại: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
-        <translation>Độ dẫn nhiệt:</translation>
+        <translation>Độ dẫn nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Hệ số hiệu chỉnh bề bẩn cho truyền dẫn năng lượng mặt trời và ánh sáng nhìn thấy:</translation>
+        <translation>Hệ số hiệu chỉnh bề bẩn cho truyền dẫn năng lượng mặt trời và ánh sáng nhìn thấy: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
-        <translation>Khuếch tán ánh sáng mặt trời:</translation>
+        <translation>Khuếch tán ánh sáng mặt trời: </translation>
     </message>
 </context>
 <context>
@@ -32045,72 +32066,72 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>Phương pháp tính Độ truyền Chùm tia Phản xạ:</translation>
+        <translation>Phương pháp tính Độ truyền Chùm tia Phản xạ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>Độ phản xạ mặt trời khuếch tán:</translation>
+        <translation>Độ phản xạ mặt trời khuếch tán: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>Độ phản xạ khả kiến khuếch tán:</translation>
+        <translation>Độ phản xạ khả kiến khuếch tán: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ bán cầu nhiệt:</translation>
+        <translation>Độ phát xạ bán cầu nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
-        <translation>Độ dẫn nhiệt:</translation>
+        <translation>Độ dẫn nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
-        <translation>Khoảng cách vật liệu lưới:</translation>
+        <translation>Khoảng cách vật liệu lưới: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
-        <translation>Đường kính vật liệu lưới:</translation>
+        <translation>Đường kính vật liệu lưới: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
-        <translation>Khoảng cách từ Màn hình đến Kính:</translation>
+        <translation>Khoảng cách từ Màn hình đến Kính: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Hệ số Cửa Mở Trên:</translation>
+        <translation>Hệ số Cửa Mở Trên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Hệ số Mở Dưới Cùng:</translation>
+        <translation>Hệ số Mở Dưới Cùng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Hệ số Mở cửa Bên Trái:</translation>
+        <translation>Hệ số Mở cửa Bên Trái: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Hệ số mở bên phải:</translation>
+        <translation>Hệ số mở bên phải: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Góc Độ Phân Giải Cho Bản Đồ Đầu Ra Độ Truyền Qua Màn Hình:</translation>
+        <translation>Góc Độ Phân Giải Cho Bản Đồ Đầu Ra Độ Truyền Qua Màn Hình: </translation>
     </message>
 </context>
 <context>
@@ -32118,77 +32139,77 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
-        <translation>Độ truyền xạ mặt trời:</translation>
+        <translation>Độ truyền xạ mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
-        <translation>Độ phản xạ năng lượng mặt trời:</translation>
+        <translation>Độ phản xạ năng lượng mặt trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
-        <translation>Độ truyền ánh sáng nhìn thấy:</translation>
+        <translation>Độ truyền ánh sáng nhìn thấy: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
-        <translation>Độ phản xạ nhìn thấy được:</translation>
+        <translation>Độ phản xạ nhìn thấy được: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Độ phát xạ bán cầu nhiệt:</translation>
+        <translation>Độ phát xạ bán cầu nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
-        <translation>Truyền nhiệt:</translation>
+        <translation>Truyền nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
-        <translation>Độ dày:</translation>
+        <translation>Độ dày: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
-        <translation>Độ dẫn nhiệt:</translation>
+        <translation>Độ dẫn nhiệt: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
-        <translation>Khoảng cách Che nắng đến Kính:</translation>
+        <translation>Khoảng cách Che nắng đến Kính: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Hệ số Mở trên cùng:</translation>
+        <translation>Hệ số Mở trên cùng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Hệ số mở dưới cùng:</translation>
+        <translation>Hệ số mở dưới cùng: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Hệ số Mở Bên Trái:</translation>
+        <translation>Hệ số Mở Bên Trái: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Hệ số Mở Bên Phải:</translation>
+        <translation>Hệ số Mở Bên Phải: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
-        <translation>Tính thẩm thấu của luồng không khí:</translation>
+        <translation>Tính thẩm thấu của luồng không khí: </translation>
     </message>
 </context>
 <context>
@@ -32196,22 +32217,22 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Tên:</translation>
+        <translation>Tên: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
-        <translation>Hệ số U:</translation>
+        <translation>Hệ số U: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>Hệ số Nhiễn Xạ Nhiệt Mặt Trời:</translation>
+        <translation>Hệ số Nhiễn Xạ Nhiệt Mặt Trời: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
-        <translation>Độ truyền ánh sáng nhìn thấy:</translation>
+        <translation>Độ truyền ánh sáng nhìn thấy: </translation>
     </message>
 </context>
 <context>
@@ -32412,7 +32433,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
@@ -32450,7 +32471,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver không được kết nối đúng cách. Vui lòng kiểm tra xem BIMserver có đang chạy hay không và đảm bảo rằng tên người dùng và mật khẩu của bạn hợp lệ.</translation>
+        <translation>BIMserver không được kết nối đúng cách. Vui lòng kiểm tra xem BIMserver có đang chạy hay không và đảm bảo rằng tên người dùng và mật khẩu của bạn hợp
+lệ.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
@@ -32475,7 +32497,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>Vui lòng nhập tên dự án:</translation>
+        <translation>Vui lòng nhập tên dự án: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -32520,7 +32542,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>Vui lòng nhập thông tin BIMserver:</translation>
+        <translation>Vui lòng nhập thông tin BIMserver: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -32556,7 +32578,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Vui lòng cung cấp địa chỉ BIMserver hợp lệ, cổng, tên người dùng và mật khẩu của bạn. Bạn có thể hỏi người quản lý BIMserver của mình để biết những thông tin đó.</translation>
+        <translation>Vui lòng cung cấp địa chỉ BIMserver hợp lệ, cổng, tên người dùng và mật khẩu của bạn. Bạn có thể hỏi người quản lý BIMserver của mình để biết những thông tin
+đó.</translation>
     </message>
 </context>
 <context>

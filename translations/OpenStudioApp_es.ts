@@ -18535,103 +18535,103 @@
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Temperatura de Aire de Retorno Ajustada del ITE de Zona</translation>
+        <translation>Temperatura de Aire de Retorno Ajustada del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Caudal Másico de Aire del ITE de Zona</translation>
+        <translation>Caudal Másico de Aire del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Tiempo de Temperatura de Punto de Rocío de Entrada de Aire del ITE de Zona por Encima del Rango de Operación</translation>
+        <translation>Tiempo de Temperatura de Punto de Rocío de Entrada de Aire del ITE de Zona por Encima del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Tiempo de Temperatura de Punto de Rocío de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación</translation>
+        <translation>Tiempo de Temperatura de Punto de Rocío de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Tiempo de Temperatura de Bulbo Seco de Entrada de Aire del ITE de Zona por Encima del Rango de Operación</translation>
+        <translation>Tiempo de Temperatura de Bulbo Seco de Entrada de Aire del ITE de Zona por Encima del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Tiempo de Temperatura de Bulbo Seco de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación</translation>
+        <translation>Tiempo de Temperatura de Bulbo Seco de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Tiempo de Rango de Operación de Entrada de Aire del ITE de Zona Superado</translation>
+        <translation>Tiempo de Rango de Operación de Entrada de Aire del ITE de Zona Superado </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE de Zona por Encima del Rango de Operación</translation>
+        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE de Zona por Encima del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación</translation>
+        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE de Zona por Debajo del Rango de Operación </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Índice de Calor de Suministro Promedio del ITE de Zona</translation>
+        <translation>Índice de Calor de Suministro Promedio del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Energía Eléctrica de la CPU del ITE de Zona</translation>
+        <translation>Energía Eléctrica de la CPU del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energía Eléctrica de la CPU del ITE de Zona en Condiciones de Diseño de Entrada</translation>
+        <translation>Energía Eléctrica de la CPU del ITE de Zona en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Tasa de Electricidad de la CPU del ITE de Zona</translation>
+        <translation>Tasa de Electricidad de la CPU del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tasa de Electricidad de la CPU del ITE de Zona en Condiciones de Diseño de Entrada</translation>
+        <translation>Tasa de Electricidad de la CPU del ITE de Zona en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Energía Eléctrica del Ventilador del ITE de Zona</translation>
+        <translation>Energía Eléctrica del Ventilador del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energía Eléctrica del Ventilador del ITE de Zona en Condiciones de Diseño de Entrada</translation>
+        <translation>Energía Eléctrica del Ventilador del ITE de Zona en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Tasa de Electricidad del Ventilador del ITE de Zona</translation>
+        <translation>Tasa de Electricidad del Ventilador del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tasa de Electricidad del Ventilador del ITE de Zona en Condiciones de Diseño de Entrada</translation>
+        <translation>Tasa de Electricidad del Ventilador del ITE de Zona en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Caudal Volumétrico de Aire a Densidad Estándar del ITE de Zona</translation>
+        <translation>Caudal Volumétrico de Aire a Densidad Estándar del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Energía de Ganancia de Calor Total a la Zona del ITE de Zona</translation>
+        <translation>Energía de Ganancia de Calor Total a la Zona del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Tasa de Ganancia de Calor Total a la Zona del ITE de Zona</translation>
+        <translation>Tasa de Ganancia de Calor Total a la Zona del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Energía Eléctrica del SAI del ITE de Zona</translation>
+        <translation>Energía Eléctrica del SAI del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Tasa de Electricidad del SAI del ITE de Zona</translation>
+        <translation>Tasa de Electricidad del SAI del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Energía de Ganancia de Calor del SAI a la Zona del ITE de Zona</translation>
+        <translation>Energía de Ganancia de Calor del SAI a la Zona del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Tasa de Ganancia de Calor del SAI a la Zona del ITE de Zona</translation>
+        <translation>Tasa de Ganancia de Calor del SAI a la Zona del ITE de Zona </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -19971,103 +19971,103 @@
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation type="obsolete">Temperatura de Aire de Retorno Ajustada del ITE</translation>
+        <translation type="obsolete">Temperatura de Aire de Retorno Ajustada del ITE </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation type="obsolete">Caudal Másico de Aire del ITE</translation>
+        <translation type="obsolete">Caudal Másico de Aire del ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Tiempo de Humedad Relativa del Aire de Entrada por Debajo del Rango de Funcionamiento en ITE</translation>
+        <translation>Tiempo de Humedad Relativa del Aire de Entrada por Debajo del Rango de Funcionamiento en ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Energía Eléctrica de CPU ITE en Condiciones de Diseño de Entrada</translation>
+        <translation>Energía Eléctrica de CPU ITE en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Tasa de Electricidad de CPU de TI en Condiciones de Entrada de Diseño</translation>
+        <translation>Tasa de Electricidad de CPU de TI en Condiciones de Entrada de Diseño </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Energía Eléctrica del Ventilador ITE en Condiciones de Entrada de Diseño</translation>
+        <translation>Energía Eléctrica del Ventilador ITE en Condiciones de Entrada de Diseño </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Tasa de Electricidad del Ventilador ITE en Condiciones de Entrada de Diseño</translation>
+        <translation>Tasa de Electricidad del Ventilador ITE en Condiciones de Entrada de Diseño </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE por Encima del Rango de Operación</translation>
+        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE por Encima del Rango de Operación </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE por Debajo del Rango de Operación</translation>
+        <translation>Tiempo de Humedad Relativa de Entrada de Aire del ITE por Debajo del Rango de Operación </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation type="obsolete">Índice de Calor de Suministro Promedio del ITE</translation>
+        <translation type="obsolete">Índice de Calor de Suministro Promedio del ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation type="obsolete">Energía Eléctrica de la CPU del ITE</translation>
+        <translation type="obsolete">Energía Eléctrica de la CPU del ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energía Eléctrica de la CPU del ITE en Condiciones de Diseño de Entrada</translation>
+        <translation>Energía Eléctrica de la CPU del ITE en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation type="obsolete">Tasa de Electricidad de la CPU del ITE</translation>
+        <translation type="obsolete">Tasa de Electricidad de la CPU del ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tasa de Electricidad de la CPU del ITE en Condiciones de Diseño de Entrada</translation>
+        <translation>Tasa de Electricidad de la CPU del ITE en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation type="obsolete">Energía Eléctrica del Ventilador del ITE</translation>
+        <translation type="obsolete">Energía Eléctrica del Ventilador del ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energía Eléctrica del Ventilador del ITE en Condiciones de Diseño de Entrada</translation>
+        <translation>Energía Eléctrica del Ventilador del ITE en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation type="obsolete">Tasa de Electricidad del Ventilador del ITE</translation>
+        <translation type="obsolete">Tasa de Electricidad del Ventilador del ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tasa de Electricidad del Ventilador del ITE en Condiciones de Diseño de Entrada</translation>
+        <translation>Tasa de Electricidad del Ventilador del ITE en Condiciones de Diseño de Entrada </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation type="obsolete">Caudal Volumétrico de Aire a Densidad Estándar del ITE</translation>
+        <translation type="obsolete">Caudal Volumétrico de Aire a Densidad Estándar del ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation type="obsolete">Energía de Ganancia de Calor Total a la Zona del ITE</translation>
+        <translation type="obsolete">Energía de Ganancia de Calor Total a la Zona del ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation type="obsolete">Tasa de Ganancia de Calor Total a la Zona del ITE</translation>
+        <translation type="obsolete">Tasa de Ganancia de Calor Total a la Zona del ITE </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation type="obsolete">Energía Eléctrica del SAI del ITE</translation>
+        <translation type="obsolete">Energía Eléctrica del SAI del ITE </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation type="obsolete">Tasa de Electricidad del SAI del ITE</translation>
+        <translation type="obsolete">Tasa de Electricidad del SAI del ITE </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation type="obsolete">Energía de Ganancia de Calor del SAI a la Zona del ITE</translation>
+        <translation type="obsolete">Energía de Ganancia de Calor del SAI a la Zona del ITE </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation type="obsolete">Tasa de Ganancia de Calor del SAI a la Zona del ITE</translation>
+        <translation type="obsolete">Tasa de Ganancia de Calor del SAI a la Zona del ITE </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -22347,7 +22347,8 @@ Precipitación</translation>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
-        <translation>Suelta aquí</translation>
+        <translation>Suelta
+aquí</translation>
     </message>
 </context>
 <context>
@@ -24078,82 +24079,57 @@ Puede cambiar la versión de la CLI en &apos;Preferencias-&gt;Usar CLI clásica&
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
-        <source>Packaged DX Rooftop VAV 
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Unidad Compacta DX en Azotea VAV con Recalentamiento</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
-        <source>Packaged Rooftop 
-VAV with Parallel Fan 
-Power Boxes and reheat</source>
-        <translation>Unidad Empaquetada de Techo
-VAV con Cajas de Potencia de Ventilador en Paralelo y Recalentamiento</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Unidad Empaquetada de Techo VAV con Cajas de Potencia de Ventilador en Paralelo y Recalentamiento</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
-        <source>Packaged Rooftop 
-VAV with Reheat</source>
-        <translation>Unidad Empaquetada de Techo
-VAV con Recalentamiento</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Unidad Empaquetada de Techo VAV con Recalentamiento</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
-        <source>VAV with Parallel Fan-Powered 
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV con Unidades Acondicionadoras Paralelas con Ventilador y Recalentamiento</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
-        <source>Warm Air Furnace 
-Gas Fired</source>
-        <translation>Horno de Aire Caliente
-Combustible a Gas</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Horno de Aire Caliente Combustible a Gas</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
-        <source>Warm Air Furnace 
-Electric</source>
-        <translation>Calefactor de Aire Caliente
-Eléctrico</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Calefactor de Aire Caliente Eléctrico</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
-        <translation>VAV DX Empacado en Techo
-con Recalentamiento</translation>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
+        <translation>VAV DX Empacado en Techo con Recalentamiento</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>Techo Empacado VAV con
-Cajas de Ventilador Paralelo
-y Recalentamiento</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Techo Empacado VAV con Cajas de Ventilador Paralelo y Recalentamiento</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Techo Empacado VAV
-con Recalentamiento</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Techo Empacado VAV con Recalentamiento</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
-        <translation>VAV con Cajas de Ventilador
-Paralelo y Recalentamiento</translation>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
+        <translation>VAV con Cajas de Ventilador Paralelo y Recalentamiento</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Horno de Aire Caliente
-a Gas</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Horno de Aire Caliente a Gas</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Horno de Aire Caliente
-Eléctrico</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Horno de Aire Caliente Eléctrico</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
@@ -25919,7 +25895,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Intercambiador Geotérmico - Vertical</translation>
+        <translation>Intercambiador Geotérmico - Vertical </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
@@ -26564,7 +26540,8 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>las medidas han sido actualizadas en BCL comparado con tu directorio BCL local.</translation>
+        <translation> las medidas han sido actualizadas en BCL comparado con tu directorio BCL
+local.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -27836,12 +27813,12 @@ en Preferencias</translation>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Error en la ejecución de la simulación, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Error en la ejecución de la simulación, QProcess::ProcessError: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>La simulación no se ejecutó, con código de salida</translation>
+        <translation>La simulación no se ejecutó, con código de salida </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27967,7 +27944,7 @@ en Preferencias</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
-        <translation>Valor:</translation>
+        <translation>Valor: </translation>
     </message>
     <message>
         <source> Value: </source>
@@ -28986,13 +28963,13 @@ en Preferencias</translation>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
@@ -29103,7 +29080,8 @@ en Preferencias</translation>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Diferencia Máxima en Temperaturas Promedio Mensuales del Aire Exterior</translation>
+        <translation>Diferencia Máxima en Temperaturas Promedio
+Mensuales del Aire Exterior</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
@@ -31345,12 +31323,12 @@ Zona</translation>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
-        <translation>Inicio de Costos</translation>
+        <translation>Inicio de Costos </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
-        <translation>Nombre de Curva de Factor de Energía</translation>
+        <translation>   Nombre de Curva de Factor de Energía </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>

@@ -301,7 +301,7 @@ Zone</source>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
         <source>Select Path to </source>
-        <translation>경로 선택</translation>
+        <translation>경로 선택 </translation>
     </message>
 </context>
 <context>
@@ -407,23 +407,23 @@ Zone</source>
     </message>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>위도:</translation>
+        <translation>위도: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>경도:</translation>
+        <translation>경도: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>높이:</translation>
+        <translation>높이: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>시간대:</translation>
+        <translation>시간대: </translation>
     </message>
     <message>
         <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
@@ -495,7 +495,7 @@ Zone</source>
     </message>
     <message>
         <source>Failed To Set Weather File To </source>
-        <translation>날씨 파일을 다음으로 설정하지 못했습니다.</translation>
+        <translation>날씨 파일을 다음으로 설정하지 못했습니다. </translation>
     </message>
     <message>
         <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
@@ -546,7 +546,7 @@ Zone</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>인터넷 연결:</translation>
+        <translation>인터넷 연결: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -558,7 +558,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>클라우드 로그인:</translation>
+        <translation>클라우드 로그인: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -570,7 +570,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>클라우드 연결:</translation>
+        <translation>클라우드 연결: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -578,7 +578,7 @@ Zone</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>재연결할 수 없습니다.</translation>
+        <translation>재연결할 수 없습니다. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -590,7 +590,7 @@ Zone</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>나중에 다시 시도하세요.</translation>
+        <translation>나중에 다시 시도하세요. </translation>
     </message>
     <message>
         <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
@@ -602,7 +602,7 @@ Zone</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>클라우드 중지.</translation>
+        <translation>클라우드 중지. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -610,7 +610,7 @@ Zone</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>AWS 콘솔을 시작합니다.</translation>
+        <translation>AWS 콘솔을 시작합니다. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -898,7 +898,8 @@ OpenStudioApplication이 선택한 언어로 번역되기를 원하신다면 도
     <message>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>BCL에서 로컬 BCL 디렉토리에 비해 measures가 업데이트되었습니다.</translation>
+        <translation> BCL에서 로컬 BCL 디렉토리에 비해 measures가
+업데이트되었습니다.</translation>
     </message>
     <message>
         <source>Would you like update them?</source>
@@ -1028,11 +1029,11 @@ OpenStudioApplication이 선택한 언어로 번역되기를 원하신다면 도
     </message>
     <message>
         <source>Translation From version </source>
-        <translation>버전에서 번역</translation>
+        <translation>버전에서 번역 </translation>
     </message>
     <message>
         <source> to </source>
-        <translation>~까지(에)
+        <translation> ~까지(에)
 
 or depending on context:
 
@@ -1040,7 +1041,7 @@ or depending on context:
 - ~에 (location/target)
 - ~를 (object marker)
 
-Could you provide more context for a more precise translation?</translation>
+Could you provide more context for a more precise translation? </translation>
     </message>
     <message>
         <source>Unknown starting version</source>
@@ -1080,7 +1081,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) 그리고 모든 필드가 EnergyPlus.idd에 대해 유효한지 확인합니다.</translation>
+        <translation>) 그리고 모든 필드가 EnergyPlus.idd에 대해 유효한지 확인합니다. </translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
@@ -1092,33 +1093,39 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source> IDF Import Failed</source>
-        <translation>IDF 가져오기 실패</translation>
+        <translation> IDF 가져오기 실패</translation>
     </message>
     <message>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== 오류 ===============</translation>
+        <translation>===============
+오류
+===============</translation>
     </message>
     <message>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== 경고 ==============</translation>
+        <translation>==============
+경고
+==============</translation>
     </message>
     <message>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== 다음 idf 객체를 가져오지 못했습니다 ====</translation>
+        <translation>==== 다음 idf 객체를 가져오지
+못했습니다
+====</translation>
     </message>
     <message>
         <source> named </source>
-        <translation>명명된</translation>
+        <translation> 명명된 </translation>
     </message>
     <message>
         <source>Unnamed </source>
-        <translation>이름 없음</translation>
+        <translation>이름 없음 </translation>
     </message>
     <message>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
@@ -1134,7 +1141,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Import </source>
-        <translation>가져오기</translation>
+        <translation>가져오기 </translation>
     </message>
     <message>
         <source>(*.xml)</source>
@@ -1142,7 +1149,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Errors or warnings occurred on import of </source>
-        <translation>가져오기 중 오류 또는 경고가 발생했습니다.</translation>
+        <translation>가져오기 중 오류 또는 경고가 발생했습니다. </translation>
     </message>
     <message>
         <source>Could not import SDD file.</source>
@@ -1150,11 +1157,11 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Could not import </source>
-        <translation>가져올 수 없습니다</translation>
+        <translation>가져올 수 없습니다 </translation>
     </message>
     <message>
         <source> file at </source>
-        <translation>파일 위치</translation>
+        <translation> 파일 위치 </translation>
     </message>
     <message>
         <source>Save Changes?</source>
@@ -1190,7 +1197,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Measure Manager Server: </source>
-        <translation>측정 관리자 서버:</translation>
+        <translation>측정 관리자 서버: </translation>
     </message>
     <message>
         <source>Chrome Debugger: http://localhost:</source>
@@ -1198,7 +1205,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Temp Directory: </source>
-        <translation>임시 디렉토리:</translation>
+        <translation>임시 디렉토리: </translation>
     </message>
     <message>
         <source>Measure Manager has crashed. Do you want to retry?</source>
@@ -1210,7 +1217,7 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>About </source>
-        <translation>정보</translation>
+        <translation>정보 </translation>
     </message>
     <message>
         <source>Failed to load model</source>
@@ -1218,15 +1225,15 @@ Could you provide more context for a more precise translation?</translation>
     </message>
     <message>
         <source>Opening future version </source>
-        <translation>향후 버전 열기</translation>
+        <translation>향후 버전 열기 </translation>
     </message>
     <message>
         <source> using </source>
-        <translation>사용</translation>
+        <translation> 사용 </translation>
     </message>
     <message>
         <source>Model updated from </source>
-        <translation>모델이 업데이트됨:</translation>
+        <translation>모델이 업데이트됨: </translation>
     </message>
     <message>
         <source>Existing Ruby scripts have been removed.
@@ -1236,7 +1243,7 @@ Ruby 스크립트는 더 이상 지원되지 않으며 measures로 대체되었�
     </message>
     <message>
         <source>Failed to open file at </source>
-        <translation>파일을 열 수 없습니다:</translation>
+        <translation>파일을 열 수 없습니다: </translation>
     </message>
     <message>
         <source>Settings file not writable</source>
@@ -1268,7 +1275,9 @@ Do you want to create a new model?</source>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Measure Manager가 충돌했습니다. 다시 시작하는 중입니다.</translation>
+        <translation>Measure Manager가 충돌했습니다. 다시
+시작하는
+중입니다.</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -1292,13 +1301,17 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>다음 라이브러리를 로드하는 데 실패했습니다...</translation>
+        <translation>다음 라이브러리를 로드하는
+데
+실패했습니다...</translation>
     </message>
     <message>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>라이브러리 경로를 기본값으로 복원하시겠습니까, 아니면 라이브러리 설정을 열어 수동으로 변경하시겠습니까?</translation>
+        <translation>라이브러리
+경로를
+기본값으로 복원하시겠습니까, 아니면 라이브러리 설정을 열어 수동으로 변경하시겠습니까?</translation>
     </message>
 </context>
 <context>
@@ -1327,11 +1340,11 @@ Would you like to Restore library paths to default values or Open the library se
     <name>openstudio::RunView</name>
     <message>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: 시뮬레이션 실행 실패, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: 시뮬레이션 실행 실패, QProcess::ProcessError: </translation>
     </message>
     <message>
         <source>Simulation failed to run, with exit code </source>
-        <translation>시뮬레이션 실행 실패, 종료 코드</translation>
+        <translation>시뮬레이션 실행 실패, 종료 코드 </translation>
     </message>
 </context>
 <context>
@@ -1365,11 +1378,11 @@ Would you like to Restore library paths to default values or Open the library se
     </message>
     <message>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -1409,7 +1422,8 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>월간 평균 외기 온도의 최대 차이</translation>
+        <translation>월간 평균 외기 온도의
+최대 차이</translation>
     </message>
     <message>
         <source>Temperature Multiplier</source>
@@ -1708,7 +1722,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1737,7 +1751,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver가 올바르게 연결되지 않았습니다. BIMserver가 실행 중인지 확인하고 사용자 이름과 비밀번호가 올바른지 확인하세요.</translation>
+        <translation>BIMserver가 올바르게 연결되지 않았습니다. BIMserver가 실행 중인지 확인하고 사용자 이름과 비밀번호가 올바른지
+확인하세요.</translation>
     </message>
     <message>
         <source>Please select a IFC version before proceeding.</source>
@@ -1757,7 +1772,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the project name: </source>
-        <translation>프로젝트 이름을 입력하세요:</translation>
+        <translation>프로젝트 이름을 입력하세요: </translation>
     </message>
     <message>
         <source>Project Name:</source>
@@ -1793,7 +1808,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the BIMserver information: </source>
-        <translation>BIMserver 정보를 입력하세요:</translation>
+        <translation>BIMserver 정보를 입력하세요: </translation>
     </message>
     <message>
         <source>BIMserver Address: http://</source>
@@ -1822,7 +1837,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>유효한 BIMserver 주소, 포트, 사용자명 및 비밀번호를 입력하세요. BIMserver 관리자에게 이 정보를 요청할 수 있습니다.</translation>
+        <translation>유효한 BIMserver 주소, 포트, 사용자명 및 비밀번호를 입력하세요. BIMserver 관리자에게 이 정보를 요청할 수
+있습니다.</translation>
     </message>
 </context>
 <context>
@@ -1951,7 +1967,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>Drop
 Space Type</source>
-        <translation>공간 유형 드롭</translation>
+        <translation>공간
+유형 드롭</translation>
     </message>
     <message>
         <source>Filter:</source>
@@ -2157,15 +2174,15 @@ Tags</source>
     <name>openstudio::BuildingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Display Name: </source>
-        <translation>표시 이름:</translation>
+        <translation>표시 이름: </translation>
     </message>
     <message>
         <source>CAD Object Id: </source>
-        <translation>CAD 객체 ID:</translation>
+        <translation>CAD 객체 ID: </translation>
     </message>
     <message>
         <source>Measure Tags (Optional):</source>
@@ -2173,51 +2190,51 @@ Tags</source>
     </message>
     <message>
         <source>Standards Template: </source>
-        <translation>표준 템플릿:</translation>
+        <translation>표준 템플릿: </translation>
     </message>
     <message>
         <source>Standards Building Type: </source>
-        <translation>표준 건물 유형:</translation>
+        <translation>표준 건물 유형: </translation>
     </message>
     <message>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>명목 바닥에서 천장까지의 높이:</translation>
+        <translation>명목 바닥에서 천장까지의 높이: </translation>
     </message>
     <message>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>층간 높이:</translation>
+        <translation>층간 높이: </translation>
     </message>
     <message>
         <source>Standards Number of Stories: </source>
-        <translation>표준 층수:</translation>
+        <translation>표준 층수: </translation>
     </message>
     <message>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>표준 지상층 수:</translation>
+        <translation>표준 지상층 수: </translation>
     </message>
     <message>
         <source>Standards Number of Living Units: </source>
-        <translation>표준 거주 단위 수:</translation>
+        <translation>표준 거주 단위 수: </translation>
     </message>
     <message>
         <source>Relocatable: </source>
-        <translation>재배치 가능:</translation>
+        <translation>재배치 가능: </translation>
     </message>
     <message>
         <source>North Axis: </source>
-        <translation>북쪽 축:</translation>
+        <translation>북쪽 축: </translation>
     </message>
     <message>
         <source>Space Type: </source>
-        <translation>공간 유형:</translation>
+        <translation>공간 유형: </translation>
     </message>
     <message>
         <source>Default Construction Set: </source>
-        <translation>기본 구성 세트:</translation>
+        <translation>기본 구성 세트: </translation>
     </message>
     <message>
         <source>Default Schedule Set: </source>
-        <translation>기본 스케줄 집합:</translation>
+        <translation>기본 스케줄 집합: </translation>
     </message>
 </context>
 <context>
@@ -2229,7 +2246,8 @@ Tags</source>
     <message>
         <source>Drop
 Story</source>
-        <translation>드롭 스토리</translation>
+        <translation>드롭
+스토리</translation>
     </message>
     <message>
         <source>Filters:</source>
@@ -2714,7 +2732,8 @@ Exterior Equipment</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>드롭 공간</translation>
+        <translation>드롭
+공간</translation>
     </message>
 </context>
 <context>
@@ -2789,7 +2808,8 @@ Space</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>드롭 공간</translation>
+        <translation>드롭
+공간</translation>
     </message>
 </context>
 <context>
@@ -2846,7 +2866,8 @@ Space</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>공간 드롭</translation>
+        <translation>공간
+드롭</translation>
     </message>
 </context>
 <context>
@@ -2919,7 +2940,8 @@ If it's referring to the construction process itself, use **건설** instead.</t
     <message>
         <source>Drop
 Space</source>
-        <translation>드롭 공간</translation>
+        <translation>드롭
+공간</translation>
     </message>
 </context>
 <context>
@@ -3271,7 +3293,8 @@ Space</translation>
     <message>
         <source>Drop
 Zone</source>
-        <translation>드롭 영역</translation>
+        <translation>드롭
+영역</translation>
     </message>
 </context>
 <context>
@@ -3314,22 +3337,26 @@ Air Loads</source>
     <message>
         <source>Cooling Thermostat
 Schedule</source>
-        <translation>냉방 온도조절계 일정</translation>
+        <translation>냉방 온도조절계
+일정</translation>
     </message>
     <message>
         <source>Heating Thermostat
 Schedule</source>
-        <translation>난방 온도조절기 스케줄</translation>
+        <translation>난방 온도조절기
+스케줄</translation>
     </message>
     <message>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>가습 설정점 스케줄</translation>
+        <translation>가습 설정점
+스케줄</translation>
     </message>
     <message>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>제습 설정값 스케줄</translation>
+        <translation>제습 설정값
+스케줄</translation>
     </message>
     <message>
         <source>Multiplier</source>
@@ -3368,7 +3395,9 @@ Floor Area</source>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
-        <translation>냉방 모드에서의 설계 존 공기 분배 효율성</translation>
+        <translation>냉방 모드에서의
+설계 존 공기
+분배 효율성</translation>
     </message>
     <message>
         <source>Cooling Minimum
@@ -3391,7 +3420,8 @@ Air Flow Rate</source>
     <message>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>냉방 최소 공기 흐름</translation>
+        <translation>냉방 최소 공기
+흐름</translation>
     </message>
     <message>
         <source>Zone Heating
@@ -3412,19 +3442,24 @@ Air Humidity Ratio</source>
     <message>
         <source>Zone Heating
 Sizing Factor</source>
-        <translation>존 난방 크기 조정 계수</translation>
+        <translation>존 난방 크기
+조정 계수</translation>
     </message>
     <message>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>난방 최대 공기 흐름량 / 존 바닥 면적</translation>
+        <translation>난방 최대 공기
+흐름량 / 존
+바닥 면적</translation>
     </message>
     <message>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
-        <translation>난방 모드에서의 설계 존 공기 분배 효율성</translation>
+        <translation>난방 모드에서의
+설계 존 공기
+분배 효율성</translation>
     </message>
     <message>
         <source>Heating Maximum
@@ -4264,7 +4299,7 @@ Parameters</source>
     </message>
     <message>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>지중 열교환기 - 수직식</translation>
+        <translation>지중 열교환기 - 수직식 </translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Horizontal</source>
@@ -4715,31 +4750,31 @@ Parameters</source>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Number of People: </source>
-        <translation>인원수:</translation>
+        <translation>인원수: </translation>
     </message>
     <message>
         <source>People per Space Floor Area: </source>
-        <translation>공간 바닥면적당 인원:</translation>
+        <translation>공간 바닥면적당 인원: </translation>
     </message>
     <message>
         <source>Space Floor Area per Person: </source>
-        <translation>공간 인당 바닥 면적:</translation>
+        <translation>공간 인당 바닥 면적: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 비율:</translation>
+        <translation>복사 비율: </translation>
     </message>
     <message>
         <source>Sensible Heat Fraction: </source>
-        <translation>현열 분율:</translation>
+        <translation>현열 분율: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>이산화탄소 발생률:</translation>
+        <translation>이산화탄소 발생률: </translation>
     </message>
     <message>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
@@ -4754,289 +4789,289 @@ Parameters</source>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>조명 전력:</translation>
+        <translation>조명 전력: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 와트:</translation>
+        <translation>공간 바닥 면적당 와트: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>인당 와트:</translation>
+        <translation>인당 와트: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>가시 분율:</translation>
+        <translation>가시 분율: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>반환 공기 비율:</translation>
+        <translation>반환 공기 비율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>조명 전력:</translation>
+        <translation>조명 전력: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>방사 분율:</translation>
+        <translation>방사 분율: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>가시 광선 투과율:</translation>
+        <translation>가시 광선 투과율: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>반환 공기 비율:</translation>
+        <translation>반환 공기 비율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>설계 수준:</translation>
+        <translation>설계 수준: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>공간 바닥면적당 와트:</translation>
+        <translation>공간 바닥면적당 와트: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>인당 와트:</translation>
+        <translation>인당 와트: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>잠열 분율:</translation>
+        <translation>잠열 분율: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>손실 분율:</translation>
+        <translation>손실 분율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>설계 수준:</translation>
+        <translation>설계 수준: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 전력:</translation>
+        <translation>공간 바닥 면적당 전력: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>인당 전력:</translation>
+        <translation>인당 전력: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>분수 잠열:</translation>
+        <translation>분수 잠열: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>손실 비율:</translation>
+        <translation>손실 비율: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>이산화탄소 생성 속도:</translation>
+        <translation>이산화탄소 생성 속도: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>설계 수준:</translation>
+        <translation>설계 수준: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 전력:</translation>
+        <translation>공간 바닥 면적당 전력: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>인당 전력:</translation>
+        <translation>인당 전력: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>잠열 분율:</translation>
+        <translation>잠열 분율: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>손실 분율:</translation>
+        <translation>손실 분율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>설계 수준:</translation>
+        <translation>설계 수준: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 전력:</translation>
+        <translation>공간 바닥 면적당 전력: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>사람당 전력:</translation>
+        <translation>사람당 전력: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>잠열 분율:</translation>
+        <translation>잠열 분율: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>손실 비율:</translation>
+        <translation>손실 비율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>설계 수준:</translation>
+        <translation>설계 수준: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 와트:</translation>
+        <translation>공간 바닥 면적당 와트: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>인당 와트:</translation>
+        <translation>인당 와트: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>잠열 비율:</translation>
+        <translation>잠열 비율: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>복사 분율:</translation>
+        <translation>복사 분율: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>손실 분율:</translation>
+        <translation>손실 분율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Surface Area: </source>
-        <translation>표면적:</translation>
+        <translation>표면적: </translation>
     </message>
     <message>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>공간 바닥 면적당 표면적:</translation>
+        <translation>공간 바닥 면적당 표면적: </translation>
     </message>
     <message>
         <source>Surface Area Per Person: </source>
-        <translation>인당 표면적:</translation>
+        <translation>인당 표면적: </translation>
     </message>
     <message>
         <source>Construction: </source>
-        <translation>구성:</translation>
+        <translation>구성: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>End Use Subcategory: </source>
-        <translation>최종 용도 소분류:</translation>
+        <translation>최종 용도 소분류: </translation>
     </message>
     <message>
         <source>Peak Flow Rate: </source>
-        <translation>피크 유량:</translation>
+        <translation>피크 유량: </translation>
     </message>
     <message>
         <source>Target Temperature Schedule: </source>
-        <translation>목표 온도 스케줄:</translation>
+        <translation>목표 온도 스케줄: </translation>
     </message>
     <message>
         <source>Sensible Fraction Schedule: </source>
-        <translation>현열 비율 스케줄:</translation>
+        <translation>현열 비율 스케줄: </translation>
     </message>
     <message>
         <source>Latent Fraction Schedule: </source>
-        <translation>잠열 분수 스케줄:</translation>
+        <translation>잠열 분수 스케줄: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Air Exchange Method: </source>
-        <translation>공기 교환 방식:</translation>
+        <translation>공기 교환 방식: </translation>
     </message>
     <message>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>간단한 혼합 환기 횟수 (시간당):</translation>
+        <translation>간단한 혼합 환기 횟수 (시간당): </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>레이어:</translation>
+        <translation>레이어: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5048,165 +5083,165 @@ Parameters</source>
     </message>
     <message>
         <source>Source Present After Layer: </source>
-        <translation>레이어 후 소스 존재:</translation>
+        <translation>레이어 후 소스 존재: </translation>
     </message>
     <message>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>레이어 번호 후 온도 계산 요청:</translation>
+        <translation>레이어 번호 후 온도 계산 요청: </translation>
     </message>
     <message>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>CTF 계산을 위한 치수:</translation>
+        <translation>CTF 계산을 위한 치수: </translation>
     </message>
     <message>
         <source>Tube Spacing: </source>
-        <translation>튜브 간격:</translation>
+        <translation>튜브 간격: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>C-Factor: </source>
-        <translation>C-Factor:</translation>
+        <translation>C-Factor: </translation>
     </message>
     <message>
         <source>Height: </source>
-        <translation>높이:</translation>
+        <translation>높이: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <source>Area: </source>
-        <translation>면적:</translation>
+        <translation>면적: </translation>
     </message>
     <message>
         <source>Perimeter Exposed: </source>
-        <translation>외부 노출 둘레:</translation>
+        <translation>외부 노출 둘레: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Solar Transmittance: </source>
-        <translation>태양광 투과율:</translation>
+        <translation>태양광 투과율: </translation>
     </message>
     <message>
         <source>Solar Reflectance: </source>
-        <translation>태양 반사율:</translation>
+        <translation>태양 반사율: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>가시광선 투과율:</translation>
+        <translation>가시광선 투과율: </translation>
     </message>
     <message>
         <source>Visible Reflectance: </source>
-        <translation>가시광선 반사율:</translation>
+        <translation>가시광선 반사율: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>열 반구 방사율:</translation>
+        <translation>열 반구 방사율: </translation>
     </message>
     <message>
         <source>Thermal Transmittance: </source>
-        <translation>열관류율:</translation>
+        <translation>열관류율: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>열전도율:</translation>
+        <translation>열전도율: </translation>
     </message>
     <message>
         <source>Shade To Glass Distance: </source>
-        <translation>셰이드와 유리 사이의 거리:</translation>
+        <translation>셰이드와 유리 사이의 거리: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>상단 개구부 승수:</translation>
+        <translation>상단 개구부 승수: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>하단 개구부 승수:</translation>
+        <translation>하단 개구부 승수: </translation>
     </message>
     <message>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>좌측 개구부 승수:</translation>
+        <translation>좌측 개구부 승수: </translation>
     </message>
     <message>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>우측 개구부 승수:</translation>
+        <translation>우측 개구부 승수: </translation>
     </message>
     <message>
         <source>Airflow Permeability: </source>
-        <translation>공기 투과성:</translation>
+        <translation>공기 투과성: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>열 저항:</translation>
+        <translation>열 저항: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>거칠기:</translation>
+        <translation>거칠기: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>열 저항:</translation>
+        <translation>열 저항: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>열 흡수율:</translation>
+        <translation>열 흡수율: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>태양 흡수율:</translation>
+        <translation>태양 흡수율: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>가시광선 흡수율:</translation>
+        <translation>가시광선 흡수율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>레이어:</translation>
+        <translation>레이어: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5229,51 +5264,51 @@ Parameters</source>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>표준:</translation>
+        <translation>표준: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>표준 소스:</translation>
+        <translation>표준 소스: </translation>
     </message>
     <message>
         <source>Intended Surface Type: </source>
-        <translation>예상 표면 유형:</translation>
+        <translation>예상 표면 유형: </translation>
     </message>
     <message>
         <source>Standards Construction Type: </source>
-        <translation>표준 건설 유형:</translation>
+        <translation>표준 건설 유형: </translation>
     </message>
     <message>
         <source>Fenestration Type: </source>
-        <translation>창호 유형:</translation>
+        <translation>창호 유형: </translation>
     </message>
     <message>
         <source>Fenestration Assembly Context: </source>
-        <translation>페네스트레이션 어셈블리 컨텍스트:</translation>
+        <translation>페네스트레이션 어셈블리 컨텍스트: </translation>
     </message>
     <message>
         <source>Fenestration Number of Panes: </source>
-        <translation>창호 창판 개수:</translation>
+        <translation>창호 창판 개수: </translation>
     </message>
     <message>
         <source>Fenestration Frame Type: </source>
-        <translation>창호 프레임 유형:</translation>
+        <translation>창호 프레임 유형: </translation>
     </message>
     <message>
         <source>Fenestration Divider Type: </source>
-        <translation>창호 분할선 유형:</translation>
+        <translation>창호 분할선 유형: </translation>
     </message>
     <message>
         <source>Fenestration Tint: </source>
-        <translation>창호 틴트:</translation>
+        <translation>창호 틴트: </translation>
     </message>
     <message>
         <source>Fenestration Gas Fill: </source>
-        <translation>창호 가스 충전:</translation>
+        <translation>창호 가스 충전: </translation>
     </message>
     <message>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>창호 저방사율 코팅:</translation>
+        <translation>창호 저방사율 코팅: </translation>
     </message>
 </context>
 <context>
@@ -5284,39 +5319,39 @@ Parameters</source>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>표준:</translation>
+        <translation>표준: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>표준 출처:</translation>
+        <translation>표준 출처: </translation>
     </message>
     <message>
         <source>Standards Category: </source>
-        <translation>기준 카테고리:</translation>
+        <translation>기준 카테고리: </translation>
     </message>
     <message>
         <source>Standards Identifier: </source>
-        <translation>표준 식별자:</translation>
+        <translation>표준 식별자: </translation>
     </message>
     <message>
         <source>Composite Framing Material: </source>
-        <translation>합성 프레이밍 재료:</translation>
+        <translation>합성 프레이밍 재료: </translation>
     </message>
     <message>
         <source>Composite Framing Configuration: </source>
-        <translation>복합 프레이밍 구성:</translation>
+        <translation>복합 프레이밍 구성: </translation>
     </message>
     <message>
         <source>Composite Framing Depth: </source>
-        <translation>합성 프레이밍 깊이:</translation>
+        <translation>합성 프레이밍 깊이: </translation>
     </message>
     <message>
         <source>Composite Framing Size: </source>
-        <translation>복합 프레이밍 크기:</translation>
+        <translation>복합 프레이밍 크기: </translation>
     </message>
     <message>
         <source>Composite Cavity Insulation: </source>
-        <translation>복합 캐비티 단열재:</translation>
+        <translation>복합 캐비티 단열재: </translation>
     </message>
 </context>
 <context>
@@ -5382,530 +5417,530 @@ Parameters</source>
     <name>openstudio::MaterialInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>거칠기:</translation>
+        <translation>거칠기: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>열전도율:</translation>
+        <translation>열전도율: </translation>
     </message>
     <message>
         <source>Density: </source>
-        <translation>밀도:</translation>
+        <translation>밀도: </translation>
     </message>
     <message>
         <source>Specific Heat: </source>
-        <translation>비열:</translation>
+        <translation>비열: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>열적 흡수율:</translation>
+        <translation>열적 흡수율: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>태양 흡수율:</translation>
+        <translation>태양 흡수율: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>가시광 흡수율:</translation>
+        <translation>가시광 흡수율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>U-Factor: </source>
-        <translation>U-Factor:</translation>
+        <translation>U-Factor: </translation>
     </message>
     <message>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>태양열 이득 계수:</translation>
+        <translation>태양열 이득 계수: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>가시 광선 투과율:</translation>
+        <translation>가시 광선 투과율: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Optical Data Type: </source>
-        <translation>광학 데이터 유형:</translation>
+        <translation>광학 데이터 유형: </translation>
     </message>
     <message>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>창 유리 분광 데이터 세트 이름:</translation>
+        <translation>창 유리 분광 데이터 세트 이름: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>법선 입사각에서의 태양 투과율:</translation>
+        <translation>법선 입사각에서의 태양 투과율: </translation>
     </message>
     <message>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>정상 입사각에서의 전면 태양 반사율:</translation>
+        <translation>정상 입사각에서의 전면 태양 반사율: </translation>
     </message>
     <message>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>뒷면 태양 반사율 (수직 입사각):</translation>
+        <translation>뒷면 태양 반사율 (수직 입사각): </translation>
     </message>
     <message>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>법선 입사각에서의 가시광선 투과율:</translation>
+        <translation>법선 입사각에서의 가시광선 투과율: </translation>
     </message>
     <message>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>정상입사 시 앞면 가시 반사율:</translation>
+        <translation>정상입사 시 앞면 가시 반사율: </translation>
     </message>
     <message>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>법선 입사각에서의 뒷면 가시광 반사율:</translation>
+        <translation>법선 입사각에서의 뒷면 가시광 반사율: </translation>
     </message>
     <message>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>법선 입사각에서의 적외선 투과율:</translation>
+        <translation>법선 입사각에서의 적외선 투과율: </translation>
     </message>
     <message>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>전면 적외선 반구형 방사율:</translation>
+        <translation>전면 적외선 반구형 방사율: </translation>
     </message>
     <message>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>뒷면 적외선 반구 방사율:</translation>
+        <translation>뒷면 적외선 반구 방사율: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>열전도율:</translation>
+        <translation>열전도율: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>태양 및 가시광 투과율에 대한 오염 보정 계수:</translation>
+        <translation>태양 및 가시광 투과율에 대한 오염 보정 계수: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>태양광 확산:</translation>
+        <translation>태양광 확산: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Gas Type: </source>
-        <translation>가스 종류:</translation>
+        <translation>가스 종류: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient A: </source>
-        <translation>열전도율 계수 A:</translation>
+        <translation>열전도율 계수 A: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient B: </source>
-        <translation>전도도 계수 B:</translation>
+        <translation>전도도 계수 B: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient A: </source>
-        <translation>점도 계수 A:</translation>
+        <translation>점도 계수 A: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient B: </source>
-        <translation>점도 계수 B:</translation>
+        <translation>점도 계수 B: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient A: </source>
-        <translation>비열 계수 A:</translation>
+        <translation>비열 계수 A: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient B: </source>
-        <translation>비열 계수 B:</translation>
+        <translation>비열 계수 B: </translation>
     </message>
     <message>
         <source>Molecular Weight: </source>
-        <translation>분자량:</translation>
+        <translation>분자량: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Number Of Gases In Mixture: </source>
-        <translation>혼합 가스의 개수:</translation>
+        <translation>혼합 가스의 개수: </translation>
     </message>
     <message>
         <source>Gas 1 Fraction: </source>
-        <translation>가스 1 분율:</translation>
+        <translation>가스 1 분율: </translation>
     </message>
     <message>
         <source>Gas 1 Type: </source>
-        <translation>가스 1 유형:</translation>
+        <translation>가스 1 유형: </translation>
     </message>
     <message>
         <source>Gas 2 Fraction: </source>
-        <translation>가스 2 분율:</translation>
+        <translation>가스 2 분율: </translation>
     </message>
     <message>
         <source>Gas 2 Type: </source>
-        <translation>Gas 2 Type:</translation>
+        <translation>Gas 2 Type: </translation>
     </message>
     <message>
         <source>Gas 3 Fraction: </source>
-        <translation>Gas 3 Fraction:</translation>
+        <translation>Gas 3 Fraction: </translation>
     </message>
     <message>
         <source>Gas 3 Type: </source>
-        <translation>가스 3 종류:</translation>
+        <translation>가스 3 종류: </translation>
     </message>
     <message>
         <source>Gas 4 Fraction: </source>
-        <translation>가스 4 분율:</translation>
+        <translation>가스 4 분율: </translation>
     </message>
     <message>
         <source>Gas 4 Type: </source>
-        <translation>가스 4 유형:</translation>
+        <translation>가스 4 유형: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Slat Orientation: </source>
-        <translation>슬랫 방향:</translation>
+        <translation>슬랫 방향: </translation>
     </message>
     <message>
         <source>Slat Width: </source>
-        <translation>슬래트 폭:</translation>
+        <translation>슬래트 폭: </translation>
     </message>
     <message>
         <source>Slat Separation: </source>
-        <translation>슬렛 간격:</translation>
+        <translation>슬렛 간격: </translation>
     </message>
     <message>
         <source>Slat Thickness: </source>
-        <translation>슬렛 두께:</translation>
+        <translation>슬렛 두께: </translation>
     </message>
     <message>
         <source>Slat Angle: </source>
-        <translation>슬랫 각도:</translation>
+        <translation>슬랫 각도: </translation>
     </message>
     <message>
         <source>Slat Conductivity: </source>
-        <translation>슬랫 열전도율:</translation>
+        <translation>슬랫 열전도율: </translation>
     </message>
     <message>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>슬랫 빔 태양 투과율:</translation>
+        <translation>슬랫 빔 태양 투과율: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>앞면 슬레이트 직달 태양 반사율:</translation>
+        <translation>앞면 슬레이트 직달 태양 반사율: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>뒷면 슬랫 빔 태양 반사율:</translation>
+        <translation>뒷면 슬랫 빔 태양 반사율: </translation>
     </message>
     <message>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>슬래트 확산 태양광 투과율:</translation>
+        <translation>슬래트 확산 태양광 투과율: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Front Side Slat Diffuse Solar Reflectance:</translation>
+        <translation>Front Side Slat Diffuse Solar Reflectance: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>뒷면 슬래트 확산 태양 반사율:</translation>
+        <translation>뒷면 슬래트 확산 태양 반사율: </translation>
     </message>
     <message>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>슬래트 빔 가시 투과율:</translation>
+        <translation>슬래트 빔 가시 투과율: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Front Side Slat Beam Visible Reflectance:</translation>
+        <translation>Front Side Slat Beam Visible Reflectance: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>뒷면 슬래트 빔 가시 반사율:</translation>
+        <translation>뒷면 슬래트 빔 가시 반사율: </translation>
     </message>
     <message>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>슬랫 확산 가시광선 투과율:</translation>
+        <translation>슬랫 확산 가시광선 투과율: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>앞면 슬릿 확산 가시광선 반사율:</translation>
+        <translation>앞면 슬릿 확산 가시광선 반사율: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>뒷면 슬릿 확산 가시광선 반사율:</translation>
+        <translation>뒷면 슬릿 확산 가시광선 반사율: </translation>
     </message>
     <message>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Slat 적외선 반구형 투과율:</translation>
+        <translation>Slat 적외선 반구형 투과율: </translation>
     </message>
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>앞면 슬랫 적외선 반구형 방사율:</translation>
+        <translation>앞면 슬랫 적외선 반구형 방사율: </translation>
     </message>
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>뒷면 슬릿 적외선 반구형 방사율:</translation>
+        <translation>뒷면 슬릿 적외선 반구형 방사율: </translation>
     </message>
     <message>
         <source>Blind To Glass Distance: </source>
-        <translation>블라인드 유리 거리:</translation>
+        <translation>블라인드 유리 거리: </translation>
     </message>
     <message>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>블라인드 상단 개구부 승수:</translation>
+        <translation>블라인드 상단 개구부 승수: </translation>
     </message>
     <message>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>블라인드 하단 개구부 승수:</translation>
+        <translation>블라인드 하단 개구부 승수: </translation>
     </message>
     <message>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>블라인드 좌측 개구부 승수:</translation>
+        <translation>블라인드 좌측 개구부 승수: </translation>
     </message>
     <message>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>블라인드 우측 개방 승수:</translation>
+        <translation>블라인드 우측 개방 승수: </translation>
     </message>
     <message>
         <source>Minimum Slat Angle: </source>
-        <translation>최소 슬랫 각도:</translation>
+        <translation>최소 슬랫 각도: </translation>
     </message>
     <message>
         <source>Maximum Slat Angle: </source>
-        <translation>최대 슬릿 각도:</translation>
+        <translation>최대 슬릿 각도: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>반사 빔 투과율 계산 방법:</translation>
+        <translation>반사 빔 투과율 계산 방법: </translation>
     </message>
     <message>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>확산 태양 반사율:</translation>
+        <translation>확산 태양 반사율: </translation>
     </message>
     <message>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>확산 가시광 반사율:</translation>
+        <translation>확산 가시광 반사율: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>열 반구 방사율:</translation>
+        <translation>열 반구 방사율: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>열전도율:</translation>
+        <translation>열전도율: </translation>
     </message>
     <message>
         <source>Screen Material Spacing: </source>
-        <translation>스크린 재료 간격:</translation>
+        <translation>스크린 재료 간격: </translation>
     </message>
     <message>
         <source>Screen Material Diameter: </source>
-        <translation>스크린 재료 직경:</translation>
+        <translation>스크린 재료 직경: </translation>
     </message>
     <message>
         <source>Screen To Glass Distance: </source>
-        <translation>스크린과 유리 사이의 거리:</translation>
+        <translation>스크린과 유리 사이의 거리: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>상부 개구 승수:</translation>
+        <translation>상부 개구 승수: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>하단 개구부 승수:</translation>
+        <translation>하단 개구부 승수: </translation>
     </message>
     <message>
         <source>Left Side Opening Multiplier: </source>
-        <translation>좌측 개구부 승수:</translation>
+        <translation>좌측 개구부 승수: </translation>
     </message>
     <message>
         <source>Right Side Opening Multiplier: </source>
-        <translation>우측 개구부 승수:</translation>
+        <translation>우측 개구부 승수: </translation>
     </message>
     <message>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>스크린 투과율 출력 맵의 해상도 각도:</translation>
+        <translation>스크린 투과율 출력 맵의 해상도 각도: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Height Of Plants: </source>
-        <translation>식물 높이:</translation>
+        <translation>식물 높이: </translation>
     </message>
     <message>
         <source>Leaf Area Index: </source>
-        <translation>Leaf Area Index (LAI):</translation>
+        <translation>Leaf Area Index (LAI): </translation>
     </message>
     <message>
         <source>Leaf Reflectivity: </source>
-        <translation>잎 반사율:</translation>
+        <translation>잎 반사율: </translation>
     </message>
     <message>
         <source>Leaf Emissivity: </source>
-        <translation>리프 방사율:</translation>
+        <translation>리프 방사율: </translation>
     </message>
     <message>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>최소 기공 저항:</translation>
+        <translation>최소 기공 저항: </translation>
     </message>
     <message>
         <source>Soil Layer Name: </source>
-        <translation>토양층 이름:</translation>
+        <translation>토양층 이름: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>거칠기:</translation>
+        <translation>거칠기: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>건조 토양의 열전도율:</translation>
+        <translation>건조 토양의 열전도율: </translation>
     </message>
     <message>
         <source>Density Of Dry Soil: </source>
-        <translation>건조 토양의 밀도:</translation>
+        <translation>건조 토양의 밀도: </translation>
     </message>
     <message>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>건조 토양의 비열:</translation>
+        <translation>건조 토양의 비열: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>열 흡수율:</translation>
+        <translation>열 흡수율: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>태양 흡수율:</translation>
+        <translation>태양 흡수율: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>가시광선 흡수율:</translation>
+        <translation>가시광선 흡수율: </translation>
     </message>
     <message>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>토양층의 포화 체적 함수량:</translation>
+        <translation>토양층의 포화 체적 함수량: </translation>
     </message>
     <message>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>토양층의 잔류 체적 함수율:</translation>
+        <translation>토양층의 잔류 체적 함수율: </translation>
     </message>
     <message>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>토양층의 초기 체적 함수 함량:</translation>
+        <translation>토양층의 초기 체적 함수 함량: </translation>
     </message>
     <message>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>수분 확산 계산 방법:</translation>
+        <translation>수분 확산 계산 방법: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>두께:</translation>
+        <translation>두께: </translation>
     </message>
     <message>
         <source>Solar Index Of Refraction: </source>
-        <translation>태양 굴절률:</translation>
+        <translation>태양 굴절률: </translation>
     </message>
     <message>
         <source>Solar Extinction Coefficient: </source>
-        <translation>태양 소광 계수:</translation>
+        <translation>태양 소광 계수: </translation>
     </message>
     <message>
         <source>Visible Index of Refraction: </source>
-        <translation>가시 굴절률:</translation>
+        <translation>가시 굴절률: </translation>
     </message>
     <message>
         <source>Visible Extinction Coefficient: </source>
-        <translation>가시광선 소멸 계수:</translation>
+        <translation>가시광선 소멸 계수: </translation>
     </message>
     <message>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>법선 입사각에서의 적외선 투과율:</translation>
+        <translation>법선 입사각에서의 적외선 투과율: </translation>
     </message>
     <message>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>적외선 반구 방사율:</translation>
+        <translation>적외선 반구 방사율: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>열전도도:</translation>
+        <translation>열전도도: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>태양 및 가시광 투과율에 대한 오염 보정 계수:</translation>
+        <translation>태양 및 가시광 투과율에 대한 오염 보정 계수: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>태양 확산:</translation>
+        <translation>태양 확산: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Daylight Redirection Device Type: </source>
-        <translation>주광 편향 장치 유형:</translation>
+        <translation>주광 편향 장치 유형: </translation>
     </message>
 </context>
 <context>
@@ -5956,29 +5991,29 @@ Parameters</source>
     </message>
     <message>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>기본 실행 기간 프로필을 재정의하기 위해 새 프로필을 만듭니다.</translation>
+        <translation>  기본 실행 기간 프로필을 재정의하기 위해 새 프로필을 만듭니다.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>내용</translation>
+        <translation>내용 </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>값:</translation>
+        <translation> 값: </translation>
     </message>
 </context>
 <context>
@@ -6016,15 +6051,15 @@ Parameters</source>
     </message>
     <message>
         <source>Numeric Type: </source>
-        <translation>숫자 유형:</translation>
+        <translation>숫자 유형: </translation>
     </message>
     <message>
         <source>Lower Limit: </source>
-        <translation>하한:</translation>
+        <translation>하한: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>상한값:</translation>
+        <translation>상한값: </translation>
     </message>
     <message>
         <source>unitless</source>
@@ -6039,27 +6074,27 @@ Parameters</source>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>이름:</translation>
+        <translation>이름: </translation>
     </message>
     <message>
         <source>FilePath: </source>
-        <translation>파일 경로:</translation>
+        <translation>파일 경로: </translation>
     </message>
     <message>
         <source>Column Number: </source>
-        <translation>열 번호:</translation>
+        <translation>열 번호: </translation>
     </message>
     <message>
         <source>Rows to Skip at Top: </source>
-        <translation>상단에서 건너뛸 행의 개수:</translation>
+        <translation>상단에서 건너뛸 행의 개수: </translation>
     </message>
     <message>
         <source>Number of Hours of Data: </source>
-        <translation>데이터 시간 수:</translation>
+        <translation>데이터 시간 수: </translation>
     </message>
     <message>
         <source>Column Separator: </source>
-        <translation>열 구분자:</translation>
+        <translation>열 구분자: </translation>
     </message>
     <message>
         <source>Comma</source>
@@ -6079,42 +6114,42 @@ Parameters</source>
     </message>
     <message>
         <source>Interpolate to Timestep: </source>
-        <translation>Interpolate to Timestep:</translation>
+        <translation>Interpolate to Timestep: </translation>
     </message>
     <message>
         <source>Minutes per Item: </source>
-        <translation>항목당 분: 또는 항목당 분 수:</translation>
+        <translation>항목당 분: 또는 항목당 분 수: </translation>
     </message>
     <message>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>주간 절약 시간제에 맞게 일정 조정:</translation>
+        <translation>주간 절약 시간제에 맞게 일정 조정: </translation>
     </message>
     <message>
         <source>Translate File With Relative Path: </source>
-        <translation>상대 경로로 파일 변환:</translation>
+        <translation>상대 경로로 파일 변환: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>콘텐츠:</translation>
+        <translation>콘텐츠: </translation>
     </message>
     <message>
         <source>Number of Lines in file: </source>
-        <translation>파일의 라인 수:</translation>
+        <translation>파일의 라인 수: </translation>
     </message>
     <message>
         <source>Display All File Content: </source>
-        <translation>모든 파일 내용 표시:</translation>
+        <translation>모든 파일 내용 표시: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
         <source>Lower Limit: </source>
-        <translation>하한:</translation>
+        <translation>하한: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>상한값:</translation>
+        <translation>상한값: </translation>
     </message>
 </context>
 <context>
@@ -6376,11 +6411,11 @@ Parameters</source>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
         <source>Cooling Type: </source>
-        <translation>냉각 유형:</translation>
+        <translation>냉각 유형: </translation>
     </message>
     <message>
         <source>Heating Type: </source>
-        <translation>난방 유형:</translation>
+        <translation>난방 유형: </translation>
     </message>
     <message>
         <source>Time of Operation</source>
@@ -6431,7 +6466,7 @@ Parameters</source>
     </message>
     <message>
         <source>Plant Loop Type: </source>
-        <translation>플랜트 루프 유형:</translation>
+        <translation>플랜트 루프 유형: </translation>
     </message>
     <message>
         <source>Plant Equipment Operation Schemes</source>
@@ -6668,40 +6703,28 @@ Walk In</source>
         <translation>패키지 루프탑 히트펌프</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Packaged DX 옥상 VAV 및 재가열</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>패키지형 루프탑
-병렬 팬이 있는 VAV
-파워 박스 및 재열</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>패키지형 루프탑 병렬 팬이 있는 VAV 파워 박스 및 재열</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>패키지 옥상
-VAV 및 재가열</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>패키지 옥상 VAV 및 재가열</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV with Parallel Fan-Powered Boxes and Reheat</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>온풍 난로
-가스 연소식</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>온풍 난로 가스 연소식</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>온풍 히터
-전기식</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>온풍 히터 전기식</translation>
     </message>
     <message>
         <source>Empty Air Loop</source>
@@ -28968,105 +28991,105 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>존 ITE 조정 반환 공기 온도</translation>
+        <translation>존 ITE 조정 반환 공기 온도 </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>존 ITE 공기 질량 유량</translation>
+        <translation>존 ITE 공기 질량 유량 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>구역 ITE 임의 공기 입구 노점 온도 운영 범위 초과 시간</translation>
+        <translation>구역 ITE 임의 공기 입구 노점 온도 운영 범위 초과 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>존 ITE 임의 공기 입구 이슬점 온도 운영 범위 이하 시간</translation>
+        <translation>존 ITE 임의 공기 입구 이슬점 온도 운영 범위 이하 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>존 ITE 임의의 공기 입구 건구온도 작동 범위 초과 시간</translation>
+        <translation>존 ITE 임의의 공기 입구 건구온도 작동 범위 초과 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>구역 ITE 임의의 공기 흡입구 건구 온도 운영 범위 이하 시간</translation>
+        <translation>구역 ITE 임의의 공기 흡입구 건구 온도 운영 범위 이하 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE 임의의 공기 입구 작동 범위 초과 시간</translation>
+        <translation>Zone ITE 임의의 공기 입구 작동 범위 초과 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>존 ITE 임의 공기 입구 상대습도 운전 범위 초과 시간</translation>
+        <translation>존 ITE 임의 공기 입구 상대습도 운전 범위 초과 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>존 ITE 임의 공기 입구 상대습도 운전 범위 이하 시간</translation>
+        <translation>존 ITE 임의 공기 입구 상대습도 운전 범위 이하 시간 </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>존 ITE 평균 공급 열지수</translation>
+        <translation>존 ITE 평균 공급 열지수 </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Zone ITE CPU 전기 에너지</translation>
+        <translation>Zone ITE CPU 전기 에너지 </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>존 ITE CPU 전기 에너지(설계 흡입 조건)</translation>
+        <translation>존 ITE CPU 전기 에너지(설계 흡입 조건) </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Zone ITE CPU 전력 소비율</translation>
+        <translation>Zone ITE CPU 전력 소비율 </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>존 ITE CPU 설계 입구 조건에서의 전기 사용률</translation>
+        <translation>존 ITE CPU 설계 입구 조건에서의 전기 사용률 </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
         <translation>Zone ITE Fan Electricity Energy
 
-(또는 기술 문서 맥락에서 필요시: 존 ITE 팬 전기 에너지)</translation>
+(또는 기술 문서 맥락에서 필요시: 존 ITE 팬 전기 에너지) </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE 팬 전기 에너지 (설계 입구 조건)</translation>
+        <translation>Zone ITE 팬 전기 에너지 (설계 입구 조건) </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Zone ITE 팬 전기 소비율</translation>
+        <translation>Zone ITE 팬 전기 소비율 </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>존 ITE 팬 설계 입구 조건에서의 전기 소비율</translation>
+        <translation>존 ITE 팬 설계 입구 조건에서의 전기 소비율 </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>존 ITE 표준 밀도 공기 체적 유량</translation>
+        <translation>존 ITE 표준 밀도 공기 체적 유량 </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>존 ITE 전체 열 이득을 존 에너지로</translation>
+        <translation>존 ITE 전체 열 이득을 존 에너지로 </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>존 ITE 총 발열량 전열률</translation>
+        <translation>존 ITE 총 발열량 전열률 </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>구역 ITE UPS 전기 에너지</translation>
+        <translation>구역 ITE UPS 전기 에너지 </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>존 ITE UPS 전기요금</translation>
+        <translation>존 ITE UPS 전기요금 </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>존 ITE UPS 열이득을 존 에너지로</translation>
+        <translation>존 ITE UPS 열이득을 존 에너지로 </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>구역 ITE UPS 열 획득에서 구역으로의 발열량</translation>
+        <translation>구역 ITE UPS 열 획득에서 구역으로의 발열량 </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -30418,103 +30441,103 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>ITE 조정 반환 공기 온도</translation>
+        <translation>ITE 조정 반환 공기 온도 </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>ITE 공기 질량 유량</translation>
+        <translation>ITE 공기 질량 유량 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE 작동 범위 이상의 공기 유입 이슬점 온도 시간</translation>
+        <translation>ITE 작동 범위 이상의 공기 유입 이슬점 온도 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE 모든 공기 흡입구 이슬점 온도 운영 범위 미만 시간</translation>
+        <translation>ITE 모든 공기 흡입구 이슬점 온도 운영 범위 미만 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE 임의 공기 유입구 건구 온도 운영 범위 초과 시간</translation>
+        <translation>ITE 임의 공기 유입구 건구 온도 운영 범위 초과 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE 공기 입구 건구 온도 운영 범위 이하 시간</translation>
+        <translation>ITE 공기 입구 건구 온도 운영 범위 이하 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE 공기 흡입구 작동 범위 초과 시간</translation>
+        <translation>ITE 공기 흡입구 작동 범위 초과 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE 공기 흡입구 상대습도 운전 범위 초과 시간</translation>
+        <translation>ITE 공기 흡입구 상대습도 운전 범위 초과 시간 </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE 임의의 공기 흡입 상대습도 운전 범위 이하 시간</translation>
+        <translation>ITE 임의의 공기 흡입 상대습도 운전 범위 이하 시간 </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE 평균 공급 열 지수</translation>
+        <translation>ITE 평균 공급 열 지수 </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>ITE CPU 전기 에너지</translation>
+        <translation>ITE CPU 전기 에너지 </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE CPU 전기 에너지 (설계 입구 조건)</translation>
+        <translation>ITE CPU 전기 에너지 (설계 입구 조건) </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>ITE CPU 전기료</translation>
+        <translation>ITE CPU 전기료 </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE CPU 설계 흡입 조건에서의 전기 사용률</translation>
+        <translation>ITE CPU 설계 흡입 조건에서의 전기 사용률 </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE 팬 전기 에너지</translation>
+        <translation>ITE 팬 전기 에너지 </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE 팬 전기 에너지 (설계 입구 조건)</translation>
+        <translation>ITE 팬 전기 에너지 (설계 입구 조건) </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>ITE 팬 전력 요금</translation>
+        <translation>ITE 팬 전력 요금 </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE 팬 설계 입구 조건에서의 전기 사용량</translation>
+        <translation>ITE 팬 설계 입구 조건에서의 전기 사용량 </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>ITE 표준 밀도 공기 체적 유량</translation>
+        <translation>ITE 표준 밀도 공기 체적 유량 </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE 총 열량 이득에서 구역 에너지로</translation>
+        <translation>ITE 총 열량 이득에서 구역 에너지로 </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>ITE 총 열 이득을 존으로의 비율</translation>
+        <translation>ITE 총 열 이득을 존으로의 비율 </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>ITE UPS 전기 에너지</translation>
+        <translation>ITE UPS 전기 에너지 </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>ITE 무정전전원공급장치(UPS) 전기 요금</translation>
+        <translation>ITE 무정전전원공급장치(UPS) 전기 요금 </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS 발열 에너지</translation>
+        <translation>ITE UPS 발열 에너지 </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>ITE UPS 열 발생량 존 공급 비율</translation>
+        <translation>ITE UPS 열 발생량 존 공급 비율 </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -31722,59 +31745,59 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
     </message>
     <message>
         <source>Accumulated Rays per Record: </source>
-        <translation>누적 광선 수 (레코드당):</translation>
+        <translation>누적 광선 수 (레코드당): </translation>
     </message>
     <message>
         <source>Direct Threshold: </source>
-        <translation>직접 임계값:</translation>
+        <translation>직접 임계값: </translation>
     </message>
     <message>
         <source>Direct Certainty: </source>
-        <translation>직접 확실성:</translation>
+        <translation>직접 확실성: </translation>
     </message>
     <message>
         <source>Direct Jitter: </source>
-        <translation>직접 지터:</translation>
+        <translation>직접 지터: </translation>
     </message>
     <message>
         <source>Direct Pretest: </source>
-        <translation>직접 사전 테스트:</translation>
+        <translation>직접 사전 테스트: </translation>
     </message>
     <message>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <source>Ambient Bounces DMX: </source>
-        <translation>환경 반사 DMX:</translation>
+        <translation>환경 반사 DMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions VMX: </source>
-        <translation>주변 분할 VMX:</translation>
+        <translation>주변 분할 VMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions DMX: </source>
-        <translation>주변 분할 DMX:</translation>
+        <translation>주변 분할 DMX: </translation>
     </message>
     <message>
         <source>Ambient Supersamples: </source>
-        <translation>주변 슈퍼샘플 수:</translation>
+        <translation>주변 슈퍼샘플 수: </translation>
     </message>
     <message>
         <source>Limit Weight VMX: </source>
-        <translation>제한 무게 VMX:</translation>
+        <translation>제한 무게 VMX: </translation>
     </message>
     <message>
         <source>Limit Weight DMX: </source>
-        <translation>Limit Weight DMX:</translation>
+        <translation>Limit Weight DMX: </translation>
     </message>
     <message>
         <source>Klems Sampling Density: </source>
-        <translation>Klems 샘플링 밀도:</translation>
+        <translation>Klems 샘플링 밀도: </translation>
     </message>
     <message>
         <source>Sky Discretization Resolution: </source>
-        <translation>하늘 이산화 해상도:</translation>
+        <translation>하늘 이산화 해상도: </translation>
     </message>
     <message>
         <source>Sizing Parameters</source>
@@ -32405,12 +32428,13 @@ Detailed Reports</source>
     </message>
     <message>
         <source>Reports: </source>
-        <translation>보고서:</translation>
+        <translation>보고서: </translation>
     </message>
     <message>
         <source>Set Path to DView
 in Preferences</source>
-        <translation>환경설정에서 DView 경로 설정</translation>
+        <translation>환경설정에서 DView
+경로 설정</translation>
     </message>
     <message>
         <source>Unable to launch DView</source>
@@ -32419,13 +32443,13 @@ in Preferences</source>
     <message>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView를 예상 위치에서 찾을 수 없습니다:</translation>
+        <translation>DView를 예상 위치에서 찾을 수
+없습니다:</translation>
     </message>
     <message>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus 결과</translation>
     </message>
-    <message>
     <message>
         <source>Units Conversion</source>
         <translation>단위 변환</translation>
@@ -32434,8 +32458,9 @@ in Preferences</source>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>Energy+ 데이터를 IP 단위로 표시하시겠습니까?</translation>
     </message>
+    <message>
         <source>Custom Report </source>
-        <translation>사용자 정의 보고서</translation>
+        <translation>사용자 정의 보고서 </translation>
     </message>
 </context>
 </TS>

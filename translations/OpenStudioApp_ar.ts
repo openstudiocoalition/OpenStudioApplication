@@ -18517,95 +18517,95 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>درجة حرارة الهواء العائد المعدلة لمنطقة تكنولوجيا المعلومات</translation>
+        <translation>درجة حرارة الهواء العائد المعدلة لمنطقة تكنولوجيا المعلومات </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>معدل تدفق الهواء الكتلي للمنطقة ITE</translation>
+        <translation>معدل تدفق الهواء الكتلي للمنطقة ITE </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>وقت درجة حرارة نقطة الندى لأي مدخل هواء في منطقة معدات تكنولوجيا المعلومات فوق نطاق التشغيل</translation>
+        <translation>وقت درجة حرارة نقطة الندى لأي مدخل هواء في منطقة معدات تكنولوجيا المعلومات فوق نطاق التشغيل </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>درجة حرارة نقطة الندى للهواء الداخل في منطقة ITE أقل من نطاق التشغيل الزمني</translation>
+        <translation>درجة حرارة نقطة الندى للهواء الداخل في منطقة ITE أقل من نطاق التشغيل الزمني </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>زمن درجة حرارة المصباح الجاف لمدخل الهواء أي منطقة ITE أقل من نطاق التشغيل</translation>
+        <translation>زمن درجة حرارة المصباح الجاف لمدخل الهواء أي منطقة ITE أقل من نطاق التشغيل </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index</translation>
+        <translation>Zone ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>معدل كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات بالمنطقة</translation>
+        <translation>معدل كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات بالمنطقة </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>معدل كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات بالمنطقة عند ظروف المدخل التصميمية</translation>
+        <translation>معدل كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات بالمنطقة عند ظروف المدخل التصميمية </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>طاقة كهرباء مروحة ITE بالمنطقة</translation>
+        <translation>طاقة كهرباء مروحة ITE بالمنطقة </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>طاقة كهرباء مروحة ITE في منطقة الفراغ عند ظروف المدخل التصميمية</translation>
+        <translation>طاقة كهرباء مروحة ITE في منطقة الفراغ عند ظروف المدخل التصميمية </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>معدل كهرباء مروحة ITE للمنطقة</translation>
+        <translation>معدل كهرباء مروحة ITE للمنطقة </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>معدل كهرباء مروحة معدات تكنولوجيا المعلومات في المنطقة عند ظروف مدخل التصميم</translation>
+        <translation>معدل كهرباء مروحة معدات تكنولوجيا المعلومات في المنطقة عند ظروف مدخل التصميم </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>معدل تدفق الهواء بكثافة معيارية لمنطقة معدات تقنية المعلومات</translation>
+        <translation>معدل تدفق الهواء بكثافة معيارية لمنطقة معدات تقنية المعلومات </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Heat Gain from ITE to Zone Energy</translation>
+        <translation>Heat Gain from ITE to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>معدل إجمالي كسب الحرارة من معدات تكنولوجيا المعلومات إلى المنطقة</translation>
+        <translation>معدل إجمالي كسب الحرارة من معدات تكنولوجيا المعلومات إلى المنطقة </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>طاقة كهربائية لمصدر الطاقة غير المنقطع (UPS) للمنطقة</translation>
+        <translation>طاقة كهربائية لمصدر الطاقة غير المنقطع (UPS) للمنطقة </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>معدل كهرباء UPS لمنطقة تكنولوجيا المعلومات</translation>
+        <translation>معدل كهرباء UPS لمنطقة تكنولوجيا المعلومات </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>معدل اكتساب حرارة وحدة الطاقة الاحتياطية (UPS) للمنطقة إلى المنطقة</translation>
+        <translation>معدل اكتساب حرارة وحدة الطاقة الاحتياطية (UPS) للمنطقة إلى المنطقة </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -19913,103 +19913,103 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>درجة حرارة الهواء العائد المعدلة حسب ITE</translation>
+        <translation>درجة حرارة الهواء العائد المعدلة حسب ITE </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>معدل تدفق الهواء ITE</translation>
+        <translation>معدل تدفق الهواء ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE أي درجة حرارة نقطة الندى لمدخل الهواء فوق نطاق التشغيل الوقت</translation>
+        <translation>ITE أي درجة حرارة نقطة الندى لمدخل الهواء فوق نطاق التشغيل الوقت </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE أي درجة حرارة نقطة الندى لفتحة الهواء أسفل نطاق التشغيل الوقت</translation>
+        <translation>ITE أي درجة حرارة نقطة الندى لفتحة الهواء أسفل نطاق التشغيل الوقت </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>درجة حرارة الهواء الجاف لمأخذ الهواء (ITE) فوق نطاق التشغيل الوقت</translation>
+        <translation>درجة حرارة الهواء الجاف لمأخذ الهواء (ITE) فوق نطاق التشغيل الوقت </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>درجة حرارة الهواء الداخل (جاف) أقل من نطاق التشغيل - الوقت</translation>
+        <translation>درجة حرارة الهواء الداخل (جاف) أقل من نطاق التشغيل - الوقت </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>وقت تجاوز الرطوبة النسبية لمدخل الهواء (ITE) النطاق التشغيلي</translation>
+        <translation>وقت تجاوز الرطوبة النسبية لمدخل الهواء (ITE) النطاق التشغيلي </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE متوسط مؤشر الحرارة في الإمداد</translation>
+        <translation>ITE متوسط مؤشر الحرارة في الإمداد </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>طاقة كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات</translation>
+        <translation>طاقة كهرباء وحدة المعالجة المركزية لتكنولوجيا المعلومات </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>طاقة كهرباء معالج ITE عند ظروف مدخل التصميم</translation>
+        <translation>طاقة كهرباء معالج ITE عند ظروف مدخل التصميم </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>معدل استهلاك الكهرباء لـ ITE CPU</translation>
+        <translation>معدل استهلاك الكهرباء لـ ITE CPU </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>معدل كهربائية وحدة المعالجة المركزية (CPU) عند ظروف مدخل التصميم</translation>
+        <translation>معدل كهربائية وحدة المعالجة المركزية (CPU) عند ظروف مدخل التصميم </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE Fan Electricity Energy</translation>
+        <translation>ITE Fan Electricity Energy </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>طاقة كهرباء مروحة ITE عند ظروف المدخل المصممة</translation>
+        <translation>طاقة كهرباء مروحة ITE عند ظروف المدخل المصممة </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>معدل استهلاك الكهرباء لمراوح تقنية المعلومات</translation>
+        <translation>معدل استهلاك الكهرباء لمراوح تقنية المعلومات </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>معدل كهرباء مروحة ITE عند ظروف الدخول الاسمية</translation>
+        <translation>معدل كهرباء مروحة ITE عند ظروف الدخول الاسمية </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>معدل تدفق الهواء بكثافة معيارية ITE</translation>
+        <translation>معدل تدفق الهواء بكثافة معيارية ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE كسب الحرارة الكلي لطاقة المنطقة</translation>
+        <translation>ITE كسب الحرارة الكلي لطاقة المنطقة </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>معدل مكاسب الحرارة الكلية لـ ITE إلى المنطقة</translation>
+        <translation>معدل مكاسب الحرارة الكلية لـ ITE إلى المنطقة </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>طاقة كهربائية لأنظمة تغذية الطاقة الاحتياطية (ITE UPS)</translation>
+        <translation>طاقة كهربائية لأنظمة تغذية الطاقة الاحتياطية (ITE UPS) </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>معدل الكهرباء لـ ITE UPS</translation>
+        <translation>معدل الكهرباء لـ ITE UPS </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS الكسب الحراري للمنطقة الطاقة</translation>
+        <translation>ITE UPS الكسب الحراري للمنطقة الطاقة </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>معدل كسب الحرارة من نظام UPS التكنولوجي إلى المنطقة</translation>
+        <translation>معدل كسب الحرارة من نظام UPS التكنولوجي إلى المنطقة </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -21529,17 +21529,17 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
-        <translation>اسم العرض:</translation>
+        <translation>اسم العرض: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
-        <translation>معرّف كائن CAD:</translation>
+        <translation>معرّف كائن CAD: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
@@ -21549,62 +21549,62 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
-        <translation>قالب المعايير:</translation>
+        <translation>قالب المعايير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
-        <translation>نوع المبنى وفقاً للمعايير:</translation>
+        <translation>نوع المبنى وفقاً للمعايير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>ارتفاع الأرضية إلى السقف الاسمي:</translation>
+        <translation>ارتفاع الأرضية إلى السقف الاسمي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>ارتفاع الطابق الاسمي:</translation>
+        <translation>ارتفاع الطابق الاسمي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
-        <translation>عدد الطوابق القياسي:</translation>
+        <translation>عدد الطوابق القياسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>عدد الطوابق فوق الأرض المعياري:</translation>
+        <translation>عدد الطوابق فوق الأرض المعياري: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
-        <translation>عدد وحدات السكن حسب المعايير:</translation>
+        <translation>عدد وحدات السكن حسب المعايير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
-        <translation>قابل للنقل:</translation>
+        <translation>قابل للنقل: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
-        <translation>محور الشمال:</translation>
+        <translation>محور الشمال: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
-        <translation>نوع المساحة:</translation>
+        <translation>نوع المساحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
-        <translation>مجموعة البناء الافتراضية:</translation>
+        <translation>مجموعة البناء الافتراضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
-        <translation>مجموعة الجدول الزمني الافتراضية:</translation>
+        <translation>مجموعة الجدول الزمني الافتراضية: </translation>
     </message>
 </context>
 <context>
@@ -21727,17 +21727,17 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
-        <translation>طريقة تبديل الهواء:</translation>
+        <translation>طريقة تبديل الهواء: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>تغييرات الهواء البسيطة في الساعة:</translation>
+        <translation>تغييرات الهواء البسيطة في الساعة: </translation>
     </message>
 </context>
 <context>
@@ -21745,17 +21745,17 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
-        <translation>عامل C:</translation>
+        <translation>عامل C: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
-        <translation>الارتفاع:</translation>
+        <translation>الارتفاع: </translation>
     </message>
 </context>
 <context>
@@ -21763,22 +21763,22 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
-        <translation>معامل F:</translation>
+        <translation>معامل F: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
-        <translation>المساحة:</translation>
+        <translation>المساحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
-        <translation>الحد الخارجي المكشوف:</translation>
+        <translation>الحد الخارجي المكشوف: </translation>
     </message>
 </context>
 <context>
@@ -21786,12 +21786,12 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
-        <translation>الطبقة:</translation>
+        <translation>الطبقة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
@@ -21814,12 +21814,12 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
-        <translation>طبقة:</translation>
+        <translation>طبقة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
@@ -21839,22 +21839,22 @@ Note: &quot;Terminal Unit Outlet&quot; is a technical term in HVAC systems. If y
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
-        <translation>المصدر موجود بعد الطبقة:</translation>
+        <translation>المصدر موجود بعد الطبقة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>حساب درجة الحرارة المطلوب بعد رقم الطبقة:</translation>
+        <translation>حساب درجة الحرارة المطلوب بعد رقم الطبقة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>الأبعاد لحساب CTF:</translation>
+        <translation>الأبعاد لحساب CTF: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
-        <translation>تباعد الأنابيب:</translation>
+        <translation>تباعد الأنابيب: </translation>
     </message>
 </context>
 <context>
@@ -22283,7 +22283,8 @@ Precipitation</source>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
-        <translation>منطقة الإفلات</translation>
+        <translation>منطقة
+الإفلات</translation>
     </message>
 </context>
 <context>
@@ -22452,37 +22453,37 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>مستوى التصميم:</translation>
+        <translation>مستوى التصميم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>واط لكل متر مربع من مساحة الفراغ:</translation>
+        <translation>واط لكل متر مربع من مساحة الفراغ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>واط لكل شخص:</translation>
+        <translation>واط لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>نسبة الكمون:</translation>
+        <translation>نسبة الكمون: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>الجزء المفقود:</translation>
+        <translation>الجزء المفقود: </translation>
     </message>
 </context>
 <context>
@@ -22505,7 +22506,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>اختر المسار إلى</translation>
+        <translation>اختر المسار إلى </translation>
     </message>
 </context>
 <context>
@@ -22760,7 +22761,8 @@ Exterior Equipment</source>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Drop Shading
 Surface Group</source>
-        <translation>مجموعة أسطح الظلال المنخفضة</translation>
+        <translation>مجموعة أسطح
+الظلال المنخفضة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78"/>
@@ -22976,42 +22978,42 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>مستوى التصميم:</translation>
+        <translation>مستوى التصميم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>قدرة لكل وحدة مساحة أرضية:</translation>
+        <translation>قدرة لكل وحدة مساحة أرضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>القدرة لكل شخص:</translation>
+        <translation>القدرة لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>نسبة الكامنة:</translation>
+        <translation>نسبة الكامنة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>الجزء المفقود:</translation>
+        <translation>الجزء المفقود: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>معدل توليد ثاني أكسيد الكربون:</translation>
+        <translation>معدل توليد ثاني أكسيد الكربون: </translation>
     </message>
 </context>
 <context>
@@ -23131,12 +23133,12 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
-        <translation>نوع التبريد:</translation>
+        <translation>نوع التبريد: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
-        <translation>نوع التدفئة:</translation>
+        <translation>نوع التدفئة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
@@ -23270,7 +23272,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
-        <translation>نوع حلقة النبات:</translation>
+        <translation>نوع حلقة النبات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
@@ -23416,37 +23418,37 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
-        <translation>مستوى التصميم:</translation>
+        <translation>مستوى التصميم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>واط لكل وحدة مساحة أرضية:</translation>
+        <translation>واط لكل وحدة مساحة أرضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
-        <translation>وات لكل شخص:</translation>
+        <translation>وات لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
-        <translation>الكسر الكامن:</translation>
+        <translation>الكسر الكامن: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
-        <translation>الجزء المفقود:</translation>
+        <translation>الجزء المفقود: </translation>
     </message>
 </context>
 <context>
@@ -23462,27 +23464,27 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
-        <translation>مساحة السطح:</translation>
+        <translation>مساحة السطح: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>مساحة السطح لكل مساحة أرضية للفراغ:</translation>
+        <translation>مساحة السطح لكل مساحة أرضية للفراغ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
-        <translation>مساحة السطح لكل شخص:</translation>
+        <translation>مساحة السطح لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
-        <translation>الإنشاء:</translation>
+        <translation>الإنشاء: </translation>
     </message>
 </context>
 <context>
@@ -23659,37 +23661,37 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>قوة الإضاءة:</translation>
+        <translation>قوة الإضاءة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>واط لكل وحدة مساحة أرضية:</translation>
+        <translation>واط لكل وحدة مساحة أرضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>واط لكل شخص:</translation>
+        <translation>واط لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
-        <translation>جزء مرئي:</translation>
+        <translation>جزء مرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
-        <translation>نسبة الهواء الراجع:</translation>
+        <translation>نسبة الهواء الراجع: </translation>
     </message>
 </context>
 <context>
@@ -23819,23 +23821,23 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>خط العرض:</translation>
+        <translation>خط العرض: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>خط الطول:</translation>
+        <translation>خط الطول: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>الارتفاع:</translation>
+        <translation>الارتفاع: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>منطقة زمنية:</translation>
+        <translation>منطقة زمنية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
@@ -23928,7 +23930,7 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>فشل تعيين ملف الطقس إلى</translation>
+        <translation>فشل تعيين ملف الطقس إلى </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -24013,77 +24015,57 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
-        <source>Packaged DX Rooftop VAV 
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>وحدة DX سقفية مدمجة ذات تدفق هواء متغير مع إعادة تسخين</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
-        <source>Packaged Rooftop 
-VAV with Parallel Fan 
-Power Boxes and reheat</source>
-        <translation>وحدة سقفية معبأة
-VAV مع صناديق طاقة مراوح متوازية وإعادة تسخين</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>وحدة سقفية معبأة VAV مع صناديق طاقة مراوح متوازية وإعادة تسخين</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
-        <source>Packaged Rooftop 
-VAV with Reheat</source>
-        <translation>وحدة سقفية معبأة
-VAV مع إعادة تسخين</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>وحدة سقفية معبأة VAV مع إعادة تسخين</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
-        <source>VAV with Parallel Fan-Powered 
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV مع صناديق ذات مروحة متوازية وإعادة تسخين</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
-        <source>Warm Air Furnace 
-Gas Fired</source>
-        <translation>فرن الهواء الدافئ
-بحقن الغاز</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>فرن الهواء الدافئ بحقن الغاز</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
-        <source>Warm Air Furnace 
-Electric</source>
-        <translation>فرن الهواء الدافئ
-كهربائي</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>فرن الهواء الدافئ كهربائي</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>وحدة DX سقفية معبأة VAV مع إعادة تسخين</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>Rooftop متكامل VAV مع صناديق مروحة موازية وإعادة تسخين</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
+        <source>Packaged Rooftop VAV with Reheat</source>
         <translation>VAV مع إعادة تسخين بنظام سقفي معبأ</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>صناديق مروحة متوازية مع إعادة تسخين VAV</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>فرن الهواء الدافئ
-يعمل بالغاز</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>فرن الهواء الدافئ يعمل بالغاز</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>فرن الهواء الدافئ
-كهربائي</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>فرن الهواء الدافئ كهربائي</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
@@ -24114,7 +24096,7 @@ Electric</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>اتصال الإنترنت:</translation>
+        <translation>اتصال الإنترنت: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -24126,7 +24108,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>تسجيل الدخول إلى السحابة:</translation>
+        <translation>تسجيل الدخول إلى السحابة: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -24138,7 +24120,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>اتصال سحابي:</translation>
+        <translation>اتصال سحابي: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -24146,7 +24128,7 @@ Electric</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>غير قادر على إعادة الاتصال.</translation>
+        <translation>غير قادر على إعادة الاتصال. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -24158,7 +24140,7 @@ Electric</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>حاول لاحقاً.</translation>
+        <translation>حاول لاحقاً. </translation>
     </message>
     <message>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
@@ -24170,7 +24152,7 @@ Electric</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>إيقاف السحابة.</translation>
+        <translation>إيقاف السحابة. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -24178,7 +24160,7 @@ Electric</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>فتح AWS Console.</translation>
+        <translation>فتح AWS Console. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -24190,27 +24172,27 @@ Electric</source>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>قوة الإضاءة:</translation>
+        <translation>قوة الإضاءة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
-        <translation>نسبة الرؤية:</translation>
+        <translation>نسبة الرؤية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
-        <translation>نسبة الهواء العائد:</translation>
+        <translation>نسبة الهواء العائد: </translation>
     </message>
 </context>
 <context>
@@ -25852,7 +25834,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>مبادل حراري أرضي - رأسي</translation>
+        <translation>مبادل حراري أرضي - رأسي </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
@@ -26220,12 +26202,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
-        <translation>المقاومة الحرارية:</translation>
+        <translation>المقاومة الحرارية: </translation>
     </message>
 </context>
 <context>
@@ -26233,47 +26215,47 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
-        <translation>خشونة:</translation>
+        <translation>خشونة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
-        <translation>السُمك:</translation>
+        <translation>السُمك: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
-        <translation>التوصيلية:</translation>
+        <translation>التوصيلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
-        <translation>الكثافة:</translation>
+        <translation>الكثافة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
-        <translation>الحرارة النوعية:</translation>
+        <translation>الحرارة النوعية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
-        <translation>امتصاصية حرارية:</translation>
+        <translation>امتصاصية حرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
-        <translation>امتصاصية الشمس:</translation>
+        <translation>امتصاصية الشمس: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
-        <translation>امتصاصية الضوء المرئي:</translation>
+        <translation>امتصاصية الضوء المرئي: </translation>
     </message>
 </context>
 <context>
@@ -26281,32 +26263,32 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
-        <translation>الخشونة:</translation>
+        <translation>الخشونة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
-        <translation>المقاومة الحرارية:</translation>
+        <translation>المقاومة الحرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
-        <translation>امتصاصية حرارية:</translation>
+        <translation>امتصاصية حرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
-        <translation>الامتصاصية الشمسية:</translation>
+        <translation>الامتصاصية الشمسية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
-        <translation>امتصاصية الضوء المرئي:</translation>
+        <translation>امتصاصية الضوء المرئي: </translation>
     </message>
 </context>
 <context>
@@ -26314,97 +26296,97 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
-        <translation>ارتفاع النباتات:</translation>
+        <translation>ارتفاع النباتات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
-        <translation>مؤشر مساحة الأوراق:</translation>
+        <translation>مؤشر مساحة الأوراق: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
-        <translation>انعكاسية الأوراق:</translation>
+        <translation>انعكاسية الأوراق: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
-        <translation>انبعاثية الورقة:</translation>
+        <translation>انبعاثية الورقة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>الحد الأدنى لمقاومة الفتحات:</translation>
+        <translation>الحد الأدنى لمقاومة الفتحات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
-        <translation>اسم طبقة التربة:</translation>
+        <translation>اسم طبقة التربة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
-        <translation>الخشونة:</translation>
+        <translation>الخشونة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
-        <translation>السمك:</translation>
+        <translation>السمك: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>التوصيل الحراري للتربة الجافة:</translation>
+        <translation>التوصيل الحراري للتربة الجافة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
-        <translation>كثافة التربة الجافة:</translation>
+        <translation>كثافة التربة الجافة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>الحرارة النوعية للتربة الجافة:</translation>
+        <translation>الحرارة النوعية للتربة الجافة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
-        <translation>امتصاصية حرارية:</translation>
+        <translation>امتصاصية حرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
-        <translation>امتصاصية الإشعاع الشمسي:</translation>
+        <translation>امتصاصية الإشعاع الشمسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
-        <translation>امتصاصية الضوء المرئي:</translation>
+        <translation>امتصاصية الضوء المرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>محتوى الرطوبة الحجمي المشبع لطبقة التربة:</translation>
+        <translation>محتوى الرطوبة الحجمي المشبع لطبقة التربة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>محتوى الرطوبة الحجمية المتبقية لطبقة التربة:</translation>
+        <translation>محتوى الرطوبة الحجمية المتبقية لطبقة التربة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>المحتوى الرطوبي الحجمي الأولي لطبقة التربة:</translation>
+        <translation>المحتوى الرطوبي الحجمي الأولي لطبقة التربة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>طريقة حساب انتشار الرطوبة:</translation>
+        <translation>طريقة حساب انتشار الرطوبة: </translation>
     </message>
 </context>
 <context>
@@ -26497,7 +26479,8 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>تم تحديث الإجراءات على BCL مقارنة بدليل BCL المحلي لديك.</translation>
+        <translation> تم تحديث الإجراءات على BCL مقارنة بدليل BCL المحلي
+لديك.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -26688,7 +26671,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>أنشئ ملف تعريف جديد لتجاوز ملف تعريف فترة التشغيل الافتراضي.</translation>
+        <translation>  أنشئ ملف تعريف جديد لتجاوز ملف تعريف فترة التشغيل الافتراضي.</translation>
     </message>
 </context>
 <context>
@@ -26934,13 +26917,13 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>الترجمة من الإصدار</translation>
+        <translation>الترجمة من الإصدار </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
-        <translation>إلى</translation>
+        <translation> إلى </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
@@ -26990,7 +26973,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) وأن جميع الحقول صحيحة وفقاً لـ Energy+.idd.</translation>
+        <translation>) وأن جميع الحقول صحيحة وفقاً لـ Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -27005,38 +26988,44 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>فشل استيراد IDF</translation>
+        <translation> فشل استيراد IDF</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== الأخطاء ===============</translation>
+        <translation>===============
+الأخطاء
+===============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== تحذيرات ==============</translation>
+        <translation>==============
+تحذيرات
+==============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== لم يتم استيراد كائنات idf التالية ====</translation>
+        <translation>==== لم يتم استيراد كائنات idf
+التالية
+====</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation>مسمى</translation>
+        <translation> مسمى </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation>بدون اسم</translation>
+        <translation>بدون اسم </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
@@ -27056,7 +27045,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
-        <translation>استيراد</translation>
+        <translation>استيراد </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
@@ -27066,7 +27055,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>حدثت أخطاء أو تحذيرات أثناء استيراد</translation>
+        <translation>حدثت أخطاء أو تحذيرات أثناء استيراد </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -27076,12 +27065,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
-        <translation>لم يتمكن من الاستيراد</translation>
+        <translation>لم يتمكن من الاستيراد </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
-        <translation>الملف في</translation>
+        <translation> الملف في </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
@@ -27127,7 +27116,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>مدير مقاييس الخادم:</translation>
+        <translation>مدير مقاييس الخادم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -27137,7 +27126,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>دليل مؤقت:</translation>
+        <translation>دليل مؤقت: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -27151,7 +27140,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <source>About </source>
-        <translation>حول</translation>
+        <translation>حول </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
@@ -27161,17 +27150,17 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>فتح الإصدار المستقبلي</translation>
+        <translation>فتح الإصدار المستقبلي </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>باستخدام</translation>
+        <translation> باستخدام </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
-        <translation>تم تحديث النموذج من</translation>
+        <translation>تم تحديث النموذج من </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
@@ -27183,7 +27172,7 @@ Ruby scripts are no longer supported and have been replaced by measures.</source
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>فشل في فتح الملف في</translation>
+        <translation>فشل في فتح الملف في </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -27225,7 +27214,9 @@ Do you want to create a new model?</source>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>مدير التدابير قد توقف عن العمل، جاري محاولة إعادة التشغيل</translation>
+        <translation>مدير التدابير قد توقف عن العمل، جاري محاولة
+إعادة
+التشغيل</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -27253,14 +27244,18 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>فشل تحميل المكتبات التالية...</translation>
+        <translation>فشل تحميل
+المكتبات
+التالية...</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>هل تريد استعادة مسارات المكتبة إلى القيم الافتراضية أم فتح إعدادات المكتبة لتغييرها يدويًا؟</translation>
+        <translation>هل
+تريد
+استعادة مسارات المكتبة إلى القيم الافتراضية أم فتح إعدادات المكتبة لتغييرها يدويًا؟</translation>
     </message>
 </context>
 <context>
@@ -27268,37 +27263,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>مستوى التصميم:</translation>
+        <translation>مستوى التصميم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>قوة لكل وحدة مساحة أرضية:</translation>
+        <translation>قوة لكل وحدة مساحة أرضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>القدرة لكل شخص:</translation>
+        <translation>القدرة لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>نسبة الحرارة الكامنة:</translation>
+        <translation>نسبة الحرارة الكامنة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>الكسر المفقود:</translation>
+        <translation>الكسر المفقود: </translation>
     </message>
 </context>
 <context>
@@ -27329,37 +27324,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
-        <translation>عدد الأشخاص:</translation>
+        <translation>عدد الأشخاص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
-        <translation>عدد الأشخاص لكل وحدة مساحة أرضية الفراغ:</translation>
+        <translation>عدد الأشخاص لكل وحدة مساحة أرضية الفراغ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
-        <translation>مساحة أرضية المساحة لكل شخص:</translation>
+        <translation>مساحة أرضية المساحة لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
-        <translation>نسبة الحرارة الحسية:</translation>
+        <translation>نسبة الحرارة الحسية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>معدل توليد ثاني أكسيد الكربون:</translation>
+        <translation>معدل توليد ثاني أكسيد الكربون: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
@@ -27447,7 +27442,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
-        <translation>سعة التبريد</translation>
+        <translation>سعة
+التبريد</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
@@ -27543,7 +27539,8 @@ Compressor</source>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
-        <translation>تحويل لأحرف صغيرة</translation>
+        <translation>تحويل لأحرف
+صغيرة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
@@ -27695,7 +27692,7 @@ Detailed Reports</source>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
-        <translation>التقارير:</translation>
+        <translation>التقارير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
@@ -27723,7 +27720,8 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
-        <translation>لم يتم العثور على DView في المكان المتوقع:</translation>
+        <translation>لم يتم العثور على DView في المكان
+المتوقع:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
@@ -27737,7 +27735,7 @@ in Preferences</source>
     </message>
     <message>
         <source>Custom Report </source>
-        <translation>تقرير مخصص</translation>
+        <translation>تقرير مخصص </translation>
     </message>
 </context>
 <context>
@@ -27753,12 +27751,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: فشل تشغيل المحاكاة، QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: فشل تشغيل المحاكاة، QProcess::ProcessError: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>فشل تشغيل المحاكاة، مع رمز الخروج</translation>
+        <translation>فشل تشغيل المحاكاة، مع رمز الخروج </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27866,12 +27864,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
-        <translation>المحتوى:</translation>
+        <translation>المحتوى: </translation>
     </message>
 </context>
 <context>
@@ -27879,16 +27877,16 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
-        <translation>القيمة:</translation>
+        <translation>القيمة: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>القيمة:</translation>
+        <translation> القيمة: </translation>
     </message>
 </context>
 <context>
@@ -27934,17 +27932,17 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
-        <translation>نوع رقمي:</translation>
+        <translation>نوع رقمي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
-        <translation>الحد الأدنى:</translation>
+        <translation>الحد الأدنى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
-        <translation>الحد الأعلى:</translation>
+        <translation>الحد الأعلى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
@@ -27964,32 +27962,32 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
-        <translation>مسار الملف:</translation>
+        <translation>مسار الملف: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
-        <translation>رقم العمود:</translation>
+        <translation>رقم العمود: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
-        <translation>الصفوف المراد تخطيها من الأعلى:</translation>
+        <translation>الصفوف المراد تخطيها من الأعلى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
-        <translation>عدد ساعات البيانات:</translation>
+        <translation>عدد ساعات البيانات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
-        <translation>فاصل الأعمدة:</translation>
+        <translation>فاصل الأعمدة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
@@ -28014,37 +28012,37 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
-        <translation>استيفاء إلى الخطوة الزمنية:</translation>
+        <translation>استيفاء إلى الخطوة الزمنية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
-        <translation>دقائق لكل عنصر:</translation>
+        <translation>دقائق لكل عنصر: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>ضبط الجدول الزمني لتوفير أشعة النهار:</translation>
+        <translation>ضبط الجدول الزمني لتوفير أشعة النهار: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
-        <translation>ترجمة الملف مع المسار النسبي:</translation>
+        <translation>ترجمة الملف مع المسار النسبي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
-        <translation>المحتوى:</translation>
+        <translation>المحتوى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
-        <translation>عدد الأسطر في الملف:</translation>
+        <translation>عدد الأسطر في الملف: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
-        <translation>عرض محتوى الملف بالكامل:</translation>
+        <translation>عرض محتوى الملف بالكامل: </translation>
     </message>
 </context>
 <context>
@@ -28052,12 +28050,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
-        <translation>الحد الأدنى:</translation>
+        <translation>الحد الأدنى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
-        <translation>الحد الأعلى:</translation>
+        <translation>الحد الأعلى: </translation>
     </message>
 </context>
 <context>
@@ -28472,72 +28470,72 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
-        <translation>الأشعات المتراكمة لكل سجل:</translation>
+        <translation>الأشعات المتراكمة لكل سجل: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
-        <translation>عتبة مباشرة:</translation>
+        <translation>عتبة مباشرة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
-        <translation>الثقة المباشرة:</translation>
+        <translation>الثقة المباشرة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
-        <translation>الارتجاج المباشر:</translation>
+        <translation>الارتجاج المباشر: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
-        <translation>اختبار مباشر أولي:</translation>
+        <translation>اختبار مباشر أولي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ambient Bounces DMX:</translation>
+        <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
-        <translation>تقسيمات الوسط المحيط VMX:</translation>
+        <translation>تقسيمات الوسط المحيط VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
-        <translation>تقسيمات محيطية DMX:</translation>
+        <translation>تقسيمات محيطية DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
-        <translation>عينات محيطة إضافية:</translation>
+        <translation>عينات محيطة إضافية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
-        <translation>حد الوزن VMX:</translation>
+        <translation>حد الوزن VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
-        <translation>حد الوزن DMX:</translation>
+        <translation>حد الوزن DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
-        <translation>كثافة عينات كليمس:</translation>
+        <translation>كثافة عينات كليمس: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
-        <translation>دقة تقسيم السماء:</translation>
+        <translation>دقة تقسيم السماء: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
@@ -28903,13 +28901,13 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
-        <translation>°م</translation>
+        <translation> °م</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
@@ -29020,7 +29018,8 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>الفرق الأقصى في متوسط درجات الحرارة الخارجية الشهرية</translation>
+        <translation>الفرق الأقصى في متوسط درجات
+الحرارة الخارجية الشهرية</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
@@ -29252,7 +29251,8 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286"/>
         <source>Measure
 Tags</source>
-        <translation>علامات المقياس</translation>
+        <translation>علامات
+المقياس</translation>
     </message>
 </context>
 <context>
@@ -30647,62 +30647,62 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
-        <translation>معيار:</translation>
+        <translation>معيار: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
-        <translation>مصدر قياسي:</translation>
+        <translation>مصدر قياسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
-        <translation>نوع السطح المقصود:</translation>
+        <translation>نوع السطح المقصود: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
-        <translation>نوع البناء القياسي:</translation>
+        <translation>نوع البناء القياسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
-        <translation>نوع الفتحات الزجاجية:</translation>
+        <translation>نوع الفتحات الزجاجية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
-        <translation>سياق تجميع الفتحات:</translation>
+        <translation>سياق تجميع الفتحات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
-        <translation>عدد أجزاء النوافذ:</translation>
+        <translation>عدد أجزاء النوافذ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
-        <translation>نوع إطار الفتحات:</translation>
+        <translation>نوع إطار الفتحات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
-        <translation>نوع فاصل الفتحة:</translation>
+        <translation>نوع فاصل الفتحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
-        <translation>تلوين الفتحات الزجاجية:</translation>
+        <translation>تلوين الفتحات الزجاجية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
-        <translation>ملء الغاز للفتحات:</translation>
+        <translation>ملء الغاز للفتحات: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>طلاء منخفض الانبعاثية للنوافذ:</translation>
+        <translation>طلاء منخفض الانبعاثية للنوافذ: </translation>
     </message>
 </context>
 <context>
@@ -30715,47 +30715,47 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
-        <translation>معيار:</translation>
+        <translation>معيار: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
-        <translation>المصدر القياسي:</translation>
+        <translation>المصدر القياسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
-        <translation>فئة المعايير:</translation>
+        <translation>فئة المعايير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
-        <translation>معرف المعايير:</translation>
+        <translation>معرف المعايير: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
-        <translation>مادة التأطير المركبة:</translation>
+        <translation>مادة التأطير المركبة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
-        <translation>تكوين الإطار المركب:</translation>
+        <translation>تكوين الإطار المركب: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
-        <translation>عمق الإطار المركب:</translation>
+        <translation>عمق الإطار المركب: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
-        <translation>حجم الإطار المركب:</translation>
+        <translation>حجم الإطار المركب: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
-        <translation>عازل التجويف المركب:</translation>
+        <translation>عازل التجويف المركب: </translation>
     </message>
 </context>
 <context>
@@ -30836,37 +30836,37 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>مستوى التصميم:</translation>
+        <translation>مستوى التصميم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>القدرة لكل متر مربع من مساحة الأرضية:</translation>
+        <translation>القدرة لكل متر مربع من مساحة الأرضية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>الطاقة لكل شخص:</translation>
+        <translation>الطاقة لكل شخص: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>الجزء الكامن:</translation>
+        <translation>الجزء الكامن: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>نسبة الإشعاع:</translation>
+        <translation>نسبة الإشعاع: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>الكسر المفقود:</translation>
+        <translation>الكسر المفقود: </translation>
     </message>
 </context>
 <context>
@@ -30977,7 +30977,8 @@ Air Loads</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371"/>
         <source>Cooling Thermostat
 Schedule</source>
-        <translation>جدول منظم حرارة التبريد</translation>
+        <translation>جدول منظم حرارة
+التبريد</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114"/>
@@ -30985,7 +30986,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415"/>
         <source>Heating Thermostat
 Schedule</source>
-        <translation>جدول زمني لمنظم الحرارة للتدفئة</translation>
+        <translation>جدول زمني لمنظم الحرارة
+للتدفئة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115"/>
@@ -30993,7 +30995,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>جدول نقطة التحكم في الترطيب</translation>
+        <translation>جدول نقطة التحكم في
+الترطيب</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
@@ -31001,7 +31004,8 @@ Schedule</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505"/>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>جدول نقطة التحكم في إزالة الرطوبة</translation>
+        <translation>جدول نقطة التحكم في إزالة
+الرطوبة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117"/>
@@ -31036,7 +31040,8 @@ Air Humidity Ratio</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
-        <translation>عامل تحديد حجم تبريد المنطقة</translation>
+        <translation>عامل تحديد حجم
+تبريد المنطقة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
@@ -31065,7 +31070,8 @@ in Cooling Mode</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
-        <translation>كسر تدفق الهواء الأدنى للتبريد</translation>
+        <translation>كسر تدفق الهواء
+الأدنى للتبريد</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
@@ -31091,7 +31097,8 @@ Air Flow Rate</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>تدفق الهواء الأدنى للتبريد</translation>
+        <translation>تدفق الهواء الأدنى
+للتبريد</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
@@ -31121,7 +31128,8 @@ Air Humidity Ratio</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
-        <translation>عامل تحديد حجم التدفئة في المنطقة</translation>
+        <translation>عامل تحديد حجم
+التدفئة في المنطقة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
@@ -31168,7 +31176,8 @@ Air Flow Method</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230"/>
         <source>Heating Design
 Air Flow Rate</source>
-        <translation>معدل تدفق الهواء لتصميم التدفئة</translation>
+        <translation>معدل تدفق الهواء
+لتصميم التدفئة</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149"/>
@@ -31176,7 +31185,8 @@ Air Flow Rate</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234"/>
         <source>Heating Maximum
 Air Flow</source>
-        <translation>تدفق الهواء الأقصى للتسخين</translation>
+        <translation>تدفق الهواء الأقصى
+للتسخين</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
@@ -31197,7 +31207,8 @@ Air Flow</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
-        <translation>أنظمة HVAC</translation>
+        <translation>أنظمة
+HVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
@@ -31212,7 +31223,9 @@ Parameters</source>
         <source>Heating
 Sizing
 Parameters</source>
-        <translation>معاملات تحديد حجم التدفئة</translation>
+        <translation>معاملات
+تحديد
+حجم التدفئة</translation>
     </message>
 </context>
 <context>
@@ -31244,12 +31257,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
-        <translation>تاريخ البداية</translation>
+        <translation>تاريخ البداية </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
-        <translation>تاريخ الانتهاء</translation>
+        <translation>   تاريخ الانتهاء </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
@@ -31513,32 +31526,32 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
-        <translation>فئة الاستخدام الفرعية:</translation>
+        <translation>فئة الاستخدام الفرعية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
-        <translation>معدل التدفق الأقصى:</translation>
+        <translation>معدل التدفق الأقصى: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
-        <translation>جدول درجة الحرارة المستهدفة:</translation>
+        <translation>جدول درجة الحرارة المستهدفة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
-        <translation>جدول كسر الحرارة المحسوسة:</translation>
+        <translation>جدول كسر الحرارة المحسوسة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
-        <translation>جدول الكسر الكامن:</translation>
+        <translation>جدول الكسر الكامن: </translation>
     </message>
 </context>
 <context>
@@ -31554,149 +31567,149 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
-        <translation>اتجاه الألواح:</translation>
+        <translation>اتجاه الألواح: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
-        <translation>عرض الشريحة:</translation>
+        <translation>عرض الشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
-        <translation>فصل الشرائح:</translation>
+        <translation>فصل الشرائح: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
-        <translation>سمك الشريحة:</translation>
+        <translation>سمك الشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
-        <translation>زاوية الشريحة:</translation>
+        <translation>زاوية الشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
-        <translation>توصيل الشرائح:</translation>
+        <translation>توصيل الشرائح: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>نفاذية الشمس لحزمة الشرائح:</translation>
+        <translation>نفاذية الشمس لحزمة الشرائح: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>انعكاسية شعاع الشمس للألواح الأمامية:</translation>
+        <translation>انعكاسية شعاع الشمس للألواح الأمامية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>انعكاسية شعاع الشمس لجانب الشريحة الخلفي:</translation>
+        <translation>انعكاسية شعاع الشمس لجانب الشريحة الخلفي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>نفاذية الشمس المنتشرة للشريط:</translation>
+        <translation>نفاذية الشمس المنتشرة للشريط: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>انعكاسية الإشعاع الشمسي المنتشرة للجانب الأمامي للشريحة:</translation>
+        <translation>انعكاسية الإشعاع الشمسي المنتشرة للجانب الأمامي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>انعكاسية الشمس المنتشرة للجانب الخلفي للشريحة:</translation>
+        <translation>انعكاسية الشمس المنتشرة للجانب الخلفي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>نفاذية الشعاع المرئي للشريحة:</translation>
+        <translation>نفاذية الشعاع المرئي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>انعكاسية شعاع الرقائق المرئية للجانب الأمامي:</translation>
+        <translation>انعكاسية شعاع الرقائق المرئية للجانب الأمامي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>انعكاسية شعاع الألواح المرئية من الجانب الخلفي:</translation>
+        <translation>انعكاسية شعاع الألواح المرئية من الجانب الخلفي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>نفاذية الشرائح المنتشرة للضوء المرئي:</translation>
+        <translation>نفاذية الشرائح المنتشرة للضوء المرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>معامل انعكاس الضوء المرئي المنتشر للجانب الأمامي للشريحة:</translation>
+        <translation>معامل انعكاس الضوء المرئي المنتشر للجانب الأمامي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
         <translation>Back Side Slat Diffuse Visible Reflectance:
 
-انعكاسية الضوء المرئي الناشرة للجانب الخلفي للشريحة:</translation>
+انعكاسية الضوء المرئي الناشرة للجانب الخلفي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>نفاذية الشرائح للأشعة تحت الحمراء نصف الكروية:</translation>
+        <translation>نفاذية الشرائح للأشعة تحت الحمراء نصف الكروية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>انبعاثية الأشعة تحت الحمراء نصف الكروية لجانب الشريحة الأمامي:</translation>
+        <translation>انبعاثية الأشعة تحت الحمراء نصف الكروية لجانب الشريحة الأمامي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>الانبعاثية الكروية للأشعة تحت الحمراء على الجانب الخلفي للشريحة:</translation>
+        <translation>الانبعاثية الكروية للأشعة تحت الحمراء على الجانب الخلفي للشريحة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
-        <translation>مسافة الستارة من الزجاج:</translation>
+        <translation>مسافة الستارة من الزجاج: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>مضاعف فتح الستارة العلوي:</translation>
+        <translation>مضاعف فتح الستارة العلوي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>مضاعف فتحة الستار السفلية:</translation>
+        <translation>مضاعف فتحة الستار السفلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>مضاعف فتح الجانب الأيسر للعتمة:</translation>
+        <translation>مضاعف فتح الجانب الأيسر للعتمة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>مضاعف فتح الستارة من الجانب الأيمن:</translation>
+        <translation>مضاعف فتح الستارة من الجانب الأيمن: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
-        <translation>زاوية الشريحة الدنيا:</translation>
+        <translation>زاوية الشريحة الدنيا: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
-        <translation>الحد الأقصى لزاوية الشريط:</translation>
+        <translation>الحد الأقصى لزاوية الشريط: </translation>
     </message>
 </context>
 <context>
@@ -31704,12 +31717,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
-        <translation>نوع جهاز إعادة توجيه الضوء الطبيعي:</translation>
+        <translation>نوع جهاز إعادة توجيه الضوء الطبيعي: </translation>
     </message>
 </context>
 <context>
@@ -31717,52 +31730,52 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
-        <translation>نوع الغاز:</translation>
+        <translation>نوع الغاز: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
-        <translation>السمك:</translation>
+        <translation>السمك: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
-        <translation>معامل التوصيلية أ:</translation>
+        <translation>معامل التوصيلية أ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
-        <translation>معامل التوصيل B:</translation>
+        <translation>معامل التوصيل B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
-        <translation>معامل اللزوجة أ:</translation>
+        <translation>معامل اللزوجة أ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
-        <translation>معامل اللزوجة B:</translation>
+        <translation>معامل اللزوجة B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
-        <translation>معامل الحرارة النوعية أ:</translation>
+        <translation>معامل الحرارة النوعية أ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
-        <translation>معامل الحرارة النوعية B:</translation>
+        <translation>معامل الحرارة النوعية B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
-        <translation>الوزن الجزيئي:</translation>
+        <translation>الوزن الجزيئي: </translation>
     </message>
 </context>
 <context>
@@ -31770,57 +31783,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>السمك:</translation>
+        <translation>السمك: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
-        <translation>عدد الغازات في الخليط:</translation>
+        <translation>عدد الغازات في الخليط: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
-        <translation>نسبة الغاز 1:</translation>
+        <translation>نسبة الغاز 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
-        <translation>نوع الغاز 1:</translation>
+        <translation>نوع الغاز 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
-        <translation>حصة الغاز 2:</translation>
+        <translation>حصة الغاز 2: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
-        <translation>نوع الغاز 2:</translation>
+        <translation>نوع الغاز 2: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
-        <translation>حصة الغاز 3:</translation>
+        <translation>حصة الغاز 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
-        <translation>نوع الغاز 3:</translation>
+        <translation>نوع الغاز 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
-        <translation>نسبة الغاز 4:</translation>
+        <translation>نسبة الغاز 4: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
-        <translation>نوع الغاز 4:</translation>
+        <translation>نوع الغاز 4: </translation>
     </message>
 </context>
 <context>
@@ -31828,82 +31841,82 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
-        <translation>نوع البيانات البصرية:</translation>
+        <translation>نوع البيانات البصرية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>اسم مجموعة بيانات الطيف الزجاجي للنافذة:</translation>
+        <translation>اسم مجموعة بيانات الطيف الزجاجي للنافذة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
-        <translation>السمك:</translation>
+        <translation>السمك: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>النفاذية الشمسية عند الإشعاع الطبيعي:</translation>
+        <translation>النفاذية الشمسية عند الإشعاع الطبيعي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>العاكسية الشمسية للسطح الأمامي عند الحدوث الطبيعي:</translation>
+        <translation>العاكسية الشمسية للسطح الأمامي عند الحدوث الطبيعي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>انعكاسية الشمس في الجانب الخلفي عند الحدوث الطبيعي:</translation>
+        <translation>انعكاسية الشمس في الجانب الخلفي عند الحدوث الطبيعي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>نفاذية الضوء المرئي عند الحدوث الطبيعي:</translation>
+        <translation>نفاذية الضوء المرئي عند الحدوث الطبيعي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>العاكسية المرئية للسطح الأمامي عند زاوية السقوط الطبيعية:</translation>
+        <translation>العاكسية المرئية للسطح الأمامي عند زاوية السقوط الطبيعية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>انعكاسية الجانب الخلفي المرئية عند الإصابة الطبيعية:</translation>
+        <translation>انعكاسية الجانب الخلفي المرئية عند الإصابة الطبيعية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Infrared Transmittance at Normal Incidence:</translation>
+        <translation>Infrared Transmittance at Normal Incidence: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>الانبعاثية نصف الكروية للأشعة تحت الحمراء من الجانب الأمامي:</translation>
+        <translation>الانبعاثية نصف الكروية للأشعة تحت الحمراء من الجانب الأمامي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>إمسيفيتية الأشعة تحت الحمراء نصف الكروية للجانب الخلفي:</translation>
+        <translation>إمسيفيتية الأشعة تحت الحمراء نصف الكروية للجانب الخلفي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
-        <translation>التوصيلية:</translation>
+        <translation>التوصيلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>عامل تصحيح الأوساخ لنقل الطاقة الشمسية والمرئية:</translation>
+        <translation>عامل تصحيح الأوساخ لنقل الطاقة الشمسية والمرئية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
-        <translation>الانتشار الشمسي:</translation>
+        <translation>الانتشار الشمسي: </translation>
     </message>
 </context>
 <context>
@@ -31911,59 +31924,59 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>السماكة:</translation>
+        <translation>السماكة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
-        <translation>مؤشر الانكسار الشمسي:</translation>
+        <translation>مؤشر الانكسار الشمسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
-        <translation>معامل الانقراض الشمسي:</translation>
+        <translation>معامل الانقراض الشمسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
-        <translation>مؤشر الانكسار المرئي:</translation>
+        <translation>مؤشر الانكسار المرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
-        <translation>معامل الانقراض المرئي:</translation>
+        <translation>معامل الانقراض المرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>نفاذية الأشعة تحت الحمراء عند الحدوث الطبيعي:</translation>
+        <translation>نفاذية الأشعة تحت الحمراء عند الحدوث الطبيعي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>الإشعاع تحت الأحمر - الانبعاثية نصف الكروية:</translation>
+        <translation>الإشعاع تحت الأحمر - الانبعاثية نصف الكروية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
-        <translation>التوصيلية:</translation>
+        <translation>التوصيلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>عامل تصحيح الأوساخ لنقل الطاقة الشمسية والمرئية:</translation>
+        <translation>عامل تصحيح الأوساخ لنقل الطاقة الشمسية والمرئية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
         <translation>Solar Diffusing:
 
-الانتشار الشمسي:</translation>
+الانتشار الشمسي: </translation>
     </message>
 </context>
 <context>
@@ -31971,72 +31984,72 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>طريقة محاسبة نفاذية الشعاع المنعكسة:</translation>
+        <translation>طريقة محاسبة نفاذية الشعاع المنعكسة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>انعكاسية الشمس المنتشرة:</translation>
+        <translation>انعكاسية الشمس المنتشرة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>انعكاسية الضوء المرئي المنتشرة:</translation>
+        <translation>انعكاسية الضوء المرئي المنتشرة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>الإشعاعية النصف كروية الحرارية:</translation>
+        <translation>الإشعاعية النصف كروية الحرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
-        <translation>التوصيلية:</translation>
+        <translation>التوصيلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
-        <translation>مسافة مادة الشاشة:</translation>
+        <translation>مسافة مادة الشاشة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
-        <translation>قطر مادة الشاشة:</translation>
+        <translation>قطر مادة الشاشة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
-        <translation>مسافة الشاشة إلى الزجاج:</translation>
+        <translation>مسافة الشاشة إلى الزجاج: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
-        <translation>مضاعف الفتحة العلوية:</translation>
+        <translation>مضاعف الفتحة العلوية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>مضاعف الفتحة السفلية:</translation>
+        <translation>مضاعف الفتحة السفلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
-        <translation>مضاعف فتحة الجانب الأيسر:</translation>
+        <translation>مضاعف فتحة الجانب الأيسر: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
-        <translation>مضاعف فتحة الجانب الأيمن:</translation>
+        <translation>مضاعف فتحة الجانب الأيمن: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>زاوية الدقة لخريطة مخرجات نفاذية الشاشة:</translation>
+        <translation>زاوية الدقة لخريطة مخرجات نفاذية الشاشة: </translation>
     </message>
 </context>
 <context>
@@ -32044,77 +32057,77 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
-        <translation>نفاذية الطاقة الشمسية:</translation>
+        <translation>نفاذية الطاقة الشمسية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
-        <translation>العكسية الشمسية:</translation>
+        <translation>العكسية الشمسية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
-        <translation>نفاذية الضوء المرئي:</translation>
+        <translation>نفاذية الضوء المرئي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
-        <translation>انعكاسية مرئية:</translation>
+        <translation>انعكاسية مرئية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>الانبعاثية نصف الكروية الحرارية:</translation>
+        <translation>الانبعاثية نصف الكروية الحرارية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
-        <translation>نقل الحرارة:</translation>
+        <translation>نقل الحرارة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
-        <translation>السماكة:</translation>
+        <translation>السماكة: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
-        <translation>التوصيلية:</translation>
+        <translation>التوصيلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
-        <translation>مسافة الظل من الزجاج:</translation>
+        <translation>مسافة الظل من الزجاج: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
-        <translation>مضروب الفتحة العلوية:</translation>
+        <translation>مضروب الفتحة العلوية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>مضاعف الفتحة السفلية:</translation>
+        <translation>مضاعف الفتحة السفلية: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>مضاعف الفتحة على الجانب الأيسر:</translation>
+        <translation>مضاعف الفتحة على الجانب الأيسر: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>مضاعف فتح الجانب الأيمن:</translation>
+        <translation>مضاعف فتح الجانب الأيمن: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
-        <translation>نفاذية تدفق الهواء:</translation>
+        <translation>نفاذية تدفق الهواء: </translation>
     </message>
 </context>
 <context>
@@ -32122,22 +32135,22 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>الاسم:</translation>
+        <translation>الاسم: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
-        <translation>معامل الانتقال الحراري (U-Factor):</translation>
+        <translation>معامل الانتقال الحراري (U-Factor): </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>معامل الكسب الحراري الشمسي:</translation>
+        <translation>معامل الكسب الحراري الشمسي: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
-        <translation>نفاذية الضوء المرئي:</translation>
+        <translation>نفاذية الضوء المرئي: </translation>
     </message>
 </context>
 <context>
@@ -32338,7 +32351,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
@@ -32376,7 +32389,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver غير متصل بشكل صحيح. يرجى التحقق من تشغيل BIMserver والتأكد من صحة اسم المستخدم وكلمة المرور.</translation>
+        <translation>BIMserver غير متصل بشكل صحيح. يرجى التحقق من تشغيل BIMserver والتأكد من صحة اسم المستخدم وكلمة
+المرور.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
@@ -32401,7 +32415,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>يرجى إدخال اسم المشروع:</translation>
+        <translation>يرجى إدخال اسم المشروع: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -32446,7 +32460,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>يرجى إدخال معلومات BIMserver:</translation>
+        <translation>يرجى إدخال معلومات BIMserver: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -32482,7 +32496,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>يرجى توفير عنوان BIMserver صحيح، والمنفذ، واسم المستخدم وكلمة المرور. يمكنك طلب هذه المعلومات من مسؤول BIMserver الخاص بك.</translation>
+        <translation>يرجى توفير عنوان BIMserver صحيح، والمنفذ، واسم المستخدم وكلمة المرور. يمكنك طلب هذه المعلومات من مسؤول BIMserver الخاص
+بك.</translation>
     </message>
 </context>
 <context>

@@ -17,7 +17,8 @@ namespace openstudio {
 LoopLibraryDialog::LoopLibraryDialog(QWidget* parent) : QDialog(parent) {
   setObjectName("GrayWidget");
 
-  setFixedSize(280, 584);
+  setMinimumSize(280, 400);
+  setSizeGripEnabled(true);
 
   setWindowTitle(tr("Add HVAC System"));
   setWindowFlags(Qt::WindowFlags(Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint));
@@ -71,17 +72,17 @@ LoopLibraryDialog::LoopLibraryDialog(QWidget* parent) : QDialog(parent) {
 
   newItem(ADDTOMODEL_SYSTEM_TYPE_4, tr("Packaged Rooftop Heat Pump"), QPixmap(":/images/system_type_4.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_5, tr("Packaged DX Rooftop VAV \nwith Reheat"), QPixmap(":/images/system_type_5.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_5, tr("Packaged DX Rooftop VAV with Reheat"), QPixmap(":/images/system_type_5.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_6, tr("Packaged Rooftop \nVAV with Parallel Fan \nPower Boxes and reheat"), QPixmap(":/images/system_type_6.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_6, tr("Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat"), QPixmap(":/images/system_type_6.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_7, tr("Packaged Rooftop \nVAV with Reheat"), QPixmap(":/images/system_type_7.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_7, tr("Packaged Rooftop VAV with Reheat"), QPixmap(":/images/system_type_7.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_8, tr("VAV with Parallel Fan-Powered \nBoxes and Reheat"), QPixmap(":/images/system_type_8.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_8, tr("VAV with Parallel Fan-Powered Boxes and Reheat"), QPixmap(":/images/system_type_8.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_9, tr("Warm Air Furnace \nGas Fired"), QPixmap(":/images/system_type_9.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_9, tr("Warm Air Furnace Gas Fired"), QPixmap(":/images/system_type_9.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_10, tr("Warm Air Furnace \nElectric"), QPixmap(":/images/system_type_10.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_10, tr("Warm Air Furnace Electric"), QPixmap(":/images/system_type_10.png"));
 
   newItem(ADDTOMODEL_AIRLOOPHVAC, tr("Empty Air Loop"), QPixmap(":/images/air_loop_icon.png"));
 
@@ -130,7 +131,9 @@ LoopItemView::LoopItemView(const AddToModelEnum& addToModelEnum, const QString& 
   setLayout(mainVLayout);
 
   auto* label = new QLabel(detailedText);
-  mainVLayout->addWidget(label, 0, Qt::AlignLeft);
+  label->setWordWrap(true);
+  label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+  mainVLayout->addWidget(label);
 
   auto* imageLabel = new QLabel();
   imageLabel->setFixedSize(m_pixmap.size());

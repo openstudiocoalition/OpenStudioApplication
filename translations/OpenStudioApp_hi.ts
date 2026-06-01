@@ -18114,95 +18114,95 @@ or
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Zone ITE समायोजित वापसी वायु तापमान</translation>
+        <translation>Zone ITE समायोजित वापसी वायु तापमान </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Zone ITE वायु द्रव्यमान प्रवाह दर</translation>
+        <translation>Zone ITE वायु द्रव्यमान प्रवाह दर </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE कोई भी Air Inlet Dewpoint Temperature नीचे Operating Range Time</translation>
+        <translation>Zone ITE कोई भी Air Inlet Dewpoint Temperature नीचे Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index</translation>
+        <translation>Zone ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Zone ITE CPU Electricity Energy</translation>
+        <translation>Zone ITE CPU Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Zone ITE CPU विद्युत दर</translation>
+        <translation>Zone ITE CPU विद्युत दर </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Electricity Rate at Design Inlet Conditions</translation>
+        <translation>Zone ITE CPU Electricity Rate at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Zone ITE Fan Electricity Energy</translation>
+        <translation>Zone ITE Fan Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Zone ITE Fan Electricity Rate</translation>
+        <translation>Zone ITE Fan Electricity Rate </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone ITE Fan Electricity Rate at Design Inlet Conditions</translation>
+        <translation>Zone ITE Fan Electricity Rate at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Zone ITE Standard Density Air Volume Flow Rate</translation>
+        <translation>Zone ITE Standard Density Air Volume Flow Rate </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Zone ITE कुल Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE कुल Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Zone ITE Total Heat Gain to Zone Rate</translation>
+        <translation>Zone ITE Total Heat Gain to Zone Rate </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Zone ITE UPS Electricity Energy</translation>
+        <translation>Zone ITE UPS Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone ITE UPS Electricity Rate</translation>
+        <translation>Zone ITE UPS Electricity Rate </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Rate</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Rate </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -19396,103 +19396,103 @@ If you need the Hindi version:
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>ITE समायोजित रिटर्न वायु तापमान</translation>
+        <translation>ITE समायोजित रिटर्न वायु तापमान </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>ITE वायु द्रव्यमान प्रवाह दर</translation>
+        <translation>ITE वायु द्रव्यमान प्रवाह दर </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE किसी भी वायु इनलेट ओस बिंदु तापमान ऑपरेटिंग रेंज से ऊपर समय</translation>
+        <translation>ITE किसी भी वायु इनलेट ओस बिंदु तापमान ऑपरेटिंग रेंज से ऊपर समय </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE किसी भी एयर इनलेट ऑपरेटिंग रेंज अतिक्रम समय</translation>
+        <translation>ITE किसी भी एयर इनलेट ऑपरेटिंग रेंज अतिक्रम समय </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE Average Supply Heat Index</translation>
+        <translation>ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>ITE CPU विद्युत ऊर्जा</translation>
+        <translation>ITE CPU विद्युत ऊर्जा </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE CPU विद्युत ऊर्जा डिज़ाइन इनलेट स्थितियों पर</translation>
+        <translation>ITE CPU विद्युत ऊर्जा डिज़ाइन इनलेट स्थितियों पर </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>ITE CPU विद्युत दर</translation>
+        <translation>ITE CPU विद्युत दर </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE CPU विद्युत दर डिजाइन इनलेट स्थितियों पर</translation>
+        <translation>ITE CPU विद्युत दर डिजाइन इनलेट स्थितियों पर </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE पंखा विद्युत ऊर्जा</translation>
+        <translation>ITE पंखा विद्युत ऊर्जा </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE पंखे की विद्युत ऊर्जा डिज़ाइन इनलेट स्थितियों पर</translation>
+        <translation>ITE पंखे की विद्युत ऊर्जा डिज़ाइन इनलेट स्थितियों पर </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>ITE पंखा विद्युत दर</translation>
+        <translation>ITE पंखा विद्युत दर </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE प्रशंसक विद्युत दर डिज़ाइन इनलेट स्थितियों पर</translation>
+        <translation>ITE प्रशंसक विद्युत दर डिज़ाइन इनलेट स्थितियों पर </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>ITE Standard Density Air Volume Flow Rate</translation>
+        <translation>ITE Standard Density Air Volume Flow Rate </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE कुल ऊष्मा लाभ जोन ऊर्जा के लिए</translation>
+        <translation>ITE कुल ऊष्मा लाभ जोन ऊर्जा के लिए </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>ITE कुल ताप लाभ से क्षेत्र दर</translation>
+        <translation>ITE कुल ताप लाभ से क्षेत्र दर </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>ITE UPS विद्युत ऊर्जा</translation>
+        <translation>ITE UPS विद्युत ऊर्जा </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>ITE UPS बिजली दर</translation>
+        <translation>ITE UPS बिजली दर </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS Zone ऊष्मा लाभ ऊर्जा</translation>
+        <translation>ITE UPS Zone ऊष्मा लाभ ऊर्जा </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>ITE UPS को जोन में ताप लाभ दर</translation>
+        <translation>ITE UPS को जोन में ताप लाभ दर </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -20934,17 +20934,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
-        <translation>प्रदर्शन नाम:</translation>
+        <translation>प्रदर्शन नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
-        <translation>CAD Object Id:</translation>
+        <translation>CAD Object Id: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
@@ -20954,62 +20954,62 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
-        <translation>मानक टेम्पलेट:</translation>
+        <translation>मानक टेम्पलेट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
-        <translation>मानदंड भवन प्रकार:</translation>
+        <translation>मानदंड भवन प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>मानक फर्श से छत की ऊंचाई:</translation>
+        <translation>मानक फर्श से छत की ऊंचाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>नाममात्र फर्श से फर्श की ऊंचाई:</translation>
+        <translation>नाममात्र फर्श से फर्श की ऊंचाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
-        <translation>Standards Number of Stories: मानकों में मंजिलों की संख्या:</translation>
+        <translation>Standards Number of Stories: मानकों में मंजिलों की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Standards Number of Above Ground Stories में किया जाता है।</translation>
+        <translation>Standards Number of Above Ground Stories में किया जाता है। </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
-        <translation>Standards Number of Living Units के लिए मानक संख्या:</translation>
+        <translation>Standards Number of Living Units के लिए मानक संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
-        <translation>स्थानांतरणीय:</translation>
+        <translation>स्थानांतरणीय: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
-        <translation>North Axis (उत्तर अक्ष):</translation>
+        <translation>North Axis (उत्तर अक्ष): </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
-        <translation>Space Type: स्पेस प्रकार:</translation>
+        <translation>Space Type: स्पेस प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
-        <translation>डिफ़ॉल्ट निर्माण सेट:</translation>
+        <translation>डिफ़ॉल्ट निर्माण सेट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
-        <translation>डिफ़ॉल्ट शेड्यूल सेट:</translation>
+        <translation>डिफ़ॉल्ट शेड्यूल सेट: </translation>
     </message>
 </context>
 <context>
@@ -21132,17 +21132,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
-        <translation>वायु विनिमय विधि:</translation>
+        <translation>वायु विनिमय विधि: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>सरल मिश्रण वायु परिवर्तन प्रति घंटा:</translation>
+        <translation>सरल मिश्रण वायु परिवर्तन प्रति घंटा: </translation>
     </message>
 </context>
 <context>
@@ -21150,17 +21150,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
-        <translation>C-फैक्टर:</translation>
+        <translation>C-फैक्टर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
-        <translation>ऊंचाई:</translation>
+        <translation>ऊंचाई: </translation>
     </message>
 </context>
 <context>
@@ -21168,22 +21168,22 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
-        <translation>क्षेत्र:</translation>
+        <translation>क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
-        <translation>परिधि उजागर:</translation>
+        <translation>परिधि उजागर: </translation>
     </message>
 </context>
 <context>
@@ -21191,12 +21191,12 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
-        <translation>परत:</translation>
+        <translation>परत: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
@@ -21219,12 +21219,12 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
-        <translation>परत:</translation>
+        <translation>परत: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
@@ -21244,22 +21244,22 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
-        <translation>स्रोत परत के बाद मौजूद:</translation>
+        <translation>स्रोत परत के बाद मौजूद: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>परत संख्या के बाद तापमान गणना अनुरोधित:</translation>
+        <translation>परत संख्या के बाद तापमान गणना अनुरोधित: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>CTF गणना के लिए आयाम:</translation>
+        <translation>CTF गणना के लिए आयाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
-        <translation>नली रिक्ति:</translation>
+        <translation>नली रिक्ति: </translation>
     </message>
 </context>
 <context>
@@ -21521,7 +21521,9 @@ However, if you need a Hindi translation:
         <source>Pressure
 Wind
 Precipitation</source>
-        <translation>दबाव हवा वर्षा</translation>
+        <translation>दबाव
+हवा
+वर्षा</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
@@ -21691,7 +21693,8 @@ Precipitation</source>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
-        <translation>ड्रॉप क्षेत्र</translation>
+        <translation>ड्रॉप
+क्षेत्र</translation>
     </message>
 </context>
 <context>
@@ -21860,37 +21863,37 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>डिज़ाइन स्तर:</translation>
+        <translation>डिज़ाइन स्तर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>प्रति स्पेस फ्लोर एरिया वाट्स:</translation>
+        <translation>प्रति स्पेस फ्लोर एरिया वाट्स: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>प्रति व्यक्ति वाट:</translation>
+        <translation>प्रति व्यक्ति वाट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>अंश सुप्त:</translation>
+        <translation>अंश सुप्त: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>विकिरण अंश:</translation>
+        <translation>विकिरण अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>खोया हुआ अंश:</translation>
+        <translation>खोया हुआ अंश: </translation>
     </message>
 </context>
 <context>
@@ -21913,7 +21916,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>पथ चुनें</translation>
+        <translation>पथ चुनें </translation>
     </message>
 </context>
 <context>
@@ -22058,7 +22061,8 @@ Zone</source>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Drop
 Exterior Equipment</source>
-        <translation>बाहरी उपकरण छोड़ें</translation>
+        <translation>बाहरी
+उपकरण छोड़ें</translation>
     </message>
 </context>
 <context>
@@ -22384,42 +22388,42 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>डिज़ाइन स्तर:</translation>
+        <translation>डिज़ाइन स्तर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>बिजली प्रति स्पेस फर्श क्षेत्र:</translation>
+        <translation>बिजली प्रति स्पेस फर्श क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>प्रति व्यक्ति शक्ति:</translation>
+        <translation>प्रति व्यक्ति शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>अंश सुप्त:</translation>
+        <translation>अंश सुप्त: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>अंश विकिरण:</translation>
+        <translation>अंश विकिरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>खोया हुआ अंश:</translation>
+        <translation>खोया हुआ अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>कार्बन डाइऑक्साइड जनरेशन दर:</translation>
+        <translation>कार्बन डाइऑक्साइड जनरेशन दर: </translation>
     </message>
 </context>
 <context>
@@ -22539,12 +22543,12 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
-        <translation>शीतलन प्रकार:</translation>
+        <translation>शीतलन प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
-        <translation>ताप प्रकार:</translation>
+        <translation>ताप प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
@@ -22678,7 +22682,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
-        <translation>संयंत्र लूप प्रकार:</translation>
+        <translation>संयंत्र लूप प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
@@ -22824,37 +22828,37 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
-        <translation>डिज़ाइन स्तर:</translation>
+        <translation>डिज़ाइन स्तर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>प्रति स्पेस फ़्लोर एरिया वाट्स:</translation>
+        <translation>प्रति स्पेस फ़्लोर एरिया वाट्स: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
-        <translation>वाट्स प्रति व्यक्ति:</translation>
+        <translation>वाट्स प्रति व्यक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
-        <translation>अंश सुप्त:</translation>
+        <translation>अंश सुप्त: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
-        <translation>अंश विकिरण:</translation>
+        <translation>अंश विकिरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
-        <translation>खोया हुआ अंश:</translation>
+        <translation>खोया हुआ अंश: </translation>
     </message>
 </context>
 <context>
@@ -22870,27 +22874,27 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
-        <translation>सतह क्षेत्र:</translation>
+        <translation>सतह क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Surface Area Per Space Floor Area:</translation>
+        <translation>Surface Area Per Space Floor Area: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
-        <translation>Surface Area Per Person: प्रति व्यक्ति सतह क्षेत्र:</translation>
+        <translation>Surface Area Per Person: प्रति व्यक्ति सतह क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
-        <translation>निर्माण:</translation>
+        <translation>निर्माण: </translation>
     </message>
 </context>
 <context>
@@ -23067,37 +23071,37 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>प्रकाश शक्ति:</translation>
+        <translation>प्रकाश शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>प्रति स्पेस फर्श क्षेत्र वाट:</translation>
+        <translation>प्रति स्पेस फर्श क्षेत्र वाट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>प्रति व्यक्ति वाट:</translation>
+        <translation>प्रति व्यक्ति वाट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
-        <translation>विकिरण अंश:</translation>
+        <translation>विकिरण अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
-        <translation>दृश्यमान अंश:</translation>
+        <translation>दृश्यमान अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
-        <translation>रिटर्न एयर फ्रैक्शन:</translation>
+        <translation>रिटर्न एयर फ्रैक्शन: </translation>
     </message>
 </context>
 <context>
@@ -23227,23 +23231,23 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>अक्षांश:</translation>
+        <translation>अक्षांश: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>देशान्तर:</translation>
+        <translation>देशान्तर: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>ऊंचाई:</translation>
+        <translation>ऊंचाई: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>समय क्षेत्र:</translation>
+        <translation>समय क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
@@ -23336,7 +23340,7 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल</translation>
+        <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -23421,76 +23425,57 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
-        <source>Packaged DX Rooftop VAV 
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>पैकेज्ड DX रूफटॉप VAV रीहीट के साथ</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
-        <source>Packaged Rooftop 
-VAV with Parallel Fan 
-Power Boxes and reheat</source>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>पैकेज्ड रूफटॉप VAV समानांतर फैन पावर बॉक्स और रीहीट के साथ</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
-        <source>Packaged Rooftop 
-VAV with Reheat</source>
+        <source>Packaged Rooftop VAV with Reheat</source>
         <translation>Packaged Rooftop VAV with Reheat</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
-        <source>VAV with Parallel Fan-Powered 
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV समांतर पंखा-संचालित बॉक्स और पुनः ताप के साथ</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
-        <source>Warm Air Furnace 
-Gas Fired</source>
-        <translation>गर्म हवा फर्नेस
-गैस संचालित</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>गर्म हवा फर्नेस गैस संचालित</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
-        <source>Warm Air Furnace 
-Electric</source>
-        <translation>गर्म हवा फर्नेस
-विद्युत</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>गर्म हवा फर्नेस विद्युत</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>पैकेज्ड DX रूफटॉप VAV रीहीट के साथ</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>पैकेजड रूफटॉप VAV समानांतर फैन पावर बॉक्स और रीहीट के साथ</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Packaged Rooftop
-VAV with Reheat</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Packaged Rooftop VAV with Reheat</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV समानांतर पंखा-संचालित बॉक्स और पुनः तापन के साथ</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>गर्म हवा फर्नेस
-गैस से चलने वाला</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>गर्म हवा फर्नेस गैस से चलने वाला</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>गर्म वायु भट्टी
-विद्युत</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>गर्म वायु भट्टी विद्युत</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
@@ -23521,7 +23506,7 @@ Electric</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>इंटरनेट कनेक्शन:</translation>
+        <translation>इंटरनेट कनेक्शन: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -23533,7 +23518,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>क्लाउड लॉग-इन:</translation>
+        <translation>क्लाउड लॉग-इन: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -23545,7 +23530,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>क्लाउड कनेक्शन:</translation>
+        <translation>क्लाउड कनेक्शन: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -23553,7 +23538,7 @@ Electric</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>पुन: कनेक्ट करने में असमर्थ.</translation>
+        <translation>पुन: कनेक्ट करने में असमर्थ. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -23565,7 +23550,7 @@ Electric</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>बाद में पुन: प्रयास करें.</translation>
+        <translation>बाद में पुन: प्रयास करें. </translation>
     </message>
     <message>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
@@ -23577,7 +23562,7 @@ Electric</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>क्लाउड बंद करो.</translation>
+        <translation>क्लाउड बंद करो. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -23585,7 +23570,7 @@ Electric</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>एडब्ल्यूएस कंसोल लॉन्च करें.</translation>
+        <translation>एडब्ल्यूएस कंसोल लॉन्च करें. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -23597,27 +23582,27 @@ Electric</source>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>प्रकाश शक्ति:</translation>
+        <translation>प्रकाश शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
-        <translation>अंश विकिरण:</translation>
+        <translation>अंश विकिरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
-        <translation>दृश्यमान अंश:</translation>
+        <translation>दृश्यमान अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
-        <translation>रिटर्न एयर फ्रैक्शन:</translation>
+        <translation>रिटर्न एयर फ्रैक्शन: </translation>
     </message>
 </context>
 <context>
@@ -25262,7 +25247,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>भूमि ताप विनिमयक - ऊर्ध्वाधर</translation>
+        <translation>भूमि ताप विनिमयक - ऊर्ध्वाधर </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
@@ -25630,12 +25615,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
-        <translation>थर्मल प्रतिरोध:</translation>
+        <translation>थर्मल प्रतिरोध: </translation>
     </message>
 </context>
 <context>
@@ -25643,47 +25628,47 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
-        <translation>खुरदरापन:</translation>
+        <translation>खुरदरापन: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
-        <translation>चालकता:</translation>
+        <translation>चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
-        <translation>घनत्व:</translation>
+        <translation>घनत्व: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
-        <translation>विशिष्ट ऊष्मा:</translation>
+        <translation>विशिष्ट ऊष्मा: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
-        <translation>थर्मल अब्जॉर्पटेंस:</translation>
+        <translation>थर्मल अब्जॉर्पटेंस: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
-        <translation>सौर अवशोषकता:</translation>
+        <translation>सौर अवशोषकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
-        <translation>दृश्यमान अवशोषकता:</translation>
+        <translation>दृश्यमान अवशोषकता: </translation>
     </message>
 </context>
 <context>
@@ -25691,32 +25676,32 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
-        <translation>खुरदरापन:</translation>
+        <translation>खुरदरापन: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
-        <translation>तापीय प्रतिरोध:</translation>
+        <translation>तापीय प्रतिरोध: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
-        <translation>थर्मल अवशोषकता:</translation>
+        <translation>थर्मल अवशोषकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
-        <translation>सौर अवशोषणीयता:</translation>
+        <translation>सौर अवशोषणीयता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
-        <translation>दृश्य अवशोषणीयता:</translation>
+        <translation>दृश्य अवशोषणीयता: </translation>
     </message>
 </context>
 <context>
@@ -25724,97 +25709,97 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
-        <translation>पौधों की ऊंचाई:</translation>
+        <translation>पौधों की ऊंचाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
-        <translation>Leaf Area Index:</translation>
+        <translation>Leaf Area Index: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
-        <translation>पत्ती परावर्तनशीलता:</translation>
+        <translation>पत्ती परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
-        <translation>पत्ती उत्सर्जकता:</translation>
+        <translation>पत्ती उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>न्यूनतम स्टोमेटल प्रतिरोध:</translation>
+        <translation>न्यूनतम स्टोमेटल प्रतिरोध: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
-        <translation>मिट्टी की परत का नाम:</translation>
+        <translation>मिट्टी की परत का नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
-        <translation>खुरदरापन:</translation>
+        <translation>खुरदरापन: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>शुष्क मिट्टी की चालकता:</translation>
+        <translation>शुष्क मिट्टी की चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
-        <translation>मिट्टी का सूखा घनत्व:</translation>
+        <translation>मिट्टी का सूखा घनत्व: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>शुष्क मिट्टी की विशिष्ट ऊष्मा:</translation>
+        <translation>शुष्क मिट्टी की विशिष्ट ऊष्मा: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
-        <translation>थर्मल अवशोषितता:</translation>
+        <translation>थर्मल अवशोषितता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
-        <translation>सौर अवशोषकता:</translation>
+        <translation>सौर अवशोषकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
-        <translation>दृश्यमान अवशोषण:</translation>
+        <translation>दृश्यमान अवशोषण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>मिट्टी की परत की संतृप्ति वॉल्यूमेट्रिक नमी सामग्री:</translation>
+        <translation>मिट्टी की परत की संतृप्ति वॉल्यूमेट्रिक नमी सामग्री: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>मिट्टी की परत की अवशिष्ट वॉल्यूमेट्रिक नमी सामग्री:</translation>
+        <translation>मिट्टी की परत की अवशिष्ट वॉल्यूमेट्रिक नमी सामग्री: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>मिट्टी की परत की प्रारंभिक आयतनिक नमी सामग्री:</translation>
+        <translation>मिट्टी की परत की प्रारंभिक आयतनिक नमी सामग्री: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>नमी विसरण गणना विधि:</translation>
+        <translation>नमी विसरण गणना विधि: </translation>
     </message>
 </context>
 <context>
@@ -25907,7 +25892,8 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>BCL पर measures को आपकी स्थानीय BCL directory की तुलना में अपडेट किया गया है।</translation>
+        <translation> BCL पर measures को आपकी स्थानीय BCL directory की तुलना में अपडेट किया गया
+है।</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -26098,7 +26084,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>डिफ़ॉल्ट रन पीरियड प्रोफ़ाइल को ओवरराइड करने के लिए एक नई प्रोफ़ाइल बनाएं।</translation>
+        <translation>  डिफ़ॉल्ट रन पीरियड प्रोफ़ाइल को ओवरराइड करने के लिए एक नई प्रोफ़ाइल बनाएं।</translation>
     </message>
 </context>
 <context>
@@ -26350,13 +26336,13 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>संस्करण</translation>
+        <translation>संस्करण </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
-        <translation>से</translation>
+        <translation> से </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
@@ -26406,7 +26392,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) और यह कि सभी फ़ील्ड एनर्जी+.idd के अनुरूप मान्य हैं.</translation>
+        <translation>) और यह कि सभी फ़ील्ड एनर्जी+.idd के अनुरूप मान्य हैं. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -26421,38 +26407,44 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>आईडीएफ आयात विफल</translation>
+        <translation> आईडीएफ आयात विफल</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== त्रुटियाँ ===============</translation>
+        <translation>===============
+त्रुटियाँ
+===============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============= चेतावनियाँ  =============</translation>
+        <translation>============= चेतावनियाँ
+
+=============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== निम्नलिखित आईडीएफ ऑब्जेक्ट आयात नहीं किए गए थे ====</translation>
+        <translation>==== निम्नलिखित आईडीएफ ऑब्जेक्ट आयात नहीं किए गए
+थे
+====</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation>नामांकित</translation>
+        <translation> नामांकित </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation>अज्ञात</translation>
+        <translation>अज्ञात </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
@@ -26472,7 +26464,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
-        <translation>निर्यात करें</translation>
+        <translation>निर्यात करें </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
@@ -26482,7 +26474,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>निम्न फ़ाइल के आयात पर त्रुटियाँ या चेतावनियाँ हुईं-</translation>
+        <translation>निम्न फ़ाइल के आयात पर त्रुटियाँ या चेतावनियाँ हुईं- </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -26492,12 +26484,12 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
-        <translation>आयात नहीं कर पाए</translation>
+        <translation>आयात नहीं कर पाए </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
-        <translation>इस जगह पर</translation>
+        <translation> इस जगह पर </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
@@ -26543,7 +26535,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>उपाय प्रबंधक सर्वर:</translation>
+        <translation>उपाय प्रबंधक सर्वर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -26553,7 +26545,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>अस्थायी डायरेक्टरी:</translation>
+        <translation>अस्थायी डायरेक्टरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -26567,7 +26559,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
     </message>
     <message>
         <source>About </source>
-        <translation>बारे में</translation>
+        <translation>बारे में </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
@@ -26577,17 +26569,17 @@ If a more localized translation is needed: **स्पेस** or **खाली
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>भविष्य का संस्करण खोलना</translation>
+        <translation>भविष्य का संस्करण खोलना </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>का उपयोग करते हुए</translation>
+        <translation> का उपयोग करते हुए </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
-        <translation>मॉडल से अपडेट किया गया</translation>
+        <translation>मॉडल से अपडेट किया गया </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
@@ -26599,7 +26591,7 @@ Ruby scripts are no longer supported and have been replaced by measures.</source
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>इस जगह पर फ़ाइल खोलने में विफल</translation>
+        <translation>इस जगह पर फ़ाइल खोलने में विफल </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -26641,7 +26633,9 @@ Do you want to create a new model?</source>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>उपाय प्रबंधक क्रैश हो गया है, पुनरारंभ करने का प्रयास कर रहा है</translation>
+        <translation>उपाय प्रबंधक क्रैश हो गया है, पुनरारंभ करने का प्रयास कर
+रहा
+है</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -26669,14 +26663,18 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>निम्नलिखित लाइब्रेरी को लोड करने में विफल...</translation>
+        <translation>निम्नलिखित लाइब्रेरी को लोड करने
+में
+विफल...</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>क्या आप लाइब्रेरी पथों को डिफ़ॉल्ट मानों पर पुनर्स्थापित करना चाहते हैं या उन्हें मैन्युअल रूप से बदलने के लिए लाइब्रेरी सेटिंग्स खोलना चाहते हैं?</translation>
+        <translation>क्या
+आप
+लाइब्रेरी पथों को डिफ़ॉल्ट मानों पर पुनर्स्थापित करना चाहते हैं या उन्हें मैन्युअल रूप से बदलने के लिए लाइब्रेरी सेटिंग्स खोलना चाहते हैं?</translation>
     </message>
 </context>
 <context>
@@ -26684,37 +26682,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>डिज़ाइन स्तर:</translation>
+        <translation>डिज़ाइन स्तर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>प्रति अंतरिक्ष तल क्षेत्र शक्ति:</translation>
+        <translation>प्रति अंतरिक्ष तल क्षेत्र शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>प्रति व्यक्ति शक्ति:</translation>
+        <translation>प्रति व्यक्ति शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>भिन्न अव्यक्त:</translation>
+        <translation>भिन्न अव्यक्त: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>अंश विकिरण:</translation>
+        <translation>अंश विकिरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>खोई हुई भिन्न:</translation>
+        <translation>खोई हुई भिन्न: </translation>
     </message>
 </context>
 <context>
@@ -26745,37 +26743,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
-        <translation>लोगों की संख्या:</translation>
+        <translation>लोगों की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
-        <translation>अंतरिक्ष फर्श क्षेत्र प्रति लोग:</translation>
+        <translation>अंतरिक्ष फर्श क्षेत्र प्रति लोग: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
-        <translation>प्रति व्यक्ति स्पेस फर्श क्षेत्र:</translation>
+        <translation>प्रति व्यक्ति स्पेस फर्श क्षेत्र: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
-        <translation>अंश विकिरण:</translation>
+        <translation>अंश विकिरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
-        <translation>संवेदनशील ऊष्मा अंश:</translation>
+        <translation>संवेदनशील ऊष्मा अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>कार्बन डाइऑक्साइड उत्पन्न दर:</translation>
+        <translation>कार्बन डाइऑक्साइड उत्पन्न दर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
@@ -26863,7 +26861,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
-        <translation>शीतलन क्षमता</translation>
+        <translation>शीतलन
+क्षमता</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
@@ -26961,7 +26960,8 @@ Compressor</source>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
-        <translation>ड्रॉप केस</translation>
+        <translation>ड्रॉप
+केस</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
@@ -27109,18 +27109,20 @@ Walk In</source>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52"/>
         <source>Open DView for
 Detailed Reports</source>
-        <translation>विस्तृत रिपोर्ट के लिए DView खोलें</translation>
+        <translation>विस्तृत रिपोर्ट
+के लिए DView खोलें</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
-        <translation>रिपोर्ट्स:</translation>
+        <translation>रिपोर्ट्स: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
         <source>Set Path to DView
 in Preferences</source>
-        <translation>DView के पथ को Preferences में सेट करें</translation>
+        <translation>DView के पथ को Preferences
+में सेट करें</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
@@ -27141,7 +27143,8 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView अपेक्षित स्थान पर नहीं मिला:</translation>
+        <translation>DView अपेक्षित स्थान पर नहीं
+मिला:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
@@ -27155,7 +27158,7 @@ in Preferences</source>
     </message>
     <message>
         <source>Custom Report </source>
-        <translation>कस्टम रिपोर्ट</translation>
+        <translation>कस्टम रिपोर्ट </translation>
     </message>
 </context>
 <context>
@@ -27171,12 +27174,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: सिमुलेशन चलाने में विफल रहा, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: सिमुलेशन चलाने में विफल रहा, QProcess::ProcessError: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>सिमुलेशन चलाने में विफल, एक्जिट कोड के साथ</translation>
+        <translation>सिमुलेशन चलाने में विफल, एक्जिट कोड के साथ </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27284,12 +27287,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
-        <translation>सामग्री:</translation>
+        <translation>सामग्री: </translation>
     </message>
 </context>
 <context>
@@ -27297,16 +27300,16 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
-        <translation>मान:</translation>
+        <translation>मान: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>मान:</translation>
+        <translation> मान: </translation>
     </message>
 </context>
 <context>
@@ -27352,17 +27355,17 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
-        <translation>संख्यात्मक प्रकार:</translation>
+        <translation>संख्यात्मक प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
-        <translation>निचली सीमा:</translation>
+        <translation>निचली सीमा: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
-        <translation>ऊपरी सीमा:</translation>
+        <translation>ऊपरी सीमा: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
@@ -27382,32 +27385,32 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
-        <translation>फाइल पाथ:</translation>
+        <translation>फाइल पाथ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
-        <translation>कॉलम संख्या:</translation>
+        <translation>कॉलम संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
-        <translation>शीर्ष पर छोड़ने के लिए पंक्तियाँ:</translation>
+        <translation>शीर्ष पर छोड़ने के लिए पंक्तियाँ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
-        <translation>डेटा के घंटों की संख्या:</translation>
+        <translation>डेटा के घंटों की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
-        <translation>कॉलम विभाजक:</translation>
+        <translation>कॉलम विभाजक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
@@ -27432,37 +27435,37 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
-        <translation>समयावधि के लिए अंतर्वेशन करें:</translation>
+        <translation>समयावधि के लिए अंतर्वेशन करें: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
-        <translation>मिनट प्रति आइटम:</translation>
+        <translation>मिनट प्रति आइटम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>डेलाइट सेविंग्स के लिए शेड्यूल समायोजित करें:</translation>
+        <translation>डेलाइट सेविंग्स के लिए शेड्यूल समायोजित करें: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
-        <translation>सापेक्ष पथ के साथ फ़ाइल का अनुवाद करें:</translation>
+        <translation>सापेक्ष पथ के साथ फ़ाइल का अनुवाद करें: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
-        <translation>सामग्री:</translation>
+        <translation>सामग्री: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
-        <translation>फ़ाइल में पंक्तियों की संख्या:</translation>
+        <translation>फ़ाइल में पंक्तियों की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
-        <translation>सभी फाइल सामग्री प्रदर्शित करें:</translation>
+        <translation>सभी फाइल सामग्री प्रदर्शित करें: </translation>
     </message>
 </context>
 <context>
@@ -27470,12 +27473,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
-        <translation>निचली सीमा:</translation>
+        <translation>निचली सीमा: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
-        <translation>ऊपरी सीमा:</translation>
+        <translation>ऊपरी सीमा: </translation>
     </message>
 </context>
 <context>
@@ -27890,72 +27893,72 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
-        <translation>Accumulated Rays per Record:</translation>
+        <translation>Accumulated Rays per Record: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
-        <translation>डायरेक्ट थ्रेसहोल्ड:</translation>
+        <translation>डायरेक्ट थ्रेसहोल्ड: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
-        <translation>प्रत्यक्ष निश्चितता:</translation>
+        <translation>प्रत्यक्ष निश्चितता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
-        <translation>प्रत्यक्ष जिटर:</translation>
+        <translation>प्रत्यक्ष जिटर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
-        <translation>Direct Pretest:</translation>
+        <translation>Direct Pretest: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
-        <translation>परिवेश बाउंस VMX:</translation>
+        <translation>परिवेश बाउंस VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ambient Bounces DMX:</translation>
+        <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
-        <translation>परिवेश विभाजन VMX:</translation>
+        <translation>परिवेश विभाजन VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
-        <translation>Ambient Divisions DMX:</translation>
+        <translation>Ambient Divisions DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
-        <translation>परिवेश सुपरसैंपल्स:</translation>
+        <translation>परिवेश सुपरसैंपल्स: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
-        <translation>सीमा वजन VMX:</translation>
+        <translation>सीमा वजन VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
-        <translation>सीमा भार DMX:</translation>
+        <translation>सीमा भार DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
-        <translation>Klems नमूनाकरण घनत्व:</translation>
+        <translation>Klems नमूनाकरण घनत्व: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
-        <translation>Sky Discretization Resolution:</translation>
+        <translation>Sky Discretization Resolution: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
@@ -28323,13 +28326,13 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
@@ -28440,7 +28443,8 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>मासिक औसत बाहरी वायु तापमान में अधिकतम अंतर</translation>
+        <translation>मासिक औसत बाहरी वायु तापमान
+में अधिकतम अंतर</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
@@ -29098,7 +29102,8 @@ Space</source>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
-        <translation>ड्रॉप स्पेस</translation>
+        <translation>ड्रॉप
+स्पेस</translation>
     </message>
 </context>
 <context>
@@ -30020,7 +30025,8 @@ Space</source>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
-        <translation>ड्रॉप स्पेस</translation>
+        <translation>ड्रॉप
+स्पेस</translation>
     </message>
 </context>
 <context>
@@ -30084,62 +30090,62 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
-        <translation>मानक:</translation>
+        <translation>मानक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
-        <translation>मानक स्रोत:</translation>
+        <translation>मानक स्रोत: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
-        <translation>उद्देश्यपूर्ण सतह प्रकार:</translation>
+        <translation>उद्देश्यपूर्ण सतह प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
-        <translation>Standards Construction Type: मानक निर्माण प्रकार:</translation>
+        <translation>Standards Construction Type: मानक निर्माण प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
-        <translation>खिड़की का प्रकार:</translation>
+        <translation>खिड़की का प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
-        <translation>खिड़की असेंबली संदर्भ:</translation>
+        <translation>खिड़की असेंबली संदर्भ: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
-        <translation>खिड़की में पैनल की संख्या:</translation>
+        <translation>खिड़की में पैनल की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
-        <translation>फेनेस्ट्रेशन फ्रेम प्रकार:</translation>
+        <translation>फेनेस्ट्रेशन फ्रेम प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
-        <translation>Fenestration Divider Type: खिड़की विभाजक प्रकार:</translation>
+        <translation>Fenestration Divider Type: खिड़की विभाजक प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
-        <translation>फेनेस्ट्रेशन टिंट:</translation>
+        <translation>फेनेस्ट्रेशन टिंट: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
-        <translation>खिड़की गैस भरण:</translation>
+        <translation>खिड़की गैस भरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Fenestration Low Emissivity Coating: खिड़की कम उत्सर्जकता कोटिंग:</translation>
+        <translation>Fenestration Low Emissivity Coating: खिड़की कम उत्सर्जकता कोटिंग: </translation>
     </message>
 </context>
 <context>
@@ -30152,49 +30158,49 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
-        <translation>मानक:</translation>
+        <translation>मानक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
-        <translation>मानक स्रोत:</translation>
+        <translation>मानक स्रोत: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
-        <translation>मानक श्रेणी:</translation>
+        <translation>मानक श्रेणी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
-        <translation>मानक पहचानकर्ता:</translation>
+        <translation>मानक पहचानकर्ता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
-        <translation>समग्र फ्रेमिंग सामग्री:</translation>
+        <translation>समग्र फ्रेमिंग सामग्री: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
-        <translation>कम्पोजिट फ्रेमिंग कॉन्फ़िगरेशन:</translation>
+        <translation>कम्पोजिट फ्रेमिंग कॉन्फ़िगरेशन: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
         <translation>Composite Framing Depth:
 
-कम्पोजिट फ्रेमिंग गहराई:</translation>
+कम्पोजिट फ्रेमिंग गहराई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
-        <translation>कम्पोजिट फ्रेमिंग आकार:</translation>
+        <translation>कम्पोजिट फ्रेमिंग आकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
-        <translation>समग्र गुहा इंसुलेशन:</translation>
+        <translation>समग्र गुहा इंसुलेशन: </translation>
     </message>
 </context>
 <context>
@@ -30275,39 +30281,39 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>डिज़ाइन स्तर:</translation>
+        <translation>डिज़ाइन स्तर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>प्रति स्पेस फ्लोर क्षेत्र शक्ति:</translation>
+        <translation>प्रति स्पेस फ्लोर क्षेत्र शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>प्रति व्यक्ति शक्ति:</translation>
+        <translation>प्रति व्यक्ति शक्ति: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>अंश सुप्त:</translation>
+        <translation>अंश सुप्त: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>विकिरण अंश:</translation>
+        <translation>विकिरण अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Fraction Lost:
 
-हानि का अंश:</translation>
+हानि का अंश: </translation>
     </message>
 </context>
 <context>
@@ -30473,14 +30479,17 @@ Air Temperature</source>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
-        <translation>जोन कूलिंग डिज़ाइन सप्लाई एयर आर्द्रता अनुपात</translation>
+        <translation>जोन कूलिंग
+डिज़ाइन सप्लाई
+एयर आर्द्रता अनुपात</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127"/>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
-        <translation>Zone Cooling Sizing Factor</translation>
+        <translation>Zone Cooling
+Sizing Factor</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
@@ -30489,7 +30498,9 @@ Sizing Factor</source>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
-        <translation>शीतलन न्यूनतम वायु प्रवाह प्रति क्षेत्र तल क्षेत्र</translation>
+        <translation>शीतलन न्यूनतम वायु प्रवाह
+प्रति क्षेत्र
+तल क्षेत्र</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129"/>
@@ -30576,7 +30587,9 @@ Sizing Factor</source>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>हीटिंग अधिकतम वायु प्रवाह प्रति जोन फर्श क्षेत्र</translation>
+        <translation>हीटिंग अधिकतम वायु
+प्रवाह प्रति जोन
+फर्श क्षेत्र</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
@@ -30585,7 +30598,9 @@ Floor Area</source>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
-        <translation>डिज़ाइन ज़ोन वायु वितरण प्रभावशीलता हीटिंग मोड में</translation>
+        <translation>डिज़ाइन ज़ोन
+वायु वितरण प्रभावशीलता
+हीटिंग मोड में</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146"/>
@@ -30676,7 +30691,8 @@ Parameters</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
-        <translation>ड्रॉप क्षेत्र</translation>
+        <translation>ड्रॉप
+क्षेत्र</translation>
     </message>
 </context>
 <context>
@@ -30692,12 +30708,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
-        <translation>शुरुआत तिथि</translation>
+        <translation>शुरुआत तिथि </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
-        <translation>समाप्ति तिथि</translation>
+        <translation>   समाप्ति तिथि </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
@@ -30961,32 +30977,32 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
-        <translation>अंतिम उपयोग उप-श्रेणी:</translation>
+        <translation>अंतिम उपयोग उप-श्रेणी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
-        <translation>पीक फ्लो दर:</translation>
+        <translation>पीक फ्लो दर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
-        <translation>लक्ष्य तापमान अनुसूची:</translation>
+        <translation>लक्ष्य तापमान अनुसूची: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
-        <translation>संवेदनशील अंश अनुसूची:</translation>
+        <translation>संवेदनशील अंश अनुसूची: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
-        <translation>Latent Fraction Schedule:</translation>
+        <translation>Latent Fraction Schedule: </translation>
     </message>
 </context>
 <context>
@@ -31002,147 +31018,147 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
-        <translation>स्लैट ओरिएंटेशन:</translation>
+        <translation>स्लैट ओरिएंटेशन: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
-        <translation>स्लैट चौड़ाई:</translation>
+        <translation>स्लैट चौड़ाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
-        <translation>स्लैट अलगाव:</translation>
+        <translation>स्लैट अलगाव: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
-        <translation>स्लेट की मोटाई:</translation>
+        <translation>स्लेट की मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
-        <translation>स्लैट कोण:</translation>
+        <translation>स्लैट कोण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
-        <translation>स्लैट चालकता:</translation>
+        <translation>स्लैट चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>स्लैट बीम सोलर ट्रांसमिटेंस:</translation>
+        <translation>स्लैट बीम सोलर ट्रांसमिटेंस: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>सामने की ओर की स्लेट बीम सौर परावर्तकता:</translation>
+        <translation>सामने की ओर की स्लेट बीम सौर परावर्तकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>पिछली ओर स्लैट बीम सौर परावर्तकता:</translation>
+        <translation>पिछली ओर स्लैट बीम सौर परावर्तकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Slat विसरित सौर संप्रेषण:</translation>
+        <translation>Slat विसरित सौर संप्रेषण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>सामने की ओर की स्लैट विसरित सौर प्रतिबिंबितता:</translation>
+        <translation>सामने की ओर की स्लैट विसरित सौर प्रतिबिंबितता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>पिछला पक्ष स्लेट विसरित सौर परावर्तनशीलता:</translation>
+        <translation>पिछला पक्ष स्लेट विसरित सौर परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>स्लैट बीम दृश्य संचरणीयता:</translation>
+        <translation>स्लैट बीम दृश्य संचरणीयता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>सामने की ओर स्लेट बीम दृश्यमान परावर्तनशीलता:</translation>
+        <translation>सामने की ओर स्लेट बीम दृश्यमान परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>पिछला पक्ष स्लैट बीम दृश्य परावर्तकता:</translation>
+        <translation>पिछला पक्ष स्लैट बीम दृश्य परावर्तकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>स्लैट विसरित दृश्य संचारण:</translation>
+        <translation>स्लैट विसरित दृश्य संचारण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>सामने की ओर स्लेट विसरित दृश्य परावर्तनशीलता:</translation>
+        <translation>सामने की ओर स्लेट विसरित दृश्य परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>पिछला पक्ष स्लेट विसरित दृश्यमान परावर्तकता:</translation>
+        <translation>पिछला पक्ष स्लेट विसरित दृश्यमान परावर्तकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Slat अवरक्त गोलार्ध संचारण:</translation>
+        <translation>Slat अवरक्त गोलार्ध संचारण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>अग्र पक्ष स्लैट अवरक्त अर्धगोलीय उत्सर्जनशीलता:</translation>
+        <translation>अग्र पक्ष स्लैट अवरक्त अर्धगोलीय उत्सर्जनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>पिछली ओर की स्लैट अवरक्त गोलार्ध उत्सर्जकता:</translation>
+        <translation>पिछली ओर की स्लैट अवरक्त गोलार्ध उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
-        <translation>ब्लाइंड से ग्लास की दूरी:</translation>
+        <translation>ब्लाइंड से ग्लास की दूरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>ब्लाइंड शीर्ष खुलने वाला गुणक:</translation>
+        <translation>ब्लाइंड शीर्ष खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>ब्लाइंड बॉटम ओपनिंग मल्टीप्लायर:</translation>
+        <translation>ब्लाइंड बॉटम ओपनिंग मल्टीप्लायर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>ब्लाइंड बायीं ओर खुलने वाला गुणक:</translation>
+        <translation>ब्लाइंड बायीं ओर खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>ब्लाइंड राइट साइड ओपनिंग मल्टीप्लायर:</translation>
+        <translation>ब्लाइंड राइट साइड ओपनिंग मल्टीप्लायर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
-        <translation>न्यूनतम स्लैट कोण:</translation>
+        <translation>न्यूनतम स्लैट कोण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
-        <translation>अधिकतम स्लैट कोण:</translation>
+        <translation>अधिकतम स्लैट कोण: </translation>
     </message>
 </context>
 <context>
@@ -31150,12 +31166,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
-        <translation>दिन के प्रकाश पुनर्निर्देशन डिवाइस प्रकार:</translation>
+        <translation>दिन के प्रकाश पुनर्निर्देशन डिवाइस प्रकार: </translation>
     </message>
 </context>
 <context>
@@ -31163,52 +31179,52 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
-        <translation>गैस प्रकार:</translation>
+        <translation>गैस प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
-        <translation>चालकता गुणांक A:</translation>
+        <translation>चालकता गुणांक A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
-        <translation>चालकता गुणांक B:</translation>
+        <translation>चालकता गुणांक B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
-        <translation>Viscosity Coefficient A:</translation>
+        <translation>Viscosity Coefficient A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
-        <translation>चिपचिपापन गुणांक B:</translation>
+        <translation>चिपचिपापन गुणांक B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
-        <translation>विशिष्ट ऊष्मा गुणांक A:</translation>
+        <translation>विशिष्ट ऊष्मा गुणांक A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
-        <translation>विशिष्ट ऊष्मा गुणांक B:</translation>
+        <translation>विशिष्ट ऊष्मा गुणांक B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
-        <translation>आणविक भार:</translation>
+        <translation>आणविक भार: </translation>
     </message>
 </context>
 <context>
@@ -31216,57 +31232,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
-        <translation>मिश्रण में गैसों की संख्या:</translation>
+        <translation>मिश्रण में गैसों की संख्या: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
-        <translation>गैस 1 अंश:</translation>
+        <translation>गैस 1 अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
-        <translation>गैस 1 प्रकार:</translation>
+        <translation>गैस 1 प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
-        <translation>गैस 2 अंश:</translation>
+        <translation>गैस 2 अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
-        <translation>गैस 2 प्रकार:</translation>
+        <translation>गैस 2 प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
-        <translation>गैस 3 अंश:</translation>
+        <translation>गैस 3 अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
-        <translation>गैस 3 प्रकार:</translation>
+        <translation>गैस 3 प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
-        <translation>गैस 4 अंश:</translation>
+        <translation>गैस 4 अंश: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
-        <translation>गैस 4 प्रकार:</translation>
+        <translation>गैस 4 प्रकार: </translation>
     </message>
 </context>
 <context>
@@ -31274,86 +31290,86 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
-        <translation>ऑप्टिकल डेटा प्रकार:</translation>
+        <translation>ऑप्टिकल डेटा प्रकार: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
         <translation>Window Glass Spectral Data Set Name:
 
-विंडो ग्लास स्पेक्ट्रल डेटा सेट नाम:</translation>
+विंडो ग्लास स्पेक्ट्रल डेटा सेट नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>सामान्य आपतन पर सौर संचरणीयता:</translation>
+        <translation>सामान्य आपतन पर सौर संचरणीयता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>सामने की ओर सौर परावर्तनशीलता सामान्य आपतन पर:</translation>
+        <translation>सामने की ओर सौर परावर्तनशीलता सामान्य आपतन पर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Back Side Solar Reflectance At Normal Incidence: सामान्य आपतन पर पिछली ओर सौर परावर्तनशीलता:</translation>
+        <translation>Back Side Solar Reflectance At Normal Incidence: सामान्य आपतन पर पिछली ओर सौर परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>सामान्य आपतन पर दृश्य संप्रेषण:</translation>
+        <translation>सामान्य आपतन पर दृश्य संप्रेषण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>सामने की ओर दृश्यमान परावर्तकता सामान्य आपतन पर:</translation>
+        <translation>सामने की ओर दृश्यमान परावर्तकता सामान्य आपतन पर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>पिछला पक्ष दृश्यमान परावर्तनशीलता सामान्य आपतन पर:</translation>
+        <translation>पिछला पक्ष दृश्यमान परावर्तनशीलता सामान्य आपतन पर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>सामान्य आपतन पर अवरक्त संप्रेषणीयता:</translation>
+        <translation>सामान्य आपतन पर अवरक्त संप्रेषणीयता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>सामने की ओर अवरक्त गोलार्ध उत्सर्जकता:</translation>
+        <translation>सामने की ओर अवरक्त गोलार्ध उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
         <translation>Back Side Infrared Hemispherical Emissivity:
 
-पिछली ओर इन्फ्रारेड अर्धगोलीय उत्सर्जकता:</translation>
+पिछली ओर इन्फ्रारेड अर्धगोलीय उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
-        <translation>चालकता:</translation>
+        <translation>चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>सौर और दृश्यमान संचरण के लिए गंदगी सुधार कारक:</translation>
+        <translation>सौर और दृश्यमान संचरण के लिए गंदगी सुधार कारक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
-        <translation>सौर विसरण:</translation>
+        <translation>सौर विसरण: </translation>
     </message>
 </context>
 <context>
@@ -31361,57 +31377,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
-        <translation>सौर अपवर्तनांक:</translation>
+        <translation>सौर अपवर्तनांक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
-        <translation>सौर विलोपन गुणांक:</translation>
+        <translation>सौर विलोपन गुणांक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
-        <translation>दृश्यमान अपवर्तनांक सूचकांक:</translation>
+        <translation>दृश्यमान अपवर्तनांक सूचकांक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
-        <translation>दृश्य विलुप्ति गुणांक:</translation>
+        <translation>दृश्य विलुप्ति गुणांक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>अवरक्त संचरणीयता सामान्य आपतन पर:</translation>
+        <translation>अवरक्त संचरणीयता सामान्य आपतन पर: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>अवरक्त अर्धगोलीय उत्सर्जकता:</translation>
+        <translation>अवरक्त अर्धगोलीय उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
-        <translation>चालकता:</translation>
+        <translation>चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>सौर और दृश्य संचरण के लिए गंदगी सुधार कारक:</translation>
+        <translation>सौर और दृश्य संचरण के लिए गंदगी सुधार कारक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
-        <translation>सौर विसरण:</translation>
+        <translation>सौर विसरण: </translation>
     </message>
 </context>
 <context>
@@ -31419,72 +31435,72 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>प्रतिबिंबित बीम ट्रांसमिटेंस लेखांकन विधि:</translation>
+        <translation>प्रतिबिंबित बीम ट्रांसमिटेंस लेखांकन विधि: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>विसरित सौर परावर्तनशीलता:</translation>
+        <translation>विसरित सौर परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>विसरित दृश्यमान परावर्तकता:</translation>
+        <translation>विसरित दृश्यमान परावर्तकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>थर्मल गोलार्ध उत्सर्जकता:</translation>
+        <translation>थर्मल गोलार्ध उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
-        <translation>चालकता:</translation>
+        <translation>चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
-        <translation>स्क्रीन सामग्री दूरी:</translation>
+        <translation>स्क्रीन सामग्री दूरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
-        <translation>स्क्रीन सामग्री व्यास:</translation>
+        <translation>स्क्रीन सामग्री व्यास: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
-        <translation>स्क्रीन से ग्लास दूरी:</translation>
+        <translation>स्क्रीन से ग्लास दूरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
-        <translation>शीर्ष खुलने वाला गुणक:</translation>
+        <translation>शीर्ष खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>नीचे की खुली हुई गुणक:</translation>
+        <translation>नीचे की खुली हुई गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
-        <translation>बाईं ओर खुलने वाला गुणक:</translation>
+        <translation>बाईं ओर खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
-        <translation>दाहिनी ओर खुलने वाला गुणक:</translation>
+        <translation>दाहिनी ओर खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>स्क्रीन संचरणीयता आउटपुट मानचित्र के लिए संकल्प का कोण:</translation>
+        <translation>स्क्रीन संचरणीयता आउटपुट मानचित्र के लिए संकल्प का कोण: </translation>
     </message>
 </context>
 <context>
@@ -31492,77 +31508,77 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
-        <translation>सौर संचरण:</translation>
+        <translation>सौर संचरण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
-        <translation>सौर परावर्तनीयता:</translation>
+        <translation>सौर परावर्तनीयता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
-        <translation>दृश्य संप्रेषण:</translation>
+        <translation>दृश्य संप्रेषण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
-        <translation>दृश्यमान परावर्तनशीलता:</translation>
+        <translation>दृश्यमान परावर्तनशीलता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>तापीय अर्धगोलीय उत्सर्जकता:</translation>
+        <translation>तापीय अर्धगोलीय उत्सर्जकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
-        <translation>Thermal Transmittance: ऊष्मीय संचारण:</translation>
+        <translation>Thermal Transmittance: ऊष्मीय संचारण: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
-        <translation>मोटाई:</translation>
+        <translation>मोटाई: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
-        <translation>चालकता:</translation>
+        <translation>चालकता: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
-        <translation>छाया से कांच की दूरी:</translation>
+        <translation>छाया से कांच की दूरी: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
-        <translation>शीर्ष खोलने गुणक:</translation>
+        <translation>शीर्ष खोलने गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>तले की खुली हुई गुणक:</translation>
+        <translation>तले की खुली हुई गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>बाईं ओर की खुली हुई गुणक:</translation>
+        <translation>बाईं ओर की खुली हुई गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>दाहिने-ओर से खुलने वाला गुणक:</translation>
+        <translation>दाहिने-ओर से खुलने वाला गुणक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
-        <translation>वायु प्रवाह पारगम्यता:</translation>
+        <translation>वायु प्रवाह पारगम्यता: </translation>
     </message>
 </context>
 <context>
@@ -31570,22 +31586,22 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>नाम:</translation>
+        <translation>नाम: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
-        <translation>U-Factor:</translation>
+        <translation>U-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>सौर ऊष्मा लाभ गुणांक:</translation>
+        <translation>सौर ऊष्मा लाभ गुणांक: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
-        <translation>दृश्य संचरणीयता:</translation>
+        <translation>दृश्य संचरणीयता: </translation>
     </message>
 </context>
 <context>
@@ -31786,7 +31802,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
@@ -31824,7 +31840,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>बीआईएमसर्वर ठीक से कनेक्ट नहीं है। कृपया जांचें कि क्या बीआईएमसर्वर चल रहा है और सुनिश्चित करें कि आपका उपयोगकर्ता नाम और पासवर्ड मान्य है.</translation>
+        <translation>बीआईएमसर्वर ठीक से कनेक्ट नहीं है। कृपया जांचें कि क्या बीआईएमसर्वर चल रहा है और सुनिश्चित करें कि आपका उपयोगकर्ता नाम और पासवर्ड मान्य
+है.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
@@ -31849,7 +31866,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>कृपया प्रोजेक्ट का नाम दर्ज करें:</translation>
+        <translation>कृपया प्रोजेक्ट का नाम दर्ज करें: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -31894,7 +31911,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>कृपया बीआईएमसर्वर जानकारी दर्ज करें:</translation>
+        <translation>कृपया बीआईएमसर्वर जानकारी दर्ज करें: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -31930,7 +31947,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>कृपया मान्य बीआईएमसर्वर पता, पोर्ट, अपना उपयोगकर्ता नाम और पासवर्ड प्रदान करें। आप ऐसी जानकारी के लिए अपने बीआईएमसर्वर प्रबंधक से पूछ सकते हैं.</translation>
+        <translation>कृपया मान्य बीआईएमसर्वर पता, पोर्ट, अपना उपयोगकर्ता नाम और पासवर्ड प्रदान करें। आप ऐसी जानकारी के लिए अपने बीआईएमसर्वर प्रबंधक से पूछ सकते
+हैं.</translation>
     </message>
 </context>
 <context>

@@ -301,7 +301,7 @@ Bölgesi</translation>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
         <source>Select Path to </source>
-        <translation>Yolu Seç</translation>
+        <translation>Yolu Seç </translation>
     </message>
 </context>
 <context>
@@ -407,23 +407,23 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>Enlem:</translation>
+        <translation>Enlem: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>Boylam:</translation>
+        <translation>Boylam: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>Yükseklik:</translation>
+        <translation>Yükseklik: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>Saat Dilimi:</translation>
+        <translation>Saat Dilimi: </translation>
     </message>
     <message>
         <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
@@ -495,7 +495,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Failed To Set Weather File To </source>
-        <translation>Hava Dosyası Şu Konuma Ayarlanamadı</translation>
+        <translation>Hava Dosyası Şu Konuma Ayarlanamadı </translation>
     </message>
     <message>
         <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
@@ -546,7 +546,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>İnternet Bağlantısı:</translation>
+        <translation>İnternet Bağlantısı: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -558,7 +558,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>Bulut Oturum Açması:</translation>
+        <translation>Bulut Oturum Açması: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -570,7 +570,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>Bulut Bağlantısı:</translation>
+        <translation>Bulut Bağlantısı: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -578,7 +578,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>bağlantı yeniden kurulamadı.</translation>
+        <translation>bağlantı yeniden kurulamadı. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -590,7 +590,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>Daha Sonra Tekrar Deneyin.</translation>
+        <translation>Daha Sonra Tekrar Deneyin. </translation>
     </message>
     <message>
         <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
@@ -602,7 +602,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>Bulutu Durdur.</translation>
+        <translation>Bulutu Durdur. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -610,7 +610,7 @@ Bölgesi</translation>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>AWS Konsolunu Aç.</translation>
+        <translation>AWS Konsolunu Aç. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -898,7 +898,8 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     <message>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>ölçüleri BCL'de yerel BCL dizininizle karşılaştırıldığında güncellenmiştir.</translation>
+        <translation> ölçüleri BCL'de yerel BCL dizininizle karşılaştırıldığında
+güncellenmiştir.</translation>
     </message>
     <message>
         <source>Would you like update them?</source>
@@ -1028,11 +1029,11 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Translation From version </source>
-        <translation>Sürüm Tarihçesi</translation>
+        <translation>Sürüm Tarihçesi </translation>
     </message>
     <message>
         <source> to </source>
-        <translation>-e</translation>
+        <translation> -e </translation>
     </message>
     <message>
         <source>Unknown starting version</source>
@@ -1072,7 +1073,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>') ve tüm alanların Energy+.idd dosyasına karşı geçerli olduğunu doğrulayın.'</translation>
+        <translation>') ve tüm alanların Energy+.idd dosyasına karşı geçerli olduğunu doğrulayın.' </translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
@@ -1084,33 +1085,39 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source> IDF Import Failed</source>
-        <translation>IDF İçe Aktarma Başarısız</translation>
+        <translation> IDF İçe Aktarma Başarısız</translation>
     </message>
     <message>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Hatalar ===============</translation>
+        <translation>===============
+Hatalar
+===============</translation>
     </message>
     <message>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Uyarılar ==============</translation>
+        <translation>==============
+Uyarılar
+==============</translation>
     </message>
     <message>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Aşağıdaki idf nesneleri içeri aktarılmadı ====</translation>
+        <translation>==== Aşağıdaki idf nesneleri içeri
+aktarılmadı
+====</translation>
     </message>
     <message>
         <source> named </source>
-        <translation>adlandırılmış</translation>
+        <translation> adlandırılmış </translation>
     </message>
     <message>
         <source>Unnamed </source>
-        <translation>Adlandırılmamış</translation>
+        <translation>Adlandırılmamış </translation>
     </message>
     <message>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
@@ -1126,7 +1133,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Import </source>
-        <translation>İçeri Aktar</translation>
+        <translation>İçeri Aktar </translation>
     </message>
     <message>
         <source>(*.xml)</source>
@@ -1134,7 +1141,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Errors or warnings occurred on import of </source>
-        <translation>İçe aktarılırken hata veya uyarı oluştu</translation>
+        <translation>İçe aktarılırken hata veya uyarı oluştu </translation>
     </message>
     <message>
         <source>Could not import SDD file.</source>
@@ -1142,11 +1149,11 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Could not import </source>
-        <translation>İçe aktarılamadı</translation>
+        <translation>İçe aktarılamadı </translation>
     </message>
     <message>
         <source> file at </source>
-        <translation>dosyadaki</translation>
+        <translation> dosyadaki </translation>
     </message>
     <message>
         <source>Save Changes?</source>
@@ -1182,7 +1189,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Measure Manager Server: </source>
-        <translation>Measure Manager Sunucusu:</translation>
+        <translation>Measure Manager Sunucusu: </translation>
     </message>
     <message>
         <source>Chrome Debugger: http://localhost:</source>
@@ -1190,7 +1197,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Temp Directory: </source>
-        <translation>Geçici Dizin:</translation>
+        <translation>Geçici Dizin: </translation>
     </message>
     <message>
         <source>Measure Manager has crashed. Do you want to retry?</source>
@@ -1202,7 +1209,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>About </source>
-        <translation>Hakkında</translation>
+        <translation>Hakkında </translation>
     </message>
     <message>
         <source>Failed to load model</source>
@@ -1210,15 +1217,15 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
     </message>
     <message>
         <source>Opening future version </source>
-        <translation>Gelecek sürümü açılıyor</translation>
+        <translation>Gelecek sürümü açılıyor </translation>
     </message>
     <message>
         <source> using </source>
-        <translation>kullanarak</translation>
+        <translation> kullanarak </translation>
     </message>
     <message>
         <source>Model updated from </source>
-        <translation>Modelden güncellendi</translation>
+        <translation>Modelden güncellendi </translation>
     </message>
     <message>
         <source>Existing Ruby scripts have been removed.
@@ -1228,7 +1235,7 @@ Ruby betikleri artık desteklenmemekte ve ölçümlerle değiştirilmiştir.</tr
     </message>
     <message>
         <source>Failed to open file at </source>
-        <translation>Dosya açılamadı:</translation>
+        <translation>Dosya açılamadı: </translation>
     </message>
     <message>
         <source>Settings file not writable</source>
@@ -1260,7 +1267,9 @@ Yeni bir model oluşturmak istiyor musunuz?</translation>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Measure Manager çöktü, yeniden başlatılıyor</translation>
+        <translation>Measure Manager çöktü,
+yeniden
+başlatılıyor</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -1284,13 +1293,17 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Aşağıdaki kütüphaneler yüklenemedi...</translation>
+        <translation>Aşağıdaki
+kütüphaneler
+yüklenemedi...</translation>
     </message>
     <message>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Kütüphane yollarını varsayılan değerlere geri yüklemek mi yoksa kütüphane ayarlarını açıp manuel olarak değiştirmek mi istiyorsunuz?</translation>
+        <translation>Kütüphane
+yollarını
+varsayılan değerlere geri yüklemek mi yoksa kütüphane ayarlarını açıp manuel olarak değiştirmek mi istiyorsunuz?</translation>
     </message>
 </context>
 <context>
@@ -1319,11 +1332,11 @@ Would you like to Restore library paths to default values or Open the library se
     <name>openstudio::RunView</name>
     <message>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Simülasyon çalıştırılamadı, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Simülasyon çalıştırılamadı, QProcess::ProcessError: </translation>
     </message>
     <message>
         <source>Simulation failed to run, with exit code </source>
-        <translation>Simülasyon çalıştırılamadı, çıkış kodu</translation>
+        <translation>Simülasyon çalıştırılamadı, çıkış kodu </translation>
     </message>
 </context>
 <context>
@@ -1357,11 +1370,11 @@ Would you like to Restore library paths to default values or Open the library se
     </message>
     <message>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -1401,7 +1414,8 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Aylık Ortalama Dış Hava Sıcaklıklarında Maksimum Fark</translation>
+        <translation>Aylık Ortalama Dış Hava Sıcaklıklarında
+Maksimum Fark</translation>
     </message>
     <message>
         <source>Temperature Multiplier</source>
@@ -1700,7 +1714,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1729,7 +1743,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver doğru şekilde bağlı değil. Lütfen BIMserver'ın çalışıp çalışmadığını kontrol edin ve kullanıcı adınız ile şifrenizin geçerli olduğundan emin olun.</translation>
+        <translation>BIMserver doğru şekilde bağlı değil. Lütfen BIMserver'ın çalışıp çalışmadığını kontrol edin ve kullanıcı adınız ile şifrenizin geçerli olduğundan emin
+olun.</translation>
     </message>
     <message>
         <source>Please select a IFC version before proceeding.</source>
@@ -1749,7 +1764,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the project name: </source>
-        <translation>Lütfen proje adını girin:</translation>
+        <translation>Lütfen proje adını girin: </translation>
     </message>
     <message>
         <source>Project Name:</source>
@@ -1785,7 +1800,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the BIMserver information: </source>
-        <translation>Lütfen BIMserver bilgilerini girin:</translation>
+        <translation>Lütfen BIMserver bilgilerini girin: </translation>
     </message>
     <message>
         <source>BIMserver Address: http://</source>
@@ -1814,7 +1829,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Lütfen geçerli BIMserver adresini, bağlantı noktasını, kullanıcı adınızı ve şifrenizi girin. Bu bilgiler için BIMserver yöneticinize başvurabilirsiniz.</translation>
+        <translation>Lütfen geçerli BIMserver adresini, bağlantı noktasını, kullanıcı adınızı ve şifrenizi girin. Bu bilgiler için BIMserver yöneticinize
+başvurabilirsiniz.</translation>
     </message>
 </context>
 <context>
@@ -2150,15 +2166,15 @@ Etiketleri</translation>
     <name>openstudio::BuildingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Display Name: </source>
-        <translation>Görüntü Adı:</translation>
+        <translation>Görüntü Adı: </translation>
     </message>
     <message>
         <source>CAD Object Id: </source>
-        <translation>CAD Nesne Kimliği:</translation>
+        <translation>CAD Nesne Kimliği: </translation>
     </message>
     <message>
         <source>Measure Tags (Optional):</source>
@@ -2166,51 +2182,51 @@ Etiketleri</translation>
     </message>
     <message>
         <source>Standards Template: </source>
-        <translation>Standards Template:</translation>
+        <translation>Standards Template: </translation>
     </message>
     <message>
         <source>Standards Building Type: </source>
-        <translation>Standartlar Bina Tipi:</translation>
+        <translation>Standartlar Bina Tipi: </translation>
     </message>
     <message>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>Nominal Floor to Ceiling Height:</translation>
+        <translation>Nominal Floor to Ceiling Height: </translation>
     </message>
     <message>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>Nominal Kat Yüksekliği:</translation>
+        <translation>Nominal Kat Yüksekliği: </translation>
     </message>
     <message>
         <source>Standards Number of Stories: </source>
-        <translation>Standartlar Katlı Sayısı:</translation>
+        <translation>Standartlar Katlı Sayısı: </translation>
     </message>
     <message>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Standartlar Üstü Kat Sayısı:</translation>
+        <translation>Standartlar Üstü Kat Sayısı: </translation>
     </message>
     <message>
         <source>Standards Number of Living Units: </source>
-        <translation>Standards Number of Living Units:</translation>
+        <translation>Standards Number of Living Units: </translation>
     </message>
     <message>
         <source>Relocatable: </source>
-        <translation>Taşınabilir:</translation>
+        <translation>Taşınabilir: </translation>
     </message>
     <message>
         <source>North Axis: </source>
-        <translation>Kuzey Ekseni:</translation>
+        <translation>Kuzey Ekseni: </translation>
     </message>
     <message>
         <source>Space Type: </source>
-        <translation>Mekan Türü:</translation>
+        <translation>Mekan Türü: </translation>
     </message>
     <message>
         <source>Default Construction Set: </source>
-        <translation>Varsayılan İnşaat Seti:</translation>
+        <translation>Varsayılan İnşaat Seti: </translation>
     </message>
     <message>
         <source>Default Schedule Set: </source>
-        <translation>Varsayılan Çizelge Seti:</translation>
+        <translation>Varsayılan Çizelge Seti: </translation>
     </message>
 </context>
 <context>
@@ -2222,7 +2238,8 @@ Etiketleri</translation>
     <message>
         <source>Drop
 Story</source>
-        <translation>Kat Düşümü</translation>
+        <translation>Kat
+Düşümü</translation>
     </message>
     <message>
         <source>Filters:</source>
@@ -2381,7 +2398,8 @@ Yüzey Grubu</translation>
     <message>
         <source>Drop
 Exterior Equipment</source>
-        <translation>Dış Ekipman Bırak</translation>
+        <translation>Dış
+Ekipman Bırak</translation>
     </message>
 </context>
 <context>
@@ -2706,7 +2724,8 @@ Exterior Equipment</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>Alanı Bırak</translation>
+        <translation>Alanı
+Bırak</translation>
     </message>
 </context>
 <context>
@@ -2781,7 +2800,8 @@ Space</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>Boşluk Bırak</translation>
+        <translation>Boşluk
+Bırak</translation>
     </message>
 </context>
 <context>
@@ -2838,7 +2858,8 @@ Space</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>Boşluk Bırak</translation>
+        <translation>Boşluk
+Bırak</translation>
     </message>
 </context>
 <context>
@@ -3133,7 +3154,8 @@ Alan</translation>
     <message>
         <source>Drop
 Space</source>
-        <translation>Alanı Bırak</translation>
+        <translation>Alanı
+Bırak</translation>
     </message>
 </context>
 <context>
@@ -3192,7 +3214,8 @@ Space</source>
     <message>
         <source>Drop
 Space</source>
-        <translation>Boşluk Bırak</translation>
+        <translation>Boşluk
+Bırak</translation>
     </message>
 </context>
 <context>
@@ -3311,12 +3334,14 @@ Programı</translation>
     <message>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>Nemlendirme Ayar Noktası Takvimi</translation>
+        <translation>Nemlendirme Ayar Noktası
+Takvimi</translation>
     </message>
     <message>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>Nemlendirme Setnoktası Programı</translation>
+        <translation>Nemlendirme Setnoktası
+Programı</translation>
     </message>
     <message>
         <source>Multiplier</source>
@@ -3356,7 +3381,9 @@ Alanına Göre</translation>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
-        <translation>Tasarım Bölge Hava Dağıtım Etkinliği Soğutma Modunda</translation>
+        <translation>Tasarım Bölge
+Hava Dağıtım Etkinliği
+Soğutma Modunda</translation>
     </message>
     <message>
         <source>Cooling Minimum
@@ -4255,7 +4282,7 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Yer Isı Değiştiricisi - Dikey</translation>
+        <translation>Yer Isı Değiştiricisi - Dikey </translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Horizontal</source>
@@ -4706,31 +4733,31 @@ Parametreleri</translation>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Number of People: </source>
-        <translation>Kişi Sayısı:</translation>
+        <translation>Kişi Sayısı: </translation>
     </message>
     <message>
         <source>People per Space Floor Area: </source>
-        <translation>Mekan Zemin Alanı Başına Kişi Sayısı:</translation>
+        <translation>Mekan Zemin Alanı Başına Kişi Sayısı: </translation>
     </message>
     <message>
         <source>Space Floor Area per Person: </source>
-        <translation>Kişi Başına Alan Alanı:</translation>
+        <translation>Kişi Başına Alan Alanı: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyan Fraksiyonu:</translation>
+        <translation>Radyan Fraksiyonu: </translation>
     </message>
     <message>
         <source>Sensible Heat Fraction: </source>
-        <translation>Duyusal Isı Oranı:</translation>
+        <translation>Duyusal Isı Oranı: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Karbondioksit Üretim Hızı:</translation>
+        <translation>Karbondioksit Üretim Hızı: </translation>
     </message>
     <message>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
@@ -4745,289 +4772,289 @@ Parametreleri</translation>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Aydınlatma Gücü:</translation>
+        <translation>Aydınlatma Gücü: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Metre Başına Watt:</translation>
+        <translation>Metre Başına Watt: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Kişi Başına Watt:</translation>
+        <translation>Kişi Başına Watt: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Kesir:</translation>
+        <translation>Radyant Kesir: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Görünür Kesir:</translation>
+        <translation>Görünür Kesir: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>İade Hava Oranı:</translation>
+        <translation>İade Hava Oranı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Aydınlatma Gücü:</translation>
+        <translation>Aydınlatma Gücü: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Kesri:</translation>
+        <translation>Radyant Kesri: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Görünür Kesir:</translation>
+        <translation>Görünür Kesir: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>Geri Dönen Hava Fraksiyonu:</translation>
+        <translation>Geri Dönen Hava Fraksiyonu: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tasarım Seviyesi:</translation>
+        <translation>Tasarım Seviyesi: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Birim Alan Başına Watt:</translation>
+        <translation>Birim Alan Başına Watt: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Kişi Başına Watt:</translation>
+        <translation>Kişi Başına Watt: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Gizli Isı Kesri:</translation>
+        <translation>Gizli Isı Kesri: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Fraksiyonu:</translation>
+        <translation>Radyant Fraksiyonu: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Kayıp Fraksiyonu:</translation>
+        <translation>Kayıp Fraksiyonu: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tasarım Seviyesi:</translation>
+        <translation>Tasarım Seviyesi: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Alan Başına Güç:</translation>
+        <translation>Alan Başına Güç: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Kişi Başına Güç:</translation>
+        <translation>Kişi Başına Güç: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Gizli Kısım Oranı:</translation>
+        <translation>Gizli Kısım Oranı: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Fraksiyonu:</translation>
+        <translation>Radyant Fraksiyonu: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Kayıp Oranı:</translation>
+        <translation>Kayıp Oranı: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Karbon Dioksit Üretim Hızı:</translation>
+        <translation>Karbon Dioksit Üretim Hızı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tasarım Seviyesi:</translation>
+        <translation>Tasarım Seviyesi: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Birim Alan Başına Güç:</translation>
+        <translation>Birim Alan Başına Güç: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Kişi Başına Güç:</translation>
+        <translation>Kişi Başına Güç: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Gizli Isı Oranı:</translation>
+        <translation>Gizli Isı Oranı: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Kesir:</translation>
+        <translation>Radyant Kesir: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Kayıp Kesri:</translation>
+        <translation>Kayıp Kesri: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tasarım Düzeyi:</translation>
+        <translation>Tasarım Düzeyi: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Birim Alan Başına Güç:</translation>
+        <translation>Birim Alan Başına Güç: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Kişi Başına Güç:</translation>
+        <translation>Kişi Başına Güç: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Gizli Isı Oranı:</translation>
+        <translation>Gizli Isı Oranı: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyan Fraksiyonu:</translation>
+        <translation>Radyan Fraksiyonu: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Kayıp Oranı:</translation>
+        <translation>Kayıp Oranı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tasarım Seviyesi:</translation>
+        <translation>Tasarım Seviyesi: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watt/Alan Metrekaresi:</translation>
+        <translation>Watt/Alan Metrekaresi: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Kişi Başına Watt:</translation>
+        <translation>Kişi Başına Watt: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Latent Kesri:</translation>
+        <translation>Latent Kesri: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Radyant Kesir:</translation>
+        <translation>Radyant Kesir: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Kayıplar Fraksiyonu:</translation>
+        <translation>Kayıplar Fraksiyonu: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Surface Area: </source>
-        <translation>Yüzey Alanı:</translation>
+        <translation>Yüzey Alanı: </translation>
     </message>
     <message>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Birim Alan Başına Yüzey Alanı:</translation>
+        <translation>Birim Alan Başına Yüzey Alanı: </translation>
     </message>
     <message>
         <source>Surface Area Per Person: </source>
-        <translation>Kişi Başına Yüzey Alanı:</translation>
+        <translation>Kişi Başına Yüzey Alanı: </translation>
     </message>
     <message>
         <source>Construction: </source>
-        <translation>Yapı Bileşeni:</translation>
+        <translation>Yapı Bileşeni: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>End Use Subcategory: </source>
-        <translation>Son Kullanım Alt Kategorisi:</translation>
+        <translation>Son Kullanım Alt Kategorisi: </translation>
     </message>
     <message>
         <source>Peak Flow Rate: </source>
-        <translation>Tepe Akış Hızı:</translation>
+        <translation>Tepe Akış Hızı: </translation>
     </message>
     <message>
         <source>Target Temperature Schedule: </source>
-        <translation>Hedef Sıcaklık Programı:</translation>
+        <translation>Hedef Sıcaklık Programı: </translation>
     </message>
     <message>
         <source>Sensible Fraction Schedule: </source>
-        <translation>Sensible Fraction Schedule:</translation>
+        <translation>Sensible Fraction Schedule: </translation>
     </message>
     <message>
         <source>Latent Fraction Schedule: </source>
-        <translation>Gizli Isı Kesrinin Takvimi:</translation>
+        <translation>Gizli Isı Kesrinin Takvimi: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Air Exchange Method: </source>
-        <translation>Hava Değişim Yöntemi:</translation>
+        <translation>Hava Değişim Yöntemi: </translation>
     </message>
     <message>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Basit Karışım Hava Değişim Oranı (ACH):</translation>
+        <translation>Basit Karışım Hava Değişim Oranı (ACH): </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Katman:</translation>
+        <translation>Katman: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5039,165 +5066,165 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Source Present After Layer: </source>
-        <translation>Katman Sonrası Kaynak Mevcut:</translation>
+        <translation>Katman Sonrası Kaynak Mevcut: </translation>
     </message>
     <message>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>Katman Numarasından Sonra Sıcaklık Hesaplaması İstenmiş:</translation>
+        <translation>Katman Numarasından Sonra Sıcaklık Hesaplaması İstenmiş: </translation>
     </message>
     <message>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>CTF Hesaplaması için Boyutlar:</translation>
+        <translation>CTF Hesaplaması için Boyutlar: </translation>
     </message>
     <message>
         <source>Tube Spacing: </source>
-        <translation>Tüp Aralığı:</translation>
+        <translation>Tüp Aralığı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>C-Factor: </source>
-        <translation>C Faktörü:</translation>
+        <translation>C Faktörü: </translation>
     </message>
     <message>
         <source>Height: </source>
-        <translation>Yükseklik:</translation>
+        <translation>Yükseklik: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>F-Factor: </source>
-        <translation>F-Faktörü:</translation>
+        <translation>F-Faktörü: </translation>
     </message>
     <message>
         <source>Area: </source>
-        <translation>Alan:</translation>
+        <translation>Alan: </translation>
     </message>
     <message>
         <source>Perimeter Exposed: </source>
-        <translation>Çevre Açık:</translation>
+        <translation>Çevre Açık: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Solar Transmittance: </source>
-        <translation>Güneş Geçirgenliği:</translation>
+        <translation>Güneş Geçirgenliği: </translation>
     </message>
     <message>
         <source>Solar Reflectance: </source>
-        <translation>Güneş Yansıtıcılığı:</translation>
+        <translation>Güneş Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Görünür Işınım Geçirgenliği:</translation>
+        <translation>Görünür Işınım Geçirgenliği: </translation>
     </message>
     <message>
         <source>Visible Reflectance: </source>
-        <translation>Görünür Yansıtabilirlik:</translation>
+        <translation>Görünür Yansıtabilirlik: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Isıl Hemisferik Emisivite:</translation>
+        <translation>Isıl Hemisferik Emisivite: </translation>
     </message>
     <message>
         <source>Thermal Transmittance: </source>
-        <translation>Isıl Geçirgenlik:</translation>
+        <translation>Isıl Geçirgenlik: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>İletkenlik:</translation>
+        <translation>İletkenlik: </translation>
     </message>
     <message>
         <source>Shade To Glass Distance: </source>
-        <translation>Gölge ile Cam Arası Mesafe:</translation>
+        <translation>Gölge ile Cam Arası Mesafe: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Üst Açıklık Çarpanı:</translation>
+        <translation>Üst Açıklık Çarpanı: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Alt Açıklık Çarpanı:</translation>
+        <translation>Alt Açıklık Çarpanı: </translation>
     </message>
     <message>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Sol Taraf Açılış Çarpanı:</translation>
+        <translation>Sol Taraf Açılış Çarpanı: </translation>
     </message>
     <message>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Sağ Taraf Açılış Çarpanı:</translation>
+        <translation>Sağ Taraf Açılış Çarpanı: </translation>
     </message>
     <message>
         <source>Airflow Permeability: </source>
-        <translation>Hava Akış Geçirgenliği:</translation>
+        <translation>Hava Akış Geçirgenliği: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Termal Dirençlilik:</translation>
+        <translation>Termal Dirençlilik: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Pürüzlülük:</translation>
+        <translation>Pürüzlülük: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Isıl Direnç:</translation>
+        <translation>Isıl Direnç: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Termal Soğurma:</translation>
+        <translation>Termal Soğurma: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Güneş Absorptansı:</translation>
+        <translation>Güneş Absorptansı: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Görünür Absorptans:</translation>
+        <translation>Görünür Absorptans: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Katman:</translation>
+        <translation>Katman: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5220,51 +5247,51 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Standart:</translation>
+        <translation>Standart: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Standart Kaynağı:</translation>
+        <translation>Standart Kaynağı: </translation>
     </message>
     <message>
         <source>Intended Surface Type: </source>
-        <translation>Hedeflenen Yüzey Türü:</translation>
+        <translation>Hedeflenen Yüzey Türü: </translation>
     </message>
     <message>
         <source>Standards Construction Type: </source>
-        <translation>Standartlar İnşaat Türü:</translation>
+        <translation>Standartlar İnşaat Türü: </translation>
     </message>
     <message>
         <source>Fenestration Type: </source>
-        <translation>Pencere Tipi:</translation>
+        <translation>Pencere Tipi: </translation>
     </message>
     <message>
         <source>Fenestration Assembly Context: </source>
-        <translation>Pencere Birleşimi Bağlamı:</translation>
+        <translation>Pencere Birleşimi Bağlamı: </translation>
     </message>
     <message>
         <source>Fenestration Number of Panes: </source>
-        <translation>Pencere Cam Sayısı:</translation>
+        <translation>Pencere Cam Sayısı: </translation>
     </message>
     <message>
         <source>Fenestration Frame Type: </source>
-        <translation>Pencere Çerçevesi Türü:</translation>
+        <translation>Pencere Çerçevesi Türü: </translation>
     </message>
     <message>
         <source>Fenestration Divider Type: </source>
-        <translation>Pencere Bölücü Tipi:</translation>
+        <translation>Pencere Bölücü Tipi: </translation>
     </message>
     <message>
         <source>Fenestration Tint: </source>
-        <translation>Pencere Tonu:</translation>
+        <translation>Pencere Tonu: </translation>
     </message>
     <message>
         <source>Fenestration Gas Fill: </source>
-        <translation>Pencere Gazı Dolgusı:</translation>
+        <translation>Pencere Gazı Dolgusı: </translation>
     </message>
     <message>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Pencere Düşük Yayıcılık Kaplaması:</translation>
+        <translation>Pencere Düşük Yayıcılık Kaplaması: </translation>
     </message>
 </context>
 <context>
@@ -5275,39 +5302,39 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Standart:</translation>
+        <translation>Standart: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Standart Kaynak:</translation>
+        <translation>Standart Kaynak: </translation>
     </message>
     <message>
         <source>Standards Category: </source>
-        <translation>Standartlar Kategorisi:</translation>
+        <translation>Standartlar Kategorisi: </translation>
     </message>
     <message>
         <source>Standards Identifier: </source>
-        <translation>Standartlar Tanımlayıcısı:</translation>
+        <translation>Standartlar Tanımlayıcısı: </translation>
     </message>
     <message>
         <source>Composite Framing Material: </source>
-        <translation>Bileşik Çerçeve Malzemesi:</translation>
+        <translation>Bileşik Çerçeve Malzemesi: </translation>
     </message>
     <message>
         <source>Composite Framing Configuration: </source>
-        <translation>Bileşik Çerçeve Yapılandırması:</translation>
+        <translation>Bileşik Çerçeve Yapılandırması: </translation>
     </message>
     <message>
         <source>Composite Framing Depth: </source>
-        <translation>Bileşik Çerçeve Derinliği:</translation>
+        <translation>Bileşik Çerçeve Derinliği: </translation>
     </message>
     <message>
         <source>Composite Framing Size: </source>
-        <translation>Kompozit Çerçeve Boyutu:</translation>
+        <translation>Kompozit Çerçeve Boyutu: </translation>
     </message>
     <message>
         <source>Composite Cavity Insulation: </source>
-        <translation>Bileşik Boşluk İzolasyonu:</translation>
+        <translation>Bileşik Boşluk İzolasyonu: </translation>
     </message>
 </context>
 <context>
@@ -5373,530 +5400,530 @@ Parametreleri</translation>
     <name>openstudio::MaterialInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Pürüzlülük:</translation>
+        <translation>Pürüzlülük: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>İletkenlik:</translation>
+        <translation>İletkenlik: </translation>
     </message>
     <message>
         <source>Density: </source>
-        <translation>Yoğunluk:</translation>
+        <translation>Yoğunluk: </translation>
     </message>
     <message>
         <source>Specific Heat: </source>
-        <translation>Özgül Isı:</translation>
+        <translation>Özgül Isı: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Termal Emicilik:</translation>
+        <translation>Termal Emicilik: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Solar Absorptance:</translation>
+        <translation>Solar Absorptance: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Görünür Emicilik:</translation>
+        <translation>Görünür Emicilik: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>U-Factor: </source>
-        <translation>U-Faktörü:</translation>
+        <translation>U-Faktörü: </translation>
     </message>
     <message>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>Güneş Isı Kazancı Katsayısı:</translation>
+        <translation>Güneş Isı Kazancı Katsayısı: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Görünür Işınım Geçirgenliği:</translation>
+        <translation>Görünür Işınım Geçirgenliği: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Optical Data Type: </source>
-        <translation>Optik Veri Türü:</translation>
+        <translation>Optik Veri Türü: </translation>
     </message>
     <message>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>Pencere Camı Spektral Veri Seti Adı:</translation>
+        <translation>Pencere Camı Spektral Veri Seti Adı: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>Norma Açıda Güneş Geçirgenliği:</translation>
+        <translation>Norma Açıda Güneş Geçirgenliği: </translation>
     </message>
     <message>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Ön Yüzey Güneş Reflektansı Normal Gelişte:</translation>
+        <translation>Ön Yüzey Güneş Reflektansı Normal Gelişte: </translation>
     </message>
     <message>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Arka Yüzey Solar Yansıtabilirliği Normal Geliş Açısında:</translation>
+        <translation>Arka Yüzey Solar Yansıtabilirliği Normal Geliş Açısında: </translation>
     </message>
     <message>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>Görünür Geçirgenlik Normal İnişte:</translation>
+        <translation>Görünür Geçirgenlik Normal İnişte: </translation>
     </message>
     <message>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Ön Yüzey Normal Geliş Açısında Görünür Yansıtıcılık:</translation>
+        <translation>Ön Yüzey Normal Geliş Açısında Görünür Yansıtıcılık: </translation>
     </message>
     <message>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Arka Yüzey Normal Geliş Açısında Görünür Yansıtıcılık:</translation>
+        <translation>Arka Yüzey Normal Geliş Açısında Görünür Yansıtıcılık: </translation>
     </message>
     <message>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Infrared Transmittance at Normal Incidence:</translation>
+        <translation>Infrared Transmittance at Normal Incidence: </translation>
     </message>
     <message>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>Ön Yüz Kızılötesi Yarımküresel Yayıcılık:</translation>
+        <translation>Ön Yüz Kızılötesi Yarımküresel Yayıcılık: </translation>
     </message>
     <message>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>Arka Taraf Kızılötesi Yarıküresel Emisivite:</translation>
+        <translation>Arka Taraf Kızılötesi Yarıküresel Emisivite: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>İletkenlik:</translation>
+        <translation>İletkenlik: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Güneş ve Görünür Işınım Geçirgenligi İçin Kirlilik Düzeltme Faktörü:</translation>
+        <translation>Güneş ve Görünür Işınım Geçirgenligi İçin Kirlilik Düzeltme Faktörü: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Güneş Dağıtıcı:</translation>
+        <translation>Güneş Dağıtıcı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Gas Type: </source>
-        <translation>Gaz Türü:</translation>
+        <translation>Gaz Türü: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient A: </source>
-        <translation>İletkenlik Katsayısı A:</translation>
+        <translation>İletkenlik Katsayısı A: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient B: </source>
-        <translation>İletkenlik Katsayısı B:</translation>
+        <translation>İletkenlik Katsayısı B: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient A: </source>
-        <translation>Viskozite Katsayısı A:</translation>
+        <translation>Viskozite Katsayısı A: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient B: </source>
-        <translation>Viskozite Katsayısı B:</translation>
+        <translation>Viskozite Katsayısı B: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient A: </source>
-        <translation>Özgül Isı Katsayısı A:</translation>
+        <translation>Özgül Isı Katsayısı A: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient B: </source>
-        <translation>Özgül Isı Katsayısı B:</translation>
+        <translation>Özgül Isı Katsayısı B: </translation>
     </message>
     <message>
         <source>Molecular Weight: </source>
-        <translation>Moleküler Ağırlık:</translation>
+        <translation>Moleküler Ağırlık: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Number Of Gases In Mixture: </source>
-        <translation>Karışımdaki Gaz Sayısı:</translation>
+        <translation>Karışımdaki Gaz Sayısı: </translation>
     </message>
     <message>
         <source>Gas 1 Fraction: </source>
-        <translation>Gaz 1 Oranı:</translation>
+        <translation>Gaz 1 Oranı: </translation>
     </message>
     <message>
         <source>Gas 1 Type: </source>
-        <translation>Gaz 1 Türü:</translation>
+        <translation>Gaz 1 Türü: </translation>
     </message>
     <message>
         <source>Gas 2 Fraction: </source>
-        <translation>Gas 2 Fraksiyonu:</translation>
+        <translation>Gas 2 Fraksiyonu: </translation>
     </message>
     <message>
         <source>Gas 2 Type: </source>
-        <translation>Gaz 2 Tipi:</translation>
+        <translation>Gaz 2 Tipi: </translation>
     </message>
     <message>
         <source>Gas 3 Fraction: </source>
-        <translation>Gaz 3 Oranı:</translation>
+        <translation>Gaz 3 Oranı: </translation>
     </message>
     <message>
         <source>Gas 3 Type: </source>
-        <translation>Gaz 3 Türü:</translation>
+        <translation>Gaz 3 Türü: </translation>
     </message>
     <message>
         <source>Gas 4 Fraction: </source>
-        <translation>Gaz 4 Oranı:</translation>
+        <translation>Gaz 4 Oranı: </translation>
     </message>
     <message>
         <source>Gas 4 Type: </source>
-        <translation>Gaz 4 Türü:</translation>
+        <translation>Gaz 4 Türü: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Slat Orientation: </source>
-        <translation>Slat Yönelimi:</translation>
+        <translation>Slat Yönelimi: </translation>
     </message>
     <message>
         <source>Slat Width: </source>
-        <translation>Kanat Genişliği:</translation>
+        <translation>Kanat Genişliği: </translation>
     </message>
     <message>
         <source>Slat Separation: </source>
-        <translation>Şerit Ayrılığı:</translation>
+        <translation>Şerit Ayrılığı: </translation>
     </message>
     <message>
         <source>Slat Thickness: </source>
-        <translation>Slat Kalınlığı:</translation>
+        <translation>Slat Kalınlığı: </translation>
     </message>
     <message>
         <source>Slat Angle: </source>
-        <translation>Slat Açısı:</translation>
+        <translation>Slat Açısı: </translation>
     </message>
     <message>
         <source>Slat Conductivity: </source>
-        <translation>Slat İletkenliği:</translation>
+        <translation>Slat İletkenliği: </translation>
     </message>
     <message>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>Slat Kiri Güneş Geçirgenliği:</translation>
+        <translation>Slat Kiri Güneş Geçirgenliği: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>Ön Taraf Lamela Işın Güneş Yansıtıcılığı:</translation>
+        <translation>Ön Taraf Lamela Işın Güneş Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>Arka Yüzey Levha Işın Güneş Yansıtıcılığı:</translation>
+        <translation>Arka Yüzey Levha Işın Güneş Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Slat Yayılı Solar Geçirgenliği:</translation>
+        <translation>Slat Yayılı Solar Geçirgenliği: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Front Side Slat Diffuse Solar Reflectance:</translation>
+        <translation>Front Side Slat Diffuse Solar Reflectance: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Arka Taraf Jalusi Yayınım Güneş Yansıtması:</translation>
+        <translation>Arka Taraf Jalusi Yayınım Güneş Yansıtması: </translation>
     </message>
     <message>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>Slat Beam Visible Transmittance:</translation>
+        <translation>Slat Beam Visible Transmittance: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Ön Taraf Lamella Işın Görünür Yansıtıcılığı:</translation>
+        <translation>Ön Taraf Lamella Işın Görünür Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>Arka Taraf Lamella Işın Görünür Yansıtabilirliği:</translation>
+        <translation>Arka Taraf Lamella Işın Görünür Yansıtabilirliği: </translation>
     </message>
     <message>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>Slat Yaygın Görünür Geçirgenliği:</translation>
+        <translation>Slat Yaygın Görünür Geçirgenliği: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Ön Taraf Lameller Yayılı Görünür Yansıtma:</translation>
+        <translation>Ön Taraf Lameller Yayılı Görünür Yansıtma: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Arka Yüzey Lamela Yayılı Görünür Yansıtıcılığı:</translation>
+        <translation>Arka Yüzey Lamela Yayılı Görünür Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Slat Kızılötesi Yarıküresel Geçirgenlikleri:</translation>
+        <translation>Slat Kızılötesi Yarıküresel Geçirgenlikleri: </translation>
     </message>
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Ön Taraf Lameller Kızılötesi Yarıküresel Emisivitesi:</translation>
+        <translation>Ön Taraf Lameller Kızılötesi Yarıküresel Emisivitesi: </translation>
     </message>
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Arka Taraf Yaprak Kızılötesi Hemisfenik Yayınlılık:</translation>
+        <translation>Arka Taraf Yaprak Kızılötesi Hemisfenik Yayınlılık: </translation>
     </message>
     <message>
         <source>Blind To Glass Distance: </source>
-        <translation>Jaluzinin Camdan Uzaklığı:</translation>
+        <translation>Jaluzinin Camdan Uzaklığı: </translation>
     </message>
     <message>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Stor Üst Açılı Çarpan:</translation>
+        <translation>Stor Üst Açılı Çarpan: </translation>
     </message>
     <message>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Blind Bottom Opening Multiplier:</translation>
+        <translation>Blind Bottom Opening Multiplier: </translation>
     </message>
     <message>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Blind Sol Taraf Açılış Çarpanı:</translation>
+        <translation>Blind Sol Taraf Açılış Çarpanı: </translation>
     </message>
     <message>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Blind Sağ Taraf Açılış Çarpanı:</translation>
+        <translation>Blind Sağ Taraf Açılış Çarpanı: </translation>
     </message>
     <message>
         <source>Minimum Slat Angle: </source>
-        <translation>Minimum Slat Angle:</translation>
+        <translation>Minimum Slat Angle: </translation>
     </message>
     <message>
         <source>Maximum Slat Angle: </source>
-        <translation>Maksimum Çıta Açısı:</translation>
+        <translation>Maksimum Çıta Açısı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>Yansıyan Işın Geçirgenlik Muhasebesi Yöntemi:</translation>
+        <translation>Yansıyan Işın Geçirgenlik Muhasebesi Yöntemi: </translation>
     </message>
     <message>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>Yaygın Güneş Yansıtıcılığı:</translation>
+        <translation>Yaygın Güneş Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>Yayılı Görünür Yansıtıcılık:</translation>
+        <translation>Yayılı Görünür Yansıtıcılık: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Termal Hemisferik Emisivite:</translation>
+        <translation>Termal Hemisferik Emisivite: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>İletkenlik:</translation>
+        <translation>İletkenlik: </translation>
     </message>
     <message>
         <source>Screen Material Spacing: </source>
-        <translation>Ekran Malzeme Aralığı:</translation>
+        <translation>Ekran Malzeme Aralığı: </translation>
     </message>
     <message>
         <source>Screen Material Diameter: </source>
-        <translation>Ekran Malzemesi Çapı:</translation>
+        <translation>Ekran Malzemesi Çapı: </translation>
     </message>
     <message>
         <source>Screen To Glass Distance: </source>
-        <translation>Ekran Camı Mesafesi:</translation>
+        <translation>Ekran Camı Mesafesi: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Üst Açıklık Çarpanı:</translation>
+        <translation>Üst Açıklık Çarpanı: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Alt Açıklık Çarpanı:</translation>
+        <translation>Alt Açıklık Çarpanı: </translation>
     </message>
     <message>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Sol Taraf Açıklık Çarpanı:</translation>
+        <translation>Sol Taraf Açıklık Çarpanı: </translation>
     </message>
     <message>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Sağ Taraf Açılış Çarpanı:</translation>
+        <translation>Sağ Taraf Açılış Çarpanı: </translation>
     </message>
     <message>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Ekran İletim Çıkış Haritası İçin Çözünürlük Açısı:</translation>
+        <translation>Ekran İletim Çıkış Haritası İçin Çözünürlük Açısı: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Height Of Plants: </source>
-        <translation>Bitki Yüksekliği:</translation>
+        <translation>Bitki Yüksekliği: </translation>
     </message>
     <message>
         <source>Leaf Area Index: </source>
-        <translation>Yaprak Alan İndeksi:</translation>
+        <translation>Yaprak Alan İndeksi: </translation>
     </message>
     <message>
         <source>Leaf Reflectivity: </source>
-        <translation>Yaprak Yansıtıcılığı:</translation>
+        <translation>Yaprak Yansıtıcılığı: </translation>
     </message>
     <message>
         <source>Leaf Emissivity: </source>
-        <translation>Yaprak Yayınabilirliği:</translation>
+        <translation>Yaprak Yayınabilirliği: </translation>
     </message>
     <message>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>Minimum Stoma Direnci:</translation>
+        <translation>Minimum Stoma Direnci: </translation>
     </message>
     <message>
         <source>Soil Layer Name: </source>
-        <translation>Toprak Katmanı Adı:</translation>
+        <translation>Toprak Katmanı Adı: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Pürüzlülük:</translation>
+        <translation>Pürüzlülük: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>Kuru Toprağın İletkenliği:</translation>
+        <translation>Kuru Toprağın İletkenliği: </translation>
     </message>
     <message>
         <source>Density Of Dry Soil: </source>
-        <translation>Kuru Toprağın Yoğunluğu:</translation>
+        <translation>Kuru Toprağın Yoğunluğu: </translation>
     </message>
     <message>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>Kuru Toprağın Özgül Isısı:</translation>
+        <translation>Kuru Toprağın Özgül Isısı: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Isıl Absorptans:</translation>
+        <translation>Isıl Absorptans: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Güneş Absorbansı:</translation>
+        <translation>Güneş Absorbansı: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Görünür Absorptans:</translation>
+        <translation>Görünür Absorptans: </translation>
     </message>
     <message>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Toprak Katmanının Doymuş Hacimsel Nem İçeriği:</translation>
+        <translation>Toprak Katmanının Doymuş Hacimsel Nem İçeriği: </translation>
     </message>
     <message>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Toprak Tabakasının Kalıntı Hacimsel Nem İçeriği:</translation>
+        <translation>Toprak Tabakasının Kalıntı Hacimsel Nem İçeriği: </translation>
     </message>
     <message>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Toprak Katmanının Başlangıç Hacimsel Nem İçeriği:</translation>
+        <translation>Toprak Katmanının Başlangıç Hacimsel Nem İçeriği: </translation>
     </message>
     <message>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Nem Difüzyon Hesaplama Yöntemi:</translation>
+        <translation>Nem Difüzyon Hesaplama Yöntemi: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Kalınlık:</translation>
+        <translation>Kalınlık: </translation>
     </message>
     <message>
         <source>Solar Index Of Refraction: </source>
-        <translation>Güneş Kırılma Endeksi:</translation>
+        <translation>Güneş Kırılma Endeksi: </translation>
     </message>
     <message>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Güneş Soğurma Katsayısı:</translation>
+        <translation>Güneş Soğurma Katsayısı: </translation>
     </message>
     <message>
         <source>Visible Index of Refraction: </source>
-        <translation>Görünür Kırılma İndeksi:</translation>
+        <translation>Görünür Kırılma İndeksi: </translation>
     </message>
     <message>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Görünür Soğurma Katsayısı:</translation>
+        <translation>Görünür Soğurma Katsayısı: </translation>
     </message>
     <message>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>Infrared Transmittance At Normal Incidence:</translation>
+        <translation>Infrared Transmittance At Normal Incidence: </translation>
     </message>
     <message>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>Kızılötesi Yarıküresel Yayınım Oranı:</translation>
+        <translation>Kızılötesi Yarıküresel Yayınım Oranı: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>İletkenlik:</translation>
+        <translation>İletkenlik: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Güneş ve Görünür Geçirgenlik için Kir Düzeltme Faktörü:</translation>
+        <translation>Güneş ve Görünür Geçirgenlik için Kir Düzeltme Faktörü: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Güneş Difüz Edici:</translation>
+        <translation>Güneş Difüz Edici: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Daylight Redirection Device Type: </source>
-        <translation>Işık Yönlendirme Cihazı Türü:</translation>
+        <translation>Işık Yönlendirme Cihazı Türü: </translation>
     </message>
 </context>
 <context>
@@ -5947,29 +5974,29 @@ Parametreleri</translation>
     </message>
     <message>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>Varsayılan çalışma periyodu profilini geçersiz kılmak için yeni bir profil oluşturun.</translation>
+        <translation>  Varsayılan çalışma periyodu profilini geçersiz kılmak için yeni bir profil oluşturun.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>İçerik:</translation>
+        <translation>İçerik: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>Değer:</translation>
+        <translation> Değer: </translation>
     </message>
 </context>
 <context>
@@ -6007,15 +6034,15 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Numeric Type: </source>
-        <translation>Sayısal Tür:</translation>
+        <translation>Sayısal Tür: </translation>
     </message>
     <message>
         <source>Lower Limit: </source>
-        <translation>Alt Sınır:</translation>
+        <translation>Alt Sınır: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Üst Sınır:</translation>
+        <translation>Üst Sınır: </translation>
     </message>
     <message>
         <source>unitless</source>
@@ -6030,27 +6057,27 @@ Parametreleri</translation>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Ad:</translation>
+        <translation>Ad: </translation>
     </message>
     <message>
         <source>FilePath: </source>
-        <translation>Dosya Yolu:</translation>
+        <translation>Dosya Yolu: </translation>
     </message>
     <message>
         <source>Column Number: </source>
-        <translation>Sütun Numarası:</translation>
+        <translation>Sütun Numarası: </translation>
     </message>
     <message>
         <source>Rows to Skip at Top: </source>
-        <translation>Üstte Atlanacak Satırlar:</translation>
+        <translation>Üstte Atlanacak Satırlar: </translation>
     </message>
     <message>
         <source>Number of Hours of Data: </source>
-        <translation>Veri Saat Sayısı:</translation>
+        <translation>Veri Saat Sayısı: </translation>
     </message>
     <message>
         <source>Column Separator: </source>
-        <translation>Sütun Ayırıcı:</translation>
+        <translation>Sütun Ayırıcı: </translation>
     </message>
     <message>
         <source>Comma</source>
@@ -6070,42 +6097,42 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Interpolate to Timestep: </source>
-        <translation>Zaman Adımına İnterpolasyon Yap:</translation>
+        <translation>Zaman Adımına İnterpolasyon Yap: </translation>
     </message>
     <message>
         <source>Minutes per Item: </source>
-        <translation>Öğe Başına Dakika:</translation>
+        <translation>Öğe Başına Dakika: </translation>
     </message>
     <message>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Gün Işığı Tasarrufu için Zamanlamayı Ayarla:</translation>
+        <translation>Gün Işığı Tasarrufu için Zamanlamayı Ayarla: </translation>
     </message>
     <message>
         <source>Translate File With Relative Path: </source>
-        <translation>Göreceli Yolla Dosya Çevir:</translation>
+        <translation>Göreceli Yolla Dosya Çevir: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>İçerik:</translation>
+        <translation>İçerik: </translation>
     </message>
     <message>
         <source>Number of Lines in file: </source>
-        <translation>Dosyadaki Satır Sayısı:</translation>
+        <translation>Dosyadaki Satır Sayısı: </translation>
     </message>
     <message>
         <source>Display All File Content: </source>
-        <translation>Tüm Dosya İçeriğini Görüntüle:</translation>
+        <translation>Tüm Dosya İçeriğini Görüntüle: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
         <source>Lower Limit: </source>
-        <translation>Alt Sınır:</translation>
+        <translation>Alt Sınır: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Üst Sınır:</translation>
+        <translation>Üst Sınır: </translation>
     </message>
 </context>
 <context>
@@ -6367,11 +6394,11 @@ Parametreleri</translation>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
         <source>Cooling Type: </source>
-        <translation>Soğutma Türü:</translation>
+        <translation>Soğutma Türü: </translation>
     </message>
     <message>
         <source>Heating Type: </source>
-        <translation>Isıtma Türü:</translation>
+        <translation>Isıtma Türü: </translation>
     </message>
     <message>
         <source>Time of Operation</source>
@@ -6422,7 +6449,7 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Plant Loop Type: </source>
-        <translation>Tesis Döngüsü Türü:</translation>
+        <translation>Tesis Döngüsü Türü: </translation>
     </message>
     <message>
         <source>Plant Equipment Operation Schemes</source>
@@ -6605,7 +6632,8 @@ Parametreleri</translation>
     <message>
         <source>Drop
 Case</source>
-        <translation>Büyük/Küçük Harfi Sıfırla</translation>
+        <translation>Büyük/Küçük
+Harfi Sıfırla</translation>
     </message>
     <message>
         <source>Walk Ins</source>
@@ -6658,40 +6686,28 @@ Yürüme İçinde</translation>
         <translation>Paket Çatı Isı Pompası</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Paketli DX Çatı VAV Isıtma ile Beraber</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>Çatı Üzerine Kurulu Paketlenmiş
-Paralel Fanı ile VAV
-Güç Kutuları ve ısı geri kazanım</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Çatı Üzerine Kurulu Paketlenmiş Paralel Fanı ile VAV Güç Kutuları ve ısı geri kazanım</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Paketli Çatı
-VAV Yeniden Isıtmalı</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Paketli Çatı VAV Yeniden Isıtmalı</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV with Parallel Fan-Powered Boxes and Reheat</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Sıcak Hava Fırını
-Gaz Yakıtlı</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Sıcak Hava Fırını Gaz Yakıtlı</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Sıcak Hava Fırını
-Elektrik</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Sıcak Hava Fırını Elektrik</translation>
     </message>
     <message>
         <source>Empty Air Loop</source>
@@ -28878,103 +28894,103 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Bölge ITE Ayarlanmış Dönüş Hava Sıcaklığı</translation>
+        <translation>Bölge ITE Ayarlanmış Dönüş Hava Sıcaklığı </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Bölge ITE Hava Kütle Akış Hızı</translation>
+        <translation>Bölge ITE Hava Kütle Akış Hızı </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Herhangi Bir Hava Girişi露Nokta Sıcaklığı İşletme Aralığının Altında Kalma Süresi</translation>
+        <translation>Zone ITE Herhangi Bir Hava Girişi露Nokta Sıcaklığı İşletme Aralığının Altında Kalma Süresi </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Bölge ITE Herhangi Bir Hava Girişi Kuru Termometre Sıcaklığı Çalışma Aralığının Altında Zaman</translation>
+        <translation>Bölge ITE Herhangi Bir Hava Girişi Kuru Termometre Sıcaklığı Çalışma Aralığının Altında Zaman </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Herhangi Bir Hava Girişi Bağıl Nemi İşletme Aralığının Üzerinde Zaman</translation>
+        <translation>Zone ITE Herhangi Bir Hava Girişi Bağıl Nemi İşletme Aralığının Üzerinde Zaman </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Bölge ITE Ortalama Besleme Isı Endeksi</translation>
+        <translation>Bölge ITE Ortalama Besleme Isı Endeksi </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Zone ITE CPU Elektrik Enerjisi</translation>
+        <translation>Zone ITE CPU Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Elektrik Enerjisi Tasarım Inlet Koşullarında</translation>
+        <translation>Zone ITE CPU Elektrik Enerjisi Tasarım Inlet Koşullarında </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Zone ITE CPU Elektrik Tüketim Oranı</translation>
+        <translation>Zone ITE CPU Elektrik Tüketim Oranı </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Elektrik Oranı Tasarım Giriş Koşullarında</translation>
+        <translation>Zone ITE CPU Elektrik Oranı Tasarım Giriş Koşullarında </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Bölge ITE Fanı Elektrik Enerjisi</translation>
+        <translation>Bölge ITE Fanı Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE Fan Electricity Energy at Design Inlet Conditions</translation>
+        <translation>Zone ITE Fan Electricity Energy at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Zone ITE Fan Elektrik Tüketim Oranı</translation>
+        <translation>Zone ITE Fan Elektrik Tüketim Oranı </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone ITE Fan Elektrik Gücü Tasarım Giriş Koşullarında</translation>
+        <translation>Zone ITE Fan Elektrik Gücü Tasarım Giriş Koşullarında </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Zone ITE Standard Density Air Volume Flow Rate</translation>
+        <translation>Zone ITE Standard Density Air Volume Flow Rate </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Zone ITE Toplam Isı Kazancından Bölge Enerjisine</translation>
+        <translation>Zone ITE Toplam Isı Kazancından Bölge Enerjisine </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Bölge ITE Toplam Isı Kazancı Bölgeye Hızı</translation>
+        <translation>Bölge ITE Toplam Isı Kazancı Bölgeye Hızı </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Zone ITE UPS Electricity Energy</translation>
+        <translation>Zone ITE UPS Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone ITE UPS Elektrik Oranı</translation>
+        <translation>Zone ITE UPS Elektrik Oranı </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Bölgeye Verilen Isı Enerjisi</translation>
+        <translation>Zone ITE UPS Bölgeye Verilen Isı Enerjisi </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Zone ITE UPS Bölgeye Isı Kazancı Hızı</translation>
+        <translation>Zone ITE UPS Bölgeye Isı Kazancı Hızı </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -30316,103 +30332,103 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>ITE Ayarlanmış Dönüş Hava Sıcaklığı</translation>
+        <translation>ITE Ayarlanmış Dönüş Hava Sıcaklığı </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>ITE Hava Kütle Akış Hızı</translation>
+        <translation>ITE Hava Kütle Akış Hızı </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE Herhangi Bir Hava Giriş Çiğ Noktası Sıcaklığı İşletim Aralığının Üzerinde Süre</translation>
+        <translation>ITE Herhangi Bir Hava Giriş Çiğ Noktası Sıcaklığı İşletim Aralığının Üzerinde Süre </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE Herhangi Bir Hava Girişi Kuru Termometre Sıcaklığı İşletme Aralığı Üstü Süre</translation>
+        <translation>ITE Herhangi Bir Hava Girişi Kuru Termometre Sıcaklığı İşletme Aralığı Üstü Süre </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE Herhangi Bir Hava Giriş Kuru Termometre Sıcaklığı İşletme Aralığının Altında Zaman</translation>
+        <translation>ITE Herhangi Bir Hava Giriş Kuru Termometre Sıcaklığı İşletme Aralığının Altında Zaman </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE Herhangi Hava Giriş İşletim Aralığı Aşıldı Süresi</translation>
+        <translation>ITE Herhangi Hava Giriş İşletim Aralığı Aşıldı Süresi </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Herhangi Bir Hava Girişi Göreceli Nem Çalışma Aralığının Üzerinde Kalma Süresi</translation>
+        <translation>ITE Herhangi Bir Hava Girişi Göreceli Nem Çalışma Aralığının Üzerinde Kalma Süresi </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE Ortalama Beslemesi Isı Endeksi</translation>
+        <translation>ITE Ortalama Beslemesi Isı Endeksi </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>ITE CPU Elektrik Enerjisi</translation>
+        <translation>ITE CPU Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE CPU Tasarım Giriş Koşullarında Elektrik Enerjisi</translation>
+        <translation>ITE CPU Tasarım Giriş Koşullarında Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>ITE CPU Elektrik Tarifesi</translation>
+        <translation>ITE CPU Elektrik Tarifesi </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE CPU Tasarım Giriş Koşullarında Elektrik Kullanım Oranı</translation>
+        <translation>ITE CPU Tasarım Giriş Koşullarında Elektrik Kullanım Oranı </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE Fanı Elektrik Enerjisi</translation>
+        <translation>ITE Fanı Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE Fanı Tasarım Giriş Koşullarında Elektrik Enerjisi</translation>
+        <translation>ITE Fanı Tasarım Giriş Koşullarında Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>ITE Fan Elektrik Hızı</translation>
+        <translation>ITE Fan Elektrik Hızı </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE Fan Elektrik Kullanım Oranı Tasarım Giriş Koşullarında</translation>
+        <translation>ITE Fan Elektrik Kullanım Oranı Tasarım Giriş Koşullarında </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>ITE Standart Yoğunluk Hava Hacim Akış Hızı</translation>
+        <translation>ITE Standart Yoğunluk Hava Hacim Akış Hızı </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE Toplam Isı Kazanımı Zone Enerjisine</translation>
+        <translation>ITE Toplam Isı Kazanımı Zone Enerjisine </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>ITE Toplam Isı Kazancı Bölgeye İletim Oranı</translation>
+        <translation>ITE Toplam Isı Kazancı Bölgeye İletim Oranı </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>ITE UPS Elektrik Enerjisi</translation>
+        <translation>ITE UPS Elektrik Enerjisi </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>ITE UPS Elektrik Tarifesi</translation>
+        <translation>ITE UPS Elektrik Tarifesi </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS Bölgeye Isı Kazancı Enerjisi</translation>
+        <translation>ITE UPS Bölgeye Isı Kazancı Enerjisi </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>ITE UPS Bölgeye Isı Kazanç Oranı</translation>
+        <translation>ITE UPS Bölgeye Isı Kazanç Oranı </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -31618,59 +31634,59 @@ Pencerelerden Toplam Isı Kaybı Hızı</translation>
     </message>
     <message>
         <source>Accumulated Rays per Record: </source>
-        <translation>Kayıt Başına Birikmiş Işınlar:</translation>
+        <translation>Kayıt Başına Birikmiş Işınlar: </translation>
     </message>
     <message>
         <source>Direct Threshold: </source>
-        <translation>Direkt Eşik:</translation>
+        <translation>Direkt Eşik: </translation>
     </message>
     <message>
         <source>Direct Certainty: </source>
-        <translation>Doğrudan Kesinlik:</translation>
+        <translation>Doğrudan Kesinlik: </translation>
     </message>
     <message>
         <source>Direct Jitter: </source>
-        <translation>Doğrudan Titreşim:</translation>
+        <translation>Doğrudan Titreşim: </translation>
     </message>
     <message>
         <source>Direct Pretest: </source>
-        <translation>Doğrudan Ön Test:</translation>
+        <translation>Doğrudan Ön Test: </translation>
     </message>
     <message>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ortam Yansamaları DMX:</translation>
+        <translation>Ortam Yansamaları DMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions VMX: </source>
-        <translation>Ambient Divisions VMX:</translation>
+        <translation>Ambient Divisions VMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions DMX: </source>
-        <translation>Ambient Bölümleri DMX:</translation>
+        <translation>Ambient Bölümleri DMX: </translation>
     </message>
     <message>
         <source>Ambient Supersamples: </source>
-        <translation>Ortam Süper Örnekleri:</translation>
+        <translation>Ortam Süper Örnekleri: </translation>
     </message>
     <message>
         <source>Limit Weight VMX: </source>
-        <translation>Ağırlık Sınırını VMX:</translation>
+        <translation>Ağırlık Sınırını VMX: </translation>
     </message>
     <message>
         <source>Limit Weight DMX: </source>
-        <translation>Limit Weight DMX:</translation>
+        <translation>Limit Weight DMX: </translation>
     </message>
     <message>
         <source>Klems Sampling Density: </source>
-        <translation>Klems Örnekleme Yoğunluğu:</translation>
+        <translation>Klems Örnekleme Yoğunluğu: </translation>
     </message>
     <message>
         <source>Sky Discretization Resolution: </source>
-        <translation>Gökyüzü Ayrıklaştırma Çözünürlüğü:</translation>
+        <translation>Gökyüzü Ayrıklaştırma Çözünürlüğü: </translation>
     </message>
     <message>
         <source>Sizing Parameters</source>
@@ -32295,12 +32311,13 @@ DView'i Aç</translation>
     </message>
     <message>
         <source>Reports: </source>
-        <translation>Raporlar:</translation>
+        <translation>Raporlar: </translation>
     </message>
     <message>
         <source>Set Path to DView
 in Preferences</source>
-        <translation>Tercihlerde DView Yolunu Ayarla</translation>
+        <translation>Tercihlerde DView
+Yolunu Ayarla</translation>
     </message>
     <message>
         <source>Unable to launch DView</source>
@@ -32309,13 +32326,13 @@ in Preferences</source>
     <message>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView beklenen konumda bulunamadı:</translation>
+        <translation>DView beklenen konumda
+bulunamadı:</translation>
     </message>
     <message>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus Sonuçları</translation>
     </message>
-    <message>
     <message>
         <source>Units Conversion</source>
         <translation>Birim Dönüşümü</translation>
@@ -32324,8 +32341,9 @@ in Preferences</source>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>Energy+ verilerinizi IP birimlerinde görüntülemek ister misiniz?</translation>
     </message>
+    <message>
         <source>Custom Report </source>
-        <translation>Özel Rapor</translation>
+        <translation>Özel Rapor </translation>
     </message>
 </context>
 </TS>

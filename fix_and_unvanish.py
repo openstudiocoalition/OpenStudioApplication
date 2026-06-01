@@ -70,6 +70,36 @@ def fix_ts_file(filepath):
         flags=re.DOTALL
     )
 
+    # Step 4: Restore leading/trailing spaces stripped by the translation API.
+    # If the source string has leading or trailing spaces that are absent from
+    # the translation, pad the translation to match.
+    pair_pattern = re.compile(
+        r'(<source>)([^<]+)(</source>)'
+        r'(\s*(?:<comment>[^<]*</comment>\s*)?(?:<translatorcomment>[^<]*</translatorcomment>\s*)?)'
+        r'(<translation)([^>]*)(>)([^<]*)(</translation>)',
+        re.DOTALL,
+    )
+
+    def restore_whitespace(m):
+        source = m.group(2)
+        trans = m.group(8)
+        if not trans or not trans.strip():
+            return m.group(0)
+        src_lead = source[:len(source) - len(source.lstrip(' '))]
+        src_trail = source[len(source.rstrip(' ')):]
+        if not src_lead and not src_trail:
+            return m.group(0)
+        fixed = trans
+        if src_lead and not fixed.startswith(src_lead):
+            fixed = src_lead + fixed.lstrip(' ')
+        if src_trail and not fixed.endswith(src_trail):
+            fixed = fixed.rstrip(' ') + src_trail
+        if fixed == trans:
+            return m.group(0)
+        return m.group(1)+m.group(2)+m.group(3)+m.group(4)+m.group(5)+m.group(6)+m.group(7)+fixed+m.group(9)
+
+    content = pair_pattern.sub(restore_whitespace, content)
+
     if content != original:
         with open(filepath, 'wb') as f:
             f.write(content.encode('utf-8'))

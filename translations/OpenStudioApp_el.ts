@@ -18543,103 +18543,103 @@ Actually, the most accurate technical translation would be:
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Zone ITE Adjusted Return Air Temperature</translation>
+        <translation>Zone ITE Adjusted Return Air Temperature </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Zone ITE Air Mass Flow Rate</translation>
+        <translation>Zone ITE Air Mass Flow Rate </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Ζώνη ITE Οποιαδήποτε Θερμοκρασία Σημείου Δρόσου Εισόδου Αέρα Πάνω από Εύρος Λειτουργίας Χρόνος</translation>
+        <translation>Ζώνη ITE Οποιαδήποτε Θερμοκρασία Σημείου Δρόσου Εισόδου Αέρα Πάνω από Εύρος Λειτουργίας Χρόνος </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Ζώνη ITE Θερμοκρασία Ξηρού Θερμομέτρου Εισόδου Αέρα Πάνω από το Εύρος Λειτουργίας Χρόνος</translation>
+        <translation>Ζώνη ITE Θερμοκρασία Ξηρού Θερμομέτρου Εισόδου Αέρα Πάνω από το Εύρος Λειτουργίας Χρόνος </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>Zone ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Χρόνος Σχετικής Υγρασίας Εξαερισμού Ζώνης ITE Κάτω από το Εύρος Λειτουργίας</translation>
+        <translation>Χρόνος Σχετικής Υγρασίας Εξαερισμού Ζώνης ITE Κάτω από το Εύρος Λειτουργίας </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index</translation>
+        <translation>Zone ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Ενέργεια Ηλεκτρισμού CPU ITE Ζώνης</translation>
+        <translation>Ενέργεια Ηλεκτρισμού CPU ITE Ζώνης </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Electricity Energy at Design Inlet Conditions</translation>
+        <translation>Zone ITE CPU Electricity Energy at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Ρυθμός Κατανάλωσης Ηλεκτρικής Ενέργειας CPU ITE της Ζώνης</translation>
+        <translation>Ρυθμός Κατανάλωσης Ηλεκτρικής Ενέργειας CPU ITE της Ζώνης </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Electricity Rate at Design Inlet Conditions</translation>
+        <translation>Zone ITE CPU Electricity Rate at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Zone ITE Fan Electricity Energy</translation>
+        <translation>Zone ITE Fan Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Ηλεκτρική Ενέργεια Ανεμιστήρα ITE Ζώνης στις Συνθήκες Σχεδίασης Εισόδου</translation>
+        <translation>Ηλεκτρική Ενέργεια Ανεμιστήρα ITE Ζώνης στις Συνθήκες Σχεδίασης Εισόδου </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Ρυθμός Ηλεκτρικής Ισχύος Ανεμιστήρων ITE Ζώνης</translation>
+        <translation>Ρυθμός Ηλεκτρικής Ισχύος Ανεμιστήρων ITE Ζώνης </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Ρυθμός Ηλεκτρικής Ενέργειας Ανεμιστήρα ITE Ζώνης στις Συνθήκες Εισόδου Σχεδιασμού</translation>
+        <translation>Ρυθμός Ηλεκτρικής Ενέργειας Ανεμιστήρα ITE Ζώνης στις Συνθήκες Εισόδου Σχεδιασμού </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Zone ITE Standard Density Air Volume Flow Rate</translation>
+        <translation>Zone ITE Standard Density Air Volume Flow Rate </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Zone ITE Total Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE Total Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Συνολικός Ρυθμός Απολαβής Θερμότητας ITE προς τη Ζώνη</translation>
+        <translation>Συνολικός Ρυθμός Απολαβής Θερμότητας ITE προς τη Ζώνη </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Ενέργεια Ηλεκτρισμού UPS Ζώνης ITE</translation>
+        <translation>Ενέργεια Ηλεκτρισμού UPS Ζώνης ITE </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone ITE UPS Electricity Rate</translation>
+        <translation>Zone ITE UPS Electricity Rate </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Ρυθμός Κερδών Θερμότητας UPS IT Ζώνης προς Ζώνη</translation>
+        <translation>Ρυθμός Κερδών Θερμότητας UPS IT Ζώνης προς Ζώνη </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -19967,103 +19967,103 @@ Actually, the most accurate technical translation would be:
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>ITE Προσαρμοσμένη Θερμοκρασία Επιστρεφόμενου Αέρα</translation>
+        <translation>ITE Προσαρμοσμένη Θερμοκρασία Επιστρεφόμενου Αέρα </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>ITE Air Mass Flow Rate</translation>
+        <translation>ITE Air Mass Flow Rate </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE Any Air Inlet Operating Range Exceeded Time</translation>
+        <translation>ITE Any Air Inlet Operating Range Exceeded Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE Average Supply Heat Index</translation>
+        <translation>ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>ITE CPU Ηλεκτρική Ενέργεια</translation>
+        <translation>ITE CPU Ηλεκτρική Ενέργεια </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE CPU Ηλεκτρική Ενέργεια στις Συνθήκες Σχεδιασμού Εισόδου</translation>
+        <translation>ITE CPU Ηλεκτρική Ενέργεια στις Συνθήκες Σχεδιασμού Εισόδου </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>Ρυθμός Ηλεκτρικής Ενέργειας CPU ITE</translation>
+        <translation>Ρυθμός Ηλεκτρικής Ενέργειας CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE CPU Ηλεκτρική Κατανάλωση στις Συνθήκες Σχεδιασμού Εισόδου</translation>
+        <translation>ITE CPU Ηλεκτρική Κατανάλωση στις Συνθήκες Σχεδιασμού Εισόδου </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE Fan Ηλεκτρική Ενέργεια</translation>
+        <translation>ITE Fan Ηλεκτρική Ενέργεια </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE Fan Electricity Energy at Design Inlet Conditions</translation>
+        <translation>ITE Fan Electricity Energy at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>ITE Fan Electricity Rate</translation>
+        <translation>ITE Fan Electricity Rate </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE Fan Electricity Rate at Design Inlet Conditions</translation>
+        <translation>ITE Fan Electricity Rate at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>ITE Standard Density Air Volume Flow Rate</translation>
+        <translation>ITE Standard Density Air Volume Flow Rate </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE Total Heat Gain to Zone Energy</translation>
+        <translation>ITE Total Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>ITE Συνολικό Ποσοστό Κερδών Θερμότητας προς τη Ζώνη</translation>
+        <translation>ITE Συνολικό Ποσοστό Κερδών Θερμότητας προς τη Ζώνη </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>ITE UPS Ηλεκτρική Ενέργεια</translation>
+        <translation>ITE UPS Ηλεκτρική Ενέργεια </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>ITE UPS Ηλεκτρικό Τιμολόγιο</translation>
+        <translation>ITE UPS Ηλεκτρικό Τιμολόγιο </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>ITE UPS Ρυθμός Απόδοσης Θερμότητας στη Ζώνη</translation>
+        <translation>ITE UPS Ρυθμός Απόδοσης Θερμότητας στη Ζώνη </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -21589,17 +21589,17 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
-        <translation>Όνομα Εμφάνισης:</translation>
+        <translation>Όνομα Εμφάνισης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
-        <translation>CAD Object Id:</translation>
+        <translation>CAD Object Id: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
@@ -21609,62 +21609,62 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
-        <translation>Πρότυπο Προδιαγραφών:</translation>
+        <translation>Πρότυπο Προδιαγραφών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
-        <translation>Τύπος Κτιρίου Προτύπων:</translation>
+        <translation>Τύπος Κτιρίου Προτύπων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>Ονοματολογικό Ύψος από Δάπεδο σε Οροφή:</translation>
+        <translation>Ονοματολογικό Ύψος από Δάπεδο σε Οροφή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>Ονοματιστικό Ύψος Ορόφου προς Όροφο:</translation>
+        <translation>Ονοματιστικό Ύψος Ορόφου προς Όροφο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
-        <translation>Τυπικός Αριθμός Ορόφων:</translation>
+        <translation>Τυπικός Αριθμός Ορόφων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Αριθμός Ορόφων Πάνω από το Έδαφος Σύμφωνα με τα Πρότυπα:</translation>
+        <translation>Αριθμός Ορόφων Πάνω από το Έδαφος Σύμφωνα με τα Πρότυπα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
-        <translation>Αριθμός Μονάδων Κατοικίας Κατά Πρότυπο:</translation>
+        <translation>Αριθμός Μονάδων Κατοικίας Κατά Πρότυπο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
-        <translation>Μετακινήσιμο:</translation>
+        <translation>Μετακινήσιμο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
-        <translation>Άξονας Βορρά:</translation>
+        <translation>Άξονας Βορρά: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
-        <translation>Τύπος Χώρου:</translation>
+        <translation>Τύπος Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
-        <translation>Προεπιλεγμένο Σύνολο Κατασκευής:</translation>
+        <translation>Προεπιλεγμένο Σύνολο Κατασκευής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
-        <translation>Προεπιλεγμένο Σύνολο Χρονοδιαγράμματος:</translation>
+        <translation>Προεπιλεγμένο Σύνολο Χρονοδιαγράμματος: </translation>
     </message>
 </context>
 <context>
@@ -21787,17 +21787,17 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
-        <translation>Μέθοδος Ανταλλαγής Αέρα:</translation>
+        <translation>Μέθοδος Ανταλλαγής Αέρα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Απλές Ανταλλαγές Αέρα Ανάμιξης ανά Ώρα:</translation>
+        <translation>Απλές Ανταλλαγές Αέρα Ανάμιξης ανά Ώρα: </translation>
     </message>
 </context>
 <context>
@@ -21805,17 +21805,17 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
-        <translation>C-Factor:</translation>
+        <translation>C-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
-        <translation>Ύψος:</translation>
+        <translation>Ύψος: </translation>
     </message>
 </context>
 <context>
@@ -21823,22 +21823,22 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
-        <translation>Περιοχή:</translation>
+        <translation>Περιοχή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
-        <translation>Περίμετρος Εκτεθειμένη:</translation>
+        <translation>Περίμετρος Εκτεθειμένη: </translation>
     </message>
 </context>
 <context>
@@ -21846,12 +21846,12 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
-        <translation>Στρώμα:</translation>
+        <translation>Στρώμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
@@ -21874,12 +21874,12 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
-        <translation>Στρώμα:</translation>
+        <translation>Στρώμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
@@ -21899,22 +21899,22 @@ Actually, the most accurate technical translation would be:
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
-        <translation>Πηγή Παρούσα Μετά το Στρώμα:</translation>
+        <translation>Πηγή Παρούσα Μετά το Στρώμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>Ζητήθηκε Υπολογισμός Θερμοκρασίας Μετά τον Αριθμό Στρώματος:</translation>
+        <translation>Ζητήθηκε Υπολογισμός Θερμοκρασίας Μετά τον Αριθμό Στρώματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>Διαστάσεις για τον Υπολογισμό CTF:</translation>
+        <translation>Διαστάσεις για τον Υπολογισμό CTF: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
-        <translation>Απόσταση Σωλήνων:</translation>
+        <translation>Απόσταση Σωλήνων: </translation>
     </message>
 </context>
 <context>
@@ -22343,7 +22343,8 @@ Precipitation</source>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
-        <translation>Ζώνη</translation>
+        <translation>Ζώ
+η</translation>
     </message>
 </context>
 <context>
@@ -22512,37 +22513,37 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Επίπεδο Σχεδιασμού:</translation>
+        <translation>Επίπεδο Σχεδιασμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Watts ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>Watts Ανά Άτομο:</translation>
+        <translation>Watts Ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Κλάσμα Λανθάνον:</translation>
+        <translation>Κλάσμα Λανθάνον: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Κλάσμα Απώλειας:</translation>
+        <translation>Κλάσμα Απώλειας: </translation>
     </message>
 </context>
 <context>
@@ -22565,7 +22566,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>Επιλέξτε φάκελο στον δίσκο σας</translation>
+        <translation>Επιλέξτε φάκελο στον δίσκο σας </translation>
     </message>
 </context>
 <context>
@@ -23037,42 +23038,42 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Επίπεδο Σχεδιασμού:</translation>
+        <translation>Επίπεδο Σχεδιασμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Ισχύς Ανά Άτομο:</translation>
+        <translation>Ισχύς Ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Κλάσμα Λανθάνον:</translation>
+        <translation>Κλάσμα Λανθάνον: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Κλάσμα που χάθηκε:</translation>
+        <translation>Κλάσμα που χάθηκε: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Ρυθμός Παραγωγής Διοξειδίου του Άνθρακα:</translation>
+        <translation>Ρυθμός Παραγωγής Διοξειδίου του Άνθρακα: </translation>
     </message>
 </context>
 <context>
@@ -23192,12 +23193,12 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
-        <translation>Τύπος Ψύξης:</translation>
+        <translation>Τύπος Ψύξης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
-        <translation>Τύπος Θέρμανσης:</translation>
+        <translation>Τύπος Θέρμανσης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
@@ -23331,7 +23332,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
-        <translation>Τύπος Βρόχου Εγκατάστασης:</translation>
+        <translation>Τύπος Βρόχου Εγκατάστασης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
@@ -23477,37 +23478,37 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
-        <translation>Επίπεδο Σχεδιασμού:</translation>
+        <translation>Επίπεδο Σχεδιασμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watt ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Watt ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
-        <translation>Watt ανά Άτομο:</translation>
+        <translation>Watt ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
-        <translation>Κλάσμα Λανθάνον:</translation>
+        <translation>Κλάσμα Λανθάνον: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
-        <translation>Κλάσμα που χάθηκε:</translation>
+        <translation>Κλάσμα που χάθηκε: </translation>
     </message>
 </context>
 <context>
@@ -23523,27 +23524,27 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
-        <translation>Επιφάνεια:</translation>
+        <translation>Επιφάνεια: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Επιφάνεια Ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Επιφάνεια Ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
-        <translation>Επιφάνεια ανά Άτομο:</translation>
+        <translation>Επιφάνεια ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
-        <translation>Κατασκευή:</translation>
+        <translation>Κατασκευή: </translation>
     </message>
 </context>
 <context>
@@ -23720,37 +23721,37 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Ισχύς Φωτισμού:</translation>
+        <translation>Ισχύς Φωτισμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts ανά Τετραγωνικό Μέτρο Χώρου:</translation>
+        <translation>Watts ανά Τετραγωνικό Μέτρο Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
-        <translation>Watt ανά Άτομο:</translation>
+        <translation>Watt ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
-        <translation>Κλάσμα Ορατό:</translation>
+        <translation>Κλάσμα Ορατό: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
-        <translation>Κλάσμα Αέρα Επιστροφής:</translation>
+        <translation>Κλάσμα Αέρα Επιστροφής: </translation>
     </message>
 </context>
 <context>
@@ -23880,23 +23881,23 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>Γεωγραφικό πλάτος:</translation>
+        <translation>Γεωγραφικό πλάτος: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>Γεωγραφικό μήκος:</translation>
+        <translation>Γεωγραφικό μήκος: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>Υψόμετρο:</translation>
+        <translation>Υψόμετρο: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>Ζώνη ώρας:</translation>
+        <translation>Ζώνη ώρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
@@ -23989,7 +23990,7 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>Αποτυχία ορισμού αρχείου καιρού σε</translation>
+        <translation>Αποτυχία ορισμού αρχείου καιρού σε </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -24074,82 +24075,57 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
-        <source>Packaged DX Rooftop VAV 
-with Reheat</source>
-        <translation>Συσκευασμένο DX Στέγης VAV 
-με Επανθέρμανση</translation>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
+        <translation>Συσκευασμένο DX Στέγης VAV με Επανθέρμανση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
-        <source>Packaged Rooftop 
-VAV with Parallel Fan 
-Power Boxes and reheat</source>
-        <translation>Συσκευασμένο Σύστημα Στέγης
-VAV με Παράλληλα Κιβώτια Ισχύος Ανεμιστήρα και Αναθέρμανση</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Συσκευασμένο Σύστημα Στέγης VAV με Παράλληλα Κιβώτια Ισχύος Ανεμιστήρα και Αναθέρμανση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
-        <source>Packaged Rooftop 
-VAV with Reheat</source>
-        <translation>Συσκευασμένη Οροφή
-VAV με Επανθέρμανση</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Συσκευασμένη Οροφή VAV με Επανθέρμανση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
-        <source>VAV with Parallel Fan-Powered 
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV με Παράλληλα Κουτιά με Κινητήρα Ανεμιστήρα και Αναθέρμανση</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
-        <source>Warm Air Furnace 
-Gas Fired</source>
-        <translation>Θερμαντήρας Θερμού Αέρα
-Καύσης Αερίου</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Θερμαντήρας Θερμού Αέρα Καύσης Αερίου</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
-        <source>Warm Air Furnace 
-Electric</source>
-        <translation>Θερμαντήρας Ζεστού Αέρα
-Ηλεκτρικός</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Θερμαντήρας Ζεστού Αέρα Ηλεκτρικός</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
-        <translation>Συσκευασμένο DX Rooftop VAV
-με Ανάκτηση Θερμότητας</translation>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
+        <translation>Συσκευασμένο DX Rooftop VAV με Ανάκτηση Θερμότητας</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>Συσκευασμένη Οροφή
-VAV με Παράλληλη Μονάδα Ανεμιστήρα
-Κουτιά Ισχύος και Επανθέρμανση</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Συσκευασμένη Οροφή VAV με Παράλληλη Μονάδα Ανεμιστήρα Κουτιά Ισχύος και Επανθέρμανση</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Συσκευασμένο Σύστημα Στέγης
-VAV με Επανθέρμανση</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Συσκευασμένο Σύστημα Στέγης VAV με Επανθέρμανση</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV με Παράλληλα Κιβώτια Τροφοδοσίας Ανεμιστήρα και Επανθέρμανση</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Θερμαντήρας Θερμού Αέρα
-Καυσίμων Αερίου</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Θερμαντήρας Θερμού Αέρα Καυσίμων Αερίου</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Θερμαντήρας Θερμού Αέρα
-Ηλεκτρικός</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Θερμαντήρας Θερμού Αέρα Ηλεκτρικός</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
@@ -24180,7 +24156,7 @@ Electric</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>Σύνδεση στο Internet:</translation>
+        <translation>Σύνδεση στο Internet: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -24192,7 +24168,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>Σύνδεση στο Cloud:</translation>
+        <translation>Σύνδεση στο Cloud: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -24204,7 +24180,7 @@ Electric</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>Σύνδεση Cloud:</translation>
+        <translation>Σύνδεση Cloud: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -24212,7 +24188,7 @@ Electric</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>Δεν μπορεί να ξανασυνδεθεί.</translation>
+        <translation>Δεν μπορεί να ξανασυνδεθεί. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -24224,7 +24200,7 @@ Electric</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>Προσπαθήστε ξανά αργότερα.</translation>
+        <translation>Προσπαθήστε ξανά αργότερα. </translation>
     </message>
     <message>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
@@ -24236,7 +24212,7 @@ Electric</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>Σταματήστε το Cloud.</translation>
+        <translation>Σταματήστε το Cloud. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -24244,7 +24220,7 @@ Electric</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>Εκκινήστε την κονσόλα AWS.</translation>
+        <translation>Εκκινήστε την κονσόλα AWS. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -24256,27 +24232,27 @@ Electric</source>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Ισχύς Φωτισμού:</translation>
+        <translation>Ισχύς Φωτισμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
-        <translation>Ορατό κλάσμα:</translation>
+        <translation>Ορατό κλάσμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
-        <translation>Κλάσμα Επιστρεφόμενου Αέρα:</translation>
+        <translation>Κλάσμα Επιστρεφόμενου Αέρα: </translation>
     </message>
 </context>
 <context>
@@ -25915,7 +25891,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Εναλλάκτης Θερμότητας Εδάφους - Κατακόρυφος</translation>
+        <translation>Εναλλάκτης Θερμότητας Εδάφους - Κατακόρυφος </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
@@ -26283,12 +26259,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
-        <translation>Θερμική Αντίσταση:</translation>
+        <translation>Θερμική Αντίσταση: </translation>
     </message>
 </context>
 <context>
@@ -26296,47 +26272,47 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
-        <translation>Τραχύτητα:</translation>
+        <translation>Τραχύτητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
-        <translation>Αγωγιμότητα:</translation>
+        <translation>Αγωγιμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
-        <translation>Πυκνότητα:</translation>
+        <translation>Πυκνότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
-        <translation>Ειδική Θερμότητα:</translation>
+        <translation>Ειδική Θερμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
-        <translation>Θερμική Απορροφητικότητα:</translation>
+        <translation>Θερμική Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
-        <translation>Ηλιακή Απορροφητικότητα:</translation>
+        <translation>Ηλιακή Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
-        <translation>Ορατή Απορροφητικότητα:</translation>
+        <translation>Ορατή Απορροφητικότητα: </translation>
     </message>
 </context>
 <context>
@@ -26344,32 +26320,32 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
-        <translation>Τραχύτητα:</translation>
+        <translation>Τραχύτητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
-        <translation>Θερμική Αντίσταση:</translation>
+        <translation>Θερμική Αντίσταση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
-        <translation>Θερμική Απορροφητικότητα:</translation>
+        <translation>Θερμική Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
-        <translation>Ηλιακή Απορροφητικότητα:</translation>
+        <translation>Ηλιακή Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
-        <translation>Ορατή Απορροφητικότητα:</translation>
+        <translation>Ορατή Απορροφητικότητα: </translation>
     </message>
 </context>
 <context>
@@ -26377,97 +26353,97 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
-        <translation>Ύψος Φυτών:</translation>
+        <translation>Ύψος Φυτών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
-        <translation>Δείκτης Επιφάνειας Φύλλων:</translation>
+        <translation>Δείκτης Επιφάνειας Φύλλων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
-        <translation>Ανακλαστικότητα Φύλλου:</translation>
+        <translation>Ανακλαστικότητα Φύλλου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
-        <translation>Εκπομπή Φύλλου:</translation>
+        <translation>Εκπομπή Φύλλου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>Ελάχιστη Αντίσταση Στοματίων:</translation>
+        <translation>Ελάχιστη Αντίσταση Στοματίων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
-        <translation>Όνομα Στρώματος Εδάφους:</translation>
+        <translation>Όνομα Στρώματος Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
-        <translation>Τραχύτητα:</translation>
+        <translation>Τραχύτητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>Αγωγιμότητα Ξηρού Εδάφους:</translation>
+        <translation>Αγωγιμότητα Ξηρού Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
-        <translation>Πυκνότητα Ξηρού Εδάφους:</translation>
+        <translation>Πυκνότητα Ξηρού Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>Ειδική Θερμότητα Ξηρού Εδάφους:</translation>
+        <translation>Ειδική Θερμότητα Ξηρού Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
-        <translation>Θερμική Απορροφητικότητα:</translation>
+        <translation>Θερμική Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
-        <translation>Ηλιακή Απορροφητικότητα:</translation>
+        <translation>Ηλιακή Απορροφητικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
-        <translation>Ορατή Απορρόφηση:</translation>
+        <translation>Ορατή Απορρόφηση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Κορεσμένο Ογκομετρικό Περιεχόμενο Υγρασίας του Στρώματος Εδάφους:</translation>
+        <translation>Κορεσμένο Ογκομετρικό Περιεχόμενο Υγρασίας του Στρώματος Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Υπολειμματικό Ογκομετρικό Περιεχόμενο Υγρασίας του Εδαφικού Στρώματος:</translation>
+        <translation>Υπολειμματικό Ογκομετρικό Περιεχόμενο Υγρασίας του Εδαφικού Στρώματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Αρχική Ογκομετρική Περιεκτικότητα Υγρασίας Του Στρώματος Εδάφους:</translation>
+        <translation>Αρχική Ογκομετρική Περιεκτικότητα Υγρασίας Του Στρώματος Εδάφους: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Μέθοδος Υπολογισμού Διάχυσης Υγρασίας:</translation>
+        <translation>Μέθοδος Υπολογισμού Διάχυσης Υγρασίας: </translation>
     </message>
 </context>
 <context>
@@ -26560,7 +26536,8 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>τα μέτρα έχουν ενημερωθεί στο BCL σε σχέση με τον τοπικό κατάλογό σας BCL.</translation>
+        <translation> τα μέτρα έχουν ενημερωθεί στο BCL σε σχέση με τον τοπικό κατάλογό σας
+BCL.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -26751,7 +26728,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>Δημιουργήστε ένα νέο προφίλ για να παρακάμψετε το προεπιλεγμένο προφίλ περιόδου εκτέλεσης.</translation>
+        <translation>  Δημιουργήστε ένα νέο προφίλ για να παρακάμψετε το προεπιλεγμένο προφίλ περιόδου εκτέλεσης.</translation>
     </message>
 </context>
 <context>
@@ -26997,13 +26974,13 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>Μετάφραση από την έκδοση</translation>
+        <translation>Μετάφραση από την έκδοση </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
-        <translation>Σε</translation>
+        <translation> Σε </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
@@ -27053,7 +27030,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) and that all fields are valid against Energy+.idd.</translation>
+        <translation>) and that all fields are valid against Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -27068,38 +27045,44 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>Η εισαγωγή IDF απέτυχε</translation>
+        <translation> Η εισαγωγή IDF απέτυχε</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Σφάλματα ===============</translation>
+        <translation>===============
+Σφάλματα
+===============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Προειδοποιήσεις ==============</translation>
+        <translation>==============
+Προειδοποιήσεις
+==============</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Δεν εισήχθησαν τα ακόλουθα αντικείμενα idf ====</translation>
+        <translation>==== Δεν εισήχθησαν τα ακόλουθα αντικείμενα
+idf
+====</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation>Ονομασμένα</translation>
+        <translation> Ονομασμένα </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation>Χωρίς όνομα</translation>
+        <translation>Χωρίς όνομα </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
@@ -27119,7 +27102,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
-        <translation>Εισαγωγή</translation>
+        <translation>Εισαγωγή </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
@@ -27129,7 +27112,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Παρουσιάστηκαν σφάλματα ή προειδοποιήσεις κατά την εισαγωγή του</translation>
+        <translation>Παρουσιάστηκαν σφάλματα ή προειδοποιήσεις κατά την εισαγωγή του </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -27139,12 +27122,12 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
-        <translation>Δεν ήταν δυνατή η εισαγωγή</translation>
+        <translation>Δεν ήταν δυνατή η εισαγωγή </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
-        <translation>Αρχείο στο</translation>
+        <translation> Αρχείο στο </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
@@ -27190,7 +27173,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>Διαχείριση Ενεργειακών Μέτρων Διακομιστής:</translation>
+        <translation>Διαχείριση Ενεργειακών Μέτρων Διακομιστής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -27200,7 +27183,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>Κατάλογος Temp:</translation>
+        <translation>Κατάλογος Temp: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -27214,7 +27197,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <source>About </source>
-        <translation>Σχετικά με</translation>
+        <translation>Σχετικά με </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
@@ -27224,17 +27207,17 @@ If you would like to see the OpenStudioApplication translated in your language o
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>Άνοιγμα μελλοντικής έκδοσης</translation>
+        <translation>Άνοιγμα μελλοντικής έκδοσης </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>χρησιμοποιώντας</translation>
+        <translation> χρησιμοποιώντας </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
-        <translation>Το μοντέλο ενημερώθηκε από</translation>
+        <translation>Το μοντέλο ενημερώθηκε από </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
@@ -27246,7 +27229,7 @@ Ruby scripts are no longer supported and have been replaced by measures.</source
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>Αποτυχία ανοίγματος αρχείου στο</translation>
+        <translation>Αποτυχία ανοίγματος αρχείου στο </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -27288,7 +27271,9 @@ Do you want to create a new model?</source>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Το Measure Manager έχει διακοπεί, προσπαθώντας να επανεκκινήσει</translation>
+        <translation>Το Measure Manager έχει διακοπεί, προσπαθώντας
+να
+επανεκκινήσει</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -27316,14 +27301,18 @@ Would you like to restart now?</source>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Αποτυχία φόρτωσης των παρακάτω βιβλιοθηκών ...</translation>
+        <translation>Αποτυχία φόρτωσης των παρακάτω
+βιβλιοθηκών
+...</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Θέλετε να επαναφέρετε διαδρομές βιβλιοθήκης σε προεπιλεγμένες τιμές ή να ανοίξετε τις ρυθμίσεις της βιβλιοθήκης για να τις αλλάξετε χειροκίνητα?</translation>
+        <translation>Θέλετε
+να
+επαναφέρετε διαδρομές βιβλιοθήκης σε προεπιλεγμένες τιμές ή να ανοίξετε τις ρυθμίσεις της βιβλιοθήκης για να τις αλλάξετε χειροκίνητα?</translation>
     </message>
 </context>
 <context>
@@ -27331,37 +27320,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Επίπεδο Σχεδιασμού:</translation>
+        <translation>Επίπεδο Σχεδιασμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Ισχύς Ανά Άτομο:</translation>
+        <translation>Ισχύς Ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Κλάσμα Λανθάνουσας:</translation>
+        <translation>Κλάσμα Λανθάνουσας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Κλάσμα Απώλειας:</translation>
+        <translation>Κλάσμα Απώλειας: </translation>
     </message>
 </context>
 <context>
@@ -27392,37 +27381,37 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
-        <translation>Αριθμός Ατόμων:</translation>
+        <translation>Αριθμός Ατόμων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
-        <translation>Άτομα ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Άτομα ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
-        <translation>Επιφάνεια Δαπέδου Χώρου ανά Άτομο:</translation>
+        <translation>Επιφάνεια Δαπέδου Χώρου ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
-        <translation>Κλάσμα Αισθητής Θερμότητας:</translation>
+        <translation>Κλάσμα Αισθητής Θερμότητας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Ρυθμός Παραγωγής Διοξειδίου του Άνθρακα:</translation>
+        <translation>Ρυθμός Παραγωγής Διοξειδίου του Άνθρακα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
@@ -27510,7 +27499,8 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
-        <translation>Ψυκτική Ικανότητα</translation>
+        <translation>Ψυκτική
+Ικανότητα</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
@@ -27761,7 +27751,7 @@ Detailed Reports</source>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
-        <translation>Αναφορές:</translation>
+        <translation>Αναφορές: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
@@ -27789,7 +27779,8 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
-        <translation>Το DView δεν βρέθηκε στην αναμενόμενη τοποθεσία:</translation>
+        <translation>Το DView δεν βρέθηκε στην αναμενόμενη
+τοποθεσία:</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
@@ -27803,7 +27794,7 @@ in Preferences</source>
     </message>
     <message>
         <source>Custom Report </source>
-        <translation>Προσαρμοσμένη Αναφορά</translation>
+        <translation>Προσαρμοσμένη Αναφορά </translation>
     </message>
 </context>
 <context>
@@ -27819,12 +27810,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Η προσομοίωση δεν εκτελέστηκε, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Η προσομοίωση δεν εκτελέστηκε, QProcess::ProcessError: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>Η προσομοίωση απέτυχε να εκτελεστεί, με κωδικό εξόδου</translation>
+        <translation>Η προσομοίωση απέτυχε να εκτελεστεί, με κωδικό εξόδου </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27932,12 +27923,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
-        <translation>Περιεχόμενο:</translation>
+        <translation>Περιεχόμενο: </translation>
     </message>
 </context>
 <context>
@@ -27945,16 +27936,16 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
-        <translation>Τιμή:</translation>
+        <translation>Τιμή: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>Τιμή:</translation>
+        <translation> Τιμή: </translation>
     </message>
 </context>
 <context>
@@ -28000,17 +27991,17 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
-        <translation>Αριθμητικός Τύπος:</translation>
+        <translation>Αριθμητικός Τύπος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
-        <translation>Κατώτερο όριο:</translation>
+        <translation>Κατώτερο όριο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
-        <translation>Ανώτερο Όριο:</translation>
+        <translation>Ανώτερο Όριο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
@@ -28030,32 +28021,32 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
-        <translation>Διαδρομή Αρχείου:</translation>
+        <translation>Διαδρομή Αρχείου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
-        <translation>Αριθμός Στήλης:</translation>
+        <translation>Αριθμός Στήλης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
-        <translation>Σειρές προς Παράλειψη στην Κορυφή:</translation>
+        <translation>Σειρές προς Παράλειψη στην Κορυφή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
-        <translation>Αριθμός Ωρών Δεδομένων:</translation>
+        <translation>Αριθμός Ωρών Δεδομένων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
-        <translation>Διαχωριστής Στήλης:</translation>
+        <translation>Διαχωριστής Στήλης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
@@ -28080,37 +28071,37 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
-        <translation>Παρεμβολή σε Χρονικό Διάστημα:</translation>
+        <translation>Παρεμβολή σε Χρονικό Διάστημα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
-        <translation>Λεπτά ανά Στοιχείο:</translation>
+        <translation>Λεπτά ανά Στοιχείο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Προσαρμογή Χρονοδιαγράμματος για Θερινή Ώρα:</translation>
+        <translation>Προσαρμογή Χρονοδιαγράμματος για Θερινή Ώρα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
-        <translation>Μετάφραση Αρχείου Με Σχετική Διαδρομή:</translation>
+        <translation>Μετάφραση Αρχείου Με Σχετική Διαδρομή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
-        <translation>Περιεχόμενο:</translation>
+        <translation>Περιεχόμενο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
-        <translation>Αριθμός γραμμών στο αρχείο:</translation>
+        <translation>Αριθμός γραμμών στο αρχείο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
-        <translation>Εμφάνιση Όλου του Περιεχομένου Αρχείου:</translation>
+        <translation>Εμφάνιση Όλου του Περιεχομένου Αρχείου: </translation>
     </message>
 </context>
 <context>
@@ -28118,12 +28109,12 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
-        <translation>Κατώτερο Όριο:</translation>
+        <translation>Κατώτερο Όριο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
-        <translation>Ανώτερο Όριο:</translation>
+        <translation>Ανώτερο Όριο: </translation>
     </message>
 </context>
 <context>
@@ -28538,72 +28529,72 @@ in Preferences</source>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
-        <translation>Συσσωρευμένες Ακτίνες ανά Εγγραφή:</translation>
+        <translation>Συσσωρευμένες Ακτίνες ανά Εγγραφή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
-        <translation>Άμεσο Όριο:</translation>
+        <translation>Άμεσο Όριο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
-        <translation>Άμεση Βεβαιότητα:</translation>
+        <translation>Άμεση Βεβαιότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
-        <translation>Άμεση Ταλάντωση:</translation>
+        <translation>Άμεση Ταλάντωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
-        <translation>Άμεση Προδοκιμασία:</translation>
+        <translation>Άμεση Προδοκιμασία: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ambient Bounces DMX:</translation>
+        <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
-        <translation>Διαιρέσεις Περιβάλλοντος VMX:</translation>
+        <translation>Διαιρέσεις Περιβάλλοντος VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
-        <translation>Ambient Divisions DMX:</translation>
+        <translation>Ambient Divisions DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
-        <translation>Περιβαλλοντικά Υπερδείγματα:</translation>
+        <translation>Περιβαλλοντικά Υπερδείγματα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
-        <translation>Όριο Βάρους VMX:</translation>
+        <translation>Όριο Βάρους VMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
-        <translation>Περιορισμός Βάρους DMX:</translation>
+        <translation>Περιορισμός Βάρους DMX: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
-        <translation>Klems Sampling Density:</translation>
+        <translation>Klems Sampling Density: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
-        <translation>Ανάλυση Διακριτοποίησης Ουράνιας Θόλου:</translation>
+        <translation>Ανάλυση Διακριτοποίησης Ουράνιας Θόλου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
@@ -28969,13 +28960,13 @@ in Preferences</source>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
@@ -30715,62 +30706,62 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
-        <translation>Πρότυπο:</translation>
+        <translation>Πρότυπο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
-        <translation>Τυπική Πηγή:</translation>
+        <translation>Τυπική Πηγή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
-        <translation>Προορισμένος Τύπος Επιφάνειας:</translation>
+        <translation>Προορισμένος Τύπος Επιφάνειας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
-        <translation>Τύπος Κατασκευής Προτύπων:</translation>
+        <translation>Τύπος Κατασκευής Προτύπων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
-        <translation>Τύπος Ανοιγμάτων:</translation>
+        <translation>Τύπος Ανοιγμάτων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
-        <translation>Πλαίσιο Συναρμολόγησης Ανοιγμάτων:</translation>
+        <translation>Πλαίσιο Συναρμολόγησης Ανοιγμάτων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
-        <translation>Αριθμός Υαλοπινάκων Φεγγιτών:</translation>
+        <translation>Αριθμός Υαλοπινάκων Φεγγιτών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
-        <translation>Τύπος Πλαισίου Φεγγιτών:</translation>
+        <translation>Τύπος Πλαισίου Φεγγιτών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
-        <translation>Τύπος Διαιρέτη Φεγγυρολόγησης:</translation>
+        <translation>Τύπος Διαιρέτη Φεγγυρολόγησης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
-        <translation>Απόχρωση Υαλοπινάκων:</translation>
+        <translation>Απόχρωση Υαλοπινάκων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
-        <translation>Αέριο Πλήρωσης Ανοιγμάτων:</translation>
+        <translation>Αέριο Πλήρωσης Ανοιγμάτων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Επίστρωση Χαμηλής Εκπομπής Ακτινοβολίας Παραθύρων:</translation>
+        <translation>Επίστρωση Χαμηλής Εκπομπής Ακτινοβολίας Παραθύρων: </translation>
     </message>
 </context>
 <context>
@@ -30783,47 +30774,47 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
-        <translation>Πρότυπο:</translation>
+        <translation>Πρότυπο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
-        <translation>Τυπική Πηγή:</translation>
+        <translation>Τυπική Πηγή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
-        <translation>Κατηγορία Προτύπων:</translation>
+        <translation>Κατηγορία Προτύπων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
-        <translation>Αναγνωριστικό Προτύπων:</translation>
+        <translation>Αναγνωριστικό Προτύπων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
-        <translation>Υλικό Σύνθετης Πλαισίωσης:</translation>
+        <translation>Υλικό Σύνθετης Πλαισίωσης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
-        <translation>Σύνθετη Διαμόρφωση Πλαισίου:</translation>
+        <translation>Σύνθετη Διαμόρφωση Πλαισίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
-        <translation>Βάθος Σύνθετης Δομής:</translation>
+        <translation>Βάθος Σύνθετης Δομής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
-        <translation>Μέγεθος Σύνθετου Πλαισίου:</translation>
+        <translation>Μέγεθος Σύνθετου Πλαισίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
-        <translation>Σύνθετη Μόνωση Κοιλότητας:</translation>
+        <translation>Σύνθετη Μόνωση Κοιλότητας: </translation>
     </message>
 </context>
 <context>
@@ -30904,37 +30895,37 @@ Space</source>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
-        <translation>Επίπεδο Σχεδιασμού:</translation>
+        <translation>Επίπεδο Σχεδιασμού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
-        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου:</translation>
+        <translation>Ισχύς Ανά Επιφάνεια Δαπέδου Χώρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
-        <translation>Ισχύ Ανά Άτομο:</translation>
+        <translation>Ισχύ Ανά Άτομο: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
-        <translation>Κλάσμα Λανθάνουσας:</translation>
+        <translation>Κλάσμα Λανθάνουσας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
-        <translation>Κλάσμα Ακτινοβολίας:</translation>
+        <translation>Κλάσμα Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
-        <translation>Κλάσμα Απώλειας:</translation>
+        <translation>Κλάσμα Απώλειας: </translation>
     </message>
 </context>
 <context>
@@ -31109,7 +31100,8 @@ Air Humidity Ratio</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
-        <translation>Συντελεστής Διαστασιολόγησης Ψύξης Ζώνης</translation>
+        <translation>Συντελεστής Διαστασιολόγησης
+Ψύξης Ζώνης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
@@ -31197,7 +31189,8 @@ Air Humidity Ratio</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
-        <translation>Συντελεστής Διαστασιολόγησης Θέρμανσης Ζώνης</translation>
+        <translation>Συντελεστής Διαστασιολόγησης
+Θέρμανσης Ζώνης</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
@@ -31277,7 +31270,8 @@ Air Flow</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
-        <translation>Συστήματα HVAC</translation>
+        <translation>Συστήματα
+HVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
@@ -31310,7 +31304,8 @@ Parameters</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
-        <translation>Ζώνη</translation>
+        <translation>Ζώ
+η</translation>
     </message>
 </context>
 <context>
@@ -31326,12 +31321,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
-        <translation>Ημερομηνία Έναρξης</translation>
+        <translation>Ημερομηνία Έναρξης </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
-        <translation>Ημερομηνία Λήξης</translation>
+        <translation>   Ημερομηνία Λήξης </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
@@ -31595,32 +31590,32 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
-        <translation>Υποκατηγορία Χρήσης Ενέργειας:</translation>
+        <translation>Υποκατηγορία Χρήσης Ενέργειας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
-        <translation>Μέγιστη παροχή:</translation>
+        <translation>Μέγιστη παροχή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
-        <translation>Πρόγραμμα Θερμοκρασίας Στόχου:</translation>
+        <translation>Πρόγραμμα Θερμοκρασίας Στόχου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
-        <translation>Χρονοδιάγραμμα Αισθητού Κλάσματος:</translation>
+        <translation>Χρονοδιάγραμμα Αισθητού Κλάσματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
-        <translation>Πρόγραμμα Λανθάνοντος Κλάσματος:</translation>
+        <translation>Πρόγραμμα Λανθάνοντος Κλάσματος: </translation>
     </message>
 </context>
 <context>
@@ -31636,147 +31631,147 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
-        <translation>Προσανατολισμός Περσίδων:</translation>
+        <translation>Προσανατολισμός Περσίδων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
-        <translation>Πλάτος Λάμακας:</translation>
+        <translation>Πλάτος Λάμακας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
-        <translation>Διαχωρισμός Λάμας:</translation>
+        <translation>Διαχωρισμός Λάμας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
-        <translation>Πάχος Σχισμής:</translation>
+        <translation>Πάχος Σχισμής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
-        <translation>Γωνία Περσίδας:</translation>
+        <translation>Γωνία Περσίδας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
-        <translation>Αγωγιμότητα Σχισμής:</translation>
+        <translation>Αγωγιμότητα Σχισμής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>Ηλιακή Διαπερατότητα Δοκού Πτερυγίου:</translation>
+        <translation>Ηλιακή Διαπερατότητα Δοκού Πτερυγίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>Ανακλαστικότητα Ηλιακής Ακτινοβολίας Δοκού Πλευρικής Σχάρας (Εμπρός Πλευρά):</translation>
+        <translation>Ανακλαστικότητα Ηλιακής Ακτινοβολίας Δοκού Πλευρικής Σχάρας (Εμπρός Πλευρά): </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>Ηλιακή Ανακλαστικότητα Δέσμης Πίσω Πλευράς Σχάρας:</translation>
+        <translation>Ηλιακή Ανακλαστικότητα Δέσμης Πίσω Πλευράς Σχάρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Διαπερατότητα Διάχυτης Ηλιακής Ακτινοβολίας Πλάκας:</translation>
+        <translation>Διαπερατότητα Διάχυτης Ηλιακής Ακτινοβολίας Πλάκας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα Εμπρόσθιας Πλευράς Περσίδας:</translation>
+        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα Εμπρόσθιας Πλευράς Περσίδας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα Πίσω Πλευράς Σχάρας:</translation>
+        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα Πίσω Πλευράς Σχάρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>Ορατή Διαπερατότητα Δοκού Πτερυγίου:</translation>
+        <translation>Ορατή Διαπερατότητα Δοκού Πτερυγίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Ορατή Ανακλαστικότητα Δέσμης Μπροστινής Πλευράς Σχάρας:</translation>
+        <translation>Ορατή Ανακλαστικότητα Δέσμης Μπροστινής Πλευράς Σχάρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>Ανακλαστικότητα Δέσμης Πλακιδίων Πίσω Πλευράς:</translation>
+        <translation>Ανακλαστικότητα Δέσμης Πλακιδίων Πίσω Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>Διάχυτη Ορατή Διαπερατότητα Περσίδας:</translation>
+        <translation>Διάχυτη Ορατή Διαπερατότητα Περσίδας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Διάχυτη Ορατή Ανακλαστικότητα Πλευράς Μπροστά Σχισμής:</translation>
+        <translation>Διάχυτη Ορατή Ανακλαστικότητα Πλευράς Μπροστά Σχισμής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Διάχυτη Ορατή Ανακλαστικότητα Πίσω Πλευράς Λάμας:</translation>
+        <translation>Διάχυτη Ορατή Ανακλαστικότητα Πίσω Πλευράς Λάμας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Υπέρυθρη Ημισφαιρική Διαπερατότητα Σχάρας:</translation>
+        <translation>Υπέρυθρη Ημισφαιρική Διαπερατότητα Σχάρας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Υπέρυθρη Ημισφαιρική Εκπεμπτικότητα Εμπρόσθιας Πλευράς Περσίδας:</translation>
+        <translation>Υπέρυθρη Ημισφαιρική Εκπεμπτικότητα Εμπρόσθιας Πλευράς Περσίδας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Υπέρυθρη Ημισφαιρική Εκπομπή Πίσω Πλευράς Πτερυγίου:</translation>
+        <translation>Υπέρυθρη Ημισφαιρική Εκπομπή Πίσω Πλευράς Πτερυγίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
-        <translation>Απόσταση Σκίασης από Το Γυαλί:</translation>
+        <translation>Απόσταση Σκίασης από Το Γυαλί: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Κορυφής Τυφλού:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Κορυφής Τυφλού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Κάτω Μέρους Τυφλών:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Κάτω Μέρους Τυφλών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς Τυφλού:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς Τυφλού: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς Jalousies:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς Jalousies: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
-        <translation>Ελάχιστη Γωνία Σχισμής:</translation>
+        <translation>Ελάχιστη Γωνία Σχισμής: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
-        <translation>Μέγιστη Γωνία Πτερυγίων:</translation>
+        <translation>Μέγιστη Γωνία Πτερυγίων: </translation>
     </message>
 </context>
 <context>
@@ -31784,12 +31779,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
-        <translation>Τύπος Συσκευής Ανακατεύθυνσης Φωτός:</translation>
+        <translation>Τύπος Συσκευής Ανακατεύθυνσης Φωτός: </translation>
     </message>
 </context>
 <context>
@@ -31797,52 +31792,52 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
-        <translation>Τύπος Αερίου:</translation>
+        <translation>Τύπος Αερίου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
-        <translation>Συντελεστής Αγωγιμότητας A:</translation>
+        <translation>Συντελεστής Αγωγιμότητας A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
-        <translation>Συντελεστής Αγωγιμότητας B:</translation>
+        <translation>Συντελεστής Αγωγιμότητας B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
-        <translation>Συντελεστής Ιξώδους A:</translation>
+        <translation>Συντελεστής Ιξώδους A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
-        <translation>Συντελεστής Ιξώδους B:</translation>
+        <translation>Συντελεστής Ιξώδους B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
-        <translation>Συντελεστής Ειδικής Θερμότητας A:</translation>
+        <translation>Συντελεστής Ειδικής Θερμότητας A: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
-        <translation>Συντελεστής Ειδικής Θερμότητας B:</translation>
+        <translation>Συντελεστής Ειδικής Θερμότητας B: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
-        <translation>Μοριακό Βάρος:</translation>
+        <translation>Μοριακό Βάρος: </translation>
     </message>
 </context>
 <context>
@@ -31850,57 +31845,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
-        <translation>Αριθμός Αερίων στο Μείγμα:</translation>
+        <translation>Αριθμός Αερίων στο Μείγμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
-        <translation>Κλάσμα Αερίου 1:</translation>
+        <translation>Κλάσμα Αερίου 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
-        <translation>Τύπος Αερίου 1:</translation>
+        <translation>Τύπος Αερίου 1: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
-        <translation>Gas 2 Κλάσμα:</translation>
+        <translation>Gas 2 Κλάσμα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
-        <translation>Τύπος Αερίου 2:</translation>
+        <translation>Τύπος Αερίου 2: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
-        <translation>Κλάσμα Αερίου 3:</translation>
+        <translation>Κλάσμα Αερίου 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
-        <translation>Τύπος Αερίου 3:</translation>
+        <translation>Τύπος Αερίου 3: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
-        <translation>Gas 4 Fraction:</translation>
+        <translation>Gas 4 Fraction: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
-        <translation>Αέριο 4 Τύπος:</translation>
+        <translation>Αέριο 4 Τύπος: </translation>
     </message>
 </context>
 <context>
@@ -31908,82 +31903,82 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
-        <translation>Τύπος Οπτικών Δεδομένων:</translation>
+        <translation>Τύπος Οπτικών Δεδομένων: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>Όνομα Συνόλου Φασματικών Δεδομένων Γυαλιού Παραθύρου:</translation>
+        <translation>Όνομα Συνόλου Φασματικών Δεδομένων Γυαλιού Παραθύρου: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>Διαπερατότητα Ηλιακής Ακτινοβολίας στην Κάθετη Πρόσπτωση:</translation>
+        <translation>Διαπερατότητα Ηλιακής Ακτινοβολίας στην Κάθετη Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Ηλιακή Ανακλαστικότητα Μπροστινής Πλευράς σε Κανονική Πρόσπτωση:</translation>
+        <translation>Ηλιακή Ανακλαστικότητα Μπροστινής Πλευράς σε Κανονική Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Ηλιακή Ανακλαστικότητα Πίσω Πλευράς σε Κάθετη Πρόσπτωση:</translation>
+        <translation>Ηλιακή Ανακλαστικότητα Πίσω Πλευράς σε Κάθετη Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>Ορατή Διαπερατότητα Κάθετης Πρόσπτωσης:</translation>
+        <translation>Ορατή Διαπερατότητα Κάθετης Πρόσπτωσης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Ορατότητα Ανακλαστικότητας Μπροστινής Πλευράς σε Κάθετη Πρόσπτωση:</translation>
+        <translation>Ορατότητα Ανακλαστικότητας Μπροστινής Πλευράς σε Κάθετη Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Ορατή Ανακλαστικότητα Πίσω Πλευράς Σε Κανονική Πρόσπτωση:</translation>
+        <translation>Ορατή Ανακλαστικότητα Πίσω Πλευράς Σε Κανονική Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Διαπερατότητα Υπέρυθρης Ακτινοβολίας στη Κάθετη Πρόσπτωση:</translation>
+        <translation>Διαπερατότητα Υπέρυθρης Ακτινοβολίας στη Κάθετη Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>Εμπρόσθια Πλευρά Υπέρυθρη Ημισφαιρική Εκπομπή:</translation>
+        <translation>Εμπρόσθια Πλευρά Υπέρυθρη Ημισφαιρική Εκπομπή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>Υπέρυθρη Ημισφαιρική Εκπομπιμότητα Πίσω Πλευράς:</translation>
+        <translation>Υπέρυθρη Ημισφαιρική Εκπομπιμότητα Πίσω Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
-        <translation>Αγωγιμότητα:</translation>
+        <translation>Αγωγιμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Συντελεστής Διόρθωσης Ρύπανσης Για Ηλιακή Και Ορατή Διαπερατότητα:</translation>
+        <translation>Συντελεστής Διόρθωσης Ρύπανσης Για Ηλιακή Και Ορατή Διαπερατότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
-        <translation>Διάχυση Ηλιακής Ακτινοβολίας:</translation>
+        <translation>Διάχυση Ηλιακής Ακτινοβολίας: </translation>
     </message>
 </context>
 <context>
@@ -31991,57 +31986,57 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
-        <translation>Δείκτης Διάθλασης Ηλιακής Ακτινοβολίας:</translation>
+        <translation>Δείκτης Διάθλασης Ηλιακής Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Ηλιακός Συντελεστής Εξασθένησης:</translation>
+        <translation>Ηλιακός Συντελεστής Εξασθένησης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
-        <translation>Ορατός Δείκτης Διάθλασης:</translation>
+        <translation>Ορατός Δείκτης Διάθλασης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Ορατός Συντελεστής Εξασθένησης:</translation>
+        <translation>Ορατός Συντελεστής Εξασθένησης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>Διαπερατότητα Υπερύθρων στην Κάθετη Πρόσπτωση:</translation>
+        <translation>Διαπερατότητα Υπερύθρων στην Κάθετη Πρόσπτωση: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>Εκπομπικότητα Υπερύθρης Ημισφαιρικής Ακτινοβολίας:</translation>
+        <translation>Εκπομπικότητα Υπερύθρης Ημισφαιρικής Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
-        <translation>Αγωγιμότητα:</translation>
+        <translation>Αγωγιμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Συντελεστής Διόρθωσης Ρύπανσης για Ηλιακή και Ορατή Διαπερατότητα:</translation>
+        <translation>Συντελεστής Διόρθωσης Ρύπανσης για Ηλιακή και Ορατή Διαπερατότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
-        <translation>Διάχυση Ηλιακής Ακτινοβολίας:</translation>
+        <translation>Διάχυση Ηλιακής Ακτινοβολίας: </translation>
     </message>
 </context>
 <context>
@@ -32049,72 +32044,72 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>Μέθοδος Λογιστικής Διαπερατότητας Ανακλώμενης Δέσμης:</translation>
+        <translation>Μέθοδος Λογιστικής Διαπερατότητας Ανακλώμενης Δέσμης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα:</translation>
+        <translation>Διάχυτη Ηλιακή Ανακλαστικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>Διάχυτη Ορατή Ανακλαστικότητα:</translation>
+        <translation>Διάχυτη Ορατή Ανακλαστικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Θερμική Ημισφαιρική Εκπομπή:</translation>
+        <translation>Θερμική Ημισφαιρική Εκπομπή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
-        <translation>Αγωγιμότητα:</translation>
+        <translation>Αγωγιμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
-        <translation>Απόσταση Υλικού Οθόνης:</translation>
+        <translation>Απόσταση Υλικού Οθόνης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
-        <translation>Διάμετρος Υλικού Οθόνης:</translation>
+        <translation>Διάμετρος Υλικού Οθόνης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
-        <translation>Απόσταση Οθόνης Από Γυαλί:</translation>
+        <translation>Απόσταση Οθόνης Από Γυαλί: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Άνω Ανοίγματος:</translation>
+        <translation>Πολλαπλασιαστής Άνω Ανοίγματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Κάτω:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Κάτω: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Γωνία Ανάλυσης για Χάρτη Εξόδου Διαπερατότητας Οθόνης:</translation>
+        <translation>Γωνία Ανάλυσης για Χάρτη Εξόδου Διαπερατότητας Οθόνης: </translation>
     </message>
 </context>
 <context>
@@ -32122,77 +32117,77 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
-        <translation>Διαπερατότητα Ηλιακής Ακτινοβολίας:</translation>
+        <translation>Διαπερατότητα Ηλιακής Ακτινοβολίας: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
-        <translation>Ηλιακή Ανακλαστικότητα:</translation>
+        <translation>Ηλιακή Ανακλαστικότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
-        <translation>Ορατή Διαπερατότητα:</translation>
+        <translation>Ορατή Διαπερατότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
-        <translation>Ορατότητα Ανάκλασης:</translation>
+        <translation>Ορατότητα Ανάκλασης: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Θερμική ημισφαιρική εκπομπή:</translation>
+        <translation>Θερμική ημισφαιρική εκπομπή: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
-        <translation>Θερμική Διαπερατότητα:</translation>
+        <translation>Θερμική Διαπερατότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
-        <translation>Πάχος:</translation>
+        <translation>Πάχος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
-        <translation>Αγωγιμότητα:</translation>
+        <translation>Αγωγιμότητα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
-        <translation>Απόσταση Σκίασης από Γυαλί:</translation>
+        <translation>Απόσταση Σκίασης από Γυαλί: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανώτερου Ανοίγματος:</translation>
+        <translation>Πολλαπλασιαστής Ανώτερου Ανοίγματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Κάτω Ανοίγματος:</translation>
+        <translation>Πολλαπλασιαστής Κάτω Ανοίγματος: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Αριστερής Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς:</translation>
+        <translation>Πολλαπλασιαστής Ανοίγματος Δεξιάς Πλευράς: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
-        <translation>Διαπερατότητα Ροής Αέρα:</translation>
+        <translation>Διαπερατότητα Ροής Αέρα: </translation>
     </message>
 </context>
 <context>
@@ -32200,22 +32195,22 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
-        <translation>Όνομα:</translation>
+        <translation>Όνομα: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
-        <translation>U-Factor:</translation>
+        <translation>U-Factor: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>Συντελεστής Ηλιακών Θερμικών Κερδών:</translation>
+        <translation>Συντελεστής Ηλιακών Θερμικών Κερδών: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
-        <translation>Ορατή Διαπερατότητα:</translation>
+        <translation>Ορατή Διαπερατότητα: </translation>
     </message>
 </context>
 <context>
@@ -32416,7 +32411,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
@@ -32454,7 +32449,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>Ο διακομιστής BIM δεν είναι σωστά συνδεδεμένος. Ελέγξτε εάν ο διακομιστής BIM εκτελείται και βεβαιωθείτε ότι το όνομα χρήστη και ο κωδικός πρόσβασης είναι έγκυροι.</translation>
+        <translation>Ο διακομιστής BIM δεν είναι σωστά συνδεδεμένος. Ελέγξτε εάν ο διακομιστής BIM εκτελείται και βεβαιωθείτε ότι το όνομα χρήστη και ο κωδικός πρόσβασης είναι
+έγκυροι.</translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
@@ -32479,7 +32475,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>Εισαγάγετε το όνομα της εργασίας:</translation>
+        <translation>Εισαγάγετε το όνομα της εργασίας: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -32524,7 +32520,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>Εισαγάγετε τις πληροφορίες του διακομιστή BIM:</translation>
+        <translation>Εισαγάγετε τις πληροφορίες του διακομιστή BIM: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -32560,7 +32556,8 @@ Zone</source>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Καταχωρίστε έγκυρη διεύθυνση διακομιστή BIM, θύρα, το όνομα χρήστη και τον κωδικό πρόσβασής σας. Μπορείτε να ζητήσετε από τον διαχειριστή BIMserver σας τέτοιες πληροφορίες.</translation>
+        <translation>Καταχωρίστε έγκυρη διεύθυνση διακομιστή BIM, θύρα, το όνομα χρήστη και τον κωδικό πρόσβασής σας. Μπορείτε να ζητήσετε από τον διαχειριστή BIMserver σας τέτοιες
+πληροφορίες.</translation>
     </message>
 </context>
 <context>

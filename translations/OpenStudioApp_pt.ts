@@ -206,7 +206,8 @@ Precipitação</translation>
     <message>
         <source>Drop
 Zone</source>
-        <translation>Zona de Queda</translation>
+        <translation>Zona de
+Queda</translation>
     </message>
 </context>
 <context>
@@ -300,7 +301,7 @@ Zone</source>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
         <source>Select Path to </source>
-        <translation>Selecionar Caminho para</translation>
+        <translation>Selecionar Caminho para </translation>
     </message>
 </context>
 <context>
@@ -406,23 +407,23 @@ Zone</source>
     </message>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>Latitude:</translation>
+        <translation>Latitude: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>Longitude:</translation>
+        <translation>Longitude: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>Elevação:</translation>
+        <translation>Elevação: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>Fuso Horário:</translation>
+        <translation>Fuso Horário: </translation>
     </message>
     <message>
         <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
@@ -494,7 +495,7 @@ Zone</source>
     </message>
     <message>
         <source>Failed To Set Weather File To </source>
-        <translation>Falha ao Definir Arquivo de Clima Para</translation>
+        <translation>Falha ao Definir Arquivo de Clima Para </translation>
     </message>
     <message>
         <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
@@ -545,7 +546,7 @@ Zone</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>Conexão com a Internet:</translation>
+        <translation>Conexão com a Internet: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -557,7 +558,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>Acesso à Nuvem:</translation>
+        <translation>Acesso à Nuvem: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -569,7 +570,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>Conexão em Nuvem:</translation>
+        <translation>Conexão em Nuvem: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -577,7 +578,7 @@ Zone</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>incapaz de reconectar.</translation>
+        <translation>incapaz de reconectar. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -589,7 +590,7 @@ Zone</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>Tente Novamente Mais Tarde.</translation>
+        <translation>Tente Novamente Mais Tarde. </translation>
     </message>
     <message>
         <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
@@ -601,7 +602,7 @@ Zone</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>Parar Cloud.</translation>
+        <translation>Parar Cloud. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -609,7 +610,7 @@ Zone</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>Iniciar AWS Console.</translation>
+        <translation>Iniciar AWS Console. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -897,7 +898,8 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     <message>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>as medidas foram atualizadas no BCL em comparação com seu diretório BCL local.</translation>
+        <translation> as medidas foram atualizadas no BCL em comparação com seu diretório BCL
+local.</translation>
     </message>
     <message>
         <source>Would you like update them?</source>
@@ -1027,11 +1029,11 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Translation From version </source>
-        <translation>Tradução Da versão</translation>
+        <translation>Tradução Da versão </translation>
     </message>
     <message>
         <source> to </source>
-        <translation>para</translation>
+        <translation> para </translation>
     </message>
     <message>
         <source>Unknown starting version</source>
@@ -1071,7 +1073,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) e que todos os campos são válidos contra Energy+.idd.</translation>
+        <translation>) e que todos os campos são válidos contra Energy+.idd. </translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
@@ -1083,33 +1085,39 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source> IDF Import Failed</source>
-        <translation>Falha na Importação de IDF</translation>
+        <translation> Falha na Importação de IDF</translation>
     </message>
     <message>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Erros ===============</translation>
+        <translation>===============
+Erros
+===============</translation>
     </message>
     <message>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Avisos ==============</translation>
+        <translation>==============
+Avisos
+==============</translation>
     </message>
     <message>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Os seguintes objetos idf não foram importados ====</translation>
+        <translation>==== Os seguintes objetos idf não foram
+importados
+====</translation>
     </message>
     <message>
         <source> named </source>
-        <translation>nomeado</translation>
+        <translation> nomeado </translation>
     </message>
     <message>
         <source>Unnamed </source>
-        <translation>Sem nome</translation>
+        <translation>Sem nome </translation>
     </message>
     <message>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
@@ -1125,7 +1133,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Import </source>
-        <translation>Importar</translation>
+        <translation>Importar </translation>
     </message>
     <message>
         <source>(*.xml)</source>
@@ -1133,7 +1141,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Erros ou avisos ocorreram na importação de</translation>
+        <translation>Erros ou avisos ocorreram na importação de </translation>
     </message>
     <message>
         <source>Could not import SDD file.</source>
@@ -1141,11 +1149,11 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Could not import </source>
-        <translation>Não foi possível importar</translation>
+        <translation>Não foi possível importar </translation>
     </message>
     <message>
         <source> file at </source>
-        <translation>arquivo em</translation>
+        <translation> arquivo em </translation>
     </message>
     <message>
         <source>Save Changes?</source>
@@ -1181,7 +1189,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Measure Manager Server: </source>
-        <translation>Servidor do Gerenciador de Medidas:</translation>
+        <translation>Servidor do Gerenciador de Medidas: </translation>
     </message>
     <message>
         <source>Chrome Debugger: http://localhost:</source>
@@ -1189,7 +1197,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Temp Directory: </source>
-        <translation>Diretório Temporário:</translation>
+        <translation>Diretório Temporário: </translation>
     </message>
     <message>
         <source>Measure Manager has crashed. Do you want to retry?</source>
@@ -1201,7 +1209,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>About </source>
-        <translation>Sobre</translation>
+        <translation>Sobre </translation>
     </message>
     <message>
         <source>Failed to load model</source>
@@ -1209,15 +1217,15 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
     </message>
     <message>
         <source>Opening future version </source>
-        <translation>Abrindo versão futura</translation>
+        <translation>Abrindo versão futura </translation>
     </message>
     <message>
         <source> using </source>
-        <translation>utilizando</translation>
+        <translation> utilizando </translation>
     </message>
     <message>
         <source>Model updated from </source>
-        <translation>Modelo atualizado de</translation>
+        <translation>Modelo atualizado de </translation>
     </message>
     <message>
         <source>Existing Ruby scripts have been removed.
@@ -1227,7 +1235,7 @@ Scripts Ruby não são mais suportados e foram substituídos por medidas.</trans
     </message>
     <message>
         <source>Failed to open file at </source>
-        <translation>Falha ao abrir arquivo em</translation>
+        <translation>Falha ao abrir arquivo em </translation>
     </message>
     <message>
         <source>Settings file not writable</source>
@@ -1259,7 +1267,9 @@ Deseja criar um novo modelo?</translation>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Gerenciador de Medidas travou, tentando reiniciar</translation>
+        <translation>Gerenciador de Medidas travou,
+tentando
+reiniciar</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -1283,13 +1293,17 @@ Deseja reiniciar agora?</translation>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Falha ao carregar as seguintes bibliotecas...</translation>
+        <translation>Falha ao carregar as
+seguintes
+bibliotecas...</translation>
     </message>
     <message>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Gostaria de Restaurar os caminhos da biblioteca para valores padrão ou Abrir as configurações da biblioteca para alterá-los manualmente?</translation>
+        <translation>Gostaria
+de
+Restaurar os caminhos da biblioteca para valores padrão ou Abrir as configurações da biblioteca para alterá-los manualmente?</translation>
     </message>
 </context>
 <context>
@@ -1318,11 +1332,11 @@ Would you like to Restore library paths to default values or Open the library se
     <name>openstudio::RunView</name>
     <message>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Falha na execução da simulação, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Falha na execução da simulação, QProcess::ProcessError: </translation>
     </message>
     <message>
         <source>Simulation failed to run, with exit code </source>
-        <translation>Falha na execução da simulação, com código de saída</translation>
+        <translation>Falha na execução da simulação, com código de saída </translation>
     </message>
 </context>
 <context>
@@ -1356,11 +1370,11 @@ Would you like to Restore library paths to default values or Open the library se
     </message>
     <message>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -1400,7 +1414,8 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Diferença Máxima nas Temperaturas do Ar Externo com Média Mensal</translation>
+        <translation>Diferença Máxima nas Temperaturas do Ar
+Externo com Média Mensal</translation>
     </message>
     <message>
         <source>Temperature Multiplier</source>
@@ -1699,7 +1714,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1728,7 +1743,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver não está conectado corretamente. Verifique se BIMserver está em execução e certifique-se de que seu nome de usuário e senha são válidos.</translation>
+        <translation>BIMserver não está conectado corretamente. Verifique se BIMserver está em execução e certifique-se de que seu nome de usuário e senha são
+válidos.</translation>
     </message>
     <message>
         <source>Please select a IFC version before proceeding.</source>
@@ -1748,7 +1764,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the project name: </source>
-        <translation>Por favor, digite o nome do projeto:</translation>
+        <translation>Por favor, digite o nome do projeto: </translation>
     </message>
     <message>
         <source>Project Name:</source>
@@ -1784,7 +1800,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the BIMserver information: </source>
-        <translation>Por favor, insira as informações do BIMserver:</translation>
+        <translation>Por favor, insira as informações do BIMserver: </translation>
     </message>
     <message>
         <source>BIMserver Address: http://</source>
@@ -1813,7 +1829,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Por favor, forneça um endereço BIMserver válido, porta, seu nome de usuário e senha. Você pode solicitar essas informações ao seu gerenciador de BIMserver.</translation>
+        <translation>Por favor, forneça um endereço BIMserver válido, porta, seu nome de usuário e senha. Você pode solicitar essas informações ao seu gerenciador de
+BIMserver.</translation>
     </message>
 </context>
 <context>
@@ -2149,15 +2166,15 @@ Tags</translation>
     <name>openstudio::BuildingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Display Name: </source>
-        <translation>Nome de Exibição:</translation>
+        <translation>Nome de Exibição: </translation>
     </message>
     <message>
         <source>CAD Object Id: </source>
-        <translation>ID de Objeto CAD:</translation>
+        <translation>ID de Objeto CAD: </translation>
     </message>
     <message>
         <source>Measure Tags (Optional):</source>
@@ -2165,51 +2182,51 @@ Tags</translation>
     </message>
     <message>
         <source>Standards Template: </source>
-        <translation>Modelo de Padrões:</translation>
+        <translation>Modelo de Padrões: </translation>
     </message>
     <message>
         <source>Standards Building Type: </source>
-        <translation>Tipo de Edifício Padrão:</translation>
+        <translation>Tipo de Edifício Padrão: </translation>
     </message>
     <message>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>Altura Nominal do Piso ao Teto:</translation>
+        <translation>Altura Nominal do Piso ao Teto: </translation>
     </message>
     <message>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>Altura Nominal de Piso a Piso:</translation>
+        <translation>Altura Nominal de Piso a Piso: </translation>
     </message>
     <message>
         <source>Standards Number of Stories: </source>
-        <translation>Número de Pavimentos (Padrão):</translation>
+        <translation>Número de Pavimentos (Padrão): </translation>
     </message>
     <message>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Número de Andares Acima do Solo (Padrão):</translation>
+        <translation>Número de Andares Acima do Solo (Padrão): </translation>
     </message>
     <message>
         <source>Standards Number of Living Units: </source>
-        <translation>Número Padrão de Unidades Residenciais:</translation>
+        <translation>Número Padrão de Unidades Residenciais: </translation>
     </message>
     <message>
         <source>Relocatable: </source>
-        <translation>Relocável:</translation>
+        <translation>Relocável: </translation>
     </message>
     <message>
         <source>North Axis: </source>
-        <translation>Eixo Norte:</translation>
+        <translation>Eixo Norte: </translation>
     </message>
     <message>
         <source>Space Type: </source>
-        <translation>Tipo de Espaço:</translation>
+        <translation>Tipo de Espaço: </translation>
     </message>
     <message>
         <source>Default Construction Set: </source>
-        <translation>Conjunto de Construção Padrão:</translation>
+        <translation>Conjunto de Construção Padrão: </translation>
     </message>
     <message>
         <source>Default Schedule Set: </source>
-        <translation>Conjunto de Cronogramas Padrão:</translation>
+        <translation>Conjunto de Cronogramas Padrão: </translation>
     </message>
 </context>
 <context>
@@ -2221,7 +2238,8 @@ Tags</translation>
     <message>
         <source>Drop
 Story</source>
-        <translation>Pé direito</translation>
+        <translation>Pé
+direito</translation>
     </message>
     <message>
         <source>Filters:</source>
@@ -2292,7 +2310,8 @@ Story</source>
     <message>
         <source>Drop Shading
 Surface Group</source>
-        <translation>Grupo de Superfícies com Sombreamento Suspenso</translation>
+        <translation>Grupo de Superfícies com
+Sombreamento Suspenso</translation>
     </message>
     <message>
         <source>Filters:</source>
@@ -2781,7 +2800,8 @@ Solto</translation>
     <message>
         <source>Drop
 Space</source>
-        <translation>Espaço de Soltar</translation>
+        <translation>Espaço de
+Soltar</translation>
     </message>
 </context>
 <context>
@@ -2906,7 +2926,8 @@ Espaço</translation>
     <message>
         <source>Drop
 Space</source>
-        <translation>Espaço de Soltar</translation>
+        <translation>Espaço de
+Soltar</translation>
     </message>
 </context>
 <context>
@@ -3256,7 +3277,8 @@ Espaço</translation>
     <message>
         <source>Drop
 Zone</source>
-        <translation>Zona de Descarga</translation>
+        <translation>Zona de
+Descarga</translation>
     </message>
 </context>
 <context>
@@ -3300,7 +3322,8 @@ Air Loads</translation>
     <message>
         <source>Cooling Thermostat
 Schedule</source>
-        <translation>Cronograma de Termostato de Resfriamento</translation>
+        <translation>Cronograma de Termostato de
+Resfriamento</translation>
     </message>
     <message>
         <source>Heating Thermostat
@@ -3317,7 +3340,8 @@ Cronograma</translation>
     <message>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>Agenda de Ponto de Ajuste de Desumidificação</translation>
+        <translation>Agenda de Ponto de Ajuste de
+Desumidificação</translation>
     </message>
     <message>
         <source>Multiplier</source>
@@ -3341,13 +3365,16 @@ Projeto Taxa de Umidade</translation>
     <message>
         <source>Zone Cooling
 Sizing Factor</source>
-        <translation>Fator de Dimensionamento do Resfriamento da Zona</translation>
+        <translation>Fator de Dimensionamento
+do Resfriamento da Zona</translation>
     </message>
     <message>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Vazão de Ar Mínima de Resfriamento por Área de Piso da Zona</translation>
+        <translation>Vazão de Ar Mínima de
+Resfriamento por Área de
+Piso da Zona</translation>
     </message>
     <message>
         <source>Design Zone Air
@@ -3360,7 +3387,8 @@ no Modo de Resfriamento</translation>
     <message>
         <source>Cooling Minimum
 Air Flow Fraction</source>
-        <translation>Fração Mínima de Fluxo de Ar para Resfriamento</translation>
+        <translation>Fração Mínima de Fluxo
+de Ar para Resfriamento</translation>
     </message>
     <message>
         <source>Cooling Design
@@ -3377,7 +3405,8 @@ Taxa de Fluxo de Ar</translation>
     <message>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>Fluxo de Ar Mínimo de Resfriamento</translation>
+        <translation>Fluxo de Ar Mínimo de
+Resfriamento</translation>
     </message>
     <message>
         <source>Zone Heating
@@ -3398,50 +3427,62 @@ Razão de Umidade do Ar</translation>
     <message>
         <source>Zone Heating
 Sizing Factor</source>
-        <translation>Fator de Dimensionamento do Aquecimento da Zona</translation>
+        <translation>Fator de Dimensionamento
+do Aquecimento da Zona</translation>
     </message>
     <message>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Fluxo de Ar Máximo de Aquecimento por Área de Piso da Zona</translation>
+        <translation>Fluxo de Ar Máximo de
+Aquecimento por Área de
+Piso da Zona</translation>
     </message>
     <message>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
-        <translation>Efetividade da Distribuição de Ar da Zona de Projeto no Modo de Aquecimento</translation>
+        <translation>Efetividade da
+Distribuição de Ar da Zona de Projeto no
+Modo de Aquecimento</translation>
     </message>
     <message>
         <source>Heating Maximum
 Air Flow Fraction</source>
-        <translation>Fração Máxima de Vazão de Ar para Aquecimento</translation>
+        <translation>Fração Máxima de Vazão
+de Ar para Aquecimento</translation>
     </message>
     <message>
         <source>Heating Design
 Air Flow Method</source>
-        <translation>Método de Vazão de Ar de Dimensionamento de Aquecimento</translation>
+        <translation>Método de Vazão de Ar de
+Dimensionamento de Aquecimento</translation>
     </message>
     <message>
         <source>Heating Design
 Air Flow Rate</source>
-        <translation>Vazão de Ar de Projeto de Aquecimento</translation>
+        <translation>Vazão de Ar de Projeto
+de Aquecimento</translation>
     </message>
     <message>
         <source>Heating Maximum
 Air Flow</source>
-        <translation>Vazão de Ar Máxima de Aquecimento</translation>
+        <translation>Vazão de Ar Máxima de
+Aquecimento</translation>
     </message>
     <message>
         <source>HVAC
 Systems</source>
-        <translation>Sistemas HVAC</translation>
+        <translation>Sistemas
+HVAC</translation>
     </message>
     <message>
         <source>Cooling
 Sizing
 Parameters</source>
-        <translation>Parâmetros de Dimensionamento de Resfriamento</translation>
+        <translation>Parâmetros de
+Dimensionamento
+de Resfriamento</translation>
     </message>
     <message>
         <source>Heating
@@ -4241,7 +4282,7 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Trocador de Calor de Solo - Vertical</translation>
+        <translation>Trocador de Calor de Solo - Vertical </translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Horizontal</source>
@@ -4692,31 +4733,31 @@ Aquecimento</translation>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Number of People: </source>
-        <translation>Número de Pessoas:</translation>
+        <translation>Número de Pessoas: </translation>
     </message>
     <message>
         <source>People per Space Floor Area: </source>
-        <translation>Pessoas por Área de Piso do Espaço:</translation>
+        <translation>Pessoas por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Space Floor Area per Person: </source>
-        <translation>Área de Piso do Espaço por Pessoa:</translation>
+        <translation>Área de Piso do Espaço por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Sensible Heat Fraction: </source>
-        <translation>Fração de Calor Sensível:</translation>
+        <translation>Fração de Calor Sensível: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Taxa de Geração de Dióxido de Carbono:</translation>
+        <translation>Taxa de Geração de Dióxido de Carbono: </translation>
     </message>
     <message>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
@@ -4731,289 +4772,289 @@ Aquecimento</translation>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Potência de Iluminação:</translation>
+        <translation>Potência de Iluminação: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Por Área de Piso do Espaço:</translation>
+        <translation>Watts Por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watts Por Pessoa:</translation>
+        <translation>Watts Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Fração Visível:</translation>
+        <translation>Fração Visível: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>Fração de Ar de Retorno:</translation>
+        <translation>Fração de Ar de Retorno: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Potência de Iluminação:</translation>
+        <translation>Potência de Iluminação: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Fração Visível:</translation>
+        <translation>Fração Visível: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>Fração de Ar de Retorno:</translation>
+        <translation>Fração de Ar de Retorno: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Nível de Projeto:</translation>
+        <translation>Nível de Projeto: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts por Área de Piso do Espaço:</translation>
+        <translation>Watts por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watts Por Pessoa:</translation>
+        <translation>Watts Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fração Latente:</translation>
+        <translation>Fração Latente: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fração Perdida:</translation>
+        <translation>Fração Perdida: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Nível de Projeto:</translation>
+        <translation>Nível de Projeto: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Potência por Área de Piso do Espaço:</translation>
+        <translation>Potência por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Potência Por Pessoa:</translation>
+        <translation>Potência Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fração Latente:</translation>
+        <translation>Fração Latente: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fração Perdida:</translation>
+        <translation>Fração Perdida: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Taxa de Geração de Dióxido de Carbono:</translation>
+        <translation>Taxa de Geração de Dióxido de Carbono: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Nível de Projeto:</translation>
+        <translation>Nível de Projeto: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Potência por Área de Piso do Espaço:</translation>
+        <translation>Potência por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Potência Por Pessoa:</translation>
+        <translation>Potência Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fração Latente:</translation>
+        <translation>Fração Latente: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fração Perdida:</translation>
+        <translation>Fração Perdida: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Nível de Projeto:</translation>
+        <translation>Nível de Projeto: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Potência por Área de Piso do Espaço:</translation>
+        <translation>Potência por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Potência Por Pessoa:</translation>
+        <translation>Potência Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fração Latente:</translation>
+        <translation>Fração Latente: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fração Perdida:</translation>
+        <translation>Fração Perdida: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Nível de Projeto:</translation>
+        <translation>Nível de Projeto: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Por Área de Piso do Espaço:</translation>
+        <translation>Watts Por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watts Por Pessoa:</translation>
+        <translation>Watts Por Pessoa: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fração Latente:</translation>
+        <translation>Fração Latente: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fração Radiante:</translation>
+        <translation>Fração Radiante: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fração Perdida:</translation>
+        <translation>Fração Perdida: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Surface Area: </source>
-        <translation>Área de Superfície:</translation>
+        <translation>Área de Superfície: </translation>
     </message>
     <message>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Área de Superfície por Área de Piso do Espaço:</translation>
+        <translation>Área de Superfície por Área de Piso do Espaço: </translation>
     </message>
     <message>
         <source>Surface Area Per Person: </source>
-        <translation>Área de Superfície por Pessoa:</translation>
+        <translation>Área de Superfície por Pessoa: </translation>
     </message>
     <message>
         <source>Construction: </source>
-        <translation>Construção:</translation>
+        <translation>Construção: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>End Use Subcategory: </source>
-        <translation>Subcategoria de Uso Final:</translation>
+        <translation>Subcategoria de Uso Final: </translation>
     </message>
     <message>
         <source>Peak Flow Rate: </source>
-        <translation>Vazão de Pico:</translation>
+        <translation>Vazão de Pico: </translation>
     </message>
     <message>
         <source>Target Temperature Schedule: </source>
-        <translation>Cronograma de Temperatura Alvo:</translation>
+        <translation>Cronograma de Temperatura Alvo: </translation>
     </message>
     <message>
         <source>Sensible Fraction Schedule: </source>
-        <translation>Cronograma de Fração Sensível:</translation>
+        <translation>Cronograma de Fração Sensível: </translation>
     </message>
     <message>
         <source>Latent Fraction Schedule: </source>
-        <translation>Cronograma de Fração Latente:</translation>
+        <translation>Cronograma de Fração Latente: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Air Exchange Method: </source>
-        <translation>Método de Troca de Ar:</translation>
+        <translation>Método de Troca de Ar: </translation>
     </message>
     <message>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Trocas de Ar por Hora em Mistura Simples:</translation>
+        <translation>Trocas de Ar por Hora em Mistura Simples: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Camada:</translation>
+        <translation>Camada: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5025,165 +5066,165 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Source Present After Layer: </source>
-        <translation>Fonte Presente Após Camada:</translation>
+        <translation>Fonte Presente Após Camada: </translation>
     </message>
     <message>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>Cálculo de Temperatura Solicitado Após o Número da Camada:</translation>
+        <translation>Cálculo de Temperatura Solicitado Após o Número da Camada: </translation>
     </message>
     <message>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>Dimensões para o Cálculo CTF:</translation>
+        <translation>Dimensões para o Cálculo CTF: </translation>
     </message>
     <message>
         <source>Tube Spacing: </source>
-        <translation>Espaçamento de Tubos:</translation>
+        <translation>Espaçamento de Tubos: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>C-Factor: </source>
-        <translation>Fator C:</translation>
+        <translation>Fator C: </translation>
     </message>
     <message>
         <source>Height: </source>
-        <translation>Altura:</translation>
+        <translation>Altura: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <source>Area: </source>
-        <translation>Área:</translation>
+        <translation>Área: </translation>
     </message>
     <message>
         <source>Perimeter Exposed: </source>
-        <translation>Perímetro Exposto:</translation>
+        <translation>Perímetro Exposto: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Solar Transmittance: </source>
-        <translation>Transmitância Solar:</translation>
+        <translation>Transmitância Solar: </translation>
     </message>
     <message>
         <source>Solar Reflectance: </source>
-        <translation>Refletância Solar:</translation>
+        <translation>Refletância Solar: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Transmitância Visível:</translation>
+        <translation>Transmitância Visível: </translation>
     </message>
     <message>
         <source>Visible Reflectance: </source>
-        <translation>Refletância Visível:</translation>
+        <translation>Refletância Visível: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Térmica:</translation>
+        <translation>Emissividade Hemisférica Térmica: </translation>
     </message>
     <message>
         <source>Thermal Transmittance: </source>
-        <translation>Transmitância Térmica:</translation>
+        <translation>Transmitância Térmica: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Condutividade:</translation>
+        <translation>Condutividade: </translation>
     </message>
     <message>
         <source>Shade To Glass Distance: </source>
-        <translation>Distância do Protetor ao Vidro:</translation>
+        <translation>Distância do Protetor ao Vidro: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura Superior:</translation>
+        <translation>Multiplicador de Abertura Superior: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura Inferior:</translation>
+        <translation>Multiplicador de Abertura Inferior: </translation>
     </message>
     <message>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura no Lado Esquerdo:</translation>
+        <translation>Multiplicador de Abertura no Lado Esquerdo: </translation>
     </message>
     <message>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura do Lado Direito:</translation>
+        <translation>Multiplicador de Abertura do Lado Direito: </translation>
     </message>
     <message>
         <source>Airflow Permeability: </source>
-        <translation>Permeabilidade ao Fluxo de Ar:</translation>
+        <translation>Permeabilidade ao Fluxo de Ar: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Resistência Térmica:</translation>
+        <translation>Resistência Térmica: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Rugosidade:</translation>
+        <translation>Rugosidade: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Resistência Térmica:</translation>
+        <translation>Resistência Térmica: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Absortância Térmica:</translation>
+        <translation>Absortância Térmica: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absortância Solar:</translation>
+        <translation>Absortância Solar: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absortância Visível:</translation>
+        <translation>Absortância Visível: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Camada:</translation>
+        <translation>Camada: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5206,51 +5247,51 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Padrão:</translation>
+        <translation>Padrão: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Fonte Padrão:</translation>
+        <translation>Fonte Padrão: </translation>
     </message>
     <message>
         <source>Intended Surface Type: </source>
-        <translation>Tipo de Superfície Pretendido:</translation>
+        <translation>Tipo de Superfície Pretendido: </translation>
     </message>
     <message>
         <source>Standards Construction Type: </source>
-        <translation>Tipo de Construção Padrão:</translation>
+        <translation>Tipo de Construção Padrão: </translation>
     </message>
     <message>
         <source>Fenestration Type: </source>
-        <translation>Tipo de Envidraçado:</translation>
+        <translation>Tipo de Envidraçado: </translation>
     </message>
     <message>
         <source>Fenestration Assembly Context: </source>
-        <translation>Contexto de Montagem de Envidraçado:</translation>
+        <translation>Contexto de Montagem de Envidraçado: </translation>
     </message>
     <message>
         <source>Fenestration Number of Panes: </source>
-        <translation>Número de Painéis de Envidraçamento:</translation>
+        <translation>Número de Painéis de Envidraçamento: </translation>
     </message>
     <message>
         <source>Fenestration Frame Type: </source>
-        <translation>Tipo de Marco da Esquadria:</translation>
+        <translation>Tipo de Marco da Esquadria: </translation>
     </message>
     <message>
         <source>Fenestration Divider Type: </source>
-        <translation>Tipo de Divisor de Envidraçado:</translation>
+        <translation>Tipo de Divisor de Envidraçado: </translation>
     </message>
     <message>
         <source>Fenestration Tint: </source>
-        <translation>Tonalidade de Envidraçado:</translation>
+        <translation>Tonalidade de Envidraçado: </translation>
     </message>
     <message>
         <source>Fenestration Gas Fill: </source>
-        <translation>Preenchimento de Gás da Fenestração:</translation>
+        <translation>Preenchimento de Gás da Fenestração: </translation>
     </message>
     <message>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Revestimento de Baixa Emissividade em Caixilharia:</translation>
+        <translation>Revestimento de Baixa Emissividade em Caixilharia: </translation>
     </message>
 </context>
 <context>
@@ -5261,39 +5302,39 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Padrão:</translation>
+        <translation>Padrão: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Fonte Padrão:</translation>
+        <translation>Fonte Padrão: </translation>
     </message>
     <message>
         <source>Standards Category: </source>
-        <translation>Categoria de Padrões:</translation>
+        <translation>Categoria de Padrões: </translation>
     </message>
     <message>
         <source>Standards Identifier: </source>
-        <translation>Identificador de Normas:</translation>
+        <translation>Identificador de Normas: </translation>
     </message>
     <message>
         <source>Composite Framing Material: </source>
-        <translation>Material de Estrutura Composta:</translation>
+        <translation>Material de Estrutura Composta: </translation>
     </message>
     <message>
         <source>Composite Framing Configuration: </source>
-        <translation>Configuração de Estrutura Composta:</translation>
+        <translation>Configuração de Estrutura Composta: </translation>
     </message>
     <message>
         <source>Composite Framing Depth: </source>
-        <translation>Profundidade da Estrutura Composta:</translation>
+        <translation>Profundidade da Estrutura Composta: </translation>
     </message>
     <message>
         <source>Composite Framing Size: </source>
-        <translation>Tamanho de Moldura Composta:</translation>
+        <translation>Tamanho de Moldura Composta: </translation>
     </message>
     <message>
         <source>Composite Cavity Insulation: </source>
-        <translation>Isolamento em Cavidade Composta:</translation>
+        <translation>Isolamento em Cavidade Composta: </translation>
     </message>
 </context>
 <context>
@@ -5359,530 +5400,530 @@ Aquecimento</translation>
     <name>openstudio::MaterialInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Rugosidade:</translation>
+        <translation>Rugosidade: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Condutividade:</translation>
+        <translation>Condutividade: </translation>
     </message>
     <message>
         <source>Density: </source>
-        <translation>Densidade:</translation>
+        <translation>Densidade: </translation>
     </message>
     <message>
         <source>Specific Heat: </source>
-        <translation>Calor Específico:</translation>
+        <translation>Calor Específico: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Absortância Térmica:</translation>
+        <translation>Absortância Térmica: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absortância Solar:</translation>
+        <translation>Absortância Solar: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absortância Visível:</translation>
+        <translation>Absortância Visível: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>U-Factor: </source>
-        <translation>Fator U:</translation>
+        <translation>Fator U: </translation>
     </message>
     <message>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>Coeficiente de Ganho de Calor Solar:</translation>
+        <translation>Coeficiente de Ganho de Calor Solar: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Transmitância Visível:</translation>
+        <translation>Transmitância Visível: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Optical Data Type: </source>
-        <translation>Tipo de Dados Ópticos:</translation>
+        <translation>Tipo de Dados Ópticos: </translation>
     </message>
     <message>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>Nome do Conjunto de Dados Espectrais do Vidro da Janela:</translation>
+        <translation>Nome do Conjunto de Dados Espectrais do Vidro da Janela: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>Transmitância Solar na Incidência Normal:</translation>
+        <translation>Transmitância Solar na Incidência Normal: </translation>
     </message>
     <message>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Refletância Solar no Lado Frontal em Incidência Normal:</translation>
+        <translation>Refletância Solar no Lado Frontal em Incidência Normal: </translation>
     </message>
     <message>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Refletância Solar no Lado Traseiro em Incidência Normal:</translation>
+        <translation>Refletância Solar no Lado Traseiro em Incidência Normal: </translation>
     </message>
     <message>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>Transmitância Visível no Ângulo Normal de Incidência:</translation>
+        <translation>Transmitância Visível no Ângulo Normal de Incidência: </translation>
     </message>
     <message>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Refletância Visível do Lado Frontal na Incidência Normal:</translation>
+        <translation>Refletância Visível do Lado Frontal na Incidência Normal: </translation>
     </message>
     <message>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Refletância Visível do Lado Posterior na Incidência Normal:</translation>
+        <translation>Refletância Visível do Lado Posterior na Incidência Normal: </translation>
     </message>
     <message>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Transmitância Infravermelha no Ângulo Normal de Incidência:</translation>
+        <translation>Transmitância Infravermelha no Ângulo Normal de Incidência: </translation>
     </message>
     <message>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Infravermelha do Lado Frontal:</translation>
+        <translation>Emissividade Hemisférica Infravermelha do Lado Frontal: </translation>
     </message>
     <message>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Infravermelha do Lado Posterior:</translation>
+        <translation>Emissividade Hemisférica Infravermelha do Lado Posterior: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Condutividade:</translation>
+        <translation>Condutividade: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Fator de Correção de Sujidade Para Transmitância Solar e Visível:</translation>
+        <translation>Fator de Correção de Sujidade Para Transmitância Solar e Visível: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Difusão Solar:</translation>
+        <translation>Difusão Solar: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Gas Type: </source>
-        <translation>Tipo de Gás:</translation>
+        <translation>Tipo de Gás: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient A: </source>
-        <translation>Coeficiente de Condutividade A:</translation>
+        <translation>Coeficiente de Condutividade A: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient B: </source>
-        <translation>Coeficiente de Condutividade B:</translation>
+        <translation>Coeficiente de Condutividade B: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient A: </source>
-        <translation>Coeficiente de Viscosidade A:</translation>
+        <translation>Coeficiente de Viscosidade A: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient B: </source>
-        <translation>Coeficiente de Viscosidade B:</translation>
+        <translation>Coeficiente de Viscosidade B: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient A: </source>
-        <translation>Coeficiente A do Calor Específico:</translation>
+        <translation>Coeficiente A do Calor Específico: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient B: </source>
-        <translation>Coeficiente B de Calor Específico:</translation>
+        <translation>Coeficiente B de Calor Específico: </translation>
     </message>
     <message>
         <source>Molecular Weight: </source>
-        <translation>Peso Molecular:</translation>
+        <translation>Peso Molecular: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Number Of Gases In Mixture: </source>
-        <translation>Número de Gases na Mistura:</translation>
+        <translation>Número de Gases na Mistura: </translation>
     </message>
     <message>
         <source>Gas 1 Fraction: </source>
-        <translation>Fração de Gás 1:</translation>
+        <translation>Fração de Gás 1: </translation>
     </message>
     <message>
         <source>Gas 1 Type: </source>
-        <translation>Tipo de Gás 1:</translation>
+        <translation>Tipo de Gás 1: </translation>
     </message>
     <message>
         <source>Gas 2 Fraction: </source>
-        <translation>Fração de Gás 2:</translation>
+        <translation>Fração de Gás 2: </translation>
     </message>
     <message>
         <source>Gas 2 Type: </source>
-        <translation>Tipo de Gás 2:</translation>
+        <translation>Tipo de Gás 2: </translation>
     </message>
     <message>
         <source>Gas 3 Fraction: </source>
-        <translation>Fração Gás 3:</translation>
+        <translation>Fração Gás 3: </translation>
     </message>
     <message>
         <source>Gas 3 Type: </source>
-        <translation>Tipo de Gás 3:</translation>
+        <translation>Tipo de Gás 3: </translation>
     </message>
     <message>
         <source>Gas 4 Fraction: </source>
-        <translation>Fração de Gás 4:</translation>
+        <translation>Fração de Gás 4: </translation>
     </message>
     <message>
         <source>Gas 4 Type: </source>
-        <translation>Tipo de Gás 4:</translation>
+        <translation>Tipo de Gás 4: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Slat Orientation: </source>
-        <translation>Orientação das Lâminas:</translation>
+        <translation>Orientação das Lâminas: </translation>
     </message>
     <message>
         <source>Slat Width: </source>
-        <translation>Largura da Lâmina:</translation>
+        <translation>Largura da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Separation: </source>
-        <translation>Espaçamento das Lâminas:</translation>
+        <translation>Espaçamento das Lâminas: </translation>
     </message>
     <message>
         <source>Slat Thickness: </source>
-        <translation>Espessura da Lâmina:</translation>
+        <translation>Espessura da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Angle: </source>
-        <translation>Ângulo das Lâminas:</translation>
+        <translation>Ângulo das Lâminas: </translation>
     </message>
     <message>
         <source>Slat Conductivity: </source>
-        <translation>Condutividade do Slat:</translation>
+        <translation>Condutividade do Slat: </translation>
     </message>
     <message>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>Transmitância Solar do Feixe do Laminado:</translation>
+        <translation>Transmitância Solar do Feixe do Laminado: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>Refletância Solar do Feixe do Lado Frontal das Lâminas:</translation>
+        <translation>Refletância Solar do Feixe do Lado Frontal das Lâminas: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>Refletância Solar de Raio Direto do Lado Traseiro da Lâmina:</translation>
+        <translation>Refletância Solar de Raio Direto do Lado Traseiro da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Transmitância Solar Difusa dos Laminados:</translation>
+        <translation>Transmitância Solar Difusa dos Laminados: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Refletância Solar Difusa do Lado Frontal das Lâminas:</translation>
+        <translation>Refletância Solar Difusa do Lado Frontal das Lâminas: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Refletância Solar Difusa do Lado Traseiro da Lâmina:</translation>
+        <translation>Refletância Solar Difusa do Lado Traseiro da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>Transmitância Visível do Feixe de Lâmina:</translation>
+        <translation>Transmitância Visível do Feixe de Lâmina: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Refletância Visível do Feixe do Lado Frontal da Lâmina:</translation>
+        <translation>Refletância Visível do Feixe do Lado Frontal da Lâmina: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>Refletância Visível do Feixe do Lado Posterior da Lâmina:</translation>
+        <translation>Refletância Visível do Feixe do Lado Posterior da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>Transmitância Visível Difusa da Lâmina:</translation>
+        <translation>Transmitância Visível Difusa da Lâmina: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Refletância Visível Difusa do Lado Frontal da Lâmina:</translation>
+        <translation>Refletância Visível Difusa do Lado Frontal da Lâmina: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Refletância Visível Difusa do Lado Traseiro da Lâmina:</translation>
+        <translation>Refletância Visível Difusa do Lado Traseiro da Lâmina: </translation>
     </message>
     <message>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Transmitância Hemiosférica Infravermelha do Slat:</translation>
+        <translation>Transmitância Hemiosférica Infravermelha do Slat: </translation>
     </message>
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Emissividade Infravermelha Hemisférica do Lado Frontal das Lâminas:</translation>
+        <translation>Emissividade Infravermelha Hemisférica do Lado Frontal das Lâminas: </translation>
     </message>
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Infravermelha do Lado Posterior da Lâmina:</translation>
+        <translation>Emissividade Hemisférica Infravermelha do Lado Posterior da Lâmina: </translation>
     </message>
     <message>
         <source>Blind To Glass Distance: </source>
-        <translation>Distância da Persiana ao Vidro:</translation>
+        <translation>Distância da Persiana ao Vidro: </translation>
     </message>
     <message>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura Superior da Persiana:</translation>
+        <translation>Multiplicador de Abertura Superior da Persiana: </translation>
     </message>
     <message>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura Inferior da Persiana:</translation>
+        <translation>Multiplicador de Abertura Inferior da Persiana: </translation>
     </message>
     <message>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura do Lado Esquerdo da Persiana:</translation>
+        <translation>Multiplicador de Abertura do Lado Esquerdo da Persiana: </translation>
     </message>
     <message>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura do Lado Direito da Persiana:</translation>
+        <translation>Multiplicador de Abertura do Lado Direito da Persiana: </translation>
     </message>
     <message>
         <source>Minimum Slat Angle: </source>
-        <translation>Ângulo Mínimo de Lâmina:</translation>
+        <translation>Ângulo Mínimo de Lâmina: </translation>
     </message>
     <message>
         <source>Maximum Slat Angle: </source>
-        <translation>Ângulo Máximo das Lâminas:</translation>
+        <translation>Ângulo Máximo das Lâminas: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>Método de Contabilização da Transmitância de Raio Refletido:</translation>
+        <translation>Método de Contabilização da Transmitância de Raio Refletido: </translation>
     </message>
     <message>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>Refletância Solar Difusa:</translation>
+        <translation>Refletância Solar Difusa: </translation>
     </message>
     <message>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>Refletância Visível Difusa:</translation>
+        <translation>Refletância Visível Difusa: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Térmica:</translation>
+        <translation>Emissividade Hemisférica Térmica: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Condutividade:</translation>
+        <translation>Condutividade: </translation>
     </message>
     <message>
         <source>Screen Material Spacing: </source>
-        <translation>Espaçamento do Material da Tela:</translation>
+        <translation>Espaçamento do Material da Tela: </translation>
     </message>
     <message>
         <source>Screen Material Diameter: </source>
-        <translation>Diâmetro do Material da Tela:</translation>
+        <translation>Diâmetro do Material da Tela: </translation>
     </message>
     <message>
         <source>Screen To Glass Distance: </source>
-        <translation>Distância da Tela ao Vidro:</translation>
+        <translation>Distância da Tela ao Vidro: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura Superior:</translation>
+        <translation>Multiplicador de Abertura Superior: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Multiplicador da Abertura Inferior:</translation>
+        <translation>Multiplicador da Abertura Inferior: </translation>
     </message>
     <message>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura do Lado Esquerdo:</translation>
+        <translation>Multiplicador de Abertura do Lado Esquerdo: </translation>
     </message>
     <message>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Multiplicador de Abertura do Lado Direito:</translation>
+        <translation>Multiplicador de Abertura do Lado Direito: </translation>
     </message>
     <message>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Ângulo de Resolução para Mapa de Saída de Transmitância de Tela:</translation>
+        <translation>Ângulo de Resolução para Mapa de Saída de Transmitância de Tela: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Height Of Plants: </source>
-        <translation>Altura das Plantas:</translation>
+        <translation>Altura das Plantas: </translation>
     </message>
     <message>
         <source>Leaf Area Index: </source>
-        <translation>Índice de Área Foliar:</translation>
+        <translation>Índice de Área Foliar: </translation>
     </message>
     <message>
         <source>Leaf Reflectivity: </source>
-        <translation>Refletividade da Folha:</translation>
+        <translation>Refletividade da Folha: </translation>
     </message>
     <message>
         <source>Leaf Emissivity: </source>
-        <translation>Emissividade da Folha:</translation>
+        <translation>Emissividade da Folha: </translation>
     </message>
     <message>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>Resistência Estomática Mínima:</translation>
+        <translation>Resistência Estomática Mínima: </translation>
     </message>
     <message>
         <source>Soil Layer Name: </source>
-        <translation>Nome da Camada de Solo:</translation>
+        <translation>Nome da Camada de Solo: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Rugosidade:</translation>
+        <translation>Rugosidade: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>Condutividade do Solo Seco:</translation>
+        <translation>Condutividade do Solo Seco: </translation>
     </message>
     <message>
         <source>Density Of Dry Soil: </source>
-        <translation>Densidade do Solo Seco:</translation>
+        <translation>Densidade do Solo Seco: </translation>
     </message>
     <message>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>Calor Específico do Solo Seco:</translation>
+        <translation>Calor Específico do Solo Seco: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Absortância Térmica:</translation>
+        <translation>Absortância Térmica: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absortância Solar:</translation>
+        <translation>Absortância Solar: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absortância Visível:</translation>
+        <translation>Absortância Visível: </translation>
     </message>
     <message>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Teor Volumétrico de Umidade de Saturação da Camada de Solo:</translation>
+        <translation>Teor Volumétrico de Umidade de Saturação da Camada de Solo: </translation>
     </message>
     <message>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Teor de Umidade Volumétrica Residual da Camada de Solo:</translation>
+        <translation>Teor de Umidade Volumétrica Residual da Camada de Solo: </translation>
     </message>
     <message>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Umidade Volumétrica Inicial da Camada de Solo:</translation>
+        <translation>Umidade Volumétrica Inicial da Camada de Solo: </translation>
     </message>
     <message>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Método de Cálculo da Difusão de Umidade:</translation>
+        <translation>Método de Cálculo da Difusão de Umidade: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Espessura:</translation>
+        <translation>Espessura: </translation>
     </message>
     <message>
         <source>Solar Index Of Refraction: </source>
-        <translation>Índice de Refração Solar:</translation>
+        <translation>Índice de Refração Solar: </translation>
     </message>
     <message>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Coeficiente de Extinção Solar:</translation>
+        <translation>Coeficiente de Extinção Solar: </translation>
     </message>
     <message>
         <source>Visible Index of Refraction: </source>
-        <translation>Índice de Refração Visível:</translation>
+        <translation>Índice de Refração Visível: </translation>
     </message>
     <message>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Coeficiente de Extinção Visível:</translation>
+        <translation>Coeficiente de Extinção Visível: </translation>
     </message>
     <message>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>Transmitância Infravermelha no Incidente Normal:</translation>
+        <translation>Transmitância Infravermelha no Incidente Normal: </translation>
     </message>
     <message>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>Emissividade Hemisférica Infravermelha:</translation>
+        <translation>Emissividade Hemisférica Infravermelha: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Condutividade:</translation>
+        <translation>Condutividade: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Fator de Correção de Sujeira para Transmitância Solar e Visível:</translation>
+        <translation>Fator de Correção de Sujeira para Transmitância Solar e Visível: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Difusão Solar:</translation>
+        <translation>Difusão Solar: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Daylight Redirection Device Type: </source>
-        <translation>Tipo de Dispositivo de Redirecionamento de Luz Natural:</translation>
+        <translation>Tipo de Dispositivo de Redirecionamento de Luz Natural: </translation>
     </message>
 </context>
 <context>
@@ -5933,29 +5974,29 @@ Aquecimento</translation>
     </message>
     <message>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>Criar um novo perfil para sobrescrever o perfil de período de execução padrão.</translation>
+        <translation>  Criar um novo perfil para sobrescrever o perfil de período de execução padrão.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>Conteúdo:</translation>
+        <translation>Conteúdo: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>Valor:</translation>
+        <translation> Valor: </translation>
     </message>
 </context>
 <context>
@@ -5993,15 +6034,15 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Numeric Type: </source>
-        <translation>Tipo Numérico:</translation>
+        <translation>Tipo Numérico: </translation>
     </message>
     <message>
         <source>Lower Limit: </source>
-        <translation>Limite Inferior:</translation>
+        <translation>Limite Inferior: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Limite Superior:</translation>
+        <translation>Limite Superior: </translation>
     </message>
     <message>
         <source>unitless</source>
@@ -6016,27 +6057,27 @@ Aquecimento</translation>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nome:</translation>
+        <translation>Nome: </translation>
     </message>
     <message>
         <source>FilePath: </source>
-        <translation>Caminho do Arquivo:</translation>
+        <translation>Caminho do Arquivo: </translation>
     </message>
     <message>
         <source>Column Number: </source>
-        <translation>Número da Coluna:</translation>
+        <translation>Número da Coluna: </translation>
     </message>
     <message>
         <source>Rows to Skip at Top: </source>
-        <translation>Linhas a Ignorar no Início:</translation>
+        <translation>Linhas a Ignorar no Início: </translation>
     </message>
     <message>
         <source>Number of Hours of Data: </source>
-        <translation>Número de Horas de Dados:</translation>
+        <translation>Número de Horas de Dados: </translation>
     </message>
     <message>
         <source>Column Separator: </source>
-        <translation>Separador de Coluna:</translation>
+        <translation>Separador de Coluna: </translation>
     </message>
     <message>
         <source>Comma</source>
@@ -6056,42 +6097,42 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Interpolate to Timestep: </source>
-        <translation>Interpolar para Intervalo de Tempo:</translation>
+        <translation>Interpolar para Intervalo de Tempo: </translation>
     </message>
     <message>
         <source>Minutes per Item: </source>
-        <translation>Minutos por Item:</translation>
+        <translation>Minutos por Item: </translation>
     </message>
     <message>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Ajustar Agendamento para Horário de Verão:</translation>
+        <translation>Ajustar Agendamento para Horário de Verão: </translation>
     </message>
     <message>
         <source>Translate File With Relative Path: </source>
-        <translation>Traduzir Arquivo Com Caminho Relativo:</translation>
+        <translation>Traduzir Arquivo Com Caminho Relativo: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>Conteúdo:</translation>
+        <translation>Conteúdo: </translation>
     </message>
     <message>
         <source>Number of Lines in file: </source>
-        <translation>Número de linhas no arquivo:</translation>
+        <translation>Número de linhas no arquivo: </translation>
     </message>
     <message>
         <source>Display All File Content: </source>
-        <translation>Exibir Todo o Conteúdo do Arquivo:</translation>
+        <translation>Exibir Todo o Conteúdo do Arquivo: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
         <source>Lower Limit: </source>
-        <translation>Limite Inferior:</translation>
+        <translation>Limite Inferior: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Limite Superior:</translation>
+        <translation>Limite Superior: </translation>
     </message>
 </context>
 <context>
@@ -6353,11 +6394,11 @@ Aquecimento</translation>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
         <source>Cooling Type: </source>
-        <translation>Tipo de Resfriamento:</translation>
+        <translation>Tipo de Resfriamento: </translation>
     </message>
     <message>
         <source>Heating Type: </source>
-        <translation>Tipo de Aquecimento:</translation>
+        <translation>Tipo de Aquecimento: </translation>
     </message>
     <message>
         <source>Time of Operation</source>
@@ -6408,7 +6449,7 @@ Aquecimento</translation>
     </message>
     <message>
         <source>Plant Loop Type: </source>
-        <translation>Tipo de Loop de Planta:</translation>
+        <translation>Tipo de Loop de Planta: </translation>
     </message>
     <message>
         <source>Plant Equipment Operation Schemes</source>
@@ -6591,7 +6632,8 @@ Aquecimento</translation>
     <message>
         <source>Drop
 Case</source>
-        <translation>Converter para minúscula</translation>
+        <translation>Converter para
+minúscula</translation>
     </message>
     <message>
         <source>Walk Ins</source>
@@ -6644,40 +6686,28 @@ Câmara Frigorífica</translation>
         <translation>Bomba de Calor no Telhado em Pacote</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Cobertura DX Empacotada VAV com Reaquecimento</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
-        <translation>Unidade no Telhado Empacotada
-VAV com Caixa de Ventilador Paralelo
-e Caixas de Energia com Reaquecimento</translation>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
+        <translation>Unidade no Telhado Empacotada VAV com Caixa de Ventilador Paralelo e Caixas de Energia com Reaquecimento</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Unidade Compacta no Telhado
-VAV com Reaquecimento</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Unidade Compacta no Telhado VAV com Reaquecimento</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV com Caixas com Ventilador Paralelo e Reaquecimento</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Aquecedor de Ar Quente
-Alimentado a Gás</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Aquecedor de Ar Quente Alimentado a Gás</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Aquecedor de Ar Quente
-Elétrico</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Aquecedor de Ar Quente Elétrico</translation>
     </message>
     <message>
         <source>Empty Air Loop</source>
@@ -25701,7 +25731,8 @@ Elétrico</translation>
     <message>
         <source>Cooling
 Capacity</source>
-        <translation>Capacidade de Resfriamento</translation>
+        <translation>Capacidade de
+Resfriamento</translation>
     </message>
     <message>
         <source>Fan</source>
@@ -28852,103 +28883,103 @@ Reabastecimento</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Temperatura do Ar de Retorno Ajustada da Zona ITE</translation>
+        <translation>Temperatura do Ar de Retorno Ajustada da Zona ITE </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Taxa de Fluxo de Massa de Ar da Zona ITE</translation>
+        <translation>Taxa de Fluxo de Massa de Ar da Zona ITE </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zona ITE Tempo de Temperatura de Ponto de Orvalho de Entrada de Ar Abaixo da Faixa de Operação</translation>
+        <translation>Zona ITE Tempo de Temperatura de Ponto de Orvalho de Entrada de Ar Abaixo da Faixa de Operação </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Tempo de Temperatura de Bulbo Seco da Entrada de Ar da Zona ITE Acima do Intervalo de Operação</translation>
+        <translation>Tempo de Temperatura de Bulbo Seco da Entrada de Ar da Zona ITE Acima do Intervalo de Operação </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zona ITE Tempo de Temperatura de Bulbo Seco da Entrada de Ar Abaixo da Faixa de Operação</translation>
+        <translation>Zona ITE Tempo de Temperatura de Bulbo Seco da Entrada de Ar Abaixo da Faixa de Operação </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Tempo de Operação Excedido para Faixa de Entrada de Ar em Zona ITE</translation>
+        <translation>Tempo de Operação Excedido para Faixa de Entrada de Ar em Zona ITE </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zona ITE Tempo com Umidade Relativa do Ar na Entrada Abaixo da Faixa de Operação</translation>
+        <translation>Zona ITE Tempo com Umidade Relativa do Ar na Entrada Abaixo da Faixa de Operação </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Índice de Calor Médio de Fornecimento da Zona ITE</translation>
+        <translation>Índice de Calor Médio de Fornecimento da Zona ITE </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Energia Elétrica de CPU de Equipamento de TI em Zona</translation>
+        <translation>Energia Elétrica de CPU de Equipamento de TI em Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energia Elétrica da CPU da TI da Zona em Condições de Entrada de Projeto</translation>
+        <translation>Energia Elétrica da CPU da TI da Zona em Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Taxa de Eletricidade da CPU ITE da Zona</translation>
+        <translation>Taxa de Eletricidade da CPU ITE da Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taxa de Eletricidade da CPU do ITE da Zona em Condições de Entrada de Design</translation>
+        <translation>Taxa de Eletricidade da CPU do ITE da Zona em Condições de Entrada de Design </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Energia Elétrica do Ventilador ITE da Zona</translation>
+        <translation>Energia Elétrica do Ventilador ITE da Zona </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energia Elétrica do Ventilador ITE da Zona em Condições de Entrada de Projeto</translation>
+        <translation>Energia Elétrica do Ventilador ITE da Zona em Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Taxa de Eletricidade do Ventilador ITE da Zona</translation>
+        <translation>Taxa de Eletricidade do Ventilador ITE da Zona </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taxa de Eletricidade do Ventilador ITE da Zona nas Condições de Entrada de Projeto</translation>
+        <translation>Taxa de Eletricidade do Ventilador ITE da Zona nas Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Taxa de Fluxo de Volume de Ar em Densidade Padrão do ITE da Zona</translation>
+        <translation>Taxa de Fluxo de Volume de Ar em Densidade Padrão do ITE da Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Ganho de Calor Total ITE da Zona para Energia da Zona</translation>
+        <translation>Ganho de Calor Total ITE da Zona para Energia da Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Taxa de Ganho de Calor Total da TI para a Zona</translation>
+        <translation>Taxa de Ganho de Calor Total da TI para a Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Zone ITE UPS Electricity Energy</translation>
+        <translation>Zone ITE UPS Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Taxa de Eletricidade do UPS ITE da Zona</translation>
+        <translation>Taxa de Eletricidade do UPS ITE da Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Ganho de Calor UPS de Equipamento de TI para Energia da Zona</translation>
+        <translation>Ganho de Calor UPS de Equipamento de TI para Energia da Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Taxa de Ganho de Calor da UPS ITE para a Zona</translation>
+        <translation>Taxa de Ganho de Calor da UPS ITE para a Zona </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -30290,103 +30321,103 @@ Reabastecimento</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>Temperatura do Ar de Retorno Ajustada ITE</translation>
+        <translation>Temperatura do Ar de Retorno Ajustada ITE </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>Taxa de Fluxo de Ar em Massa do ITE</translation>
+        <translation>Taxa de Fluxo de Ar em Massa do ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE Qualquer Temperatura de Ponto de Orvalho do Ar de Entrada Acima da Faixa Operacional de Tempo</translation>
+        <translation>ITE Qualquer Temperatura de Ponto de Orvalho do Ar de Entrada Acima da Faixa Operacional de Tempo </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Tempo com Temperatura do Ponto de Orvalho da Entrada de Ar Abaixo da Faixa de Operação ITE</translation>
+        <translation>Tempo com Temperatura do Ponto de Orvalho da Entrada de Ar Abaixo da Faixa de Operação ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Tempo de Temperatura de Bulbo Seco da Entrada de Ar Acima da Faixa de Operação ITE</translation>
+        <translation>Tempo de Temperatura de Bulbo Seco da Entrada de Ar Acima da Faixa de Operação ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Tempo com Temperatura de Bulbo Seco da Entrada de Ar Abaixo da Faixa de Operação - ITE Qualquer Entrada de Ar</translation>
+        <translation>Tempo com Temperatura de Bulbo Seco da Entrada de Ar Abaixo da Faixa de Operação - ITE Qualquer Entrada de Ar </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Tempo Excedido da Faixa de Operação de Qualquer Entrada de Ar do ITE</translation>
+        <translation>Tempo Excedido da Faixa de Operação de Qualquer Entrada de Ar do ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>Índice de Calor Médio de Suprimento de TI</translation>
+        <translation>Índice de Calor Médio de Suprimento de TI </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>Energia Elétrica CPU ITE</translation>
+        <translation>Energia Elétrica CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energia Elétrica do CPU de TI nas Condições de Entrada de Projeto</translation>
+        <translation>Energia Elétrica do CPU de TI nas Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>Taxa de Eletricidade CPU ITE</translation>
+        <translation>Taxa de Eletricidade CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taxa de Eletricidade de CPU ITE nas Condições de Entrada de Projeto</translation>
+        <translation>Taxa de Eletricidade de CPU ITE nas Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>Energia Elétrica do Ventilador ITE</translation>
+        <translation>Energia Elétrica do Ventilador ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE Fan Electricity Energy em Condições de Entrada de Design</translation>
+        <translation>ITE Fan Electricity Energy em Condições de Entrada de Design </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>Taxa de Eletricidade do Ventilador ITE</translation>
+        <translation>Taxa de Eletricidade do Ventilador ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taxa de Eletricidade do Ventilador ITE nas Condições de Entrada de Projeto</translation>
+        <translation>Taxa de Eletricidade do Ventilador ITE nas Condições de Entrada de Projeto </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Taxa de Vazão de Ar de Densidade Padrão ITE</translation>
+        <translation>Taxa de Vazão de Ar de Densidade Padrão ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>Ganho Total de Calor ITE para Energia da Zona</translation>
+        <translation>Ganho Total de Calor ITE para Energia da Zona </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>Taxa Total de Ganho de Calor do ITE para a Zona</translation>
+        <translation>Taxa Total de Ganho de Calor do ITE para a Zona </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>Eletricidade da UPS ITE</translation>
+        <translation>Eletricidade da UPS ITE </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>Taxa de Eletricidade UPS ITE</translation>
+        <translation>Taxa de Eletricidade UPS ITE </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Ganho de Calor UPS ITE para Energia da Zona</translation>
+        <translation>Ganho de Calor UPS ITE para Energia da Zona </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Taxa de Ganho de Calor da UPS ITE para a Zona</translation>
+        <translation>Taxa de Ganho de Calor da UPS ITE para a Zona </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -31588,59 +31619,59 @@ Reabastecimento</translation>
     </message>
     <message>
         <source>Accumulated Rays per Record: </source>
-        <translation>Raios Acumulados por Registro:</translation>
+        <translation>Raios Acumulados por Registro: </translation>
     </message>
     <message>
         <source>Direct Threshold: </source>
-        <translation>Limiar Direto:</translation>
+        <translation>Limiar Direto: </translation>
     </message>
     <message>
         <source>Direct Certainty: </source>
-        <translation>Certeza Direta:</translation>
+        <translation>Certeza Direta: </translation>
     </message>
     <message>
         <source>Direct Jitter: </source>
-        <translation>Jitter Direto:</translation>
+        <translation>Jitter Direto: </translation>
     </message>
     <message>
         <source>Direct Pretest: </source>
-        <translation>Pré-teste Direto:</translation>
+        <translation>Pré-teste Direto: </translation>
     </message>
     <message>
         <source>Ambient Bounces VMX: </source>
-        <translation>Reflexões Ambiente VMX:</translation>
+        <translation>Reflexões Ambiente VMX: </translation>
     </message>
     <message>
         <source>Ambient Bounces DMX: </source>
-        <translation>Reflexos Ambiente DMX:</translation>
+        <translation>Reflexos Ambiente DMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions VMX: </source>
-        <translation>Divisões Ambiente VMX:</translation>
+        <translation>Divisões Ambiente VMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions DMX: </source>
-        <translation>Divisões Ambiente DMX:</translation>
+        <translation>Divisões Ambiente DMX: </translation>
     </message>
     <message>
         <source>Ambient Supersamples: </source>
-        <translation>Superamostras Ambiente:</translation>
+        <translation>Superamostras Ambiente: </translation>
     </message>
     <message>
         <source>Limit Weight VMX: </source>
-        <translation>Limite de Peso VMX:</translation>
+        <translation>Limite de Peso VMX: </translation>
     </message>
     <message>
         <source>Limit Weight DMX: </source>
-        <translation>Limite de Peso DMX:</translation>
+        <translation>Limite de Peso DMX: </translation>
     </message>
     <message>
         <source>Klems Sampling Density: </source>
-        <translation>Densidade de Amostragem Klems:</translation>
+        <translation>Densidade de Amostragem Klems: </translation>
     </message>
     <message>
         <source>Sky Discretization Resolution: </source>
-        <translation>Resolução de Discretização do Céu:</translation>
+        <translation>Resolução de Discretização do Céu: </translation>
     </message>
     <message>
         <source>Sizing Parameters</source>
@@ -32265,7 +32296,7 @@ Relatórios Detalhados</translation>
     </message>
     <message>
         <source>Reports: </source>
-        <translation>Relatórios:</translation>
+        <translation>Relatórios: </translation>
     </message>
     <message>
         <source>Set Path to DView
@@ -32280,13 +32311,13 @@ em Preferências</translation>
     <message>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView não foi encontrado no local esperado:</translation>
+        <translation>DView não foi encontrado no local
+esperado:</translation>
     </message>
     <message>
         <source>EnergyPlus Results</source>
         <translation>Resultados do EnergyPlus</translation>
     </message>
-    <message>
     <message>
         <source>Units Conversion</source>
         <translation>Conversão de unidades</translation>
@@ -32295,8 +32326,9 @@ em Preferências</translation>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>Deseja exibir seus dados Energy+ em unidades IP?</translation>
     </message>
+    <message>
         <source>Custom Report </source>
-        <translation>Relatório Personalizado</translation>
+        <translation>Relatório Personalizado </translation>
     </message>
 </context>
 </TS>

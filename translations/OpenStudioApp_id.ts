@@ -206,7 +206,8 @@ Curah Hujan</translation>
     <message>
         <source>Drop
 Zone</source>
-        <translation>Zona Jatuh</translation>
+        <translation>Zona
+Jatuh</translation>
     </message>
 </context>
 <context>
@@ -300,7 +301,7 @@ Zone</source>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
         <source>Select Path to </source>
-        <translation>Pilih Jalur ke</translation>
+        <translation>Pilih Jalur ke </translation>
     </message>
 </context>
 <context>
@@ -406,23 +407,23 @@ Zone</source>
     </message>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Latitude: </source>
-        <translation>Lintang:</translation>
+        <translation>Lintang: </translation>
     </message>
     <message>
         <source>Longitude: </source>
-        <translation>Bujur:</translation>
+        <translation>Bujur: </translation>
     </message>
     <message>
         <source>Elevation: </source>
-        <translation>Ketinggian:</translation>
+        <translation>Ketinggian: </translation>
     </message>
     <message>
         <source>Time Zone: </source>
-        <translation>Zona Waktu:</translation>
+        <translation>Zona Waktu: </translation>
     </message>
     <message>
         <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
@@ -494,7 +495,7 @@ Zone</source>
     </message>
     <message>
         <source>Failed To Set Weather File To </source>
-        <translation>Gagal Menetapkan File Cuaca Ke</translation>
+        <translation>Gagal Menetapkan File Cuaca Ke </translation>
     </message>
     <message>
         <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
@@ -545,7 +546,7 @@ Zone</source>
     </message>
     <message>
         <source>Internet Connection: </source>
-        <translation>Koneksi Internet:</translation>
+        <translation>Koneksi Internet: </translation>
     </message>
     <message>
         <source>yes</source>
@@ -557,7 +558,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Log-in: </source>
-        <translation>Masuk Cloud:</translation>
+        <translation>Masuk Cloud: </translation>
     </message>
     <message>
         <source>accepted</source>
@@ -569,7 +570,7 @@ Zone</source>
     </message>
     <message>
         <source>Cloud Connection: </source>
-        <translation>Koneksi Cloud:</translation>
+        <translation>Koneksi Cloud: </translation>
     </message>
     <message>
         <source>reconnected</source>
@@ -577,7 +578,7 @@ Zone</source>
     </message>
     <message>
         <source>unable to reconnect. </source>
-        <translation>tidak dapat terhubung kembali.</translation>
+        <translation>tidak dapat terhubung kembali. </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
@@ -589,7 +590,7 @@ Zone</source>
     </message>
     <message>
         <source>Try Again Later. </source>
-        <translation>Coba Lagi Nanti.</translation>
+        <translation>Coba Lagi Nanti. </translation>
     </message>
     <message>
         <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
@@ -601,7 +602,7 @@ Zone</source>
     </message>
     <message>
         <source>Stop Cloud. </source>
-        <translation>Hentikan Cloud.</translation>
+        <translation>Hentikan Cloud. </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
@@ -609,7 +610,7 @@ Zone</source>
     </message>
     <message>
         <source>Launch AWS Console. </source>
-        <translation>Luncurkan AWS Console.</translation>
+        <translation>Luncurkan AWS Console. </translation>
     </message>
     <message>
         <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
@@ -897,7 +898,8 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     <message>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>ukuran telah diperbarui pada BCL dibandingkan dengan direktori BCL lokal Anda.</translation>
+        <translation> ukuran telah diperbarui pada BCL dibandingkan dengan direktori BCL lokal
+Anda.</translation>
     </message>
     <message>
         <source>Would you like update them?</source>
@@ -1027,11 +1029,11 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Translation From version </source>
-        <translation>Terjemahan Dari versi</translation>
+        <translation>Terjemahan Dari versi </translation>
     </message>
     <message>
         <source> to </source>
-        <translation>ke</translation>
+        <translation> ke </translation>
     </message>
     <message>
         <source>Unknown starting version</source>
@@ -1071,7 +1073,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) dan bahwa semua field valid terhadap Energy+.idd.</translation>
+        <translation>) dan bahwa semua field valid terhadap Energy+.idd. </translation>
     </message>
     <message>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
@@ -1083,33 +1085,39 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source> IDF Import Failed</source>
-        <translation>Impor IDF Gagal</translation>
+        <translation> Impor IDF Gagal</translation>
     </message>
     <message>
         <source>=============== Errors ===============
 
 </source>
-        <translation>=============== Kesalahan ===============</translation>
+        <translation>===============
+Kesalahan
+===============</translation>
     </message>
     <message>
         <source>============== Warnings ==============
 
 </source>
-        <translation>============== Peringatan ==============</translation>
+        <translation>==============
+Peringatan
+==============</translation>
     </message>
     <message>
         <source>==== The following idf objects were not imported ====
 
 </source>
-        <translation>==== Objek idf berikut tidak diimpor ====</translation>
+        <translation>==== Objek idf berikut tidak
+diimpor
+====</translation>
     </message>
     <message>
         <source> named </source>
-        <translation>bernama</translation>
+        <translation> bernama </translation>
     </message>
     <message>
         <source>Unnamed </source>
-        <translation>Tanpa Nama</translation>
+        <translation>Tanpa Nama </translation>
     </message>
     <message>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
@@ -1125,7 +1133,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Import </source>
-        <translation>Impor</translation>
+        <translation>Impor </translation>
     </message>
     <message>
         <source>(*.xml)</source>
@@ -1133,7 +1141,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Kesalahan atau peringatan terjadi saat impor</translation>
+        <translation>Kesalahan atau peringatan terjadi saat impor </translation>
     </message>
     <message>
         <source>Could not import SDD file.</source>
@@ -1141,11 +1149,11 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Could not import </source>
-        <translation>Tidak dapat mengimpor</translation>
+        <translation>Tidak dapat mengimpor </translation>
     </message>
     <message>
         <source> file at </source>
-        <translation>file di</translation>
+        <translation> file di </translation>
     </message>
     <message>
         <source>Save Changes?</source>
@@ -1181,7 +1189,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Measure Manager Server: </source>
-        <translation>Measure Manager Server:</translation>
+        <translation>Measure Manager Server: </translation>
     </message>
     <message>
         <source>Chrome Debugger: http://localhost:</source>
@@ -1189,7 +1197,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Temp Directory: </source>
-        <translation>Direktori Temp:</translation>
+        <translation>Direktori Temp: </translation>
     </message>
     <message>
         <source>Measure Manager has crashed. Do you want to retry?</source>
@@ -1201,7 +1209,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>About </source>
-        <translation>Tentang</translation>
+        <translation>Tentang </translation>
     </message>
     <message>
         <source>Failed to load model</source>
@@ -1209,15 +1217,15 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
     </message>
     <message>
         <source>Opening future version </source>
-        <translation>Membuka versi masa depan</translation>
+        <translation>Membuka versi masa depan </translation>
     </message>
     <message>
         <source> using </source>
-        <translation>menggunakan</translation>
+        <translation> menggunakan </translation>
     </message>
     <message>
         <source>Model updated from </source>
-        <translation>Model diperbarui dari</translation>
+        <translation>Model diperbarui dari </translation>
     </message>
     <message>
         <source>Existing Ruby scripts have been removed.
@@ -1227,7 +1235,7 @@ Skrip Ruby tidak lagi didukung dan telah diganti oleh measures.</translation>
     </message>
     <message>
         <source>Failed to open file at </source>
-        <translation>Gagal membuka file di</translation>
+        <translation>Gagal membuka file di </translation>
     </message>
     <message>
         <source>Settings file not writable</source>
@@ -1259,7 +1267,9 @@ Apakah Anda ingin membuat model baru?</translation>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
-        <translation>Measure Manager telah macet, mencoba untuk memulai ulang</translation>
+        <translation>Measure Manager telah macet, mencoba untuk
+memulai
+ulang</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
@@ -1283,13 +1293,17 @@ Apakah Anda ingin restart sekarang?</translation>
         <source>Failed to load the following libraries...
 
 </source>
-        <translation>Gagal memuat perpustakaan berikut...</translation>
+        <translation>Gagal memuat
+perpustakaan
+berikut...</translation>
     </message>
     <message>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
-        <translation>Apakah Anda ingin Mengembalikan jalur perpustakaan ke nilai default atau Membuka pengaturan perpustakaan untuk mengubahnya secara manual?</translation>
+        <translation>Apakah
+Anda
+ingin Mengembalikan jalur perpustakaan ke nilai default atau Membuka pengaturan perpustakaan untuk mengubahnya secara manual?</translation>
     </message>
 </context>
 <context>
@@ -1318,11 +1332,11 @@ Would you like to Restore library paths to default values or Open the library se
     <name>openstudio::RunView</name>
     <message>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: Simulasi gagal dijalankan, QProcess::ProcessError:</translation>
+        <translation>onRunProcessErrored: Simulasi gagal dijalankan, QProcess::ProcessError: </translation>
     </message>
     <message>
         <source>Simulation failed to run, with exit code </source>
-        <translation>Simulasi gagal dijalankan, dengan kode keluar</translation>
+        <translation>Simulasi gagal dijalankan, dengan kode keluar </translation>
     </message>
 </context>
 <context>
@@ -1356,11 +1370,11 @@ Would you like to Restore library paths to default values or Open the library se
     </message>
     <message>
         <source> °F</source>
-        <translation>°F</translation>
+        <translation> °F</translation>
     </message>
     <message>
         <source> °C</source>
-        <translation>°C</translation>
+        <translation> °C</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -1400,7 +1414,8 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Perbedaan Maksimum Dalam Rata-rata Suhu Udara Luar Bulanan</translation>
+        <translation>Perbedaan Maksimum Dalam Rata-rata
+Suhu Udara Luar Bulanan</translation>
     </message>
     <message>
         <source>Temperature Multiplier</source>
@@ -1699,7 +1714,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source> &gt; </source>
-        <translation>&gt;</translation>
+        <translation> &gt; </translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1728,7 +1743,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
-        <translation>BIMserver tidak terhubung dengan benar. Silakan periksa apakah BIMserver sedang berjalan dan pastikan nama pengguna dan kata sandi Anda valid.</translation>
+        <translation>BIMserver tidak terhubung dengan benar. Silakan periksa apakah BIMserver sedang berjalan dan pastikan nama pengguna dan kata sandi Anda
+valid.</translation>
     </message>
     <message>
         <source>Please select a IFC version before proceeding.</source>
@@ -1748,7 +1764,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the project name: </source>
-        <translation>Silakan masukkan nama proyek:</translation>
+        <translation>Silakan masukkan nama proyek: </translation>
     </message>
     <message>
         <source>Project Name:</source>
@@ -1784,7 +1800,7 @@ Outdoor Air Temperatures</source>
     </message>
     <message>
         <source>Please enter the BIMserver information: </source>
-        <translation>Harap masukkan informasi BIMserver:</translation>
+        <translation>Harap masukkan informasi BIMserver: </translation>
     </message>
     <message>
         <source>BIMserver Address: http://</source>
@@ -1813,7 +1829,8 @@ Outdoor Air Temperatures</source>
     <message>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
-        <translation>Harap berikan alamat BIMserver yang valid, port, nama pengguna, dan kata sandi Anda. Anda dapat menghubungi manajer BIMserver Anda untuk informasi tersebut.</translation>
+        <translation>Harap berikan alamat BIMserver yang valid, port, nama pengguna, dan kata sandi Anda. Anda dapat menghubungi manajer BIMserver Anda untuk informasi
+tersebut.</translation>
     </message>
 </context>
 <context>
@@ -2149,15 +2166,15 @@ Tag</translation>
     <name>openstudio::BuildingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Display Name: </source>
-        <translation>Nama Tampilan:</translation>
+        <translation>Nama Tampilan: </translation>
     </message>
     <message>
         <source>CAD Object Id: </source>
-        <translation>ID Objek CAD:</translation>
+        <translation>ID Objek CAD: </translation>
     </message>
     <message>
         <source>Measure Tags (Optional):</source>
@@ -2165,51 +2182,51 @@ Tag</translation>
     </message>
     <message>
         <source>Standards Template: </source>
-        <translation>Template Standar:</translation>
+        <translation>Template Standar: </translation>
     </message>
     <message>
         <source>Standards Building Type: </source>
-        <translation>Tipe Bangunan Standar:</translation>
+        <translation>Tipe Bangunan Standar: </translation>
     </message>
     <message>
         <source>Nominal Floor to Ceiling Height: </source>
-        <translation>Tinggi Nominal dari Lantai ke Plafon:</translation>
+        <translation>Tinggi Nominal dari Lantai ke Plafon: </translation>
     </message>
     <message>
         <source>Nominal Floor to Floor Height: </source>
-        <translation>Tinggi Lantai ke Lantai Nominal:</translation>
+        <translation>Tinggi Lantai ke Lantai Nominal: </translation>
     </message>
     <message>
         <source>Standards Number of Stories: </source>
-        <translation>Jumlah Lantai Standar:</translation>
+        <translation>Jumlah Lantai Standar: </translation>
     </message>
     <message>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Jumlah Lantai Di Atas Tanah (Standar):</translation>
+        <translation>Jumlah Lantai Di Atas Tanah (Standar): </translation>
     </message>
     <message>
         <source>Standards Number of Living Units: </source>
-        <translation>Nomor Unit Hunian Standar:</translation>
+        <translation>Nomor Unit Hunian Standar: </translation>
     </message>
     <message>
         <source>Relocatable: </source>
-        <translation>Dapat Dipindahkan:</translation>
+        <translation>Dapat Dipindahkan: </translation>
     </message>
     <message>
         <source>North Axis: </source>
-        <translation>Sumbu Utara:</translation>
+        <translation>Sumbu Utara: </translation>
     </message>
     <message>
         <source>Space Type: </source>
-        <translation>Tipe Ruang:</translation>
+        <translation>Tipe Ruang: </translation>
     </message>
     <message>
         <source>Default Construction Set: </source>
-        <translation>Rangkaian Konstruksi Default:</translation>
+        <translation>Rangkaian Konstruksi Default: </translation>
     </message>
     <message>
         <source>Default Schedule Set: </source>
-        <translation>Kumpulan Jadwal Default:</translation>
+        <translation>Kumpulan Jadwal Default: </translation>
     </message>
 </context>
 <context>
@@ -2293,7 +2310,8 @@ Cerita</translation>
     <message>
         <source>Drop Shading
 Surface Group</source>
-        <translation>Grup Permukaan Bayangan Jatuh</translation>
+        <translation>Grup Permukaan
+Bayangan Jatuh</translation>
     </message>
     <message>
         <source>Filters:</source>
@@ -2782,7 +2800,8 @@ Space</translation>
     <message>
         <source>Drop
 Space</source>
-        <translation>Ruang Jatuh</translation>
+        <translation>Ruang
+Jatuh</translation>
     </message>
 </context>
 <context>
@@ -3135,7 +3154,8 @@ Ruang</translation>
     <message>
         <source>Drop
 Space</source>
-        <translation>Ruang Drop</translation>
+        <translation>Ruang
+Drop</translation>
     </message>
 </context>
 <context>
@@ -3257,7 +3277,8 @@ Space</translation>
     <message>
         <source>Drop
 Zone</source>
-        <translation>Zona Jatuh</translation>
+        <translation>Zona
+Jatuh</translation>
     </message>
 </context>
 <context>
@@ -3301,22 +3322,26 @@ Air Loads</translation>
     <message>
         <source>Cooling Thermostat
 Schedule</source>
-        <translation>Jadwal Termostat Pendingin</translation>
+        <translation>Jadwal Termostat
+Pendingin</translation>
     </message>
     <message>
         <source>Heating Thermostat
 Schedule</source>
-        <translation>Jadwal Termostat Pemanas</translation>
+        <translation>Jadwal Termostat
+Pemanas</translation>
     </message>
     <message>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>Jadwal Titik Setel Pelembaban</translation>
+        <translation>Jadwal Titik Setel
+Pelembaban</translation>
     </message>
     <message>
         <source>Dehumidifying Setpoint
 Schedule</source>
-        <translation>Jadwal Setpoint Penghilang Kelembaban</translation>
+        <translation>Jadwal Setpoint Penghilang
+Kelembaban</translation>
     </message>
     <message>
         <source>Multiplier</source>
@@ -3341,24 +3366,30 @@ Pendinginan Zona</translation>
     <message>
         <source>Zone Cooling
 Sizing Factor</source>
-        <translation>Faktor Pengukuran Pendinginan Zona</translation>
+        <translation>Faktor Pengukuran
+Pendinginan Zona</translation>
     </message>
     <message>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Aliran Udara Minimum Pendinginan per Luas Lantai Zona</translation>
+        <translation>Aliran Udara Minimum
+Pendinginan per Luas
+Lantai Zona</translation>
     </message>
     <message>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
-        <translation>Efektivitas Distribusi Udara Zona Desain dalam Mode Pendinginan</translation>
+        <translation>Efektivitas Distribusi
+Udara Zona Desain dalam
+Mode Pendinginan</translation>
     </message>
     <message>
         <source>Cooling Minimum
 Air Flow Fraction</source>
-        <translation>Fraksi Aliran Udara Minimum Pendinginan</translation>
+        <translation>Fraksi Aliran Udara
+Minimum Pendinginan</translation>
     </message>
     <message>
         <source>Cooling Design
@@ -3375,7 +3406,8 @@ Laju Aliran Udara</translation>
     <message>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>Aliran Udara Minimum Pendinginan</translation>
+        <translation>Aliran Udara Minimum
+Pendinginan</translation>
     </message>
     <message>
         <source>Zone Heating
@@ -3389,7 +3421,9 @@ Desain</translation>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
-        <translation>Rasio Kelembaban Udara Suplai Desain Pemanas Zona</translation>
+        <translation>Rasio Kelembaban
+Udara Suplai
+Desain Pemanas Zona</translation>
     </message>
     <message>
         <source>Zone Heating
@@ -3401,44 +3435,55 @@ Zona</translation>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Aliran Udara Maksimum Pemanas per Luas Lantai Zona</translation>
+        <translation>Aliran Udara Maksimum
+Pemanas per Luas
+Lantai Zona</translation>
     </message>
     <message>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
-        <translation>Efektivitas Distribusi Udara Zona Desain dalam Mode Pemanasan</translation>
+        <translation>Efektivitas
+Distribusi Udara Zona Desain dalam
+Mode Pemanasan</translation>
     </message>
     <message>
         <source>Heating Maximum
 Air Flow Fraction</source>
-        <translation>Fraksi Aliran Udara Maksimum Pemanasan</translation>
+        <translation>Fraksi Aliran Udara
+Maksimum Pemanasan</translation>
     </message>
     <message>
         <source>Heating Design
 Air Flow Method</source>
-        <translation>Metode Aliran Udara Desain Pemanasan</translation>
+        <translation>Metode Aliran Udara
+Desain Pemanasan</translation>
     </message>
     <message>
         <source>Heating Design
 Air Flow Rate</source>
-        <translation>Laju Aliran Udara Desain Pemanasan</translation>
+        <translation>Laju Aliran Udara
+Desain Pemanasan</translation>
     </message>
     <message>
         <source>Heating Maximum
 Air Flow</source>
-        <translation>Aliran Udara Maksimum Pemanasan</translation>
+        <translation>Aliran Udara Maksimum
+Pemanasan</translation>
     </message>
     <message>
         <source>HVAC
 Systems</source>
-        <translation>Sistem HVAC</translation>
+        <translation>Sistem
+HVAC</translation>
     </message>
     <message>
         <source>Cooling
 Sizing
 Parameters</source>
-        <translation>Parameter Penentuan Ukuran Pendinginan</translation>
+        <translation>Parameter
+Penentuan
+Ukuran Pendinginan</translation>
     </message>
     <message>
         <source>Heating
@@ -4238,7 +4283,7 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Vertical </source>
-        <translation>Ground Heat Exchanger - Vertical</translation>
+        <translation>Ground Heat Exchanger - Vertical </translation>
     </message>
     <message>
         <source>Ground Heat Exchanger - Horizontal</source>
@@ -4689,31 +4734,31 @@ Pemanasan</translation>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Number of People: </source>
-        <translation>Jumlah Orang:</translation>
+        <translation>Jumlah Orang: </translation>
     </message>
     <message>
         <source>People per Space Floor Area: </source>
-        <translation>Orang per Luas Lantai Ruang:</translation>
+        <translation>Orang per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Space Floor Area per Person: </source>
-        <translation>Luas Lantai Ruang per Orang:</translation>
+        <translation>Luas Lantai Ruang per Orang: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Sensible Heat Fraction: </source>
-        <translation>Fraksi Panas Sensibel:</translation>
+        <translation>Fraksi Panas Sensibel: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Laju Pembangkitan Karbon Dioksida:</translation>
+        <translation>Laju Pembangkitan Karbon Dioksida: </translation>
     </message>
     <message>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
@@ -4728,289 +4773,289 @@ Pemanasan</translation>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Daya Pencahayaan:</translation>
+        <translation>Daya Pencahayaan: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watt Per Luas Lantai Ruang:</translation>
+        <translation>Watt Per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watt Per Orang:</translation>
+        <translation>Watt Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Fraksi Terlihat:</translation>
+        <translation>Fraksi Terlihat: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>Fraksi Udara Kembali:</translation>
+        <translation>Fraksi Udara Kembali: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Lighting Power: </source>
-        <translation>Daya Pencahayaan:</translation>
+        <translation>Daya Pencahayaan: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiant:</translation>
+        <translation>Fraksi Radiant: </translation>
     </message>
     <message>
         <source>Fraction Visible: </source>
-        <translation>Fraksi Terlihat:</translation>
+        <translation>Fraksi Terlihat: </translation>
     </message>
     <message>
         <source>Return Air Fraction: </source>
-        <translation>Fraksi Udara Kembali:</translation>
+        <translation>Fraksi Udara Kembali: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tingkat Desain:</translation>
+        <translation>Tingkat Desain: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watt Per Luas Lantai Ruang:</translation>
+        <translation>Watt Per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watt Per Orang:</translation>
+        <translation>Watt Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fraksi Laten:</translation>
+        <translation>Fraksi Laten: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fraksi Hilang:</translation>
+        <translation>Fraksi Hilang: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tingkat Desain:</translation>
+        <translation>Tingkat Desain: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Daya Per Luas Lantai Ruang:</translation>
+        <translation>Daya Per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Daya Per Orang:</translation>
+        <translation>Daya Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fraksi Laten:</translation>
+        <translation>Fraksi Laten: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fraksi Hilang:</translation>
+        <translation>Fraksi Hilang: </translation>
     </message>
     <message>
         <source>Carbon Dioxide Generation Rate: </source>
-        <translation>Laju Generasi Karbon Dioksida:</translation>
+        <translation>Laju Generasi Karbon Dioksida: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tingkat Desain:</translation>
+        <translation>Tingkat Desain: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Daya Per Luas Lantai Ruang:</translation>
+        <translation>Daya Per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Daya Per Orang:</translation>
+        <translation>Daya Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fraksi Laten:</translation>
+        <translation>Fraksi Laten: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fraksi Hilang:</translation>
+        <translation>Fraksi Hilang: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tingkat Desain:</translation>
+        <translation>Tingkat Desain: </translation>
     </message>
     <message>
         <source>Power Per Space Floor Area: </source>
-        <translation>Daya Per Luas Lantai Ruang:</translation>
+        <translation>Daya Per Luas Lantai Ruang: </translation>
     </message>
     <message>
         <source>Power Per Person: </source>
-        <translation>Daya Per Orang:</translation>
+        <translation>Daya Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fraksi Laten:</translation>
+        <translation>Fraksi Laten: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fraksi Hilang:</translation>
+        <translation>Fraksi Hilang: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Design Level: </source>
-        <translation>Tingkat Desain:</translation>
+        <translation>Tingkat Desain: </translation>
     </message>
     <message>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watt Per Area Lantai Ruang:</translation>
+        <translation>Watt Per Area Lantai Ruang: </translation>
     </message>
     <message>
         <source>Watts Per Person: </source>
-        <translation>Watt Per Orang:</translation>
+        <translation>Watt Per Orang: </translation>
     </message>
     <message>
         <source>Fraction Latent: </source>
-        <translation>Fraksi Laten:</translation>
+        <translation>Fraksi Laten: </translation>
     </message>
     <message>
         <source>Fraction Radiant: </source>
-        <translation>Fraksi Radiasi:</translation>
+        <translation>Fraksi Radiasi: </translation>
     </message>
     <message>
         <source>Fraction Lost: </source>
-        <translation>Fraksi Hilang:</translation>
+        <translation>Fraksi Hilang: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Surface Area: </source>
-        <translation>Luas Permukaan:</translation>
+        <translation>Luas Permukaan: </translation>
     </message>
     <message>
         <source>Surface Area Per Space Floor Area: </source>
-        <translation>Luas Permukaan Per Luas Lantai Ruangan:</translation>
+        <translation>Luas Permukaan Per Luas Lantai Ruangan: </translation>
     </message>
     <message>
         <source>Surface Area Per Person: </source>
-        <translation>Luas Permukaan Per Orang:</translation>
+        <translation>Luas Permukaan Per Orang: </translation>
     </message>
     <message>
         <source>Construction: </source>
-        <translation>Konstruksi:</translation>
+        <translation>Konstruksi: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>End Use Subcategory: </source>
-        <translation>Subkategori Penggunaan Akhir:</translation>
+        <translation>Subkategori Penggunaan Akhir: </translation>
     </message>
     <message>
         <source>Peak Flow Rate: </source>
-        <translation>Laju Aliran Puncak:</translation>
+        <translation>Laju Aliran Puncak: </translation>
     </message>
     <message>
         <source>Target Temperature Schedule: </source>
-        <translation>Jadwal Suhu Target:</translation>
+        <translation>Jadwal Suhu Target: </translation>
     </message>
     <message>
         <source>Sensible Fraction Schedule: </source>
-        <translation>Jadwal Fraksi Sensibel:</translation>
+        <translation>Jadwal Fraksi Sensibel: </translation>
     </message>
     <message>
         <source>Latent Fraction Schedule: </source>
-        <translation>Jadwal Fraksi Laten:</translation>
+        <translation>Jadwal Fraksi Laten: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Air Exchange Method: </source>
-        <translation>Metode Pertukaran Udara:</translation>
+        <translation>Metode Pertukaran Udara: </translation>
     </message>
     <message>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Perubahan Udara Pencampuran Sederhana per Jam:</translation>
+        <translation>Perubahan Udara Pencampuran Sederhana per Jam: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Lapisan:</translation>
+        <translation>Lapisan: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5022,165 +5067,165 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Source Present After Layer: </source>
-        <translation>Sumber Hadir Setelah Lapisan:</translation>
+        <translation>Sumber Hadir Setelah Lapisan: </translation>
     </message>
     <message>
         <source>Temperature Calculation Requested After Layer Number: </source>
-        <translation>Perhitungan Suhu Diminta Setelah Nomor Lapisan:</translation>
+        <translation>Perhitungan Suhu Diminta Setelah Nomor Lapisan: </translation>
     </message>
     <message>
         <source>Dimensions for the CTF Calculation: </source>
-        <translation>Dimensi untuk Perhitungan CTF:</translation>
+        <translation>Dimensi untuk Perhitungan CTF: </translation>
     </message>
     <message>
         <source>Tube Spacing: </source>
-        <translation>Jarak Tabung:</translation>
+        <translation>Jarak Tabung: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>C-Factor: </source>
-        <translation>Faktor-C:</translation>
+        <translation>Faktor-C: </translation>
     </message>
     <message>
         <source>Height: </source>
-        <translation>Tinggi:</translation>
+        <translation>Tinggi: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>F-Factor: </source>
-        <translation>F-Factor:</translation>
+        <translation>F-Factor: </translation>
     </message>
     <message>
         <source>Area: </source>
-        <translation>Luas:</translation>
+        <translation>Luas: </translation>
     </message>
     <message>
         <source>Perimeter Exposed: </source>
-        <translation>Perimeter Terbuka:</translation>
+        <translation>Perimeter Terbuka: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Solar Transmittance: </source>
-        <translation>Transmitansi Surya:</translation>
+        <translation>Transmitansi Surya: </translation>
     </message>
     <message>
         <source>Solar Reflectance: </source>
-        <translation>Reflektansi Surya:</translation>
+        <translation>Reflektansi Surya: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Transmitansi Cahaya Tampak:</translation>
+        <translation>Transmitansi Cahaya Tampak: </translation>
     </message>
     <message>
         <source>Visible Reflectance: </source>
-        <translation>Reflektansi Terlihat:</translation>
+        <translation>Reflektansi Terlihat: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Emisiivitas Hemisferikal Termal:</translation>
+        <translation>Emisiivitas Hemisferikal Termal: </translation>
     </message>
     <message>
         <source>Thermal Transmittance: </source>
-        <translation>Transmitansi Termal:</translation>
+        <translation>Transmitansi Termal: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Konduktivitas:</translation>
+        <translation>Konduktivitas: </translation>
     </message>
     <message>
         <source>Shade To Glass Distance: </source>
-        <translation>Jarak Shade ke Kaca:</translation>
+        <translation>Jarak Shade ke Kaca: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Pengali Bukaan Atas:</translation>
+        <translation>Pengali Bukaan Atas: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Bawah:</translation>
+        <translation>Pengali Pembukaan Bawah: </translation>
     </message>
     <message>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kiri:</translation>
+        <translation>Pengali Pembukaan Sisi Kiri: </translation>
     </message>
     <message>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kanan:</translation>
+        <translation>Pengali Pembukaan Sisi Kanan: </translation>
     </message>
     <message>
         <source>Airflow Permeability: </source>
-        <translation>Permeabilitas Aliran Udara:</translation>
+        <translation>Permeabilitas Aliran Udara: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Ketahanan Termal:</translation>
+        <translation>Ketahanan Termal: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Kekasaran:</translation>
+        <translation>Kekasaran: </translation>
     </message>
     <message>
         <source>Thermal Resistance: </source>
-        <translation>Resistansi Termal:</translation>
+        <translation>Resistansi Termal: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Absorptansi Termal:</translation>
+        <translation>Absorptansi Termal: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absorptansi Surya:</translation>
+        <translation>Absorptansi Surya: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absorptansi Terlihat:</translation>
+        <translation>Absorptansi Terlihat: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Layer: </source>
-        <translation>Lapisan:</translation>
+        <translation>Lapisan: </translation>
     </message>
     <message>
         <source>Outside</source>
@@ -5203,51 +5248,51 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Standar:</translation>
+        <translation>Standar: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Sumber Standar:</translation>
+        <translation>Sumber Standar: </translation>
     </message>
     <message>
         <source>Intended Surface Type: </source>
-        <translation>Jenis Permukaan yang Dimaksud:</translation>
+        <translation>Jenis Permukaan yang Dimaksud: </translation>
     </message>
     <message>
         <source>Standards Construction Type: </source>
-        <translation>Jenis Konstruksi Standar:</translation>
+        <translation>Jenis Konstruksi Standar: </translation>
     </message>
     <message>
         <source>Fenestration Type: </source>
-        <translation>Jenis Fenestrase:</translation>
+        <translation>Jenis Fenestrase: </translation>
     </message>
     <message>
         <source>Fenestration Assembly Context: </source>
-        <translation>Konteks Perakitan Fenestra:</translation>
+        <translation>Konteks Perakitan Fenestra: </translation>
     </message>
     <message>
         <source>Fenestration Number of Panes: </source>
-        <translation>Fenestration Jumlah Panel:</translation>
+        <translation>Fenestration Jumlah Panel: </translation>
     </message>
     <message>
         <source>Fenestration Frame Type: </source>
-        <translation>Tipe Frame Fenestra:</translation>
+        <translation>Tipe Frame Fenestra: </translation>
     </message>
     <message>
         <source>Fenestration Divider Type: </source>
-        <translation>Tipe Pembagi Fenestration:</translation>
+        <translation>Tipe Pembagi Fenestration: </translation>
     </message>
     <message>
         <source>Fenestration Tint: </source>
-        <translation>Tint Jendela:</translation>
+        <translation>Tint Jendela: </translation>
     </message>
     <message>
         <source>Fenestration Gas Fill: </source>
-        <translation>Fenestration Gas Fill:</translation>
+        <translation>Fenestration Gas Fill: </translation>
     </message>
     <message>
         <source>Fenestration Low Emissivity Coating: </source>
-        <translation>Lapisan Emissivitas Rendah Fenestration:</translation>
+        <translation>Lapisan Emissivitas Rendah Fenestration: </translation>
     </message>
 </context>
 <context>
@@ -5258,39 +5303,39 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Standard: </source>
-        <translation>Standar:</translation>
+        <translation>Standar: </translation>
     </message>
     <message>
         <source>Standard Source: </source>
-        <translation>Sumber Standar:</translation>
+        <translation>Sumber Standar: </translation>
     </message>
     <message>
         <source>Standards Category: </source>
-        <translation>Kategori Standar:</translation>
+        <translation>Kategori Standar: </translation>
     </message>
     <message>
         <source>Standards Identifier: </source>
-        <translation>Pengenal Standar:</translation>
+        <translation>Pengenal Standar: </translation>
     </message>
     <message>
         <source>Composite Framing Material: </source>
-        <translation>Material Framing Komposit:</translation>
+        <translation>Material Framing Komposit: </translation>
     </message>
     <message>
         <source>Composite Framing Configuration: </source>
-        <translation>Konfigurasi Framing Komposit:</translation>
+        <translation>Konfigurasi Framing Komposit: </translation>
     </message>
     <message>
         <source>Composite Framing Depth: </source>
-        <translation>Kedalaman Framing Komposit:</translation>
+        <translation>Kedalaman Framing Komposit: </translation>
     </message>
     <message>
         <source>Composite Framing Size: </source>
-        <translation>Ukuran Framing Komposit:</translation>
+        <translation>Ukuran Framing Komposit: </translation>
     </message>
     <message>
         <source>Composite Cavity Insulation: </source>
-        <translation>Insulasi Rongga Komposit:</translation>
+        <translation>Insulasi Rongga Komposit: </translation>
     </message>
 </context>
 <context>
@@ -5356,530 +5401,530 @@ Pemanasan</translation>
     <name>openstudio::MaterialInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Kekasaran:</translation>
+        <translation>Kekasaran: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Konduktivitas:</translation>
+        <translation>Konduktivitas: </translation>
     </message>
     <message>
         <source>Density: </source>
-        <translation>Kepadatan:</translation>
+        <translation>Kepadatan: </translation>
     </message>
     <message>
         <source>Specific Heat: </source>
-        <translation>Panas Jenis:</translation>
+        <translation>Panas Jenis: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Thermal Absorptance:</translation>
+        <translation>Thermal Absorptance: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absorptansi Surya:</translation>
+        <translation>Absorptansi Surya: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absorptansi Tampak:</translation>
+        <translation>Absorptansi Tampak: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>U-Factor: </source>
-        <translation>Faktor-U:</translation>
+        <translation>Faktor-U: </translation>
     </message>
     <message>
         <source>Solar Heat Gain Coefficient: </source>
-        <translation>Koefisien Penambahan Panas Matahari:</translation>
+        <translation>Koefisien Penambahan Panas Matahari: </translation>
     </message>
     <message>
         <source>Visible Transmittance: </source>
-        <translation>Transmitansi Cahaya Tampak:</translation>
+        <translation>Transmitansi Cahaya Tampak: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Optical Data Type: </source>
-        <translation>Jenis Data Optik:</translation>
+        <translation>Jenis Data Optik: </translation>
     </message>
     <message>
         <source>Window Glass Spectral Data Set Name: </source>
-        <translation>Nama Kumpulan Data Spektral Kaca Jendela:</translation>
+        <translation>Nama Kumpulan Data Spektral Kaca Jendela: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Solar Transmittance At Normal Incidence: </source>
-        <translation>Transmitansi Surya pada Sudut Datang Normal:</translation>
+        <translation>Transmitansi Surya pada Sudut Datang Normal: </translation>
     </message>
     <message>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Reflektansi Surya Sisi Depan pada Insiden Normal:</translation>
+        <translation>Reflektansi Surya Sisi Depan pada Insiden Normal: </translation>
     </message>
     <message>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
-        <translation>Reflektansi Surya Sisi Belakang Pada Insiden Normal:</translation>
+        <translation>Reflektansi Surya Sisi Belakang Pada Insiden Normal: </translation>
     </message>
     <message>
         <source>Visible Transmittance At Normal Incidence: </source>
-        <translation>Transmitansi Terlihat Pada Sudut Datang Normal:</translation>
+        <translation>Transmitansi Terlihat Pada Sudut Datang Normal: </translation>
     </message>
     <message>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Reflektansi Tampak Sisi Depan pada Insiden Normal:</translation>
+        <translation>Reflektansi Tampak Sisi Depan pada Insiden Normal: </translation>
     </message>
     <message>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
-        <translation>Reflektansi Sisi Belakang Terlihat pada Insidensi Normal:</translation>
+        <translation>Reflektansi Sisi Belakang Terlihat pada Insidensi Normal: </translation>
     </message>
     <message>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation>Transmitans Inframerah pada Insiden Normal:</translation>
+        <translation>Transmitans Inframerah pada Insiden Normal: </translation>
     </message>
     <message>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
-        <translation>Emisivitas Hemisferik Inframerah Sisi Depan:</translation>
+        <translation>Emisivitas Hemisferik Inframerah Sisi Depan: </translation>
     </message>
     <message>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
-        <translation>Emisi Hemisferik Inframerah Sisi Belakang:</translation>
+        <translation>Emisi Hemisferik Inframerah Sisi Belakang: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Konduktivitas:</translation>
+        <translation>Konduktivitas: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Faktor Koreksi Kotoran Untuk Transmitansi Solar dan Cahaya Tampak:</translation>
+        <translation>Faktor Koreksi Kotoran Untuk Transmitansi Solar dan Cahaya Tampak: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Pendifusian Surya:</translation>
+        <translation>Pendifusian Surya: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Gas Type: </source>
-        <translation>Jenis Gas:</translation>
+        <translation>Jenis Gas: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient A: </source>
-        <translation>Koefisien Konduktivitas A:</translation>
+        <translation>Koefisien Konduktivitas A: </translation>
     </message>
     <message>
         <source>Conductivity Coefficient B: </source>
-        <translation>Koefisien Konduktivitas B:</translation>
+        <translation>Koefisien Konduktivitas B: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient A: </source>
-        <translation>Koefisien Viskositas A:</translation>
+        <translation>Koefisien Viskositas A: </translation>
     </message>
     <message>
         <source>Viscosity Coefficient B: </source>
-        <translation>Koefisien Viskositas B:</translation>
+        <translation>Koefisien Viskositas B: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient A: </source>
-        <translation>Koefisien Panas Spesifik A:</translation>
+        <translation>Koefisien Panas Spesifik A: </translation>
     </message>
     <message>
         <source>Specific Heat Coefficient B: </source>
-        <translation>Koefisien Kalor Spesifik B:</translation>
+        <translation>Koefisien Kalor Spesifik B: </translation>
     </message>
     <message>
         <source>Molecular Weight: </source>
-        <translation>Berat Molekul:</translation>
+        <translation>Berat Molekul: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Number Of Gases In Mixture: </source>
-        <translation>Jumlah Gas dalam Campuran:</translation>
+        <translation>Jumlah Gas dalam Campuran: </translation>
     </message>
     <message>
         <source>Gas 1 Fraction: </source>
-        <translation>Gas 1 Fraksi:</translation>
+        <translation>Gas 1 Fraksi: </translation>
     </message>
     <message>
         <source>Gas 1 Type: </source>
-        <translation>Jenis Gas 1:</translation>
+        <translation>Jenis Gas 1: </translation>
     </message>
     <message>
         <source>Gas 2 Fraction: </source>
-        <translation>Fraksi Gas 2:</translation>
+        <translation>Fraksi Gas 2: </translation>
     </message>
     <message>
         <source>Gas 2 Type: </source>
-        <translation>Tipe Gas 2:</translation>
+        <translation>Tipe Gas 2: </translation>
     </message>
     <message>
         <source>Gas 3 Fraction: </source>
-        <translation>Fraksi Gas 3:</translation>
+        <translation>Fraksi Gas 3: </translation>
     </message>
     <message>
         <source>Gas 3 Type: </source>
-        <translation>Tipe Gas 3:</translation>
+        <translation>Tipe Gas 3: </translation>
     </message>
     <message>
         <source>Gas 4 Fraction: </source>
-        <translation>Gas 4 Fraction:</translation>
+        <translation>Gas 4 Fraction: </translation>
     </message>
     <message>
         <source>Gas 4 Type: </source>
-        <translation>Tipe Gas 4:</translation>
+        <translation>Tipe Gas 4: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Slat Orientation: </source>
-        <translation>Orientasi Bilah Tirai:</translation>
+        <translation>Orientasi Bilah Tirai: </translation>
     </message>
     <message>
         <source>Slat Width: </source>
-        <translation>Lebar Bilah:</translation>
+        <translation>Lebar Bilah: </translation>
     </message>
     <message>
         <source>Slat Separation: </source>
-        <translation>Pemisahan Slat:</translation>
+        <translation>Pemisahan Slat: </translation>
     </message>
     <message>
         <source>Slat Thickness: </source>
-        <translation>Ketebalan Slat:</translation>
+        <translation>Ketebalan Slat: </translation>
     </message>
     <message>
         <source>Slat Angle: </source>
-        <translation>Sudut Slat:</translation>
+        <translation>Sudut Slat: </translation>
     </message>
     <message>
         <source>Slat Conductivity: </source>
-        <translation>Konduktivitas Slat:</translation>
+        <translation>Konduktivitas Slat: </translation>
     </message>
     <message>
         <source>Slat Beam Solar Transmittance: </source>
-        <translation>Transmitansi Sinar Matahari Slat Balok:</translation>
+        <translation>Transmitansi Sinar Matahari Slat Balok: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Solar Reflectance: </source>
-        <translation>Reflektansi Surya Berkas Sisi Depan Slat:</translation>
+        <translation>Reflektansi Surya Berkas Sisi Depan Slat: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Solar Reflectance: </source>
-        <translation>Reflektansi Surya Berkas Sisi Belakang Slat:</translation>
+        <translation>Reflektansi Surya Berkas Sisi Belakang Slat: </translation>
     </message>
     <message>
         <source>Slat Diffuse Solar Transmittance: </source>
-        <translation>Transmitansi Solar Difus Slat:</translation>
+        <translation>Transmitansi Solar Difus Slat: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Reflektansi Surya Difus Sisi Depan Slat:</translation>
+        <translation>Reflektansi Surya Difus Sisi Depan Slat: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
-        <translation>Reflektansi Difus Surya Sisi Belakang Slat:</translation>
+        <translation>Reflektansi Difus Surya Sisi Belakang Slat: </translation>
     </message>
     <message>
         <source>Slat Beam Visible Transmittance: </source>
-        <translation>Transmitansi Sinar Tampak Slat:</translation>
+        <translation>Transmitansi Sinar Tampak Slat: </translation>
     </message>
     <message>
         <source>Front Side Slat Beam Visible Reflectance: </source>
-        <translation>Front Side Slat Beam Visible Reflectance:</translation>
+        <translation>Front Side Slat Beam Visible Reflectance: </translation>
     </message>
     <message>
         <source>Back Side Slat Beam Visible Reflectance: </source>
-        <translation>Reflektansi Balok Terlihat Sisi Belakang Slat:</translation>
+        <translation>Reflektansi Balok Terlihat Sisi Belakang Slat: </translation>
     </message>
     <message>
         <source>Slat Diffuse Visible Transmittance: </source>
-        <translation>Transmitansi Tampak Difus Slat:</translation>
+        <translation>Transmitansi Tampak Difus Slat: </translation>
     </message>
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Reflektansi Difus Terlihat Sisi Depan Slat:</translation>
+        <translation>Reflektansi Difus Terlihat Sisi Depan Slat: </translation>
     </message>
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
-        <translation>Reflektansi Tampak Difus Sisi Belakang Slat:</translation>
+        <translation>Reflektansi Tampak Difus Sisi Belakang Slat: </translation>
     </message>
     <message>
         <source>Slat Infrared Hemispherical Transmittance: </source>
-        <translation>Transmitansi Hemisfrik Inframerah Slat:</translation>
+        <translation>Transmitansi Hemisfrik Inframerah Slat: </translation>
     </message>
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Front Side Slat Infrared Hemispherical Emissivity:</translation>
+        <translation>Front Side Slat Infrared Hemispherical Emissivity: </translation>
     </message>
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
-        <translation>Emisivitas Inframerah Hemiserik Sisi Belakang Slat:</translation>
+        <translation>Emisivitas Inframerah Hemiserik Sisi Belakang Slat: </translation>
     </message>
     <message>
         <source>Blind To Glass Distance: </source>
-        <translation>Jarak Blind ke Kaca:</translation>
+        <translation>Jarak Blind ke Kaca: </translation>
     </message>
     <message>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Pengganda Pembukaan Atas Blind:</translation>
+        <translation>Pengganda Pembukaan Atas Blind: </translation>
     </message>
     <message>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Pengali Bukaan Bawah Blind:</translation>
+        <translation>Pengali Bukaan Bawah Blind: </translation>
     </message>
     <message>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kiri Blind:</translation>
+        <translation>Pengali Pembukaan Sisi Kiri Blind: </translation>
     </message>
     <message>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kanan Blind:</translation>
+        <translation>Pengali Pembukaan Sisi Kanan Blind: </translation>
     </message>
     <message>
         <source>Minimum Slat Angle: </source>
-        <translation>Sudut Bilah Minimum:</translation>
+        <translation>Sudut Bilah Minimum: </translation>
     </message>
     <message>
         <source>Maximum Slat Angle: </source>
-        <translation>Sudut Lami Maksimum:</translation>
+        <translation>Sudut Lami Maksimum: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Reflected Beam Transmittance Accounting Method: </source>
-        <translation>Metode Perhitungan Transmitans Balok Terpantul:</translation>
+        <translation>Metode Perhitungan Transmitans Balok Terpantul: </translation>
     </message>
     <message>
         <source>Diffuse Solar Reflectance: </source>
-        <translation>Reflektansi Solar Difus:</translation>
+        <translation>Reflektansi Solar Difus: </translation>
     </message>
     <message>
         <source>Diffuse Visible Reflectance: </source>
-        <translation>Reflektansi Tampak Difus:</translation>
+        <translation>Reflektansi Tampak Difus: </translation>
     </message>
     <message>
         <source>Thermal Hemispherical Emissivity: </source>
-        <translation>Emissivitas Hemisferikal Termal:</translation>
+        <translation>Emissivitas Hemisferikal Termal: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Konduktivitas:</translation>
+        <translation>Konduktivitas: </translation>
     </message>
     <message>
         <source>Screen Material Spacing: </source>
-        <translation>Jarak Bahan Layar:</translation>
+        <translation>Jarak Bahan Layar: </translation>
     </message>
     <message>
         <source>Screen Material Diameter: </source>
-        <translation>Diameter Material Layar:</translation>
+        <translation>Diameter Material Layar: </translation>
     </message>
     <message>
         <source>Screen To Glass Distance: </source>
-        <translation>Jarak Layar ke Kaca:</translation>
+        <translation>Jarak Layar ke Kaca: </translation>
     </message>
     <message>
         <source>Top Opening Multiplier: </source>
-        <translation>Pengganda Pembukaan Atas:</translation>
+        <translation>Pengganda Pembukaan Atas: </translation>
     </message>
     <message>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Pengganda Bukaan Bawah:</translation>
+        <translation>Pengganda Bukaan Bawah: </translation>
     </message>
     <message>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kiri:</translation>
+        <translation>Pengali Pembukaan Sisi Kiri: </translation>
     </message>
     <message>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Pengali Pembukaan Sisi Kanan:</translation>
+        <translation>Pengali Pembukaan Sisi Kanan: </translation>
     </message>
     <message>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Sudut Resolusi Untuk Peta Output Transmitansi Layar:</translation>
+        <translation>Sudut Resolusi Untuk Peta Output Transmitansi Layar: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Height Of Plants: </source>
-        <translation>Tinggi Tanaman:</translation>
+        <translation>Tinggi Tanaman: </translation>
     </message>
     <message>
         <source>Leaf Area Index: </source>
-        <translation>Indeks Area Daun:</translation>
+        <translation>Indeks Area Daun: </translation>
     </message>
     <message>
         <source>Leaf Reflectivity: </source>
-        <translation>Reflektivitas Daun:</translation>
+        <translation>Reflektivitas Daun: </translation>
     </message>
     <message>
         <source>Leaf Emissivity: </source>
-        <translation>Emisivitas Daun:</translation>
+        <translation>Emisivitas Daun: </translation>
     </message>
     <message>
         <source>Minimum Stomatal Resistance: </source>
-        <translation>Resistansi Stomata Minimum:</translation>
+        <translation>Resistansi Stomata Minimum: </translation>
     </message>
     <message>
         <source>Soil Layer Name: </source>
-        <translation>Nama Lapisan Tanah:</translation>
+        <translation>Nama Lapisan Tanah: </translation>
     </message>
     <message>
         <source>Roughness: </source>
-        <translation>Kekasaran:</translation>
+        <translation>Kekasaran: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Conductivity Of Dry Soil: </source>
-        <translation>Konduktivitas Tanah Kering:</translation>
+        <translation>Konduktivitas Tanah Kering: </translation>
     </message>
     <message>
         <source>Density Of Dry Soil: </source>
-        <translation>Kepadatan Tanah Kering:</translation>
+        <translation>Kepadatan Tanah Kering: </translation>
     </message>
     <message>
         <source>Specific Heat Of Dry Soil: </source>
-        <translation>Panas Jenis Tanah Kering:</translation>
+        <translation>Panas Jenis Tanah Kering: </translation>
     </message>
     <message>
         <source>Thermal Absorptance: </source>
-        <translation>Absorptansi Termal:</translation>
+        <translation>Absorptansi Termal: </translation>
     </message>
     <message>
         <source>Solar Absorptance: </source>
-        <translation>Absorptansi Solar:</translation>
+        <translation>Absorptansi Solar: </translation>
     </message>
     <message>
         <source>Visible Absorptance: </source>
-        <translation>Absorptansi Tampak:</translation>
+        <translation>Absorptansi Tampak: </translation>
     </message>
     <message>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Kadar Kelembaban Volumetrik Jenuh Lapisan Tanah:</translation>
+        <translation>Kadar Kelembaban Volumetrik Jenuh Lapisan Tanah: </translation>
     </message>
     <message>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Kadar Kelembaban Volumetrik Sisa Lapisan Tanah:</translation>
+        <translation>Kadar Kelembaban Volumetrik Sisa Lapisan Tanah: </translation>
     </message>
     <message>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
-        <translation>Kadar Kelembaban Volumetrik Awal Lapisan Tanah:</translation>
+        <translation>Kadar Kelembaban Volumetrik Awal Lapisan Tanah: </translation>
     </message>
     <message>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Metode Perhitungan Difusi Kelembaban:</translation>
+        <translation>Metode Perhitungan Difusi Kelembaban: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Thickness: </source>
-        <translation>Ketebalan:</translation>
+        <translation>Ketebalan: </translation>
     </message>
     <message>
         <source>Solar Index Of Refraction: </source>
-        <translation>Indeks Bias Matahari:</translation>
+        <translation>Indeks Bias Matahari: </translation>
     </message>
     <message>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Koefisien Ekstinksi Surya:</translation>
+        <translation>Koefisien Ekstinksi Surya: </translation>
     </message>
     <message>
         <source>Visible Index of Refraction: </source>
-        <translation>Indeks Bias Cahaya Tampak:</translation>
+        <translation>Indeks Bias Cahaya Tampak: </translation>
     </message>
     <message>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Koefisien Ekstinsi Terlihat:</translation>
+        <translation>Koefisien Ekstinsi Terlihat: </translation>
     </message>
     <message>
         <source>Infrared Transmittance At Normal Incidence: </source>
-        <translation>Transmitansi Inframerah pada Sudut Datang Normal:</translation>
+        <translation>Transmitansi Inframerah pada Sudut Datang Normal: </translation>
     </message>
     <message>
         <source>Infrared Hemispherical Emissivity: </source>
-        <translation>Emissivitas Hemisferikal Inframerah:</translation>
+        <translation>Emissivitas Hemisferikal Inframerah: </translation>
     </message>
     <message>
         <source>Conductivity: </source>
-        <translation>Konduktivitas:</translation>
+        <translation>Konduktivitas: </translation>
     </message>
     <message>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
-        <translation>Faktor Koreksi Kotoran Untuk Transmitansi Solar Dan Cahaya Tampak:</translation>
+        <translation>Faktor Koreksi Kotoran Untuk Transmitansi Solar Dan Cahaya Tampak: </translation>
     </message>
     <message>
         <source>Solar Diffusing: </source>
-        <translation>Difusi Surya:</translation>
+        <translation>Difusi Surya: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Daylight Redirection Device Type: </source>
-        <translation>Tipe Perangkat Pengalihan Cahaya Siang:</translation>
+        <translation>Tipe Perangkat Pengalihan Cahaya Siang: </translation>
     </message>
 </context>
 <context>
@@ -5930,29 +5975,29 @@ Pemanasan</translation>
     </message>
     <message>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>Buat profil baru untuk mengganti profil periode operasional default.</translation>
+        <translation>  Buat profil baru untuk mengganti profil periode operasional default.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>Konten</translation>
+        <translation>Konten </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source> Value: </source>
-        <translation>Nilai:</translation>
+        <translation> Nilai: </translation>
     </message>
 </context>
 <context>
@@ -5990,15 +6035,15 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Numeric Type: </source>
-        <translation>Jenis Numerik:</translation>
+        <translation>Jenis Numerik: </translation>
     </message>
     <message>
         <source>Lower Limit: </source>
-        <translation>Batas Bawah:</translation>
+        <translation>Batas Bawah: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Batas Atas:</translation>
+        <translation>Batas Atas: </translation>
     </message>
     <message>
         <source>unitless</source>
@@ -6013,27 +6058,27 @@ Pemanasan</translation>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
         <source>Name: </source>
-        <translation>Nama:</translation>
+        <translation>Nama: </translation>
     </message>
     <message>
         <source>FilePath: </source>
-        <translation>Jalur Berkas:</translation>
+        <translation>Jalur Berkas: </translation>
     </message>
     <message>
         <source>Column Number: </source>
-        <translation>Nomor Kolom:</translation>
+        <translation>Nomor Kolom: </translation>
     </message>
     <message>
         <source>Rows to Skip at Top: </source>
-        <translation>Baris yang Dilewati di Bagian Atas:</translation>
+        <translation>Baris yang Dilewati di Bagian Atas: </translation>
     </message>
     <message>
         <source>Number of Hours of Data: </source>
-        <translation>Jumlah Jam Data:</translation>
+        <translation>Jumlah Jam Data: </translation>
     </message>
     <message>
         <source>Column Separator: </source>
-        <translation>Pemisah Kolom:</translation>
+        <translation>Pemisah Kolom: </translation>
     </message>
     <message>
         <source>Comma</source>
@@ -6053,42 +6098,42 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Interpolate to Timestep: </source>
-        <translation>Interpolasi ke Timestep:</translation>
+        <translation>Interpolasi ke Timestep: </translation>
     </message>
     <message>
         <source>Minutes per Item: </source>
-        <translation>Menit per Item:</translation>
+        <translation>Menit per Item: </translation>
     </message>
     <message>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Sesuaikan Jadwal untuk Daylight Savings:</translation>
+        <translation>Sesuaikan Jadwal untuk Daylight Savings: </translation>
     </message>
     <message>
         <source>Translate File With Relative Path: </source>
-        <translation>Terjemahkan File Dengan Jalur Relatif:</translation>
+        <translation>Terjemahkan File Dengan Jalur Relatif: </translation>
     </message>
     <message>
         <source>Content: </source>
-        <translation>Konten:</translation>
+        <translation>Konten: </translation>
     </message>
     <message>
         <source>Number of Lines in file: </source>
-        <translation>Jumlah Baris dalam file:</translation>
+        <translation>Jumlah Baris dalam file: </translation>
     </message>
     <message>
         <source>Display All File Content: </source>
-        <translation>Tampilkan Semua Konten File:</translation>
+        <translation>Tampilkan Semua Konten File: </translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
         <source>Lower Limit: </source>
-        <translation>Batas Bawah:</translation>
+        <translation>Batas Bawah: </translation>
     </message>
     <message>
         <source>Upper Limit: </source>
-        <translation>Batas Atas:</translation>
+        <translation>Batas Atas: </translation>
     </message>
 </context>
 <context>
@@ -6350,11 +6395,11 @@ Pemanasan</translation>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
         <source>Cooling Type: </source>
-        <translation>Tipe Pendinginan:</translation>
+        <translation>Tipe Pendinginan: </translation>
     </message>
     <message>
         <source>Heating Type: </source>
-        <translation>Jenis Pemanas:</translation>
+        <translation>Jenis Pemanas: </translation>
     </message>
     <message>
         <source>Time of Operation</source>
@@ -6405,7 +6450,7 @@ Pemanasan</translation>
     </message>
     <message>
         <source>Plant Loop Type: </source>
-        <translation>Jenis Loop Tanaman:</translation>
+        <translation>Jenis Loop Tanaman: </translation>
     </message>
     <message>
         <source>Plant Equipment Operation Schemes</source>
@@ -6588,7 +6633,8 @@ Pemanasan</translation>
     <message>
         <source>Drop
 Case</source>
-        <translation>Turunkan Huruf Besar</translation>
+        <translation>Turunkan
+Huruf Besar</translation>
     </message>
     <message>
         <source>Walk Ins</source>
@@ -6641,38 +6687,28 @@ Berjalan Masuk</translation>
         <translation>Pompa Panas Atap Paket</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV
-with Reheat</source>
+        <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Packaged DX Rooftop VAV dengan Reheat</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Parallel Fan
-Power Boxes and reheat</source>
+        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>Packaged Rooftop VAV dengan Parallel Fan Power Boxes dan reheat</translation>
     </message>
     <message>
-        <source>Packaged Rooftop
-VAV with Reheat</source>
-        <translation>Paket Rooftop
-VAV dengan Reheat</translation>
+        <source>Packaged Rooftop VAV with Reheat</source>
+        <translation>Paket Rooftop VAV dengan Reheat</translation>
     </message>
     <message>
-        <source>VAV with Parallel Fan-Powered
-Boxes and Reheat</source>
+        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV dengan Kotak Bertenaga Fan Paralel dan Reheat</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Gas Fired</source>
-        <translation>Tungku Udara Panas
-Berbahan Bakar Gas</translation>
+        <source>Warm Air Furnace Gas Fired</source>
+        <translation>Tungku Udara Panas Berbahan Bakar Gas</translation>
     </message>
     <message>
-        <source>Warm Air Furnace
-Electric</source>
-        <translation>Tungku Udara Panas
-Listrik</translation>
+        <source>Warm Air Furnace Electric</source>
+        <translation>Tungku Udara Panas Listrik</translation>
     </message>
     <message>
         <source>Empty Air Loop</source>
@@ -25696,7 +25732,8 @@ Listrik</translation>
     <message>
         <source>Cooling
 Capacity</source>
-        <translation>Kapasitas Pendinginan</translation>
+        <translation>Kapasitas
+Pendinginan</translation>
     </message>
     <message>
         <source>Fan</source>
@@ -28845,103 +28882,103 @@ Restocking</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Suhu Udara Kembali Tereduksi ITE Zona</translation>
+        <translation>Suhu Udara Kembali Tereduksi ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Laju Aliran Massa Udara ITE Zona</translation>
+        <translation>Laju Aliran Massa Udara ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone ITE Waktu Melampaui Jangkauan Operasional Inlet Udara Apapun</translation>
+        <translation>Zone ITE Waktu Melampaui Jangkauan Operasional Inlet Udara Apapun </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time</translation>
+        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index</translation>
+        <translation>Zone ITE Average Supply Heat Index </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Energi Listrik CPU ITE Zona</translation>
+        <translation>Energi Listrik CPU ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energi Listrik CPU ITE Zona pada Kondisi Inlet Desain</translation>
+        <translation>Energi Listrik CPU ITE Zona pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Tingkat Listrik CPU ITE Zona</translation>
+        <translation>Tingkat Listrik CPU ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Laju Listrik CPU ITE Zona pada Kondisi Inlet Desain</translation>
+        <translation>Laju Listrik CPU ITE Zona pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Zone ITE Fan Electricity Energy</translation>
+        <translation>Zone ITE Fan Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Energi Listrik Fan ITE Zona pada Kondisi Inlet Desain</translation>
+        <translation>Energi Listrik Fan ITE Zona pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Laju Konsumsi Listrik Fan ITE Zona</translation>
+        <translation>Laju Konsumsi Listrik Fan ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Tingkat Listrik Kipas ITE Zona pada Kondisi Inlet Desain</translation>
+        <translation>Tingkat Listrik Kipas ITE Zona pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Laju Aliran Volume Udara Densitas Standar ITE Zona</translation>
+        <translation>Laju Aliran Volume Udara Densitas Standar ITE Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Penambahan Panas Total ITE Zona ke Energi Zona</translation>
+        <translation>Penambahan Panas Total ITE Zona ke Energi Zona </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Laju Total Perolehan Panas ITE ke Zona</translation>
+        <translation>Laju Total Perolehan Panas ITE ke Zona </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Zone ITE UPS Electricity Energy</translation>
+        <translation>Zone ITE UPS Electricity Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone ITE UPS Electricity Rate</translation>
+        <translation>Zone ITE UPS Electricity Rate </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy</translation>
+        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Laju Penambahan Panas UPS Peralatan IT Zona ke Zona</translation>
+        <translation>Laju Penambahan Panas UPS Peralatan IT Zona ke Zona </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
@@ -30283,103 +30320,103 @@ Restocking</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>Suhu Udara Kembali yang Disesuaikan ITE</translation>
+        <translation>Suhu Udara Kembali yang Disesuaikan ITE </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>Laju Aliran Massa Udara ITE</translation>
+        <translation>Laju Aliran Massa Udara ITE </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE Waktu Suhu Titik Embun Inlet Udara Di Atas Jangkauan Operasi</translation>
+        <translation>ITE Waktu Suhu Titik Embun Inlet Udara Di Atas Jangkauan Operasi </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE Waktu Depassement Rentang Operasi Inlet Udara Apa Pun</translation>
+        <translation>ITE Waktu Depassement Rentang Operasi Inlet Udara Apa Pun </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time</translation>
+        <translation>ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Waktu Kelembaban Udara Relatif Inlet Mana Pun di Bawah Rentang Operasi</translation>
+        <translation>ITE Waktu Kelembaban Udara Relatif Inlet Mana Pun di Bawah Rentang Operasi </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>Indeks Panas Pasokan Rata-rata ITE</translation>
+        <translation>Indeks Panas Pasokan Rata-rata ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>Energi Listrik CPU ITE</translation>
+        <translation>Energi Listrik CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE CPU Electricity Energy pada Kondisi Inlet Desain</translation>
+        <translation>ITE CPU Electricity Energy pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>Tingkat Listrik CPU ITE</translation>
+        <translation>Tingkat Listrik CPU ITE </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Laju Listrik CPU ITE pada Kondisi Inlet Desain</translation>
+        <translation>Laju Listrik CPU ITE pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>ITE Fan Electricity Energy</translation>
+        <translation>ITE Fan Electricity Energy </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE Fan Electricity Energy at Design Inlet Conditions</translation>
+        <translation>ITE Fan Electricity Energy at Design Inlet Conditions </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>Tarif Listrik Kipas ITE</translation>
+        <translation>Tarif Listrik Kipas ITE </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Laju Listrik Kipas ITE pada Kondisi Inlet Desain</translation>
+        <translation>Laju Listrik Kipas ITE pada Kondisi Inlet Desain </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Laju Aliran Volume Udara Kepadatan Standar ITE</translation>
+        <translation>Laju Aliran Volume Udara Kepadatan Standar ITE </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>Perolehan Panas Total ITE ke Energi Zona</translation>
+        <translation>Perolehan Panas Total ITE ke Energi Zona </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>Laju Keuntungan Panas Total ITE ke Zona</translation>
+        <translation>Laju Keuntungan Panas Total ITE ke Zona </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>Energi Listrik UPS ITE</translation>
+        <translation>Energi Listrik UPS ITE </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>Tarif Listrik UPS ITE</translation>
+        <translation>Tarif Listrik UPS ITE </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE UPS Keuntungan Panas ke Energi Zona</translation>
+        <translation>ITE UPS Keuntungan Panas ke Energi Zona </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Laju Perolehan Panas UPS ITE ke Zona</translation>
+        <translation>Laju Perolehan Panas UPS ITE ke Zona </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
@@ -31581,59 +31618,59 @@ Restocking</translation>
     </message>
     <message>
         <source>Accumulated Rays per Record: </source>
-        <translation>Sinar Terakumulasi per Catatan:</translation>
+        <translation>Sinar Terakumulasi per Catatan: </translation>
     </message>
     <message>
         <source>Direct Threshold: </source>
-        <translation>Ambang Batas Langsung:</translation>
+        <translation>Ambang Batas Langsung: </translation>
     </message>
     <message>
         <source>Direct Certainty: </source>
-        <translation>Kepastian Langsung:</translation>
+        <translation>Kepastian Langsung: </translation>
     </message>
     <message>
         <source>Direct Jitter: </source>
-        <translation>Jitter Langsung:</translation>
+        <translation>Jitter Langsung: </translation>
     </message>
     <message>
         <source>Direct Pretest: </source>
-        <translation>Prapengujian Langsung:</translation>
+        <translation>Prapengujian Langsung: </translation>
     </message>
     <message>
         <source>Ambient Bounces VMX: </source>
-        <translation>Ambient Bounces VMX:</translation>
+        <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
         <source>Ambient Bounces DMX: </source>
-        <translation>Ambient Bounces DMX:</translation>
+        <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions VMX: </source>
-        <translation>Divisi Ambient VMX:</translation>
+        <translation>Divisi Ambient VMX: </translation>
     </message>
     <message>
         <source>Ambient Divisions DMX: </source>
-        <translation>Pembagian Ambient DMX:</translation>
+        <translation>Pembagian Ambient DMX: </translation>
     </message>
     <message>
         <source>Ambient Supersamples: </source>
-        <translation>Supersamples Ambien:</translation>
+        <translation>Supersamples Ambien: </translation>
     </message>
     <message>
         <source>Limit Weight VMX: </source>
-        <translation>Batas Bobot VMX:</translation>
+        <translation>Batas Bobot VMX: </translation>
     </message>
     <message>
         <source>Limit Weight DMX: </source>
-        <translation>Batas Bobot DMX:</translation>
+        <translation>Batas Bobot DMX: </translation>
     </message>
     <message>
         <source>Klems Sampling Density: </source>
-        <translation>Kepadatan Sampling Klems:</translation>
+        <translation>Kepadatan Sampling Klems: </translation>
     </message>
     <message>
         <source>Sky Discretization Resolution: </source>
-        <translation>Resolusi Diskritisasi Langit:</translation>
+        <translation>Resolusi Diskritisasi Langit: </translation>
     </message>
     <message>
         <source>Sizing Parameters</source>
@@ -32258,7 +32295,7 @@ Laporan Terperinci</translation>
     </message>
     <message>
         <source>Reports: </source>
-        <translation>Laporan:</translation>
+        <translation>Laporan: </translation>
     </message>
     <message>
         <source>Set Path to DView
@@ -32273,13 +32310,13 @@ di Preferensi</translation>
     <message>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView tidak ditemukan di lokasi yang diharapkan:</translation>
+        <translation>DView tidak ditemukan di lokasi yang
+diharapkan:</translation>
     </message>
     <message>
         <source>EnergyPlus Results</source>
         <translation>Hasil EnergyPlus</translation>
     </message>
-    <message>
     <message>
         <source>Units Conversion</source>
         <translation>Konversi Satuan</translation>
@@ -32288,8 +32325,9 @@ di Preferensi</translation>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>Apakah Anda ingin menampilkan data Energy+ dalam satuan IP?</translation>
     </message>
+    <message>
         <source>Custom Report </source>
-        <translation>Laporan Khusus</translation>
+        <translation>Laporan Khusus </translation>
     </message>
 </context>
 </TS>
