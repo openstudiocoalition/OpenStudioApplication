@@ -148,7 +148,7 @@ add_custom_command(TARGET translations
   # German
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/vi.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/de.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
 
   # Indonesian: qt / qtbase not available, webengine only
   # COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_id.qm $<TARGET_FILE_DIR:${target_name}>/translations/
