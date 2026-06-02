@@ -120,14 +120,65 @@ cmake --build . --config Release
 
 ---
 
+## Adding a new language
+
+1. Wire up the C++ language menu:
+   ```bash
+   python add_language_to_menu.py --lang <code> --name "Language Name"
+   ```
+   This script edits `src/openstudio_lib/MainMenu.hpp` and `MainMenu.cpp` in one
+   step, handling all five touch points:
+   - `MainMenu.hpp`: `QAction*` member variable + slot declaration
+   - `MainMenu.cpp`: action registration block (before "Add a new language")
+   - `MainMenu.cpp`: `setChecked(false)` inserted in all existing language slots
+   - `MainMenu.cpp`: new `langXxxClicked()` implementation
+   - `MainMenu.cpp`: `else if (m_currLang == "<code>")` branch in the constructor's
+     startup checkmark initializer (so the menu reflects the saved language on launch)
+
+2. Add the `.ts` file entry to `translations/CMakeLists.txt` `TS_FILES`:
+   ```cmake
+   OpenStudioApp_<lang>.ts  # Language name
+   ```
+
+3. Add the corresponding post-build copy commands to the same file (follow the existing pattern; check Qt's `translations/` directory to confirm which `.qm` files exist for the locale):
+   ```cmake
+   # Language name
+   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_<lang>.qm ...
+   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_<lang>.qm ...
+   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/<lang>.pak ...
+   ```
+   If Qt does not ship `qt_<lang>.qm` / `qtbase_<lang>.qm` for the locale (as with Greek, Hindi, Vietnamese, Indonesian), comment those two lines out and only copy the WebEngine pak.
+
+4. Add the language to the `LANGUAGES` dict in `translate_all_languages.py`:
+   ```python
+   "<lang>": "Language Name",
+   ```
+
+5. Run the standard pipeline:
+   ```bash
+   cmake --build . --target OpenStudioApplication_lupdate
+   python fix_and_unvanish.py
+   python translate_all_languages.py
+   python fix_and_unvanish.py
+   cmake --build . --target OpenStudioApplication_lrelease
+   ```
+   lupdate will create the new `.ts` file automatically on the first run.
+
+6. Add the language to the **Supported languages** table in this document.
+
+---
+
 ## Helper scripts (repo root)
 
 | Script | Purpose |
 |--------|---------|
 | `fix_and_unvanish.py` | Un-vanish translated entries; promote finished unfinished entries |
-| `translate_all_languages.py` | Batch-translate new strings into all 17 non-Spanish languages via Claude API |
+| `translate_all_languages.py` | Batch-translate new strings into all languages via Claude API |
 | `retranslate_stubborn.py` | Re-translate any entries that came back empty from the batch run |
 | `recover_batches.py` | Re-poll known batch IDs after a network failure |
+| `add_idd_skeleton.py` | Scan the OpenStudio IDD and add skeleton stubs for any missing field-name entries |
+| `translate_skeleton.py` | Translate the unfinished skeleton stubs added by `add_idd_skeleton.py` |
+| `add_language_to_menu.py` | Wire up a new language in `MainMenu.cpp/.hpp` (member, slot, action block, setChecked lines) |
 
 ---
 
