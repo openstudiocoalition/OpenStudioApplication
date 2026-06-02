@@ -73,7 +73,7 @@ else()
   # Not found: no problem, we download it
   # base link for release builds
   set(OPENSTUDIO_BASELINK_RELEASE
-    "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
+    "https://github.com/NatLabRockies/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
   if (WIN32)
