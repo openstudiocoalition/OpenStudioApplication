@@ -11,6 +11,7 @@ This ensures every language has identical source string coverage to Spanish.
 Spanish is also included so its new strings are machine-translated alongside others.
 """
 
+import argparse
 import re
 import time
 import sys
@@ -122,16 +123,36 @@ def build_merged_file(es_content: str, existing_lookup: dict[str, dict], lang_co
     return content
 
 
-def extract_unfinished(ts_content: str) -> list[dict]:
-    pattern = re.compile(
+def extract_unfinished(ts_content: str, skip_contexts: set[str] | None = None) -> list[dict]:
+    """Return all unfinished entries in document order with their context name.
+
+    skip_contexts: if provided, entries whose context name is in this set are
+    still indexed (so apply_translations IDs stay stable) but marked
+    skip=True so the caller can omit them from the batch request.
+    """
+    context_pattern = re.compile(
+        r'<context>\s*<name>([^<]+)</name>(.*?)</context>',
+        re.DOTALL,
+    )
+    message_pattern = re.compile(
         r'<message>\s*(?:(?:<!--.*?-->|<location[^>]*/?>)\s*)*<source>([^<]+)</source>\s*'
         r'<translation type="unfinished"></translation>\s*</message>',
         re.DOTALL,
     )
-    return [
-        {"id": f"entry-{i}", "source": m.group(1).strip()}
-        for i, m in enumerate(pattern.finditer(ts_content))
-    ]
+    entries = []
+    i = 0
+    for ctx_m in context_pattern.finditer(ts_content):
+        ctx_name = ctx_m.group(1).strip()
+        skip = bool(skip_contexts and ctx_name in skip_contexts)
+        for msg_m in message_pattern.finditer(ctx_m.group(2)):
+            entries.append({
+                "id": f"entry-{i}",
+                "source": msg_m.group(1).strip(),
+                "context": ctx_name,
+                "skip": skip,
+            })
+            i += 1
+    return entries
 
 
 def build_batch_requests(entries: list[dict], language_name: str) -> list[Request]:
@@ -175,6 +196,24 @@ def apply_translations(ts_content: str, id_to_translation: dict[str, str]) -> st
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Batch-translate OpenStudioApp .ts files via Claude API")
+    parser.add_argument(
+        "--lang", nargs="+", metavar="CODE",
+        help="Only process these language codes (e.g. --lang da fr). Default: all languages.",
+    )
+    parser.add_argument(
+        "--skip-contexts", nargs="+", metavar="CTX", default=[],
+        help="Skip translation for these .ts context names (e.g. --skip-contexts IDD OutputVariables).",
+    )
+    args = parser.parse_args()
+
+    languages = {k: v for k, v in LANGUAGES.items() if not args.lang or k in args.lang}
+    if not languages:
+        sys.exit(f"ERROR: No matching languages for --lang {args.lang}. Valid codes: {sorted(LANGUAGES)}")
+    skip_contexts = set(args.skip_contexts)
+    if skip_contexts:
+        print(f"Skipping contexts: {sorted(skip_contexts)}")
+
     key_text = open(KEY_FILE, encoding="utf-8").read()
     key_match = re.search(r"sk-ant-[A-Za-z0-9_\-]+", key_text)
     if not key_match:
@@ -188,7 +227,7 @@ def main():
     # Phase 1: Build merged files and submit all batches
     batch_jobs: dict[str, dict] = {}
 
-    for lang_code, lang_name in LANGUAGES.items():
+    for lang_code, lang_name in languages.items():
         ts_file = TS_TEMPLATE.format(lang=lang_code)
         print(f"\n[{lang_code}] {lang_name}")
 
@@ -197,7 +236,11 @@ def main():
         print(f"  {len(existing_lookup)} existing translations to preserve")
 
         merged = build_merged_file(es_content, existing_lookup, lang_code)
-        entries = extract_unfinished(merged)
+        all_entries = extract_unfinished(merged, skip_contexts=skip_contexts)
+        entries = [e for e in all_entries if not e["skip"]]
+        skipped = len(all_entries) - len(entries)
+        if skipped:
+            print(f"  {skipped} entries skipped (excluded contexts)")
         print(f"  {len(entries)} entries need translation")
 
         # Write merged file immediately so it's correct even if batch fails
@@ -256,7 +299,7 @@ def main():
         with open(job["ts_file"], "w", encoding="utf-8") as f:
             f.write(new_content)
 
-        remaining = extract_unfinished(new_content)
+        remaining = [e for e in extract_unfinished(new_content, skip_contexts=skip_contexts) if not e["skip"]]
         print(f"  [{lang_code}] {len(id_to_translation)} applied, {len(remaining)} empty remaining")
 
     print("\nAll done. Run lrelease on each .ts file to compile .qm files.")

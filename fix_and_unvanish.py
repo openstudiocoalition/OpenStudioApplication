@@ -6,6 +6,8 @@ For each .ts file:
 1. Copy the " Value: " (vanished, with leading space) translation to "Value: " (new entry)
 2. Mark Schedule Constant/Compact/File entries as finished (they have pre-filled translations)
 3. Un-vanish all entries that have non-empty translation text
+4. Restore leading/trailing spaces stripped by the translation API
+5. Escape bare XML characters (<, >, &) in translation text so lrelease does not fail
 """
 import re
 import glob
@@ -99,6 +101,32 @@ def fix_ts_file(filepath):
         return m.group(1)+m.group(2)+m.group(3)+m.group(4)+m.group(5)+m.group(6)+m.group(7)+fixed+m.group(9)
 
     content = pair_pattern.sub(restore_whitespace, content)
+
+    # Step 5: Escape bare XML characters in finished translation text.
+    # The translation API sometimes returns literal < > & instead of &lt; &gt; &amp;,
+    # which causes lrelease XML parse errors.
+    def escape_xml_chars(text):
+        # & first — but only if not already the start of a valid entity
+        text = re.sub(r'&(?!amp;|lt;|gt;|quot;|apos;|#\d+;|#x[0-9a-fA-F]+;)', '&amp;', text)
+        text = text.replace('<', '&lt;')
+        text = text.replace('>', '&gt;')
+        return text
+
+    def fix_translation_xml(m):
+        trans = m.group(1)
+        if not trans.strip():
+            return m.group(0)
+        fixed = escape_xml_chars(trans)
+        if fixed == trans:
+            return m.group(0)
+        return f'<translation>{fixed}</translation>'
+
+    content = re.sub(
+        r'<translation>(.*?)</translation>',
+        fix_translation_xml,
+        content,
+        flags=re.DOTALL,
+    )
 
     if content != original:
         with open(filepath, 'wb') as f:
