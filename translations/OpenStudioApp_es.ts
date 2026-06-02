@@ -15417,23 +15417,23 @@
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="656"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="701"/>
         <source>Hard Sized</source>
         <translation>Dimensionamiento Fijo</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="657"/>
         <source>Autosized</source>
         <translation>Auto Dimensionado</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="702"/>
         <source>Autocalculate</source>
         <translation>Auto Calcular</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="883"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Añadir/Remover Grupos Extendibles</translation>
     </message>
@@ -21503,41 +21503,41 @@
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="74"/>
         <source>Apply Measure Now</source>
         <translation>Aplicar medida ahora</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>Advanced Output</source>
         <translation>Salida avanzada</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="190"/>
         <source>Running Measure</source>
         <translation>Ejecutando medida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="210"/>
         <source>Measure Output</source>
         <translation>Resultado de la medida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="281"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="752"/>
         <source>Apply Measure</source>
         <translation>Aplicar medida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="404"/>
         <source>Accept Changes</source>
         <translation>Aceptar cambios</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>No advanced output.</source>
         <translation>Sin salida avanzada.</translation>
     </message>
@@ -21971,32 +21971,32 @@
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="520"/>
         <source>Not Started</source>
         <translation>No iniciado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="528"/>
         <source>Canceled</source>
         <translation>Cancelado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warning</source>
         <translation>%1 advertencia</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warnings</source>
         <translation>%1 advertencias</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Error</source>
         <translation>%1 error</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Errors</source>
         <translation>%1 errores</translation>
     </message>
@@ -23587,7 +23587,7 @@ Planta</translation>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="508"/>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Las medidas de Python no son compatibles con la CLI clásica.
@@ -24050,7 +24050,7 @@ Puede cambiar la versión de la CLI en &apos;Preferencias-&gt;Usar CLI clásica&
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="144"/>
         <source>Add to Model</source>
         <translation>Agregar al Modelo</translation>
     </message>
@@ -24058,96 +24058,72 @@ Puede cambiar la versión de la CLI en &apos;Preferencias-&gt;Usar CLI clásica&
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="23"/>
         <source>Add HVAC System</source>
         <translation>Agregar Sistema HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="31"/>
         <source>HVAC Systems</source>
         <translation>Sistemas HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="71"/>
         <source>Packaged Rooftop Unit</source>
         <translation>Unidad Empacada en Techo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="73"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>Bomba de Calor Empacada en Techo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="75"/>
         <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Unidad Compacta DX en Azotea VAV con Recalentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="77"/>
         <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>Unidad Empaquetada de Techo VAV con Cajas de Potencia de Ventilador en Paralelo y Recalentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="79"/>
         <source>Packaged Rooftop VAV with Reheat</source>
         <translation>Unidad Empaquetada de Techo VAV con Recalentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="81"/>
         <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV con Unidades Acondicionadoras Paralelas con Ventilador y Recalentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="83"/>
         <source>Warm Air Furnace Gas Fired</source>
         <translation>Horno de Aire Caliente Combustible a Gas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="85"/>
         <source>Warm Air Furnace Electric</source>
         <translation>Calefactor de Aire Caliente Eléctrico</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV with Reheat</source>
-        <translation>VAV DX Empacado en Techo con Recalentamiento</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
-        <translation>Techo Empacado VAV con Cajas de Ventilador Paralelo y Recalentamiento</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Reheat</source>
-        <translation>Techo Empacado VAV con Recalentamiento</translation>
-    </message>
-    <message>
-        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
-        <translation>VAV con Cajas de Ventilador Paralelo y Recalentamiento</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Gas Fired</source>
-        <translation>Horno de Aire Caliente a Gas</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Electric</source>
-        <translation>Horno de Aire Caliente Eléctrico</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="87"/>
         <source>Empty Air Loop</source>
         <translation>Bucle de Aire Vacío</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="89"/>
         <source>Dual Duct Air Loop</source>
         <translation>Bucle de Aire Doble Conducto</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="91"/>
         <source>Empty Plant Loop</source>
         <translation>Bucle de Planta Vacío</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="93"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>Bucle de Planta Agua Caliente Sanitaria</translation>
     </message>
@@ -26235,12 +26211,12 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
         <translation type="obsolete">Se requiere reiniciar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="410"/>
         <source>Allow Analytics</source>
         <translation>Tolerancia de Convergencia de Flujo de Aire Absoluto</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="411"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>Nombre del Nodo de Salida</translation>
     </message>
@@ -27764,34 +27740,32 @@ in Preferences</source>
 en Preferencias</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
         <source>Units Conversion</source>
         <translation>Conversión de unidades</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>¿Le gustaría mostrar sus datos de Energy+ en unidades IP?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145"/>
         <source>Unable to launch DView</source>
         <translation>No se puede iniciar DView</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="146"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DView no se encontró en la ubicación esperada:
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="306"/>
         <source>EnergyPlus Results</source>
         <translation>Resultados de EnergyPlus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="320"/>
         <source>Custom Report %1</source>
         <translation>Informe Personalizado %1</translation>
     </message>
@@ -27851,72 +27825,72 @@ en Preferencias</translation>
         <translation>Por favor, guarde el modelo de OpenStudio para ver la simulación.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="318"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>No se pudo abrir la conexión de socket al CLI Clásico de OpenStudio.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="320"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>Usando análisis de stdout/stderr; las actualizaciones en tiempo real pueden ser más lentas.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="330"/>
         <source>Aborted</source>
         <translation>Cancelado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="454"/>
         <source>Initializing workflow.</source>
         <translation>Inicializando flujo de trabajo.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="465"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>El comando clásico está obsoleto y se eliminará en una versión futura.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="482"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>Procesando Medidas de OpenStudio.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="495"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>Traduciendo el Modelo de OpenStudio a EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="507"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>Procesando Medidas de EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="520"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>Agregando Solicitudes de Salida de Simulación.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="532"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>Iniciando Simulación de EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="545"/>
         <source>Processing Reporting Measures.</source>
         <translation>Procesando Medidas de Informe.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="557"/>
         <source>Gathering Reports.</source>
         <translation>Recopilando Informes.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="603"/>
         <source>Failed.</source>
         <translation>Fallido.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Completed.</source>
         <translation>Completado.</translation>
     </message>
@@ -28470,12 +28444,12 @@ en Preferencias</translation>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="328"/>
         <source>Run Period</source>
         <translation>Período de Ejecución</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="396"/>
         <source>Date Range</source>
         <translation>Rango de Fechas</translation>
     </message>
@@ -28485,27 +28459,27 @@ en Preferencias</translation>
         <translation>Parámetros Avanzados del Período de Ejecución</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="440"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Usar Días Festivos y Especiales del Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="444"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>Usar Período de Horario de Verano del Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="451"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>Usar Indicadores de Lluvia del Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="453"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>Usar Indicadores de Nieve del Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="460"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Aplicar Regla de Festivos en Fin de Semana</translation>
     </message>
@@ -28515,117 +28489,117 @@ en Preferencias</translation>
         <translation>Parámetros de Radiance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="924"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>Grueso (Rápido, menos preciso)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="928"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>Fino (Lento, más preciso)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="932"/>
         <source>Custom</source>
         <translation>Personalizado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="944"/>
         <source>Accumulated Rays per Record: </source>
         <translation>Rayos Acumulados por Registro: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="948"/>
         <source>Direct Threshold: </source>
         <translation>Umbral Directo: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="955"/>
         <source>Direct Certainty: </source>
         <translation>Certeza Directa: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="957"/>
         <source>Direct Jitter: </source>
         <translation>Fluctuación Directa: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="964"/>
         <source>Direct Pretest: </source>
         <translation>Preprueba Directa: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="966"/>
         <source>Ambient Bounces VMX: </source>
         <translation>Rebotes Ambientales VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="973"/>
         <source>Ambient Bounces DMX: </source>
         <translation>Rebotes Ambientales DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="975"/>
         <source>Ambient Divisions VMX: </source>
         <translation>Divisiones Ambientales VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="982"/>
         <source>Ambient Divisions DMX: </source>
         <translation>Divisiones Ambientales DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="984"/>
         <source>Ambient Supersamples: </source>
         <translation>Supermuestras Ambientales: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="991"/>
         <source>Limit Weight VMX: </source>
         <translation>Peso Límite VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="993"/>
         <source>Limit Weight DMX: </source>
         <translation>Peso Límite DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1000"/>
         <source>Klems Sampling Density: </source>
         <translation>Densidad de Muestreo Klems: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1002"/>
         <source>Sky Discretization Resolution: </source>
         <translation>Resolución de Discretización del Cielo: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="605"/>
         <source>Sizing Parameters</source>
         <translation>Parámetros de Dimensionamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="618"/>
         <source>Heating Sizing Factor</source>
         <translation>Factor de Dimensionamiento de Calefacción</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="620"/>
         <source>Cooling Sizing Factor</source>
         <translation>Factor de Dimensionamiento de Enfriamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="622"/>
         <source>Timesteps In Averaging Window</source>
         <translation>Pasos de Tiempo en la Ventana de Promediado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="655"/>
         <source>Timestep</source>
         <translation>Paso de Tiempo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="668"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>Número de Pasos de Tiempo por Hora</translation>
     </message>
@@ -28635,62 +28609,62 @@ en Preferencias</translation>
         <translation>Control de Simulación</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="532"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>Realizar Cálculo de Dimensionamiento de Zona</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="536"/>
         <source>Do System Sizing Calculation</source>
         <translation>Realizar Cálculo de Dimensionamiento del Sistema</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="543"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>Realizar Cálculo de Dimensionamiento de Planta</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="545"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>Ejecutar Simulación para Períodos de Dimensionamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="552"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>Ejecutar Simulación para Períodos del Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="554"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>Número Máximo de Días de Calentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="561"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>Número Mínimo de Días de Calentamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="563"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Valor de Tolerancia de Convergencia de Cargas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="570"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Valor de Tolerancia de Convergencia de Temperatura</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="572"/>
         <source>Solar Distribution</source>
         <translation>Distribución Solar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="579"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>Realizar Simulación de Dimensionamiento HVAC para Períodos de Dimensionamiento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="581"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>Número Máximo de Pasadas de Simulación de Dimensionamiento HVAC</translation>
     </message>
@@ -28700,7 +28674,7 @@ en Preferencias</translation>
         <translation>Control de Programa</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="639"/>
         <source>Number Of Threads Allowed</source>
         <translation>Número de Hilos Permitidos</translation>
     </message>
@@ -28710,12 +28684,12 @@ en Preferencias</translation>
         <translation>Tolerancias de Reporte del Control de Salida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="686"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>Tolerancia para Tiempo con Punto de Ajuste de Calefacción No Cumplido</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="690"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>Tolerancia para Tiempo con Punto de Ajuste de Enfriamiento No Cumplido</translation>
     </message>
@@ -28725,22 +28699,22 @@ en Preferencias</translation>
         <translation>Límites de Convergencia</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="708"/>
         <source>Maximum HVAC Iterations</source>
         <translation>Iteraciones Máximas de HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="712"/>
         <source>Minimum Plant Iterations</source>
         <translation>Iteraciones Mínimas de Planta</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="719"/>
         <source>Maximum Plant Iterations</source>
         <translation>Iteraciones Máximas de Planta</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="721"/>
         <source>Minimum System Timestep</source>
         <translation>Paso de Tiempo Mínimo del Sistema</translation>
     </message>
@@ -28750,22 +28724,22 @@ en Preferencias</translation>
         <translation>Cálculo de Sombras</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="743"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>Frecuencia de Actualización del Cálculo de Sombreado</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="747"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>Figuras Máximas en Cálculos de Superposición de Sombras</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="754"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>Algoritmo de Recorte de Polígonos</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="756"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Algoritmo de Modelado de Radiación Difusa del Cielo</translation>
     </message>
@@ -28785,25 +28759,25 @@ en Preferencias</translation>
         <translation>Algoritmo de Balance Térmico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="828"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="849"/>
         <source>Algorithm</source>
         <translation>Algoritmo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="813"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>Límite Superior de Temperatura de Superficie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="817"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Valor Mínimo del Coeficiente de Transferencia de Calor por Convección de Superficie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="825"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Valor Máximo del Coeficiente de Transferencia de Calor por Convección de Superficie</translation>
     </message>
@@ -28818,113 +28792,113 @@ en Preferencias</translation>
         <translation>Balance de Contaminantes del Aire de Zona</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="867"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>Concentración de Dióxido de Carbono</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="871"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Nombre del Horario de CO2 Exterior</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="291"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>Multiplicador de Capacitancia de Zona (Investigación Especial)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="893"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>Multiplicador de Capacidad Térmica</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="897"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>Multiplicador de Capacidad de Humedad</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="904"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Multiplicador de Capacidad de CO2</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1086"/>
         <source>Output JSON</source>
         <translation>Salida JSON</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1077"/>
         <source>Option Type</source>
         <translation>Tipo de Opción</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1093"/>
         <source>Output CBOR</source>
         <translation>Salida CBOR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1095"/>
         <source>Output MessagePack</source>
         <translation>Salida MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="299"/>
         <source>Output Table Summary Reports</source>
         <translation>Informes de Resumen de Tablas de Salida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1117"/>
         <source>Enable AllSummary Report</source>
         <translation>Habilitar Informe de Resumen General</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="303"/>
         <source>Output Diagnostics</source>
         <translation>Diagnósticos de Salida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1136"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>Habilitar Visualización de Advertencias Adicionales</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="307"/>
         <source>Output Control Resilience Summaries</source>
         <translation>Resúmenes de Resiliencia del Control de Salida</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1155"/>
         <source>Heat Index Algorithm</source>
         <translation>Algoritmo de Índice de Calor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="482"/>
         <source>Run Control</source>
         <translation>Control de Ejecución</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="491"/>
         <source>Run Simulation for Weather File</source>
         <translation>Ejecutar Simulación para Archivo Meteorológico</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="496"/>
         <source>Run Simulation for Design Days</source>
         <translation>Ejecutar Simulación para Días de Diseño</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="501"/>
         <source>Perform Zone Sizing</source>
         <translation>Realizar Dimensionamiento de Zona</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="506"/>
         <source>Perform System Sizing</source>
         <translation>Realizar Dimensionamiento del Sistema</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="511"/>
         <source>Perform Plant Sizing</source>
         <translation>Realizar Dimensionamiento de Planta</translation>
     </message>

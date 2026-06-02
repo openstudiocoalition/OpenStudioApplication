@@ -15433,23 +15433,23 @@ Tải Điện Parasitic Trong Quá Trình Xả</translation>
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="656"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="701"/>
         <source>Hard Sized</source>
         <translation>Định kích thước thủ công</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="657"/>
         <source>Autosized</source>
         <translation>Tự động tính kích thước</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="702"/>
         <source>Autocalculate</source>
         <translation>Tự động tính toán</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="883"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Thêm/Bớt các nhóm có thể mở rộng</translation>
     </message>
@@ -21521,41 +21521,41 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="74"/>
         <source>Apply Measure Now</source>
         <translation>Áp dụng biện pháp ngay</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>Advanced Output</source>
         <translation>Đầu ra nâng cao</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="190"/>
         <source>Running Measure</source>
         <translation>Đang chạy biện pháp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="210"/>
         <source>Measure Output</source>
         <translation>Kết quả biện pháp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="281"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="752"/>
         <source>Apply Measure</source>
         <translation>Áp dụng biện pháp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="404"/>
         <source>Accept Changes</source>
         <translation>Chấp nhận thay đổi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>No advanced output.</source>
         <translation>Không có đầu ra nâng cao.</translation>
     </message>
@@ -21989,32 +21989,32 @@ Năng lượng điện Ký sinh trong Chu kỳ Tắt Máy hút ẩm</translation
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="520"/>
         <source>Not Started</source>
         <translation>Chưa bắt đầu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="528"/>
         <source>Canceled</source>
         <translation>Đã hủy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warning</source>
         <translation>%1 cảnh báo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warnings</source>
         <translation>%1 cảnh báo</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Error</source>
         <translation>%1 lỗi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Errors</source>
         <translation>%1 lỗi</translation>
     </message>
@@ -23605,7 +23605,7 @@ Tầng</translation>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="508"/>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python Measures không được hỗ trợ trong CLI Cổ điển.
@@ -24068,7 +24068,7 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="144"/>
         <source>Add to Model</source>
         <translation>Thêm vào Mô hình</translation>
     </message>
@@ -24076,96 +24076,72 @@ Bạn có thể thay đổi phiên bản CLI trong &apos;Tùy chọn-&gt;Sử d�
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="23"/>
         <source>Add HVAC System</source>
         <translation>Thêm Hệ Thống HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="31"/>
         <source>HVAC Systems</source>
         <translation>Hệ Thống HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="71"/>
         <source>Packaged Rooftop Unit</source>
         <translation>Máy lạnh trên mái nhà kiểu ghép</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="73"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>Máy Bơm Nhiệt Lắp Ngoài Trời Kiểu Gói</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="75"/>
         <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>Hệ thống VAV trên mái nhà DX tích hợp với Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="77"/>
         <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>Hệ thống VAV trên mái được đóng gói với các hộp quạt song song và làm lại nhiệt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="79"/>
         <source>Packaged Rooftop VAV with Reheat</source>
         <translation>Máy điều hòa không khí trên mái VAV với Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="81"/>
         <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV với Hộp Quạt Song Song và Làm Nóng Lại</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="83"/>
         <source>Warm Air Furnace Gas Fired</source>
         <translation>Lò sưởi không khí nóng Chạy bằng khí</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="85"/>
         <source>Warm Air Furnace Electric</source>
         <translation>Lò sưởi không khí nóng Điện</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV with Reheat</source>
-        <translation>Packaged DX Rooftop VAV với Reheat</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
-        <translation>Hệ thống trên mái nhà đóng gói VAV với Quạt song song Hộp điều chỉnh công suất và làm nóng lại</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Reheat</source>
-        <translation>Hệ thống trên mái nhà được đóng gói VAV với Tái sưởi ấm</translation>
-    </message>
-    <message>
-        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
-        <translation>VAV với Các Hộp Cấp Gió Song Song và Sưởi Lại</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Gas Fired</source>
-        <translation>Lò sưởi không khí nóng Chạy bằng khí đốt</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Electric</source>
-        <translation>Lò Sưởi Không Khí Nóng Điện</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="87"/>
         <source>Empty Air Loop</source>
         <translation>Vòng Khí Không Chứa Gì</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="89"/>
         <source>Dual Duct Air Loop</source>
         <translation>Vòng Khí Hai Ống</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="91"/>
         <source>Empty Plant Loop</source>
         <translation>Vòng Tuần Hoàn Không Có Thiết Bị</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="93"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>Vòng Tuần Hoàn Nhà Máy Nước Nóng Dịch Vụ</translation>
     </message>
@@ -26253,12 +26229,12 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
         <translation>Cần khởi động lại</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="410"/>
         <source>Allow Analytics</source>
         <translation>Cho phép Phân tích</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="411"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>Có phép cho OpenStudio Coalition thu thập thống kê sử dụng nặc danh để giúp cải thiện OpenStudio Application? Xem &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;chính sách bảo mật&lt;/a&gt; để biết thêm thông tin.</translation>
     </message>
@@ -27785,34 +27761,32 @@ in Preferences</source>
 trong Tùy chọn</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
         <source>Units Conversion</source>
         <translation>Chuyển đổi đơn vị</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>Bạn có muốn hiển thị dữ liệu Energy+ theo đơn vị IP không?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145"/>
         <source>Unable to launch DView</source>
         <translation>Không thể khởi chạy DView</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="146"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DView không được tìm thấy ở vị trí dự
 kiến:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="306"/>
         <source>EnergyPlus Results</source>
         <translation>Kết quả EnergyPlus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="320"/>
         <source>Custom Report %1</source>
         <translation>Báo cáo Tùy chỉnh %1</translation>
     </message>
@@ -27872,72 +27846,72 @@ kiến:</translation>
         <translation>Vui lòng lưu mô hình OpenStudio để xem kết quả mô phỏng.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="318"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>Không thể mở kết nối socket tới OpenStudio Classic CLI.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="320"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>Quay lại phân tích stdout/stderr, các cập nhật trực tiếp có thể chậm hơn.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="330"/>
         <source>Aborted</source>
         <translation>Đã hủy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="454"/>
         <source>Initializing workflow.</source>
         <translation>Khởi tạo quy trình công việc.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="465"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>Lệnh cổ điển này đã lỗi thời và sẽ bị xóa trong phiên bản tương lai.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="482"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>Đang xử lý OpenStudio Measures.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="495"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>Đang dịch mô hình OpenStudio sang EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="507"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>Đang xử lý các Measures của EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="520"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>Thêm Yêu cầu Đầu ra Mô phỏng.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="532"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>Bắt đầu Mô phỏng EnergyPlus.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="545"/>
         <source>Processing Reporting Measures.</source>
         <translation>Đang xử lý các Biện pháp Báo cáo.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="557"/>
         <source>Gathering Reports.</source>
         <translation>Đang thu thập báo cáo.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="603"/>
         <source>Failed.</source>
         <translation>Thất bại.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Completed.</source>
         <translation>Đã hoàn thành.</translation>
     </message>
@@ -28491,12 +28465,12 @@ kiến:</translation>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="328"/>
         <source>Run Period</source>
         <translation>Kỳ chạy mô phỏng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="396"/>
         <source>Date Range</source>
         <translation>Khoảng Thời Gian</translation>
     </message>
@@ -28506,27 +28480,27 @@ kiến:</translation>
         <translation>Các Tham Số RunPeriod Nâng Cao</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="440"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Sử dụng Ngày Lễ và Ngày Đặc Biệt từ Tệp Thời Tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="444"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>Sử dụng Khoảng thời gian Tiết kiệm ánh sáng từ tệp thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="451"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>Sử dụng Chỉ thị Mưa từ Tệp Thời Tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="453"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>Sử dụng Chỉ số Tuyết từ Tệp Thời tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="460"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Áp dụng Quy tắc Ngày lễ Cuối tuần</translation>
     </message>
@@ -28536,117 +28510,117 @@ kiến:</translation>
         <translation>Các thông số Radiance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="924"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>Thô (Nhanh, ít chính xác)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="928"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>Mịn (Chậm, chính xác hơn)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="932"/>
         <source>Custom</source>
         <translation>Tùy chỉnh</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="944"/>
         <source>Accumulated Rays per Record: </source>
         <translation>Tia Tích Lũy trên Một Bản Ghi: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="948"/>
         <source>Direct Threshold: </source>
         <translation>Ngưỡng Trực Tiếp: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="955"/>
         <source>Direct Certainty: </source>
         <translation>Độ chắc chắn trực tiếp: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="957"/>
         <source>Direct Jitter: </source>
         <translation>Rung Trực Tiếp: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="964"/>
         <source>Direct Pretest: </source>
         <translation>Kiểm tra trước trực tiếp: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="966"/>
         <source>Ambient Bounces VMX: </source>
         <translation>Ambient Bounces VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="973"/>
         <source>Ambient Bounces DMX: </source>
         <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="975"/>
         <source>Ambient Divisions VMX: </source>
         <translation>Ambient Divisions VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="982"/>
         <source>Ambient Divisions DMX: </source>
         <translation>Ambient Divisions DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="984"/>
         <source>Ambient Supersamples: </source>
         <translation>Ambient Supersamples: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="991"/>
         <source>Limit Weight VMX: </source>
         <translation>Giới hạn Trọng lượng VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="993"/>
         <source>Limit Weight DMX: </source>
         <translation>Giới hạn Trọng số DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1000"/>
         <source>Klems Sampling Density: </source>
         <translation>Mật độ lấy mẫu Klems: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1002"/>
         <source>Sky Discretization Resolution: </source>
         <translation>Độ Phân Giải Rời Rạc Bầu Trời: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="605"/>
         <source>Sizing Parameters</source>
         <translation>Các thông số xác định kích thước</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="618"/>
         <source>Heating Sizing Factor</source>
         <translation>Hệ số Kích thước Sưởi ấm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="620"/>
         <source>Cooling Sizing Factor</source>
         <translation>Hệ số Sizing Làm lạnh</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="622"/>
         <source>Timesteps In Averaging Window</source>
         <translation>Các Bước Thời Gian Trong Cửa Sổ Lấy Trung Bình</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="655"/>
         <source>Timestep</source>
         <translation>Bước thời gian</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="668"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>Số Bước Thời Gian Mỗi Giờ</translation>
     </message>
@@ -28656,62 +28630,62 @@ kiến:</translation>
         <translation>Điều khiển Mô phỏng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="532"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>Tính toán kích thước Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="536"/>
         <source>Do System Sizing Calculation</source>
         <translation>Tính toán kích thước hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="543"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>Thực hiện Tính toán Kích thước Hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="545"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>Chạy Mô Phỏng Cho Các Kỳ Thiết Kế</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="552"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>Chạy Mô Phỏng Cho Các Kỳ Chạy Tệp Thời Tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="554"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>Số ngày khởi động tối đa</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="561"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>Số Ngày Khởi Động Tối Thiểu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="563"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Giá trị Dung sai Hội tụ Tải</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="570"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Giá trị dung sai hội tụ nhiệt độ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="572"/>
         <source>Solar Distribution</source>
         <translation>Phân bố năng lượng mặt trời</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="579"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>Mô phỏng Kích thước HVAC cho Các Kỳ Kích thước</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="581"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>Số lần chuyển đổi mô phỏng HVAC tối đa</translation>
     </message>
@@ -28721,7 +28695,7 @@ kiến:</translation>
         <translation>Kiểm soát Chương trình</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="639"/>
         <source>Number Of Threads Allowed</source>
         <translation>Số Luồng Được Phép</translation>
     </message>
@@ -28731,12 +28705,12 @@ kiến:</translation>
         <translation>Dung sai số cho báo cáo Kiểm soát Đầu ra</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="686"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>Sai số cho Thời gian Không Đạt Điểm Đặt Sưởi Ấm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="690"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>Dung sai cho Điểm đặt Làm mát Thời gian Không đáp ứng</translation>
     </message>
@@ -28746,22 +28720,22 @@ kiến:</translation>
         <translation>Giới hạn Hội tụ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="708"/>
         <source>Maximum HVAC Iterations</source>
         <translation>Số lần lặp HVAC tối đa</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="712"/>
         <source>Minimum Plant Iterations</source>
         <translation>Số Lần Lặp Nhà Máy Tối Thiểu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="719"/>
         <source>Maximum Plant Iterations</source>
         <translation>Số Lần Lặp Tối Đa Của Hệ Thống</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="721"/>
         <source>Minimum System Timestep</source>
         <translation>Bước thời gian hệ thống tối thiểu</translation>
     </message>
@@ -28771,22 +28745,22 @@ kiến:</translation>
         <translation>Tính toán Bóng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="743"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>Tần Suất Cập Nhật Tính Toán Che Bóng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="747"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>Số Lượng Tối Đa Hình Trong Tính Toán Chồng Bóng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="754"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>Thuật toán Cắt Đa giác</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="756"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Thuật toán Mô hình hóa Bức xạ Khuếch tán từ Bầu trời</translation>
     </message>
@@ -28806,25 +28780,25 @@ kiến:</translation>
         <translation>Thuật toán Cân bằng Nhiệt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="828"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="849"/>
         <source>Algorithm</source>
         <translation>Thuật toán</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="813"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>Giới hạn trên của Nhiệt độ Bề mặt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="817"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Giá trị Hệ số Truyền Nhiệt Đối lưu Bề mặt Tối thiểu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="825"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Giá trị hệ số truyền nhiệt đối lưu bề mặt tối đa</translation>
     </message>
@@ -28839,113 +28813,113 @@ kiến:</translation>
         <translation>Cân bằng chất ô nhiễm không khí khu vực</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="867"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>Nồng độ Carbon Dioxide</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="871"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Tên Lịch Biểu Carbon Dioxide Ngoài Trời</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="291"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>Nhiều Nghiên Cứu Đặc Biệt Về Dung Lượng Nhiệt Vùng</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="893"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>Hệ số nhân dung lượng theo nhiệt độ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="897"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>Hệ số nhân dung tích ẩm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="904"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Hệ số nhân Dung lượng Dioxide Carbon</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1086"/>
         <source>Output JSON</source>
         <translation>Output JSON</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1077"/>
         <source>Option Type</source>
         <translation>Loại Tùy Chọn</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1093"/>
         <source>Output CBOR</source>
         <translation>Output CBOR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1095"/>
         <source>Output MessagePack</source>
         <translation>Xuất MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="299"/>
         <source>Output Table Summary Reports</source>
         <translation>Báo cáo Tóm tắt Bảng Đầu ra</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1117"/>
         <source>Enable AllSummary Report</source>
         <translation>Bật Báo cáo Tóm tắt Toàn bộ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="303"/>
         <source>Output Diagnostics</source>
         <translation>Chẩn đoán Đầu ra</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1136"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>Bật DisplayExtraWarnings</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="307"/>
         <source>Output Control Resilience Summaries</source>
         <translation>Output Control Resilience Summaries</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1155"/>
         <source>Heat Index Algorithm</source>
         <translation>Thuật toán Chỉ số Nhiệt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="482"/>
         <source>Run Control</source>
         <translation>Điều khiển chạy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="491"/>
         <source>Run Simulation for Weather File</source>
         <translation>Chạy Mô Phỏng cho Tệp Dữ Liệu Thời Tiết</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="496"/>
         <source>Run Simulation for Design Days</source>
         <translation>Chạy Mô phỏng cho Ngày Thiết kế</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="501"/>
         <source>Perform Zone Sizing</source>
         <translation>Thực hiện Định kích thước Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="506"/>
         <source>Perform System Sizing</source>
         <translation>Thực hiện Tính toán Kích thước Hệ thống</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="511"/>
         <source>Perform Plant Sizing</source>
         <translation>Thực hiện Tính toán Kích thước Hệ thống</translation>
     </message>

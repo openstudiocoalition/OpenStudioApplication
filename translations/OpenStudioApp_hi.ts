@@ -15180,23 +15180,23 @@ or
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="656"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="701"/>
         <source>Hard Sized</source>
         <translation>हार्ड साइज्ड</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="657"/>
         <source>Autosized</source>
         <translation>ऑटोसाइज्ड</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="702"/>
         <source>Autocalculate</source>
         <translation>स्व-गणना</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="883"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>एक्स्टेंसिबल समूह जोड़ें/निकालें</translation>
     </message>
@@ -20844,41 +20844,41 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="74"/>
         <source>Apply Measure Now</source>
         <translation>उपाय अभी लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>Advanced Output</source>
         <translation>उन्नत आउटपुट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="190"/>
         <source>Running Measure</source>
         <translation>उपाय चल रहा है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="210"/>
         <source>Measure Output</source>
         <translation>उपाय परिणाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="281"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="752"/>
         <source>Apply Measure</source>
         <translation>उपाय लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="404"/>
         <source>Accept Changes</source>
         <translation>परिवर्तन स्वीकार करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="805"/>
         <source>No advanced output.</source>
         <translation>कोई उन्नत आउटपुट नहीं।</translation>
     </message>
@@ -21317,32 +21317,32 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="520"/>
         <source>Not Started</source>
         <translation>शुरू नहीं हुआ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="528"/>
         <source>Canceled</source>
         <translation>रद्द</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warning</source>
         <translation>%1 चेतावनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="548"/>
         <source>%1 Warnings</source>
         <translation>%1 चेतावनियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Error</source>
         <translation>%1 त्रुटि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="557"/>
         <source>%1 Errors</source>
         <translation>%1 त्रुटियाँ</translation>
     </message>
@@ -22933,7 +22933,7 @@ Story</source>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="508"/>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python Measures क्लासिक CLI में समर्थित नहीं हैं।
@@ -23396,7 +23396,7 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="144"/>
         <source>Add to Model</source>
         <translation>मॉडल में जोड़ें</translation>
     </message>
@@ -23404,96 +23404,72 @@ You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</s
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="23"/>
         <source>Add HVAC System</source>
         <translation>HVAC सिस्टम जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="31"/>
         <source>HVAC Systems</source>
         <translation>HVAC सिस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="71"/>
         <source>Packaged Rooftop Unit</source>
         <translation>पैकेज्ड रूफटॉप यूनिट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="73"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>पैकेज्ड रूफटॉप हीट पंप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="75"/>
         <source>Packaged DX Rooftop VAV with Reheat</source>
         <translation>पैकेज्ड DX रूफटॉप VAV रीहीट के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="77"/>
         <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
         <translation>पैकेज्ड रूफटॉप VAV समानांतर फैन पावर बॉक्स और रीहीट के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="79"/>
         <source>Packaged Rooftop VAV with Reheat</source>
         <translation>Packaged Rooftop VAV with Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="81"/>
         <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
         <translation>VAV समांतर पंखा-संचालित बॉक्स और पुनः ताप के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="83"/>
         <source>Warm Air Furnace Gas Fired</source>
         <translation>गर्म हवा फर्नेस गैस संचालित</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="85"/>
         <source>Warm Air Furnace Electric</source>
         <translation>गर्म हवा फर्नेस विद्युत</translation>
     </message>
     <message>
-        <source>Packaged DX Rooftop VAV with Reheat</source>
-        <translation>पैकेज्ड DX रूफटॉप VAV रीहीट के साथ</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Parallel Fan Power Boxes and reheat</source>
-        <translation>पैकेजड रूफटॉप VAV समानांतर फैन पावर बॉक्स और रीहीट के साथ</translation>
-    </message>
-    <message>
-        <source>Packaged Rooftop VAV with Reheat</source>
-        <translation>Packaged Rooftop VAV with Reheat</translation>
-    </message>
-    <message>
-        <source>VAV with Parallel Fan-Powered Boxes and Reheat</source>
-        <translation>VAV समानांतर पंखा-संचालित बॉक्स और पुनः तापन के साथ</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Gas Fired</source>
-        <translation>गर्म हवा फर्नेस गैस से चलने वाला</translation>
-    </message>
-    <message>
-        <source>Warm Air Furnace Electric</source>
-        <translation>गर्म वायु भट्टी विद्युत</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="87"/>
         <source>Empty Air Loop</source>
         <translation>खाली वायु लूप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="89"/>
         <source>Dual Duct Air Loop</source>
         <translation>Dual Duct Air Loop</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="91"/>
         <source>Empty Plant Loop</source>
         <translation>खाली संयंत्र लूप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="93"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>Service Hot Water Plant Loop</translation>
     </message>
@@ -25587,12 +25563,12 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>पुनरारंभ करना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="410"/>
         <source>Allow Analytics</source>
         <translation>विश्लेषण की अनुमति दें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="411"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>OpenStudio Coalition को OpenStudio Application को बेहतर बनाने में मदद के लिए अनाम उपयोग सांख्यिकी एकत्र करने की अनुमति दें? अधिक जानकारी के लिए &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;गोपनीयता नीति&lt;/a&gt; देखें।</translation>
     </message>
@@ -27125,34 +27101,32 @@ in Preferences</source>
 में सेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
         <source>Units Conversion</source>
         <translation>इकाई रूपांतरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
         <source>Would you like to display your Energy+ data in IP units?</source>
         <translation>क्या आप अपना Energy+ डेटा IP इकाइयों में प्रदर्शित करना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145"/>
         <source>Unable to launch DView</source>
         <translation>DView लॉन्च करने में असमर्थ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="146"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DView अपेक्षित स्थान पर नहीं
 मिला:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="306"/>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus परिणाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="320"/>
         <source>Custom Report %1</source>
         <translation>कस्टम रिपोर्ट %1</translation>
     </message>
@@ -27212,72 +27186,72 @@ in Preferences</source>
         <translation>कृपया सिमुलेशन देखने के लिए OpenStudio Model को सेव करें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="318"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>OpenStudio Classic CLI के लिए सॉकेट कनेक्शन नहीं खोला जा सका।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="320"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>stdout/stderr पार्सिंग पर वापस जा रहे हैं, लाइव अपडेट धीमे हो सकते हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="330"/>
         <source>Aborted</source>
         <translation>रद्द किया गया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="454"/>
         <source>Initializing workflow.</source>
         <translation>कार्यप्रवाह को आरंभ किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="465"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>यह क्लासिक कमांड deprecated है और भविष्य के रिलीज़ में हटा दिया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="482"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>OpenStudio उपायों को संसाधित किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="495"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>OpenStudio Model को EnergyPlus में अनुवाद कर रहे हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="507"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>EnergyPlus Measures को प्रोसेस किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="520"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>सिमुलेशन आउटपुट अनुरोध जोड़ना।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="532"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>EnergyPlus सिमुलेशन शुरू किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="545"/>
         <source>Processing Reporting Measures.</source>
         <translation>रिपोर्टिंग उपायों को संसाधित कर रहे हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="557"/>
         <source>Gathering Reports.</source>
         <translation>रिपोर्ट संकलित की जा रही हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="603"/>
         <source>Failed.</source>
         <translation>विफल।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Completed.</source>
         <translation>पूर्ण हुआ।</translation>
     </message>
@@ -27831,12 +27805,12 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="328"/>
         <source>Run Period</source>
         <translation>रन अवधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="396"/>
         <source>Date Range</source>
         <translation>तारीख सीमा</translation>
     </message>
@@ -27846,27 +27820,27 @@ in Preferences</source>
         <translation>Advanced RunPeriod Parameters</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="440"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>मौसम फ़ाइल की छुट्टियों और विशेष दिनों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="444"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>मौसम फ़ाइल दिवस प्रकाश बचत अवधि का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="451"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>मौसम फ़ाइल वर्षा संकेतकों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="453"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>मौसम फ़ाइल बर्फ संकेतकों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="460"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>सप्ताहांत अवकाश नियम लागू करें</translation>
     </message>
@@ -27876,117 +27850,117 @@ in Preferences</source>
         <translation>Radiance पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="924"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>मोटा (तेज़, कम सटीक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="928"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>बढ़िया (धीमा, अधिक सटीक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="932"/>
         <source>Custom</source>
         <translation>कस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="944"/>
         <source>Accumulated Rays per Record: </source>
         <translation>Accumulated Rays per Record: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="948"/>
         <source>Direct Threshold: </source>
         <translation>डायरेक्ट थ्रेसहोल्ड: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="955"/>
         <source>Direct Certainty: </source>
         <translation>प्रत्यक्ष निश्चितता: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="957"/>
         <source>Direct Jitter: </source>
         <translation>प्रत्यक्ष जिटर: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="964"/>
         <source>Direct Pretest: </source>
         <translation>Direct Pretest: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="966"/>
         <source>Ambient Bounces VMX: </source>
         <translation>परिवेश बाउंस VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="973"/>
         <source>Ambient Bounces DMX: </source>
         <translation>Ambient Bounces DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="975"/>
         <source>Ambient Divisions VMX: </source>
         <translation>परिवेश विभाजन VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="982"/>
         <source>Ambient Divisions DMX: </source>
         <translation>Ambient Divisions DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="984"/>
         <source>Ambient Supersamples: </source>
         <translation>परिवेश सुपरसैंपल्स: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="991"/>
         <source>Limit Weight VMX: </source>
         <translation>सीमा वजन VMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="993"/>
         <source>Limit Weight DMX: </source>
         <translation>सीमा भार DMX: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1000"/>
         <source>Klems Sampling Density: </source>
         <translation>Klems नमूनाकरण घनत्व: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1002"/>
         <source>Sky Discretization Resolution: </source>
         <translation>Sky Discretization Resolution: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="605"/>
         <source>Sizing Parameters</source>
         <translation>आकार निर्धारण पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="618"/>
         <source>Heating Sizing Factor</source>
         <translation>हीटिंग साइजिंग फैक्टर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="620"/>
         <source>Cooling Sizing Factor</source>
         <translation>शीतलन आकार निर्धारण कारक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="622"/>
         <source>Timesteps In Averaging Window</source>
         <translation>औसत खिड़की में समय कदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="655"/>
         <source>Timestep</source>
         <translation>समयचरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="668"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>प्रति घंटा टाइमस्टेप्स की संख्या</translation>
     </message>
@@ -27996,62 +27970,62 @@ in Preferences</source>
         <translation>सिमुलेशन नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="532"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>जोन साइजिंग गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="536"/>
         <source>Do System Sizing Calculation</source>
         <translation>सिस्टम साइजिंग गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="543"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>पौध आकार निर्धारण गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="545"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>आकार निर्धारण अवधि के लिए सिमुलेशन चलाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="552"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>मौसम फ़ाइल रन अवधियों के लिए सिमुलेशन चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="554"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>अधिकतम वार्मअप दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="561"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>न्यूनतम वार्मअप दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="563"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>भार अभिसरण सहनशीलता मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="570"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>तापमान अभिसरण सहिष्णुता मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="572"/>
         <source>Solar Distribution</source>
         <translation>सौर वितरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="579"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>HVAC आकार निर्धारण सिमुलेशन आकार निर्धारण अवधियों के लिए करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="581"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>HVAC आकार निर्धारण सिमुलेशन पास की अधिकतम संख्या</translation>
     </message>
@@ -28061,7 +28035,7 @@ in Preferences</source>
         <translation>प्रोग्राम नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="639"/>
         <source>Number Of Threads Allowed</source>
         <translation>अनुमति प्राप्त थ्रेड्स की संख्या</translation>
     </message>
@@ -28071,12 +28045,12 @@ in Preferences</source>
         <translation>आउटपुट नियंत्रण रिपोर्टिंग सहनशीलता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="686"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>समय हीटिंग सेटपॉइंट पूरा न होने के लिए सहिष्णुता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="690"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>समय शीतलन सेटपॉइंट पूरा न होने के लिए सहनशीलता</translation>
     </message>
@@ -28086,22 +28060,22 @@ in Preferences</source>
         <translation>अभिसरण सीमाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="708"/>
         <source>Maximum HVAC Iterations</source>
         <translation>अधिकतम HVAC पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="712"/>
         <source>Minimum Plant Iterations</source>
         <translation>न्यूनतम संयंत्र पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="719"/>
         <source>Maximum Plant Iterations</source>
         <translation>अधिकतम संयंत्र पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="721"/>
         <source>Minimum System Timestep</source>
         <translation>न्यूनतम सिस्टम टाइमस्टेप</translation>
     </message>
@@ -28111,22 +28085,22 @@ in Preferences</source>
         <translation>छाया गणना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="743"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>Shading Calculation Update Frequency</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="747"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>Maximum Figures In Shadow Overlap Calculations</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="754"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>Polygon Clipping Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="756"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>आकाश विसरित मॉडलिंग एल्गोरिदम</translation>
     </message>
@@ -28146,27 +28120,27 @@ in Preferences</source>
         <translation>Heat Balance Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="828"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="849"/>
         <source>Algorithm</source>
         <translation>एल्गोरिदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="813"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>Surface Temperature Upper Limit
 
 सतह तापमान ऊपरी सीमा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="817"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>न्यूनतम सतह संवहन ऊष्मा स्थानांतरण गुणांक मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="825"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>अधिकतम सतह संवहन ऊष्मा स्थानांतरण गुणांक मान</translation>
     </message>
@@ -28181,113 +28155,113 @@ in Preferences</source>
         <translation>Zone Air Contaminant Balance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="867"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>कार्बन डाइऑक्साइड सांद्रता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="871"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>बाहरी कार्बन डाइऑक्साइड शेड्यूल नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="291"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>Zone Capacitance Multiple Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="893"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>तापमान क्षमता गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="897"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>आर्द्रता क्षमता गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="904"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Carbon Dioxide Capacity Multiplier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1086"/>
         <source>Output JSON</source>
         <translation>आउटपुट JSON</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1077"/>
         <source>Option Type</source>
         <translation>विकल्प प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1093"/>
         <source>Output CBOR</source>
         <translation>आउटपुट CBOR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1095"/>
         <source>Output MessagePack</source>
         <translation>आउटपुट MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="299"/>
         <source>Output Table Summary Reports</source>
         <translation>आउटपुट टेबल सारांश रिपोर्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1117"/>
         <source>Enable AllSummary Report</source>
         <translation>AllSummary रिपोर्ट सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="303"/>
         <source>Output Diagnostics</source>
         <translation>आउटपुट डायग्नोस्टिक्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1136"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>DisplayExtraWarnings सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="307"/>
         <source>Output Control Resilience Summaries</source>
         <translation>Output Control लचीलापन सारांश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1155"/>
         <source>Heat Index Algorithm</source>
         <translation>ताप सूचकांक एल्गोरिथ्म</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="482"/>
         <source>Run Control</source>
         <translation>चलाएं नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="491"/>
         <source>Run Simulation for Weather File</source>
         <translation>मौसम फ़ाइल के लिए सिमुलेशन चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="496"/>
         <source>Run Simulation for Design Days</source>
         <translation>डिज़ाइन दिनों के लिए सिमुलेशन चलाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="501"/>
         <source>Perform Zone Sizing</source>
         <translation>Zone Sizing करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="506"/>
         <source>Perform System Sizing</source>
         <translation>सिस्टम साइजिंग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="511"/>
         <source>Perform Plant Sizing</source>
         <translation>संयंत्र आकार निर्धारण निष्पादित करें</translation>
     </message>
