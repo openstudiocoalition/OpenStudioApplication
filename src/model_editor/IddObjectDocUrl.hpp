@@ -497,6 +497,7 @@ inline QString iddGroupDocUrl(const QString& groupName) {
   if (it != groupMap.constEnd()) {
     return base + it.value();
   }
+  qWarning() << "Cannot find doc url for: " + groupName;
   return {};
 }
 
