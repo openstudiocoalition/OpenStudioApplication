@@ -5,7 +5,7 @@
 
 #include "LoadsView.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 #include "PeopleInspectorView.hpp"
 #include "InternalMassInspectorView.hpp"
 #include "LightsInspectorView.hpp"
@@ -44,23 +44,18 @@ LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* 
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> LoadsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
-  static const QString iag = base + QStringLiteral("group-internal-gains-people-lights-other.html");
-  static const QString tzg = base + QStringLiteral("group-thermal-zone-description-geometry.html");
-  static const QString wsg = base + QStringLiteral("group-water-systems.html");
-
   using T = std::tuple<IddObjectType, QString, QString>;
   return {
-    T{IddObjectType::OS_People_Definition, tr("People Definitions"), iag + "#people"},
-    T{IddObjectType::OS_Lights_Definition, tr("Lights Definitions"), iag + "#lights-000"},
+    T{IddObjectType::OS_People_Definition, tr("People Definitions"), iddObjectDocUrl(QStringLiteral("OS:People"))},
+    T{IddObjectType::OS_Lights_Definition, tr("Lights Definitions"), iddObjectDocUrl(QStringLiteral("OS:Lights"))},
     T{IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions"), {}},
-    T{IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions"), iag + "#electricequipment"},
-    T{IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions"), iag + "#gasequipment"},
-    T{IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions"), iag + "#steamequipment"},
-    T{IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions"), iag + "#otherequipment"},
-    T{IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions"), tzg + "#internalmass"},
-    T{IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions"), wsg + "#wateruseequipment"},
-    T{IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions"), iag + "#hotwaterequipment"},
+    T{IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:ElectricEquipment"))},
+    T{IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:GasEquipment"))},
+    T{IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:SteamEquipment"))},
+    T{IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:OtherEquipment"))},
+    T{IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions"), iddObjectDocUrl(QStringLiteral("OS:InternalMass"))},
+    T{IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:WaterUse:Equipment"))},
+    T{IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:HotWaterEquipment"))},
   };
 }
 

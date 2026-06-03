@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "GroundTemperatureView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
@@ -100,13 +100,11 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
   layout->setSpacing(0);
   setLayout(layout);
 
-  static const QString lcwBase =
-    QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html";
-  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), lcwBase + "#sitegroundtemperaturebuildingsurface", this);
-  m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), lcwBase + "#sitegroundtemperatureshallow", this);
-  m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), lcwBase + "#sitegroundtemperaturedeep", this);
-  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"), lcwBase + "#sitegroundtemperaturefcfactormethod", this);
-  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), lcwBase + "#sitewatermainstemperature", this);
+  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:BuildingSurface")), this);
+  m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:Shallow")), this);
+  m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:Deep")), this);
+  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:FCfactorMethod")), this);
+  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), iddObjectDocUrl(QStringLiteral("OS:Site:WaterMainsTemperature")), this);
 
   connect(m_bsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onBuildingSurfaceClicked);
   connect(m_shEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onShallowClicked);

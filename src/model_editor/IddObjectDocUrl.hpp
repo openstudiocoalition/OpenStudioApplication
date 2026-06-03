@@ -31,16 +31,21 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:HeatBalanceAlgorithm",                 "group-simulation-parameters.html#heatbalancealgorithm"},
     {"OS:ZoneAirHeatBalanceAlgorithm",          "group-simulation-parameters.html#zoneairheatbalancealgorithm"},
     {"OS:ZoneAirContaminantBalance",            "group-simulation-parameters.html#zoneaircontaminantbalance"},
+    {"OS:ConvergenceLimits",                         "group-simulation-parameters.html#convergencelimits"},
+    {"OS:ZoneCapacitanceMultiplier:ResearchSpecial", "group-simulation-parameters.html#zonecapacitancemultiplierresearchspecial"},
 
     // Location and Climate
     {"OS:Site:Location",                                              "group-location-climate-weather-file-access.html#sitelocation"},
     {"OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach",         "group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedkusudaachenbach"},
     {"OS:Site:GroundTemperature:BuildingSurface",           "group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface"},
+    {"OS:Site:GroundTemperature:Shallow",                   "group-location-climate-weather-file-access.html#sitegroundtemperatureshallow"},
+    {"OS:Site:GroundTemperature:Deep",                      "group-location-climate-weather-file-access.html#sitegroundtemperaturedeep"},
     {"OS:Site:GroundTemperature:FCfactorMethod",            "group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod"},
     {"OS:Site:GroundReflectance",                           "group-location-climate-weather-file-access.html#sitegroundreflectance"},
     {"OS:Site:WaterMainsTemperature",                       "group-location-climate-weather-file-access.html#sitewatermainstemperature"},
     {"OS:SizingPeriod:DesignDay",                           "group-location-climate-weather-file-access.html#sizingperioddesignday"},
     {"OS:DesignDay",                                        "group-location-climate-weather-file-access.html#sizingperioddesignday"},
+    {"OS:RunPeriodControl:DaylightSavingTime",              "group-location-climate-weather-file-access.html#runperiodcontroldaylightsavingtime"},
 
     // Schedules
     {"OS:ScheduleTypeLimits",       "group-schedules.html#scheduletypelimits"},
@@ -53,6 +58,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Schedule:Week:Compact",    "group-schedules.html#scheduleweekcompact"},
     {"OS:Schedule:Year",            "group-schedules.html#scheduleyear"},
     {"OS:Schedule:Ruleset",         "group-schedules.html#scheduleyear"},
+    {"OS:Schedule:File",            "group-schedules.html#schedulefile"},
 
     // Surface Construction Elements
     {"OS:Material",                                             "group-surface-construction-elements.html#material"},
@@ -70,6 +76,11 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Construction",                                         "group-surface-construction-elements.html#construction-000"},
     {"OS:Construction:InternalSource",                          "group-surface-construction-elements.html#constructioninternalsource"},
     {"OS:Construction:WindowDataFile",                          "group-surface-construction-elements.html#constructionwindowdatafile"},
+    {"OS:Construction:AirBoundary",                             "group-surface-construction-elements.html#constructionairboundary"},
+    {"OS:Construction:CfactorUndergroundWall",                  "group-surface-construction-elements.html#constructioncfactorundergroundwall"},
+    {"OS:Construction:FfactorGroundFloor",                      "group-surface-construction-elements.html#constructionffactorgroundfloor"},
+    {"OS:WindowMaterial:DaylightRedirectionDevice",             "group-surface-construction-elements.html#windowmaterialblind"},
+    {"OS:WindowMaterial:Glazing:RefractionExtinctionMethod",    "group-surface-construction-elements.html#windowmaterialglazingrefractionextinctionmethod"},
     {"OS:WindowProperty:FrameAndDivider",                       "group-thermal-zone-description-geometry.html#windowpropertyframeanddivider"},
 
     // Thermal Zone Description and Geometry
@@ -453,6 +464,17 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Table:IndependentVariable",     "group-performance-tables.html#tableindependentvariable"},
     {"OS:Table:IndependentVariableList", "group-performance-tables.html#tableindependentvariablelist"},
     {"OS:Table:Lookup",                  "group-performance-tables.html#tablelookup"},
+
+    // Output
+    {"OS:Output:Diagnostics",                "group-simulation-parameters.html#outputdiagnostics"},
+    {"OS:OutputControl:ReportingTolerances", "input-for-output.html#outputcontrolreportingtolerances"},
+    {"OS:Output:JSON",                       "input-for-output.html#outputjson"},
+    {"OS:Output:Table:SummaryReports",       "output-table-summaryreports.html#outputtablesummaryreports"},
+    {"OS:OutputControl:ResilienceSummaries", "input-for-output.html#OutputControlResilienceSummaries"},
+
+    // Life Cycle Cost
+    {"OS:LifeCycleCost:Parameters",         "lifecyclecost-parameters.html#lifecyclecostparameters"},
+    {"OS:LifeCycleCost:UsePriceEscalation", "lifecyclecost-usepriceescalation.html#lifecyclecostusepriceescalation"},
   };
   // clang-format on
 

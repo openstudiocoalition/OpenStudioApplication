@@ -5,7 +5,7 @@
 
 #include "ScheduleOthersView.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "ScheduleConstantInspectorView.hpp"
 #include "ScheduleCompactInspectorView.hpp"
@@ -28,14 +28,11 @@ ScheduleOthersView::ScheduleOthersView(const openstudio::model::Model& model, QW
       new ScheduleOthersInspectorView(model, parent), false, parent) {}
 
 std::vector<std::tuple<IddObjectType, QString, QString>> ScheduleOthersView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
-  static const QString sch = base + QStringLiteral("group-schedules.html");
-
   using T = std::tuple<IddObjectType, QString, QString>;
   return {
-    T{IddObjectType::OS_Schedule_Constant, tr("Schedule Constant"), sch + "#scheduleconstant"},
-    T{IddObjectType::OS_Schedule_Compact, tr("Schedule Compact"), sch + "#schedulecompact"},
-    T{IddObjectType::OS_Schedule_File, tr("Schedule File"), sch + "#schedulefile"},
+    T{IddObjectType::OS_Schedule_Constant, tr("Schedule Constant"), iddObjectDocUrl(QStringLiteral("OS:Schedule:Constant"))},
+    T{IddObjectType::OS_Schedule_Compact, tr("Schedule Compact"), iddObjectDocUrl(QStringLiteral("OS:Schedule:Compact"))},
+    T{IddObjectType::OS_Schedule_File, tr("Schedule File"), iddObjectDocUrl(QStringLiteral("OS:Schedule:File"))},
   };
 }
 

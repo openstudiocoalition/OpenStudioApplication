@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "LifeCycleCostsTabView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"
@@ -64,8 +64,7 @@ void LifeCycleCostsView::createWidgets() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url =
-      QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "lifecyclecost-parameters.html#lifecyclecostparameters";
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:LifeCycleCost:Parameters"));
     label->setToolTip(url);
     label->setText(
       QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Life Cycle Cost Parameters")));
@@ -156,8 +155,7 @@ void LifeCycleCostsView::createWidgets() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url =
-      QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "lifecyclecost-usepriceescalation.html#lifecyclecostusepriceescalation";
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:LifeCycleCost:UsePriceEscalation"));
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)")
                      .arg(url, tr("Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates")));

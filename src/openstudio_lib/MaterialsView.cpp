@@ -11,7 +11,7 @@
 #include "MaterialNoMassInspectorView.hpp"
 #include "MaterialRoofVegetationInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 #include "WindowMaterialBlindInspectorView.hpp"
 #include "WindowMaterialDaylightRedirectionDeviceInspectorView.hpp"
 #include "WindowMaterialGasInspectorView.hpp"
@@ -44,29 +44,27 @@ MaterialsView::MaterialsView(bool isIP, const openstudio::model::Model& model, c
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> MaterialsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
-  static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
-
   using T = std::tuple<IddObjectType, QString, QString>;
   return {
-    T{IddObjectType::OS_Material, tr("Materials"), sce + "#material"},
-    T{IddObjectType::OS_Material_NoMass, tr("No Mass Materials"), sce + "#materialnomass"},
-    T{IddObjectType::OS_Material_AirGap, tr("Air Gap Materials"), sce + "#materialairgap"},
+    T{IddObjectType::OS_Material, tr("Materials"), iddObjectDocUrl(QStringLiteral("OS:Material"))},
+    T{IddObjectType::OS_Material_NoMass, tr("No Mass Materials"), iddObjectDocUrl(QStringLiteral("OS:Material:NoMass"))},
+    T{IddObjectType::OS_Material_AirGap, tr("Air Gap Materials"), iddObjectDocUrl(QStringLiteral("OS:Material:AirGap"))},
     T{IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, tr("Simple Glazing System Window Materials"),
-      sce + "#windowmaterialsimpleglazingsystem"},
-    T{IddObjectType::OS_WindowMaterial_Glazing, tr("Glazing Window Materials"), sce + "#windowmaterialglazing"},
-    T{IddObjectType::OS_WindowMaterial_Gas, tr("Gas Window Materials"), sce + "#windowmaterialgas"},
-    T{IddObjectType::OS_WindowMaterial_GasMixture, tr("Gas Mixture Window Materials"), sce + "#windowmaterialgasmixture"},
-    T{IddObjectType::OS_WindowMaterial_Blind, tr("Blind Window Materials"), sce + "#windowmaterialblind"},
+      iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:SimpleGlazingSystem"))},
+    T{IddObjectType::OS_WindowMaterial_Glazing, tr("Glazing Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Glazing"))},
+    T{IddObjectType::OS_WindowMaterial_Gas, tr("Gas Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Gas"))},
+    T{IddObjectType::OS_WindowMaterial_GasMixture, tr("Gas Mixture Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:GasMixture"))},
+    T{IddObjectType::OS_WindowMaterial_Blind, tr("Blind Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Blind"))},
     T{IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice, tr("Daylight Redirection Device Window Materials"),
-      sce + "#windowmaterialblind"},
-    T{IddObjectType::OS_WindowMaterial_Screen, tr("Screen Window Materials"), sce + "#windowmaterialscreen"},
-    T{IddObjectType::OS_WindowMaterial_Shade, tr("Shade Window Materials"), sce + "#windowmaterialshade"},
+      iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:DaylightRedirectionDevice"))},
+    T{IddObjectType::OS_WindowMaterial_Screen, tr("Screen Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Screen"))},
+    T{IddObjectType::OS_WindowMaterial_Shade, tr("Shade Window Materials"), iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Shade"))},
     // Oddballs at the bottom
-    T{IddObjectType::OS_Material_InfraredTransparent, tr("Infrared Transparent Materials"), sce + "#materialinfraredtransparent"},
-    T{IddObjectType::OS_Material_RoofVegetation, tr("Roof Vegetation Materials"), sce + "#materialroofvegetation"},
+    T{IddObjectType::OS_Material_InfraredTransparent, tr("Infrared Transparent Materials"),
+      iddObjectDocUrl(QStringLiteral("OS:Material:InfraredTransparent"))},
+    T{IddObjectType::OS_Material_RoofVegetation, tr("Roof Vegetation Materials"), iddObjectDocUrl(QStringLiteral("OS:Material:RoofVegetation"))},
     T{IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod, tr("Refraction Extinction Method Glazing Window Materials"),
-      sce + "#windowmaterialglazingrefractionextinctionmethod"},
+      iddObjectDocUrl(QStringLiteral("OS:WindowMaterial:Glazing:RefractionExtinctionMethod"))},
     // TODO: commented out until ThermochromicGlazing is properly wrapped
     // T{IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, tr("Glazing Group Thermochromic Window Materials"), sce + "#windowmaterialglazinggroupthermochromic"},
   };

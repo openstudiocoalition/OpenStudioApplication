@@ -12,7 +12,7 @@
 #include "ConstructionInternalSourceInspectorView.hpp"
 #include "ConstructionWindowDataFileInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 
@@ -32,17 +32,16 @@ ConstructionsView::ConstructionsView(bool isIP, const openstudio::model::Model& 
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> ConstructionsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
-  static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
-
   using T = std::tuple<IddObjectType, QString, QString>;
   return {
-    T{IddObjectType::OS_Construction, tr("Constructions"), sce + "#construction-000"},
-    T{IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions"), sce + "#constructionairboundary"},
-    T{IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions"), sce + "#constructioninternalsource"},
+    T{IddObjectType::OS_Construction, tr("Constructions"), iddObjectDocUrl(QStringLiteral("OS:Construction"))},
+    T{IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions"), iddObjectDocUrl(QStringLiteral("OS:Construction:AirBoundary"))},
+    T{IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions"),
+      iddObjectDocUrl(QStringLiteral("OS:Construction:InternalSource"))},
     T{IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions"),
-      sce + "#constructioncfactorundergroundwall"},
-    T{IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions"), sce + "#constructionffactorgroundfloor"},
+      iddObjectDocUrl(QStringLiteral("OS:Construction:CfactorUndergroundWall"))},
+    T{IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions"),
+      iddObjectDocUrl(QStringLiteral("OS:Construction:FfactorGroundFloor"))},
     // Not currently supported
     // T{IddObjectType::OS_Construction_WindowDataFile, tr("Window Data File Constructions"), {}},
   };
