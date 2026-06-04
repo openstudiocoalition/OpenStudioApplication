@@ -15467,5731 +15467,5731 @@
     <name>OutputVariables</name>
     <message>
         <source>Air System Component Model Simulation Calls</source>
-        <translation>Appels de simulation du modèle de composant du système d&apos;air</translation>
+        <translation>Système d'air: Appels de simulation du modèle de composant</translation>
     </message>
     <message>
         <source>Air System Mixed Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air mélangé du système de climatisation</translation>
+        <translation>Système d'Air: Débit Massique d'Air Mélangé</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Economizer Status</source>
-        <translation>Statut de l&apos;Économiseur d&apos;Air Extérieur du Système de Climatisation</translation>
+        <translation>Système d'air: État de l'Économiseur d'air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Flow Fraction</source>
-        <translation>Fraction de débit d&apos;air extérieur du système de climatisation</translation>
+        <translation>Système de ventilation : Fraction du débit d'air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Heating Coil Activity Status</source>
-        <translation>Statut d&apos;activité du serpentin de chauffage du contournement de la récupération de chaleur de l&apos;air extérieur du système d&apos;air</translation>
+        <translation>Système Aéraulique : État d'Activité de la Bobine de Chauffage du Contournement de Récupération de Chaleur de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Minimum Outdoor Air Mixed Air Temperature</source>
-        <translation>Température d&apos;air mélangé minimale de l&apos;air extérieur du système de récupération de chaleur de l&apos;air extérieur du système d&apos;air</translation>
+        <translation>Système de Climatisation : Température de l'Air Mélangé du Contournement de Récupération de Chaleur à Débit d'Air Extérieur Minimal</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Status</source>
-        <translation>État du contournement de la récupération de chaleur de l&apos;air extérieur du système d&apos;air</translation>
+        <translation>Système de Distribution d'Air: État de Contournement du Récupérateur de Chaleur de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air High Humidity Control Status</source>
-        <translation>Statut de contrôle de l&apos;humidité élevée de l&apos;air extérieur du système de climatisation</translation>
+        <translation>Système Air: Statut de Contrôle Humidité Élevée Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air extérieur du système de climatisation</translation>
+        <translation>Système de Climatisation: Débit Massique d'Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Maximum Flow Fraction</source>
-        <translation>Fraction de débit d&apos;air maximum de système de ventilation extérieure</translation>
+        <translation>Système de climatisation : Fraction maximale du débit d'air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Mechanical Ventilation Requested Mass Flow Rate</source>
-        <translation>Débit massique demandé pour la ventilation mécanique de l&apos;air extérieur du système de climatisation</translation>
+        <translation>Système de ventilation: Débit massique d'air extérieur demandé par la ventilation mécanique</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Minimum Flow Fraction</source>
-        <translation>Fraction minimale du débit d&apos;air extérieur du système de climatisation</translation>
+        <translation>Système d'Air: Fraction Minimale de Débit d'Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Simulation Cycle On Off Status</source>
-        <translation>État de cycle marche/arrêt de la simulation du système d&apos;air</translation>
+        <translation>Air System: Statut de Marche/Arrêt du Cycle de Simulation</translation>
     </message>
     <message>
         <source>Air System Simulation Iteration Count</source>
-        <translation>Nombre d&apos;itérations de simulation du système d&apos;air</translation>
+        <translation>Système d'air: Nombre d'itérations de simulation</translation>
     </message>
     <message>
         <source>Air System Simulation Maximum Iteration Count</source>
-        <translation>Nombre maximum d&apos;itérations de simulation du système de air</translation>
+        <translation>Système d'air: Nombre maximum d'itérations de simulation</translation>
     </message>
     <message>
         <source>Air System Solver Iteration Count</source>
-        <translation>Nombre d&apos;itérations du solveur du système d&apos;air</translation>
+        <translation>Système d'Air: Nombre d'Itérations du Solveur</translation>
     </message>
     <message>
         <source>Baseboard Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection de plinthe</translation>
+        <translation>Plinthe: Énergie de Chauffage Convective</translation>
     </message>
     <message>
         <source>Baseboard Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection de la plinthe</translation>
+        <translation>Plinthe: Puissance de chauffage convectif</translation>
     </message>
     <message>
         <source>Baseboard Electricity Energy</source>
-        <translation>Énergie électrique des plinthes chauffantes</translation>
+        <translation>Plinthe thermique : Énergie électrique</translation>
     </message>
     <message>
         <source>Baseboard Electricity Rate</source>
-        <translation>Tarif d&apos;électricité pour plinthe</translation>
+        <translation>Planche de base : Puissance électrique</translation>
     </message>
     <message>
         <source>Baseboard Radiant Heating Energy</source>
-        <translation>Énergie de Chauffage Radiant Baseboard</translation>
+        <translation>Plinte chauffante : Énergie de chauffage radiant</translation>
     </message>
     <message>
         <source>Baseboard Radiant Heating Rate</source>
-        <translation>Puissance de chauffage radiant par plinthe</translation>
+        <translation>Plinthe: Puissance de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Baseboard Total Heating Energy</source>
-        <translation>Énergie Totale de Chauffage par Plinthes</translation>
+        <translation>Plinthe: Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Baseboard Total Heating Rate</source>
-        <translation>Taux de Chauffage Total du Plinthe</translation>
+        <translation>Baseboard: Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Boiler Ancillary Electricity Energy</source>
-        <translation>Énergie Électrique Auxiliaire de la Chaudière</translation>
+        <translation>Chaudière : Énergie Électrique Auxiliaire</translation>
     </message>
     <message>
         <source>Boiler Coal Energy</source>
-        <translation>Énergie Charbon Chaudière</translation>
+        <translation>Chaudière : Énergie Charbon</translation>
     </message>
     <message>
         <source>Boiler Coal Rate</source>
-        <translation>Débit de Charbon de la Chaudière</translation>
+        <translation>Chaudière : Débit de Charbon</translation>
     </message>
     <message>
         <source>Boiler Diesel Energy</source>
-        <translation>Énergie diesel de la chaudière</translation>
+        <translation>Chaudière : Énergie Diesel</translation>
     </message>
     <message>
         <source>Boiler Diesel Rate</source>
-        <translation>Taux de consommation de diesel de la chaudière</translation>
+        <translation>Chaudière : Débit de Diesel</translation>
     </message>
     <message>
         <source>Boiler Electricity Energy</source>
-        <translation>Énergie électrique de la chaudière</translation>
+        <translation>Chaudière : Énergie Électrique</translation>
     </message>
     <message>
         <source>Boiler Electricity Rate</source>
-        <translation>Tarif d&apos;électricité de la chaudière</translation>
+        <translation>Chaudière : Puissance Électrique</translation>
     </message>
     <message>
         <source>Boiler FuelOilNo1 Energy</source>
-        <translation>Énergie Boiler FuelOilNo1</translation>
+        <translation>Chaudière: Énergie Fioul Domestique</translation>
     </message>
     <message>
         <source>Boiler FuelOilNo1 Rate</source>
-        <translation>Débit Chaudière Fioul Domestique</translation>
+        <translation>Chaudière : Débit de Fioul Domestique</translation>
     </message>
     <message>
         <source>Boiler FuelOilNo2 Energy</source>
-        <translation>Énergie de Chaudière Fioul Domestique No2</translation>
+        <translation>Chaudière : Énergie Fioul Domestique</translation>
     </message>
     <message>
         <source>Boiler FuelOilNo2 Rate</source>
-        <translation>Débit Fioul Lourd n°2 Chaudière</translation>
+        <translation>Chaudière : Débit de Fioul Domestique</translation>
     </message>
     <message>
         <source>Boiler Gasoline Energy</source>
-        <translation>Énergie de Chaudière Essence</translation>
+        <translation>Chaudière : Énergie de Combustible Essence</translation>
     </message>
     <message>
         <source>Boiler Gasoline Rate</source>
-        <translation>Taux de consommation d&apos;essence de la chaudière</translation>
+        <translation>Chaudière : Débit de Carburant</translation>
     </message>
     <message>
         <source>Boiler Heating Energy</source>
-        <translation>Énergie de chauffage de la chaudière</translation>
+        <translation>Chaudière : Énergie de chauffage</translation>
     </message>
     <message>
         <source>Boiler Heating Rate</source>
-        <translation>Débit calorifique de la chaudière</translation>
+        <translation>Chaudière : Puissance de chauffage</translation>
     </message>
     <message>
         <source>Boiler Inlet Temperature</source>
-        <translation>Température d&apos;entrée de la chaudière</translation>
+        <translation>Chaudière : Température d'Entrée</translation>
     </message>
     <message>
         <source>Boiler Mass Flow Rate</source>
-        <translation>Débit massique de la chaudière</translation>
+        <translation>Chaudière : Débit Massique</translation>
     </message>
     <message>
         <source>Boiler NaturalGas Energy</source>
-        <translation>Énergie Gaz Naturel Chaudière</translation>
+        <translation>Chaudière : Énergie Gaz Naturel</translation>
     </message>
     <message>
         <source>Boiler NaturalGas Rate</source>
-        <translation>Taux de Gaz Naturel de la Chaudière</translation>
+        <translation>Chaudière : Débit Gaz Naturel</translation>
     </message>
     <message>
         <source>Boiler OtherFuel1 Energy</source>
-        <translation>Énergie Chaudière OtherFuel1</translation>
+        <translation>Chaudière : Énergie Carburant Autre1</translation>
     </message>
     <message>
         <source>Boiler OtherFuel1 Rate</source>
-        <translation>Débit de combustible alternatif 1 de la chaudière</translation>
+        <translation>Chaudière : Taux de Consommation Autre Combustible 1</translation>
     </message>
     <message>
         <source>Boiler OtherFuel2 Energy</source>
-        <translation>Chaudière Autre Combustible2 Énergie</translation>
+        <translation>Chaudière : Énergie Combustible Alternatif 2</translation>
     </message>
     <message>
         <source>Boiler OtherFuel2 Rate</source>
-        <translation>Débit Combustible Alternatif 2 de la Chaudière</translation>
+        <translation>Chaudière : Taux de Consommation de Combustible Auxiliaire</translation>
     </message>
     <message>
         <source>Boiler Outlet Temperature</source>
-        <translation>Température de sortie de la chaudière</translation>
+        <translation>Chaudière : Température de sortie</translation>
     </message>
     <message>
         <source>Boiler Parasitic Electric Power</source>
-        <translation>Puissance Électrique Parasite de la Chaudière</translation>
+        <translation>Chaudière : Puissance électrique parasite</translation>
     </message>
     <message>
         <source>Boiler Part Load Ratio</source>
-        <translation>Rapport de charge partielle de la chaudière</translation>
+        <translation>Chaudière : Ratio de Charge Partielle</translation>
     </message>
     <message>
         <source>Boiler Propane Energy</source>
-        <translation>Énergie Propane de la Chaudière</translation>
+        <translation>Chaudière : Énergie Propane</translation>
     </message>
     <message>
         <source>Boiler Propane Rate</source>
-        <translation>Débit de propane de la chaudière</translation>
+        <translation>Chaudière : Débit de Propane</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Tank Temperature</source>
-        <translation>Température finale du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Réservoir</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 1</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique à eau glacée 1</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Nœud 1</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 10</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique à eau glacée 10</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Nœud 10</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 11</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique d&apos;eau glacée 11</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Nœud 11</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 12</source>
-        <translation>Nœud 12 de la température finale du réservoir de stockage thermique en eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Finale Nœud 12</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 2</source>
-        <translation>Nœud de Température Finale du Réservoir de Stockage Thermique en Eau Glacée 2</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Finale du Nœud 2</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 3</source>
-        <translation>Nœud 3 - Température finale du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température Finale Nœud 3</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 4</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique à eau glacée 4</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Finale Nœud 4</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 5</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique à eau glacée 5</translation>
+        <translation>Réservoir Thermique d'Eau Glacée : Température Finale du Nœud 5</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 6</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique d&apos;eau glacée 6</translation>
+        <translation>Réservoir Thermique d'Eau Refroidie: Température Finale Nœud 6</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 7</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique d&apos;eau glacée 7</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Finale du Nœud 7</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 8</source>
-        <translation>Nœud de température finale du réservoir de stockage thermique à eau glacée 8</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale Nœud 8</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 9</source>
-        <translation>Nœud 9 de température finale du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique à Eau Glacée : Température Finale du Nœud 9</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Heat Gain Energy</source>
-        <translation>Énergie de Gain Thermique du Réservoir de Stockage Thermique à Eau Glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Énergie de Gain de Chaleur</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Heat Gain Rate</source>
-        <translation>Taux de gain thermique du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Débit de Gain de Chaleur</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique côté source du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Énergie de Transfert Thermique du Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du côté source du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique à Eau Glacée: Débit de Transfert de Chaleur Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée du côté source du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température d'Entrée Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Mass Flow Rate</source>
-        <translation>Débit massique du côté source du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Débit Massique du Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Outlet Temperature</source>
-        <translation>Température de sortie côté source du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique à Eau Glacée: Température de Sortie Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature</source>
-        <translation>Température du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 1</source>
-        <translation>Nœud 1 de température du réservoir de stockage thermique d&apos;eau refroidie</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température du Nœud 1</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 10</source>
-        <translation>Nœud de température du réservoir de stockage thermique à eau glacée 10</translation>
+        <translation>Réservoir de Stockage Thermique Eau Glacée : Température du Nœud 10</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 11</source>
-        <translation>Nœud de température 11 du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Nœud 11</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 12</source>
-        <translation>Nœud de température du réservoir de stockage thermique d&apos;eau glacée 12</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Nœud 12</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 2</source>
-        <translation>Nœud de Température du Réservoir de Stockage Thermique à Eau Glacée 2</translation>
+        <translation>Réservoir de Stockage Thermique à Eau Glacée : Température Nœud 2</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 3</source>
-        <translation>Nœud 3 de température du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température Nœud 3</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 4</source>
-        <translation>Nœud 4 de température du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de stockage thermique d'eau glacée : Température nœud 4</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 5</source>
-        <translation>Nœud de Température du Réservoir de Stockage Thermique d&apos;Eau Glacée 5</translation>
+        <translation>Réservoir de Stockage Thermique Eau Glacée : Température Nœud 5</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 6</source>
-        <translation>Nœud 6 de la température du réservoir de stockage thermique d&apos;eau refroidie</translation>
+        <translation>Réservoir de Stockage Thermique en Eau Glacée : Température Nœud 6</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 7</source>
-        <translation>Nœud Température du Réservoir de Stockage Thermique à Eau Glacée 7</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Nœud 7</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 8</source>
-        <translation>Nœud de Température du Réservoir de Stockage Thermique à Eau Refroidie 8</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Nœud 8</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 9</source>
-        <translation>Nœud de Température du Réservoir de Stockage Thermique à Eau Glacée 9</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie: Température Nœud 9</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du côté utilisation du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique en Eau Glacée: Énergie de Transfert Thermique du Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique du côté utilisation du réservoir de stockage thermique d&apos;eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Refroidie: Débit Thermique du Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée côté utilisation du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique Eau Glacée : Température Entrée Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Mass Flow Rate</source>
-        <translation>Débit massique du côté utilisation du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Débit Massique du Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Outlet Temperature</source>
-        <translation>Température de sortie du côté utilisation du réservoir de stockage thermique à eau glacée</translation>
+        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température de Sortie Côté Utilisation</translation>
     </message>
     <message>
         <source>Chiller Basin Heater Electricity Energy</source>
-        <translation>Énergie Électrique du Radiateur du Bassin du Refroidisseur</translation>
+        <translation>Refroidisseur : Énergie Électrique du Réchauffeur de Bassin</translation>
     </message>
     <message>
         <source>Chiller Basin Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du radiateur du bac du refroidisseur</translation>
+        <translation>Refroidisseur: Puissance Électrique du Chauffage du Bac</translation>
     </message>
     <message>
         <source>Chiller COP</source>
-        <translation>Chiller COP</translation>
+        <translation>Refroidisseur: COP</translation>
     </message>
     <message>
         <source>Chiller Capacity Temperature Modifier Multiplier</source>
-        <translation>Multiplicateur du modificateur de température de la capacité du refroidisseur</translation>
+        <translation>Refroidisseur : Multiplicateur de Correction de Capacité en Fonction de la Température</translation>
     </message>
     <message>
         <source>Chiller Condenser Fan Electricity Energy</source>
-        <translation>Consommation électrique du ventilateur du condenseur du refroidisseur</translation>
+        <translation>Refroidisseur : Énergie électrique du ventilateur du condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Fan Electricity Rate</source>
-        <translation>Débit d&apos;électricité du ventilateur condenseur du refroidisseur</translation>
+        <translation>Refroidisseur : Puissance Électrique de la Ventilation du Condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Heat Transfer Energy</source>
-        <translation>Énergie de Transfert de Chaleur du Condenseur du Refroidisseur</translation>
+        <translation>Refroidisseur: Énergie de Transfert de Chaleur au Condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Heat Transfer Rate</source>
-        <translation>Taux de transfert de chaleur du condenseur du refroidisseur</translation>
+        <translation>Refroidisseur : Taux de transfert de chaleur du condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Inlet Temperature</source>
-        <translation>Température d&apos;entrée du condenseur du refroidisseur</translation>
+        <translation>Refroidisseur: Température d'entrée du condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Mass Flow Rate</source>
-        <translation>Débit massique du condenseur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit massique du condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Outlet Temperature</source>
-        <translation>Température de sortie du condenseur du refroidisseur</translation>
+        <translation>Refroidisseur: Température de Sortie du Condenseur</translation>
     </message>
     <message>
         <source>Chiller Cycling Ratio</source>
-        <translation>Rapport de cyclage du refroidisseur</translation>
+        <translation>Refroidisseur: Rapport de Cycle</translation>
     </message>
     <message>
         <source>Chiller EIR Part Load Modifier Multiplier</source>
-        <translation>Multiplicateur du modificateur de charge partielle du EIR du refroidisseur</translation>
+        <translation>Refroidisseur: Multiplicateur du Modificateur EIR en Fonction de la Charge Partielle</translation>
     </message>
     <message>
         <source>Chiller EIR Temperature Modifier Multiplier</source>
-        <translation>Multiplicateur de modification de température du rendement énergétique du refroidisseur</translation>
+        <translation>Refroidisseur : Multiplicateur de Modification EIR en Fonction de la Température</translation>
     </message>
     <message>
         <source>Chiller Effective Heat Rejection Temperature</source>
-        <translation>Température efficace de rejet de chaleur du refroidisseur</translation>
+        <translation>Refroidisseur: Température Effective de Rejet de Chaleur</translation>
     </message>
     <message>
         <source>Chiller Electricity Energy</source>
-        <translation>Énergie électrique du refroidisseur</translation>
+        <translation>Refroidisseur: Énergie Électrique</translation>
     </message>
     <message>
         <source>Chiller Electricity Rate</source>
-        <translation>Tarif d&apos;électricité du refroidisseur</translation>
+        <translation>Refroidisseur: Puissance Électrique</translation>
     </message>
     <message>
         <source>Chiller Evaporative Condenser Mains Supply Water Volume</source>
-        <translation>Volume d&apos;eau d&apos;apport principal du condenseur évaporatif du refroidisseur</translation>
+        <translation>Refroidisseur: Volume d'Eau d'Appoint du Condenseur à Refroidissement Évaporatif</translation>
     </message>
     <message>
         <source>Chiller Evaporative Condenser Water Volume</source>
-        <translation>Volume d&apos;eau du condenseur évaporatif du refroidisseur</translation>
+        <translation>Refroidisseur: Volume d'eau du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Chiller Evaporator Cooling Energy</source>
-        <translation>Énergie de refroidissement de l&apos;évaporateur du refroidisseur</translation>
+        <translation>Refroidisseur: Énergie de Refroidissement de l'Évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Cooling Rate</source>
-        <translation>Taux de refroidissement de l&apos;évaporateur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit de refroidissement à l'évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Inlet Temperature</source>
-        <translation>Température d&apos;entrée de l&apos;évaporateur du refroidisseur</translation>
+        <translation>Refroidisseur : Température d'Entrée de l'Évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;évaporateur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit massique de l'évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Outlet Temperature</source>
-        <translation>Température de sortie de l&apos;évaporateur du refroidisseur</translation>
+        <translation>Refroidisseur : Température de Sortie de l'Évaporateur</translation>
     </message>
     <message>
         <source>Chiller False Load Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur à faux charge du refroidisseur</translation>
+        <translation>Refroidisseur : Énergie de transfert de chaleur de charge fictive</translation>
     </message>
     <message>
         <source>Chiller False Load Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de charge fictive du refroidisseur</translation>
+        <translation>Refroidisseur: Débit de transfert de chaleur au faux régime</translation>
     </message>
     <message>
         <source>Chiller Heat Recovery Inlet Temperature</source>
-        <translation>Température d&apos;entrée de récupération de chaleur du refroidisseur</translation>
+        <translation>Refroidisseur: Température d'Entrée Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Chiller Heat Recovery Mass Flow Rate</source>
-        <translation>Débit massique de récupération de chaleur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit massique de récupération de chaleur</translation>
     </message>
     <message>
         <source>Chiller Heat Recovery Outlet Temperature</source>
-        <translation>Température de sortie de récupération de chaleur du refroidisseur</translation>
+        <translation>Refroidisseur : Température de Sortie de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Chiller Hot Water Mass Flow Rate</source>
-        <translation>Débit massique d&apos;eau chaude du refroidisseur</translation>
+        <translation>Refroidisseur: Débit massique d'eau chaude</translation>
     </message>
     <message>
         <source>Chiller Part Load Ratio</source>
-        <translation>Ratio de charge partielle du refroidisseur</translation>
+        <translation>Refroidisseur : Rapport de Charge Partielle</translation>
     </message>
     <message>
         <source>Chiller Part-Load Ratio</source>
-        <translation>Taux de Charge Partielle du Refroidisseur</translation>
+        <translation>Refroidisseur: Ratio de Charge Partielle</translation>
     </message>
     <message>
         <source>Chiller Source Hot Water Energy</source>
-        <translation>Énergie d&apos;eau chaude source du refroidisseur</translation>
+        <translation>Refroidisseur : Énergie de l'eau chaude source</translation>
     </message>
     <message>
         <source>Chiller Source Hot Water Rate</source>
-        <translation>Débit d&apos;eau chaude source du refroidisseur</translation>
+        <translation>Refroidisseur: Débit d'eau chaude source</translation>
     </message>
     <message>
         <source>Chiller Source Steam Energy</source>
-        <translation>Énergie de la vapeur source du refroidisseur</translation>
+        <translation>Refroidisseur : Énergie de la vapeur source</translation>
     </message>
     <message>
         <source>Chiller Source Steam Rate</source>
-        <translation>Débit de vapeur source du refroidisseur</translation>
+        <translation>Refroidisseur: Débit de vapeur source</translation>
     </message>
     <message>
         <source>Chiller Steam Heat Loss Rate</source>
-        <translation>Débit de perte de chaleur à la vapeur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit de perte thermique vapeur</translation>
     </message>
     <message>
         <source>Chiller Steam Mass Flow Rate</source>
-        <translation>Débit massique de vapeur du refroidisseur</translation>
+        <translation>Refroidisseur: Débit Massique de Vapeur</translation>
     </message>
     <message>
         <source>Chiller Total Recovered Heat Energy</source>
-        <translation>Chiller Énergie Calorifique Totale Récupérée</translation>
+        <translation>Refroidisseur: Énergie Totale de Chaleur Récupérée</translation>
     </message>
     <message>
         <source>Chiller Total Recovered Heat Rate</source>
-        <translation>Taux total de chaleur récupérée du refroidisseur</translation>
+        <translation>Refroidisseur: Débit de chaleur récupérée totale</translation>
     </message>
     <message>
         <source>Cooling Coil Air Inlet Humidity Ratio</source>
-        <translation>Ratio d&apos;humidité à l&apos;entrée de l&apos;air de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Humidité Relative de l'Air Entrant</translation>
     </message>
     <message>
         <source>Cooling Coil Air Inlet Temperature</source>
-        <translation>Température d&apos;entrée d&apos;air de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Température de l'Air à l'Entrée</translation>
     </message>
     <message>
         <source>Cooling Coil Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air de la serpentine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Débit Massique d'Air</translation>
     </message>
     <message>
         <source>Cooling Coil Air Outlet Humidity Ratio</source>
-        <translation>Taux d&apos;humidité à la sortie air de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Humidité Spécifique de l'Air à la Sortie</translation>
     </message>
     <message>
         <source>Cooling Coil Air Outlet Temperature</source>
-        <translation>Température de sortie d&apos;air de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Température de Sortie d'Air</translation>
     </message>
     <message>
         <source>Cooling Coil Basin Heater Electricity Energy</source>
-        <translation>Énergie électrique du chauffage du bac du serpentin de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Énergie Électrique du Réchauffeur de Bac</translation>
     </message>
     <message>
         <source>Cooling Coil Basin Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du réchauffeur de bassin de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Puissance Électrique du Réchauffeur de Bac</translation>
     </message>
     <message>
         <source>Cooling Coil Condensate Volume</source>
-        <translation>Volume de condensat de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Volume de Condensat</translation>
     </message>
     <message>
         <source>Cooling Coil Condensate Volume Flow Rate</source>
-        <translation>Débit volumique de condensat de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Débit Volumique du Condensat</translation>
     </message>
     <message>
         <source>Cooling Coil Condenser Inlet Temperature</source>
-        <translation>Température d&apos;entrée du condenseur de la bobine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Température d'Entrée du Condenseur</translation>
     </message>
     <message>
         <source>Cooling Coil Crankcase Heater Electricity Energy</source>
-        <translation>Énergie électrique du réchauffeur de carter du serpentin de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Énergie Électrique du Réchauffeur de Carter</translation>
     </message>
     <message>
         <source>Cooling Coil Crankcase Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du réchauffeur de carter de la bobine de refroidissement</translation>
+        <translation>Serpentin de refroidissement : Puissance électrique du réchauffeur de carter</translation>
     </message>
     <message>
         <source>Cooling Coil Electricity Energy</source>
-        <translation>Énergie électrique de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Énergie Électrique</translation>
     </message>
     <message>
         <source>Cooling Coil Electricity Rate</source>
-        <translation>Taux d&apos;électricité de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Puissance Électrique Consommée</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Mains Supply Water Volume</source>
-        <translation>Volume d&apos;eau d&apos;alimentation principal du condenseur évaporatif de la bobine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Volume d'Eau d'Appoint du Condenseur à Refroidissement Évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Mains Water Volume</source>
-        <translation>Débit d&apos;eau de refroidissement du condenseur évaporatif de la batterie de refroidissement</translation>
+        <translation>Serpentin de refroidissement : Volume d'eau de réseau du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Pump Electricity Energy</source>
-        <translation>Énergie électrique de la pompe du condenseur évaporatif de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Énergie Électrique de la Pompe du Condenseur Évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Pump Electricity Rate</source>
-        <translation>Débit d&apos;électricité de la pompe du condenseur évaporatif de la serpentine de refroidissement</translation>
+        <translation>Serpentin de refroidissement : Puissance électrique de la pompe du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Water Volume</source>
-        <translation>Volume d&apos;eau du condenseur évaporatif de la serpentine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Volume d'Eau du Condenseur Évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de la bobine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Énergie de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Cooling Coil Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de la bobine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Débit de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Cooling Coil Neighboring Speed Levels Ratio</source>
-        <translation>Rapport des niveaux de vitesse voisins de la serpentine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Rapport des Niveaux de Vitesse Adjacents</translation>
     </message>
     <message>
         <source>Cooling Coil Part Load Ratio</source>
-        <translation>Taux de charge partielle de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Rapport de Charge Partielle</translation>
     </message>
     <message>
         <source>Cooling Coil Runtime Fraction</source>
-        <translation>Fraction de fonctionnement de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Fraction de Temps de Fonctionnement</translation>
     </message>
     <message>
         <source>Cooling Coil Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de la bobine de refroidissement</translation>
+        <translation>Batterie de Refroidissement: Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Cooling Coil Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de la serpentine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Puissance de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Cooling Coil Source Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur côté source de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Énergie de Transfert de Chaleur Côté Source</translation>
     </message>
     <message>
         <source>Cooling Coil Source Side Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur côté source de la serpentine de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Débit de Transfert de Chaleur côté Source</translation>
     </message>
     <message>
         <source>Cooling Coil Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale de la batterie de refroidissement</translation>
+        <translation>Serpentin de refroidissement: Énergie de refroidissement totale</translation>
     </message>
     <message>
         <source>Cooling Coil Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de la batterie de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Puissance de Refroidissement Totale</translation>
     </message>
     <message>
         <source>Cooling Coil Upper Speed Level</source>
-        <translation>Niveau de Vitesse Supérieur de la Batterie de Refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Niveau de Vitesse Supérieur</translation>
     </message>
     <message>
         <source>Cooling Coil Wetted Area Fraction</source>
-        <translation>Fraction de surface mouillée de la serpentin de refroidissement</translation>
+        <translation>Serpentin de Refroidissement: Fraction de Surface Mouillée</translation>
     </message>
     <message>
         <source>Cooling Panel Convective Cooling Energy</source>
-        <translation>Énergie de refroidissement par convection du panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant : Énergie de Refroidissement Convective</translation>
     </message>
     <message>
         <source>Cooling Panel Convective Cooling Rate</source>
-        <translation>Débit de refroidissement par convection du panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant : Débit de Refroidissement Convectif</translation>
     </message>
     <message>
         <source>Cooling Panel Radiant Cooling Energy</source>
-        <translation>Énergie de refroidissement radiant du panneau de refroidissement</translation>
+        <translation>Panneau Refroidissant: Énergie de Refroidissement Radiant</translation>
     </message>
     <message>
         <source>Cooling Panel Radiant Cooling Rate</source>
-        <translation>Débit de refroidissement radiant du panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant : Puissance de Refroidissement Radiant</translation>
     </message>
     <message>
         <source>Cooling Panel Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant: Énergie de Refroidissement Totale</translation>
     </message>
     <message>
         <source>Cooling Panel Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du panneau de refroidissement</translation>
+        <translation>Panneau Refroidissant: Puissance Refroidissante Totale</translation>
     </message>
     <message>
         <source>Cooling Panel Total System Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du système de panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant : Énergie Totale de Refroidissement du Système</translation>
     </message>
     <message>
         <source>Cooling Panel Total System Cooling Rate</source>
-        <translation>Débit de refroidissement total du système de panneau de refroidissement</translation>
+        <translation>Panneau de Refroidissement Radiant : Puissance de Refroidissement Totale du Système</translation>
     </message>
     <message>
         <source>Cooling Tower Air Flow Rate Ratio</source>
-        <translation>Rapport du débit d&apos;air de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Rapport du débit d'air</translation>
     </message>
     <message>
         <source>Cooling Tower Basin Heater Electric Energy</source>
-        <translation>Énergie électrique du réchauffeur de bac de tour de refroidissement</translation>
+        <translation>Refroidisseur : Énergie Électrique du Réchauffeur de Bac</translation>
     </message>
     <message>
         <source>Cooling Tower Basin Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du réchauffeur du bassin de la tour de refroidissement</translation>
+        <translation>Refroidisseur évaporatif : Consommation électrique du réchauffeur de bac</translation>
     </message>
     <message>
         <source>Cooling Tower Bypass Fraction</source>
-        <translation>Fraction de contournement de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Fraction contournée</translation>
     </message>
     <message>
         <source>Cooling Tower Fan Cycling Ratio</source>
-        <translation>Ratio de Cycle du Ventilateur de Refroidisseur</translation>
+        <translation>Tour de Refroidissement: Rapport de Cyclage du Ventilateur</translation>
     </message>
     <message>
         <source>Cooling Tower Fan Electricity Energy</source>
-        <translation>Énergie électrique du ventilateur de la tour de refroidissement</translation>
+        <translation>Tour de Refroidissement: Énergie Électrique des Ventilateurs</translation>
     </message>
     <message>
         <source>Cooling Tower Fan Electricity Rate</source>
-        <translation>Débit d&apos;électricité du ventilateur de la tour de refroidissement</translation>
+        <translation>Cooling Tower: Puissance électrique du ventilateur</translation>
     </message>
     <message>
         <source>Cooling Tower Fan Part Load Ratio</source>
-        <translation>Ratio de charge partielle du ventilateur de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Rapport de charge partielle du ventilateur</translation>
     </message>
     <message>
         <source>Cooling Tower Fan Speed Level</source>
-        <translation>Niveau de vitesse du ventilateur de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement: Niveau de vitesse du ventilateur</translation>
     </message>
     <message>
         <source>Cooling Tower Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de la tour de refroidissement</translation>
+        <translation>Tour de Refroidissement: Débit de Transfert Thermique</translation>
     </message>
     <message>
         <source>Cooling Tower Inlet Temperature</source>
-        <translation>Température d&apos;entrée de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Température à l'entrée</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Mains Water Volume</source>
-        <translation>Volume d&apos;eau d&apos;appoint de refroidisseur en provenance du réseau principal</translation>
+        <translation>Tour de Refroidissement : Volume d'Eau d'Appoint Réseau</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Water Volume</source>
-        <translation>Volume d&apos;eau d&apos;appoint de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Volume d'eau d'appoint</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Water Volume Flow Rate</source>
-        <translation>Débit volumique d&apos;appoint en eau de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement: Débit volumique d'eau d'appoint</translation>
     </message>
     <message>
         <source>Cooling Tower Mass Flow Rate</source>
-        <translation>Débit massique de la tour de refroidissement</translation>
+        <translation>Tour de refroidissement : Débit massique</translation>
     </message>
     <message>
         <source>Cooling Tower Operating Cells Count</source>
-        <translation>Nombre de cellules de la tour de refroidissement en fonctionnement</translation>
+        <translation>Tour de refroidissement : Nombre de cellules en fonctionnement</translation>
     </message>
     <message>
         <source>Cooling Tower Outlet Temperature</source>
-        <translation>Température de sortie de la tour de refroidissement</translation>
+        <translation>Tour de Refroidissement: Température de Sortie</translation>
     </message>
     <message>
         <source>Daylighting Lighting Power Multiplier</source>
-        <translation>Multiplicateur de Puissance d&apos;Éclairage en Lumière du Jour</translation>
+        <translation>Éclairage naturel : Multiplicateur de puissance d'éclairage</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Daylight Illuminance Setpoint Exceeded Time</source>
-        <translation>Temps de dépassement du point de consigne d&apos;éclairement lumineux du point de référence d&apos;éclairage naturel 1</translation>
+        <translation>Éclairage naturel : Durée de dépassement du seuil d'éclairement lumineux du point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Glare Index</source>
-        <translation>Indice d&apos;éblouissement du point de référence d&apos;éclairage naturel 1</translation>
+        <translation>Éclairage naturel : Indice d'éblouissement au point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Glare Index Setpoint Exceeded Time</source>
-        <translation>Temps de dépassement du point de consigne de l&apos;indice d&apos;éblouissement du point de référence d&apos;éclairage naturel 1</translation>
+        <translation>Éclairage naturel : Temps de dépassement du seuil d'indice d'éblouissement au point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Illuminance</source>
-        <translation>Illuminance au point de référence d&apos;éclairage naturel 1</translation>
+        <translation>Éclairage naturel : Illuminance au point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Daylight Illuminance Setpoint Exceeded Time</source>
-        <translation>Temps de dépassement du point de consigne d&apos;éclairement naturel du point de référence d&apos;éclairage naturel 2</translation>
+        <translation>Éclairage naturel: Point de référence 2 Dépassement de l'éclairement lumineux de consigne en lumière du jour Temps</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Glare Index</source>
-        <translation>Indice d&apos;éblouissement au point de référence de l&apos;éclairage naturel 2</translation>
+        <translation>Éclairage naturel: Point de référence 2 Indice d'éblouissement</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Glare Index Setpoint Exceeded Time</source>
-        <translation>Indice d&apos;éblouissement du point de référence d&apos;éclairage naturel 2 - Temps de dépassement du point de consigne</translation>
+        <translation>Éclairage naturel : Temps de dépassement du point de référence 2 indice d'éblouissement consigne</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Illuminance</source>
-        <translation>Point de référence d&apos;éclairage naturel 2 - Éclairement</translation>
+        <translation>Éclairage naturel : Illuminance Point de référence 2</translation>
     </message>
     <message>
         <source>Debug Plant Last Simulated Loop Side</source>
-        <translation>Déboguer Côté Boucle Dernière Simulation de la Centrale</translation>
+        <translation>Debug : Dernier Côté de Boucle Simulé de la Centrale</translation>
     </message>
     <message>
         <source>Debug Plant Loop Bypass Fraction</source>
-        <translation>Fraction de contournement de la boucle de fluide thermique de débogage</translation>
+        <translation>Debug: Fraction de Contournement de la Boucle de Circulation</translation>
     </message>
     <message>
         <source>District Cooling Water Energy</source>
-        <translation>Énergie de l&apos;eau de refroidissement urbain</translation>
+        <translation>Eau de Refroidissement Urbain : Énergie</translation>
     </message>
     <message>
         <source>District Cooling Water Inlet Temperature</source>
-        <translation>Température d&apos;entrée de l&apos;eau de refroidissement urbain</translation>
+        <translation>Eau de Refroidissement à Distance: Température d'Entrée</translation>
     </message>
     <message>
         <source>District Cooling Water Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;eau de refroidissement urbain</translation>
+        <translation>Eau Refroidie en Réseau de Froid : Débit Massique</translation>
     </message>
     <message>
         <source>District Cooling Water Outlet Temperature</source>
-        <translation>Température de sortie d&apos;eau de refroidissement urbain</translation>
+        <translation>Eau Refroidissement Urbain: Température de Sortie</translation>
     </message>
     <message>
         <source>District Cooling Water Rate</source>
-        <translation>Débit d&apos;eau de refroidissement urbain</translation>
+        <translation>Eau Refroidie Réseau: Puissance</translation>
     </message>
     <message>
         <source>District Heating Water Energy</source>
-        <translation>Énergie de l&apos;eau de chauffage urbain</translation>
+        <translation>Eau de Chauffage Urbain: Énergie</translation>
     </message>
     <message>
         <source>District Heating Water Inlet Temperature</source>
-        <translation>Température d&apos;entrée de l&apos;eau de chauffage urbain</translation>
+        <translation>Eau Chauffage Urbain : Température Entrée</translation>
     </message>
     <message>
         <source>District Heating Water Mass Flow Rate</source>
-        <translation>Débit massique d&apos;eau de chauffage urbain</translation>
+        <translation>Chauffage Urbain Eau: Débit Massique</translation>
     </message>
     <message>
         <source>District Heating Water Outlet Temperature</source>
-        <translation>Température de sortie de l&apos;eau de chauffage urbain</translation>
+        <translation>Eau de Chauffage Urbain : Température de Sortie</translation>
     </message>
     <message>
         <source>District Heating Water Rate</source>
-        <translation>Taux d&apos;eau de chauffage urbain</translation>
+        <translation>Eau Chaude Réseau: Débit</translation>
     </message>
     <message>
         <source>Electric Load Center Produced Electricity Energy</source>
-        <translation>Énergie Électrique Produite par le Centre de Charge Électrique</translation>
+        <translation>Centre de Charge Électrique : Énergie Électrique Produite</translation>
     </message>
     <message>
         <source>Electric Load Center Produced Electricity Rate</source>
-        <translation>Taux d&apos;électricité produite du centre de charge électrique</translation>
+        <translation>Centre de Charge Électrique : Débit d'Électricité Produite</translation>
     </message>
     <message>
         <source>Electric Load Center Produced Thermal Energy</source>
-        <translation>Énergie thermique produite par le centre de charge électrique</translation>
+        <translation>Centre de Distribution Électrique : Énergie Thermique Produite</translation>
     </message>
     <message>
         <source>Electric Load Center Produced Thermal Rate</source>
-        <translation>Taux thermique produit du centre de charge électrique</translation>
+        <translation>Centre de Production Électrique: Débit Thermique Produit</translation>
     </message>
     <message>
         <source>Electric Load Center Requested Electricity Rate</source>
-        <translation>Centre de Charge Électrique Taux d&apos;Électricité Demandé</translation>
+        <translation>Centre de Distribution Électrique : Puissance Électrique Demandée</translation>
     </message>
     <message>
         <source>Evaporative Cooler Dewpoint Bound Status</source>
-        <translation>Statut de limite du point de rosée du refroidisseur évaporatif</translation>
+        <translation>Refroidisseur Évaporatif : État de Limitation par Point de Rosée</translation>
     </message>
     <message>
         <source>Evaporative Cooler Electricity Energy</source>
-        <translation>Énergie électrique du refroidisseur par évaporation</translation>
+        <translation>Refroidisseur Évaporatif: Énergie Électrique</translation>
     </message>
     <message>
         <source>Evaporative Cooler Electricity Rate</source>
-        <translation>Taux d&apos;électricité du refroidisseur par évaporation</translation>
+        <translation>Refroidisseur Évaporatif: Puissance Électrique</translation>
     </message>
     <message>
         <source>Evaporative Cooler Mains Water Volume</source>
-        <translation>Volume d&apos;eau réseau du refroidisseur évaporatif</translation>
+        <translation>Refroidisseur Évaporatif: Volume d'Eau de Réseau</translation>
     </message>
     <message>
         <source>Evaporative Cooler Operating Mode Satus</source>
-        <translation>Mode de fonctionnement du refroidisseur évaporatif - Statut</translation>
+        <translation>Refroidisseur Évaporatif : Statut du Mode de Fonctionnement</translation>
     </message>
     <message>
         <source>Evaporative Cooler Part Load Ratio</source>
-        <translation>Rapport de charge partielle du refroidisseur par évaporation</translation>
+        <translation>Refroidisseur Évaporatif: Rapport de Charge Partielle</translation>
     </message>
     <message>
         <source>Evaporative Cooler Stage Effectiveness</source>
-        <translation>Efficacité de l&apos;étage du refroidisseur évaporatif</translation>
+        <translation>Refroidisseur Évaporatif : Efficacité d'étage</translation>
     </message>
     <message>
         <source>Evaporative Cooler Total Stage Effectiveness</source>
-        <translation>Efficacité Totale du Refroidisseur Évaporatif par Étage</translation>
+        <translation>Refroidisseur Évaporatif : Efficacité Globale de l'Étage</translation>
     </message>
     <message>
         <source>Evaporative Cooler Water Volume</source>
-        <translation>Volume d&apos;eau du refroidisseur par évaporation</translation>
+        <translation>Refroidisseur Évaporatif : Volume d'eau</translation>
     </message>
     <message>
         <source>Fan Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air du ventilateur</translation>
+        <translation>Ventilateur : Débit massique d'air</translation>
     </message>
     <message>
         <source>Fan Balanced Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air équilibré du ventilateur</translation>
+        <translation>Ventilateur: Débit Massique d'Air Équilibré</translation>
     </message>
     <message>
         <source>Fan Electricity Energy</source>
-        <translation>Énergie électrique du ventilateur</translation>
+        <translation>Ventilateur : Énergie électrique</translation>
     </message>
     <message>
         <source>Fan Electricity Rate</source>
-        <translation>Débit électrique du ventilateur</translation>
+        <translation>Ventilateur : Puissance Électrique</translation>
     </message>
     <message>
         <source>Fan Heat Gain to Air</source>
-        <translation>Gain de chaleur du ventilateur à l&apos;air</translation>
+        <translation>Ventilateur: Gain de Chaleur vers l'Air</translation>
     </message>
     <message>
         <source>Fan Rise in Air Temperature</source>
-        <translation>Augmentation de température de l&apos;air du ventilateur</translation>
+        <translation>Ventilateur : Élévation de la température de l'air</translation>
     </message>
     <message>
         <source>Fan Runtime Fraction</source>
-        <translation>Fraction de Fonctionnement du Ventilateur</translation>
+        <translation>Ventilateur : Fraction de Fonctionnement</translation>
     </message>
     <message>
         <source>Fan Unbalanced Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air déséquilibré du ventilateur</translation>
+        <translation>Ventilateur: Débit massique d'air déséquilibré</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Effectiveness</source>
-        <translation>Efficacité de l&apos;échangeur thermique à fluide</translation>
+        <translation>Échangeur de chaleur à fluide: Efficacité</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur de l&apos;échangeur thermique à fluide</translation>
+        <translation>Échangeur de chaleur fluide-fluide : Énergie transférée par échange thermique</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur de l&apos;échangeur de chaleur à fluide</translation>
+        <translation>Échangeur de Chaleur Fluide : Débit de Transfert Thermique</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Demand Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée du côté demande de la boucle d&apos;échangeur thermique fluide</translation>
+        <translation>Échangeur de chaleur Fluide : Température d'entrée côté demande de boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Demand Side Mass Flow Rate</source>
-        <translation>Débit Massique du Côté Demande de la Boucle d&apos;Échangeur de Chaleur à Fluide</translation>
+        <translation>Échangeur de Chaleur Fluide: Débit Massique du Côté Demande de la Boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Demand Side Outlet Temperature</source>
-        <translation>Température de sortie du côté demande de la boucle échangeur de chaleur à fluide</translation>
+        <translation>Échangeur de Chaleur Fluide: Température de Sortie Côté Demande de Boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Supply Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée du côté alimentation de la boucle d&apos;échangeur de chaleur à fluide</translation>
+        <translation>Échangeur de chaleur à fluide : Température d'entrée du côté alimentation boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Supply Side Mass Flow Rate</source>
-        <translation>Débit massique du côté alimentation de la boucle d&apos;échangeur de chaleur à fluide</translation>
+        <translation>Échangeur de Chaleur Fluide: Débit Massique du Côté Circuit d'Alimentation</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Supply Side Outlet Temperature</source>
-        <translation>Température de sortie du côté alimentation de la boucle d&apos;échangeur thermique fluide</translation>
+        <translation>Échangeur de Chaleur Fluide : Température de Sortie Côté Alimentation de la Boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Operation Status</source>
-        <translation>Statut de fonctionnement de l&apos;échangeur thermique à fluide</translation>
+        <translation>Échangeur de Chaleur Fluide : État de Fonctionnement</translation>
     </message>
     <message>
         <source>Generator Ancillary Electricity Energy</source>
-        <translation>Énergie électrique auxiliaire du générateur</translation>
+        <translation>Générateur : Énergie électrique auxiliaire</translation>
     </message>
     <message>
         <source>Generator Ancillary Electricity Rate</source>
-        <translation>Taux d&apos;électricité auxiliaire du générateur</translation>
+        <translation>Générateur : Puissance électrique auxiliaire</translation>
     </message>
     <message>
         <source>Generator Exhaust Air Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;air d&apos;échappement du générateur</translation>
+        <translation>Générateur : Débit massique de l'air d'échappement</translation>
     </message>
     <message>
         <source>Generator Exhaust Air Temperature</source>
-        <translation>Température de l&apos;air d&apos;échappement du générateur</translation>
+        <translation>Générateur : Température de l'Air d'Échappement</translation>
     </message>
     <message>
         <source>Generator Fuel HHV Basis Energy</source>
-        <translation>Énergie de Base PCS du Combustible du Générateur</translation>
+        <translation>Générateur : Énergie sur base PCI du carburant</translation>
     </message>
     <message>
         <source>Generator Fuel HHV Basis Rate</source>
-        <translation>Taux de base du PCI du carburant du générateur</translation>
+        <translation>Générateur : Débit basé sur PCS du combustible</translation>
     </message>
     <message>
         <source>Generator LHV Basis Electric Efficiency</source>
-        <translation>Rendement électrique sur la base du PCI du générateur</translation>
+        <translation>Générateur : Rendement Électrique sur Base PCI</translation>
     </message>
     <message>
         <source>Generator NaturalGas HHV Basis Energy</source>
-        <translation>Énergie du Générateur Gaz Naturel sur Base PCS</translation>
+        <translation>Générateur: Énergie sur Base du PCS Gaz Naturel</translation>
     </message>
     <message>
         <source>Generator NaturalGas HHV Basis Rate</source>
-        <translation>Taux de base du générateur en gaz naturel (PCS)</translation>
+        <translation>Générateur : Débit sur la base du PCS Gaz Naturel</translation>
     </message>
     <message>
         <source>Generator NaturalGas Mass Flow Rate</source>
-        <translation>Débit massique de gaz naturel du générateur</translation>
+        <translation>Générateur : Débit massique gaz naturel</translation>
     </message>
     <message>
         <source>Generator Produced AC Electricity Energy</source>
-        <translation>Énergie électrique AC produite par le générateur</translation>
+        <translation>Générateur : Énergie Électrique AC Produite</translation>
     </message>
     <message>
         <source>Generator Produced AC Electricity Rate</source>
-        <translation>Taux d&apos;électricité CA produite par le générateur</translation>
+        <translation>Générateur : Puissance électrique AC produite</translation>
     </message>
     <message>
         <source>Generator Propane HHV Basis Energy</source>
-        <translation>Énergie du Générateur sur la base du PCS du Propane</translation>
+        <translation>Générateur: Énergie sur la base du PCS du Propane</translation>
     </message>
     <message>
         <source>Generator Propane HHV Basis Rate</source>
-        <translation>Débit de base du PCS du générateur au propane</translation>
+        <translation>Générateur : Débit sur base PCI Propane</translation>
     </message>
     <message>
         <source>Generator Propane Mass Flow Rate</source>
-        <translation>Débit massique de propane du générateur</translation>
+        <translation>Générateur : Débit massique de propane</translation>
     </message>
     <message>
         <source>Generator Standby Electric Energy</source>
-        <translation>Énergie Électrique de Secours du Générateur</translation>
+        <translation>Générateur: Énergie Électrique en Attente</translation>
     </message>
     <message>
         <source>Generator Standby Electricity Rate</source>
-        <translation>Taux d&apos;électricité en attente du générateur</translation>
+        <translation>Générateur : Puissance Électrique en Veille</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Average Borehole Temperature</source>
-        <translation>Température moyenne du forage de l&apos;échangeur géothermique</translation>
+        <translation>Échangeur Thermique Géothermique: Température Moyenne du Forage</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Average Fluid Temperature</source>
-        <translation>Température moyenne du fluide de l&apos;échangeur géothermique</translation>
+        <translation>Échangeur de Chaleur Géothermique: Température Moyenne du Fluide Caloporteur</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Fluid Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du fluide de l&apos;échangeur thermique souterrain</translation>
+        <translation>Échangeur de Chaleur Souterrain : Flux de Chaleur du Fluide</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de l&apos;échangeur géothermique</translation>
+        <translation>Échangeur Géothermique: Puissance de Transfert de Chaleur</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Inlet Temperature</source>
-        <translation>Température d&apos;entrée de l&apos;échangeur de chaleur géothermique</translation>
+        <translation>Échangeur Géothermique: Température d'Entrée</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;échangeur thermique souterrain</translation>
+        <translation>Échangeur Géothermique : Débit Massique</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Outlet Temperature</source>
-        <translation>Température de sortie de l&apos;échangeur géothermique</translation>
+        <translation>Échangeur Géothermique: Température de Sortie</translation>
     </message>
     <message>
         <source>HVAC System Solver Iteration Count</source>
-        <translation>Nombre d&apos;itérations du solveur du système HVAC</translation>
+        <translation>HVAC: Nombre d'itérations du solveur système</translation>
     </message>
     <message>
         <source>Heat Exchanger Defrost Time Fraction</source>
-        <translation>Fraction de temps de décongélation de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de Chaleur : Fraction de Temps de Dégivrage</translation>
     </message>
     <message>
         <source>Heat Exchanger Electricity Energy</source>
-        <translation>Énergie Électrique de l&apos;Échangeur Thermique</translation>
+        <translation>Échangeur thermique : Énergie électrique</translation>
     </message>
     <message>
         <source>Heat Exchanger Electricity Rate</source>
-        <translation>Puissance électrique de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de chaleur: Puissance électrique</translation>
     </message>
     <message>
         <source>Heat Exchanger Exhaust Air Bypass Mass Flow Rate</source>
-        <translation>Débit massique de contournement de l&apos;air d&apos;extraction de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de Chaleur: Débit Massique de Contournement de l'Air Rejeté</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de l&apos;échangeur thermique</translation>
+        <translation>Échangeur Thermique: Énergie de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de l&apos;échangeur thermique</translation>
+        <translation>Échangeur thermique : Débit de refroidissement latent</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Effectiveness</source>
-        <translation>Efficacité latente de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur thermique: Efficacité latente</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Gain Energy</source>
-        <translation>Énergie de gain latent de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Gain Rate</source>
-        <translation>Taux de gain latent de l&apos;échangeur thermique</translation>
+        <translation>Échangeur thermique: Taux de gain latent</translation>
     </message>
     <message>
         <source>Heat Exchanger Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur: Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Heat Exchanger Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de Chaleur: Puissance de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Heat Exchanger Sensible Effectiveness</source>
-        <translation>Efficacité sensible de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur: Efficacité Sensible</translation>
     </message>
     <message>
         <source>Heat Exchanger Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de chaleur : Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Heat Exchanger Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de Chaleur : Débit de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Heat Exchanger Supply Air Bypass Mass Flow Rate</source>
-        <translation>Débit massique de contournement de l&apos;air soufflé de l&apos;échangeur thermique</translation>
+        <translation>Échangeur de Chaleur: Débit Massique de Contournement de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Heat Exchanger Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur : Énergie de Refroidissement Totale</translation>
     </message>
     <message>
         <source>Heat Exchanger Total Cooling Rate</source>
-        <translation>Taux de refroidissement total de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de chaleur: Puissance frigorifique totale</translation>
     </message>
     <message>
         <source>Heat Exchanger Total Heating Energy</source>
-        <translation>Énergie de chauffage totale de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Heat Exchanger Total Heating Rate</source>
-        <translation>Débit de chauffage total de l&apos;échangeur de chaleur</translation>
+        <translation>Échangeur de Chaleur: Puissance Thermique Totale de Chauffage</translation>
     </message>
     <message>
         <source>Heating Coil Air Heating Energy</source>
-        <translation>Énergie de chauffage de l&apos;air de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie de Chauffage de l'Air</translation>
     </message>
     <message>
         <source>Heating Coil Air Heating Rate</source>
-        <translation>Débit de chauffage de la bobine de chauffage de l&apos;air</translation>
+        <translation>Serpentin de Chauffage : Puissance de Chauffage de l'Air</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Coal Energy</source>
-        <translation>Énergie Auxiliaire du Charbon de la Batterie de Réchauffage</translation>
+        <translation>Batterie de Chauffage: Énergie Auxiliaire du Charbon</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Coal Rate</source>
-        <translation>Débit de charbon auxiliaire de la bobine de chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Charbon Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Diesel Energy</source>
-        <translation>Énergie Diesel Auxiliaire de Serpentin de Chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Diesel Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Diesel Rate</source>
-        <translation>Taux de Diesel Auxiliaire de la Batterie de Chauffage</translation>
+        <translation>Batterie de Chauffage : Débit Diesel Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary FuelOilNo1 Energy</source>
-        <translation>Énergie Combustible Auxiliaire Serpentin de Chauffage Fioul Domestique No1</translation>
+        <translation>Serpentin de Chauffage: Énergie Auxiliaire Fioul Lourd</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary FuelOilNo1 Rate</source>
-        <translation>Débit de Combustible Auxiliaire Serpentin de Chauffage FuelOilNo1</translation>
+        <translation>Serpentin de Chauffage: Débit de Combustible Fioul Lourd N°1</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary FuelOilNo2 Energy</source>
-        <translation>Énergie auxiliaire de la bobine de chauffage - Fioul lourd n°2</translation>
+        <translation>Serpentin de Chauffage : Énergie Auxiliaire Fioul Lourd</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary FuelOilNo2 Rate</source>
-        <translation>Débit de Combustible Auxiliaire Mazout No2 de la Serpentin de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Combustible Diésel Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Gasoline Energy</source>
-        <translation>Énergie Auxiliaire en Essence de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Essence Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Gasoline Rate</source>
-        <translation>Débit de consommation d&apos;essence auxiliaire de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Consommation d'Essence Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary NaturalGas Energy</source>
-        <translation>Énergie Gaz Naturel Auxiliaire de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Énergie Gaz Naturel Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary NaturalGas Rate</source>
-        <translation>Débit de gaz naturel auxiliaire de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage: Débit de Gaz Naturel Auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel1 Energy</source>
-        <translation>Énergie Carburant Auxiliaire 1 de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Auxiliaire OtherFuel1</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel1 Rate</source>
-        <translation>Puissance de Combustible Auxiliaire 1 de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Combustible Auxiliaire Autre1</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel2 Energy</source>
-        <translation>Énergie Auxiliaire Serpentin de Chauffage Carburant Autre2</translation>
+        <translation>Serpentin de Chauffage : Énergie Combustible Auxiliaire Secondaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel2 Rate</source>
-        <translation>Débit de carburant auxiliaire 2 de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit Combustible Auxiliaire 2</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Propane Energy</source>
-        <translation>Énergie Propane Auxiliaire de la Serpentin de Chauffage</translation>
+        <translation>Serpentin de chauffage : Énergie propane auxiliaire</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Propane Rate</source>
-        <translation>Débit de propane auxiliaire de la serpentine de chauffage</translation>
+        <translation>Serpentin de Chauffage: Débit Auxiliaire de Propane</translation>
     </message>
     <message>
         <source>Heating Coil Coal Energy</source>
-        <translation>Énergie Charbon Serpentin de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Énergie Charbon</translation>
     </message>
     <message>
         <source>Heating Coil Coal Rate</source>
-        <translation>Débit de charbon de la batterie de chauffage</translation>
+        <translation>Batterie de Chauffage: Débit de Charbon</translation>
     </message>
     <message>
         <source>Heating Coil Crankcase Heater Electricity Energy</source>
-        <translation>Énergie électrique du réchauffeur de carter du serpentin de chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Électrique du Réchauffeur de Carter</translation>
     </message>
     <message>
         <source>Heating Coil Crankcase Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du réchauffeur de carter de bobine de chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit Électrique du Réchauffeur de Carter</translation>
     </message>
     <message>
         <source>Heating Coil Defrost Electricity Energy</source>
-        <translation>Énergie Électrique du Dégivrage de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Énergie Électrique de Dégivrage</translation>
     </message>
     <message>
         <source>Heating Coil Defrost Electricity Rate</source>
-        <translation>Puissance électrique de dégivrage de la serpentine de chauffage</translation>
+        <translation>Serpentin de chauffage : Puissance électrique de dégivrage</translation>
     </message>
     <message>
         <source>Heating Coil Defrost Gas Energy</source>
-        <translation>Énergie gaz de dégivrage de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Gaz de Dégivrage</translation>
     </message>
     <message>
         <source>Heating Coil Defrost Gas Rate</source>
-        <translation>Débit de gaz de dégivrage de la serpentine de chauffage</translation>
+        <translation>Serpentin de Chauffage: Débit Gazeux en Décongélation</translation>
     </message>
     <message>
         <source>Heating Coil Diesel Energy</source>
-        <translation>Énergie Diesel de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Diesel</translation>
     </message>
     <message>
         <source>Heating Coil Diesel Rate</source>
-        <translation>Taux de Diesel de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Diesel</translation>
     </message>
     <message>
         <source>Heating Coil Electricity Energy</source>
-        <translation>Énergie électrique de la serpentin de chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Électrique</translation>
     </message>
     <message>
         <source>Heating Coil Electricity Rate</source>
-        <translation>Débit électrique de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Puissance Électrique</translation>
     </message>
     <message>
         <source>Heating Coil FuelOilNo1 Energy</source>
-        <translation>Énergie de la Bobine de Chauffage Fioul n°1</translation>
+        <translation>Serpentin de Chauffage : Énergie du Fioul Lourd</translation>
     </message>
     <message>
         <source>Heating Coil FuelOilNo1 Rate</source>
-        <translation>Débit de Serpentin de Chauffage Fioul Domestique</translation>
+        <translation>Serpentin de Chauffage: Débit de Fioul Domestique</translation>
     </message>
     <message>
         <source>Heating Coil FuelOilNo2 Energy</source>
-        <translation>Énergie de la Serpentin de Chauffage Fioul Lourd</translation>
+        <translation>Serpentin de Chauffage : Énergie Fioul Domestique</translation>
     </message>
     <message>
         <source>Heating Coil FuelOilNo2 Rate</source>
-        <translation>Débit de Combustible Mazout n°2 de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Fioul Lourd</translation>
     </message>
     <message>
         <source>Heating Coil Gasoline Energy</source>
-        <translation>Énergie de Chauffage de la Bobine à Essence</translation>
+        <translation>Serpentin de Chauffage : Énergie Essence</translation>
     </message>
     <message>
         <source>Heating Coil Gasoline Rate</source>
-        <translation>Débit de chauffage à l&apos;essence</translation>
+        <translation>Serpentin de Chauffage : Débit de Consommation d'Essence</translation>
     </message>
     <message>
         <source>Heating Coil Heating Energy</source>
-        <translation>Énergie de chauffage de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie de Chauffage</translation>
     </message>
     <message>
         <source>Heating Coil Heating Rate</source>
-        <translation>Débit thermique de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Chaleur</translation>
     </message>
     <message>
         <source>Heating Coil NaturalGas Energy</source>
-        <translation>Énergie du serpentin de chauffage gaz naturel</translation>
+        <translation>Serpentin de Chauffage: Énergie Gaz Naturel</translation>
     </message>
     <message>
         <source>Heating Coil NaturalGas Rate</source>
-        <translation>Débit de gaz naturel de la bobine de chauffage</translation>
+        <translation>Serpentin de Chauffage: Débit de Gaz Naturel</translation>
     </message>
     <message>
         <source>Heating Coil OtherFuel1 Energy</source>
-        <translation>Énergie Coil Chauffage OtherFuel1</translation>
+        <translation>Serpentin de Chauffage : Énergie Carburant Autre 1</translation>
     </message>
     <message>
         <source>Heating Coil OtherFuel1 Rate</source>
-        <translation>Débit de la Batterie de Chauffage OtherFuel1</translation>
+        <translation>Serpentin de Chauffage : Débit de Combustible Auxiliaire 1</translation>
     </message>
     <message>
         <source>Heating Coil OtherFuel2 Energy</source>
-        <translation>Énergie du serpentin de chauffage OtherFuel2</translation>
+        <translation>Serpentin de chauffage : Énergie Carburant2</translation>
     </message>
     <message>
         <source>Heating Coil OtherFuel2 Rate</source>
-        <translation>Débit de Combustible Auxiliaire 2 de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Débit de Combustible Supplémentaire 2</translation>
     </message>
     <message>
         <source>Heating Coil Propane Energy</source>
-        <translation>Énergie Propane de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage: Énergie Propane</translation>
     </message>
     <message>
         <source>Heating Coil Propane Rate</source>
-        <translation>Débit de propane de la batterie de chauffage</translation>
+        <translation>Serpentin de chauffage: Débit de propane</translation>
     </message>
     <message>
         <source>Heating Coil Runtime Fraction</source>
-        <translation>Fraction de temps de fonctionnement de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Fraction de Fonctionnement</translation>
     </message>
     <message>
         <source>Heating Coil Source Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur côté source de la bobine de chauffage</translation>
+        <translation>Serpentin de Chauffage : Énergie de Transfert Thermique Côté Source</translation>
     </message>
     <message>
         <source>Heating Coil Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale de la Batterie de Chauffage</translation>
+        <translation>Serpentin de Chauffage : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Heating Coil Total Heating Rate</source>
-        <translation>Débit de chauffage total de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage: Puissance Totale de Chauffage</translation>
     </message>
     <message>
         <source>Heating Coil U Factor Times Area Value</source>
-        <translation>Valeur du coefficient U fois la surface de la batterie de chauffage</translation>
+        <translation>Serpentin de Chauffage : Valeur du Coefficient U fois la Surface</translation>
     </message>
     <message>
         <source>Humidifier Electricity Energy</source>
-        <translation>Énergie électrique de l&apos;humidificateur</translation>
+        <translation>Humidificateur : Énergie Électrique</translation>
     </message>
     <message>
         <source>Humidifier Electricity Rate</source>
-        <translation>Débit électrique du humidificateur</translation>
+        <translation>Humidificateur : Puissance Électrique</translation>
     </message>
     <message>
         <source>Humidifier Mains Water Volume</source>
-        <translation>Volume d&apos;eau de réseau de l&apos;humidificateur</translation>
+        <translation>Humidificateur : Volume d'eau du réseau</translation>
     </message>
     <message>
         <source>Humidifier Water Volume</source>
-        <translation>Volume d&apos;eau de l&apos;humidificateur</translation>
+        <translation>Humidificateur : Volume d'eau</translation>
     </message>
     <message>
         <source>Humidifier Water Volume Flow Rate</source>
-        <translation>Débit volumique d&apos;eau de l&apos;humidificateur</translation>
+        <translation>Humidificateur : Débit volumétrique d'eau</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Ancillary Electricity Energy</source>
-        <translation>Énergie électrique auxiliaire du stockage thermique sur glace</translation>
+        <translation>Stockage Thermique de Glace : Énergie Électrique Auxiliaire</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Ancillary Electricity Rate</source>
-        <translation>Taux d&apos;Électricité Auxiliaire de Stockage Thermique par Glace</translation>
+        <translation>Stockage Thermique Glace: Puissance Électrique Auxiliaire</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Blended Outlet Temperature</source>
-        <translation>Température de sortie mélangée du stockage thermique par glace</translation>
+        <translation>Stockage Thermique de Glace : Température de Sortie Mélangée</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Bypass Mass Flow Rate</source>
-        <translation>Débit massique de contournement du stockage thermique à glace</translation>
+        <translation>Stockage Thermique à Glace: Débit Massique en Dérivation</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Change Fraction</source>
-        <translation>Fraction de Changement de Stockage Thermique en Glace</translation>
+        <translation>Stockage Thermique de Glace: Variation de Fraction</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Cooling Charge Energy</source>
-        <translation>Énergie de charge du stockage thermique de glace pour refroidissement</translation>
+        <translation>Stockage Thermique de Glace : Énergie de Charge Frigorifique</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Cooling Charge Rate</source>
-        <translation>Taux de charge de refroidissement du stockage thermique par glace</translation>
+        <translation>Stockage Thermique Glace: Puissance de Charge de Refroidissement</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Cooling Discharge Energy</source>
-        <translation>Énergie de décharge du refroidissement par stockage thermique de glace</translation>
+        <translation>Stockage Thermique par Glace: Énergie de Refroidissement Déchargée</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Cooling Discharge Rate</source>
-        <translation>Débit de décharge de refroidissement du stockage thermique par glace</translation>
+        <translation>Stockage Thermique par Glace : Débit de Refroidissement à la Décharge</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Cooling Rate</source>
-        <translation>Taux de refroidissement du stockage thermique par glace</translation>
+        <translation>Stockage Thermique à Glace : Puissance Frigorifique</translation>
     </message>
     <message>
         <source>Ice Thermal Storage End Fraction</source>
-        <translation>Fraction de fin du stockage thermique par glace</translation>
+        <translation>Stockage Thermique de Glace: Fraction Finale</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Fluid Inlet Temperature</source>
-        <translation>Température d&apos;entrée du fluide de stockage thermique par glace</translation>
+        <translation>Stockage Thermique par Glace: Température d'entrée du fluide</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Mass Flow Rate</source>
-        <translation>Débit massique du stockage thermique à glaçons</translation>
+        <translation>Stockage Thermique à Glace : Débit Massique</translation>
     </message>
     <message>
         <source>Ice Thermal Storage On Coil Fraction</source>
-        <translation>Fraction de stockage thermique de glace sur serpentin</translation>
+        <translation>Stockage Thermique par Glace: Fraction en Surface de l'Échangeur</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Tank Mass Flow Rate</source>
-        <translation>Débit massique du réservoir de stockage thermique à glace</translation>
+        <translation>Stockage Thermique sur Glace : Débit Massique du Réservoir</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Tank Outlet Temperature</source>
-        <translation>Température de sortie du réservoir de stockage thermique de glace</translation>
+        <translation>Stockage Thermique de Glace : Température de Sortie du Réservoir</translation>
     </message>
     <message>
         <source>Performance Curve Input Variable 1 Value</source>
-        <translation>Valeur de la variable d&apos;entrée 1 de la courbe de performance</translation>
+        <translation>Courbe de Performance: Valeur de la Variable d'Entrée 1</translation>
     </message>
     <message>
         <source>Performance Curve Input Variable 2 Value</source>
-        <translation>Valeur de la variable d&apos;entrée 2 de la courbe de performance</translation>
+        <translation>Courbe de Performance : Valeur de la Variable d'Entrée 2</translation>
     </message>
     <message>
         <source>Performance Curve Output Value</source>
-        <translation>Valeur de sortie de la courbe de performance</translation>
+        <translation>Courbe de Performance : Valeur de Sortie</translation>
     </message>
     <message>
         <source>Plant Common Pipe Flow Direction Status</source>
-        <translation>État de la direction du débit du tuyau commun de la boucle</translation>
+        <translation>Installation: Statut de la Direction du Débit dans le Tuyau Commun</translation>
     </message>
     <message>
         <source>Plant Common Pipe Mass Flow Rate</source>
-        <translation>Débit massique du tuyau commun de la boucle</translation>
+        <translation>Centrale thermique : Débit massique en conduite commune</translation>
     </message>
     <message>
         <source>Plant Common Pipe Primary Mass Flow Rate</source>
-        <translation>Débit massique du tronçon principal commun de la centrale</translation>
+        <translation>Réseau: Débit Massique du Tuyau Commun Primaire</translation>
     </message>
     <message>
         <source>Plant Common Pipe Primary to Secondary Mass Flow Rate</source>
-        <translation>Débit massique du tuyau commun principal primaire vers secondaire de l&apos;installation</translation>
+        <translation>Centrale : Débit Massique Conduite Commune Primaire vers Secondaire</translation>
     </message>
     <message>
         <source>Plant Common Pipe Secondary Mass Flow Rate</source>
-        <translation>Débit massique secondaire du tube commun de la centrale thermique</translation>
+        <translation>Installation : Débit massique du tuyau commun secondaire</translation>
     </message>
     <message>
         <source>Plant Common Pipe Secondary to Primary Mass Flow Rate</source>
-        <translation>Débit massique secondaire vers primaire du tube commun de la centrale</translation>
+        <translation>Centrale thermique : Débit massique tuyauterie commune secondaire vers primaire</translation>
     </message>
     <message>
         <source>Plant Common Pipe Temperature</source>
-        <translation>Température de Tuyau Commun de la Centrale Thermique</translation>
+        <translation>Installation : Température du Collecteur Commun</translation>
     </message>
     <message>
         <source>Plant Demand Side Loop Pressure Difference</source>
-        <translation>Différence de Pression Côté Demande de la Boucle de Fluide</translation>
+        <translation>Boucle thermique : Différence de pression côté demande</translation>
     </message>
     <message>
         <source>Plant Load Profile Cooling Energy</source>
-        <translation>Énergie de refroidissement du profil de charge de la centrale</translation>
+        <translation>Plant: Énergie de Refroidissement du Profil de Charge</translation>
     </message>
     <message>
         <source>Plant Load Profile Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du profil de charge de la centrale</translation>
+        <translation>Installation : Énergie Transférée du Profil de Charge</translation>
     </message>
     <message>
         <source>Plant Load Profile Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique du profil de charge de la centrale</translation>
+        <translation>Plant: Débit de Transfert de Chaleur du Profil de Charge</translation>
     </message>
     <message>
         <source>Plant Load Profile Heating Energy</source>
-        <translation>Profil de charge du système Énergie de chauffage</translation>
+        <translation>Centrale: Énergie du Profil de Charge de Chauffage</translation>
     </message>
     <message>
         <source>Plant Load Profile Mass Flow Rate</source>
-        <translation>Débit massique du profil de charge de la centrale</translation>
+        <translation>Centrale Thermique : Débit Massique du Profil de Charge</translation>
     </message>
     <message>
         <source>Plant Loop Pressure Difference</source>
-        <translation>Différence de pression de la boucle de distribution</translation>
+        <translation>Plant: Différence de Pression de la Boucle</translation>
     </message>
     <message>
         <source>Plant Solver Half Loop Calls Count</source>
-        <translation>Nombre d&apos;appels de demi-boucle du solveur de circuit</translation>
+        <translation>Centrale : Nombre d'Appels du Solveur de Demi-Boucle</translation>
     </message>
     <message>
         <source>Plant Solver Sub Iteration Count</source>
-        <translation>Nombre d&apos;itérations secondaires du solveur de circuit</translation>
+        <translation>Centrale thermique : Nombre de sous-itérations du solveur</translation>
     </message>
     <message>
         <source>Plant Supply Side Cooling Demand Rate</source>
-        <translation>Débit de demande de refroidissement du côté alimentation de la centrale thermique</translation>
+        <translation>Boucle de Refroidissement : Débit de Demande Côté Primaire</translation>
     </message>
     <message>
         <source>Plant Supply Side Heating Demand Rate</source>
-        <translation>Débit de demande de chauffage du côté alimentation de la centrale thermique</translation>
+        <translation>Boucle de Distribution : Débit de Demande de Chauffage du Côté Fourniture</translation>
     </message>
     <message>
         <source>Plant Supply Side Inlet Mass Flow Rate</source>
-        <translation>Débit massique à l&apos;entrée du côté alimentation de la centrale</translation>
+        <translation>Boucle de Circuit: Débit Massique à l'Entrée Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée du côté alimentation de la centrale thermique</translation>
+        <translation>Boucle Thermodynamique : Température à l'Entrée du Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Loop Pressure Difference</source>
-        <translation>Différence de Pression du Côté Alimentation de la Boucle de Fluide Thermique</translation>
+        <translation>Boucle de Circuit Primaire: Différence de Pression du Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Not Distributed Demand Rate</source>
-        <translation>Plant Supply Side Not Distributed Demand Rate</translation>
+        <translation>Centrale thermique : Débit de demande non distribuée côté source</translation>
     </message>
     <message>
         <source>Plant Supply Side Outlet Temperature</source>
-        <translation>Température de sortie du côté alimentation de la centrale thermique</translation>
+        <translation>Boucle Primaire : Température de Sortie Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Unmet Demand Rate</source>
-        <translation>Taux de demande non satisfaite du côté alimentation de la centrale</translation>
+        <translation>Centrale : Débit de Demande Non Satisfaite côté Production</translation>
     </message>
     <message>
         <source>Plant System Cycle On Off Status</source>
-        <translation>Statut Marche/Arrêt du Cycle du Système de Boucle</translation>
+        <translation>Usine: État Marche Arrêt du Cycle Système</translation>
     </message>
     <message>
         <source>Primary Side Common Pipe Flow Direction</source>
-        <translation>Sens d&apos;écoulement du tuyau commun côté primaire</translation>
+        <translation>Primaire : Direction du flux dans la conduite commune côté primaire</translation>
     </message>
     <message>
         <source>Pump Electricity Energy</source>
-        <translation>Énergie électrique de la pompe</translation>
+        <translation>Pompe : Énergie Électrique</translation>
     </message>
     <message>
         <source>Pump Electricity Rate</source>
-        <translation>Taux d&apos;électricité de la pompe</translation>
+        <translation>Pompe : Puissance Électrique</translation>
     </message>
     <message>
         <source>Pump Fluid Heat Gain Energy</source>
-        <translation>Énergie de gain de chaleur du fluide de pompe</translation>
+        <translation>Pompe : Énergie de Gain Thermique du Fluide</translation>
     </message>
     <message>
         <source>Pump Fluid Heat Gain Rate</source>
-        <translation>Débit de gain thermique de la pompe</translation>
+        <translation>Pompe : Débit de gain de chaleur du fluide</translation>
     </message>
     <message>
         <source>Pump Mass Flow Rate</source>
-        <translation>Débit massique de la pompe</translation>
+        <translation>Pompe: Débit Massique</translation>
     </message>
     <message>
         <source>Pump Operating Pumps Count</source>
-        <translation>Nombre de pompes en fonctionnement</translation>
+        <translation>Pompe : Nombre de Pompes en Fonctionnement</translation>
     </message>
     <message>
         <source>Pump Outlet Temperature</source>
-        <translation>Température de sortie de la pompe</translation>
+        <translation>Pompe: Température à la Sortie</translation>
     </message>
     <message>
         <source>Pump Shaft Power</source>
-        <translation>Puissance de l&apos;arbre de la pompe</translation>
+        <translation>Pompe: Puissance à l'arbre</translation>
     </message>
     <message>
         <source>Pump Zone Convective Heating Rate</source>
-        <translation>Débit de chauffage par convection de la zone de pompe</translation>
+        <translation>Pompe Zone : Débit de Chauffage Convectif</translation>
     </message>
     <message>
         <source>Pump Zone Radiative Heating Rate</source>
-        <translation>Débit de chaleur radiative de la zone de pompe</translation>
+        <translation>Pompe Zone : Débit de chauffage radiatif</translation>
     </message>
     <message>
         <source>Pump Zone Total Heating Energy</source>
-        <translation>Énergie totale de chauffage de la zone de pompe</translation>
+        <translation>Pompe Zone : Énergie Thermique Totale Dissipée</translation>
     </message>
     <message>
         <source>Pump Zone Total Heating Rate</source>
-        <translation>Débit thermique total de la zone de la pompe</translation>
+        <translation>Pompe Zone : Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Average Compressor COP</source>
-        <translation>Système de refroidisseur d&apos;air frigorifique - COP moyen du compresseur</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: COP Moyen du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Condensing Temperature</source>
-        <translation>Température de condensation du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Température de Condensation</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated High Stage Refrigerant Mass Flow Rate</source>
-        <translation>Système de refroidisseur d&apos;air réfrigéré - Débit massique de fluide frigorigène estimé du premier étage</translation>
+        <translation>Système Refroidisseur d'Air Frigorifique : Débit Massique de Fluide Frigorigène Estimé de l'Étage Haute Pression</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Low Stage Refrigerant Mass Flow Rate</source>
-        <translation>Débit massique de réfrigérant estimé au stade bas du système de refroidisseur d&apos;air à réfrigération</translation>
+        <translation>Système Refroidisseur d'Air Frigorifique: Débit Massique du Frigorigène Estimé de l'Étage Basse Pression</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Refrigerant Inventory Mass</source>
-        <translation>Masse d&apos;inventaire de réfrigérant estimée du système de refroidisseur à air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Masse Estimée de l'Inventaire de Frigorigène</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Refrigerant Mass Flow Rate</source>
-        <translation>Débit massique de réfrigérant estimé du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Débit Massique de Réfrigérant Estimé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Evaporating Temperature</source>
-        <translation>Température d&apos;évaporation du système de refroidisseur d&apos;air frigorifique</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Température d'Évaporation Saturée</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Intercooler Pressure</source>
-        <translation>Pression du refroidisseur intermédiaire du système de refroidisseur à air frigorifique</translation>
+        <translation>Système de Refroidissement d'Air par Réfrigération : Pression de l'Intercooler</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Intercooler Temperature</source>
-        <translation>Température de l&apos;intercooler du système de refroidisseur d&apos;air frigorifique</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération : Température de Saturation de l'Échangeur Intermédiaire</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Liquid Suction Subcooler Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du refroidisseur d&apos;air du système de réfrigération avec sous-refroidisseur à liquide-aspiration</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération: Énergie de Transfert de Chaleur du Sous-refroidisseur Liquide-Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Liquid Suction Subcooler Heat Transfer Rate</source>
-        <translation>Taux de transfert de chaleur du sous-refroidisseur à aspiration liquide du système de refroidisseur à air de réfrigération</translation>
+        <translation>Système de refroidisseur d'air frigorifique : Débit de chaleur du refroidisseur de liquide par aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Net Rejected Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur nette rejetée du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie Nette de Transfert de Chaleur Rejetée</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Net Rejected Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur rejeté net du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Débit de Transfert Thermique Net Rejeté</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Suction Temperature</source>
-        <translation>Température d&apos;aspiration du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidissement d'Air Frigorifique : Température d'Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System TXV Liquid Temperature</source>
-        <translation>Système de Refroidisseur d&apos;Air Réfrigéré - Température du Liquide TXV</translation>
+        <translation>Système de Refroidissement par Air de Réfrigération: Température du Liquide à la Détente</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Air Chiller Heat Transfer Rate</source>
-        <translation>Système Refroidisseur à Air Réfrigération Débit de Transfert de Chaleur Total du Refroidisseur à Air</translation>
+        <translation>Système de refroidisseur d'air de réfrigération : Débit de transfert de chaleur total du refroidisseur d'air</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Case and Walk In Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique totale du système de refroidissement par air de réfrigération pour les vitrines et les chambres froides</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération: Énergie Totale de Transfert Thermique des Armoires et Chambres Froides</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Electricity Energy</source>
-        <translation>Énergie Électrique Totale du Compresseur du Système de Refroidisseur d&apos;Air de Réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Réfrigéré: Énergie Électrique Totale du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Electricity Rate</source>
-        <translation>Débit d&apos;électricité total du compresseur du système de refroidisseur d&apos;air frigorifique</translation>
+        <translation>Système de Refroidisseur d'Air Réfrigérant: Puissance Électrique Totale des Compresseurs</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Heat Transfer Energy</source>
-        <translation>Énergie totale de transfert thermique du compresseur du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Réfrigérant: Énergie Totale de Transfert de Chaleur du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique total du compresseur du système de refroidissement par air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération: Débit de Transfert de Chaleur Total du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Electricity Energy</source>
-        <translation>Énergie Électrique du Compresseur Haute Pression Totale du Système de Refroidisseur d&apos;Air de Réfrigération</translation>
+        <translation>Système de refroidisseur d'air frigorifique : Énergie électrique totale du compresseur d'étage haute</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Electricity Rate</source>
-        <translation>Taux d&apos;électricité du compresseur haute pression total du système de refroidisseur à air de réfrigération</translation>
+        <translation>Système Refroidisseur d'Air Frigorifique: Puissance Électrique Totale Compresseur Étage Haute</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Heat Transfer Energy</source>
-        <translation>Énergie de Transfert de Chaleur du Compresseur d&apos;Étage Élevé Total du Système de Refroidisseur d&apos;Air de Réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie de Transfert de Chaleur Total du Compresseur d'Étage Élevé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du compresseur d&apos;étage élevé total du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique : Débit de Transfert de Chaleur Total du Compresseur d'Étage Élevé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Electricity Energy</source>
-        <translation>Énergie électrique totale du compresseur d&apos;étage bas du système refroidisseur d&apos;air par réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Énergie Électrique Totale du Compresseur Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Electricity Rate</source>
-        <translation>Taux d&apos;électricité du compresseur de bas étage total du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système Refroidisseur d'Air Frigorifique : Puissance Électrique Totale du Compresseur Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Heat Transfer Energy</source>
-        <translation>Énergie de Transfert de Chaleur du Compresseur d&apos;Étage Bas Total du Système de Refroidisseur d&apos;Air de Réfrigération</translation>
+        <translation>Système Refroidisseur d'Air Frigorifique : Énergie de Transfert Thermique Total des Compresseurs d'Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur total du compresseur à basse pression du système de refroidisseur à air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique : Débit de Transfer Thermique Total du Compresseur Basse Pression</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low and High Stage Compressor Electricity Energy</source>
-        <translation>Énergie électrique totale du compresseur des étapes basse et haute du système de refroidisseur d&apos;air de réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique : Énergie Électrique Totale des Compresseurs Étage Bas et Étage Haut</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Suction Pipe Heat Gain Energy</source>
-        <translation>Énergie de Gain Thermique Total des Tuyauteries d&apos;Aspiration du Système de Refroidissement par Air Frigorifique</translation>
+        <translation>Système de Refroidisseur d'Air par Réfrigération: Énergie Totale de Gain de Chaleur de la Tuyauterie d'Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Suction Pipe Heat Gain Rate</source>
-        <translation>Débit de gain de chaleur total du tuyau d&apos;aspiration du système refroidi à air par réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique : Débit de Transfert de Chaleur Total des Tuyauteries d'Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Transferred Load Heat Transfer Energy</source>
-        <translation>Énergie transférée totale du système de refroidisseur d&apos;air de réfrigération pour le transfert de chaleur</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Énergie Transférée Totale du Transfert de Chaleur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Transferred Load Heat Transfer Rate</source>
-        <translation>Taux de Transfert de Chaleur de la Charge Totale Transférée du Système de Refroidisseur à Air de Réfrigération</translation>
+        <translation>Système de Refroidisseur d'Air Frigorifique: Taux de Transfert Thermique de Charge Totale Transférée</translation>
     </message>
     <message>
         <source>Refrigeration System Average Compressor COP</source>
-        <translation>Coefficient de Performance (COP) moyen du compresseur du système de réfrigération</translation>
+        <translation>Système de Réfrigération : COP Moyen du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration System Condensing Temperature</source>
-        <translation>Température de condensation du système de réfrigération</translation>
+        <translation>Système de réfrigération : Température de condensation saturée</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated High Stage Refrigerant Mass Flow Rate</source>
-        <translation>Débit massique du fluide frigorigène estimé de l&apos;étage haute pression du système frigorifique</translation>
+        <translation>Système de Réfrigération : Débit Massique de Réfrigérant Estimé pour l'Étage Haute Pression</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Low Stage Refrigerant Mass Flow Rate</source>
-        <translation>Débit massique estimé du frigorigène de l&apos;étage basse pression du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Débit Massique du Réfrigérant Estimé à l'Étage Basse Pression</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Refrigerant Inventory</source>
-        <translation>Inventaire de Fluide Frigorigène Estimé du Système de Réfrigération</translation>
+        <translation>Système frigorifique: Quantité de réfrigérant estimée</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Refrigerant Inventory Mass</source>
-        <translation>Masse estimée du fluide frigorigène du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Masse du Réfrigérant en Inventaire Estimée</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Refrigerant Mass Flow Rate</source>
-        <translation>Débit massique de réfrigérant estimé du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Débit Massique de Réfrigérant Estimé</translation>
     </message>
     <message>
         <source>Refrigeration System Evaporating Temperature</source>
-        <translation>Température d&apos;évaporation du système frigorifique</translation>
+        <translation>Système de Réfrigération : Température d'Évaporation Saturée</translation>
     </message>
     <message>
         <source>Refrigeration System Liquid Suction Subcooler Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur du sous-refroidisseur liquide-aspiration du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie du Transfert de Chaleur de l'Échangeur Liquide-Vapeur Surchauffée</translation>
     </message>
     <message>
         <source>Refrigeration System Liquid Suction Subcooler Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique du refroidisseur de sous-refroidissement à détente de liquide du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Débit de Chaleur Transféré par l'Échangeur Liquide-Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Net Rejected Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur rejetée nette du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie de Transfert de Chaleur Rejetée Nette</translation>
     </message>
     <message>
         <source>Refrigeration System Net Rejected Heat Transfer Rate</source>
-        <translation>Taux de transfert thermique net rejeté du système de réfrigération</translation>
+        <translation>Système de Réfrigération: Débit de Transfert de Chaleur Rejetée Nette</translation>
     </message>
     <message>
         <source>Refrigeration System Suction Pipe Suction Temperature</source>
-        <translation>Température d&apos;aspiration du tuyau d&apos;aspiration du système de réfrigération</translation>
+        <translation>Système de Réfrigération: Température d'Aspiration du Tuyau d'Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Thermostatic Expansion Valve Liquid Temperature</source>
-        <translation>Température du liquide de la vanne d&apos;expansion thermostatique du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Température du Liquide à la Soupape de Détente Thermostatic</translation>
     </message>
     <message>
         <source>Refrigeration System Total Cases and Walk Ins Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur des cas et chambres froides du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie totale de transfert de chaleur des vitrines et chambres froides</translation>
     </message>
     <message>
         <source>Refrigeration System Total Cases and Walk Ins Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique total des vitrines et chambres froides du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Débit de Transfert de Chaleur Total des Vitrines et Chambres Froides</translation>
     </message>
     <message>
         <source>Refrigeration System Total Compressor Electricity Energy</source>
-        <translation>Énergie électrique totale du compresseur du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie Électrique Totale du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration System Total Compressor Electricity Rate</source>
-        <translation>Taux d&apos;électricité total du compresseur du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Puissance Électrique Totale des Compresseurs</translation>
     </message>
     <message>
         <source>Refrigeration System Total Compressor Heat Transfer Energy</source>
-        <translation>Énergie totale de transfert de chaleur du compresseur du système de réfrigération</translation>
+        <translation>Système de Réfrigération: Énergie Totale de Transfert Thermique du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration System Total Compressor Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur total du compresseur du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Débit de Transfert de Chaleur Total du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Electricity Energy</source>
-        <translation>Énergie Électrique Totale du Compresseur Étage Haute du Système de Réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie Électrique Totale du Compresseur d'Étage Élevé</translation>
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Electricity Rate</source>
-        <translation>Débit d&apos;électricité total du compresseur haute pression du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Puissance Électrique Totale Compresseur Étage Supérieur</translation>
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Heat Transfer Energy</source>
-        <translation>Énergie totale de transfert de chaleur du compresseur d&apos;étage élevé du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie de Transfert de Chaleur du Compresseur d'Étage Supérieur Total</translation>
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du compresseur d&apos;étage haute du système frigorifique total</translation>
+        <translation>Système de Réfrigération: Débit de Transfert de Chaleur Total des Compresseurs d'Étage Supérieur</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Electricity Energy</source>
-        <translation>Énergie électrique totale des compresseurs de l&apos;étage basse pression du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie Électrique Totale du Compresseur d'Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Electricity Rate</source>
-        <translation>Débit d&apos;électricité total du compresseur basse étape du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Puissance Électrique Totale du Compresseur Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du compresseur d&apos;étage bas total du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie de Transfert de Chaleur du Compresseur d'Étage Bas Total</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Heat Transfer Rate</source>
-        <translation>Taux de Transfert de Chaleur Total du Compresseur à Basse Température du Système de Réfrigération</translation>
+        <translation>Système de réfrigération : Débit de transfert thermique total du compresseur d'étage inférieur</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low and High Stage Compressor Electricity Energy</source>
-        <translation>Énergie électrique totale des compresseurs d&apos;étages bas et haut du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie Électrique Totale du Compresseur Étage Bas et Étage Haut</translation>
     </message>
     <message>
         <source>Refrigeration System Total Suction Pipe Heat Gain Energy</source>
-        <translation>Énergie totale du gain thermique des conduites d&apos;aspiration du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie totale de gain thermique de la tuyauterie d'aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Total Suction Pipe Heat Gain Rate</source>
-        <translation>Débit de gain thermique total dans la conduite d&apos;aspiration du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Taux de Gain Thermique Total du Tuyau d'Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Total Transferred Load Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique de la charge totale transférée du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Énergie de Transfert de Chaleur de la Charge Transférée Totale</translation>
     </message>
     <message>
         <source>Refrigeration System Total Transferred Load Heat Transfer Rate</source>
-        <translation>Taux de transfert de chaleur de la charge totale transférée du système de réfrigération</translation>
+        <translation>Système de Réfrigération : Taux de Transfert de Charge Thermique Transférée Totale</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Latent Energy</source>
-        <translation>Énergie latente de zone de chambre froide de réfrigération</translation>
+        <translation>Chambre Froide Réfrigérée : Énergie Latente de Zone</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Latent Rate</source>
-        <translation>Débit latent de la zone de chambre froide</translation>
+        <translation>Chambre Froide de Réfrigération : Débit de Refroidissement Latent de la Zone</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de la zone de chambre froide de réfrigération</translation>
+        <translation>Chambre Froide: Énergie de Refroidissement Sensible vers la Zone</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de la zone de chambre froide</translation>
+        <translation>Chambre Froide Réfrigérée : Débit de Refroidissement Sensible en Zone</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible de zone de chambre froide de réfrigération</translation>
+        <translation>Chambre Froide : Énergie de Chauffage Sensible de la Zone</translation>
     </message>
     <message>
         <source>Refrigeration Walk In Zone Sensible Heating Rate</source>
-        <translation>Taux de Chauffage Sensible de la Zone de Chambre Froide de Réfrigération</translation>
+        <translation>Chambre Froide Réfrigérée : Débit de Chauffage Sensible vers la Zone</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Heating Energy</source>
-        <translation>Énergie de chauffage du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'Air à Zone Réfrigérée : Énergie de Chauffage Auxiliaire</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Heating Rate</source>
-        <translation>Débit de chauffage du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'Air de Zone Réfrigération : Puissance de Chauffage</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'Air de Zone de Réfrigération: Énergie de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Latent Cooling Rate</source>
-        <translation>Taux de refroidissement latent du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'air de zone de réfrigération : Puissance frigorifique latente</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'Air de Zone de Réfrigération : Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'air en zone : Puissance frigorifique sensible</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidissement Zone Refroidisseur d'Air: Énergie de Refroidissement Total</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Total Cooling Rate</source>
-        <translation>Taux de refroidissement total du refroidisseur d&apos;air de zone de réfrigération</translation>
+        <translation>Refroidisseur d'Air de Zone Frigorifique : Puissance de Refroidissement Total</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Water Removed Mass Flow Rate</source>
-        <translation>Débit massique d&apos;eau retirée du refroidisseur d&apos;air zone réfrigération</translation>
+        <translation>Refroidissement Zone Refroidisseur d'Air: Débit Massique d'Eau Extraite</translation>
     </message>
     <message>
         <source>Schedule Value</source>
-        <translation>Valeur de l&apos;horaire</translation>
+        <translation>Planning: Valeur</translation>
     </message>
     <message>
         <source>Secondary Side Common Pipe Flow Direction</source>
-        <translation>Direction du débit du tuyau commun du circuit secondaire</translation>
+        <translation>Secondaire : Direction du flux dans la conduite commune côté secondaire</translation>
     </message>
     <message>
         <source>Solar Collector Absorber Plate Temperature</source>
-        <translation>Température de la plaque absorbante du collecteur solaire</translation>
+        <translation>Capteur Solaire : Température de la Plaque Absorbante</translation>
     </message>
     <message>
         <source>Solar Collector Efficiency</source>
-        <translation>Rendement du Collecteur Solaire</translation>
+        <translation>Collecteur Solaire : Rendement</translation>
     </message>
     <message>
         <source>Solar Collector Heat Gain Rate</source>
-        <translation>Débit de gain thermique du capteur solaire</translation>
+        <translation>Capteur Solaire: Taux de Gain Thermique</translation>
     </message>
     <message>
         <source>Solar Collector Heat Loss Rate</source>
-        <translation>Débit de perte thermique du capteur solaire</translation>
+        <translation>Capteur Solaire : Débit de Perte de Chaleur</translation>
     </message>
     <message>
         <source>Solar Collector Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du capteur solaire</translation>
+        <translation>Capteur Solaire: Énergie de Transfert de Chaleur</translation>
     </message>
     <message>
         <source>Solar Collector Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du collecteur solaire</translation>
+        <translation>Collecteur Solaire: Puissance de Transfert Thermique</translation>
     </message>
     <message>
         <source>Solar Collector Incident Angle Modifier</source>
-        <translation>Modificateur d&apos;angle d&apos;incidence du collecteur solaire</translation>
+        <translation>Collecteur Solaire : Modificateur d'Angle d'Incidence</translation>
     </message>
     <message>
         <source>Solar Collector Overall Top Heat Loss Coefficient</source>
-        <translation>Coefficient Global de Perte de Chaleur Supérieure du Collecteur Solaire</translation>
+        <translation>Collecteur Solaire: Coefficient Global de Perte Thermique Supérieure</translation>
     </message>
     <message>
         <source>Solar Collector Skin Heat Transfer Energy</source>
-        <translation>Énergie de Transfert de Chaleur de la Surface du Collecteur Solaire</translation>
+        <translation>Collecteur Solaire: Énergie de Transfert Thermique de la Surface</translation>
     </message>
     <message>
         <source>Solar Collector Skin Heat Transfer Rate</source>
-        <translation>Taux de transfert de chaleur de la surface du collecteur solaire</translation>
+        <translation>Collecteur Solaire: Débit de Transfert de Chaleur à la Surface</translation>
     </message>
     <message>
         <source>Solar Collector Storage Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du stockage du capteur solaire</translation>
+        <translation>Capteur Solaire: Énergie de Transfert de Chaleur du Stockage</translation>
     </message>
     <message>
         <source>Solar Collector Storage Heat Transfer Rate</source>
-        <translation>Taux de transfert de chaleur du stockage du capteur solaire</translation>
+        <translation>Capteur Solaire: Débit de Transfert Thermique du Stockage</translation>
     </message>
     <message>
         <source>Solar Collector Storage Water Temperature</source>
-        <translation>Température de l&apos;eau du stockage du collecteur solaire</translation>
+        <translation>Capteur Solaire : Température de l'eau du réservoir de stockage</translation>
     </message>
     <message>
         <source>Solar Collector Thermal Efficiency</source>
-        <translation>Rendement Thermique du Capteur Solaire</translation>
+        <translation>Collecteur Solaire: Rendement Thermique</translation>
     </message>
     <message>
         <source>Solar Collector Transmittance Absorptance Product</source>
-        <translation>Produit Transmittance-Absorptance du Collecteur Solaire</translation>
+        <translation>Collecteur Solaire: Produit Transmittance-Absorptance</translation>
     </message>
     <message>
         <source>System Node Current Density</source>
-        <translation>Densité de Courant du Nœud Système</translation>
+        <translation>Nœud du Système: Masse Volumique Actuelle</translation>
     </message>
     <message>
         <source>System Node Current Density Volume Flow Rate</source>
-        <translation>Débit volumétrique de densité de courant actuel du nœud système</translation>
+        <translation>Nœud Système : Débit Volumique à Densité Actuelle</translation>
     </message>
     <message>
         <source>System Node Dewpoint Temperature</source>
-        <translation>Température de point de rosée du nœud système</translation>
+        <translation>Nœud Système : Température de point de rosée</translation>
     </message>
     <message>
         <source>System Node Enthalpy</source>
-        <translation>Enthalpie du nœud système</translation>
+        <translation>Nœud Système : Enthalpie</translation>
     </message>
     <message>
         <source>System Node Height</source>
-        <translation>Hauteur du nœud système</translation>
+        <translation>Nœud Système: Hauteur</translation>
     </message>
     <message>
         <source>System Node Humidity Ratio</source>
-        <translation>Ratio d&apos;humidité du nœud du système</translation>
+        <translation>Nœud Système: Rapport d'humidité</translation>
     </message>
     <message>
         <source>System Node Last Timestep Enthalpy</source>
-        <translation>Enthalpie du Nœud Système au Dernier Pas de Temps</translation>
+        <translation>Nœud Système : Enthalpie du Pas de Temps Précédent</translation>
     </message>
     <message>
         <source>System Node Last Timestep Temperature</source>
-        <translation>Température du nœud système au dernier pas de temps</translation>
+        <translation>Nœud Système : Température du Pas de Temps Précédent</translation>
     </message>
     <message>
         <source>System Node Mass Flow Rate</source>
-        <translation>Débit massique du nœud système</translation>
+        <translation>Nœud Système : Débit Massique</translation>
     </message>
     <message>
         <source>System Node Pressure</source>
-        <translation>Pression du nœud du système</translation>
+        <translation>Nœud Système : Pression</translation>
     </message>
     <message>
         <source>System Node Quality</source>
-        <translation>Qualité du nœud du système</translation>
+        <translation>Nœud Système : Titre de vapeur</translation>
     </message>
     <message>
         <source>System Node Relative Humidity</source>
-        <translation>Humidité Relative du Nœud du Système</translation>
+        <translation>Nœud Système : Humidité Relative</translation>
     </message>
     <message>
         <source>System Node Setpoint High Temperature</source>
-        <translation>Température Haute de Consigne du Nœud Système</translation>
+        <translation>Nœud Système : Température de Consigne Haute</translation>
     </message>
     <message>
         <source>System Node Setpoint Humidity Ratio</source>
-        <translation>Rapport d&apos;humidité du point de consigne du nœud système</translation>
+        <translation>Nœud Système : Ratio d'Humidité de Consigne</translation>
     </message>
     <message>
         <source>System Node Setpoint Low Temperature</source>
-        <translation>Température Basse du Point de Consigne du Nœud Système</translation>
+        <translation>Nœud Système : Température de Consigne Basse</translation>
     </message>
     <message>
         <source>System Node Setpoint Maximum Humidity Ratio</source>
-        <translation>Ratio d&apos;Humidité Maximal de Consigne du Nœud Système</translation>
+        <translation>Nœud Système: Rapport d'Humidité Maximum de Consigne</translation>
     </message>
     <message>
         <source>System Node Setpoint Minimum Humidity Ratio</source>
-        <translation>Ratio d&apos;humidité minimum du point de consigne du nœud système</translation>
+        <translation>Nœud du Système : Consigne Minimale du Rapport d'Humidité</translation>
     </message>
     <message>
         <source>System Node Setpoint Temperature</source>
-        <translation>Température de consigne du nœud système</translation>
+        <translation>Nœud Système : Température de Consigne</translation>
     </message>
     <message>
         <source>System Node Specific Heat</source>
-        <translation>Chaleur spécifique du nœud système</translation>
+        <translation>Nœud Système: Chaleur Massique</translation>
     </message>
     <message>
         <source>System Node Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité standard du nœud système</translation>
+        <translation>Nœud Système : Débit Volumique à Densité Normalisée</translation>
     </message>
     <message>
         <source>System Node Temperature</source>
-        <translation>Température du Nœud Système</translation>
+        <translation>Nœud Système : Température</translation>
     </message>
     <message>
         <source>System Node Wetbulb Temperature</source>
-        <translation>Température de bulbe humide du nœud système</translation>
+        <translation>Nœud Système : Température Humide</translation>
     </message>
     <message>
         <source>Thermosiphon Status</source>
-        <translation>Statut du Thermosiphon</translation>
+        <translation>Thermosiphon: État</translation>
     </message>
     <message>
         <source>Unitary System Ancillary Electricity Rate</source>
-        <translation>Taux d&apos;électricité auxiliaire du système unitaire</translation>
+        <translation>Système Unitaire : Puissance Électrique Auxiliaire</translation>
     </message>
     <message>
         <source>Unitary System Compressor Part Load Ratio</source>
-        <translation>Rapport de charge partielle du compresseur du système unitaire</translation>
+        <translation>Système Unitaire : Taux de Charge Partielle du Compresseur</translation>
     </message>
     <message>
         <source>Unitary System Compressor Speed Ratio</source>
-        <translation>Ratio de Vitesse du Compresseur du Système Unitaire</translation>
+        <translation>Système Unitaire : Ratio de Vitesse du Compresseur</translation>
     </message>
     <message>
         <source>Unitary System Cooling Ancillary Electricity Energy</source>
-        <translation>Énergie Électrique Auxiliaire de Refroidissement du Système Unitaire</translation>
+        <translation>Système Unitaire: Énergie Électrique Auxiliaire de Refroidissement</translation>
     </message>
     <message>
         <source>Unitary System Cycling Ratio</source>
-        <translation>Rapport de Cyclage du Système Unitaire</translation>
+        <translation>Unitary System: Rapport de Fonctionnement Cyclique</translation>
     </message>
     <message>
         <source>Unitary System DX Coil Cycling Ratio</source>
-        <translation>Rapport de Cycles de la Bobine DX du Système Unitaire</translation>
+        <translation>Système Unitaire : Rapport de Cyclage de la Bobine DX</translation>
     </message>
     <message>
         <source>Unitary System DX Coil Speed Level</source>
-        <translation>Niveau de Vitesse de la Bobine DX du Système Unitaire</translation>
+        <translation>Système Unitaire : Niveau de Vitesse Serpentin DX</translation>
     </message>
     <message>
         <source>Unitary System DX Coil Speed Ratio</source>
-        <translation>Rapport de vitesse du serpentin DX du système unitaire</translation>
+        <translation>Système Unitaire: Rapport de Vitesse de Compresseur à Détente Directe</translation>
     </message>
     <message>
         <source>Unitary System Electricity Energy</source>
-        <translation>Énergie Électrique du Système Unitaire</translation>
+        <translation>Système Unitaire: Énergie Électrique</translation>
     </message>
     <message>
         <source>Unitary System Electricity Rate</source>
-        <translation>Tarif d&apos;électricité du système unitaire</translation>
+        <translation>Système Unitaire : Puissance Électrique</translation>
     </message>
     <message>
         <source>Unitary System Fan Part Load Ratio</source>
-        <translation>Rapport de charge partielle du ventilateur du système unitaire</translation>
+        <translation>Système Unitaire : Rapport de Charge Partielle du Ventilateur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Energy</source>
-        <translation>Énergie de récupération de chaleur du système unitaire</translation>
+        <translation>Système Unitaire : Énergie de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Fluid Mass Flow Rate</source>
-        <translation>Débit massique du fluide de récupération de chaleur du système unitaire</translation>
+        <translation>Système Unitaire : Débit Massique du Fluide de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Inlet Temperature</source>
-        <translation>Température d&apos;entrée de la récupération de chaleur du système unitaire</translation>
+        <translation>Unitary System: Température d'entrée du récupérateur de chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Outlet Temperature</source>
-        <translation>Température de sortie de récupération de chaleur du système unitaire</translation>
+        <translation>Système Unitaire : Température de Sortie de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Rate</source>
-        <translation>Taux de Récupération de Chaleur du Système Unitaire</translation>
+        <translation>Système Unitaire: Débit de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heating Ancillary Electricity Energy</source>
-        <translation>Énergie électrique auxiliaire de chauffage du système unitaire</translation>
+        <translation>Système Unitaire: Énergie Électrique Auxiliaire de Chauffage</translation>
     </message>
     <message>
         <source>Unitary System Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent du système unitaire</translation>
+        <translation>Système Unitaire: Débit de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Unitary System Latent Heating Rate</source>
-        <translation>Débit de chauffage latent du système unitaire</translation>
+        <translation>Système Unitaire: Débit de Chauffage Latent</translation>
     </message>
     <message>
         <source>Unitary System Predicted Moisture Load to Setpoint Heat Transfer Rate</source>
-        <translation>Débit de chaleur de transfert prédit du système unitaire vers la charge d&apos;humidité au point de consigne</translation>
+        <translation>Système Unitaire : Charge d'Humidité Prédite vers Débit de Transfert Thermique de Consigne</translation>
     </message>
     <message>
         <source>Unitary System Predicted Sensible Load to Setpoint Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique prédit du système unitaire à charge sensible jusqu&apos;à la température de consigne</translation>
+        <translation>Système Unitaire : Charge Sensible Prédite vers Taux de Transfert de Chaleur au Point de Consigne</translation>
     </message>
     <message>
         <source>Unitary System Requested Heating Rate</source>
-        <translation>Taux de chauffage demandé du système unitaire</translation>
+        <translation>Système Unitaire : Puissance de Chauffage Demandée</translation>
     </message>
     <message>
         <source>Unitary System Requested Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent demandé du système unitaire</translation>
+        <translation>Système Unitaire : Débit de Refroidissement Latent Demandé</translation>
     </message>
     <message>
         <source>Unitary System Requested Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible demandé du système unitaire</translation>
+        <translation>Système Unitaire: Débit de Refroidissement Sensible Demandé</translation>
     </message>
     <message>
         <source>Unitary System Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du système unitaire</translation>
+        <translation>Système Unitaire : Débit de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Unitary System Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible du système unitaire</translation>
+        <translation>Système Unitaire : Puissance de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Unitary System Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du système unitaire</translation>
+        <translation>Système Unitaire : Puissance de Refroidissement Totale</translation>
     </message>
     <message>
         <source>Unitary System Total Heating Rate</source>
-        <translation>Débit de chauffage total du système unitaire</translation>
+        <translation>Système Unitaire: Puissance Thermique Totale</translation>
     </message>
     <message>
         <source>Unitary System Water Coil Cycling Ratio</source>
-        <translation>Rapport de Cyclage de la Bobine d&apos;Eau du Système Unitaire</translation>
+        <translation>Système Unitaire: Rapport de Fonctionnement par Cycles de la Batterie Eau</translation>
     </message>
     <message>
         <source>Unitary System Water Coil Speed Level</source>
-        <translation>Niveau de vitesse de la serpentin d&apos;eau du système unitaire</translation>
+        <translation>Système Unitaire : Niveau de Vitesse de la Batterie à Eau</translation>
     </message>
     <message>
         <source>Unitary System Water Coil Speed Ratio</source>
-        <translation>Rapport de Vitesse de la Bobine d&apos;Eau du Système Unitaire</translation>
+        <translation>Système Unitaire : Ratio de Vitesse de Batterie Hydrique</translation>
     </message>
     <message>
         <source>VRF Heat Pump Basin Heater Electricity Energy</source>
-        <translation>Énergie électrique du chauffage de bassin de la pompe à chaleur VRF</translation>
+        <translation>VRF Pompe à Chaleur : Énergie Électrique du Réchauffeur de Bac</translation>
     </message>
     <message>
         <source>VRF Heat Pump Basin Heater Electricity Rate</source>
-        <translation>Taux d&apos;électricité du réchauffeur de bassin de la pompe à chaleur VRF</translation>
+        <translation>Pompe à chaleur VRF : Débit d'électricité du réchauffeur de bac</translation>
     </message>
     <message>
         <source>VRF Heat Pump COP</source>
-        <translation>COP de pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: COP</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Heat Transfer Energy</source>
-        <translation>Énergie de Transfert Thermique du Condenseur de Pompe à Chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Énergie de Transfert de Chaleur du Condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur du condenseur de pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Débit de Transfert de Chaleur du Condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Inlet Temperature</source>
-        <translation>Température d&apos;entrée du condensateur de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Température d'Entrée du Condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Mass Flow Rate</source>
-        <translation>Débit massique du condenseur de pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Débit Massique du Condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Outlet Temperature</source>
-        <translation>Température de sortie du condenseur de pompe à chaleur VRF</translation>
+        <translation>VRF Pompe à Chaleur : Température de Sortie du Condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Cooling COP</source>
-        <translation>COP de refroidissement de la pompe à chaleur VRF</translation>
+        <translation>VRF Pompe à Chaleur : COP Refroidissement</translation>
     </message>
     <message>
         <source>VRF Heat Pump Cooling Electricity Energy</source>
-        <translation>Électricité énergétique de refroidissement de pompe à chaleur VRF</translation>
+        <translation>Pompe à chaleur VRF : Énergie électrique refroidissement</translation>
     </message>
     <message>
         <source>VRF Heat Pump Cooling Electricity Rate</source>
-        <translation>Taux d&apos;électricité de refroidissement de la pompe à chaleur VRF</translation>
+        <translation>Pompe Thermique VRF: Débit de Consommation Électrique en Refroidissement</translation>
     </message>
     <message>
         <source>VRF Heat Pump Crankcase Heater Electricity Energy</source>
-        <translation>Énergie électrique du réchauffeur de carter du pompe à chaleur VRF</translation>
+        <translation>Pompe Thermique VRF: Énergie Électrique du Réchauffeur de Carter</translation>
     </message>
     <message>
         <source>VRF Heat Pump Crankcase Heater Electricity Rate</source>
-        <translation>Tarif d&apos;électricité du réchauffeur de puisard de la pompe à chaleur VRF</translation>
+        <translation>Pompe à chaleur VRF : Puissance électrique des réchauffeurs de carter</translation>
     </message>
     <message>
         <source>VRF Heat Pump Cycling Ratio</source>
-        <translation>Ratio de Cycle de la Pompe à Chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Ratio de Cyclage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Defrost Electricity Energy</source>
-        <translation>Énergie électrique de dégivrage de pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Énergie Électrique de Dégivrage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Defrost Electricity Rate</source>
-        <translation>VRF Taux d&apos;électricité de dégivrage de la pompe à chaleur</translation>
+        <translation>Pompe à Chaleur VRF : Puissance Électrique Dégivrage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Evaporative Condenser Pump Electricity Energy</source>
-        <translation>Énergie électrique de la pompe du condenseur évaporatif de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Condenseur Évaporatif Thermopompe VRF : Énergie Électrique</translation>
     </message>
     <message>
         <source>VRF Heat Pump Evaporative Condenser Pump Electricity Rate</source>
-        <translation>Débit d&apos;électricité de la pompe du condenseur évaporatif de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Puissance Électrique de la Pompe du Condenseur Évaporatif</translation>
     </message>
     <message>
         <source>VRF Heat Pump Evaporative Condenser Water Use Volume</source>
-        <translation>Volume d&apos;eau utilisée du condenseur évaporatif de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Volume d'Eau Utilisée par le Condenseur Évaporatif</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heat Recovery Status Change Multiplier</source>
-        <translation>Multiplicateur de Changement d&apos;État de Récupération de Chaleur pour Pompe à Chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Multiplicateur de Changement d'État de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heating COP</source>
-        <translation>COP de chauffage de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : COP Chauffage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heating Electricity Energy</source>
-        <translation>Énergie Électrique de Chauffage de la Pompe à Chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Énergie Électrique Chauffage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heating Electricity Rate</source>
-        <translation>Taux d&apos;électricité de chauffage de la pompe à chaleur VRF</translation>
+        <translation>VRF Pompe à Chaleur: Débit de Consommation Électrique en Mode Chauffage</translation>
     </message>
     <message>
         <source>VRF Heat Pump Maximum Capacity Cooling Rate</source>
-        <translation>Débit de refroidissement à capacité maximale de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Débit de Capacité de Refroidissement Maximum</translation>
     </message>
     <message>
         <source>VRF Heat Pump Maximum Capacity Heating Rate</source>
-        <translation>Débit de puissance thermique maximal de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Débit de Capacité Thermique Maximale</translation>
     </message>
     <message>
         <source>VRF Heat Pump Operating Mode</source>
-        <translation>Mode de fonctionnement de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Mode de Fonctionnement</translation>
     </message>
     <message>
         <source>VRF Heat Pump Part Load Ratio</source>
-        <translation>Ratio de Charge Partielle de la Pompe à Chaleur VRF</translation>
+        <translation>VRF Heat Pump: Rapport de charge partielle</translation>
     </message>
     <message>
         <source>VRF Heat Pump Runtime Fraction</source>
-        <translation>Fraction de Temps de Fonctionnement de la Pompe à Chaleur VRF</translation>
+        <translation>Pompe à chaleur VRF : Fraction de temps de fonctionnement</translation>
     </message>
     <message>
         <source>VRF Heat Pump Simultaneous Cooling and Heating Efficiency</source>
-        <translation>Efficacité de la Pompe de Chaleur VRF en Refroidissement et Chauffage Simultanés</translation>
+        <translation>Pompe à Chaleur VRF: Efficacité Refroidissement et Chauffage Simultanés</translation>
     </message>
     <message>
         <source>VRF Heat Pump Terminal Unit Cooling Load Rate</source>
-        <translation>Débit de charge frigorifique de l&apos;unité terminale de pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF: Débit de Charge de Refroidissement de l'Unité Terminale</translation>
     </message>
     <message>
         <source>VRF Heat Pump Terminal Unit Heating Load Rate</source>
-        <translation>Débit de charge thermique de l&apos;unité terminale de pompe à chaleur VRF</translation>
+        <translation>VRF Pompe à Chaleur: Débit de Charge Thermique Unité Terminale</translation>
     </message>
     <message>
         <source>VRF Heat Pump Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de la pompe à chaleur VRF</translation>
+        <translation>Pompe à Chaleur VRF : Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>VRF Heat Pump Total Heating Rate</source>
-        <translation>Débit de chauffage total de la pompe à chaleur VRF</translation>
+        <translation>Pompe à chaleur VRF : Puissance de chauffage totale</translation>
     </message>
     <message>
         <source>VSAirtoAirHP Recoverable Waste Heat</source>
-        <translation>VSAirtoAirHP Chaleur résiduelle récupérable</translation>
+        <translation>VSAirtoAirHP: Chaleur récupérable perdue</translation>
     </message>
     <message>
         <source>Water Heater Coal Energy</source>
-        <translation>Chauffe-eau Énergie Charbon</translation>
+        <translation>Chauffe-eau : Énergie Charbon</translation>
     </message>
     <message>
         <source>Water Heater Coal Rate</source>
-        <translation>Taux de charbon du chauffe-eau</translation>
+        <translation>Chauffe-eau: Débit de Charbon</translation>
     </message>
     <message>
         <source>Water Heater Cycle On Count</source>
-        <translation>Nombre de cycles d&apos;allumage du chauffe-eau</translation>
+        <translation>Chauffe-eau: Nombre de Cycles d'Allumage</translation>
     </message>
     <message>
         <source>Water Heater Diesel Energy</source>
-        <translation>Énergie Diesel Chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie Diesel</translation>
     </message>
     <message>
         <source>Water Heater Diesel Rate</source>
-        <translation>Taux de combustible diesel du chauffe-eau</translation>
+        <translation>Chauffe-eau: Consommation de Diesel</translation>
     </message>
     <message>
         <source>Water Heater Electricity Energy</source>
-        <translation>Énergie Électrique du Chauffe-Eau</translation>
+        <translation>Chauffe-eau : Énergie électrique</translation>
     </message>
     <message>
         <source>Water Heater Electricity Rate</source>
-        <translation>Tarif d&apos;électricité du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Puissance électrique</translation>
     </message>
     <message>
         <source>Water Heater Final Tank Temperature</source>
-        <translation>Température finale du réservoir du chauffe-eau</translation>
+        <translation>Chauffe-Eau : Température Finale du Réservoir</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 1</source>
-        <translation>Nœud 1 de température finale du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Température finale du nœud 1</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 10</source>
-        <translation>Nœud 10 de température finale du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Température Finale Nœud 10</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 11</source>
-        <translation>Nœud de température finale du chauffe-eau 11</translation>
+        <translation>Chauffe-eau : Température finale nœud 11</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 12</source>
-        <translation>Nœud de température finale du chauffe-eau 12</translation>
+        <translation>Chauffe-eau : Température finale du nœud 12</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 2</source>
-        <translation>Nœud 2 de la température finale du chauffe-eau</translation>
+        <translation>Chauffe-Eau: Température Finale du Nœud 2</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 3</source>
-        <translation>Nœud de Température Finale du Chauffe-Eau 3</translation>
+        <translation>Chauffe-eau : Température finale nœud 3</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 4</source>
-        <translation>Nœud 4 de température finale du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Température finale nœud 4</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 5</source>
-        <translation>Nœud de Température Finale du Chauffe-Eau 5</translation>
+        <translation>Chauffe-eau : Température finale nœud 5</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 6</source>
-        <translation>Nœud de Température Finale du Chauffe-eau 6</translation>
+        <translation>Chauffe-eau : Température finale nœud 6</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 7</source>
-        <translation>Nœud Température Finale du Ballon d&apos;Eau Chaude 7</translation>
+        <translation>Chauffe-eau: Température finale du nœud 7</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 8</source>
-        <translation>Nœud de Température Finale du Chauffe-Eau 8</translation>
+        <translation>Chauffe-eau : Température finale nœud 8</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 9</source>
-        <translation>Nœud de Température Finale du Ballon d&apos;Eau Chaude 9</translation>
+        <translation>Chauffe-eau : Température du nœud final 9</translation>
     </message>
     <message>
         <source>Water Heater FuelOilNo1 Energy</source>
-        <translation>Énergie du Chauffe-eau Fioul Domestique No1</translation>
+        <translation>Chauffe-eau : Énergie Fioul Domestique</translation>
     </message>
     <message>
         <source>Water Heater FuelOilNo1 Rate</source>
-        <translation>Débit de Chauffeur d&apos;Eau Fioul Lourd N°1</translation>
+        <translation>Chauffe-eau : Débit de Fioul Lourd n°1</translation>
     </message>
     <message>
         <source>Water Heater FuelOilNo2 Energy</source>
-        <translation>Énergie du Chauffe-eau Fioul Domestique No2</translation>
+        <translation>Chauffe-eau : Énergie Fioul Domestique</translation>
     </message>
     <message>
         <source>Water Heater FuelOilNo2 Rate</source>
-        <translation>Débit de Chauffage-Eau au Fioul Domestique N°2</translation>
+        <translation>Chauffe-eau : Débit de Fioul Domestique</translation>
     </message>
     <message>
         <source>Water Heater Gasoline Energy</source>
-        <translation>Énergie Essence Chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie Essence</translation>
     </message>
     <message>
         <source>Water Heater Gasoline Rate</source>
-        <translation>Débit de Consommation de Carburant du Chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit de consommation d'essence</translation>
     </message>
     <message>
         <source>Water Heater Heat Loss Energy</source>
-        <translation>Énergie perdue par transmission thermique du chauffe-eau</translation>
+        <translation>Ballon d'Eau Chaude : Énergie de Perte Thermique</translation>
     </message>
     <message>
         <source>Water Heater Heat Loss Rate</source>
-        <translation>Débit de perte de chaleur du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit de perte thermique</translation>
     </message>
     <message>
         <source>Water Heater Heater 1 Cycle On Count</source>
-        <translation>Compteur de cycles d&apos;activation du Chauffe-eau 1</translation>
+        <translation>Chauffe-eau : Nombre de mises en marche du brûleur 1</translation>
     </message>
     <message>
         <source>Water Heater Heater 1 Heating Energy</source>
-        <translation>Énergie de chauffage du radiateur Chauffe-eau 1</translation>
+        <translation>Chauffe-eau : Énergie de chauffage Chauffe-eau 1</translation>
     </message>
     <message>
         <source>Water Heater Heater 1 Heating Rate</source>
-        <translation>Débit de chauffage du Chauffe-eau 1</translation>
+        <translation>Chauffe-eau : Puissance de chauffage du réchauffeur 1</translation>
     </message>
     <message>
         <source>Water Heater Heater 1 Runtime Fraction</source>
-        <translation>Fraction de Temps de Fonctionnement du Chauffe-eau 1</translation>
+        <translation>Chauffe-Eau : Fraction de Fonctionnement du Chauffage 1</translation>
     </message>
     <message>
         <source>Water Heater Heater 2 Cycle On Count</source>
-        <translation>Compteur de cycles de mise en marche du Chauffage du Ballon d&apos;eau chaude 2</translation>
+        <translation>Chauffe-eau: Nombre de Cycles d'Activation du Radiateur 2</translation>
     </message>
     <message>
         <source>Water Heater Heater 2 Heating Energy</source>
-        <translation>Énergie de chauffage du radiateur 2 du chauffe-eau</translation>
+        <translation>Chauffe-eau: Énergie de chauffage Heater 2</translation>
     </message>
     <message>
         <source>Water Heater Heater 2 Heating Rate</source>
-        <translation>Débit de chauffage du Radiateur 2 du Ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Débit thermique du Réchauffeur 2</translation>
     </message>
     <message>
         <source>Water Heater Heater 2 Runtime Fraction</source>
-        <translation>Fraction de temps de fonctionnement du Chauffe-eau 2</translation>
+        <translation>Chauffe-eau: Fraction de temps de fonctionnement Chauffe 2</translation>
     </message>
     <message>
         <source>Water Heater Heating Energy</source>
-        <translation>Énergie de chauffage du chauffe-eau</translation>
+        <translation>Chauffe-Eau: Énergie de Chauffage</translation>
     </message>
     <message>
         <source>Water Heater Heating Rate</source>
-        <translation>Puissance de chauffage du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Puissance de chauffage</translation>
     </message>
     <message>
         <source>Water Heater NaturalGas Energy</source>
-        <translation>Énergie Gaz Naturel du Chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie Gaz Naturel</translation>
     </message>
     <message>
         <source>Water Heater NaturalGas Rate</source>
-        <translation>Taux de gaz naturel du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit gaz naturel</translation>
     </message>
     <message>
         <source>Water Heater Net Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique net du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie nette de transfert thermique</translation>
     </message>
     <message>
         <source>Water Heater Net Heat Transfer Rate</source>
-        <translation>Débit de transfert net de chaleur du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Débit de Transfert Thermique Net</translation>
     </message>
     <message>
         <source>Water Heater Off Cycle Parasitic Tank Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du réservoir en cycle arrêt parasite du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie de transfert thermique du réservoir due aux appareils parasites hors cycle</translation>
     </message>
     <message>
         <source>Water Heater Off Cycle Parasitic Tank Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur parasitaire du réservoir du chauffe-eau en cycle d&apos;arrêt</translation>
+        <translation>Chauffe-eau : Taux de Transfert Thermique du Réservoir en Parasites Hors Cycle</translation>
     </message>
     <message>
         <source>Water Heater On Cycle Parasitic Tank Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du réservoir parasite en cycle marche du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie de transfert de chaleur au réservoir due aux parasites en marche</translation>
     </message>
     <message>
         <source>Water Heater On Cycle Parasitic Tank Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur parasitaire du réservoir du chauffe-eau en cycle actif</translation>
+        <translation>Chauffe-eau : Débit de transfert de chaleur du réservoir parasitaire en cycle</translation>
     </message>
     <message>
         <source>Water Heater OtherFuel1 Energy</source>
-        <translation>Énergie Chauffe-eau Autre Combustible 1</translation>
+        <translation>Chauffe-eau: Énergie Combustible Alternatif 1</translation>
     </message>
     <message>
         <source>Water Heater OtherFuel1 Rate</source>
-        <translation>Débit de Combustible Auxiliaire 1 du Chauffe-Eau</translation>
+        <translation>Chauffe-eau : Débit d'énergie combustible alternatif 1</translation>
     </message>
     <message>
         <source>Water Heater OtherFuel2 Energy</source>
-        <translation>Énergie Chauffe-eau Autre Combustible2</translation>
+        <translation>Chauffe-eau: Énergie Carburant Alternatif 2</translation>
     </message>
     <message>
         <source>Water Heater OtherFuel2 Rate</source>
-        <translation>Débit du Chauffe-eau Autre Combustible 2</translation>
+        <translation>Chauffe-eau : Débit de combustible auxiliaire 2</translation>
     </message>
     <message>
         <source>Water Heater Part Load Ratio</source>
-        <translation>Rapport de charge partielle du chauffe-eau</translation>
+        <translation>Chauffe-eau : Rapport de Charge Partielle</translation>
     </message>
     <message>
         <source>Water Heater Propane Energy</source>
-        <translation>Énergie Propane du Chauffe-Eau</translation>
+        <translation>Chauffe-eau: Énergie au Propane</translation>
     </message>
     <message>
         <source>Water Heater Propane Rate</source>
-        <translation>Débit de propane du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit de Propane</translation>
     </message>
     <message>
         <source>Water Heater Runtime Fraction</source>
-        <translation>Fraction de temps de fonctionnement du chauffe-eau</translation>
+        <translation>Chauffe-eau : Fraction de Fonctionnement</translation>
     </message>
     <message>
         <source>Water Heater Source Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique côté source du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie de transfert thermique côté source</translation>
     </message>
     <message>
         <source>Water Heater Source Side Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur côté source du chauffe-eau</translation>
+        <translation>Chauffe-eau : Flux de chaleur côté source</translation>
     </message>
     <message>
         <source>Water Heater Source Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée du côté source du chauffe-eau</translation>
+        <translation>Chauffe-eau : Température d'entrée côté source</translation>
     </message>
     <message>
         <source>Water Heater Source Side Mass Flow Rate</source>
-        <translation>Débit massique du côté source du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit massique du côté source</translation>
     </message>
     <message>
         <source>Water Heater Source Side Outlet Temperature</source>
-        <translation>Température de sortie côté source du chauffe-eau</translation>
+        <translation>Chauffe-eau : Température de sortie côté source</translation>
     </message>
     <message>
         <source>Water Heater Tank Temperature</source>
-        <translation>Température du réservoir du chauffe-eau</translation>
+        <translation>Chauffe-Eau : Température du Réservoir</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 1</source>
-        <translation>Nœud 1 de température du chauffe-eau</translation>
+        <translation>Chauffe-eau : Température Nœud 1</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 10</source>
-        <translation>Nœud de température du chauffe-eau 10</translation>
+        <translation>Chauffe-eau : Température au nœud 10</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 11</source>
-        <translation>Nœud de température du chauffe-eau 11</translation>
+        <translation>Chauffe-eau : Température Nœud 11</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 12</source>
-        <translation>Nœud de Température du Chauffe-Eau 12</translation>
+        <translation>Chauffe-eau : Température Nœud 12</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 2</source>
-        <translation>Nœud 2 de température du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Température au nœud 2</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 3</source>
-        <translation>Nœud de température du chauffe-eau 3</translation>
+        <translation>Chauffe-eau : Température du Nœud 3</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 4</source>
-        <translation>Nœud de température du chauffe-eau 4</translation>
+        <translation>Chauffe-eau : Température Nœud 4</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 5</source>
-        <translation>Nœud de température du chauffe-eau 5</translation>
+        <translation>Chauffe-eau : Température Nœud 5</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 6</source>
-        <translation>Nœud de température du ballon d&apos;eau chaude 6</translation>
+        <translation>Chauffe-eau : Température au nœud 6</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 7</source>
-        <translation>Nœud de Température du Chauffe-eau 7</translation>
+        <translation>Chauffe-eau: Température au Nœud 7</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 8</source>
-        <translation>Nœud de Température du Chauffe-eau 8</translation>
+        <translation>Chauffe-eau : Température du Nœud 8</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 9</source>
-        <translation>Nœud de température du chauffe-eau 9</translation>
+        <translation>Chauffe-eau : Température Nœud 9</translation>
     </message>
     <message>
         <source>Water Heater Total Demand Energy</source>
-        <translation>Énergie Totale Demandée du Chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie Demandée Totale</translation>
     </message>
     <message>
         <source>Water Heater Total Demand Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique total demandé du ballon d&apos;eau chaude</translation>
+        <translation>Chauffe-eau : Puissance de demande de transfert thermique total</translation>
     </message>
     <message>
         <source>Water Heater Unmet Demand Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique de demande non satisfaite du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie de Transfert de Chaleur de Demande Non Satisfaite</translation>
     </message>
     <message>
         <source>Water Heater Unmet Demand Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de la demande non satisfaite du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit de transfert thermique de demande non satisfaite</translation>
     </message>
     <message>
         <source>Water Heater Use Side Heat Transfer Energy</source>
-        <translation>Énergie de transfert thermique du côté utilisation du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie de transfert thermique côté utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur côté consommation du ballon d&apos;eau chaude</translation>
+        <translation>Ballon d'eau chaude : Débit de transfert de chaleur côté utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Inlet Temperature</source>
-        <translation>Température d&apos;entrée côté utilisation du chauffe-eau</translation>
+        <translation>Chauffe-Eau : Température d'Entrée Côté Utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Mass Flow Rate</source>
-        <translation>Débit massique côté utilisation du chauffe-eau</translation>
+        <translation>Chauffe-eau: Débit massique côté utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Outlet Temperature</source>
-        <translation>Température de sortie côté utilisation du chauffe-eau</translation>
+        <translation>Chauffe-eau : Température de sortie côté utilisation</translation>
     </message>
     <message>
         <source>Water Heater Venting Heat Transfer Energy</source>
-        <translation>Énergie de transfert de chaleur d&apos;évacuation du chauffe-eau</translation>
+        <translation>Chauffe-eau : Énergie transférée par ventilation</translation>
     </message>
     <message>
         <source>Water Heater Venting Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de ventilation du chauffe-eau</translation>
+        <translation>Chauffe-eau : Flux de chaleur d'échappement</translation>
     </message>
     <message>
         <source>Water Heater Water Volume</source>
-        <translation>Volume d&apos;eau du chauffe-eau</translation>
+        <translation>Chauffe-eau : Volume d'eau</translation>
     </message>
     <message>
         <source>Water Heater Water Volume Flow Rate</source>
-        <translation>Débit volumétrique d&apos;eau du chauffe-eau</translation>
+        <translation>Chauffe-eau : Débit volumétrique d'eau</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Mass Flow Rate</source>
-        <translation>Débit Massique d&apos;Eau Froide des Connexions d&apos;Utilisation d&apos;Eau</translation>
+        <translation>Connexions d'utilisation d'eau: Débit massique d'eau froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Temperature</source>
-        <translation>Connexions d&apos;utilisation d&apos;eau - Température de l&apos;eau froide</translation>
+        <translation>Connexions d'eau: Température de l'eau froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Volume</source>
-        <translation>Volume d&apos;eau froide des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'Utilisation d'Eau : Volume d'Eau Froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Volume Flow Rate</source>
-        <translation>Débit volumique d&apos;eau froide des raccordements d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'utilisation d'eau : Débit volumique d'eau froide</translation>
     </message>
     <message>
         <source>Water Use Connections Drain Water Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;eau d&apos;évacuation des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions Utilisation d'Eau: Débit Massique d'Eau de Vidange</translation>
     </message>
     <message>
         <source>Water Use Connections Drain Water Temperature</source>
-        <translation>Température de l&apos;eau d&apos;évacuation des connexions de consommation d&apos;eau</translation>
+        <translation>Connexions d'Utilisation d'Eau : Température de l'Eau d'Évacuation</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Effectiveness</source>
-        <translation>Efficacité de la récupération de chaleur des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'Utilisation d'Eau: Efficacité de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Energy</source>
-        <translation>Énergie de récupération de chaleur des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'Utilisation d'Eau : Énergie de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Mass Flow Rate</source>
-        <translation>Débit massique de récupération de chaleur des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions de Consommation d'Eau: Débit Massique de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Rate</source>
-        <translation>Débit de récupération de chaleur des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'eau: Débit de chaleur récupérée</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Water Temperature</source>
-        <translation>Température de l&apos;eau de récupération de chaleur des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'utilisation d'eau: Température de l'eau de récupération de chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Mass Flow Rate</source>
-        <translation>Débit Massique d&apos;Eau Chaude des Connexions d&apos;Utilisation d&apos;Eau</translation>
+        <translation>Connexions d'Usage d'Eau: Débit Massique d'Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Temperature</source>
-        <translation>Connexions d&apos;utilisation d&apos;eau - Température de l&apos;eau chaude</translation>
+        <translation>Connexions d'Utilisation d'Eau: Température d'Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Volume</source>
-        <translation>Connexions d&apos;utilisation d&apos;eau Volume d&apos;eau chaude</translation>
+        <translation>Connexions d'Utilisation d'Eau : Volume d'Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Volume Flow Rate</source>
-        <translation>Débit volumétrique d&apos;eau chaude des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions de Consommation d'Eau : Débit Volumétrique d'Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Plant Hot Water Energy</source>
-        <translation>Connexions d&apos;utilisation d&apos;eau - Énergie eau chaude de la centrale</translation>
+        <translation>Connexions d'utilisation d'eau : Énergie eau chaude de la boucle de distribution</translation>
     </message>
     <message>
         <source>Water Use Connections Return Water Temperature</source>
-        <translation>Température de retour de l&apos;eau des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'utilisation d'eau: Température de l'eau de retour</translation>
     </message>
     <message>
         <source>Water Use Connections Total Mass Flow Rate</source>
-        <translation>Débit massique total des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'utilisation d'eau : Débit massique total</translation>
     </message>
     <message>
         <source>Water Use Connections Total Volume</source>
-        <translation>Volume Total des Connexions d&apos;Utilisation d&apos;Eau</translation>
+        <translation>Connexions d'utilisation d'eau : Volume total</translation>
     </message>
     <message>
         <source>Water Use Connections Total Volume Flow Rate</source>
-        <translation>Débit volumique total des connexions d&apos;utilisation d&apos;eau</translation>
+        <translation>Connexions d'utilisation d'eau : Débit volumique total</translation>
     </message>
     <message>
         <source>Water Use Connections Waste Water Temperature</source>
-        <translation>Connexions d&apos;utilisation d&apos;eau - Température des eaux usées</translation>
+        <translation>Connexions d'Eau: Température de l'Eau Évacuée</translation>
     </message>
     <message>
         <source>Zone Air CO2 Concentration</source>
-        <translation>Concentration de CO2 dans l&apos;air de la zone</translation>
+        <translation>Zone: Air: Concentration en CO2</translation>
     </message>
     <message>
         <source>Zone Air CO2 Internal Gain Volume Flow Rate</source>
-        <translation>Débit de volume interne de CO2 de l&apos;air de la zone</translation>
+        <translation>Zone: Air: Débit volumique interne de gain de CO2</translation>
     </message>
     <message>
         <source>Zone Air Generic Air Contaminant Concentration</source>
-        <translation>Concentration générique de contaminant dans l&apos;air de zone</translation>
+        <translation>Zone: Air: Concentration en Contaminant Générique</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Air Energy Storage Rate</source>
-        <translation>Débit de stockage d&apos;énergie thermique de l&apos;air de la zone</translation>
+        <translation>Zone: Bilan Thermique Air: Débit d'Énergie Stockée dans l'Air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Deviation Rate</source>
-        <translation>Taux de déviation du bilan thermique de l&apos;air de la zone</translation>
+        <translation>Zone : Taux de déviation du bilan thermique de l'air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Internal Convective Heat Gain Rate</source>
-        <translation>Débit de gain de chaleur convectif interne de l&apos;équilibre thermique de l&apos;air de zone</translation>
+        <translation>Zone: Bilan Thermique de l'Air: Débit de Gain de Chaleur Convective Interne</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Interzone Air Transfer Rate</source>
-        <translation>Zone Air Heat Balance Interzone Air Transfer Rate</translation>
+        <translation>Zone: Équilibre Thermique de l'Air: Débit de Transfert d'Air Entre Zones</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Outdoor Air Transfer Rate</source>
-        <translation>Débit de transfert d&apos;air extérieur du bilan thermique de l&apos;air de la zone</translation>
+        <translation>Zone : Bilan thermique de l'air : Débit de transfert thermique de l'air extérieur</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Surface Convection Rate</source>
-        <translation>Débit de convection surfacique du bilan thermique de l&apos;air de la zone</translation>
+        <translation>Zone: Bilan Thermique de l'Air: Flux de Convection Surfacique</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance System Air Transfer Rate</source>
-        <translation>Zone Air Heat Balance System Air Transfer Rate</translation>
+        <translation>Zone : Bilan Thermique de l'Air : Débit de Transfert Thermique Système vers l'Air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance System Convective Heat Gain Rate</source>
-        <translation>Débit de gain de chaleur par convection du système d&apos;équilibre thermique de l&apos;air de la zone</translation>
+        <translation>Zone: Bilan Thermique de l'Air: Débit de Gain Thermique Convectif du Système</translation>
     </message>
     <message>
         <source>Zone Air Humidity Ratio</source>
-        <translation>Ratio d&apos;humidité de l&apos;air de la zone</translation>
+        <translation>Zone: Air: Rapport d'humidité</translation>
     </message>
     <message>
         <source>Zone Air Relative Humidity</source>
-        <translation>Humidité Relative de l&apos;Air de la Zone</translation>
+        <translation>Zone: Air: Humidité relative</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du système d&apos;air de zone</translation>
+        <translation>Zone: Système de climatisation: Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du système d&apos;air de zone</translation>
+        <translation>Zone: Débit de refroidissement sensible du système d'air</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du système d&apos;air de zone</translation>
+        <translation>Zone: Système de ventilation: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible du système d&apos;air de zone</translation>
+        <translation>Zone: Système d'air: Débit de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Air Temperature</source>
-        <translation>Température de l&apos;air de la zone</translation>
+        <translation>Zone: Air: Température</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du terminal d&apos;air de la zone</translation>
+        <translation>Zone : Unité Terminale : Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;air de la zone</translation>
+        <translation>Zone: Terminal d'air: Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible du Terminal d&apos;Air de Zone</translation>
+        <translation>Zone : Terminal d'Air : Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Heating Rate</source>
-        <translation>Débit calorifique sensible du terminal d&apos;air de la zone</translation>
+        <translation>Zone : Terminal d'air : Débit de chaleur sensible</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Electricity Energy</source>
-        <translation>Zone Dehumidifier Electricity Energy</translation>
+        <translation>Zone : Déshumidificateur : Énergie Électrique</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Electricity Rate</source>
-        <translation>Débit d&apos;électricité du déshumidificateur de zone</translation>
+        <translation>Zone: Déshumidificateur: Puissance électrique</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Off Cycle Parasitic Electricity Energy</source>
-        <translation>Énergie électrique parasite de cycle d&apos;arrêt du déshumidificateur de zone</translation>
+        <translation>Zone : Déshumidificateur : Énergie Électrique Parasite Cycle Arrêt</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Off Cycle Parasitic Electricity Rate</source>
-        <translation>Débit d&apos;électricité parasite du déshumidificateur de zone en cycle arrêt</translation>
+        <translation>Zone: Déshumidificateur: Consommation électrique parasite en régime arrêté</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Outlet Air Temperature</source>
-        <translation>Température de l&apos;air à la sortie du déshumidificateur de zone</translation>
+        <translation>Zone: Déshumidificateur: Température de l'air à la sortie</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Part Load Ratio</source>
-        <translation>Taux de charge partielle du déshumidificateur de zone</translation>
+        <translation>Zone : Déshumidificateur : Taux de Charge Partielle</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Removed Water Mass</source>
-        <translation>Masse d&apos;eau supprimée du déshumidificateur de zone</translation>
+        <translation>Zone : Déshumidificateur : Masse d'eau extraite</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Removed Water Mass Flow Rate</source>
-        <translation>Débit massique d&apos;eau extraite par le déshumidificateur de zone</translation>
+        <translation>Zone : Déshumidificateur : Débit massique d'eau extraite</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Runtime Fraction</source>
-        <translation>Fraction de Temps d&apos;Exécution du Déshumidificateur de Zone</translation>
+        <translation>Zone: Déshumidificateur: Fraction de Fonctionnement</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du déshumidificateur de zone</translation>
+        <translation>Zone: Déshumidificateur: Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible du déshumidificateur de zone</translation>
+        <translation>Zone: Déshumidificateur: Puissance de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Convective Heating Energy</source>
-        <translation>Zone Electric Equipment Convective Heating Energy</translation>
+        <translation>Zone : Équipement Électrique : Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage convectif des équipements électriques de la zone</translation>
+        <translation>Zone: Équipement Électrique: Puissance de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Electricity Energy</source>
-        <translation>Électricité consommée par les équipements électriques de la zone</translation>
+        <translation>Zone : Équipements électriques : Énergie électrique</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Electricity Rate</source>
-        <translation>Taux d&apos;électricité du matériel électrique de zone</translation>
+        <translation>Zone: Équipements Électriques: Puissance Électrique</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Latent Gain Energy</source>
-        <translation>Énergie des Apports de Chaleur Latente des Équipements Électriques de la Zone</translation>
+        <translation>Zone: Équipement Électrique: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Latent Gain Rate</source>
-        <translation>Taux de gain latent de l&apos;équipement électrique de la zone</translation>
+        <translation>Zone: Équipement Électrique: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Lost Heat Energy</source>
-        <translation>Énergie thermique perdue des équipements électriques de la zone</translation>
+        <translation>Zone: Équipement électrique: Énergie thermique dissipée</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Lost Heat Rate</source>
-        <translation>Taux de perte thermique de l&apos;équipement électrique de zone</translation>
+        <translation>Zone: Équipement Électrique: Débit de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiatif de l&apos;équipement électrique de la zone</translation>
+        <translation>Zone: Équipement Électrique: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Radiant Heating Rate</source>
-        <translation>Débit de rayonnement thermique des équipements électriques de la zone</translation>
+        <translation>Zone : Équipement Électrique : Puissance de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Total Heating Energy</source>
-        <translation>Énergie de chauffage totale de l&apos;équipement électrique de la zone</translation>
+        <translation>Zone: Équipement Électrique: Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Total Heating Rate</source>
-        <translation>Zone Electric Equipment Total Heating Rate</translation>
+        <translation>Zone : Équipement Électrique : Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone Exterior Windows Total Transmitted Beam Solar Radiation Energy</source>
-        <translation>Énergie du rayonnement solaire direct transmis par les fenêtres extérieures de la zone</translation>
+        <translation>Zone: Fenêtres Extérieures: Énergie du Rayonnement Solaire Direct Transmis Total</translation>
     </message>
     <message>
         <source>Zone Exterior Windows Total Transmitted Beam Solar Radiation Rate</source>
-        <translation>Taux de rayonnement solaire direct transmis total par les fenêtres extérieures de la zone</translation>
+        <translation>Zone: Fenêtres Extérieures: Débit de Rayonnement Solaire Direct Transmis Total</translation>
     </message>
     <message>
         <source>Zone Exterior Windows Total Transmitted Diffuse Solar Radiation Energy</source>
-        <translation>Zone Exterior Windows Total Transmitted Diffuse Solar Radiation Energy</translation>
+        <translation>Zone: Fenêtres Extérieures: Énergie du Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Zone Exterior Windows Total Transmitted Diffuse Solar Radiation Rate</source>
-        <translation>Zone Exterior Windows Total Transmitted Diffuse Solar Radiation Rate</translation>
+        <translation>Zone : Fenêtres Extérieures : Débit de Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection des équipements gaz de zone</translation>
+        <translation>Zone : Énergie de chauffage convective des équipements à gaz</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection de l&apos;équipement à gaz de zone</translation>
+        <translation>Zone: Équipement gaz: Puissance de chauffage par convection</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent des Équipements à Gaz de la Zone</translation>
+        <translation>Zone: Équipement à gaz: Énergie de gain latent</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent des équipements à gaz de la zone</translation>
+        <translation>Zone: Équipement à Gaz: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Lost Heat Energy</source>
-        <translation>Énergie perdue de la chaleur due aux équipements à gaz de la zone</translation>
+        <translation>Zone: Équipement Gaz: Énergie Thermique Perdue</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Lost Heat Rate</source>
-        <translation>Débit de chaleur perdue des équipements à gaz de la zone</translation>
+        <translation>Zone: Équipement à Gaz: Débit de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Zone Gas Equipment NaturalGas Energy</source>
-        <translation>Zone Gas Equipment NaturalGas Energy</translation>
+        <translation>Zone: Équipement à gaz: Énergie gaz naturel</translation>
     </message>
     <message>
         <source>Zone Gas Equipment NaturalGas Rate</source>
-        <translation>Zone Gas Equipment NaturalGas Rate</translation>
+        <translation>Zone: Équipement à gaz: Débit de gaz naturel</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Radiant Heating Energy</source>
-        <translation>Énergie radiative de chauffage par équipement gaz de zone</translation>
+        <translation>Zone: Énergie de Chauffage Radiant par Équipement à Gaz</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiatif de l&apos;équipement gaz de la zone</translation>
+        <translation>Zone: Équipement à Gaz: Débit de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale de l&apos;Équipement Gaz de la Zone</translation>
+        <translation>Zone: Équipement Gaz: Énergie Calorifique Totale</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Total Heating Rate</source>
-        <translation>Débit de chauffage total des équipements à gaz de la zone</translation>
+        <translation>Zone: Équipement Gaz: Taux de Chauffage Total</translation>
     </message>
     <message>
         <source>Zone Generic Air Contaminant Generation Volume Flow Rate</source>
-        <translation>Débit de volume de génération de polluant générique de zone</translation>
+        <translation>Zone: Générique: Débit volumique de génération de polluant de l'air</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection de l&apos;équipement d&apos;eau chaude de zone</translation>
+        <translation>Zone: Énergie de chauffage par convection de l'équipement d'eau chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Convective Heating Rate</source>
-        <translation>Débit calorique convectif de l&apos;équipement d&apos;eau chaude de zone</translation>
+        <translation>Zone: Équipement d'Eau Chaude: Puissance de Chauffage Convective</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment District Heating Energy</source>
-        <translation>Énergie de Chauffage Urbain des Équipements d&apos;Eau Chaude de Zone</translation>
+        <translation>Zone : Énergie de Chauffage Urbain pour Équipement d'Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment District Heating Rate</source>
-        <translation>Débit de Chauffage Urbain pour Équipement d&apos;Eau Chaude de Zone</translation>
+        <translation>Zone : Débit de Chauffage Urbain en Équipement d'Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent de l&apos;Équipement d&apos;Eau Chaude de Zone</translation>
+        <translation>Zone: Équipement Eau Chaude: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent des équipements d&apos;eau chaude de la zone</translation>
+        <translation>Zone: Équipement d'Eau Chaude: Flux de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Lost Heat Energy</source>
-        <translation>Zone Hot Water Equipment Lost Heat Energy</translation>
+        <translation>Zone : Équipement Eau Chaude : Énergie Thermique Perdue</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Lost Heat Rate</source>
-        <translation>Taux de chaleur perdue de l&apos;équipement d&apos;eau chaude de la zone</translation>
+        <translation>Zone: Équipement Eau Chaude: Débit de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des équipements d&apos;eau chaude de la zone</translation>
+        <translation>Zone: Énergie de Chauffage Radiant des Équipements d'Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiatif des équipements d&apos;eau chaude de la zone</translation>
+        <translation>Zone: Puissance de Chauffage Radiatif de l'Équipement d'Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Total Heating Energy</source>
-        <translation>Énergie de chauffage totale de l&apos;équipement d&apos;eau chaude de la zone</translation>
+        <translation>Zone : Équipement Eau Chaude : Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Total Heating Rate</source>
-        <translation>Débit calorifique total de l&apos;équipement d&apos;eau chaude de la zone</translation>
+        <translation>Zone: Équipement Eau Chaude: Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Température de l&apos;air de retour ajustée ITE de la zone </translation>
+        <translation>Zone : ITE : Température de l'air de retour ajustée </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Débit massique de l&apos;air de la zone ITE </translation>
+        <translation>Zone: ITE: Débit Massique d'Air </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </translation>
+        <translation>Zone: ITE: Temps de Température de Point de Rosée à l'Entrée d'Air au-dessus de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </translation>
+        <translation>Zone : ITE : Temps de Température de Point de Rosée à l'Entrée d'Air sous la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </translation>
+        <translation>Zone: Équipement ITE: Temps de Température Bulbe Sec à l'Entrée d'Air au-dessus de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </translation>
+        <translation>Zone: ITE: Temps avec Température de Bulbe Sec à l'Entrée d'Air Inférieure à la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Temps de dépassement de la plage de fonctionnement de l&apos;entrée d&apos;air ITE de zone </translation>
+        <translation>Zone: ITE: Temps de dépassement de la plage de fonctionnement d'entrée d'air </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </translation>
+        <translation>Zone : ITE : Temps du Débit d'Air d'Entrée au-dessus de la Plage de Fonctionnement en Humidité Relative </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
+        <translation>Zone: ITE: Temps Inférieur à la Plage de Fonctionnement pour l'Humidité Relative à l'Entrée d'Air </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone ITE Average Supply Heat Index </translation>
+        <translation>Zone: ITE: Indice de Chaleur Moyen d'Alimentation </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
-        <translation>Énergie électrique CPU de la zone ITE </translation>
+        <translation>Zone: ITE: Énergie électrique CPU </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone ITE CPU Electricity Energy at Design Inlet Conditions </translation>
+        <translation>Zone: ITE: Énergie électrique CPU aux conditions de conception à l'entrée </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
-        <translation>Zone ITE CPU Electricity Rate </translation>
+        <translation>Zone: ITE: Puissance Électrique CPU </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taux d&apos;électricité CPU ITE de la zone aux conditions d&apos;entrée de conception </translation>
+        <translation>Zone : ITE : Puissance Électrique CPU aux Conditions d'Entrée de Conception </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
-        <translation>Énergie électrique du ventilateur ITE de la zone </translation>
+        <translation>Zone: ITE: Énergie électrique du ventilateur </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Énergie électrique du ventilateur ITE de la zone aux conditions d&apos;entrée de conception </translation>
+        <translation>Zone: ITE: Énergie électrique du ventilateur aux conditions d'entrée de conception </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
-        <translation>Débit d&apos;électricité du ventilateur ITE de la zone </translation>
+        <translation>Zone: ITE: Puissance Électrique du Ventilateur </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Débit d&apos;électricité du ventilateur ITE de zone aux conditions d&apos;entrée de conception </translation>
+        <translation>Zone: TIC: Puissance électrique ventilateur aux conditions d'entrée de conception </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Zone ITE Standard Density Air Volume Flow Rate </translation>
+        <translation>Zone: ITE: Débit volumique de l'air à densité standard </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
-        <translation>Zone ITE Total Heat Gain to Zone Energy </translation>
+        <translation>Zone: ITE: Énergie Totale du Gain de Chaleur vers la Zone </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Rate </source>
-        <translation>Taux de gain de chaleur total de l&apos;équipement informatique vers la zone </translation>
+        <translation>Zone: ITE: Débit total de chaleur fournie à la zone </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Energy </source>
-        <translation>Zone ITE UPS Electricity Energy </translation>
+        <translation>Zone: ITE: Énergie Électrique UPS </translation>
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone ITE UPS Electricity Rate </translation>
+        <translation>Zone: ITE: Puissance Électrique Onduleur </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Zone ITE UPS Heat Gain to Zone Energy </translation>
+        <translation>Zone: ITE: Énergie de Gain de Chaleur UPS vers Zone </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Taux de gain thermique du groupe électrogène informatique (UPS) de la zone vers la zone </translation>
+        <translation>Zone: ITE: Débit de chaleur du groupe électrogène vers la zone </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
-        <translation>Zone Ideal Loads Economizer Active Time</translation>
+        <translation>Zone: Idéal Loads: Temps d'Activation de l'Économiseur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Active Time</source>
-        <translation>Zone Ideal Loads Heat Recovery Active Time</translation>
+        <translation>Zone: Ideal Loads: Temps Actif de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Latent Cooling Energy</source>
-        <translation>Zone Ideal Loads Heat Recovery Latent Cooling Energy</translation>
+        <translation>Zone: Idéal Charges: Énergie de refroidissement latent récupération chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Latent Cooling Rate</source>
-        <translation>Zone Ideal Loads Heat Recovery Latent Cooling Rate</translation>
+        <translation>Zone: Ideal Loads: Débit de refroidissement latent de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent de récupération de chaleur des charges idéales de zone</translation>
+        <translation>Zone: Charges idéales: Énergie de chauffage latent de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Latent Heating Rate</source>
-        <translation>Débit calorifique de récupération de chaleur latente pour charges idéales de zone</translation>
+        <translation>Zone : Charge Idéale : Débit de Chauffage Latent de la Récupération Thermique</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Sensible Cooling Energy</source>
-        <translation>Énergie de Refroidissement Sensible de la Récupération de Chaleur des Charges Idéales de Zone</translation>
+        <translation>Zone: Charges Idéales: Énergie Sensible Refroidie par Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Sensible Cooling Rate</source>
-        <translation>Taux de refroidissement sensible de la récupération de chaleur des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Sensible de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible avec récupération de chaleur de charge idéale de zone</translation>
+        <translation>Zone : Idéal : Énergie de chauffage sensible de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible de la récupération de chaleur des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Débit d'Énergie Thermique Sensible de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Cooling Energy</source>
-        <translation>Zone Ideal Loads Heat Recovery Total Cooling Energy</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Refroidissement par Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Cooling Rate</source>
-        <translation>Débit de refroidissement total avec récupération de chaleur des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Total Récupérée</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Heating Energy</source>
-        <translation>Zone Ideal Loads Heat Recovery Total Heating Energy</translation>
+        <translation>Zone : Charges Idéales : Énergie Totale de Chauffage de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Heating Rate</source>
-        <translation>Débit calorifique total de récupération de chaleur des charges idéales de zone</translation>
+        <translation>Zone: Idéal Loads: Débit de Chauffage Total du Récupérateur Thermique</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Hybrid Ventilation Available Status</source>
-        <translation>Zone Ideal Loads Hybrid Ventilation Available Status</translation>
+        <translation>Zone : Charges Idéales : État de Disponibilité Ventilation Hybride</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de l&apos;air extérieur des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Énergie de Refroidissement Latente de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de l&apos;air extérieur des charges idéales de la zone</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Latente de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Heating Energy</source>
-        <translation>Zone Ideal Loads Outdoor Air Latent Heating Energy</translation>
+        <translation>Zone: Charges Idéales: Énergie de Chauffage Latent de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Heating Rate</source>
-        <translation>Débit de chauffage latent de l&apos;air extérieur des charges idéales de la zone</translation>
+        <translation>Zone : Ideal Loads : Taux de Chauffage Latent de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air extérieur pour charges idéales de zone</translation>
+        <translation>Zone : Ideal Loads : Débit massique de l'air extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Cooling Energy</source>
-        <translation>Zone Ideal Loads Outdoor Air Sensible Cooling Energy</translation>
+        <translation>Zone : Charges Idéales : Énergie de Refroidissement Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;air extérieur avec charge idéale de zone</translation>
+        <translation>Zone : Charges Idéales : Débit de Refroidissement Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible de l&apos;air extérieur des charges idéales de zone</translation>
+        <translation>Zone: Ideal Loads: Énergie de Chauffage Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible de l&apos;air extérieur des charges idéales de la zone</translation>
+        <translation>Zone : Charges Idéales : Débit de Chauffage Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique standard à densité de l&apos;air extérieur des charges idéales de zone</translation>
+        <translation>Zone: Ideal Loads: Débit volumique de l'air extérieur à densité standard</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Cooling Energy</source>
-        <translation>Zone Ideal Loads Outdoor Air Total Cooling Energy</translation>
+        <translation>Zone: Charge Idéale: Énergie de Refroidissement de l'Air Extérieur Total</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Cooling Rate</source>
-        <translation>Zone Ideal Loads Outdoor Air Total Cooling Rate</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Total de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Heating Energy</source>
-        <translation>Zone Ideal Loads Outdoor Air Total Heating Energy</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Heating Rate</source>
-        <translation>Débit de chauffage total de l&apos;air extérieur des charges idéales de zone</translation>
+        <translation>Zone: Ideal Loads: Débit de chauffage total air extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de l&apos;air fourni - Charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Énergie de Refroidissement Latent de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de l&apos;air soufflé des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Latent de l'Air Neuf</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent de l&apos;air soufflé - Charges idéales de zone</translation>
+        <translation>Zone: Ideal Loads: Énergie de chauffage latent de l'air soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Heating Rate</source>
-        <translation>Débit de chaleur latente d&apos;apport d&apos;air de la zone à charges idéales</translation>
+        <translation>Zone : Idéal avec Charge : Débit de Chaleur Latente pour Humidification de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Mass Flow Rate</source>
-        <translation>Débit massique de l&apos;air de soufflage des charges idéales de la zone</translation>
+        <translation>Zone : Charges Idéales : Débit Massique d'Air de Soufflage</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de l&apos;air fourni par les charges idéales de la zone</translation>
+        <translation>Zone: Idéal Loads: Énergie de Refroidissement Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;air soufflé de la zone à charges idéales</translation>
+        <translation>Zone: Charges Idéales: Débit de Refroidissement Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible de l&apos;air soufflé pour charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Énergie de Chauffage Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible de l&apos;air de soufflage Ideal Loads Zone</translation>
+        <translation>Zone: Ideal Loads: Débit de Chauffage Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité standard de l&apos;air d&apos;alimentation pour charges idéales de zone</translation>
+        <translation>Zone : Idéal Loads : Débit volumique air soufflé à densité standard</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Energy</source>
-        <translation>Énergie totale de refroidissement de l&apos;air soufflé pour Zone avec Charges Idéales</translation>
+        <translation>Zone : Ideal Loads : Énergie totale de refroidissement de l'air soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Fuel Energy</source>
-        <translation>Zone Ideal Loads Supply Air Total Cooling Fuel Energy</translation>
+        <translation>Zone: Charges Idéales: Énergie Thermique Totale Refroidissement Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Fuel Energy Rate</source>
-        <translation>Débit énergétique total de refroidissement de l&apos;air soufflé - Charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Débit Énergétique Total de Refroidissement de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de l&apos;air soufflé des charges idéales de zone</translation>
+        <translation>Zone Charges Idéales : Débit Énergétique Total de Refroidissement de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Energy</source>
-        <translation>Énergie de chauffage totale de l&apos;air soufflé des charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Fuel Energy</source>
-        <translation>Énergie Totale de Combustible pour le Chauffage de l&apos;Air Soufflé des Charges Idéales de Zone</translation>
+        <translation>Zone: Ideal Loads: Énergie Thermique Totale du Combustible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Fuel Energy Rate</source>
-        <translation>Débit énergétique du carburant de chauffage total de l&apos;air soufflé aux charges idéales de zone</translation>
+        <translation>Zone: Charges Idéales: Débit énergétique de combustible pour chauffage air soufflé total</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Rate</source>
-        <translation>Débit de chaleur total de l&apos;air de soufflage des charges idéales de zone</translation>
+        <translation>Zone Charges Idéales : Débit Calorifique Total de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Cooling Fuel Energy</source>
-        <translation>Zone Ideal Loads Zone Cooling Fuel Energy</translation>
+        <translation>Zone: Idéal Loads: Énergie Combustible Refroidissement Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Cooling Fuel Energy Rate</source>
-        <translation>Zone Ideal Loads Zone Cooling Fuel Energy Rate</translation>
+        <translation>Zone: Charges Idéales: Puissance Énergétique de Refroidissement de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Heating Fuel Energy Rate</source>
-        <translation>Zone Ideal Loads Zone Heating Fuel Energy Rate</translation>
+        <translation>Zone: Ideal Loads: Débit énergétique de combustible de chauffage de zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Latent Cooling Energy</source>
-        <translation>Zone Ideal Loads Zone Énergie de Refroidissement Latente</translation>
+        <translation>Zone: Idéal Charges: Énergie de Refroidissement Latent de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Latent Cooling Rate</source>
-        <translation>Zone Ideal Loads Zone Latent Cooling Rate</translation>
+        <translation>Zone: Charges Idéales: Débit de Refroidissement Latent de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Latent Heating Energy</source>
-        <translation>Zone Ideal Loads Zone Latent Heating Energy</translation>
+        <translation>Zone : Charges Idéales : Énergie de Chauffage Latent de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Latent Heating Rate</source>
-        <translation>Zone Ideal Loads Zone Latent Heating Rate</translation>
+        <translation>Zone: Charges Idéales: Débit de Chauffage Latent de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Sensible Cooling Energy</source>
-        <translation>Zone Ideal Loads Zone Sensible Cooling Energy</translation>
+        <translation>Zone: Charges Idéales: Énergie de Refroidissement Sensible de Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Sensible Cooling Rate</source>
-        <translation>Zone Ideal Loads Zone Sensible Cooling Rate</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Sensible de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible de Zone pour Charges Idéales de Zone</translation>
+        <translation>Zone : Idéal : Énergie de Chauffage Sensible de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Sensible Heating Rate</source>
-        <translation>Débit calorifique sensible de chauffage idéal de zone</translation>
+        <translation>Zone: Ideal Loads: Débit Thermique Sensible de Chauffage de Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de la zone pour les charges idéales de zone</translation>
+        <translation>Zone: Ideal Loads: Débit de refroidissement total de la zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Total Heating Energy</source>
-        <translation>Zone Ideal Loads Énergie Totale de Chauffage de la Zone</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de la Zone</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Total Heating Rate</source>
-        <translation>Débit de chauffage total de la zone avec charges idéales</translation>
+        <translation>Zone: Charges idéales: Débit de chauffage total de la zone</translation>
     </message>
     <message>
         <source>Zone Infiltration Current Density Air Change Rate</source>
-        <translation>Taux de renouvellement d&apos;air de la densité de courant d&apos;infiltration de zone</translation>
+        <translation>Zone: Infiltration: Débit de renouvellement d'air volumétrique actuel</translation>
     </message>
     <message>
         <source>Zone Infiltration Current Density Volume</source>
-        <translation>Zone Infiltration Current Density Volume</translation>
+        <translation>Zone : Infiltration : Volume à Densité Actuelle</translation>
     </message>
     <message>
         <source>Zone Infiltration Current Density Volume Flow Rate</source>
-        <translation>Débit volumique de densité de courant d&apos;infiltration de zone</translation>
+        <translation>Zone: Infiltration: Débit volumique actuel basé sur la densité</translation>
     </message>
     <message>
         <source>Zone Infiltration Latent Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Latente par Infiltration de Zone</translation>
+        <translation>Zone: Infiltration: Énergie de Gain de Chaleur Latente</translation>
     </message>
     <message>
         <source>Zone Infiltration Latent Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Sensible par Infiltration de Zone</translation>
+        <translation>Zone: Infiltration: Énergie de Perte de Chaleur Latente</translation>
     </message>
     <message>
         <source>Zone Infiltration Mass</source>
-        <translation>Masse d&apos;infiltration de zone</translation>
+        <translation>Zone: Infiltration: Masse</translation>
     </message>
     <message>
         <source>Zone Infiltration Mass Flow Rate</source>
-        <translation>Débit massique d&apos;infiltration de zone</translation>
+        <translation>Zone : Infiltration : Débit massique</translation>
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Air Change Rate</source>
-        <translation>Débit de renouvellement d&apos;air extérieur par densité de la zone d&apos;infiltration</translation>
+        <translation>Zone: Infiltration: Taux de Renouvellement d'Air à Densité Extérieure</translation>
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Volume Flow Rate</source>
-        <translation>Débit volumique de la densité extérieure des infiltrations de zone</translation>
+        <translation>Zone: Infiltration: Débit volumique basé sur la densité de l'air extérieur</translation>
     </message>
     <message>
         <source>Zone Infiltration Sensible Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Sensible par Infiltration de Zone</translation>
+        <translation>Zone : Infiltration : Énergie de Gain de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Zone Infiltration Sensible Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Sensible par Infiltration dans la Zone</translation>
+        <translation>Zone: Infiltration: Énergie de Perte de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Zone Infiltration Standard Density Air Change Rate</source>
-        <translation>Taux de renouvellement d&apos;air à densité standard pour les infiltrations de zone</translation>
+        <translation>Zone: Infiltration: Débit de changement d'air à densité standard</translation>
     </message>
     <message>
         <source>Zone Infiltration Standard Density Volume</source>
-        <translation>Volume de densité standard d&apos;infiltration de zone</translation>
+        <translation>Zone: Infiltration: Volume à densité standard</translation>
     </message>
     <message>
         <source>Zone Infiltration Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique à infiltration standard Zone densité</translation>
+        <translation>Zone: Infiltration: Débit volumique à densité standard</translation>
     </message>
     <message>
         <source>Zone Infiltration Total Heat Gain Energy</source>
-        <translation>Énergie totale de chaleur sensible due à l&apos;infiltration de la zone</translation>
+        <translation>Zone: Infiltration: Énergie Totale de Gain de Chaleur</translation>
     </message>
     <message>
         <source>Zone Infiltration Total Heat Loss Energy</source>
-        <translation>Énergie Totale de Perte de Chaleur par Infiltration dans la Zone</translation>
+        <translation>Zone: Infiltration: Énergie Totale de Perte de Chaleur</translation>
     </message>
     <message>
         <source>Zone Interior Windows Total Transmitted Beam Solar Radiation Energy</source>
-        <translation>Énergie du Rayonnement Solaire Diffus Transmis Total par les Fenêtres Intérieures de la Zone</translation>
+        <translation>Zone: Fenêtres Intérieures: Énergie du Rayonnement Solaire Direct Transmis Total</translation>
     </message>
     <message>
         <source>Zone Interior Windows Total Transmitted Beam Solar Radiation Rate</source>
-        <translation>Débit de rayonnement solaire direct transmis total des fenêtres intérieures de la zone</translation>
+        <translation>Zone: Fenêtres Intérieures: Débit de Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Zone Interior Windows Total Transmitted Diffuse Solar Radiation Energy</source>
-        <translation>Énergie du Rayonnement Solaire Diffus Transmis Total par les Fenêtres Intérieures de la Zone</translation>
+        <translation>Zone: Fenêtres intérieures: Énergie de rayonnement solaire diffus transmis total</translation>
     </message>
     <message>
         <source>Zone Interior Windows Total Transmitted Diffuse Solar Radiation Rate</source>
-        <translation>Taux de Rayonnement Solaire Diffus Transmis Total par les Fenêtres Intérieures de la Zone</translation>
+        <translation>Zone: Fenêtres Intérieures: Taux de Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Zone Lights Convective Heating Energy</source>
-        <translation>Énergie de Chauffage par Convection de l&apos;Éclairage de Zone</translation>
+        <translation>Zone : Éclairage : Énergie de Chauffage Convective</translation>
     </message>
     <message>
         <source>Zone Lights Convective Heating Rate</source>
-        <translation>Puissance convective de chauffage des lumières de zone</translation>
+        <translation>Zone: Éclairage: Puissance de Chauffage Convectif</translation>
     </message>
     <message>
         <source>Zone Lights Electricity Energy</source>
-        <translation>Énergie électrique des lumières de zone</translation>
+        <translation>Zone: Éclairage: Énergie Électrique</translation>
     </message>
     <message>
         <source>Zone Lights Electricity Rate</source>
-        <translation>Taux d&apos;électricité des éclairages de zone</translation>
+        <translation>Zone: Éclairage: Puissance électrique</translation>
     </message>
     <message>
         <source>Zone Lights Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des luminaires de la zone</translation>
+        <translation>Zone: Éclairage: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Zone Lights Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant des lumières de zone</translation>
+        <translation>Zone: Éclairage: Puissance de rayonnement thermique</translation>
     </message>
     <message>
         <source>Zone Lights Return Air Heating Energy</source>
-        <translation>Énergie de chauffage de l&apos;air de retour des lumières de zone</translation>
+        <translation>Zone: Lights: Énergie de Chauffage de l'Air de Reprise</translation>
     </message>
     <message>
         <source>Zone Lights Return Air Heating Rate</source>
-        <translation>Débit de chauffage de l&apos;air de retour des luminaires de la zone</translation>
+        <translation>Zone: Éclairage: Puissance de chauffage retournée à l'air</translation>
     </message>
     <message>
         <source>Zone Lights Total Heating Energy</source>
-        <translation>Énergie de chauffage totale des éclairages de la zone</translation>
+        <translation>Zone: Éclairage: Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Lights Total Heating Rate</source>
-        <translation>Débit thermique total de l&apos;éclairage des zones</translation>
+        <translation>Zone : Éclairage : Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone Lights Visible Radiation Heating Energy</source>
-        <translation>Zone Lights Énergie de chauffage par rayonnement visible des luminaires</translation>
+        <translation>Zone: Éclairage: Énergie de Chauffage par Rayonnement Visible</translation>
     </message>
     <message>
         <source>Zone Lights Visible Radiation Heating Rate</source>
-        <translation>Taux de chauffage par rayonnement visible des éclairages de la zone</translation>
+        <translation>Zone: Éclairage: Débit de rayonnement visible</translation>
     </message>
     <message>
         <source>Zone Mean Air Dewpoint Temperature</source>
-        <translation>Température de point de rosée de l&apos;air moyen de la zone</translation>
+        <translation>Zone: Température du Point de Rosée de l'Air</translation>
     </message>
     <message>
         <source>Zone Mean Air Temperature</source>
-        <translation>Température de l&apos;Air Moyen de la Zone</translation>
+        <translation>Zone : Moyenne : Température de l'air</translation>
     </message>
     <message>
         <source>Zone Mean Radiant Temperature</source>
-        <translation>Température de rayonnement moyen de la zone</translation>
+        <translation>Zone : Moyenne : Température de rayonnement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Air Changes per Hour</source>
-        <translation>Taux de renouvellement d&apos;air mécanique de la zone par heure</translation>
+        <translation>Zone : Ventilation mécanique : Changements d'air par heure</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Decrease Energy</source>
-        <translation>Zone Mechanical Ventilation Cooling Load Decrease Energy</translation>
+        <translation>Zone: Ventilation mécanique: Énergie de réduction de charge de refroidissement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Increase Energy</source>
-        <translation>Énergie d&apos;augmentation de la charge de refroidissement de la ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation mécanique: Énergie d'augmentation de la charge de refroidissement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Increase Energy Due to Overheating Energy</source>
-        <translation>Énergie supplémentaire de refroidissement de ventilation mécanique de zone due à l&apos;énergie de surchauffe</translation>
+        <translation>Zone : Ventilation Mécanique : Énergie d'Augmentation de Charge de Refroidissement due à l'Énergie de Surchauffe</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Current Density Volume</source>
-        <translation>Volume de Densité de Courant de Ventilation Mécanique de la Zone</translation>
+        <translation>Zone: Ventilation Mécanique: Volume à Densité Actuelle</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Current Density Volume Flow Rate</source>
-        <translation>Débit volumique de la densité de courant de ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation Mécanique: Débit Volume à Densité Courante</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Heating Load Decrease Energy</source>
-        <translation>Énergie de réduction de la charge de chauffage due à la ventilation mécanique de la zone</translation>
+        <translation>Zone : Ventilation Mécanique : Énergie de Réduction de Charge Thermique</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Heating Load Increase Energy</source>
-        <translation>Énergie d&apos;augmentation de charge de chauffage de ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation Mécanique: Énergie d'Augmentation de Charge de Chauffage</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Heating Load Increase Energy Due to Overcooling Energy</source>
-        <translation>Énergie supplémentaire de chauffage de ventilation mécanique de zone due à l&apos;énergie de surfroidissement</translation>
+        <translation>Zone : Ventilation Mécanique : Énergie d'Augmentation de Charge de Chauffage Due à l'Énergie de Surrefroidissement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Mass</source>
-        <translation>Masse de Ventilation Mécanique de Zone</translation>
+        <translation>Zone: Ventilation mécanique: Masse</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Mass Flow Rate</source>
-        <translation>Débit massique de ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation Mécanique: Débit Massique</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation No Load Heat Addition Energy</source>
-        <translation>Énergie d&apos;ajout de chaleur sans charge de ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation Mécanique: Énergie d'Addition de Chaleur Sans Charge</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation No Load Heat Removal Energy</source>
-        <translation>Énergie d&apos;enlèvement de chaleur sans charge de ventilation mécanique de zone</translation>
+        <translation>Zone: Ventilation Mécanique: Énergie de Suppression de Chaleur sans Charge</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Standard Density Volume</source>
-        <translation>Volume de Densité Standard de Ventilation Mécanique de Zone</translation>
+        <translation>Zone: Ventilation mécanique: Volume à densité standard</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Standard Density Volume Flow Rate</source>
-        <translation>Débit volumétrique standard Zone Ventilation Mécanique Densité</translation>
+        <translation>Zone: Ventilation Mécanique: Débit Volumique à Densité Standard</translation>
     </message>
     <message>
         <source>Zone Operative Temperature</source>
-        <translation>Température opérative de la zone</translation>
+        <translation>Zone: Température opérative</translation>
     </message>
     <message>
         <source>Zone Other Equipment Convective Heating Energy</source>
-        <translation>Zone Other Equipment Convective Heating Energy</translation>
+        <translation>Zone: Équipements divers: Énergie de chauffage par convection</translation>
     </message>
     <message>
         <source>Zone Other Equipment Convective Heating Rate</source>
-        <translation>Débit de chaleur convectif des autres équipements de la zone</translation>
+        <translation>Zone: Équipements Divers: Puissance Convective de Chauffage</translation>
     </message>
     <message>
         <source>Zone Other Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent des Autres Équipements de Zone</translation>
+        <translation>Zone: Équipement Divers: Énergie du Gain Latent</translation>
     </message>
     <message>
         <source>Zone Other Equipment Latent Gain Rate</source>
-        <translation>Débit de gain de chaleur latente des autres équipements de la zone</translation>
+        <translation>Zone: Équipements Divers: Taux de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Other Equipment Lost Heat Energy</source>
-        <translation>Zone Other Equipment Lost Heat Energy</translation>
+        <translation>Zone: Équipements Divers: Énergie Thermique Perdue</translation>
     </message>
     <message>
         <source>Zone Other Equipment Lost Heat Rate</source>
-        <translation>Zone Other Equipment Lost Heat Rate</translation>
+        <translation>Zone : Équipement Divers : Puissance Thermique Perdue</translation>
     </message>
     <message>
         <source>Zone Other Equipment Radiant Heating Energy</source>
-        <translation>Énergie de Chauffage Radiatif des Équipements Divers de la Zone</translation>
+        <translation>Zone: Équipement Divers: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Zone Other Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant des autres équipements de zone</translation>
+        <translation>Zone: Équipement Divers: Puissance de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Zone Other Equipment Total Heating Energy</source>
-        <translation>Énergie de chauffage totale des équipements divers de la zone</translation>
+        <translation>Zone: Équipement Divers: Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Other Equipment Total Heating Rate</source>
-        <translation>Taux de Chauffage Total pour Autres Équipements de la Zone</translation>
+        <translation>Zone : Équipement Supplémentaire : Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone Outdoor Air Drybulb Temperature</source>
-        <translation>Température de bulbe sec de l&apos;air extérieur de la zone</translation>
+        <translation>Zone: Température de l'air extérieur: Température sèche</translation>
     </message>
     <message>
         <source>Zone Outdoor Air Wetbulb Temperature</source>
-        <translation>Température de bulbe humide de l&apos;air extérieur de la zone</translation>
+        <translation>Zone: Température de bulbe humide de l'air extérieur</translation>
     </message>
     <message>
         <source>Zone Outdoor Air Wind Speed</source>
-        <translation>Vitesse du vent de l&apos;air extérieur de la zone</translation>
+        <translation>Zone: Air Extérieur: Vitesse du Vent</translation>
     </message>
     <message>
         <source>Zone People Convective Heating Energy</source>
-        <translation>Énergie de Chauffage Convectif des Occupants de Zone</translation>
+        <translation>Zone: Personnes: Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Zone People Convective Heating Rate</source>
-        <translation>Débit de chauffage par convection des occupants de la zone</translation>
+        <translation>Zone: Personnes: Flux de Chaleur Convectif</translation>
     </message>
     <message>
         <source>Zone People Latent Gain Energy</source>
-        <translation>Zone People Latent Gain Energy</translation>
+        <translation>Zone: Personnes: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Zone People Latent Gain Rate</source>
-        <translation>Taux de Gain Latent des Occupants de la Zone</translation>
+        <translation>Zone: Personnes: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Zone People Occupant Count</source>
-        <translation>Nombre d&apos;occupants dans la zone</translation>
+        <translation>Zone: Personnes: Nombre d'Occupants</translation>
     </message>
     <message>
         <source>Zone People Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des occupants de la zone</translation>
+        <translation>Zone : Personnes : Énergie de chauffage radiant</translation>
     </message>
     <message>
         <source>Zone People Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant des occupants de la zone</translation>
+        <translation>Zone: Personnes: Débit de chauffage radiatif</translation>
     </message>
     <message>
         <source>Zone People Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible des Occupants de la Zone</translation>
+        <translation>Zone: Personnes: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone People Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible des occupants de la zone</translation>
+        <translation>Zone: Personnes: Débit de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Zone People Total Heating Energy</source>
-        <translation>Énergie de chauffage totale des occupants de la zone</translation>
+        <translation>Zone: Personnes: Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone People Total Heating Rate</source>
-        <translation>Débit de chauffage total des occupants de la zone</translation>
+        <translation>Zone: Personnes: Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone Predicted Moisture Load Moisture Transfer Rate</source>
-        <translation>Zone Predicted Moisture Load Moisture Transfer Rate</translation>
+        <translation>Zone: Charge d'humidité prédite: Débit de transfert d'humidité</translation>
     </message>
     <message>
         <source>Zone Predicted Moisture Load to Dehumidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Taux de transfert d&apos;humidité de la charge d&apos;humidité prédite de la zone jusqu&apos;au point de consigne de déshumidification</translation>
+        <translation>Zone : Prédite : Débit de transfert d'humidité vers le point de consigne de déshumidification</translation>
     </message>
     <message>
         <source>Zone Predicted Moisture Load to Humidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Débit de transfert d&apos;humidité de la charge d&apos;humidité prédite de la zone vers le point de consigne d&apos;humidification</translation>
+        <translation>Zone: Prédite: Charge de Moisture vers le Point de Consigne d'Humidification Débit de Transfert de Moisture</translation>
     </message>
     <message>
         <source>Zone Predicted Sensible Load to Cooling Setpoint Heat Transfer Rate</source>
-        <translation>Taux de transfert thermique de la charge sensible prédite de la zone vers le point de consigne de refroidissement</translation>
+        <translation>Zone: Charge sensible prédite pour le point de consigne de refroidissement Débit de transfert thermique</translation>
     </message>
     <message>
         <source>Zone Predicted Sensible Load to Heating Setpoint Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de la charge sensible prédite de la zone jusqu&apos;au point de consigne de chauffage</translation>
+        <translation>Zone: Prédite: Taux de transfert thermique de charge sensible vers le point de consigne de chauffage</translation>
     </message>
     <message>
         <source>Zone Predicted Sensible Load to Setpoint Heat Transfer Rate</source>
-        <translation>Débit de transfert de chaleur de la charge sensible prédite de la zone vers la température de consigne</translation>
+        <translation>Zone: Charge Sensible Prédite pour Transfert Thermique vers Consigne</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC Electricity Energy</source>
-        <translation>Énergie électrique de HVAC radiant de zone</translation>
+        <translation>Zone: Système HVAC Radiant: Énergie Électrique</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC Electricity Rate</source>
-        <translation>Taux d&apos;électricité HVAC radiant de zone</translation>
+        <translation>Zone: Système HVAC Radiant: Puissance Électrique</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC Heating Energy</source>
-        <translation>Énergie de chauffage du HVAC radiant de zone</translation>
+        <translation>Zone: Radiateur HVAC: Énergie de chauffage</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC Heating Rate</source>
-        <translation>Taux de chauffage HVAC radiant de zone</translation>
+        <translation>Zone : Système Radiant HVAC : Débit de Chaleur</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC NaturalGas Energy</source>
-        <translation>Zone Radiant HVAC NaturalGas Energy</translation>
+        <translation>Zone: Radiateur HVAC Haute Température: Énergie Gaz Naturel</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC NaturalGas Rate</source>
-        <translation>Débit de gaz naturel pour CVCA radiant de zone</translation>
+        <translation>Zone : Système Radiant HVAC : Débit de Gaz Naturel</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection de l&apos;équipement à vapeur de la zone</translation>
+        <translation>Zone: Équipement à Vapeur: Énergie de Chauffage Convective</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Convective Heating Rate</source>
-        <translation>Débit de chauffage convectif de l&apos;équipement vapeur de zone</translation>
+        <translation>Zone: Équipement Vapeur: Puissance de Chauffage Convectif</translation>
     </message>
     <message>
         <source>Zone Steam Equipment District Heating Energy</source>
-        <translation>Zone Steam Equipment District Heating Energy</translation>
+        <translation>Zone : Énergie de Chauffage Urbain Équipement Vapeur</translation>
     </message>
     <message>
         <source>Zone Steam Equipment District Heating Rate</source>
-        <translation>Débit de chauffage urbain de l&apos;équipement vapeur de zone</translation>
+        <translation>Zone: Équipement de chauffage au vapeur : Débit de chauffage urbain</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent de l&apos;Équipement Vapeur de Zone</translation>
+        <translation>Zone: Équipement à Vapeur: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent des équipements à vapeur de la zone</translation>
+        <translation>Zone: Équipement à Vapeur: Puissance de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Lost Heat Energy</source>
-        <translation>Énergie perdue par la chaleur de l&apos;équipement à vapeur de la zone</translation>
+        <translation>Zone: Équipement à Vapeur: Énergie Perdue par Rayonnement</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Lost Heat Rate</source>
-        <translation>Zone Steam Equipment Lost Heat Rate</translation>
+        <translation>Zone: Équipement Vapeur: Débit de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant de l&apos;équipement vapeur de zone</translation>
+        <translation>Zone: Énergie de chauffage radiant avec équipement à vapeur</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiatif de l&apos;équipement vapeur de la zone</translation>
+        <translation>Zone: Débit de chauffage radiatif des équipements à vapeur</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Total Heating Energy</source>
-        <translation>Énergie totale de chauffage des équipements vapeur de la zone</translation>
+        <translation>Zone : Équipement de Vapeur : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Total Heating Rate</source>
-        <translation>Débit calorifique total des équipements à vapeur de la zone</translation>
+        <translation>Zone: Équipement à Vapeur: Puissance Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status</source>
-        <translation>Zone Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status</translation>
+        <translation>Zone: Confort Thermique: Statut d'Acceptabilité à 80% selon le Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model 90% Acceptability Status</source>
-        <translation>Statut d&apos;acceptabilité à 90% du modèle adaptatif ASHRAE 55 du confort thermique de la zone</translation>
+        <translation>Zone: Confort Thermique: Statut d'Acceptabilité 90% du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Température de l&apos;air extérieur - Moyenne mobile du modèle adaptatif ASHRAE 55 pour le confort thermique de la zone</translation>
+        <translation>Zone : Confort Thermique : Température de l'Air Extérieur en Moyenne Glissante du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model Temperature</source>
-        <translation>Température du Modèle Adaptatif ASHRAE 55 du Confort Thermique de la Zone</translation>
+        <translation>Zone : Confort thermique : Température modèle adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Category I Status</source>
-        <translation>Zone Thermal Comfort CEN 15251 Adaptive Model Category I Status</translation>
+        <translation>Zone: Confort Thermique: Statut Modèle Adaptatif CEN 15251 Catégorie I</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Category II Status</source>
-        <translation>Zone Thermal Comfort CEN 15251 Adaptive Model Category II Status</translation>
+        <translation>Zone: Confort Thermique: État du Modèle Adaptatif CEN 15251 Catégorie II</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Category III Status</source>
-        <translation>Statut du Modèle Adaptatif CEN 15251 Catégorie III pour le Confort Thermique de la Zone</translation>
+        <translation>Zone : Confort Thermique : Statut du Modèle Adaptatif CEN 15251 Catégorie III</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Température de l&apos;air extérieur en moyenne mobile du modèle adaptatif de confort thermique des zones CEN 15251</translation>
+        <translation>Zone: Confort Thermique : Modèle Adaptatif CEN 15251 Température Moyenne Courante de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Temperature</source>
-        <translation>Température du modèle adaptatif CEN 15251 du confort thermique de zone</translation>
+        <translation>Zone: Confort thermique: Température adaptative modèle CEN 15251</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Clothing Surface Temperature</source>
-        <translation>Température de Surface du Vêtement de Confort Thermique de Zone</translation>
+        <translation>Zone : Confort Thermique : Température de Surface de Vêtement</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Fanger Model PMV</source>
-        <translation>Modèle de confort thermique de zone Fanger PMV</translation>
+        <translation>Zone: Confort Thermique: PMV du Modèle de Fanger</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Fanger Model PPD</source>
-        <translation>Modèle Fanger de Confort Thermique de Zone PPD</translation>
+        <translation>Zone: Confort Thermique: PPD Modèle Fanger</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort KSU Model Thermal Sensation Index</source>
-        <translation>Indice de Sensation Thermique du Modèle de Confort Thermique de la Zone KSU</translation>
+        <translation>Zone: Confort Thermique: Indice de Sensation Thermique Modèle KSU</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Mean Radiant Temperature</source>
-        <translation>Température Moyenne de Rayonnement du Confort Thermique de la Zone</translation>
+        <translation>Zone: Confort Thermique: Température de Rayonnement Moyen</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Operative Temperature</source>
-        <translation>Température Opérative de Confort Thermique de la Zone</translation>
+        <translation>Zone: Confort Thermique: Température Opérative</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Discomfort Index</source>
-        <translation>Indice d&apos;inconfort du modèle de confort thermique Pierce de la zone</translation>
+        <translation>Zone: Confort Thermique: Indice d'Inconfort du Modèle Pierce</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Effective Temperature PMV</source>
-        <translation>Zone Thermal Comfort Pierce Model Effective Temperature PMV</translation>
+        <translation>Zone: Confort Thermique: PMV de Température Effective du Modèle de Pierce</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Standard Effective Temperature PMV</source>
-        <translation>Modèle de Confort Thermique de la Zone - Température Effective Standard Pierce PMV</translation>
+        <translation>Zone: Confort Thermique: PMV Température Effective Standard Modèle Pierce</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Thermal Sensation Index</source>
-        <translation>Zone Thermal Comfort Pierce Model Thermal Sensation Index</translation>
+        <translation>Zone: Confort Thermique: Indice de Sensation Thermique Modèle Pierce</translation>
     </message>
     <message>
         <source>Zone Thermostat Control Type</source>
-        <translation>Type de Contrôle Thermostat de Zone</translation>
+        <translation>Zone: Thermostat: Type de Contrôle</translation>
     </message>
     <message>
         <source>Zone Thermostat Cooling Setpoint Temperature</source>
-        <translation>Température de consigne de refroidissement du thermostat de zone</translation>
+        <translation>Zone: Thermostat: Température de consigne de refroidissement</translation>
     </message>
     <message>
         <source>Zone Thermostat Heating Setpoint Temperature</source>
-        <translation>Température de consigne de chauffage du thermostat de zone</translation>
+        <translation>Zone : Thermostat : Température de Consigne de Chauffage</translation>
     </message>
     <message>
         <source>Zone Total Internal Convective Heating Energy</source>
-        <translation>Énergie de chauffage convectif interne totale de la zone</translation>
+        <translation>Zone: Énergie de Chauffage Interne: Convective</translation>
     </message>
     <message>
         <source>Zone Total Internal Convective Heating Rate</source>
-        <translation>Taux de chauffage convectif interne total de la zone</translation>
+        <translation>Zone: Total Internal: Débit de Chaleur Convectif</translation>
     </message>
     <message>
         <source>Zone Total Internal Latent Gain Energy</source>
-        <translation>Énergie totale du gain latent interne de la zone</translation>
+        <translation>Zone: Énergie du Gain Latent Interne Total</translation>
     </message>
     <message>
         <source>Zone Total Internal Latent Gain Rate</source>
-        <translation>Taux de Gain Latent Interne Total de la Zone</translation>
+        <translation>Zone : Gain de Chaleur Latente Interne Total : Débit</translation>
     </message>
     <message>
         <source>Zone Total Internal Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant interne totale de la zone</translation>
+        <translation>Zone: Énergie de Chauffage Radiant Interne Totale</translation>
     </message>
     <message>
         <source>Zone Total Internal Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant interne total de la zone</translation>
+        <translation>Zone: Total Internal: Débit de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Zone Total Internal Total Heating Energy</source>
-        <translation>Énergie Totale de Chauffage Interne Totale de la Zone</translation>
+        <translation>Zone: Total Internal: Énergie de Chauffage Total</translation>
     </message>
     <message>
         <source>Zone Total Internal Total Heating Rate</source>
-        <translation>Taux Total de Chauffage Interne Total de la Zone</translation>
+        <translation>Zone: Total Internal: Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone Total Internal Visible Radiation Heating Energy</source>
-        <translation>Énergie de chauffage par rayonnement visible interne total de la zone</translation>
+        <translation>Zone: Rayonnement Visible Interne: Énergie de Chauffage par Rayonnement</translation>
     </message>
     <message>
         <source>Zone Total Internal Visible Radiation Heating Rate</source>
-        <translation>Taux de chauffage par rayonnement visible interne total de la zone</translation>
+        <translation>Zone: Rayonnement Visible Interne Total: Débit de Chauffage par Rayonnement</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Availability Status</source>
-        <translation>État de disponibilité du ventilateur du ventilateur unitaire de zone</translation>
+        <translation>Zone : Ventilateur de ventilateur décentralisé : État de disponibilité du ventilateur</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Electricity Energy</source>
-        <translation>Énergie Électrique du Ventilateur d&apos;Aérateur Unitaire de Zone</translation>
+        <translation>Zone : Ventilateur d'unité : Énergie électrique du ventilateur</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Electricity Rate</source>
-        <translation>Débit d&apos;électricité du ventilateur du ventilateur unitaire de zone</translation>
+        <translation>Zone: Ventilateur d'unité: Puissance électrique du ventilateur</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Part Load Ratio</source>
-        <translation>Ratio de charge partielle du ventilateur du ventilateur unitaire de zone</translation>
+        <translation>Zone: Ventilateur Unitaire: Taux de Charge Partielle du Ventilateur</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Heating Energy</source>
-        <translation>Énergie de chauffage du ventilateur unitaire de zone</translation>
+        <translation>Zone: Ventilateur Unitaire: Énergie de Chauffage</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Heating Rate</source>
-        <translation>Débit de chauffage du ventilateur unitaire de zone</translation>
+        <translation>Zone : Ventilo-convecteur : Puissance de chauffage</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du ventilateur unitaire de zone</translation>
+        <translation>Zone : Ventilateur d'unité : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;unité de ventilation de zone</translation>
+        <translation>Zone: Ventilo-convecteur: Débit de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du ventilateur unitaire de zone</translation>
+        <translation>Zone: Ventilateur de Zone: Énergie Totale Refroidie</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur de Zone: Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Cooling Electricity Energy</source>
-        <translation>Zone VRF Air Terminal Cooling Electricity Energy</translation>
+        <translation>Zone: Terminal VRF Aérien: Énergie Électrique de Refroidissement</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Cooling Electricity Rate</source>
-        <translation>Taux d&apos;électricité du refroidissement du terminal VRF de zone</translation>
+        <translation>Zone: Unité Terminale VRF: Puissance Électrique Parasite de Refroidissement</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Fan Availability Status</source>
-        <translation>Statut de disponibilité du ventilateur du terminal d&apos;air VRF de zone</translation>
+        <translation>Zone : Terminal d'air VRF : État de disponibilité du ventilateur</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Heating Electricity Energy</source>
-        <translation>Énergie Électrique de Chauffage du Terminal Air VRF de Zone</translation>
+        <translation>Zone : Terminaison d'Air VRF : Énergie Électrique Chauffage</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Heating Electricity Rate</source>
-        <translation>Débit d&apos;électricité de chauffage du terminal de climatisation VRF de zone</translation>
+        <translation>Zone : Consommation Électrique Auxiliaire du Terminal VRF en Mode Chauffage</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Latent Cooling Energy</source>
-        <translation>Zone VRF Air Terminal Latent Cooling Energy</translation>
+        <translation>Zone: Terminal Air VRF: Énergie de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent du terminal air VRF de zone</translation>
+        <translation>Zone: Terminal VRF: Débit de refroidissement latent</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Latent Heating Energy</source>
-        <translation>Énergie de chauffage sensible du terminal VRF de zone</translation>
+        <translation>Zone: Terminal VRF: Énergie de Chauffage Latent</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Latent Heating Rate</source>
-        <translation>Débit de chaleur latente de chauffage du terminal de zone VRF</translation>
+        <translation>Zone: Terminal de Climatisation VRF: Taux de Chauffage Latent</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du terminal d&apos;air VRF de zone</translation>
+        <translation>Zone: Unité Terminale VRF: Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Sensible Cooling Rate</source>
-        <translation>Zone VRF Air Terminal Débit de Refroidissement Sensible</translation>
+        <translation>Zone : Terminal VRF : Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible du Terminal d&apos;Air VRF de la Zone</translation>
+        <translation>Zone: Terminal VRF: Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible de chauffage du terminal VRF de zone</translation>
+        <translation>Zone: Unité Terminale VRF: Débit de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Total Cooling Energy</source>
-        <translation>Énergie totale de refroidissement du terminal de air VRF de la zone</translation>
+        <translation>Zone: Terminal Aéraulique VRF: Énergie Frigorifique Totale</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du terminal air VRF de zone</translation>
+        <translation>Zone: Terminal VRF: Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Total Heating Energy</source>
-        <translation>Énergie Totale de Chauffage du Terminal Air VRF de Zone</translation>
+        <translation>Zone: Terminal VRF: Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Total Heating Rate</source>
-        <translation>Débit total de chauffage du terminal air VRF de la zone</translation>
+        <translation>Zone: Terminal VRF: Puissance de chauffage totale</translation>
     </message>
     <message>
         <source>Zone Ventilation Air Inlet Temperature</source>
-        <translation>Température d&apos;entrée de l&apos;air de ventilation de la zone</translation>
+        <translation>Zone: Ventilation: Température de l'air à l'admission</translation>
     </message>
     <message>
         <source>Zone Ventilation Current Density Air Change Rate</source>
-        <translation>Taux de changement d&apos;air de la densité actuelle de ventilation de zone</translation>
+        <translation>Zone: Ventilation: Débit volumique de renouvellement d'air actuel</translation>
     </message>
     <message>
         <source>Zone Ventilation Current Density Volume</source>
-        <translation>Zone Ventilation Current Density Volume</translation>
+        <translation>Zone: Ventilation: Densité volumique actuelle</translation>
     </message>
     <message>
         <source>Zone Ventilation Current Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité de courant actuelle de la ventilation de zone</translation>
+        <translation>Zone: Ventilation: Débit Volumique Basé sur la Densité Actuelle</translation>
     </message>
     <message>
         <source>Zone Ventilation Fan Electricity Energy</source>
-        <translation>Énergie Électrique du Ventilateur de Ventilation de Zone</translation>
+        <translation>Zone: Ventilation: Énergie Électrique du Ventilateur</translation>
     </message>
     <message>
         <source>Zone Ventilation Latent Heat Gain Energy</source>
-        <translation>Énergie de gain de chaleur latente par ventilation de zone</translation>
+        <translation>Zone : Ventilation : Énergie de Gain de Chaleur Latente</translation>
     </message>
     <message>
         <source>Zone Ventilation Latent Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Latente par la Ventilation de Zone</translation>
+        <translation>Zone: Ventilation: Énergie de Perte de Chaleur Latente</translation>
     </message>
     <message>
         <source>Zone Ventilation Mass</source>
-        <translation>Zone Ventilation Mass</translation>
+        <translation>Zone: Ventilation: Masse</translation>
     </message>
     <message>
         <source>Zone Ventilation Mass Flow Rate</source>
-        <translation>Débit massique de ventilation de la zone</translation>
+        <translation>Zone: Ventilation: Débit Massique</translation>
     </message>
     <message>
         <source>Zone Ventilation Outdoor Density Air Change Rate</source>
-        <translation>Taux de changement d&apos;air de la ventilation en zone à densité d&apos;air extérieur</translation>
+        <translation>Zone: Ventilation: Débit de Renouvellement d'Air basé sur la Densité Extérieure</translation>
     </message>
     <message>
         <source>Zone Ventilation Outdoor Density Volume Flow Rate</source>
-        <translation>Débit volumétrique de ventilation de zone basé sur la densité de l&apos;air extérieur</translation>
+        <translation>Zone: Ventilation: Débit volumétrique extérieur basé sur la densité</translation>
     </message>
     <message>
         <source>Zone Ventilation Sensible Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Sensible par Ventilation de Zone</translation>
+        <translation>Zone: Ventilation: Énergie de Gain de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Zone Ventilation Sensible Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Sensible de la Ventilation de la Zone</translation>
+        <translation>Zone : Ventilation : Énergie de Perte Thermique Sensible</translation>
     </message>
     <message>
         <source>Zone Ventilation Standard Density Air Change Rate</source>
-        <translation>Débit de renouvellement d&apos;air à densité standard pour ventilation de zone</translation>
+        <translation>Zone: Ventilation: Taux de renouvellement d'air à densité standard</translation>
     </message>
     <message>
         <source>Zone Ventilation Standard Density Volume</source>
-        <translation>Volume de densité standard de ventilation de zone</translation>
+        <translation>Zone: Ventilation: Volume à densité standard</translation>
     </message>
     <message>
         <source>Zone Ventilation Standard Density Volume Flow Rate</source>
-        <translation>Débit volumétrique de ventilation standard à densité de zone</translation>
+        <translation>Zone: Ventilation: Débit volumique à densité standard</translation>
     </message>
     <message>
         <source>Zone Ventilation Total Heat Gain Energy</source>
-        <translation>Énergie de Gain Thermique Total de la Ventilation de Zone</translation>
+        <translation>Zone : Ventilation : Énergie de Gain de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone Ventilation Total Heat Loss Energy</source>
-        <translation>Énergie totale de perte de chaleur par ventilation de zone</translation>
+        <translation>Zone : Ventilation : Énergie Totale de Perte de Chaleur</translation>
     </message>
     <message>
         <source>Zone Ventilator Electricity Energy</source>
-        <translation>Énergie Électrique du Ventilateur de Zone</translation>
+        <translation>Zone: Ventilateur de récupération: Énergie électrique</translation>
     </message>
     <message>
         <source>Zone Ventilator Electricity Rate</source>
-        <translation>Taux d&apos;électricité du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur récupérateur : Puissance électrique consommée</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur Récupérateur Énergie: Énergie de Refroidissement Latente</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur: Débit de refroidissement latent</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur: Énergie de Chauffage Latente</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Heating Rate</source>
-        <translation>Débit de chaleur latente du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur récupérateur d'énergie: Débit de chaleur latente</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur récupérateur de chaleur: Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur Récupérateur d'Énergie: Taux d'Extraction Calorifique Sensible</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur récupérateur: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur de Récupération d'Énergie: Puissance de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone Ventilator Supply Fan Availability Status</source>
-        <translation>Statut de disponibilité du ventilateur d&apos;alimentation du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur d'extraction récupération de chaleur: État de disponibilité du ventilateur d'alimentation</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur: Énergie de Refroidissement Totale</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Cooling Rate</source>
-        <translation>Zone Ventilator Total Cooling Rate</translation>
+        <translation>Zone : Ventilateur de récupération : Débit de refroidissement total</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Heating Energy</source>
-        <translation>Énergie totale de chauffage du ventilateur de zone</translation>
+        <translation>Zone : Ventilateur Récupérateur : Énergie Calorifique Totale</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Heating Rate</source>
-        <translation>Débit calorifique total du ventilateur de zone</translation>
+        <translation>Zone: Ventilateur Récupérateur: Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Zone Windows Total Heat Gain Energy</source>
-        <translation>Énergie totale de gains de chaleur par les fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Énergie Totale des Gains de Chaleur</translation>
     </message>
     <message>
         <source>Zone Windows Total Heat Gain Rate</source>
-        <translation>Taux total de gain de chaleur des fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Taux de Gain Thermique Total</translation>
     </message>
     <message>
         <source>Zone Windows Total Heat Loss Energy</source>
-        <translation>Énergie totale de perte de chaleur par les fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Énergie de Perte Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Windows Total Heat Loss Rate</source>
-        <translation>Taux de perte de chaleur totale par les fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Débit de Perte Thermique Totale</translation>
     </message>
     <message>
         <source>Zone Windows Total Transmitted Solar Radiation Energy</source>
-        <translation>Énergie totale du rayonnement solaire transmis par les fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Énergie Totale du Rayonnement Solaire Transmis</translation>
     </message>
     <message>
         <source>Zone Windows Total Transmitted Solar Radiation Rate</source>
-        <translation>Taux de rayonnement solaire total transmis par les fenêtres de la zone</translation>
+        <translation>Zone: Fenêtres: Débit de Rayonnement Solaire Total Transmis</translation>
     </message>
     <message>
         <source>Air CO2 Concentration</source>
-        <translation>Concentration en CO2 de l&apos;air</translation>
+        <translation>Air: Concentration en CO2</translation>
     </message>
     <message>
         <source>Air CO2 Internal Gain Volume Flow Rate</source>
-        <translation>Débit volumique du gain interne de CO2 de l&apos;air</translation>
+        <translation>Air: Débit volumique de gain interne de CO2</translation>
     </message>
     <message>
         <source>Air Generic Air Contaminant Concentration</source>
-        <translation>Concentration en Polluant Générique de l&apos;Air</translation>
+        <translation>Air : Concentration en Polluant Aérien Générique</translation>
     </message>
     <message>
         <source>Air Heat Balance Air Energy Storage Rate</source>
-        <translation>Vitesse de stockage d&apos;énergie de l&apos;air du bilan thermique de l&apos;air</translation>
+        <translation>Bilan thermique de l'air: Débit de stockage d'énergie de l'air</translation>
     </message>
     <message>
         <source>Air Heat Balance Deviation Rate</source>
-        <translation>Taux de déviation de l&apos;équilibre thermique de l&apos;air</translation>
+        <translation>Bilan Thermique Air: Taux de Déviation</translation>
     </message>
     <message>
         <source>Air Heat Balance Internal Convective Heat Gain Rate</source>
-        <translation>Débit de gain de chaleur convective interne du bilan thermique de l&apos;air</translation>
+        <translation>Bilan Thermique de l'Air: Débit de Gain de Chaleur par Convection Interne</translation>
     </message>
     <message>
         <source>Air Heat Balance Interzone Air Transfer Rate</source>
-        <translation>Taux de transfert d&apos;air interzones de l&apos;équilibre thermique de l&apos;air</translation>
+        <translation>Bilan Thermique de l'Air : Débit d'Échange d'Air entre Zones</translation>
     </message>
     <message>
         <source>Air Heat Balance Outdoor Air Transfer Rate</source>
-        <translation>Taux de transfert d&apos;air extérieur du bilan thermique de l&apos;air</translation>
+        <translation>Bilan thermique de l'air : Débit de transfert d'air extérieur</translation>
     </message>
     <message>
         <source>Air Heat Balance Surface Convection Rate</source>
-        <translation>Taux de Convection de Surface de l&apos;Équilibre Thermique de l&apos;Air</translation>
+        <translation>Bilan thermique de l'air : Taux de convection de surface</translation>
     </message>
     <message>
         <source>Air Heat Balance System Air Transfer Rate</source>
-        <translation>Taux de Transfert d&apos;Air du Système d&apos;Équilibre Thermique de l&apos;Air</translation>
+        <translation>Bilan thermique de l'air: Débit de transfert d'air du système</translation>
     </message>
     <message>
         <source>Air Heat Balance System Convective Heat Gain Rate</source>
-        <translation>Taux de gain de chaleur par convection du système d&apos;équilibre thermique de l&apos;air</translation>
+        <translation>Bilan Thermique de l'Air: Taux de Gain de Chaleur Convectif du Système</translation>
     </message>
     <message>
         <source>Air Humidity Ratio</source>
-        <translation>Rapport d&apos;humidité de l&apos;air</translation>
+        <translation>Air: Ratio d'humidité</translation>
     </message>
     <message>
         <source>Air Relative Humidity</source>
-        <translation>Humidité Relative de l&apos;Air</translation>
+        <translation>Air: Humidité Relative</translation>
     </message>
     <message>
         <source>Air System Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du système d&apos;air</translation>
+        <translation>Système d'Air: Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Air System Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du système d&apos;air</translation>
+        <translation>Système de climatisation: Puissance frigorifique sensible</translation>
     </message>
     <message>
         <source>Air System Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du système d&apos;air</translation>
+        <translation>Système d'air: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Air System Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible du système d&apos;air</translation>
+        <translation>Système d'air : Puissance de chauffage sensible</translation>
     </message>
     <message>
         <source>Air Temperature</source>
-        <translation>Température de l&apos;air</translation>
+        <translation>Air : Température</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du terminal d&apos;air</translation>
+        <translation>Air Terminal: Énergie sensible de refroidissement</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du terminal d&apos;air</translation>
+        <translation>Air Terminal: Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible du Diffuseur d&apos;Air</translation>
+        <translation>Air Terminal: Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Heating Rate</source>
-        <translation>Débit calorifique sensible du terminal d&apos;air</translation>
+        <translation>Bouche d'air : Débit de chaleur sensible</translation>
     </message>
     <message>
         <source>Dehumidifier Electricity Energy</source>
-        <translation>Énergie électrique du déshumidificateur</translation>
+        <translation>Déshumidificateur : Énergie Électrique</translation>
     </message>
     <message>
         <source>Dehumidifier Electricity Rate</source>
-        <translation>Taux d&apos;électricité du déshumidificateur</translation>
+        <translation>Déshumidificateur : Puissance Électrique</translation>
     </message>
     <message>
         <source>Dehumidifier Off Cycle Parasitic Electricity Energy</source>
-        <translation>Énergie Électrique Parasitaire du Cycle d&apos;Arrêt du Déshumidificateur</translation>
+        <translation>Déshumidificateur: Énergie Électrique Parasite en Cycle Arrêté</translation>
     </message>
     <message>
         <source>Dehumidifier Off Cycle Parasitic Electricity Rate</source>
-        <translation>Taux d&apos;Électricité Parasite du Cycle d&apos;Arrêt du Déshumidificateur</translation>
+        <translation>Déshumidificateur: Puissance électrique parasite en cycle arrêt</translation>
     </message>
     <message>
         <source>Dehumidifier Outlet Air Temperature</source>
-        <translation>Température de l&apos;air de sortie du déshumidificateur</translation>
+        <translation>Déshumidificateur : Température de l'Air à la Sortie</translation>
     </message>
     <message>
         <source>Dehumidifier Part Load Ratio</source>
-        <translation>Ratio de Charge Partielle du Déshumidificateur</translation>
+        <translation>Déshumidificateur : Taux de Charge Partielle</translation>
     </message>
     <message>
         <source>Dehumidifier Removed Water Mass</source>
-        <translation>Masse d&apos;eau extraite par le déshumidificateur</translation>
+        <translation>Déshumidificateur : Masse d'eau extraite</translation>
     </message>
     <message>
         <source>Dehumidifier Removed Water Mass Flow Rate</source>
-        <translation>Débit massique d&apos;eau extraite du déshumidificateur</translation>
+        <translation>Déshumidificateur : Débit massique d'eau éliminée</translation>
     </message>
     <message>
         <source>Dehumidifier Runtime Fraction</source>
-        <translation>Fraction de temps de fonctionnement du déshumidificateur</translation>
+        <translation>Déshumidificateur: Fraction de fonctionnement</translation>
     </message>
     <message>
         <source>Dehumidifier Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du déshumidificateur</translation>
+        <translation>Déshumidificateur: Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Dehumidifier Sensible Heating Rate</source>
-        <translation>Taux de chauffage sensible du déshumidificateur</translation>
+        <translation>Déshumidificateur : Puissance de chauffage sensible</translation>
     </message>
     <message>
         <source>Electric Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection des équipements électriques</translation>
+        <translation>Équipement Électrique : Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Electric Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique: Puissance Thermique Convective</translation>
     </message>
     <message>
         <source>Electric Equipment Electricity Energy</source>
-        <translation>Électricité de l&apos;Équipement Électrique</translation>
+        <translation>Équipement Électrique : Énergie Électrique</translation>
     </message>
     <message>
         <source>Electric Equipment Electricity Rate</source>
-        <translation>Taux d&apos;électricité pour équipements électriques</translation>
+        <translation>Équipement Électrique: Puissance Électrique</translation>
     </message>
     <message>
         <source>Electric Equipment Latent Gain Energy</source>
-        <translation>Énergie de gain latent de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Electric Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Electric Equipment Lost Heat Energy</source>
-        <translation>Énergie de chaleur perdue par les équipements électriques</translation>
+        <translation>Équipement Électrique: Énergie Thermique Perdue</translation>
     </message>
     <message>
         <source>Electric Equipment Lost Heat Rate</source>
-        <translation>Débit de chaleur perdue pour équipements électriques</translation>
+        <translation>Équipement Électrique: Flux de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Electric Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant due aux équipements électriques</translation>
+        <translation>Équipement Électrique: Énergie de Chauffage Rayonnant</translation>
     </message>
     <message>
         <source>Electric Equipment Radiant Heating Rate</source>
-        <translation>Taux de chauffage par rayonnement de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique: Puissance de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Electric Equipment Total Heating Energy</source>
-        <translation>Énergie de chauffage totale de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique: Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Electric Equipment Total Heating Rate</source>
-        <translation>Taux de chauffage total de l&apos;équipement électrique</translation>
+        <translation>Équipement Électrique : Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Exterior Windows Total Transmitted Beam Solar Radiation Energy</source>
-        <translation>Énergie Solaire du Rayonnement Direct Transmise Totale par les Fenêtres Extérieures</translation>
+        <translation>Fenêtres Extérieures: Énergie Totale du Rayonnement Solaire Direct Transmis</translation>
     </message>
     <message>
         <source>Exterior Windows Total Transmitted Beam Solar Radiation Rate</source>
-        <translation>Débit de rayonnement solaire direct transmis total par les fenêtres extérieures</translation>
+        <translation>Fenêtres Extérieures: Débit de Rayonnement Solaire Direct Transmis Total</translation>
     </message>
     <message>
         <source>Exterior Windows Total Transmitted Diffuse Solar Radiation Energy</source>
-        <translation>Énergie Solaire Diffuse Transmise Totale par les Fenêtres Extérieures</translation>
+        <translation>Fenêtres Extérieures: Énergie Totale du Rayonnement Solaire Diffus Transmis</translation>
     </message>
     <message>
         <source>Exterior Windows Total Transmitted Diffuse Solar Radiation Rate</source>
-        <translation>Débit de rayonnement solaire diffus transmis total à travers les fenêtres extérieures</translation>
+        <translation>Fenêtres Extérieures: Débit de Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Gas Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection de l&apos;équipement à gaz</translation>
+        <translation>Équipement Gaz: Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Gas Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection des équipements à gaz</translation>
+        <translation>Équipement à gaz : Débit de chauffage par convection</translation>
     </message>
     <message>
         <source>Gas Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent des Équipements à Gaz</translation>
+        <translation>Équipement à gaz : Énergie de gain latent</translation>
     </message>
     <message>
         <source>Gas Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent équipement gaz</translation>
+        <translation>Équipement Gaz : Débit de Chaleur Latente</translation>
     </message>
     <message>
         <source>Gas Equipment Lost Heat Energy</source>
-        <translation>Énergie perdue par la chaleur des équipements à gaz</translation>
+        <translation>Équipement Gaz : Énergie de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Gas Equipment Lost Heat Rate</source>
-        <translation>Débit de perte de chaleur de l&apos;équipement à gaz</translation>
+        <translation>Équipement au gaz: Débit thermique perdu</translation>
     </message>
     <message>
         <source>Gas Equipment NaturalGas Energy</source>
-        <translation>Énergie Gaz Naturel des Équipements à Gaz</translation>
+        <translation>Équipement à gaz : Énergie gaz naturel</translation>
     </message>
     <message>
         <source>Gas Equipment NaturalGas Rate</source>
-        <translation>Gas Equipment NaturalGas Rate</translation>
+        <translation>Équipement à Gaz : Débit de Gaz Naturel</translation>
     </message>
     <message>
         <source>Gas Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant par équipement à gaz</translation>
+        <translation>Équipement Gaz: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Gas Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant des équipements à gaz</translation>
+        <translation>Équipement Gaz : Débit de Chauffage Radiatif</translation>
     </message>
     <message>
         <source>Gas Equipment Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale des Équipements au Gaz</translation>
+        <translation>Équipement Gaz : Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Gas Equipment Total Heating Rate</source>
-        <translation>Débit de chaleur total des équipements à gaz</translation>
+        <translation>Équipement Gaz: Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Generic Air Contaminant Generation Volume Flow Rate</source>
-        <translation>Débit volumique de génération de contaminant d&apos;air générique</translation>
+        <translation>Générique: Débit volumique de génération de contaminant de l'air</translation>
     </message>
     <message>
         <source>Hot Water Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection de l&apos;équipement d&apos;eau chaude</translation>
+        <translation>Équipement d'Eau Chaude : Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Hot Water Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection de l&apos;équipement d&apos;eau chaude</translation>
+        <translation>Équipement Eau Chaude: Débit de Chaleur Convectif</translation>
     </message>
     <message>
         <source>Hot Water Equipment District Heating Energy</source>
-        <translation>Énergie de Chauffage Urbain des Équipements d&apos;Eau Chaude</translation>
+        <translation>Équipement Eau Chaude : Énergie de Chauffage Urbain</translation>
     </message>
     <message>
         <source>Hot Water Equipment District Heating Rate</source>
-        <translation>Taux de Chauffage Urbain des Équipements d&apos;Eau Chaude</translation>
+        <translation>Équipement Eau Chaude: Débit de Chauffage Urbain</translation>
     </message>
     <message>
         <source>Hot Water Equipment Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent de l&apos;Équipement d&apos;Eau Chaude</translation>
+        <translation>Équipement Eau Chaude: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Hot Water Equipment Latent Gain Rate</source>
-        <translation>Taux de Gain Latent de l&apos;Équipement d&apos;Eau Chaude</translation>
+        <translation>Équipement d'eau chaude : Débit de gain latent</translation>
     </message>
     <message>
         <source>Hot Water Equipment Lost Heat Energy</source>
-        <translation>Énergie Thermique Perdue par l&apos;Équipement d&apos;Eau Chaude</translation>
+        <translation>Équipement d'eau chaude : Énergie thermique perdue</translation>
     </message>
     <message>
         <source>Hot Water Equipment Lost Heat Rate</source>
-        <translation>Taux de perte de chaleur de l&apos;équipement d&apos;eau chaude</translation>
+        <translation>Équipement d'Eau Chaude : Débit de Chaleur Perdue</translation>
     </message>
     <message>
         <source>Hot Water Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des équipements d&apos;eau chaude</translation>
+        <translation>Équipement d'Eau Chaude: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Hot Water Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiatif de l&apos;équipement d&apos;eau chaude</translation>
+        <translation>Équipement Eau Chaude: Puissance de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Hot Water Equipment Total Heating Energy</source>
-        <translation>Énergie Calorifique Totale de l&apos;Équipement d&apos;Eau Chaude</translation>
+        <translation>Équipements Eau Chaude: Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Hot Water Equipment Total Heating Rate</source>
-        <translation>Débit de chaleur total du matériel d&apos;eau chaude</translation>
+        <translation>Équipement Eau Chaude: Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>Température de l&apos;air de retour ajustée pour les TI </translation>
+        <translation>ITE: Température de l'air de retour ajustée </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>Débit massique d&apos;air ITE </translation>
+        <translation>ITE : Débit massique d'air </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Température de point de rosée à l&apos;entrée d&apos;air ITE au-dessus de la plage de fonctionnement - Durée </translation>
+        <translation>ITE: Temps Pendant Lequel la Température de Rosée de l'Air à l'Entrée Dépasse la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Temps pendant lequel la température de point de rosée de l&apos;air à l&apos;entrée est inférieure à la plage de fonctionnement </translation>
+        <translation>ITE: Temps durant lequel la Température de Point de Rosée d'Admission d'Air est sous la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Température de bulbe sec à l&apos;entrée d&apos;air ITE au-dessus de la plage de fonctionnement - Temps </translation>
+        <translation>ITE: Temps Pendant Lequel la Température Sèche de l'Air à l'Entrée Dépasse la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Temps d&apos;entrée d&apos;air ITE à température de bulbe sec inférieure à la plage de fonctionnement </translation>
+        <translation>ITE: Temps d'Entrée d'Air à Température Sèche Inférieure à la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Plage de fonctionnement dépassée pour l&apos;admission d&apos;air quelconque de l&apos;équipement ITE </translation>
+        <translation>ITE: Temps de Dépassement de la Plage de Fonctionnement d'une Entrée d'Air Quelconque </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE Humidité relative de l&apos;air à l&apos;entrée - Temps au-dessus de la plage de fonctionnement </translation>
+        <translation>ITE: Temps pendant lequel l'humidité relative de l'air entrant dépasse la plage de fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE Any Air Inlet Relative Humidity Below Operating Range Time </translation>
+        <translation>ITE: Temps d'Humidité Relative d'Entrée d'Air en Dessous de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>Indice de chaleur d&apos;alimentation moyen ITE </translation>
+        <translation>ITE: Indice de Chaleur Moyen en Sortie </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
-        <translation>Énergie électrique CPU ITE </translation>
+        <translation>ITE : Énergie électrique du processeur </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Énergie électrique CPU ITE aux conditions d&apos;entrée de conception </translation>
+        <translation>ITE: Énergie Électrique du Processeur aux Conditions d'Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
-        <translation>Taux d&apos;électricité du processeur ITE </translation>
+        <translation>ITE: Puissance Électrique CPU </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taux d&apos;électricité CPU ITE aux conditions d&apos;entrée de conception </translation>
+        <translation>ITE: Puissance Électrique du Processeur aux Conditions d'Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
-        <translation>Énergie électrique du ventilateur ITE </translation>
+        <translation>ITE : Énergie électrique du ventilateur </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Énergie électrique du ventilateur IT à des conditions d&apos;entrée de conception </translation>
+        <translation>ITE: Énergie électrique du ventilateur aux conditions d'entrée de conception </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
-        <translation>Taux d&apos;électricité du ventilateur ITE </translation>
+        <translation>ITE: Puissance électrique du ventilateur </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Taux d&apos;électricité du ventilateur ITE aux conditions d&apos;entrée en conception </translation>
+        <translation>ITE: Puissance Électrique du Ventilateur aux Conditions d'Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Débit volumique d&apos;air à densité standard ITE </translation>
+        <translation>ITE: Débit volumique d'air à densité standard </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
-        <translation>ITE Total Heat Gain to Zone Energy </translation>
+        <translation>ITE : Énergie totale du gain de chaleur vers la zone </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Rate </source>
-        <translation>Débit total de chaleur générée par l&apos;équipement informatique vers la zone </translation>
+        <translation>ITE: Débit total de gains thermiques vers la zone </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Energy </source>
-        <translation>Électricité UPS TI </translation>
+        <translation>ITE : Énergie Électrique du Système d'Alimentation Électrique </translation>
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>Taux d&apos;électricité des UPS informatiques </translation>
+        <translation>ITE: Débit Électrique du Groupe Électrogène de Secours </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>Gain de chaleur UPS ITE vers l&apos;énergie de la zone </translation>
+        <translation>ITE: Énergie de Gain de Chaleur UPS vers la Zone </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
-        <translation>ITE UPS Heat Gain to Zone Rate </translation>
+        <translation>ITE: Débit de Chaleur Dégagée vers la Zone </translation>
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
-        <translation>Durée d&apos;activité de l&apos;économiseur des charges idéales</translation>
+        <translation>Charges Idéales: Temps d'Activité de l'Économiseur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Active Time</source>
-        <translation>Temps actif de récupération de chaleur des charges idéales</translation>
+        <translation>Charges Idéales: Temps Actif de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent par récupération de chaleur - Charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Latent de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent en récupération de chaleur - Charges idéales</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Latent de la Récupération Thermique</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent de la récupération de chaleur des charges idéales</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Latent de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Latent Heating Rate</source>
-        <translation>Débit de chauffage sensible en récupération thermique Ideal Loads</translation>
+        <translation>Charges Idéales: Débit de Chaleur Latente Récupérée</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Sensible Cooling Energy</source>
-        <translation>Énergie de Refroidissement Sensible de la Récupération de Chaleur des Charges Idéales</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Sensible de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du système de récupération de chaleur idéal</translation>
+        <translation>Charges Idéales: Débit de Refroidissement Sensible de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible de la Récupération de Chaleur pour Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Sensible de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Sensible Heating Rate</source>
-        <translation>Débit de récupération de chaleur sensible pour charges idéales de chauffage</translation>
+        <translation>Charges Idéales: Débit de Récupération de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Total Cooling Energy</source>
-        <translation>Énergie Totale de Refroidissement de la Récupération de Chaleur des Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Totale de Refroidissement de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Total Cooling Rate</source>
-        <translation>Idéal Loads Débit de Refroidissement Total avec Récupération de Chaleur</translation>
+        <translation>Charges Idéales: Débit de Refroidissement Total Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Total Heating Energy</source>
-        <translation>Énergie Totale de Chauffage de la Récupération de Chaleur des Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Thermique Totale Récupérée</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Total Heating Rate</source>
-        <translation>Débit de récupération de chaleur des charges idéales - Total chauffage</translation>
+        <translation>Charges Idéales: Débit de Chaleur Total Récupéré au Chauffage</translation>
     </message>
     <message>
         <source>Ideal Loads Hybrid Ventilation Available Status</source>
-        <translation>Statut de disponibilité de la ventilation hybride des charges idéales</translation>
+        <translation>Charges Idéales: État de Disponibilité de la Ventilation Hybride</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Latent de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de l&apos;air extérieur pour Charges idéales</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Latent de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Latent de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Heating Rate</source>
-        <translation>Débit de chauffage latent de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales: Débit de Chaleur Latente d'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air extérieur pour charges idéales</translation>
+        <translation>Charges Idéales: Débit Massique d'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales : Énergie de Refroidissement Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;air extérieur avec charges idéales</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Chauffage Sensible de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Heating Rate</source>
-        <translation>Idéal Loads - Taux de Chauffage Sensible de l&apos;Air Extérieur</translation>
+        <translation>Charge Idéale: Puissance Sensible de Chauffage d'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Standard Density Volume Flow Rate</source>
-        <translation>Débit volumétrique de l&apos;air extérieur aux conditions normales - Charges Idéales</translation>
+        <translation>Charges Idéales : Débit volumique air extérieur à densité standard</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale de l&apos;air extérieur des charges idéales</translation>
+        <translation>Charges Idéales: Énergie Totale de Refroidissement de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de l&apos;air extérieur - Charges idéales</translation>
+        <translation>Charges Idéales: Puissance de Refroidissement Totale de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale de l&apos;Air Extérieur des Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Totale de Chauffage de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Heating Rate</source>
-        <translation>Débit calorique total de l&apos;air extérieur avec charges idéales</translation>
+        <translation>Charges Idéales: Débit de Chaleur Total de l'Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent de l&apos;air de soufflage des charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Latent de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de l&apos;air soufflé à charge idéale</translation>
+        <translation>Charges Idéales: Puissance de Refroidissement Latent de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent de l&apos;air de soufflage des charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Chauffage Latent de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Heating Rate</source>
-        <translation>Débit de chaleur sensible de l&apos;air de soufflage des charges idéales</translation>
+        <translation>Charges Idéales : Débit de Chaleur Latente de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Mass Flow Rate</source>
-        <translation>Débit massique d&apos;air soufflé Ideal Loads</translation>
+        <translation>Charges Idéales: Débit Massique d'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de l&apos;air soufflé avec charges idéales</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;air soufflé des charges idéales</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Sensible de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible de l&apos;Air Soufflé par les Charges Idéales</translation>
+        <translation>Ideal Loads: Énergie de chauffage sensible de l'air soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible du courant de soufflage des charges idéales</translation>
+        <translation>Charge Idéale: Puissance Sensible de Chauffage de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité standard de l&apos;air de soufflage des charges idéales</translation>
+        <translation>Charges Idéales: Débit volumique air soufflé à densité standard</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Energy</source>
-        <translation>Énergie totale de refroidissement de l&apos;air soufflé aux charges idéales</translation>
+        <translation>Ideal Loads: Énergie Totale Refroidissement Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Fuel Energy</source>
-        <translation>Énergie Thermique Totale de Refroidissement de l&apos;Air Soufflé des Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Combustible Refroidissement Air Soufflé Total</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Fuel Energy Rate</source>
-        <translation>Débit d&apos;énergie thermique total du refroidissement de l&apos;air soufflé à charges idéales</translation>
+        <translation>Charges Idéales : Puissance Énergétique Totale de Refroidissement de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de l&apos;air soufflé des charges idéales</translation>
+        <translation>Ideal Loads: Débit de refroidissement total de l'air soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale de l&apos;Air Soufflé des Charges Idéales</translation>
+        <translation>Charges Idéales: Énergie Totale de Chauffage de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Fuel Energy</source>
-        <translation>Énergie thermique totale du combustible de l&apos;air soufflé de la charge idéale</translation>
+        <translation>Charges Idéales: Énergie Totale de Combustible pour le Chauffage de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Fuel Energy Rate</source>
-        <translation>Débit énergétique total de combustible de chauffage de l&apos;air soufflé des charges idéales</translation>
+        <translation>Charges Idéales: Débit Énergétique Combustible Chauffage Air Soufflé Total</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Rate</source>
-        <translation>Taux de chauffage total de l&apos;air soufflé des charges idéales</translation>
+        <translation>Charges Idéales : Puissance Totale de Chauffage de l'Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Cooling Fuel Energy</source>
-        <translation>Énergie Carburant Refroidissement Zone Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Carburant Refroidissement Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Cooling Fuel Energy Rate</source>
-        <translation>Débit énergétique du carburant de refroidissement de zone avec charges idéales</translation>
+        <translation>Idéal Loads: Débit d'Énergie Combustible de Refroidissement de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Heating Fuel Energy</source>
-        <translation>Énergie de Combustible de Chauffage de Zone à Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie de Combustible de Chauffage de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Heating Fuel Energy Rate</source>
-        <translation>Débit énergétique du carburant de chauffage de la zone à charges idéales</translation>
+        <translation>Ideal Loads: Débit énergétique du combustible de chauffage de zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible idéale de zone</translation>
+        <translation>Charges Idéales : Énergie de Refroidissement Latent de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent de la zone avec charges idéales</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Latent de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Latent Heating Energy</source>
-        <translation>Énergie de Chauffage Latent Zone Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Latent de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Latent Heating Rate</source>
-        <translation>Idéal Charges Taux de Chauffage Latent de Zone</translation>
+        <translation>Charges Idéales: Puissance de Chauffage Latent de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible de zone à charges idéales</translation>
+        <translation>Charges Idéales : Énergie de Refroidissement Sensible de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de zone à charges idéales</translation>
+        <translation>Charges Idéales : Puissance Sensible de Refroidissement de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible de Zone à Charge Idéale</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Sensible de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Sensible Heating Rate</source>
-        <translation>Débit de chaleur sensible de chauffage de la zone à charges idéales</translation>
+        <translation>Charges Idéales : Puissance de Chauffage Sensible de Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale de la zone à charges idéales</translation>
+        <translation>Charges Idéales : Énergie Totale de Refroidissement de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Total Cooling Rate</source>
-        <translation>Débit de refroidissement total de la zone à charge idéale</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Total de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Total Heating Energy</source>
-        <translation>Énergie Totale de Chauffage de la Zone à Charges Idéales</translation>
+        <translation>Charges Idéales : Énergie Totale de Chauffage de la Zone</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Total Heating Rate</source>
-        <translation>Débit calorifique total de chauffage de la zone à charges idéales</translation>
+        <translation>Charges Idéales : Débit Thermique Total de Zone</translation>
     </message>
     <message>
         <source>Infiltration Current Density Air Change Rate</source>
-        <translation>Taux de changement d&apos;air de la densité de courant d&apos;infiltration</translation>
+        <translation>Infiltration : Débit de renouvellement d'air volumique actuel</translation>
     </message>
     <message>
         <source>Infiltration Current Density Volume</source>
-        <translation>Volume de densité de courant d&apos;infiltration</translation>
+        <translation>Infiltration: Débit volumique courant</translation>
     </message>
     <message>
         <source>Infiltration Current Density Volume Flow Rate</source>
-        <translation>Débit volumique de densité de courant d&apos;infiltration</translation>
+        <translation>Infiltration: Débit volumique actuel en densité</translation>
     </message>
     <message>
         <source>Infiltration Latent Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Latente par Infiltration</translation>
+        <translation>Infiltration: Énergie de Gain de Chaleur Latente</translation>
     </message>
     <message>
         <source>Infiltration Latent Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Latente par Infiltration</translation>
+        <translation>Infiltration: Énergie de Perte de Chaleur Latente</translation>
     </message>
     <message>
         <source>Infiltration Mass</source>
-        <translation>Infiltration Massique</translation>
+        <translation>Infiltration: Masse</translation>
     </message>
     <message>
         <source>Infiltration Mass Flow Rate</source>
-        <translation>Débit massique d&apos;infiltration</translation>
+        <translation>Infiltration : Débit massique</translation>
     </message>
     <message>
         <source>Infiltration Outdoor Density Air Change Rate</source>
-        <translation>Taux de changement d&apos;air de densité extérieure d&apos;infiltration</translation>
+        <translation>Infiltration: Taux de changement d'air extérieur à densité extérieure</translation>
     </message>
     <message>
         <source>Infiltration Outdoor Density Volume Flow Rate</source>
-        <translation>Débit volumique de l&apos;infiltration en fonction de la densité extérieure</translation>
+        <translation>Infiltration: Débit volumique extérieur à la densité du site</translation>
     </message>
     <message>
         <source>Infiltration Sensible Heat Gain Energy</source>
-        <translation>Énergie de gain de chaleur sensible par infiltration</translation>
+        <translation>Infiltration: Énergie de Gain de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Infiltration Sensible Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Sensible par Infiltration</translation>
+        <translation>Infiltration: Énergie de Perte de Chaleur Sensible</translation>
     </message>
     <message>
         <source>Infiltration Standard Density Air Change Rate</source>
-        <translation>Taux de Renouvellement d&apos;Air à Densité Standard d&apos;Infiltration</translation>
+        <translation>Infiltration: Débit de changement d'air à densité standard</translation>
     </message>
     <message>
         <source>Infiltration Standard Density Volume</source>
-        <translation>Volume de Densité Standard d&apos;Infiltration</translation>
+        <translation>Infiltration: Volume à Densité Standard</translation>
     </message>
     <message>
         <source>Infiltration Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique de la densité standard d&apos;infiltration</translation>
+        <translation>Infiltration: Débit volumique à densité standard</translation>
     </message>
     <message>
         <source>Infiltration Total Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Total par Infiltration</translation>
+        <translation>Infiltration: Énergie Totale de Gain de Chaleur</translation>
     </message>
     <message>
         <source>Infiltration Total Heat Loss Energy</source>
-        <translation>Énergie de Perte Thermique Totale par Infiltration</translation>
+        <translation>Infiltration: Énergie Totale de Perte de Chaleur</translation>
     </message>
     <message>
         <source>Interior Windows Total Transmitted Beam Solar Radiation Energy</source>
-        <translation>Énergie solaire rayonnée directe totale transmise par les fenêtres intérieures</translation>
+        <translation>Fenêtres intérieures : Énergie totale du rayonnement solaire direct transmis</translation>
     </message>
     <message>
         <source>Interior Windows Total Transmitted Beam Solar Radiation Rate</source>
-        <translation>Débit de rayonnement solaire direct transmis total par les fenêtres intérieures</translation>
+        <translation>Fenêtres Intérieures: Débit de Rayonnement Solaire Direct Transmis Total</translation>
     </message>
     <message>
         <source>Interior Windows Total Transmitted Diffuse Solar Radiation Energy</source>
-        <translation>Énergie du rayonnement solaire diffus transmis total par les fenêtres intérieures</translation>
+        <translation>Fenêtres Intérieures : Énergie Totale du Rayonnement Solaire Diffus Transmis</translation>
     </message>
     <message>
         <source>Interior Windows Total Transmitted Diffuse Solar Radiation Rate</source>
-        <translation>Débit de rayonnement solaire diffus transmis total par les fenêtres intérieures</translation>
+        <translation>Fenêtres Intérieures: Débit de Rayonnement Solaire Diffus Transmis Total</translation>
     </message>
     <message>
         <source>Lights Convective Heating Energy</source>
-        <translation>Énergie de chauffage convectif due à l&apos;éclairage</translation>
+        <translation>Éclairage : Énergie de chauffage convective</translation>
     </message>
     <message>
         <source>Lights Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection des luminaires</translation>
+        <translation>Lumières : Puissance de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Lights Electricity Energy</source>
-        <translation>Énergie Électrique des Éclairages</translation>
+        <translation>Éclairage: Énergie Électrique</translation>
     </message>
     <message>
         <source>Lights Electricity Rate</source>
-        <translation>Tarif d&apos;électricité pour l&apos;éclairage</translation>
+        <translation>Éclairage : Puissance Électrique</translation>
     </message>
     <message>
         <source>Lights Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des luminaires</translation>
+        <translation>Éclairage: Énergie de chauffage radiatif</translation>
     </message>
     <message>
         <source>Lights Radiant Heating Rate</source>
-        <translation>Taux de rayonnement thermique des luminaires</translation>
+        <translation>Éclairage: Puissance de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Lights Return Air Heating Energy</source>
-        <translation>Énergie de chauffage de l&apos;air de retour des luminaires</translation>
+        <translation>Éclairage : Énergie de chauffage de l'air repris</translation>
     </message>
     <message>
         <source>Lights Return Air Heating Rate</source>
-        <translation>Débit de chauffage de l&apos;air de retour par l&apos;éclairage</translation>
+        <translation>Lumières : Débit de chauffage de l'air de retour</translation>
     </message>
     <message>
         <source>Lights Total Heating Energy</source>
-        <translation>Énergie de chauffage totale des luminaires</translation>
+        <translation>Éclairage : Énergie calorifique totale</translation>
     </message>
     <message>
         <source>Lights Total Heating Rate</source>
-        <translation>Taux de Chauffage Total de l&apos;Éclairage</translation>
+        <translation>Éclairage: Puissance thermique totale</translation>
     </message>
     <message>
         <source>Lights Visible Radiation Heating Energy</source>
-        <translation>Énergie de chauffage par rayonnement visible des luminaires</translation>
+        <translation>Éclairage: Énergie de chauffage par rayonnement visible</translation>
     </message>
     <message>
         <source>Lights Visible Radiation Heating Rate</source>
-        <translation>Taux de rayonnement visible des luminaires chauffant</translation>
+        <translation>Éclairage: Débit de chauffage par rayonnement visible</translation>
     </message>
     <message>
         <source>Mean Air Dewpoint Temperature</source>
-        <translation>Température du Point de Rosée Moyen de l&apos;Air</translation>
+        <translation>Moyenne : Température du Point de Rosée de l'Air</translation>
     </message>
     <message>
         <source>Mean Air Temperature</source>
-        <translation>Température Moyenne de l&apos;Air</translation>
+        <translation>Moyenne : Température de l'Air</translation>
     </message>
     <message>
         <source>Mean Radiant Temperature</source>
-        <translation>Température Radiante Moyenne</translation>
+        <translation>Moyenne : Température de Rayonnement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Air Changes per Hour</source>
-        <translation>Taux de renouvellement d&apos;air mécanique par heure</translation>
+        <translation>Ventilation Mécanique : Changements d'Air par Heure</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Decrease Energy</source>
-        <translation>Énergie de Réduction de la Charge de Refroidissement par Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique: Énergie de Réduction de la Charge de Refroidissement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Increase Energy</source>
-        <translation>Énergie d&apos;Augmentation de la Charge de Refroidissement due à la Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique: Énergie d'Augmentation de la Charge de Refroidissement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Increase Energy Due to Overheating Energy</source>
-        <translation>Augmentation de la charge de refroidissement de la ventilation mécanique due à l&apos;énergie de surchauffe</translation>
+        <translation>Ventilation Mécanique: Énergie d'Augmentation de la Charge de Refroidissement Due à l'Énergie de Surchauffe</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Current Density Volume</source>
-        <translation>Densité de Volume du Débit de Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique: Débit Volumique Actuel</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Current Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité de courant actuelle de la ventilation mécanique</translation>
+        <translation>Ventilation Mécanique : Débit Volumique de Densité Actuelle</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Heating Load Decrease Energy</source>
-        <translation>Énergie de Réduction de Charge de Chauffage par Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique: Énergie de Réduction de la Charge de Chauffage</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Heating Load Increase Energy</source>
-        <translation>Énergie d&apos;Augmentation de la Charge de Chauffage de la Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique : Énergie d'Augmentation de la Charge de Chauffage</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Heating Load Increase Energy Due to Overcooling Energy</source>
-        <translation>Augmentation de la Charge de Chauffage de la Ventilation Mécanique due à l&apos;Énergie de Surrefroidissement</translation>
+        <translation>Ventilation Mécanique: Énergie d'Augmentation de la Charge de Chauffage Due à l'Énergie de Surrefroidissement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Mass</source>
-        <translation>Masse de Ventilation Mécanique</translation>
+        <translation>Ventilation Mécanique: Masse</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Mass Flow Rate</source>
-        <translation>Débit massique de ventilation mécanique</translation>
+        <translation>Ventilation Mécanique: Débit Massique</translation>
     </message>
     <message>
         <source>Mechanical Ventilation No Load Heat Addition Energy</source>
-        <translation>Énergie d&apos;addition de chaleur sans charge de ventilation mécanique</translation>
+        <translation>Ventilation Mécanique : Énergie de Chauffage Sans Charge</translation>
     </message>
     <message>
         <source>Mechanical Ventilation No Load Heat Removal Energy</source>
-        <translation>Énergie de récupération thermique sans charge de la ventilation mécanique</translation>
+        <translation>Ventilation Mécanique: Énergie d'Élimination de Chaleur sans Charge</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Standard Density Volume</source>
-        <translation>Volume standard de ventilation mécanique à densité normale</translation>
+        <translation>Ventilation Mécanique: Volume à Densité Standard</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique à densité standard - Ventilation mécanique</translation>
+        <translation>Ventilation Mécanique: Débit Volumique à Densité Standard</translation>
     </message>
     <message>
         <source>Operative Temperature</source>
-        <translation>Température opérative</translation>
+        <translation>Opératif : Température</translation>
     </message>
     <message>
         <source>Other Equipment Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection des équipements autres</translation>
+        <translation>Équipement Divers : Énergie de Chauffage Convective</translation>
     </message>
     <message>
         <source>Other Equipment Convective Heating Rate</source>
-        <translation>Taux de chauffage par convection des équipements divers</translation>
+        <translation>Autres Équipements : Débit de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Other Equipment Latent Gain Energy</source>
-        <translation>Énergie de gain latent d&apos;équipements divers</translation>
+        <translation>Autre Équipement : Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Other Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent des autres équipements</translation>
+        <translation>Équipements Divers: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Other Equipment Lost Heat Energy</source>
-        <translation>Énergie thermique perdue par les autres équipements</translation>
+        <translation>Autre équipement : Énergie thermique perdue</translation>
     </message>
     <message>
         <source>Other Equipment Lost Heat Rate</source>
-        <translation>Taux de perte thermique des équipements divers</translation>
+        <translation>Équipement Auxiliaire: Puissance Thermique Perdue</translation>
     </message>
     <message>
         <source>Other Equipment Radiant Heating Energy</source>
-        <translation>Énergie de Chauffage Rayonnant des Équipements Divers</translation>
+        <translation>Autre Équipement: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Other Equipment Radiant Heating Rate</source>
-        <translation>Taux de chauffage par rayonnement des autres équipements</translation>
+        <translation>Autre Équipement: Puissance de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Other Equipment Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale des Autres Équipements</translation>
+        <translation>Autres Équipements : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Other Equipment Total Heating Rate</source>
-        <translation>Débit de chauffage total des autres équipements</translation>
+        <translation>Équipement Divers : Débit Calorifique Total</translation>
     </message>
     <message>
         <source>Outdoor Air Drybulb Temperature</source>
-        <translation>Température de bulbe sec de l&apos;air extérieur</translation>
+        <translation>Air Extérieur : Température Bulbe Sèche</translation>
     </message>
     <message>
         <source>Outdoor Air Wetbulb Temperature</source>
-        <translation>Température de bulbe humide de l&apos;air extérieur</translation>
+        <translation>Air Extérieur: Température de Bulbe Humide</translation>
     </message>
     <message>
         <source>Outdoor Air Wind Speed</source>
-        <translation>Vitesse du vent de l&apos;air extérieur</translation>
+        <translation>Air Extérieur: Vitesse du Vent</translation>
     </message>
     <message>
         <source>People Convective Heating Energy</source>
-        <translation>Énergie de chauffage par convection des occupants</translation>
+        <translation>Personnes : Énergie de chauffage par convection</translation>
     </message>
     <message>
         <source>People Convective Heating Rate</source>
-        <translation>Débit de chaleur convectif des occupants</translation>
+        <translation>Occupants : Débit de chaleur convectif</translation>
     </message>
     <message>
         <source>People Latent Gain Energy</source>
-        <translation>Énergie de Gain Latent des Occupants</translation>
+        <translation>Occupants : Énergie de gain latent</translation>
     </message>
     <message>
         <source>People Latent Gain Rate</source>
-        <translation>Taux de gain latent des occupants</translation>
+        <translation>Occupants : Débit de gain latent</translation>
     </message>
     <message>
         <source>People Occupant Count</source>
-        <translation>Nombre d&apos;occupants</translation>
+        <translation>Occupants : Nombre d'occupants</translation>
     </message>
     <message>
         <source>People Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des occupants</translation>
+        <translation>Personnes : Énergie de chauffage radiant</translation>
     </message>
     <message>
         <source>People Radiant Heating Rate</source>
-        <translation>Taux de chauffage radiant des occupants</translation>
+        <translation>Personnes : Débit de chauffage radiant</translation>
     </message>
     <message>
         <source>People Sensible Heating Energy</source>
-        <translation>Énergie de Chauffage Sensible des Occupants</translation>
+        <translation>Occupants : Énergie de chaleur sensible</translation>
     </message>
     <message>
         <source>People Sensible Heating Rate</source>
-        <translation>Taux de chauffage sensible des occupants</translation>
+        <translation>Personnes : Débit calorifique sensible</translation>
     </message>
     <message>
         <source>People Total Heating Energy</source>
-        <translation>Énergie de chauffage totale des occupants</translation>
+        <translation>Occupants : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>People Total Heating Rate</source>
-        <translation>Débit de chaleur sensible total des occupants</translation>
+        <translation>Occupants: Débit thermique total</translation>
     </message>
     <message>
         <source>Predicted Moisture Load Moisture Transfer Rate</source>
-        <translation>Taux de transfert d&apos;humidité de la charge d&apos;humidité prédite</translation>
+        <translation>Prédite: Flux de Transfert d'Humidité de la Charge Hygrométrique</translation>
     </message>
     <message>
         <source>Predicted Moisture Load to Dehumidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Charge d&apos;humidité prédite vers le débit de transfert d&apos;humidité du point de consigne de déshumidification</translation>
+        <translation>Humidité Prédite : Débit de Transfert d'Humidité de la Charge vers le Point de Consigne de Déshumidification</translation>
     </message>
     <message>
         <source>Predicted Moisture Load to Humidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Taux de transfert d&apos;humidité de la charge d&apos;humidité prédite vers le point de consigne d&apos;humidification</translation>
+        <translation>Prédit : Débit de transfert d'humidité pour la charge d'humidification au point de consigne</translation>
     </message>
     <message>
         <source>Predicted Sensible Load to Cooling Setpoint Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de la charge sensible prédite vers le point de consigne de refroidissement</translation>
+        <translation>Prédite : Taux de transfert thermique de la charge sensible vers le point de consigne de refroidissement</translation>
     </message>
     <message>
         <source>Predicted Sensible Load to Heating Setpoint Heat Transfer Rate</source>
-        <translation>Débit de transfert thermique de la charge sensible prédite vers le point de consigne de chauffage</translation>
+        <translation>Prévu : Débit de transfert thermique de la charge sensible vers le point de consigne de chauffage</translation>
     </message>
     <message>
         <source>Predicted Sensible Load to Setpoint Heat Transfer Rate</source>
-        <translation>Taux de transfert thermique de la charge sensible prédite vers le point de consigne</translation>
+        <translation>Prédit : Débit de transfert thermique de la charge sensible vers la consigne</translation>
     </message>
     <message>
         <source>Radiant HVAC Electricity Energy</source>
-        <translation>Énergie Électrique HVAC Rayonnant</translation>
+        <translation>Radiant HVAC: Énergie Électrique</translation>
     </message>
     <message>
         <source>Radiant HVAC Electricity Rate</source>
-        <translation>Taux d&apos;électricité HVAC radiant</translation>
+        <translation>Radiateur Radiant HVAC : Puissance Électrique</translation>
     </message>
     <message>
         <source>Radiant HVAC Heating Energy</source>
-        <translation>Énergie de chauffage HVAC radiant</translation>
+        <translation>Radiant HVAC: Énergie de chauffage</translation>
     </message>
     <message>
         <source>Radiant HVAC Heating Rate</source>
-        <translation>Débit de chauffage HVAC radiant</translation>
+        <translation>Chauffage Radiant: Puissance de Chauffage</translation>
     </message>
     <message>
         <source>Radiant HVAC NaturalGas Energy</source>
-        <translation>Énergie Gaz Naturel HVAC Radiant</translation>
+        <translation>Radiant HVAC : Énergie Gaz Naturel</translation>
     </message>
     <message>
         <source>Radiant HVAC NaturalGas Rate</source>
-        <translation>Taux Gaz Naturel HVAC Radiant</translation>
+        <translation>Radiant HVAC: Débit de Gaz Naturel</translation>
     </message>
     <message>
         <source>Steam Equipment Convective Heating Energy</source>
-        <translation>Énergie de Chauffage par Convection de l&apos;Équipement à Vapeur</translation>
+        <translation>Équipement Vapeur: Énergie de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Steam Equipment Convective Heating Rate</source>
-        <translation>Débit de chauffage par convection de l&apos;équipement à vapeur</translation>
+        <translation>Équipement à Vapeur : Puissance de Chauffage par Convection</translation>
     </message>
     <message>
         <source>Steam Equipment District Heating Energy</source>
-        <translation>Énergie de chauffage urbain avec équipements à vapeur</translation>
+        <translation>Équipement Vapeur: Énergie de Chauffage Urbain</translation>
     </message>
     <message>
         <source>Steam Equipment District Heating Rate</source>
-        <translation>Débit de chauffage urbain avec équipement à vapeur</translation>
+        <translation>Équipement à Vapeur : Débit de Chauffage Urbain</translation>
     </message>
     <message>
         <source>Steam Equipment Latent Gain Energy</source>
-        <translation>Énergie de gain latent de l&apos;équipement à vapeur</translation>
+        <translation>Steam Equipment: Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Steam Equipment Latent Gain Rate</source>
-        <translation>Débit de gain latent de l&apos;équipement vapeur</translation>
+        <translation>Équipement à Vapeur: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Steam Equipment Lost Heat Energy</source>
-        <translation>Énergie Calorifique Perdue de l&apos;Équipement à Vapeur</translation>
+        <translation>Équipement à Vapeur : Énergie Thermique Perdue</translation>
     </message>
     <message>
         <source>Steam Equipment Lost Heat Rate</source>
-        <translation>Débit de chaleur perdue des équipements à vapeur</translation>
+        <translation>Équipement Vapeur : Puissance Thermique Perdue</translation>
     </message>
     <message>
         <source>Steam Equipment Radiant Heating Energy</source>
-        <translation>Énergie de chauffage radiant des équipements à vapeur</translation>
+        <translation>Équipement à Vapeur : Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Steam Equipment Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiatif du équipement vapeur</translation>
+        <translation>Équipement à Vapeur: Puissance de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Steam Equipment Total Heating Energy</source>
-        <translation>Énergie Calorifique Totale des Équipements à Vapeur</translation>
+        <translation>Équipement à Vapeur : Énergie de Chauffage Totale</translation>
     </message>
     <message>
         <source>Steam Equipment Total Heating Rate</source>
-        <translation>Débit de chaleur total de l&apos;équipement à vapeur</translation>
+        <translation>Équipement à Vapeur : Débit Thermique Total</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status</source>
-        <translation>Statut d&apos;acceptabilité de 80 % du modèle adaptatif ASHRAE 55 pour le confort thermique</translation>
+        <translation>Confort Thermique: État d'Acceptabilité du Modèle Adaptatif ASHRAE 55 à 80%</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model 90% Acceptability Status</source>
-        <translation>Statut d&apos;acceptabilité 90% du modèle adaptatif ASHRAE 55 pour le confort thermique</translation>
+        <translation>Confort Thermique: Statut d'Acceptabilité à 90% du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Température de l&apos;air extérieur en moyenne mobile - Modèle adaptatif ASHRAE 55 Confort thermique</translation>
+        <translation>Confort Thermique: Température Extérieure Moyenne Mobile du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model Temperature</source>
-        <translation>Température du Modèle Adaptatif ASHRAE 55 pour le Confort Thermique</translation>
+        <translation>Confort Thermique: Température du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort CEN 15251 Adaptive Model Category I Status</source>
-        <translation>Statut Catégorie I du Modèle Adaptatif Confort Thermique CEN 15251</translation>
+        <translation>Confort thermique : Statut Catégorie I Modèle adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Thermal Comfort CEN 15251 Adaptive Model Category II Status</source>
-        <translation>Statut du Modèle Adaptatif de Confort Thermique CEN 15251 Catégorie II</translation>
+        <translation>Confort Thermique: Statut Catégorie II du Modèle Adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Thermal Comfort CEN 15251 Adaptive Model Category III Status</source>
-        <translation>Statut du Modèle Adaptatif de Confort Thermique CEN 15251 Catégorie III</translation>
+        <translation>Confort Thermique : Statut Catégorie III du Modèle Adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Thermal Comfort CEN 15251 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Température de l&apos;Air Extérieur Moyenne Mobile du Modèle Adaptatif Confort Thermique CEN 15251</translation>
+        <translation>Confort Thermique: Température Moyenne Mobile de l'Air Extérieur du Modèle Adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Thermal Comfort CEN 15251 Adaptive Model Temperature</source>
-        <translation>Modèle Adaptatif de Température du Confort Thermique CEN 15251</translation>
+        <translation>Confort Thermique: Température du Modèle Adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Thermal Comfort Clothing Surface Temperature</source>
-        <translation>Température de Surface du Vêtement pour le Confort Thermique</translation>
+        <translation>Confort Thermique : Température de Surface des Vêtements</translation>
     </message>
     <message>
         <source>Thermal Comfort Fanger Model PMV</source>
-        <translation>Modèle Fanger de Confort Thermique PMV</translation>
+        <translation>Confort Thermique: Indice PMV du Modèle de Fanger</translation>
     </message>
     <message>
         <source>Thermal Comfort Fanger Model PPD</source>
-        <translation>Modèle de confort thermique Fanger PPD</translation>
+        <translation>Confort Thermique : PPD du Modèle de Fanger</translation>
     </message>
     <message>
         <source>Thermal Comfort KSU Model Thermal Sensation Index</source>
-        <translation>Indice de sensation thermique du modèle KSU de confort thermique</translation>
+        <translation>Confort thermique: Indice de sensation thermique du modèle KSU</translation>
     </message>
     <message>
         <source>Thermal Comfort Mean Radiant Temperature</source>
-        <translation>Température Radiante Moyenne du Confort Thermique</translation>
+        <translation>Confort Thermique: Température Radiante Moyenne</translation>
     </message>
     <message>
         <source>Thermal Comfort Operative Temperature</source>
-        <translation>Température opérative de confort thermique</translation>
+        <translation>Confort Thermique: Température Opérative</translation>
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Discomfort Index</source>
-        <translation>Indice d&apos;inconfort du modèle Pierce pour le confort thermique</translation>
+        <translation>Confort Thermique: Indice d'Inconfort du Modèle de Pierce</translation>
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Effective Temperature PMV</source>
-        <translation>Température Effective Modèle Pierce Confort Thermique PMV</translation>
+        <translation>Confort Thermique: Température Effective du Modèle Pierce PMV</translation>
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Standard Effective Temperature PMV</source>
-        <translation>Modèle de Confort Thermique Pierce Température Effective Standard PMV</translation>
+        <translation>Confort Thermique: Température Effective Standardisée du Modèle Pierce PMV</translation>
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Thermal Sensation Index</source>
-        <translation>Indice de Sensation Thermique du Modèle de Confort Thermique Pierce</translation>
+        <translation>Confort Thermique: Indice de Sensation Thermique du Modèle Pierce</translation>
     </message>
     <message>
         <source>Thermostat Control Type</source>
-        <translation>Type de contrôle du thermostat</translation>
+        <translation>Thermostat: Type de Commande</translation>
     </message>
     <message>
         <source>Thermostat Cooling Setpoint Temperature</source>
-        <translation>Température de consigne de refroidissement du thermostat</translation>
+        <translation>Thermostat : Température de Consigne de Refroidissement</translation>
     </message>
     <message>
         <source>Thermostat Heating Setpoint Temperature</source>
-        <translation>Température de consigne de chauffage du thermostat</translation>
+        <translation>Thermostat: Température de Consigne de Chauffage</translation>
     </message>
     <message>
         <source>Total Internal Convective Heating Energy</source>
-        <translation>Énergie de chauffage convective interne totale</translation>
+        <translation>Total Internal: Énergie de Chauffage Convectif</translation>
     </message>
     <message>
         <source>Total Internal Convective Heating Rate</source>
-        <translation>Taux de chauffage convectif interne total</translation>
+        <translation>Total Internal: Taux de Chauffage Convectif</translation>
     </message>
     <message>
         <source>Total Internal Latent Gain Energy</source>
-        <translation>Énergie totale du gain latent interne</translation>
+        <translation>Charges Internes Totales : Énergie de Gain Latent</translation>
     </message>
     <message>
         <source>Total Internal Latent Gain Rate</source>
-        <translation>Taux de Gain Latent Interne Total</translation>
+        <translation>Total Internal: Taux de Gain de Chaleur Latente</translation>
     </message>
     <message>
         <source>Total Internal Radiant Heating Energy</source>
-        <translation>Énergie de Chauffage Radiant Interne Totale</translation>
+        <translation>Total Internal: Énergie de Chauffage Radiant</translation>
     </message>
     <message>
         <source>Total Internal Radiant Heating Rate</source>
-        <translation>Débit de chauffage radiant interne total</translation>
+        <translation>Total Internal: Taux de chauffage par rayonnement</translation>
     </message>
     <message>
         <source>Total Internal Total Heating Energy</source>
-        <translation>Énergie de Chauffage Interne Totale</translation>
+        <translation>Total Internal: Énergie Totale de Chauffage Interne</translation>
     </message>
     <message>
         <source>Total Internal Total Heating Rate</source>
-        <translation>Débit de chauffage interne total</translation>
+        <translation>Total Internal: Débit de Chauffage Total</translation>
     </message>
     <message>
         <source>Total Internal Visible Radiation Heating Energy</source>
-        <translation>Énergie de chauffage due au rayonnement visible interne total</translation>
+        <translation>Total Interne: Énergie de Chauffage par Rayonnement Visible</translation>
     </message>
     <message>
         <source>Total Internal Visible Radiation Heating Rate</source>
-        <translation>Taux de chauffage par rayonnement visible interne total</translation>
+        <translation>Total Internal: Taux de Chauffage par Rayonnement Visible</translation>
     </message>
     <message>
         <source>Unit Ventilator Fan Availability Status</source>
-        <translation>Statut de disponibilité du ventilateur du ventilateur unitaire</translation>
+        <translation>Ventilateur Unitaire : État de Disponibilité du Ventilateur</translation>
     </message>
     <message>
         <source>Unit Ventilator Fan Electricity Energy</source>
-        <translation>Énergie Électrique du Ventilateur du Ventilateur Unitaire</translation>
+        <translation>Ventilateur d'unité murale: Énergie électrique du ventilateur</translation>
     </message>
     <message>
         <source>Unit Ventilator Fan Electricity Rate</source>
-        <translation>Débit électrique du ventilateur du ventilo-convecteur</translation>
+        <translation>Unit Ventilator: Puissance électrique du ventilateur</translation>
     </message>
     <message>
         <source>Unit Ventilator Fan Part Load Ratio</source>
-        <translation>Rapport de Charge Partielle du Ventilateur d&apos;Aérateur Unitaire</translation>
+        <translation>Ventilateur d'unité : Ratio de charge partielle du ventilateur</translation>
     </message>
     <message>
         <source>Unit Ventilator Heating Energy</source>
-        <translation>Énergie de chauffage du ventilateur unitaire</translation>
+        <translation>Ventilateur Unitaire: Énergie de Chauffage</translation>
     </message>
     <message>
         <source>Unit Ventilator Heating Rate</source>
-        <translation>Débit de chauffage du ventilateur unitaire</translation>
+        <translation>Unit Ventilator: Puissance de chauffage</translation>
     </message>
     <message>
         <source>Unit Ventilator Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du ventilateur unitaire</translation>
+        <translation>Ventilateur Unitaire: Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Unit Ventilator Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible de l&apos;aérotherme</translation>
+        <translation>Ventilateur Unitaire : Débit de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Unit Ventilator Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du ventilateur unitaire</translation>
+        <translation>Unit Ventilator: Énergie Frigorifique Totale</translation>
     </message>
     <message>
         <source>Unit Ventilator Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du ventilateur climatiseur</translation>
+        <translation>Ventilateur Unitaire : Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>VRF Air Terminal Cooling Electricity Energy</source>
-        <translation>Énergie Électrique de Refroidissement du Terminal Air VRF</translation>
+        <translation>Terminaison Aérienne VRF: Énergie Électrique de Refroidissement</translation>
     </message>
     <message>
         <source>VRF Air Terminal Cooling Electricity Rate</source>
-        <translation>Débit d&apos;électricité de refroidissement du terminal aérien VRF</translation>
+        <translation>VRF Air Terminal: Puissance électrique de refroidissement</translation>
     </message>
     <message>
         <source>VRF Air Terminal Fan Availability Status</source>
-        <translation>État de disponibilité du ventilateur du terminal air VRF</translation>
+        <translation>VRF Air Terminal: Statut de disponibilité du ventilateur</translation>
     </message>
     <message>
         <source>VRF Air Terminal Heating Electricity Energy</source>
-        <translation>Énergie électrique de chauffage du terminal d&apos;air VRF</translation>
+        <translation>VRF Terminaison Aérienne: Énergie Électrique de Chauffage</translation>
     </message>
     <message>
         <source>VRF Air Terminal Heating Electricity Rate</source>
-        <translation>Débit électrique de chauffage du terminal aérien VRF</translation>
+        <translation>VRF Terminal d'air: Puissance électrique de chauffage</translation>
     </message>
     <message>
         <source>VRF Air Terminal Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent du terminal aérien VRF</translation>
+        <translation>VRF Air Terminal: Énergie de refroidissement latent</translation>
     </message>
     <message>
         <source>VRF Air Terminal Latent Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du terminal VRF</translation>
+        <translation>VRF Terminaison Aérienne: Débit de Refroidissement Latent</translation>
     </message>
     <message>
         <source>VRF Air Terminal Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent du terminal aérien VRF</translation>
+        <translation>VRF Air Terminal: Énergie de Chauffage Latent</translation>
     </message>
     <message>
         <source>VRF Air Terminal Latent Heating Rate</source>
-        <translation>Débit de puissance latente de chauffage du terminal air VRF</translation>
+        <translation>Terminaison Air VRF: Débit de Chauffage Latent</translation>
     </message>
     <message>
         <source>VRF Air Terminal Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du terminal air VRF</translation>
+        <translation>Terminaux d'air VRF : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>VRF Air Terminal Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du terminal VRF</translation>
+        <translation>VRF Terminaison d'air: Puissance frigorifique sensible</translation>
     </message>
     <message>
         <source>VRF Air Terminal Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du terminal d&apos;air VRF</translation>
+        <translation>VRF Air Terminal: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>VRF Air Terminal Sensible Heating Rate</source>
-        <translation>Débit de puissance de chauffage sensible du terminal air VRF</translation>
+        <translation>VRF Air Terminal: Débit de chaleur sensible</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du terminal air VRF</translation>
+        <translation>Terminal de Climatisation VRF : Énergie Totale de Refroidissement</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Cooling Rate</source>
-        <translation>Débit frigorifique total du terminal aérien VRF</translation>
+        <translation>VRF Air Terminal: Puissance frigorifique totale</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Heating Energy</source>
-        <translation>Énergie totale de chauffage du terminal d&apos;air VRF</translation>
+        <translation>Terminal d'air VRF : Énergie de chauffage totale</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Heating Rate</source>
-        <translation>Débit de chauffage total du terminal VRF</translation>
+        <translation>VRF Air Terminal: Puissance de chauffage totale</translation>
     </message>
     <message>
         <source>Ventilation Air Inlet Temperature</source>
-        <translation>Température de l&apos;air d&apos;entrée de ventilation</translation>
+        <translation>Ventilation: Température d'entrée d'air</translation>
     </message>
     <message>
         <source>Ventilation Current Density Air Change Rate</source>
-        <translation>Ventilation Current Density Air Change Rate</translation>
+        <translation>Ventilation : Débit de renouvellement d'air actuel</translation>
     </message>
     <message>
         <source>Ventilation Current Density Volume</source>
-        <translation>Densité de courant de ventilation Volume</translation>
+        <translation>Ventilation: Volume Actuel à Densité Ambiante</translation>
     </message>
     <message>
         <source>Ventilation Current Density Volume Flow Rate</source>
-        <translation>Débit volumique de la densité de courant de ventilation</translation>
+        <translation>Ventilation: Débit volumique actuel</translation>
     </message>
     <message>
         <source>Ventilation Fan Electricity Energy</source>
-        <translation>Énergie électrique du ventilateur de ventilation</translation>
+        <translation>Ventilation: Énergie électrique du ventilateur</translation>
     </message>
     <message>
         <source>Ventilation Latent Heat Gain Energy</source>
-        <translation>Énergie de gain de chaleur latente par ventilation</translation>
+        <translation>Ventilation: Énergie de Gain de Chaleur Latente</translation>
     </message>
     <message>
         <source>Ventilation Latent Heat Loss Energy</source>
-        <translation>Énergie de perte de chaleur latente de ventilation</translation>
+        <translation>Ventilation: Énergie de Perte de Chaleur Latente</translation>
     </message>
     <message>
         <source>Ventilation Mass</source>
-        <translation>Masse de Ventilation</translation>
+        <translation>Ventilation: Débit massique</translation>
     </message>
     <message>
         <source>Ventilation Mass Flow Rate</source>
-        <translation>Débit de masse de ventilation</translation>
+        <translation>Ventilation: Débit massique</translation>
     </message>
     <message>
         <source>Ventilation Outdoor Density Air Change Rate</source>
-        <translation>Taux de changement d&apos;air de la ventilation en fonction de la densité de l&apos;air extérieur</translation>
+        <translation>Ventilation: Débit de renouvellement d'air extérieur à densité nominale</translation>
     </message>
     <message>
         <source>Ventilation Outdoor Density Volume Flow Rate</source>
-        <translation>Débit volumique de ventilation extérieure à la densité de l&apos;air</translation>
+        <translation>Ventilation: Débit volumique extérieur à densité de l'air extérieur</translation>
     </message>
     <message>
         <source>Ventilation Sensible Heat Gain Energy</source>
-        <translation>Énergie du Gain de Chaleur Sensible de Ventilation</translation>
+        <translation>Ventilation: Énergie de Gain Thermique Sensible</translation>
     </message>
     <message>
         <source>Ventilation Sensible Heat Loss Energy</source>
-        <translation>Énergie de perte de chaleur sensible par ventilation</translation>
+        <translation>Ventilation: Énergie Sensible Perdue</translation>
     </message>
     <message>
         <source>Ventilation Standard Density Air Change Rate</source>
-        <translation>Débit de renouvellement d&apos;air à densité standard pour la ventilation</translation>
+        <translation>Ventilation: Taux de renouvellement d'air à densité standard</translation>
     </message>
     <message>
         <source>Ventilation Standard Density Volume</source>
-        <translation>Volume de Densité Standard de Ventilation</translation>
+        <translation>Ventilation: Volume à Densité Standard</translation>
     </message>
     <message>
         <source>Ventilation Standard Density Volume Flow Rate</source>
-        <translation>Débit volumique selon la norme de ventilation de densité</translation>
+        <translation>Ventilation: Débit volumique à densité standard</translation>
     </message>
     <message>
         <source>Ventilation Total Heat Gain Energy</source>
-        <translation>Énergie de Gain de Chaleur Total par Ventilation</translation>
+        <translation>Ventilation: Énergie totale de gain thermique</translation>
     </message>
     <message>
         <source>Ventilation Total Heat Loss Energy</source>
-        <translation>Énergie de Perte de Chaleur Totale par Ventilation</translation>
+        <translation>Ventilation: Énergie Totale de Perte de Chaleur</translation>
     </message>
     <message>
         <source>Ventilator Electricity Energy</source>
-        <translation>Énergie Électrique du Ventilateur</translation>
+        <translation>Ventilateur : Énergie Électrique</translation>
     </message>
     <message>
         <source>Ventilator Electricity Rate</source>
-        <translation>Taux d&apos;électricité du ventilateur</translation>
+        <translation>Ventilateur: Débit Électrique</translation>
     </message>
     <message>
         <source>Ventilator Latent Cooling Energy</source>
-        <translation>Énergie de refroidissement latent du ventilateur</translation>
+        <translation>Ventilateur: Énergie de refroidissement latent</translation>
     </message>
     <message>
         <source>Ventilator Latent Cooling Rate</source>
-        <translation>Débit de refroidissement latent du ventilateur</translation>
+        <translation>Ventilateur : Débit de refroidissement latent</translation>
     </message>
     <message>
         <source>Ventilator Latent Heating Energy</source>
-        <translation>Énergie de chauffage latent du ventilateur</translation>
+        <translation>Ventilateur : Énergie de Chauffage Latent</translation>
     </message>
     <message>
         <source>Ventilator Latent Heating Rate</source>
-        <translation>Débit de chauffage latent du ventilateur</translation>
+        <translation>Ventilateur : Débit de Chaleur Latente</translation>
     </message>
     <message>
         <source>Ventilator Sensible Cooling Energy</source>
-        <translation>Énergie de refroidissement sensible du ventilateur</translation>
+        <translation>Ventilateur : Énergie de Refroidissement Sensible</translation>
     </message>
     <message>
         <source>Ventilator Sensible Cooling Rate</source>
-        <translation>Débit de refroidissement sensible du ventilateur</translation>
+        <translation>Ventilateur: Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Ventilator Sensible Heating Energy</source>
-        <translation>Énergie de chauffage sensible du ventilateur</translation>
+        <translation>Ventilateur : Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Ventilator Sensible Heating Rate</source>
-        <translation>Débit de chauffage sensible du ventilateur</translation>
+        <translation>Ventilateur: Taux de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Ventilator Supply Fan Availability Status</source>
-        <translation>Statut de disponibilité du ventilateur d&apos;alimentation</translation>
+        <translation>Ventilateur: État de Disponibilité du Ventilateur d'Alimentation</translation>
     </message>
     <message>
         <source>Ventilator Total Cooling Energy</source>
-        <translation>Énergie de refroidissement totale du ventilateur</translation>
+        <translation>Ventilateur: Énergie totale de refroidissement</translation>
     </message>
     <message>
         <source>Ventilator Total Cooling Rate</source>
-        <translation>Débit de refroidissement total du ventilateur</translation>
+        <translation>Ventilateur : Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>Ventilator Total Heating Energy</source>
-        <translation>Énergie de Chauffage Totale du Ventilateur</translation>
+        <translation>Ventilateur : Énergie de chauffage totale</translation>
     </message>
     <message>
         <source>Ventilator Total Heating Rate</source>
-        <translation>Taux de chauffage total du ventilateur</translation>
+        <translation>Ventilateur : Puissance de Chauffage Totale</translation>
     </message>
     <message>
         <source>Windows Total Heat Gain Energy</source>
-        <translation>Énergie totale de gain thermique par les fenêtres</translation>
+        <translation>Fenêtres : Énergie totale de gain thermique</translation>
     </message>
     <message>
         <source>Windows Total Heat Gain Rate</source>
-        <translation>Taux Total de Gain de Chaleur par les Fenêtres</translation>
+        <translation>Fenêtres : Taux de Gain Thermique Total</translation>
     </message>
     <message>
         <source>Windows Total Heat Loss Energy</source>
-        <translation>Énergie totale de perte de chaleur des fenêtres</translation>
+        <translation>Fenêtres : Énergie totale de perte de chaleur</translation>
     </message>
     <message>
         <source>Windows Total Heat Loss Rate</source>
-        <translation>Débit total de perte de chaleur par les fenêtres</translation>
+        <translation>Fenêtres : Débit de perte de chaleur total</translation>
     </message>
     <message>
         <source>Windows Total Transmitted Solar Radiation Energy</source>
-        <translation>Énergie solaire totale transmise par les fenêtres</translation>
+        <translation>Fenêtres : Énergie totale du rayonnement solaire transmis</translation>
     </message>
     <message>
         <source>Windows Total Transmitted Solar Radiation Rate</source>
-        <translation>Taux de Rayonnement Solaire Total Transmis par les Fenêtres</translation>
+        <translation>Fenêtres : Débit de rayonnement solaire total transmis</translation>
     </message>
     <message>
         <source>Site Diffuse Solar Radiation Rate per Area</source>
-        <translation>Débit de rayonnement solaire diffus au site par unité de surface</translation>
+        <translation>Site: Rayonnement Solaire Diffus par Unité de Surface</translation>
     </message>
     <message>
         <source>Site Direct Solar Radiation Rate per Area</source>
-        <translation>Débit de rayonnement solaire direct du site par unité de surface</translation>
+        <translation>Site : Rayonnement Solaire Direct par Unité de Surface</translation>
     </message>
     <message>
         <source>Site Exterior Beam Normal Illuminance</source>
-        <translation>Éclairement énergétique normal direct externe au site</translation>
+        <translation>Site Extérieur : Illuminance Normale du Rayonnement Direct</translation>
     </message>
     <message>
         <source>Site Exterior Horizontal Beam Illuminance</source>
-        <translation>Illuminance solaire horizontale extérieure du site</translation>
+        <translation>Site Extérieur : Éclairement Énergétique Solaire Direct Horizontal</translation>
     </message>
     <message>
         <source>Site Exterior Horizontal Sky Illuminance</source>
-        <translation>Éclairement lumineux du ciel horizontal extérieur du site</translation>
+        <translation>Site Extérieur : Illuminance du Ciel Horizontal</translation>
     </message>
     <message>
         <source>Site Outdoor Air Drybulb Temperature</source>
-        <translation>Température de bulbe sec de l&apos;air extérieur du site</translation>
+        <translation>Site: Température de bulbe sec de l'air extérieur</translation>
     </message>
     <message>
         <source>Site Outdoor Air Wetbulb Temperature</source>
-        <translation>Température de bulbe humide de l&apos;air extérieur du site</translation>
+        <translation>Site: Température de thermomètre mouillé de l'air extérieur</translation>
     </message>
     <message>
         <source>Site Sky Diffuse Solar Radiation Luminous Efficacy</source>
-        <translation>Efficacité lumineuse du rayonnement solaire diffus du ciel du site</translation>
+        <translation>Site: Efficacité Lumineuse du Rayonnement Solaire Diffus du Ciel</translation>
     </message>
     <message>
         <source>Surface Inside Face Temperature</source>
-        <translation>Température de la Surface Intérieure</translation>
+        <translation>Surface : Température de la Face Intérieure</translation>
     </message>
     <message>
         <source>Surface Outside Face Temperature</source>
-        <translation>Température de surface externe</translation>
+        <translation>Surface : Température de la Face Externe</translation>
     </message>
     <message>
         <source>Cooling Coil Stage 2 Runtime Fraction</source>
-        <translation>Fraction de Temps d&apos;Exécution de l&apos;Étage 2 de la Batterie de Refroidissement</translation>
+        <translation>Bobine de Refroidissement : Fraction de Fonctionnement Étage 2</translation>
     </message>
     <message>
         <source>People Air Temperature</source>
-        <translation>Température de l&apos;air pour les occupants</translation>
+        <translation>Personnes : Température de l'air</translation>
     </message>
     <message>
         <source>Daylighting Window Reference Point 1 Illuminance</source>
-        <translation>Illuminance du Point de Référence 1 de la Fenêtre de Lumière Naturelle</translation>
+        <translation>Éclairage naturel : Illuminance au point de référence 1 de la fenêtre</translation>
     </message>
     <message>
         <source>Daylighting Window Reference Point 2 Illuminance</source>
-        <translation>Illuminance du Point de Référence 2 pour Fenêtre de Lumière Naturelle</translation>
+        <translation>Éclairage naturel: Illuminance au point de référence 2 de la fenêtre</translation>
     </message>
     <message>
         <source>Daylighting Window Reference Point 1 View Luminance</source>
-        <translation>Luminance de vue du point de référence 1 de la fenêtre de lumière du jour</translation>
+        <translation>Éclairage Naturel : Luminance de Vue au Point de Référence 1 de la Fenêtre</translation>
     </message>
     <message>
         <source>Daylighting Window Reference Point 2 View Luminance</source>
-        <translation>Luminance visuelle du point de référence de fenêtre d&apos;éclairage naturel 2</translation>
+        <translation>Éclairage Naturel : Luminance de Vue du Point de Référence 2 de la Fenêtre</translation>
     </message>
     <message>
         <source>Cooling Coil Dehumidification Mode</source>
-        <translation>Mode de Déshumidification de la Batterie de Refroidissement</translation>
+        <translation>Serpentin de Refroidissement : Mode Déshumidification</translation>
     </message>
     <message>
         <source>Lights Radiant Heat Gain</source>
-        <translation>Gain de Chaleur Rayonnant des Luminaires</translation>
+        <translation>Éclairage: Apport Radiatif de Chaleur</translation>
     </message>
     <message>
         <source>People Air Relative Humidity</source>
-        <translation>Humidité Relative de l&apos;Air des Occupants</translation>
+        <translation>Occupants : Humidité Relative de l'Air</translation>
     </message>
     <message>
         <source>Site Beam Solar Radiation Luminous Efficacy</source>
-        <translation>Efficacité lumineuse du rayonnement solaire direct du site</translation>
+        <translation>Site: Efficacité Lumineuse du Rayonnement Solaire Direct</translation>
     </message>
     <message>
         <source>Site Daylight Model Sky Brightness</source>
-        <translation>Luminosité du Ciel du Modèle de Lumière Naturelle du Site</translation>
+        <translation>Site: Luminosité du Ciel du Modèle d'Éclairage Naturel</translation>
     </message>
     <message>
         <source>Site Daylight Model Sky Clearness</source>
-        <translation>Clarté du Ciel du Modèle d&apos;Éclairage Naturel du Site</translation>
+        <translation>Site : Clarté du Ciel du Modèle d'Éclairage Naturel</translation>
     </message>
     <message>
         <source>Site Daylighting Model Sky Brightness</source>
-        <translation>Luminosité du ciel du modèle d&apos;éclairage naturel du site</translation>
+        <translation>Site: Luminosité du Ciel du Modèle d'Éclairage Naturel</translation>
     </message>
     <message>
         <source>Site Daylighting Model Sky Clearness</source>
-        <translation>Clarté du ciel du modèle d&apos;éclairage naturel du site</translation>
+        <translation>Site: Pureté du ciel du modèle d'éclairage naturel</translation>
     </message>
 </context>
 <context>
