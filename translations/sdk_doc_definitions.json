@@ -1,0 +1,297 @@
+{
+  "Standards Template": {
+    "description": "An energy code standard identifier from the openstudio-standards gem, e.g. 'ASHRAE 90.1-2019' or 'DOE Ref Pre-1980'. Sets the applicable standard for automated lighting, equipment, and HVAC sizing.",
+    "class": "Building / SpaceType",
+    "method": "standardsTemplate"
+  },
+  "Standards Building Type": {
+    "description": "Building use category for energy code compliance, drawn from the openstudio-standards database, e.g. 'LargeOffice', 'SmallHotel', 'PrimarySchool'. Must match a value recognised by the selected Standards Template.",
+    "class": "Building / SpaceType",
+    "method": "standardsBuildingType"
+  },
+  "Space Type": {
+    "description": "Returns the space type for this space",
+    "class": "Space",
+    "method": "spaceType"
+  },
+  "Default Construction Set": {
+    "description": "Returns the default construction set that this space references directly",
+    "class": "Space",
+    "method": "defaultConstructionSet"
+  },
+  "Default Schedule Set": {
+    "description": "Returns the default schedule set that this space references directly",
+    "class": "Space",
+    "method": "defaultScheduleSet"
+  },
+  "Standards Space Type": {
+    "description": "Space occupancy category for energy code compliance, e.g. 'Office - Open Plan', 'Corridor/Transition', 'Classroom'. Used by openstudio-standards to assign lighting power densities and schedules.",
+    "class": "SpaceType",
+    "method": "standardsSpaceType"
+  },
+  "Design Specification Outdoor Air": {
+    "description": "Returns DesignSpecificationOutdoorAir for this space type",
+    "class": "SpaceType",
+    "method": "designSpecificationOutdoorAir"
+  },
+  "People per Floor Area": {
+    "description": "Returns the total people per space floor area in this space type, if it can be calculated directly from the underlying people() data (without knowing floorArea)",
+    "class": "SpaceType",
+    "method": "peoplePerFloorArea"
+  },
+  "Lighting Power per Floor Area": {
+    "description": "Returns the total lighting power per space floor area, if possible",
+    "class": "SpaceType",
+    "method": "lightingPowerPerFloorArea"
+  },
+  "Electric Equipment Power per Floor Area": {
+    "description": "Returns the total electric equipment power per space floor area, if it can be calculated directly from the underlying electricEquipment() data (without knowing floorArea and numPeople)",
+    "class": "SpaceType",
+    "method": "electricEquipmentPowerPerFloorArea"
+  },
+  "Gas Equipment Power per Floor Area": {
+    "description": "Returns the total gas equipment power per space floor area, if it can be calculated directly from the underlying gasEquipment() data (without knowing floorArea and numPeople)",
+    "class": "SpaceType",
+    "method": "gasEquipmentPowerPerFloorArea"
+  },
+  "Intended Surface Type": {
+    "description": "Return the surface type to which this construction should be applied",
+    "class": "StandardsInformationConstruction",
+    "method": "intendedSurfaceType"
+  },
+  "Standards Construction Type": {
+    "description": "Freeform string identifying the construction type per the selected standard, e.g. 'Mass', 'Metal Building', 'SteelFramed'. Must match the enumeration used by openstudio-standards.",
+    "class": "StandardsInformationConstruction",
+    "method": "standardsConstructionType"
+  },
+  "Construction Standard": {
+    "description": "Identifies the standard which specifies this construction",
+    "class": "StandardsInformationConstruction",
+    "method": "constructionStandard"
+  },
+  "Construction Standard Source": {
+    "description": "Identifies the table or section in standard which specifies this construction",
+    "class": "StandardsInformationConstruction",
+    "method": "constructionStandardSource"
+  },
+  "Fenestration Frame Type": {
+    "description": "Type of framing for this fenestration construction",
+    "class": "StandardsInformationConstruction",
+    "method": "fenestrationFrameType"
+  },
+  "Material": {
+    "description": "Returns the material that this standards information object refers to",
+    "class": "StandardsInformationMaterial",
+    "method": "material"
+  },
+  "Material Standard": {
+    "description": "Returns the standard that specifies this material, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "materialStandard"
+  },
+  "Material Standards": {
+    "description": "Returns a list of suggested material standards",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedMaterialStandards"
+  },
+  "Material Standard Source": {
+    "description": "Identifies the table or section in the standard which specifies this material",
+    "class": "StandardsInformationMaterial",
+    "method": "materialStandardSource"
+  },
+  "Material Standard Sources": {
+    "description": "Returns a list of suggestions for material standard source based on material standard",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedMaterialStandardSources"
+  },
+  "Standards Category": {
+    "description": "Returns the category of this material, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "standardsCategory"
+  },
+  "Standards Categories": {
+    "description": "Returns a list of suggestions for standards category, filters list by material standard if it is set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedStandardsCategories"
+  },
+  "Composite Material": {
+    "description": "Returns true if this standards category represents a composite layer (such as framing with cavity insulation)",
+    "class": "StandardsInformationMaterial",
+    "method": "isCompositeMaterial"
+  },
+  "Standards Identifier": {
+    "description": "Returns the id of this material within a standard, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "standardsIdentifier"
+  },
+  "Standards Identifiers": {
+    "description": "Returns a list of suggestions for standards identifier, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedStandardsIdentifiers"
+  },
+  "Composite Framing Material": {
+    "description": "Returns the framing material for a composite layer, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "compositeFramingMaterial"
+  },
+  "Composite Framing Materials": {
+    "description": "Returns a list of suggestions for composite framing material, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedCompositeFramingMaterials"
+  },
+  "Composite Framing Configuration": {
+    "description": "Returns the framing configuration for a composite layer, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "compositeFramingConfiguration"
+  },
+  "Composite Framing Configurations": {
+    "description": "Returns a list of suggestions for composite framing configurations, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedCompositeFramingConfigurations"
+  },
+  "Composite Framing Depth": {
+    "description": "Returns the framing depth for a composite layer, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "compositeFramingDepth"
+  },
+  "Composite Framing Depths": {
+    "description": "Returns a list of suggestions for composite framing depths, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedCompositeFramingDepths"
+  },
+  "Composite Framing Size": {
+    "description": "Returns the framing size for a composite layer, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "compositeFramingSize"
+  },
+  "Composite Framing Sizes": {
+    "description": "Returns a list of suggestions for composite framing sizes, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedCompositeFramingSizes"
+  },
+  "Composite Cavity Insulation": {
+    "description": "Returns the cavity insulation for a composite layer, e.g",
+    "class": "StandardsInformationMaterial",
+    "method": "compositeCavityInsulation"
+  },
+  "Composite Cavity Insulations": {
+    "description": "Returns a list of suggestions for cavity insulation, filters list by material standard and standards category if set",
+    "class": "StandardsInformationMaterial",
+    "method": "suggestedCompositeCavityInsulations"
+  },
+  "Clone": {
+    "description": "Creates a deep copy of this object, placing it in this object's model()",
+    "class": "StandardsInformationMaterial",
+    "method": "clone"
+  },
+  "Create Component": {
+    "description": "Method for creating sharable Model snippets",
+    "class": "StandardsInformationMaterial",
+    "method": "createComponent"
+  },
+  "Model": {
+    "description": "Returns the Model that contains this object",
+    "class": "StandardsInformationMaterial",
+    "method": "model"
+  },
+  "Parent": {
+    "description": "set the parent, child may have to call non-const methods on the parent",
+    "class": "StandardsInformationMaterial",
+    "method": "setParent"
+  },
+  "Resources": {
+    "description": "Get the resources directly used by this ModelObject ",
+    "class": "StandardsInformationMaterial",
+    "method": "resources"
+  },
+  "Output Variable Names": {
+    "description": "Get all output variables names that could be associated with this object",
+    "class": "StandardsInformationMaterial",
+    "method": "outputVariableNames"
+  },
+  "Output Variables": {
+    "description": "Get all output variables associated with this object, must run simulation to generate data",
+    "class": "StandardsInformationMaterial",
+    "method": "outputVariables"
+  },
+  "Data": {
+    "description": "Get data associated with this output variable and this object",
+    "class": "StandardsInformationMaterial",
+    "method": "getData"
+  },
+  "Life Cycle Costs": {
+    "description": "Returns the list of all LifeCycleCosts that refer to this object",
+    "class": "StandardsInformationMaterial",
+    "method": "lifeCycleCosts"
+  },
+  "Remove Life Cycle Costs": {
+    "description": "Removes all LifeCycleCosts that refer to this object",
+    "class": "StandardsInformationMaterial",
+    "method": "removeLifeCycleCosts"
+  },
+  "Idd Object Type": {
+    "description": "This is a virtual function that will tell you the type of iddObject you are dealing with",
+    "class": "StandardsInformationMaterial",
+    "method": "iddObjectType"
+  },
+  "Additional Properties": {
+    "description": "Returns true if this object has additional properties",
+    "class": "StandardsInformationMaterial",
+    "method": "hasAdditionalProperties"
+  },
+  "Remove Additional Properties": {
+    "description": "Removes all additional properties that refer to this object",
+    "class": "StandardsInformationMaterial",
+    "method": "removeAdditionalProperties"
+  },
+  "Schedule Type Keys": {
+    "description": "Return the ScheduleTypeKeys indicating how schedule is used in this object",
+    "class": "StandardsInformationMaterial",
+    "method": "getScheduleTypeKeys"
+  },
+  "Autosized Value": {
+    "description": "Gets the autosized component value from the sql file",
+    "class": "StandardsInformationMaterial",
+    "method": "getAutosizedValue"
+  },
+  "Ems Actuator Names": {
+    "description": "Return the names of the available ems actuators",
+    "class": "StandardsInformationMaterial",
+    "method": "emsActuatorNames"
+  },
+  "Ems Internal Variable Names": {
+    "description": "Return the names of the available ems internal variables",
+    "class": "StandardsInformationMaterial",
+    "method": "emsInternalVariableNames"
+  },
+  "Recursive Resources": {
+    "description": "Returns all ResourceObjects accessible by recursively calling . resources() starting from object",
+    "class": "StandardsInformationMaterial",
+    "method": "getRecursiveResources"
+  },
+  "Standards Number of Stories": {
+    "description": "Total number of above- and below-grade building stories. Used by openstudio-standards for code-compliance checks.",
+    "class": "Building",
+    "method": "standardsNumberOfStories"
+  },
+  "Standards Number of Above Ground Stories": {
+    "description": "Number of stories above grade level. Used by openstudio-standards for code-compliance checks.",
+    "class": "Building",
+    "method": "standardsNumberOfAboveGroundStories"
+  },
+  "Standards Number of Living Units": {
+    "description": "Number of residential dwelling units in the building. Used by openstudio-standards for residential code-compliance checks.",
+    "class": "Building",
+    "method": "standardsNumberOfLivingUnits"
+  },
+  "Standard": {
+    "description": "The energy or building standard (e.g., ASHRAE 90.1, Title 24, ISO 6946) that specifies this construction assembly's thermal properties.",
+    "class": "StandardsInformationConstruction / StandardsInformationMaterial",
+    "method": "constructionStandard"
+  },
+  "Standard Source": {
+    "description": "The table, section, or reference within the selected Standard that specifies this construction or material (e.g., 'Table A2.3', 'Section 5.5.3').",
+    "class": "StandardsInformationConstruction / StandardsInformationMaterial",
+    "method": "constructionStandardSource"
+  }
+}

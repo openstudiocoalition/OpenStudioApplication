@@ -19,8 +19,8 @@ import argparse
 import re
 import sys
 
-MAIN_MENU_HPP = "src/openstudio_lib/MainMenu.hpp"
-MAIN_MENU_CPP = "src/openstudio_lib/MainMenu.cpp"
+MAIN_MENU_HPP = "../src/openstudio_lib/MainMenu.hpp"
+MAIN_MENU_CPP = "../src/openstudio_lib/MainMenu.cpp"
 
 
 def main():

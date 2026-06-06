@@ -41,7 +41,8 @@ LANGUAGES = {
 
 DEFAULT_LANGS = ["es", "fr"]
 DEFAULT_MODEL = "claude-haiku-4-5-20251001"
-TS_TEMPLATE = "translations/OpenStudioApp_{lang}.ts"
+MAX_POLL_SECONDS = 1800  # 30 min — bail out if a batch stalls on Anthropic's side
+TS_TEMPLATE = "OpenStudioApp_{lang}.ts"
 DEFINITIONS_FILE = "output_var_definitions.json"
 KEY_FILE = r"C:\Users\ml\OneDrive\ClaudeAPIkey.txt"
 
@@ -72,12 +73,52 @@ def make_system_prompt(language_name: str) -> str:
         f"Rules:\n"
         f"- Use standard HVAC and building-physics terminology in {language_name}.\n"
         f"- Keep SI unit abbreviations (kg/s, W, kWh, °C, m³/s, Pa, J, m²) unchanged.\n"
-        f"- Keep acronyms as-is: HVAC, COP, EIR, PLR, EMS, VRF, DOAS, AHU, UPS.\n"
+        f"- Keep the following acronyms unchanged in translations "
+        f"(their expansions are provided here for context only):\n"
+        f"  HVAC (Heating, Ventilation, and Air Conditioning), "
+        f"COP (Coefficient of Performance), "
+        f"EIR (Energy Input Ratio), "
+        f"SHR (Sensible Heat Ratio), "
+        f"PLR (Part Load Ratio), "
+        f"VRF (Variable Refrigerant Flow), "
+        f"DOAS (Dedicated Outdoor Air System), "
+        f"VAV (Variable Air Volume), "
+        f"CAV (Constant Air Volume), "
+        f"EMS (Energy Management System), "
+        f"AHU (Air Handling Unit), "
+        f"UPS (Uninterruptible Power Supply), "
+        f"DX (Direct Expansion refrigeration cycle), "
+        f"VFD (Variable Frequency Drive), "
+        f"ITE (Information Technology Equipment), "
+        f"AHRI (Air-Conditioning, Heating, and Refrigeration Institute), "
+        f"DCV (Demand Controlled Ventilation), "
+        f"ERV (Energy Recovery Ventilator), "
+        f"PTAC (Packaged Terminal Air Conditioner), "
+        f"PTHP (Packaged Terminal Heat Pump).\n"
         f"- 'Rate' = rate of a physical process (not a tariff or price).\n"
         f"- 'Energy' = physical energy quantity (not economic value).\n"
         f"- 'Fraction' = dimensionless ratio between 0 and 1.\n"
         f"- Keep proper-noun equipment names standard in the {language_name}-speaking HVAC industry.\n"
-        f"- The translation must be concise but technically precise."
+        f"- The translation must be concise but technically precise.\n\n"
+        f"EnergyPlus-specific terms that may appear in the Definition context — "
+        f"use for understanding only, do not translate these object names:\n"
+        f"- AirLoopHVAC / AirLoop / air loop: the central forced-air HVAC system "
+        f"(air-handling unit and supply/return duct network) serving one or more thermal zones.\n"
+        f"- PlantLoop / plant loop / condenser loop: a closed hydronic loop connecting a heat "
+        f"source or sink (boiler, chiller, condenser, etc.) to loads via circulating water or other fluid.\n"
+        f"- ZoneHVAC / zone HVAC / zone equipment: terminal HVAC units that condition a single "
+        f"thermal zone (fan coil units, baseboard heaters, packaged terminals), distinct from "
+        f"central air systems.\n"
+        f"- SetpointManager / setpoint manager: a controller that calculates and assigns a target "
+        f"setpoint (temperature, humidity, flow rate, etc.) at nodes in the air or water network.\n"
+        f"- AvailabilityManager / availability manager: a controller that determines when an HVAC "
+        f"system or component is permitted to operate.\n"
+        f"- Branch / BranchList: a series of components connected in sequence along a fluid or "
+        f"air loop.\n"
+        f"- NodeList / node list: a named group of fluid or air network nodes to which a common "
+        f"property (e.g. a setpoint) is applied simultaneously.\n"
+        f"- DesignSpecification / design specification (e.g. DesignSpecification:OutdoorAir): "
+        f"an object that specifies minimum outdoor air ventilation requirements for a zone or system."
     )
 
 
@@ -262,8 +303,12 @@ def build_user_message(
 # .ts file helpers
 # ---------------------------------------------------------------------------
 
-def extract_output_var_sources(ts_content: str) -> list[str]:
-    """Return all source strings in the OutputVariables context, in order."""
+def extract_output_var_sources(ts_content: str, mode: str = "unfinished") -> list[str]:
+    """Return source strings in the OutputVariables context.
+
+    mode='unfinished': only entries with an empty or type="unfinished" translation.
+    mode='all':        every entry regardless of existing translation.
+    """
     ctx_m = re.search(
         r'<context>\s*<name>OutputVariables</name>(.*?)</context>',
         ts_content,
@@ -271,11 +316,26 @@ def extract_output_var_sources(ts_content: str) -> list[str]:
     )
     if not ctx_m:
         return []
-    return [s.strip() for s in re.findall(r'<source>([^<]+)</source>', ctx_m.group(1))]
+    if mode == "all":
+        return [s.strip() for s in re.findall(r'<source>([^<]+)</source>', ctx_m.group(1))]
+    pattern = re.compile(
+        r'<source>([^<]+)</source>\s*<translation(?:\s+type="unfinished")?>\s*</translation>',
+        re.DOTALL,
+    )
+    return [m.group(1).strip() for m in pattern.finditer(ctx_m.group(1))]
 
 
-def apply_output_var_translations(ts_content: str, source_to_translation: dict[str, str]) -> str:
+def apply_output_var_translations(
+    ts_content: str,
+    source_to_translation: dict[str, str],
+    mode: str = "unfinished",
+) -> str:
     """Replace <translation> values inside the OutputVariables context only."""
+    trans_pattern = (
+        r'<source>([^<]+)</source>\s*<translation[^>]*>.*?</translation>'
+        if mode == "all" else
+        r'<source>([^<]+)</source>\s*<translation(?:\s+type="unfinished")?>\s*</translation>'
+    )
 
     def process_context(m):
         prefix = m.group(1)
@@ -292,12 +352,7 @@ def apply_output_var_translations(ts_content: str, source_to_translation: dict[s
                 )
             return msg_m.group(0)
 
-        block = re.sub(
-            r'<source>([^<]+)</source>\s*<translation[^>]*>.*?</translation>',
-            replace_msg,
-            block,
-            flags=re.DOTALL,
-        )
+        block = re.sub(trans_pattern, replace_msg, block, flags=re.DOTALL)
         return prefix + block + suffix
 
     return re.sub(
@@ -360,7 +415,22 @@ def main():
         "--model", default=DEFAULT_MODEL,
         help=f"Claude model to use (default: {DEFAULT_MODEL}).",
     )
+    parser.add_argument(
+        "--mode", choices=["unfinished", "all"], default="unfinished",
+        help="'unfinished' (default): only translate empty/unfinished entries. "
+             "'all': retranslate every entry, overwriting existing translations.",
+    )
     args = parser.parse_args()
+
+    if args.mode == "all":
+        print(
+            "WARNING: --mode all generates a fresh machine translation for every OutputVariables entry,\n"
+            "overwriting any human-provided translations in the .ts files.\n"
+            "Intended use: populate output_vars_comparison.csv New ES/FR columns so machine\n"
+            "translations can be compared side-by-side with human translations.\n"
+            "Press Ctrl+C within 5 s to abort."
+        )
+        import time as _time; _time.sleep(5)
 
     if args.all:
         lang_map = LANGUAGES
@@ -402,7 +472,7 @@ def main():
             print(f"  SKIP: {ts_file} not found")
             continue
 
-        sources = extract_output_var_sources(content)
+        sources = extract_output_var_sources(content, mode=args.mode)
         if not sources:
             print(f"  SKIP: no OutputVariables context found")
             continue
@@ -434,10 +504,11 @@ def main():
         print("\nNothing to process.")
         return
 
-    print(f"\n{len(batch_jobs)} batch(es) submitted. Polling every 15s...")
+    print(f"\n{len(batch_jobs)} batch(es) submitted. Polling every 15 s (timeout {MAX_POLL_SECONDS//60} min) ...", flush=True)
 
     # Phase 2: Poll
     pending = set(batch_jobs.keys())
+    deadline = time.time() + MAX_POLL_SECONDS
     while pending:
         time.sleep(15)
         still_pending = set()
@@ -445,12 +516,19 @@ def main():
             batch = client.messages.batches.retrieve(batch_jobs[lang_code]["batch_id"])
             if batch.processing_status == "ended":
                 c = batch.request_counts
-                print(f"  [{lang_code}] done — succeeded={c.succeeded}, errored={c.errored}")
+                print(f"  [{lang_code}] done - succeeded={c.succeeded} errored={c.errored}", flush=True)
             else:
                 still_pending.add(lang_code)
         pending = still_pending
         if pending:
-            print(f"  Still running: {', '.join(sorted(pending))}")
+            if time.time() > deadline:
+                print(f"\nWARN: polling timeout ({MAX_POLL_SECONDS//60} min). Batches still running:", flush=True)
+                for lc in sorted(pending):
+                    print(f"  [{lc}] {batch_jobs[lc]['batch_id']} -- use recover_batches.py when complete", flush=True)
+                for lc in pending:
+                    batch_jobs.pop(lc)
+                break
+            print(f"  Still running: {', '.join(sorted(pending))}", flush=True)
 
     # Phase 3: Apply
     print("\nApplying translations...")
@@ -465,7 +543,7 @@ def main():
                 if text:
                     id_to_translation[result.custom_id] = text
             else:
-                print(f"  [{lang_code}] WARN: {result.custom_id} → {result.result.type}")
+                print(f"  [{lang_code}] WARN: {result.custom_id} - {result.result.type}")
 
         # Map custom_id back to source string
         source_to_translation: dict[str, str] = {}
@@ -475,7 +553,7 @@ def main():
                 source_to_translation[src] = t
 
         content = open(job["ts_file"], encoding="utf-8").read()
-        new_content = apply_output_var_translations(content, source_to_translation)
+        new_content = apply_output_var_translations(content, source_to_translation, mode=args.mode)
 
         with open(job["ts_file"], "w", encoding="utf-8") as f:
             f.write(new_content)

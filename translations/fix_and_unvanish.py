@@ -134,7 +134,7 @@ def fix_ts_file(filepath):
         return True
     return False
 
-ts_files = sorted(glob.glob('translations/OpenStudioApp_*.ts'))
+ts_files = sorted(glob.glob('OpenStudioApp_*.ts'))
 print(f'Processing {len(ts_files)} .ts files...')
 
 for ts_file in ts_files:
@@ -144,7 +144,7 @@ for ts_file in ts_files:
 
 # Verify final state
 print('\nVerification (Spanish):')
-with open('translations/OpenStudioApp_es.ts', 'rb') as f:
+with open('OpenStudioApp_es.ts', 'rb') as f:
     content = f.read().decode('utf-8')
 
 total = len(re.findall(r'<message>', content))

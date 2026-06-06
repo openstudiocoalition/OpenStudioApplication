@@ -4,7 +4,7 @@ Scan the OpenStudio IDD for field names and add any missing entries to the
 IDD context of every OpenStudioApp_*.ts file as unfinished skeleton stubs.
 
 Run this after an SDK update that introduces new IDD objects or fields, then
-run translate_skeleton.py to fill in translations for the new entries.
+run translate_all_languages.py to fill in translations for the new entries.
 """
 
 import re
@@ -71,7 +71,7 @@ def main():
     idd_fields = get_idd_field_names()
     print(f"  {len(idd_fields)} unique IDD field names")
 
-    ts_files = sorted(glob.glob("translations/OpenStudioApp_*.ts"))
+    ts_files = sorted(glob.glob("OpenStudioApp_*.ts"))
     print(f"Processing {len(ts_files)} .ts files...\n")
 
     for ts_file in ts_files:
@@ -91,7 +91,7 @@ def main():
             f.write(new_content)
         print(f"  [{lang}] added {len(missing)} skeleton entries")
 
-    print("\nDone. Run translate_skeleton.py to fill in translations.")
+    print("\nDone. Run translate_all_languages.py to fill in translations.")
 
 
 if __name__ == "__main__":
