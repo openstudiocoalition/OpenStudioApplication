@@ -100,11 +100,15 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
   layout->setSpacing(0);
   setLayout(layout);
 
-  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:BuildingSurface")), this);
-  m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:Shallow")), this);
+  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"),
+                                         iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:BuildingSurface")), this);
+  m_shEntry =
+    new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:Shallow")), this);
   m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:Deep")), this);
-  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"), iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:FCfactorMethod")), this);
-  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), iddObjectDocUrl(QStringLiteral("OS:Site:WaterMainsTemperature")), this);
+  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"),
+                                         iddObjectDocUrl(QStringLiteral("OS:Site:GroundTemperature:FCfactorMethod")), this);
+  m_waterMainsEntry =
+    new GroundTemperatureEntry(tr("Water Mains Temperature"), iddObjectDocUrl(QStringLiteral("OS:Site:WaterMainsTemperature")), this);
 
   connect(m_bsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onBuildingSurfaceClicked);
   connect(m_shEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onShallowClicked);

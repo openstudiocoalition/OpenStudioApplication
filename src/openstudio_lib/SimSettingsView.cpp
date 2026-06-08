@@ -240,8 +240,8 @@ void SimSettingsView::createWidgets() {
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
 
-  collapsibleInspector = new CollapsibleInspector(
-    tr("Advanced RunPeriod Parameters"), iddObjectDocUrl(QStringLiteral("OS:RunPeriod")), createRunPeriodAdvancedWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Advanced RunPeriod Parameters"), iddObjectDocUrl(QStringLiteral("OS:RunPeriod")), createRunPeriodAdvancedWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:RadianceParameters *******************
@@ -297,8 +297,8 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneAirContaminantBalance *******************
-  collapsibleInspector = new CollapsibleInspector(
-    tr("Zone Air Contaminant Balance"), iddObjectDocUrl(QStringLiteral("OS:ZoneAirContaminantBalance")), createZoneAirContaminantBalanceWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Zone Air Contaminant Balance"), iddObjectDocUrl(QStringLiteral("OS:ZoneAirContaminantBalance")),
+                                                  createZoneAirContaminantBalanceWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneCapacitanceMultiplier:ResearchSpecial *******************
