@@ -60,7 +60,7 @@ LANGUAGES = {
 }
 
 DEFAULT_MODEL    = "claude-haiku-4-5-20251001"
-MAX_POLL_SECONDS = 1800  # 30 min — bail out if a batch stalls on Anthropic's side
+MAX_POLL_SECONDS = 7200  # 2 hr — bail out if a batch stalls on Anthropic's side
 SPANISH_TS    = "OpenStudioApp_es.ts"
 TS_TEMPLATE   = "OpenStudioApp_{lang}.ts"
 KEY_FILE      = r"C:\Users\ml\OneDrive\ClaudeAPIkey.txt"
@@ -424,7 +424,7 @@ def extract_unfinished(ts_content: str) -> list[dict]:
         re.DOTALL,
     )
     unfinished_pattern = re.compile(
-        r'<source>([\s\S]+?)</source>[\s\S]*?'
+        r'<source>([^<]+)</source>\s*'
         r'<translation type="unfinished"></translation>',
         re.DOTALL,
     )
@@ -450,8 +450,11 @@ def apply_translations(ts_content: str, source_to_translation: dict[str, str]) -
         t = source_to_translation.get(source)
         if t is None:
             return m.group(0)
-        # Strip any XML tags the model may have accidentally included
-        t = re.sub(r"<[^>]+>", "", t).strip()
+        # Strip any XML tags the model may have accidentally included, but
+        # don't let stripping empty out a translation that is itself a
+        # bracketed placeholder like "<New Profile>".
+        stripped = re.sub(r"<[^>]+>", "", t).strip()
+        t = stripped if stripped else t.strip()
         if not t:
             return m.group(0)
         return (
@@ -460,7 +463,7 @@ def apply_translations(ts_content: str, source_to_translation: dict[str, str]) -
         )
 
     return re.sub(
-        r'<source>([\s\S]+?)</source>\s*<translation type="unfinished"></translation>',
+        r'<source>([^<]+)</source>\s*<translation type="unfinished"></translation>',
         replace_msg,
         ts_content,
         flags=re.DOTALL,
@@ -657,7 +660,9 @@ def main() -> None:
             if time.time() > deadline:
                 print(f"\nWARN: polling timeout ({MAX_POLL_SECONDS//60} min). Batches still running:", flush=True)
                 for lc in sorted(pending):
-                    print(f"  [{lc}] {batch_jobs[lc]['batch_id']} -- use recover_batches.py when complete", flush=True)
+                    print(f"  [{lc}] {batch_jobs[lc]['batch_id']} "
+                          f"-- once it ends, run: python recover_batch.py --lang {lc} "
+                          f"--batch-id {batch_jobs[lc]['batch_id']}", flush=True)
                 for lc in pending:
                     batch_jobs.pop(lc)
                 break

@@ -21492,7 +21492,7 @@
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924"/>
         <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
-        <translation>La temperatura del aire de suministro es controlada por el componente "AirLoopHVACUnitaryHeatPumpAirToAir".</translation>
+        <translation>La temperatura del aire de suministro es controlada por el componente &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot;.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931"/>
@@ -22569,7 +22569,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>Seleccionar Ruta a</translation>
+        <translation>Seleccionar Ruta a </translation>
     </message>
 </context>
 <context>
@@ -23468,7 +23468,7 @@ Story</translation>
     <message>
         <location filename="../src/shared_gui_components/OSGridController.cpp" line="876"/>
         <source>Check to add this column to &quot;Custom&quot;</source>
-        <translation>Marque para agregar esta columna a "Personalizado"</translation>
+        <translation>Marque para agregar esta columna a &quot;Personalizado&quot;</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/OSGridController.cpp" line="899"/>
@@ -23590,7 +23590,7 @@ Story</translation>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Las Medidas de Python no son compatibles con la CLI clásica.
-Puede cambiar la versión de CLI usando 'Preferencias-&gt;Usar CLI clásica'.</translation>
+Puede cambiar la versión de CLI usando &apos;Preferencias-&gt;Usar CLI clásica&apos;.</translation>
     </message>
 </context>
 <context>
@@ -23993,7 +23993,7 @@ Puede cambiar la versión de CLI usando 'Preferencias-&gt;Usar CLI clásica'.</t
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>Error al Especificar el Archivo de Clima a</translation>
+        <translation>Error al Especificar el Archivo de Clima a </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -24183,7 +24183,7 @@ Puede cambiar la versión de CLI usando 'Preferencias-&gt;Usar CLI clásica'.</t
     </message>
     <message>
         <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation>Verifique la conexión a internet de su equipo e ingrese en "Conexión de nube perdida" para recuperar la sesión de nube perdida.</translation>
+        <translation>Verifique la conexión a internet de su equipo e ingrese en &quot;Conexión de nube perdida&quot; para recuperar la sesión de nube perdida.</translation>
     </message>
     <message>
         <source>Or</source>
@@ -26952,7 +26952,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>Traducción De versión</translation>
+        <translation>Traducción De versión </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
@@ -27008,7 +27008,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) y todos los campos son validos contra el Energy+.idd.</translation>
+        <translation>) y todos los campos son validos contra el Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -27023,7 +27023,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>La Importación de IDF falló</translation>
+        <translation> La Importación de IDF falló</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
@@ -27049,7 +27049,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
-        <translation>llamado</translation>
+        <translation> llamado </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
@@ -27084,7 +27084,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Errores o advertencias occurieron al importar</translation>
+        <translation>Errores o advertencias occurieron al importar </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -27145,7 +27145,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>Servidor de Administrador de Medidas:</translation>
+        <translation>Servidor de Administrador de Medidas: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -27155,7 +27155,7 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>Directorio Temporal:</translation>
+        <translation>Directorio Temporal: </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -27179,17 +27179,17 @@ Si le gustaría ver la AplicaciónOpenStudio traducido a algun otro lenguaje, le
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>Abrir versión futura</translation>
+        <translation>Abrir versión futura </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>utilizando</translation>
+        <translation> utilizando </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
-        <translation>Modelo actualizado de</translation>
+        <translation>Modelo actualizado de </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
@@ -27201,7 +27201,7 @@ Los scripts de Ruby ya no son compatibles y se han remplazado por medidas.</tran
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>Fallo al abrir archivo en</translation>
+        <translation>Fallo al abrir archivo en </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -27213,13 +27213,13 @@ Los scripts de Ruby ya no son compatibles y se han remplazado por medidas.</tran
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
         <source>Your settings file &apos;</source>
-        <translation>Tu archivo de configuración '</translation>
+        <translation>Tu archivo de configuración &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
-        <translation>' no tiene permisos de escritura. Ajuste los permisos del archivo'</translation>
+        <translation>&apos; no tiene permisos de escritura. Ajuste los permisos del archivo&apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
@@ -32417,7 +32417,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>Favor de añadir el nombre de proyecto:</translation>
+        <translation>Favor de añadir el nombre de proyecto: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -32462,7 +32462,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>Favor de añadir la información de BIMserver:</translation>
+        <translation>Favor de añadir la información de BIMserver: </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -32508,7 +32508,7 @@ Zone</source>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Las Medidas de Python no son compatibles con la CLI clásica.
-Puede cambiar la versión de CLI usando 'Preferencias-&gt;Usar CLI clásica'.</translation>
+Puede cambiar la versión de CLI usando &apos;Preferencias-&gt;Usar CLI clásica&apos;.</translation>
     </message>
 </context>
 <context>

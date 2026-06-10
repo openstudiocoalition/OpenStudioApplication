@@ -411,6 +411,42 @@ All helper scripts live in `translations/` and should be run from that directory
 | `scrape_sdk_docs.py` | Scrape OpenStudio model SDK class pages → `sdk_doc_definitions.json` (Standards* fields, model properties) |
 | `build_gui_definitions.py` | Classify and define all ~1,520 unique GUI strings → `gui_string_definitions.json` (layers IDD + SDK + UI role context) |
 | `retranslate_gui_strings.py` | Re-translate all non-IDD/non-OutputVariables contexts with category + definition context |
+| `recover_batch.py` | Apply results from a batch that `translate_all_languages.py` submitted but didn't apply (polling timeout or download error) |
+
+---
+
+## Recovering a stuck or failed batch
+
+`translate_all_languages.py` submits one Anthropic batch per language and polls
+for up to `MAX_POLL_SECONDS` (2 hours). If a batch is still running when that
+deadline hits, or if downloading results fails with a transient SSL/connection
+error, the script prints the batch ID and exits without applying that
+language's translations — the `.ts` file is left with its unfinished stubs
+from the merge step, untouched since.
+
+Once the batch shows as `ended` (check the
+[Anthropic console](https://console.anthropic.com/settings/workspaces) or
+poll `client.messages.batches.retrieve(batch_id)`), recover it with:
+
+```bash
+# From translations/ directory:
+python recover_batch.py --lang ca --batch-id msgbatch_01FTviWQERZjajdeYLUi1b8m
+
+# Multiple languages in one run:
+python recover_batch.py --lang fa --batch-id msgbatch_xxx --lang vi --batch-id msgbatch_yyy
+
+python fix_and_unvanish.py
+```
+
+`recover_batch.py` reuses `extract_unfinished`/`apply_translations` from
+`translate_all_languages.py`, so it stays in sync with any future fixes to
+that matching logic.
+
+> **Important:** this only works if `OpenStudioApp_<lang>.ts` has not been
+> rewritten since the batch was submitted. Recover before re-running
+> `translate_all_languages.py` for that language — a second run re-merges the
+> file and the unfinished-entry order (and therefore the batch's `custom_id`
+> mapping) will no longer match.
 
 ---
 

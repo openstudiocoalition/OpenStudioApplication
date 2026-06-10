@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Availability Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps de Disponibilité</translation>
+        <translation>Nom de l&apos;Emploi du Temps de Disponibilité</translation>
     </message>
     <message>
         <source>Part Load Fraction Correlation Curve Name</source>
@@ -41,31 +41,31 @@
     </message>
     <message>
         <source>Value Until Time</source>
-        <translation>Valeur Jusqu'à l'Heure</translation>
+        <translation>Valeur Jusqu&apos;à l&apos;Heure</translation>
     </message>
     <message>
         <source>Minimum Outdoor Air Flow Rate</source>
-        <translation>Débit d'air extérieur minimum</translation>
+        <translation>Débit d&apos;air extérieur minimum</translation>
     </message>
     <message>
         <source>Maximum Outdoor Air Flow Rate</source>
-        <translation>Débit d'air extérieur maximal</translation>
+        <translation>Débit d&apos;air extérieur maximal</translation>
     </message>
     <message>
         <source>Economizer Control Type</source>
-        <translation>Type de Contrôle de l'Économiseur</translation>
+        <translation>Type de Contrôle de l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Economizer Control Action Type</source>
-        <translation>Type de contrôle de l'économiseur</translation>
+        <translation>Type de contrôle de l&apos;économiseur</translation>
     </message>
     <message>
         <source>Economizer Maximum Limit Dry-Bulb Temperature</source>
-        <translation>Température de Limite Maximale Sèche de l'Économiseur</translation>
+        <translation>Température de Limite Maximale Sèche de l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Economizer Maximum Limit Enthalpy</source>
-        <translation>Enthalpie Maximale Limite de l'Économiseur</translation>
+        <translation>Enthalpie Maximale Limite de l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Economizer Maximum Limit Dewpoint Temperature</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Economizer Minimum Limit Dry-Bulb Temperature</source>
-        <translation>Température de Bulbe Sec Minimale pour l'Économiseur</translation>
+        <translation>Température de Bulbe Sec Minimale pour l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Lockout Type</source>
@@ -85,19 +85,19 @@
     </message>
     <message>
         <source>Minimum Outdoor Air Schedule Name</source>
-        <translation>Nom de l'horaire d'air extérieur minimal</translation>
+        <translation>Nom de l&apos;horaire d&apos;air extérieur minimal</translation>
     </message>
     <message>
         <source>Minimum Fraction of Outdoor Air Schedule Name</source>
-        <translation>Nom de la Plage de Variation de la Fraction Minimale d'Air Extérieur</translation>
+        <translation>Nom de la Plage de Variation de la Fraction Minimale d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Maximum Fraction of Outdoor Air Schedule Name</source>
-        <translation>Nom du Planning de Fraction Maximale d'Air Extérieur</translation>
+        <translation>Nom du Planning de Fraction Maximale d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Time of Day Economizer Control Schedule Name</source>
-        <translation>Nom de la plage horaire de contrôle de l'économiseur à variation horaire</translation>
+        <translation>Nom de la plage horaire de contrôle de l&apos;économiseur à variation horaire</translation>
     </message>
     <message>
         <source>Heat Recovery Bypass Control Type</source>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Economizer Operation Staging</source>
-        <translation>Étagement du fonctionnement de l'économiseur</translation>
+        <translation>Étagement du fonctionnement de l&apos;économiseur</translation>
     </message>
     <message>
         <source>Rated Total Cooling Capacity</source>
@@ -121,15 +121,15 @@
     </message>
     <message>
         <source>Rated Air Flow Rate</source>
-        <translation>Débit d'air volumétrique nominal</translation>
+        <translation>Débit d&apos;air volumétrique nominal</translation>
     </message>
     <message>
         <source>Rated Evaporator Fan Power Per Volume Flow Rate 2017</source>
-        <translation>Puissance de ventilateur d'évaporateur nominale par débit volumétrique 2017</translation>
+        <translation>Puissance de ventilateur d&apos;évaporateur nominale par débit volumétrique 2017</translation>
     </message>
     <message>
         <source>Rated Evaporator Fan Power Per Volume Flow Rate 2023</source>
-        <translation>Puissance nominale du ventilateur de l'évaporateur par débit volumétrique 2023</translation>
+        <translation>Puissance nominale du ventilateur de l&apos;évaporateur par débit volumétrique 2023</translation>
     </message>
     <message>
         <source>Total Cooling Capacity Function of Temperature Curve Name</source>
@@ -141,11 +141,11 @@
     </message>
     <message>
         <source>Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée énergétique en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée énergétique en fonction de la température</translation>
     </message>
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'énergie d'entrée en fonction de la fraction de débit</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;énergie d&apos;entrée en fonction de la fraction de débit</translation>
     </message>
     <message>
         <source>Minimum Outdoor Dry-Bulb Temperature for Compressor Operation</source>
@@ -153,11 +153,11 @@
     </message>
     <message>
         <source>Nominal Time for Condensate Removal to Begin</source>
-        <translation>Temps nominal de début de l'évacuation du condensat</translation>
+        <translation>Temps nominal de début de l&apos;évacuation du condensat</translation>
     </message>
     <message>
         <source>Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity</source>
-        <translation>Rapport du taux initial d'évaporation de l'humidité à la capacité latente en régime permanent</translation>
+        <translation>Rapport du taux initial d&apos;évaporation de l&apos;humidité à la capacité latente en régime permanent</translation>
     </message>
     <message>
         <source>Maximum Cycling Rate</source>
@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Evaporative Condenser Air Flow Rate</source>
-        <translation>Débit d'air du condenseur évaporatif</translation>
+        <translation>Débit d&apos;air du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Evaporative Condenser Pump Rated Power Consumption</source>
@@ -205,7 +205,7 @@
     </message>
     <message>
         <source>Basin Heater Operating Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps de Fonctionnement du Réchauffeur de Bassin</translation>
+        <translation>Nom de l&apos;Emploi du Temps de Fonctionnement du Réchauffeur de Bassin</translation>
     </message>
     <message>
         <source>Gas Burner Efficiency</source>
@@ -245,19 +245,19 @@
     </message>
     <message>
         <source>Motor In Airstream Fraction</source>
-        <translation>Fraction de Moteur dans le Flux d'Air</translation>
+        <translation>Fraction de Moteur dans le Flux d&apos;Air</translation>
     </message>
     <message>
         <source>End-Use Subcategory</source>
-        <translation>Sous-catégorie d'usage final</translation>
+        <translation>Sous-catégorie d&apos;usage final</translation>
     </message>
     <message>
         <source>Minimum Supply Air Temperature</source>
-        <translation>Température Minimale de l'Air Soufflé</translation>
+        <translation>Température Minimale de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Maximum Supply Air Temperature</source>
-        <translation>Température maximale de l'air soufflé</translation>
+        <translation>Température maximale de l&apos;air soufflé</translation>
     </message>
     <message>
         <source>Control Zone Name</source>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Maximum Air Flow Rate</source>
-        <translation>Débit d'air maximum</translation>
+        <translation>Débit d&apos;air maximum</translation>
     </message>
     <message>
         <source>Multiplier</source>
@@ -289,35 +289,35 @@
     </message>
     <message>
         <source>Daylighting Controls Availability Schedule Name</source>
-        <translation>Nom de l'échéancier de disponibilité des commandes d'éclairage naturel</translation>
+        <translation>Nom de l&apos;échéancier de disponibilité des commandes d&apos;éclairage naturel</translation>
     </message>
     <message>
         <source>Zone Cooling Design Supply Air Temperature Input Method</source>
-        <translation>Méthode d'entrée de la température de l'air de soufflage en refroidissement de la zone</translation>
+        <translation>Méthode d&apos;entrée de la température de l&apos;air de soufflage en refroidissement de la zone</translation>
     </message>
     <message>
         <source>Zone Cooling Design Supply Air Temperature</source>
-        <translation>Température de l'air soufflé de refroidissement de dimensionnement de la zone</translation>
+        <translation>Température de l&apos;air soufflé de refroidissement de dimensionnement de la zone</translation>
     </message>
     <message>
         <source>Zone Cooling Design Supply Air Temperature Difference</source>
-        <translation>Différence de température entre l'air soufflé de conception et l'air ambiant pour le refroidissement de la zone</translation>
+        <translation>Différence de température entre l&apos;air soufflé de conception et l&apos;air ambiant pour le refroidissement de la zone</translation>
     </message>
     <message>
         <source>Zone Heating Design Supply Air Temperature Input Method</source>
-        <translation>Méthode d'entrée de la température de l'air de soufflage de conception pour chauffage de zone</translation>
+        <translation>Méthode d&apos;entrée de la température de l&apos;air de soufflage de conception pour chauffage de zone</translation>
     </message>
     <message>
         <source>Zone Heating Design Supply Air Temperature</source>
-        <translation>Température de l'air neuf de chauffage en zone à la conception</translation>
+        <translation>Température de l&apos;air neuf de chauffage en zone à la conception</translation>
     </message>
     <message>
         <source>Zone Heating Design Supply Air Temperature Difference</source>
-        <translation>Différence de Température de l'Air Soufflé de Conception pour le Chauffage de Zone</translation>
+        <translation>Différence de Température de l&apos;Air Soufflé de Conception pour le Chauffage de Zone</translation>
     </message>
     <message>
         <source>Zone Heating Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air soufflé au dimensionnement du débit de chauffage de la zone</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air soufflé au dimensionnement du débit de chauffage de la zone</translation>
     </message>
     <message>
         <source>Zone Heating Sizing Factor</source>
@@ -329,23 +329,23 @@
     </message>
     <message>
         <source>Cooling Design Air Flow Method</source>
-        <translation>Méthode de débit d'air de refroidissement de conception</translation>
+        <translation>Méthode de débit d&apos;air de refroidissement de conception</translation>
     </message>
     <message>
         <source>Cooling Design Air Flow Rate</source>
-        <translation>Débit d'air de refroidissement de conception</translation>
+        <translation>Débit d&apos;air de refroidissement de conception</translation>
     </message>
     <message>
         <source>Cooling Minimum Air Flow per Zone Floor Area</source>
-        <translation>Débit d'air minimum de refroidissement par surface de zone</translation>
+        <translation>Débit d&apos;air minimum de refroidissement par surface de zone</translation>
     </message>
     <message>
         <source>Cooling Minimum Air Flow</source>
-        <translation>Débit d'air minimum pour le refroidissement</translation>
+        <translation>Débit d&apos;air minimum pour le refroidissement</translation>
     </message>
     <message>
         <source>Cooling Minimum Air Flow Fraction</source>
-        <translation>Fraction minimale de débit d'air en refroidissement</translation>
+        <translation>Fraction minimale de débit d&apos;air en refroidissement</translation>
     </message>
     <message>
         <source>Heating Design Air Flow Method</source>
@@ -353,19 +353,19 @@
     </message>
     <message>
         <source>Heating Design Air Flow Rate</source>
-        <translation>Débit d'Air de Conception pour le Chauffage</translation>
+        <translation>Débit d&apos;Air de Conception pour le Chauffage</translation>
     </message>
     <message>
         <source>Heating Maximum Air Flow per Zone Floor Area</source>
-        <translation>Débit d'air de chauffage maximal par surface de zone</translation>
+        <translation>Débit d&apos;air de chauffage maximal par surface de zone</translation>
     </message>
     <message>
         <source>Heating Maximum Air Flow</source>
-        <translation>Débit d'air maximal de chauffage</translation>
+        <translation>Débit d&apos;air maximal de chauffage</translation>
     </message>
     <message>
         <source>Heating Maximum Air Flow Fraction</source>
-        <translation>Fraction de débit d'air maximal de chauffage</translation>
+        <translation>Fraction de débit d&apos;air maximal de chauffage</translation>
     </message>
     <message>
         <source>Account for Dedicated Outdoor Air System</source>
@@ -373,15 +373,15 @@
     </message>
     <message>
         <source>Dedicated Outdoor Air System Control Strategy</source>
-        <translation>Stratégie de Contrôle du Système d'Air Extérieur Dédié</translation>
+        <translation>Stratégie de Contrôle du Système d&apos;Air Extérieur Dédié</translation>
     </message>
     <message>
         <source>Dedicated Outdoor Air Low Setpoint Temperature for Design</source>
-        <translation>Température de Consigne Basse de l'Air Extérieur Dédié pour la Conception</translation>
+        <translation>Température de Consigne Basse de l&apos;Air Extérieur Dédié pour la Conception</translation>
     </message>
     <message>
         <source>Dedicated Outdoor Air High Setpoint Temperature for Design</source>
-        <translation>Température de Consigne Élevée de l'Air Extérieur Dédié pour la Conception</translation>
+        <translation>Température de Consigne Élevée de l&apos;Air Extérieur Dédié pour la Conception</translation>
     </message>
     <message>
         <source>Zone Load Sizing Method</source>
@@ -389,47 +389,47 @@
     </message>
     <message>
         <source>Zone Latent Cooling Design Supply Air Humidity Ratio Input Method</source>
-        <translation>Méthode d'entrée du rapport d'humidité de l'air soufflé pour dimensionnement latent de la zone</translation>
+        <translation>Méthode d&apos;entrée du rapport d&apos;humidité de l&apos;air soufflé pour dimensionnement latent de la zone</translation>
     </message>
     <message>
         <source>Zone Dehumidification Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air soufflé de conception pour la déshumidification de la zone</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air soufflé de conception pour la déshumidification de la zone</translation>
     </message>
     <message>
         <source>Zone Cooling Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air soufflé de conception refroidissement de zone</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air soufflé de conception refroidissement de zone</translation>
     </message>
     <message>
         <source>Zone Cooling Design Supply Air Humidity Ratio Difference</source>
-        <translation>Différence de Rapport d'Humidité de l'Air de Soufflage pour le Refroidissement de la Zone</translation>
+        <translation>Différence de Rapport d&apos;Humidité de l&apos;Air de Soufflage pour le Refroidissement de la Zone</translation>
     </message>
     <message>
         <source>Zone Latent Heating Design Supply Air Humidity Ratio Input Method</source>
-        <translation>Méthode d'entrée du rapport d'humidité de l'air de soufflage pour le dimensionnement latent</translation>
+        <translation>Méthode d&apos;entrée du rapport d&apos;humidité de l&apos;air de soufflage pour le dimensionnement latent</translation>
     </message>
     <message>
         <source>Zone Humidification Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air soufflé en conception pour l'humidification de la zone</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air soufflé en conception pour l&apos;humidification de la zone</translation>
     </message>
     <message>
         <source>Zone Humidification Design Supply Air Humidity Ratio Difference</source>
-        <translation>Différence de Rapport d'Humidité de l'Air Soufflé de Conception pour l'Humidification de Zone</translation>
+        <translation>Différence de Rapport d&apos;Humidité de l&apos;Air Soufflé de Conception pour l&apos;Humidification de Zone</translation>
     </message>
     <message>
         <source>Zone Humidistat Dehumidification Set Point Schedule Name</source>
-        <translation>Nom de la Planification du Point de Consigne de Déshumidification de l'Humidistat de Zone</translation>
+        <translation>Nom de la Planification du Point de Consigne de Déshumidification de l&apos;Humidistat de Zone</translation>
     </message>
     <message>
         <source>Zone Humidistat Humidification Set Point Schedule Name</source>
-        <translation>Nom du Profil d'Humidité de Consigne de l'Humidificateur du Thermostat de Zone</translation>
+        <translation>Nom du Profil d&apos;Humidité de Consigne de l&apos;Humidificateur du Thermostat de Zone</translation>
     </message>
     <message>
         <source>Design Zone Air Distribution Effectiveness in Cooling Mode</source>
-        <translation>Efficacité de Distribution d'Air en Mode Refroidissement</translation>
+        <translation>Efficacité de Distribution d&apos;Air en Mode Refroidissement</translation>
     </message>
     <message>
         <source>Design Zone Air Distribution Effectiveness in Heating Mode</source>
-        <translation>Efficacité de la distribution d'air en zone en mode chauffage</translation>
+        <translation>Efficacité de la distribution d&apos;air en zone en mode chauffage</translation>
     </message>
     <message>
         <source>Design Zone Secondary Recirculation Fraction</source>
@@ -457,15 +457,15 @@
     </message>
     <message>
         <source>Zone Equipment Sequential Cooling Fraction Schedule Name</source>
-        <translation>Nom de l'horaire de fraction de refroidissement séquentiel de l'équipement de zone</translation>
+        <translation>Nom de l&apos;horaire de fraction de refroidissement séquentiel de l&apos;équipement de zone</translation>
     </message>
     <message>
         <source>Zone Equipment Sequential Heating Fraction Schedule Name</source>
-        <translation>Nom de l'Agenda de Fraction de Chauffage Séquentiel du Matériel de Zone</translation>
+        <translation>Nom de l&apos;Agenda de Fraction de Chauffage Séquentiel du Matériel de Zone</translation>
     </message>
     <message>
         <source>Design Supply Air Flow Rate</source>
-        <translation>Débit volumique de conception de l'air soufflé</translation>
+        <translation>Débit volumique de conception de l&apos;air soufflé</translation>
     </message>
     <message>
         <source>Maximum Loop Flow Rate</source>
@@ -477,7 +477,7 @@
     </message>
     <message>
         <source>Design Return Air Flow Fraction of Supply Air Flow</source>
-        <translation>Fraction de débit d'air de reprise de conception par rapport au débit d'air de soufflage</translation>
+        <translation>Fraction de débit d&apos;air de reprise de conception par rapport au débit d&apos;air de soufflage</translation>
     </message>
     <message>
         <source>Type of Load to Size On</source>
@@ -485,11 +485,11 @@
     </message>
     <message>
         <source>Design Outdoor Air Flow Rate</source>
-        <translation>Débit d'air extérieur de dimensionnement</translation>
+        <translation>Débit d&apos;air extérieur de dimensionnement</translation>
     </message>
     <message>
         <source>Central Heating Maximum System Air Flow Ratio</source>
-        <translation>Rapport du débit d'air système maximal pour le chauffage au débit d'air système maximal</translation>
+        <translation>Rapport du débit d&apos;air système maximal pour le chauffage au débit d&apos;air système maximal</translation>
     </message>
     <message>
         <source>Preheat Design Temperature</source>
@@ -497,7 +497,7 @@
     </message>
     <message>
         <source>Preheat Design Humidity Ratio</source>
-        <translation>Ratio d'Humidité de Conception en Sortie du Préchauffage</translation>
+        <translation>Ratio d&apos;Humidité de Conception en Sortie du Préchauffage</translation>
     </message>
     <message>
         <source>Precool Design Temperature</source>
@@ -505,7 +505,7 @@
     </message>
     <message>
         <source>Precool Design Humidity Ratio</source>
-        <translation>Rapport d'humidité de conception à la sortie du précooler</translation>
+        <translation>Rapport d&apos;humidité de conception à la sortie du précooler</translation>
     </message>
     <message>
         <source>Central Cooling Design Supply Air Temperature</source>
@@ -513,67 +513,67 @@
     </message>
     <message>
         <source>Central Heating Design Supply Air Temperature</source>
-        <translation>Température de Conception de l'Air Soufflé pour le Chauffage Central</translation>
+        <translation>Température de Conception de l&apos;Air Soufflé pour le Chauffage Central</translation>
     </message>
     <message>
         <source>All Outdoor Air in Cooling</source>
-        <translation>Tout l'air extérieur en refroidissement</translation>
+        <translation>Tout l&apos;air extérieur en refroidissement</translation>
     </message>
     <message>
         <source>All Outdoor Air in Heating</source>
-        <translation>Tout l'air extérieur en chauffage</translation>
+        <translation>Tout l&apos;air extérieur en chauffage</translation>
     </message>
     <message>
         <source>Central Cooling Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air de soufflage à la conception du refroidissement central</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air de soufflage à la conception du refroidissement central</translation>
     </message>
     <message>
         <source>Central Heating Design Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air soufflé en sortie de batterie de chauffage central à l'état de projet</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air soufflé en sortie de batterie de chauffage central à l&apos;état de projet</translation>
     </message>
     <message>
         <source>System Outdoor Air Method</source>
-        <translation>Méthode d'air extérieur du système</translation>
+        <translation>Méthode d&apos;air extérieur du système</translation>
     </message>
     <message>
         <source>Zone Maximum Outdoor Air Fraction</source>
-        <translation>Fraction d'air extérieur maximale de la zone</translation>
+        <translation>Fraction d&apos;air extérieur maximale de la zone</translation>
     </message>
     <message>
         <source>Design Water Flow Rate</source>
-        <translation>Débit d'eau de conception</translation>
+        <translation>Débit d&apos;eau de conception</translation>
     </message>
     <message>
         <source>Design Air Flow Rate</source>
-        <translation>Débit d'air de conception</translation>
+        <translation>Débit d&apos;air de conception</translation>
     </message>
     <message>
         <source>Design Inlet Water Temperature</source>
-        <translation>Température d'eau d'entrée nominale</translation>
+        <translation>Température d&apos;eau d&apos;entrée nominale</translation>
     </message>
     <message>
         <source>Design Inlet Air Temperature</source>
-        <translation>Température de l'air à l'entrée en conditions de conception</translation>
+        <translation>Température de l&apos;air à l&apos;entrée en conditions de conception</translation>
     </message>
     <message>
         <source>Design Outlet Air Temperature</source>
-        <translation>Température de sortie d'air en conditions de design</translation>
+        <translation>Température de sortie d&apos;air en conditions de design</translation>
     </message>
     <message>
         <source>Design Inlet Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air d'entrée à la conception</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air d&apos;entrée à la conception</translation>
     </message>
     <message>
         <source>Design Outlet Air Humidity Ratio</source>
-        <translation>Rapport d'humidité de l'air de sortie en conception</translation>
+        <translation>Rapport d&apos;humidité de l&apos;air de sortie en conception</translation>
     </message>
     <message>
         <source>Type of Analysis</source>
-        <translation>Type d'analyse</translation>
+        <translation>Type d&apos;analyse</translation>
     </message>
     <message>
         <source>Heat Exchanger Configuration</source>
-        <translation>Configuration de l'échangeur thermique</translation>
+        <translation>Configuration de l&apos;échangeur thermique</translation>
     </message>
     <message>
         <source>U-Factor Times Area Value</source>
@@ -581,11 +581,11 @@
     </message>
     <message>
         <source>Maximum Water Flow Rate</source>
-        <translation>Débit d'eau maximal</translation>
+        <translation>Débit d&apos;eau maximal</translation>
     </message>
     <message>
         <source>Performance Input Method</source>
-        <translation>Méthode d'entrée des performances</translation>
+        <translation>Méthode d&apos;entrée des performances</translation>
     </message>
     <message>
         <source>Rated Capacity</source>
@@ -593,19 +593,19 @@
     </message>
     <message>
         <source>Rated Inlet Water Temperature</source>
-        <translation>Température d'eau d'entrée nominale</translation>
+        <translation>Température d&apos;eau d&apos;entrée nominale</translation>
     </message>
     <message>
         <source>Rated Inlet Air Temperature</source>
-        <translation>Température de l'air à l'entrée aux conditions nominales</translation>
+        <translation>Température de l&apos;air à l&apos;entrée aux conditions nominales</translation>
     </message>
     <message>
         <source>Rated Outlet Water Temperature</source>
-        <translation>Température de l'eau à la sortie nominale</translation>
+        <translation>Température de l&apos;eau à la sortie nominale</translation>
     </message>
     <message>
         <source>Rated Outlet Air Temperature</source>
-        <translation>Température de sortie d'air nominale</translation>
+        <translation>Température de sortie d&apos;air nominale</translation>
     </message>
     <message>
         <source>Rated Ratio for Air and Water Convection</source>
@@ -613,7 +613,7 @@
     </message>
     <message>
         <source>Fan Power Minimum Flow Rate Input Method</source>
-        <translation>Méthode d'entrée du débit minimum pour la puissance du ventilateur</translation>
+        <translation>Méthode d&apos;entrée du débit minimum pour la puissance du ventilateur</translation>
     </message>
     <message>
         <source>Fan Power Minimum Flow Fraction</source>
@@ -621,7 +621,7 @@
     </message>
     <message>
         <source>Fan Power Minimum Air Flow Rate</source>
-        <translation>Débit d'air volumique minimum de puissance ventilateur</translation>
+        <translation>Débit d&apos;air volumique minimum de puissance ventilateur</translation>
     </message>
     <message>
         <source>Fan Power Coefficient 1</source>
@@ -645,23 +645,23 @@
     </message>
     <message>
         <source>Schedule Name</source>
-        <translation>Nom de l'agenda</translation>
+        <translation>Nom de l&apos;agenda</translation>
     </message>
     <message>
         <source>Zone Minimum Air Flow Input Method</source>
-        <translation>Méthode d'entrée du débit d'air minimum de la zone</translation>
+        <translation>Méthode d&apos;entrée du débit d&apos;air minimum de la zone</translation>
     </message>
     <message>
         <source>Constant Minimum Air Flow Fraction</source>
-        <translation>Fraction d'air minimum constant</translation>
+        <translation>Fraction d&apos;air minimum constant</translation>
     </message>
     <message>
         <source>Fixed Minimum Air Flow Rate</source>
-        <translation>Débit d'air minimum fixe</translation>
+        <translation>Débit d&apos;air minimum fixe</translation>
     </message>
     <message>
         <source>Minimum Air Flow Fraction Schedule Name</source>
-        <translation>Nom de la planification de la fraction de débit d'air minimal</translation>
+        <translation>Nom de la planification de la fraction de débit d&apos;air minimal</translation>
     </message>
     <message>
         <source>Damper Heating Action</source>
@@ -677,15 +677,15 @@
     </message>
     <message>
         <source>Maximum Reheat Air Temperature</source>
-        <translation>Température maximale de l'air de réchauffage</translation>
+        <translation>Température maximale de l&apos;air de réchauffage</translation>
     </message>
     <message>
         <source>Maximum Hot Water or Steam Flow Rate</source>
-        <translation>Débit volumétrique maximal d'eau chaude ou de vapeur</translation>
+        <translation>Débit volumétrique maximal d&apos;eau chaude ou de vapeur</translation>
     </message>
     <message>
         <source>Minimum Hot Water or Steam Flow Rate</source>
-        <translation>Débit volumétrique minimum d'eau chaude ou de vapeur</translation>
+        <translation>Débit volumétrique minimum d&apos;eau chaude ou de vapeur</translation>
     </message>
     <message>
         <source>Convergence Tolerance</source>
@@ -745,7 +745,7 @@
     </message>
     <message>
         <source>Design Power Consumption</source>
-        <translation>Consommation d'énergie nominale</translation>
+        <translation>Consommation d&apos;énergie nominale</translation>
     </message>
     <message>
         <source>Design Electric Power per Unit Flow Rate</source>
@@ -753,7 +753,7 @@
     </message>
     <message>
         <source>Design Shaft Power per Unit Flow Rate per Unit Head</source>
-        <translation>Puissance à l'arbre unitaire par débit par unité de charge</translation>
+        <translation>Puissance à l&apos;arbre unitaire par débit par unité de charge</translation>
     </message>
     <message>
         <source>Design Minimum Flow Rate Fraction</source>
@@ -773,7 +773,7 @@
     </message>
     <message>
         <source>Reference Leaving Chilled Water Temperature</source>
-        <translation>Température de Référence de l'Eau Glacée à la Sortie</translation>
+        <translation>Température de Référence de l&apos;Eau Glacée à la Sortie</translation>
     </message>
     <message>
         <source>Reference Entering Condenser Fluid Temperature</source>
@@ -781,11 +781,11 @@
     </message>
     <message>
         <source>Reference Chilled Water Flow Rate</source>
-        <translation>Débit d'eau glacée de référence</translation>
+        <translation>Débit d&apos;eau glacée de référence</translation>
     </message>
     <message>
         <source>Reference Condenser Water Flow Rate</source>
-        <translation>Débit de Référence de l'Eau de Condensation</translation>
+        <translation>Débit de Référence de l&apos;Eau de Condensation</translation>
     </message>
     <message>
         <source>Cooling Capacity Function of Temperature Curve Name</source>
@@ -793,11 +793,11 @@
     </message>
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée électrique à la sortie de refroidissement en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée électrique à la sortie de refroidissement en fonction de la température</translation>
     </message>
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée électrique au débit de refroidissement en fonction du rapport de charge partielle</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée électrique au débit de refroidissement en fonction du rapport de charge partielle</translation>
     </message>
     <message>
         <source>Minimum Part Load Ratio</source>
@@ -825,7 +825,7 @@
     </message>
     <message>
         <source>Leaving Chilled Water Lower Temperature Limit</source>
-        <translation>Limite Inférieure de Température de l'Eau Glacée en Sortie</translation>
+        <translation>Limite Inférieure de Température de l&apos;Eau Glacée en Sortie</translation>
     </message>
     <message>
         <source>Chiller Flow Mode</source>
@@ -873,19 +873,19 @@
     </message>
     <message>
         <source>Fan Power at Design Air Flow Rate</source>
-        <translation>Puissance de la ventilation au débit d'air nominal</translation>
+        <translation>Puissance de la ventilation au débit d&apos;air nominal</translation>
     </message>
     <message>
         <source>U-Factor Times Area Value at Design Air Flow Rate</source>
-        <translation>Valeur de Coefficient de Transmission Thermique × Aire au Débit d'Air de Conception</translation>
+        <translation>Valeur de Coefficient de Transmission Thermique × Aire au Débit d&apos;Air de Conception</translation>
     </message>
     <message>
         <source>Air Flow Rate in Free Convection Regime</source>
-        <translation>Débit d'air en régime de convection naturelle</translation>
+        <translation>Débit d&apos;air en régime de convection naturelle</translation>
     </message>
     <message>
         <source>U-Factor Times Area Value at Free Convection Air Flow Rate</source>
-        <translation>Valeur de Coefficient de Transmission Thermique × Aire à Débit d'Air en Convection Libre</translation>
+        <translation>Valeur de Coefficient de Transmission Thermique × Aire à Débit d&apos;Air en Convection Libre</translation>
     </message>
     <message>
         <source>Free Convection Capacity</source>
@@ -917,11 +917,11 @@
     </message>
     <message>
         <source>Cell Minimum Water Flow Rate Fraction</source>
-        <translation>Fraction Minimale du Débit d'Eau de la Tour</translation>
+        <translation>Fraction Minimale du Débit d&apos;Eau de la Tour</translation>
     </message>
     <message>
         <source>Cell Maximum Water Flow Rate Fraction</source>
-        <translation>Fraction Maximale du Débit d'Eau de la Cellule</translation>
+        <translation>Fraction Maximale du Débit d&apos;Eau de la Cellule</translation>
     </message>
     <message>
         <source>Reference Temperature Type</source>
@@ -945,19 +945,19 @@
     </message>
     <message>
         <source>Efficiency Curve Temperature Evaluation Variable</source>
-        <translation>Variable de Température pour l'Évaluation de la Courbe de Rendement</translation>
+        <translation>Variable de Température pour l&apos;Évaluation de la Courbe de Rendement</translation>
     </message>
     <message>
         <source>Normalized Boiler Efficiency Curve Name</source>
-        <translation>Nom de la courbe d'efficacité thermique normalisée de la chaudière</translation>
+        <translation>Nom de la courbe d&apos;efficacité thermique normalisée de la chaudière</translation>
     </message>
     <message>
         <source>Design Water Outlet Temperature</source>
-        <translation>Température de sortie d'eau de conception</translation>
+        <translation>Température de sortie d&apos;eau de conception</translation>
     </message>
     <message>
         <source>Water Outlet Upper Temperature Limit</source>
-        <translation>Limite Supérieure de Température à la Sortie de l'Eau</translation>
+        <translation>Limite Supérieure de Température à la Sortie de l&apos;Eau</translation>
     </message>
     <message>
         <source>Boiler Flow Mode</source>
@@ -1005,7 +1005,7 @@
     </message>
     <message>
         <source>Off Cycle Parasitic Fuel Consumption Rate</source>
-        <translation>Débit de consommation parasitaire de combustible à l'arrêt</translation>
+        <translation>Débit de consommation parasitaire de combustible à l&apos;arrêt</translation>
     </message>
     <message>
         <source>Off Cycle Parasitic Fuel Type</source>
@@ -1069,7 +1069,7 @@
     </message>
     <message>
         <source>Indirect Water Heating Recovery Time</source>
-        <translation>Temps de récupération du chauffage indirect de l'eau</translation>
+        <translation>Temps de récupération du chauffage indirect de l&apos;eau</translation>
     </message>
     <message>
         <source>Tank Height</source>
@@ -1093,7 +1093,7 @@
     </message>
     <message>
         <source>Heater 1 Deadband Temperature Difference</source>
-        <translation>Différence de Température de Bande Morte de l'Élément Chauffant 1</translation>
+        <translation>Différence de Température de Bande Morte de l&apos;Élément Chauffant 1</translation>
     </message>
     <message>
         <source>Heater 1 Capacity</source>
@@ -1133,7 +1133,7 @@
     </message>
     <message>
         <source>Use Side Inlet Height</source>
-        <translation>Hauteur de l'entrée côté consommation</translation>
+        <translation>Hauteur de l&apos;entrée côté consommation</translation>
     </message>
     <message>
         <source>Use Side Outlet Height</source>
@@ -1141,7 +1141,7 @@
     </message>
     <message>
         <source>Source Side Inlet Height</source>
-        <translation>Hauteur d'entrée du côté source</translation>
+        <translation>Hauteur d&apos;entrée du côté source</translation>
     </message>
     <message>
         <source>Source Side Outlet Height</source>
@@ -1149,23 +1149,23 @@
     </message>
     <message>
         <source>Hot Water Supply Temperature Schedule Name</source>
-        <translation>Nom de la Planification de la Température d'Alimentation en Eau Chaude</translation>
+        <translation>Nom de la Planification de la Température d&apos;Alimentation en Eau Chaude</translation>
     </message>
     <message>
         <source>Cold Water Supply Temperature Schedule Name</source>
-        <translation>Nom du Calendrier de Température d'Eau Froide d'Alimentation</translation>
+        <translation>Nom du Calendrier de Température d&apos;Eau Froide d&apos;Alimentation</translation>
     </message>
     <message>
         <source>Drain Water Heat Exchanger Type</source>
-        <translation>Type d'Échangeur de Chaleur Eau de Drainage</translation>
+        <translation>Type d&apos;Échangeur de Chaleur Eau de Drainage</translation>
     </message>
     <message>
         <source>Drain Water Heat Exchanger Destination</source>
-        <translation>Destination de l'échangeur thermique des eaux grises</translation>
+        <translation>Destination de l&apos;échangeur thermique des eaux grises</translation>
     </message>
     <message>
         <source>Drain Water Heat Exchanger U-Factor Times Area</source>
-        <translation>Coefficient d'échange thermique fois surface de l'échangeur de chaleur des eaux usées</translation>
+        <translation>Coefficient d&apos;échange thermique fois surface de l&apos;échangeur de chaleur des eaux usées</translation>
     </message>
     <message>
         <source>Peak Flow Rate</source>
@@ -1177,7 +1177,7 @@
     </message>
     <message>
         <source>Target Temperature Schedule Name</source>
-        <translation>Nom de l'objet horaire de température cible</translation>
+        <translation>Nom de l&apos;objet horaire de température cible</translation>
     </message>
     <message>
         <source>Sensible Fraction Schedule Name</source>
@@ -1185,7 +1185,7 @@
     </message>
     <message>
         <source>Latent Fraction Schedule Name</source>
-        <translation>Nom de l'horaire de fraction latente</translation>
+        <translation>Nom de l&apos;horaire de fraction latente</translation>
     </message>
     <message>
         <source>Zone Name</source>
@@ -1221,7 +1221,7 @@
     </message>
     <message>
         <source>Zone for Master Thermostat Location</source>
-        <translation>Zone d'emplacement du thermostat maître</translation>
+        <translation>Zone d&apos;emplacement du thermostat maître</translation>
     </message>
     <message>
         <source>Master Thermostat Priority Control Type</source>
@@ -1265,47 +1265,47 @@
     </message>
     <message>
         <source>Supply Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air neuf en refroidissement</translation>
+        <translation>Débit d&apos;air neuf en refroidissement</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate When No Cooling is Needed</source>
-        <translation>Débit d'air fourni quand aucun refroidissement n'est nécessaire</translation>
+        <translation>Débit d&apos;air fourni quand aucun refroidissement n&apos;est nécessaire</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air soufflé pendant le fonctionnement en chauffage</translation>
+        <translation>Débit d&apos;air soufflé pendant le fonctionnement en chauffage</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate When No Heating is Needed</source>
-        <translation>Débit d'air soufflé quand aucun chauffage n'est nécessaire</translation>
+        <translation>Débit d&apos;air soufflé quand aucun chauffage n&apos;est nécessaire</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air extérieur pendant le fonctionnement en refroidissement</translation>
+        <translation>Débit d&apos;air extérieur pendant le fonctionnement en refroidissement</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air extérieur pendant le fonctionnement en chauffage</translation>
+        <translation>Débit d&apos;air extérieur pendant le fonctionnement en chauffage</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate When No Cooling or Heating is Needed</source>
-        <translation>Débit d'air extérieur quand ni refroidissement ni chauffage n'est nécessaire</translation>
+        <translation>Débit d&apos;air extérieur quand ni refroidissement ni chauffage n&apos;est nécessaire</translation>
     </message>
     <message>
         <source>Zone Terminal Unit Cooling Minimum Air Flow Fraction</source>
-        <translation>Fraction minimale de débit d'air de refroidissement de l'unité terminale de zone</translation>
+        <translation>Fraction minimale de débit d&apos;air de refroidissement de l&apos;unité terminale de zone</translation>
     </message>
     <message>
         <source>Zone Terminal Unit Heating Minimum Air Flow Fraction</source>
-        <translation>Fraction minimale du débit d'air de chauffage de l'unité terminale de zone</translation>
+        <translation>Fraction minimale du débit d&apos;air de chauffage de l&apos;unité terminale de zone</translation>
     </message>
     <message>
         <source>Zone Terminal Unit On Parasitic Electric Energy Use</source>
-        <translation>Consommation électrique parasite de l'unité terminale en fonctionnement</translation>
+        <translation>Consommation électrique parasite de l&apos;unité terminale en fonctionnement</translation>
     </message>
     <message>
         <source>Zone Terminal Unit Off Parasitic Electric Energy Use</source>
-        <translation>Consommation électrique parasite de l'unité terminale en arrêt</translation>
+        <translation>Consommation électrique parasite de l&apos;unité terminale en arrêt</translation>
     </message>
     <message>
         <source>Rated Total Heating Capacity Sizing Ratio</source>
@@ -1313,23 +1313,23 @@
     </message>
     <message>
         <source>Supply Air Fan Placement</source>
-        <translation>Placement du ventilateur d'air de soufflage</translation>
+        <translation>Placement du ventilateur d&apos;air de soufflage</translation>
     </message>
     <message>
         <source>Hours of Operation Schedule Name</source>
-        <translation>Nom de l'emploi du temps des heures de fonctionnement</translation>
+        <translation>Nom de l&apos;emploi du temps des heures de fonctionnement</translation>
     </message>
     <message>
         <source>Number of People Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps du Nombre d'Occupants</translation>
+        <translation>Nom de l&apos;Emploi du Temps du Nombre d&apos;Occupants</translation>
     </message>
     <message>
         <source>People Activity Level Schedule Name</source>
-        <translation>Nom de la planification du niveau d'activité des occupants</translation>
+        <translation>Nom de la planification du niveau d&apos;activité des occupants</translation>
     </message>
     <message>
         <source>Lighting Schedule Name</source>
-        <translation>Nom de l'horaire d'éclairage</translation>
+        <translation>Nom de l&apos;horaire d&apos;éclairage</translation>
     </message>
     <message>
         <source>Electric Equipment Schedule Name</source>
@@ -1341,47 +1341,47 @@
     </message>
     <message>
         <source>Hot Water Equipment Schedule Name</source>
-        <translation>Nom de la période d'utilisation de l'équipement d'eau chaude</translation>
+        <translation>Nom de la période d&apos;utilisation de l&apos;équipement d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Infiltration Schedule Name</source>
-        <translation>Nom de la Planification de l'Infiltration</translation>
+        <translation>Nom de la Planification de l&apos;Infiltration</translation>
     </message>
     <message>
         <source>Steam Equipment Schedule Name</source>
-        <translation>Nom du calendrier de l'équipement à vapeur</translation>
+        <translation>Nom du calendrier de l&apos;équipement à vapeur</translation>
     </message>
     <message>
         <source>Other Equipment Schedule Name</source>
-        <translation>Nom de l'agenda pour équipements divers</translation>
+        <translation>Nom de l&apos;agenda pour équipements divers</translation>
     </message>
     <message>
         <source>Outdoor Air Method</source>
-        <translation>Méthode d'air extérieur</translation>
+        <translation>Méthode d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Flow per Person</source>
-        <translation>Débit d'air extérieur par personne</translation>
+        <translation>Débit d&apos;air extérieur par personne</translation>
     </message>
     <message>
         <source>Outdoor Air Flow per Floor Area</source>
-        <translation>Débit d'air extérieur par unité de surface</translation>
+        <translation>Débit d&apos;air extérieur par unité de surface</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate</source>
-        <translation>Débit d'air extérieur</translation>
+        <translation>Débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Air Changes per Hour</source>
-        <translation>Débit d'air extérieur en nombre de renouvellements d'air par heure</translation>
+        <translation>Débit d&apos;air extérieur en nombre de renouvellements d&apos;air par heure</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate Fraction Schedule Name</source>
-        <translation>Nom de l'agenda de fraction du débit d'air extérieur</translation>
+        <translation>Nom de l&apos;agenda de fraction du débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Space or SpaceType Name</source>
-        <translation>Nom de l'espace ou du type d'espace</translation>
+        <translation>Nom de l&apos;espace ou du type d&apos;espace</translation>
     </message>
     <message>
         <source>Design Flow Rate Calculation Method</source>
@@ -1393,7 +1393,7 @@
     </message>
     <message>
         <source>Flow per Space Floor Area</source>
-        <translation>Débit par surface de plancher de l'espace</translation>
+        <translation>Débit par surface de plancher de l&apos;espace</translation>
     </message>
     <message>
         <source>Flow per Exterior Surface Area</source>
@@ -1401,7 +1401,7 @@
     </message>
     <message>
         <source>Air Changes per Hour</source>
-        <translation>Changements d'air par heure</translation>
+        <translation>Changements d&apos;air par heure</translation>
     </message>
     <message>
         <source>Constant Term Coefficient</source>
@@ -1425,7 +1425,7 @@
     </message>
     <message>
         <source>Effective Air Leakage Area</source>
-        <translation>Surface de Fuite d'Air Effective</translation>
+        <translation>Surface de Fuite d&apos;Air Effective</translation>
     </message>
     <message>
         <source>Stack Coefficient</source>
@@ -1441,35 +1441,35 @@
     </message>
     <message>
         <source>Activity Level Schedule Name</source>
-        <translation>Nom de la planification du niveau d'activité</translation>
+        <translation>Nom de la planification du niveau d&apos;activité</translation>
     </message>
     <message>
         <source>Surface Name/Angle Factor List Name</source>
-        <translation>Nom de la surface / Nom de la liste de facteurs d'angle</translation>
+        <translation>Nom de la surface / Nom de la liste de facteurs d&apos;angle</translation>
     </message>
     <message>
         <source>Work Efficiency Schedule Name</source>
-        <translation>Nom de l'emploi du temps d'efficacité de travail</translation>
+        <translation>Nom de l&apos;emploi du temps d&apos;efficacité de travail</translation>
     </message>
     <message>
         <source>Clothing Insulation Calculation Method</source>
-        <translation>Méthode de Calcul de l'Isolement Vestimentaire</translation>
+        <translation>Méthode de Calcul de l&apos;Isolement Vestimentaire</translation>
     </message>
     <message>
         <source>Clothing Insulation Calculation Method Schedule Name</source>
-        <translation>Nom de l'agenda de méthode de calcul de l'isolation vestimentaire</translation>
+        <translation>Nom de l&apos;agenda de méthode de calcul de l&apos;isolation vestimentaire</translation>
     </message>
     <message>
         <source>Clothing Insulation Schedule Name</source>
-        <translation>Nom de l'emploi du temps d'isolation vestimentaire</translation>
+        <translation>Nom de l&apos;emploi du temps d&apos;isolation vestimentaire</translation>
     </message>
     <message>
         <source>Air Velocity Schedule Name</source>
-        <translation>Nom de l'agenda de vitesse de l'air</translation>
+        <translation>Nom de l&apos;agenda de vitesse de l&apos;air</translation>
     </message>
     <message>
         <source>Ankle Level Air Velocity Schedule Name</source>
-        <translation>Nom de la planification de la vitesse de l'air au niveau des chevilles</translation>
+        <translation>Nom de la planification de la vitesse de l&apos;air au niveau des chevilles</translation>
     </message>
     <message>
         <source>Cold Stress Temperature Threshold</source>
@@ -1481,7 +1481,7 @@
     </message>
     <message>
         <source>Number of People Calculation Method</source>
-        <translation>Méthode de calcul du nombre d'occupants</translation>
+        <translation>Méthode de calcul du nombre d&apos;occupants</translation>
     </message>
     <message>
         <source>Number of People</source>
@@ -1493,7 +1493,7 @@
     </message>
     <message>
         <source>Space Floor Area per Person</source>
-        <translation>Surface de plancher de l'espace par personne</translation>
+        <translation>Surface de plancher de l&apos;espace par personne</translation>
     </message>
     <message>
         <source>Fraction Radiant</source>
@@ -1521,11 +1521,11 @@
     </message>
     <message>
         <source>Default Day Schedule Name</source>
-        <translation>Nom de l'agenda jour par défaut</translation>
+        <translation>Nom de l&apos;agenda jour par défaut</translation>
     </message>
     <message>
         <source>Summer Design Day Schedule Name</source>
-        <translation>Nom de l'emploi du temps de jour de conception estival</translation>
+        <translation>Nom de l&apos;emploi du temps de jour de conception estival</translation>
     </message>
     <message>
         <source>Winter Design Day Schedule Name</source>
@@ -1533,15 +1533,15 @@
     </message>
     <message>
         <source>Holiday Schedule Name</source>
-        <translation>Nom de l'Horaire de Congés</translation>
+        <translation>Nom de l&apos;Horaire de Congés</translation>
     </message>
     <message>
         <source>Custom Day 1 Schedule Name</source>
-        <translation>Nom de l'agenda du jour personnalisé 1</translation>
+        <translation>Nom de l&apos;agenda du jour personnalisé 1</translation>
     </message>
     <message>
         <source>Custom Day 2 Schedule Name</source>
-        <translation>Nom de l'horaire du jour personnalisé 2</translation>
+        <translation>Nom de l&apos;horaire du jour personnalisé 2</translation>
     </message>
     <message>
         <source>100% Outdoor Air in Cooling</source>
@@ -1549,11 +1549,11 @@
     </message>
     <message>
         <source>100% Outdoor Air in Heating</source>
-        <translation>Utilisation de 100% d'air extérieur en chauffage</translation>
+        <translation>Utilisation de 100% d&apos;air extérieur en chauffage</translation>
     </message>
     <message>
         <source>Absolute Airflow Convergence Tolerance</source>
-        <translation>Tolérance de convergence du débit d'air absolu</translation>
+        <translation>Tolérance de convergence du débit d&apos;air absolu</translation>
     </message>
     <message>
         <source>Absorptance of Absorber Plate</source>
@@ -1565,7 +1565,7 @@
     </message>
     <message>
         <source>Accumulated Run Time Degradation Coefficient</source>
-        <translation>Coefficient de Dégradation du Temps d'Accumulation</translation>
+        <translation>Coefficient de Dégradation du Temps d&apos;Accumulation</translation>
     </message>
     <message>
         <source>Action</source>
@@ -1581,7 +1581,7 @@
     </message>
     <message>
         <source>Activity Factor Schedule Name</source>
-        <translation>Nom de la planification du facteur d'activité</translation>
+        <translation>Nom de la planification du facteur d&apos;activité</translation>
     </message>
     <message>
         <source>Actual Stack Temperature</source>
@@ -1613,7 +1613,7 @@
     </message>
     <message>
         <source>Actuator Variable</source>
-        <translation>Variable d'Actionneur</translation>
+        <translation>Variable d&apos;Actionneur</translation>
     </message>
     <message>
         <source>Add Current Working Directory to Search Path</source>
@@ -1621,11 +1621,11 @@
     </message>
     <message>
         <source>Add epin Environment Variable to Search Path</source>
-        <translation>Ajouter variable d'environnement epin au chemin de recherche</translation>
+        <translation>Ajouter variable d&apos;environnement epin au chemin de recherche</translation>
     </message>
     <message>
         <source>Add Input File Directory to Search Path</source>
-        <translation>Ajouter le répertoire du fichier d'entrée au chemin de recherche</translation>
+        <translation>Ajouter le répertoire du fichier d&apos;entrée au chemin de recherche</translation>
     </message>
     <message>
         <source>Adiabatic Surface Construction Name</source>
@@ -1633,23 +1633,23 @@
     </message>
     <message>
         <source>Adjust Schedule for Daylight Savings</source>
-        <translation>Ajuster l'Emploi du Temps pour l'Heure d'Été</translation>
+        <translation>Ajuster l&apos;Emploi du Temps pour l&apos;Heure d&apos;Été</translation>
     </message>
     <message>
         <source>Adjust Zone Mixing and Return For Air Mass Flow Balance</source>
-        <translation>Ajuster Mélange de Zone et Retour pour Équilibre Débit Masse d'Air</translation>
+        <translation>Ajuster Mélange de Zone et Retour pour Équilibre Débit Masse d&apos;Air</translation>
     </message>
     <message>
         <source>Adjustment Source Variable</source>
-        <translation>Variable source d'ajustement</translation>
+        <translation>Variable source d&apos;ajustement</translation>
     </message>
     <message>
         <source>Aggregation Type for Variable or Meter</source>
-        <translation>Type d'agrégation pour variable ou compteur</translation>
+        <translation>Type d&apos;agrégation pour variable ou compteur</translation>
     </message>
     <message>
         <source>Air Connection 1 Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de la connexion d'air 1</translation>
+        <translation>Nom du nœud d&apos;entrée de la connexion d&apos;air 1</translation>
     </message>
     <message>
         <source>Air Connection 1 Outlet Node Name</source>
@@ -1657,155 +1657,155 @@
     </message>
     <message>
         <source>Air Exchange Method</source>
-        <translation>Méthode d'échange d'air</translation>
+        <translation>Méthode d&apos;échange d&apos;air</translation>
     </message>
     <message>
         <source>Air Flow Calculation Method</source>
-        <translation>Méthode de Calcul du Débit d'Air</translation>
+        <translation>Méthode de Calcul du Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Air Flow Function of Loading and Air Temperature Curve Name</source>
-        <translation>Nom de la courbe de débit d'air en fonction de la charge et de la température de l'air</translation>
+        <translation>Nom de la courbe de débit d&apos;air en fonction de la charge et de la température de l&apos;air</translation>
     </message>
     <message>
         <source>Air Flow Units</source>
-        <translation>Unités de débit d'air</translation>
+        <translation>Unités de débit d&apos;air</translation>
     </message>
     <message>
         <source>Air Flow Value</source>
-        <translation>Débit d'Air</translation>
+        <translation>Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Air Inlet</source>
-        <translation>Entrée d'air</translation>
+        <translation>Entrée d&apos;air</translation>
     </message>
     <message>
         <source>Air Inlet Connection Type</source>
-        <translation>Type de Connexion de l'Entrée d'Air</translation>
+        <translation>Type de Connexion de l&apos;Entrée d&apos;Air</translation>
     </message>
     <message>
         <source>Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air</translation>
+        <translation>Nœud d&apos;entrée d&apos;air</translation>
     </message>
     <message>
         <source>Air Inlet Node Name</source>
-        <translation>Nom du nœud d'admission d'air</translation>
+        <translation>Nom du nœud d&apos;admission d&apos;air</translation>
     </message>
     <message>
         <source>Air Inlet Zone Name</source>
-        <translation>Nom de la Zone d'Entrée d'Air</translation>
+        <translation>Nom de la Zone d&apos;Entrée d&apos;Air</translation>
     </message>
     <message>
         <source>Air Intake Heat Recovery Mode</source>
-        <translation>Mode de Récupération de Chaleur sur l'Air d'Admission</translation>
+        <translation>Mode de Récupération de Chaleur sur l&apos;Air d&apos;Admission</translation>
     </message>
     <message>
         <source>Air Loop</source>
-        <translation>Boucle d'air</translation>
+        <translation>Boucle d&apos;air</translation>
     </message>
     <message>
         <source>Air Mass Flow Coefficient</source>
-        <translation>Coefficient de Débit Massique d'Air</translation>
+        <translation>Coefficient de Débit Massique d&apos;Air</translation>
     </message>
     <message>
         <source>Air Mass Flow Coefficient at Reference Conditions</source>
-        <translation>Coefficient de Débit Massique d'Air aux Conditions de Référence</translation>
+        <translation>Coefficient de Débit Massique d&apos;Air aux Conditions de Référence</translation>
     </message>
     <message>
         <source>Air Mass Flow Coefficient When No Outdoor Air Flow at Reference Conditions</source>
-        <translation>Coefficient de débit massique d'air sans flux d'air extérieur aux conditions de référence</translation>
+        <translation>Coefficient de débit massique d&apos;air sans flux d&apos;air extérieur aux conditions de référence</translation>
     </message>
     <message>
         <source>Air Mass Flow Coefficient When Opening is Closed</source>
-        <translation>Coefficient de débit massique d'air en ouverture fermée</translation>
+        <translation>Coefficient de débit massique d&apos;air en ouverture fermée</translation>
     </message>
     <message>
         <source>Air Mass Flow Exponent</source>
-        <translation>Exposant du débit massique d'air</translation>
+        <translation>Exposant du débit massique d&apos;air</translation>
     </message>
     <message>
         <source>Air Mass Flow Exponent When No Outdoor Air Flow</source>
-        <translation>Exposant du débit massique d'air sans débit d'air extérieur</translation>
+        <translation>Exposant du débit massique d&apos;air sans débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air Mass Flow Exponent When Opening is Closed</source>
-        <translation>Exposant du Débit Massique d'Air Lorsque l'Ouverture est Fermée</translation>
+        <translation>Exposant du Débit Massique d&apos;Air Lorsque l&apos;Ouverture est Fermée</translation>
     </message>
     <message>
         <source>Air Mass Flow Rate Actuator</source>
-        <translation>Actionneur de Débit Massique d'Air</translation>
+        <translation>Actionneur de Débit Massique d&apos;Air</translation>
     </message>
     <message>
         <source>Air Outlet</source>
-        <translation>Sortie d'air</translation>
+        <translation>Sortie d&apos;air</translation>
     </message>
     <message>
         <source>Air Outlet Humidity Ratio Actuator</source>
-        <translation>Actionneur de Rapport d'Humidité à la Sortie d'Air</translation>
+        <translation>Actionneur de Rapport d&apos;Humidité à la Sortie d&apos;Air</translation>
     </message>
     <message>
         <source>Air Outlet Node</source>
-        <translation>Nœud de sortie d'air</translation>
+        <translation>Nœud de sortie d&apos;air</translation>
     </message>
     <message>
         <source>Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'air</translation>
+        <translation>Nom du nœud de sortie d&apos;air</translation>
     </message>
     <message>
         <source>Air Outlet Temperature Actuator</source>
-        <translation>Actionneur de température de sortie d'air</translation>
+        <translation>Actionneur de température de sortie d&apos;air</translation>
     </message>
     <message>
         <source>Air Path Hydraulic Diameter</source>
-        <translation>Diamètre hydraulique du chemin d'air</translation>
+        <translation>Diamètre hydraulique du chemin d&apos;air</translation>
     </message>
     <message>
         <source>Air Path Length</source>
-        <translation>Longueur du trajet d'air</translation>
+        <translation>Longueur du trajet d&apos;air</translation>
     </message>
     <message>
         <source>Air Rate Air Temperature Coefficient</source>
-        <translation>Coefficient de Température du Débit d'Air</translation>
+        <translation>Coefficient de Température du Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Air Rate Function of Electric Power Curve Name</source>
-        <translation>Nom de la courbe du débit d'air en fonction de la puissance électrique</translation>
+        <translation>Nom de la courbe du débit d&apos;air en fonction de la puissance électrique</translation>
     </message>
     <message>
         <source>Air Rate Function of Fuel Rate Curve Name</source>
-        <translation>Nom de la courbe du débit d'air en fonction du débit de combustible</translation>
+        <translation>Nom de la courbe du débit d&apos;air en fonction du débit de combustible</translation>
     </message>
     <message>
         <source>Air Source Node Name</source>
-        <translation>Nom du nœud source d'air</translation>
+        <translation>Nom du nœud source d&apos;air</translation>
     </message>
     <message>
         <source>Air Supply Constituent Mode</source>
-        <translation>Mode de constituant d'alimentation d'air</translation>
+        <translation>Mode de constituant d&apos;alimentation d&apos;air</translation>
     </message>
     <message>
         <source>Air Supply Name</source>
-        <translation>Nom de l'alimentation d'air</translation>
+        <translation>Nom de l&apos;alimentation d&apos;air</translation>
     </message>
     <message>
         <source>Air Supply Rate Calculation Mode</source>
-        <translation>Mode de Calcul du Débit d'Air Soufflé</translation>
+        <translation>Mode de Calcul du Débit d&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Airflow Permeability</source>
-        <translation>Perméabilité au flux d'air</translation>
+        <translation>Perméabilité au flux d&apos;air</translation>
     </message>
     <message>
         <source>AirflowNetwork Control</source>
-        <translation>Contrôle du Réseau d'Écoulement d'Air</translation>
+        <translation>Contrôle du Réseau d&apos;Écoulement d&apos;Air</translation>
     </message>
     <message>
         <source>AirflowNetwork Control Type Schedule</source>
-        <translation>Calendrier du type de contrôle du réseau de flux d'air</translation>
+        <translation>Calendrier du type de contrôle du réseau de flux d&apos;air</translation>
     </message>
     <message>
         <source>AirLoop Name</source>
-        <translation>Nom de la boucle d'air</translation>
+        <translation>Nom de la boucle d&apos;air</translation>
     </message>
     <message>
         <source>Algorithm</source>
@@ -1813,11 +1813,11 @@
     </message>
     <message>
         <source>Allow Unsupported Zone Equipment</source>
-        <translation>Autoriser l'équipement de zone non supporté</translation>
+        <translation>Autoriser l&apos;équipement de zone non supporté</translation>
     </message>
     <message>
         <source>Alternative Operating Mode 1</source>
-        <translation>Mode d'exploitation alternatif 1</translation>
+        <translation>Mode d&apos;exploitation alternatif 1</translation>
     </message>
     <message>
         <source>Alternative Operating Mode 2</source>
@@ -1825,7 +1825,7 @@
     </message>
     <message>
         <source>Ambient Air Velocity Schedule</source>
-        <translation>Calendrier de Vitesse de l'Air Ambiant</translation>
+        <translation>Calendrier de Vitesse de l&apos;Air Ambiant</translation>
     </message>
     <message>
         <source>Ambient Bounces DMX</source>
@@ -1857,11 +1857,11 @@
     </message>
     <message>
         <source>Ambient Temperature Outdoor Air Node</source>
-        <translation>Nœud d'air extérieur de température ambiante</translation>
+        <translation>Nœud d&apos;air extérieur de température ambiante</translation>
     </message>
     <message>
         <source>Ambient Temperature Outdoor Air Node Name</source>
-        <translation>Nom du nœud d'air extérieur à température ambiante</translation>
+        <translation>Nom du nœud d&apos;air extérieur à température ambiante</translation>
     </message>
     <message>
         <source>Ambient Temperature Schedule</source>
@@ -1885,7 +1885,7 @@
     </message>
     <message>
         <source>Analysis Type</source>
-        <translation>Type d'analyse</translation>
+        <translation>Type d&apos;analyse</translation>
     </message>
     <message>
         <source>Ancillary Electric Power</source>
@@ -1893,11 +1893,11 @@
     </message>
     <message>
         <source>Ancillary Electricity Constant Term</source>
-        <translation>Terme Constant de l'Électricité Auxiliaire</translation>
+        <translation>Terme Constant de l&apos;Électricité Auxiliaire</translation>
     </message>
     <message>
         <source>Ancillary Electricity Linear Term</source>
-        <translation>Terme linéaire d'électricité auxiliaire</translation>
+        <translation>Terme linéaire d&apos;électricité auxiliaire</translation>
     </message>
     <message>
         <source>Ancillary Operation Schedule Name</source>
@@ -1917,7 +1917,7 @@
     </message>
     <message>
         <source>Ancillary Power Function of Fuel Input Curve Name</source>
-        <translation>Nom de la Courbe de Fonction Puissance Auxiliaire en fonction de l'Entrée de Combustible</translation>
+        <translation>Nom de la Courbe de Fonction Puissance Auxiliaire en fonction de l&apos;Entrée de Combustible</translation>
     </message>
     <message>
         <source>Ancillary Power Linear Term</source>
@@ -1937,7 +1937,7 @@
     </message>
     <message>
         <source>Annual Average Outdoor Air Temperature</source>
-        <translation>Température moyenne annuelle de l'air extérieur</translation>
+        <translation>Température moyenne annuelle de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Annual Local Average Wind Speed</source>
@@ -1949,11 +1949,11 @@
     </message>
     <message>
         <source>Applicability Schedule</source>
-        <translation>Calendrier d'applicabilité</translation>
+        <translation>Calendrier d&apos;applicabilité</translation>
     </message>
     <message>
         <source>Applicability Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps d'Applicabilité</translation>
+        <translation>Nom de l&apos;Emploi du Temps d&apos;Applicabilité</translation>
     </message>
     <message>
         <source>Apply Friday</source>
@@ -1997,19 +1997,19 @@
     </message>
     <message>
         <source>Approach Temperature Coefficient 2</source>
-        <translation>Coefficient de température d'approche 2</translation>
+        <translation>Coefficient de température d&apos;approche 2</translation>
     </message>
     <message>
         <source>Approach Temperature Coefficient 3</source>
-        <translation>Coefficient de température d'approche 3</translation>
+        <translation>Coefficient de température d&apos;approche 3</translation>
     </message>
     <message>
         <source>Approach Temperature Coefficient 4</source>
-        <translation>Coefficient de Température d'Approche 4</translation>
+        <translation>Coefficient de Température d&apos;Approche 4</translation>
     </message>
     <message>
         <source>Approach Temperature Constant Term</source>
-        <translation>Terme constant de température d'approche</translation>
+        <translation>Terme constant de température d&apos;approche</translation>
     </message>
     <message>
         <source>April Deep Ground Temperature</source>
@@ -2029,7 +2029,7 @@
     </message>
     <message>
         <source>April Value</source>
-        <translation>Valeur d'avril</translation>
+        <translation>Valeur d&apos;avril</translation>
     </message>
     <message>
         <source>Area</source>
@@ -2045,7 +2045,7 @@
     </message>
     <message>
         <source>Area of Stocking Doors Facing Zone</source>
-        <translation>Zone Surface d'ouverture des portes de stockage</translation>
+        <translation>Zone Surface d&apos;ouverture des portes de stockage</translation>
     </message>
     <message>
         <source>Array Type</source>
@@ -2061,7 +2061,7 @@
     </message>
     <message>
         <source>Aspect Ratio</source>
-        <translation>Rapport d'aspect</translation>
+        <translation>Rapport d&apos;aspect</translation>
     </message>
     <message>
         <source>August Deep Ground Temperature</source>
@@ -2081,7 +2081,7 @@
     </message>
     <message>
         <source>August Value</source>
-        <translation>Valeur d'août</translation>
+        <translation>Valeur d&apos;août</translation>
     </message>
     <message>
         <source>Auxiliary Cooling Design Flow Rate</source>
@@ -2089,11 +2089,11 @@
     </message>
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</source>
-        <translation>Nom de la courbe de rapport d'entrée énergétique électrique auxiliaire en fonction du taux de charge partielle</translation>
+        <translation>Nom de la courbe de rapport d&apos;entrée énergétique électrique auxiliaire en fonction du taux de charge partielle</translation>
     </message>
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée énergétique électrique auxiliaire en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée énergétique électrique auxiliaire en fonction de la température</translation>
     </message>
     <message>
         <source>Auxiliary Electric Power</source>
@@ -2105,7 +2105,7 @@
     </message>
     <message>
         <source>Auxiliary Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée auxiliaire</translation>
+        <translation>Nom du nœud d&apos;entrée auxiliaire</translation>
     </message>
     <message>
         <source>Auxiliary Off-Cycle Electric Power</source>
@@ -2149,11 +2149,11 @@
     </message>
     <message>
         <source>Azimuth Angle</source>
-        <translation>Angle d'azimut</translation>
+        <translation>Angle d&apos;azimut</translation>
     </message>
     <message>
         <source>Azimuth Angle of Long Axis of Building</source>
-        <translation>Angle d'azimut du grand axe du bâtiment</translation>
+        <translation>Angle d&apos;azimut du grand axe du bâtiment</translation>
     </message>
     <message>
         <source>Back Reflectance</source>
@@ -2197,7 +2197,7 @@
     </message>
     <message>
         <source>Balanced Exhaust Fraction Schedule Name</source>
-        <translation>Nom du calendrier de fraction d'air d'échappement équilibré</translation>
+        <translation>Nom du calendrier de fraction d&apos;air d&apos;échappement équilibré</translation>
     </message>
     <message>
         <source>Barometric Pressure</source>
@@ -2245,11 +2245,11 @@
     </message>
     <message>
         <source>Beam Cooling Capacity Air Flow Modification Factor Curve Name</source>
-        <translation>Nom de la courbe du facteur de modification du débit d'air de la capacité de refroidissement du convecteur</translation>
+        <translation>Nom de la courbe du facteur de modification du débit d&apos;air de la capacité de refroidissement du convecteur</translation>
     </message>
     <message>
         <source>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</source>
-        <translation>Nom de la courbe de facteur de modification de la capacité de refroidissement du faisceau en fonction du débit d'eau glacée</translation>
+        <translation>Nom de la courbe de facteur de modification de la capacité de refroidissement du faisceau en fonction du débit d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</source>
@@ -2257,15 +2257,15 @@
     </message>
     <message>
         <source>Beam Heating Capacity Air Flow Modification Factor Curve Name</source>
-        <translation>Nom de la courbe du facteur de modification de la capacité de chauffage du poutre en fonction du débit d'air primaire</translation>
+        <translation>Nom de la courbe du facteur de modification de la capacité de chauffage du poutre en fonction du débit d&apos;air primaire</translation>
     </message>
     <message>
         <source>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</source>
-        <translation>Nom de la courbe de facteur de modification de capacité de chauffage du faisceau en fonction du débit d'eau chaude</translation>
+        <translation>Nom de la courbe de facteur de modification de capacité de chauffage du faisceau en fonction du débit d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</source>
-        <translation>Nom de la courbe de facteur de modification de la capacité calorifique du convecteur en fonction de l'écart de température</translation>
+        <translation>Nom de la courbe de facteur de modification de la capacité calorifique du convecteur en fonction de l&apos;écart de température</translation>
     </message>
     <message>
         <source>Beam Length</source>
@@ -2273,7 +2273,7 @@
     </message>
     <message>
         <source>Beam Rated Chilled Water Volume Flow Rate per Beam Length</source>
-        <translation>Débit volumique d'eau glacée par unité de longueur de poutre nominale</translation>
+        <translation>Débit volumique d&apos;eau glacée par unité de longueur de poutre nominale</translation>
     </message>
     <message>
         <source>Beam Rated Cooling Capacity per Beam Length</source>
@@ -2281,7 +2281,7 @@
     </message>
     <message>
         <source>Beam Rated Cooling Room Air Chilled Water Temperature Difference</source>
-        <translation>Différence de Température de l'Eau Refroidie de la Salle pour le Refroidissement Nominal du Rayonnement</translation>
+        <translation>Différence de Température de l&apos;Eau Refroidie de la Salle pour le Refroidissement Nominal du Rayonnement</translation>
     </message>
     <message>
         <source>Beam Rated Heating Capacity per Beam Length</source>
@@ -2289,11 +2289,11 @@
     </message>
     <message>
         <source>Beam Rated Heating Room Air Hot Water Temperature Difference</source>
-        <translation>Différence de Température d'Eau Chaude Nominale du Rayonnement pour Chauffage de l'Air Ambiant</translation>
+        <translation>Différence de Température d&apos;Eau Chaude Nominale du Rayonnement pour Chauffage de l&apos;Air Ambiant</translation>
     </message>
     <message>
         <source>Beam Rated Hot Water Volume Flow Rate per Beam Length</source>
-        <translation>Débit volumique d'eau chaude nominal par unité de longueur du rayonnement</translation>
+        <translation>Débit volumique d&apos;eau chaude nominal par unité de longueur du rayonnement</translation>
     </message>
     <message>
         <source>Beam Solar Day Schedule Name</source>
@@ -2305,7 +2305,7 @@
     </message>
     <message>
         <source>Begin Environment Reset Mode</source>
-        <translation>Mode de réinitialisation au début de l'environnement</translation>
+        <translation>Mode de réinitialisation au début de l&apos;environnement</translation>
     </message>
     <message>
         <source>Begin Month</source>
@@ -2361,15 +2361,15 @@
     </message>
     <message>
         <source>Blind Bottom Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture inférieure du store</translation>
+        <translation>Multiplicateur d&apos;ouverture inférieure du store</translation>
     </message>
     <message>
         <source>Blind Left Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté gauche du store</translation>
+        <translation>Multiplicateur d&apos;ouverture côté gauche du store</translation>
     </message>
     <message>
         <source>Blind Right Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté droit du store</translation>
+        <translation>Multiplicateur d&apos;ouverture côté droit du store</translation>
     </message>
     <message>
         <source>Blind to Glass Distance</source>
@@ -2377,7 +2377,7 @@
     </message>
     <message>
         <source>Blind Top Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture supérieure du store</translation>
+        <translation>Multiplicateur d&apos;ouverture supérieure du store</translation>
     </message>
     <message>
         <source>Block Cost per Unit Value or Variable Name</source>
@@ -2397,11 +2397,11 @@
     </message>
     <message>
         <source>Blowdown Makeup Water Usage Schedule</source>
-        <translation>Calendrier de consommation d'eau d'appoint de purge</translation>
+        <translation>Calendrier de consommation d&apos;eau d&apos;appoint de purge</translation>
     </message>
     <message>
         <source>Blowdown Makeup Water Usage Schedule Name</source>
-        <translation>Nom de l'horaire de consommation d'eau d'appoint de purge</translation>
+        <translation>Nom de l&apos;horaire de consommation d&apos;eau d&apos;appoint de purge</translation>
     </message>
     <message>
         <source>Blower Heat Loss Factor</source>
@@ -2413,11 +2413,11 @@
     </message>
     <message>
         <source>Boiler Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau de la chaudière</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau de la chaudière</translation>
     </message>
     <message>
         <source>Boiler Water Outlet Node Name</source>
-        <translation>Nom du Nœud de Sortie d'Eau de la Chaudière</translation>
+        <translation>Nom du Nœud de Sortie d&apos;Eau de la Chaudière</translation>
     </message>
     <message>
         <source>Booster Mode On Speed</source>
@@ -2441,7 +2441,7 @@
     </message>
     <message>
         <source>Bottom Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture inférieure</translation>
+        <translation>Multiplicateur d&apos;ouverture inférieure</translation>
     </message>
     <message>
         <source>Bottom Surface Boundary Conditions Type</source>
@@ -2465,11 +2465,11 @@
     </message>
     <message>
         <source>Building Shading Construction Name</source>
-        <translation>Nom de la Construction d'Ombrage du Bâtiment</translation>
+        <translation>Nom de la Construction d&apos;Ombrage du Bâtiment</translation>
     </message>
     <message>
         <source>Building Story Name</source>
-        <translation>Nom de l'étage de bâtiment</translation>
+        <translation>Nom de l&apos;étage de bâtiment</translation>
     </message>
     <message>
         <source>Building Type</source>
@@ -2477,15 +2477,15 @@
     </message>
     <message>
         <source>Building Unit Name</source>
-        <translation>Nom de l'Unité de Bâtiment</translation>
+        <translation>Nom de l&apos;Unité de Bâtiment</translation>
     </message>
     <message>
         <source>Building Unit Type</source>
-        <translation>Type d'unité de bâtiment</translation>
+        <translation>Type d&apos;unité de bâtiment</translation>
     </message>
     <message>
         <source>Burial Depth</source>
-        <translation>Profondeur d'enfouissement</translation>
+        <translation>Profondeur d&apos;enfouissement</translation>
     </message>
     <message>
         <source>Buy Or Sell</source>
@@ -2537,7 +2537,7 @@
     </message>
     <message>
         <source>Capacity Correction Function of Chilled Water Temperature Curve</source>
-        <translation>Courbe de fonction de correction de capacité en fonction de la température de l'eau glacée</translation>
+        <translation>Courbe de fonction de correction de capacité en fonction de la température de l&apos;eau glacée</translation>
     </message>
     <message>
         <source>Capacity Correction Function of Condenser Temperature Curve</source>
@@ -2589,7 +2589,7 @@
     </message>
     <message>
         <source>Case Credit Fraction Schedule Name</source>
-        <translation>Nom de l'agenda de fraction de crédit frigorifique</translation>
+        <translation>Nom de l&apos;agenda de fraction de crédit frigorifique</translation>
     </message>
     <message>
         <source>Case Defrost Cycle Parameters Name</source>
@@ -2597,7 +2597,7 @@
     </message>
     <message>
         <source>Case Defrost Drip-Down Schedule Name</source>
-        <translation>Nom du calendrier d'égouttage après dégivrage de la vitrine</translation>
+        <translation>Nom du calendrier d&apos;égouttage après dégivrage de la vitrine</translation>
     </message>
     <message>
         <source>Case Defrost Power per Door</source>
@@ -2609,7 +2609,7 @@
     </message>
     <message>
         <source>Case Defrost Schedule Name</source>
-        <translation>Nom de l'horaire de dégivrage du meuble</translation>
+        <translation>Nom de l&apos;horaire de dégivrage du meuble</translation>
     </message>
     <message>
         <source>Case Defrost Type</source>
@@ -2625,7 +2625,7 @@
     </message>
     <message>
         <source>Case Lighting Schedule Name</source>
-        <translation>Nom de l'emploi du temps d'éclairage du meuble frigorifique</translation>
+        <translation>Nom de l&apos;emploi du temps d&apos;éclairage du meuble frigorifique</translation>
     </message>
     <message>
         <source>Case Operating Temperature</source>
@@ -2645,7 +2645,7 @@
     </message>
     <message>
         <source>Cell Minimum  Water Flow Rate Fraction</source>
-        <translation>Fraction Minimale du Débit d'Eau de Conception</translation>
+        <translation>Fraction Minimale du Débit d&apos;Eau de Conception</translation>
     </message>
     <message>
         <source>Cell type</source>
@@ -2665,11 +2665,11 @@
     </message>
     <message>
         <source>CH4 Emission Factor</source>
-        <translation>Facteur d'émission CH4</translation>
+        <translation>Facteur d&apos;émission CH4</translation>
     </message>
     <message>
         <source>CH4 Emission Factor Schedule Name</source>
-        <translation>Nom de l'horaire du facteur d'émission CH4</translation>
+        <translation>Nom de l&apos;horaire du facteur d&apos;émission CH4</translation>
     </message>
     <message>
         <source>Changeover Delay Time Period Schedule</source>
@@ -2697,7 +2697,7 @@
     </message>
     <message>
         <source>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe du Ratio d'Entrée Énergétique en Mode Recharge Uniquement en Fonction de la Température</translation>
+        <translation>Courbe du Ratio d&apos;Entrée Énergétique en Mode Recharge Uniquement en Fonction de la Température</translation>
     </message>
     <message>
         <source>Charge Rate at Which Voltage vs Capacity Curve Was Generated</source>
@@ -2717,23 +2717,23 @@
     </message>
     <message>
         <source>Chilled Water Flow Mode Type</source>
-        <translation>Mode de Débit d'Eau Glacée</translation>
+        <translation>Mode de Débit d&apos;Eau Glacée</translation>
     </message>
     <message>
         <source>Chilled Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau glacée</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Chilled Water Maximum Requested Flow Rate</source>
-        <translation>Débit maximal d'eau glacée demandé</translation>
+        <translation>Débit maximal d&apos;eau glacée demandé</translation>
     </message>
     <message>
         <source>Chilled Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'eau refroidie</translation>
+        <translation>Nom du nœud de sortie d&apos;eau refroidie</translation>
     </message>
     <message>
         <source>Chilled Water Outlet Temperature Lower Limit</source>
-        <translation>Limite Inférieure de Température à la Sortie de l'Eau Glacée</translation>
+        <translation>Limite Inférieure de Température à la Sortie de l&apos;Eau Glacée</translation>
     </message>
     <message>
         <source>Chiller Heater Module List Name</source>
@@ -2741,7 +2741,7 @@
     </message>
     <message>
         <source>Chiller Heater Modules Control Schedule Name</source>
-        <translation>Nom de l'agenda de contrôle des modules refroidisseur-réchauffeur</translation>
+        <translation>Nom de l&apos;agenda de contrôle des modules refroidisseur-réchauffeur</translation>
     </message>
     <message>
         <source>Chiller Heater Modules Performance Component Name</source>
@@ -2781,7 +2781,7 @@
     </message>
     <message>
         <source>Climate Zone Institution Name</source>
-        <translation>Nom de l'Institution de la Zone Climatique</translation>
+        <translation>Nom de l&apos;Institution de la Zone Climatique</translation>
     </message>
     <message>
         <source>Climate Zone Value</source>
@@ -2789,23 +2789,23 @@
     </message>
     <message>
         <source>Closing Probability Schedule Name</source>
-        <translation>Nom de l'horaire de probabilité de fermeture</translation>
+        <translation>Nom de l&apos;horaire de probabilité de fermeture</translation>
     </message>
     <message>
         <source>CO Emission Factor</source>
-        <translation>Facteur d'émission de CO</translation>
+        <translation>Facteur d&apos;émission de CO</translation>
     </message>
     <message>
         <source>CO Emission Factor Schedule Name</source>
-        <translation>Nom du Calendrier de Facteur d'Émission de CO</translation>
+        <translation>Nom du Calendrier de Facteur d&apos;Émission de CO</translation>
     </message>
     <message>
         <source>CO2 Emission Factor</source>
-        <translation>Facteur d'émission CO2</translation>
+        <translation>Facteur d&apos;émission CO2</translation>
     </message>
     <message>
         <source>CO2 Emission Factor Schedule Name</source>
-        <translation>Nom de l'horaire du facteur d'émission CO2</translation>
+        <translation>Nom de l&apos;horaire du facteur d&apos;émission CO2</translation>
     </message>
     <message>
         <source>Coal Inflation</source>
@@ -2817,7 +2817,7 @@
     </message>
     <message>
         <source>Coating Layer Water Vapor Diffusion Resistance Factor</source>
-        <translation>Facteur de résistance à la diffusion de la vapeur d'eau de la couche de revêtement</translation>
+        <translation>Facteur de résistance à la diffusion de la vapeur d&apos;eau de la couche de revêtement</translation>
     </message>
     <message>
         <source>Coefficient 1</source>
@@ -2825,15 +2825,15 @@
     </message>
     <message>
         <source>Coefficient 1 of Efficiency Equation</source>
-        <translation>Coefficient 1 de l'équation de rendement</translation>
+        <translation>Coefficient 1 de l&apos;équation de rendement</translation>
     </message>
     <message>
         <source>Coefficient 1 of Fuel Use Function of Part Load Ratio Curve</source>
-        <translation>Coefficient 1 de la Courbe d'Utilisation du Combustible en Fonction du PLR</translation>
+        <translation>Coefficient 1 de la Courbe d&apos;Utilisation du Combustible en Fonction du PLR</translation>
     </message>
     <message>
         <source>Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve</source>
-        <translation>Coefficient 1 de la courbe du rapport de charge partielle d'utilisation d'eau chaude ou de vapeur</translation>
+        <translation>Coefficient 1 de la courbe du rapport de charge partielle d&apos;utilisation d&apos;eau chaude ou de vapeur</translation>
     </message>
     <message>
         <source>Coefficient 1 of the Pump Electric Use Part Load Ratio Curve</source>
@@ -2885,7 +2885,7 @@
     </message>
     <message>
         <source>Coefficient 2 of Efficiency Equation</source>
-        <translation>Coefficient 2 de l'équation d'efficacité</translation>
+        <translation>Coefficient 2 de l&apos;équation d&apos;efficacité</translation>
     </message>
     <message>
         <source>Coefficient 2 of Fuel Use Function of Part Load Ratio Curve</source>
@@ -2893,11 +2893,11 @@
     </message>
     <message>
         <source>Coefficient 2 of Incident Angle Modifier</source>
-        <translation>Coefficient 2 du Modificateur d'Angle d'Incidence</translation>
+        <translation>Coefficient 2 du Modificateur d&apos;Angle d&apos;Incidence</translation>
     </message>
     <message>
         <source>Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve</source>
-        <translation>Coefficient 2 de la courbe du ratio de charge partielle d'utilisation d'eau chaude ou de vapeur</translation>
+        <translation>Coefficient 2 de la courbe du ratio de charge partielle d&apos;utilisation d&apos;eau chaude ou de vapeur</translation>
     </message>
     <message>
         <source>Coefficient 2 of the Pump Electric Use Part Load Ratio Curve</source>
@@ -2949,7 +2949,7 @@
     </message>
     <message>
         <source>Coefficient 3 of Efficiency Equation</source>
-        <translation>Coefficient 3 de l'équation de rendement</translation>
+        <translation>Coefficient 3 de l&apos;équation de rendement</translation>
     </message>
     <message>
         <source>Coefficient 3 of Fuel Use Function of Part Load Ratio Curve</source>
@@ -2957,11 +2957,11 @@
     </message>
     <message>
         <source>Coefficient 3 of Incident Angle Modifier</source>
-        <translation>Coefficient 3 du modificateur d'angle d'incidence</translation>
+        <translation>Coefficient 3 du modificateur d&apos;angle d&apos;incidence</translation>
     </message>
     <message>
         <source>Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve</source>
-        <translation>Coefficient 3 de la courbe du ratio de charge partielle pour l'utilisation d'eau chaude ou vapeur</translation>
+        <translation>Coefficient 3 de la courbe du ratio de charge partielle pour l&apos;utilisation d&apos;eau chaude ou vapeur</translation>
     </message>
     <message>
         <source>Coefficient 3 of the Pump Electric Use Part Load Ratio Curve</source>
@@ -3017,11 +3017,11 @@
     </message>
     <message>
         <source>Coefficient for Local Dynamic Loss Due to Fitting</source>
-        <translation>Coefficient de perte dynamique locale due à l'accessoire</translation>
+        <translation>Coefficient de perte dynamique locale due à l&apos;accessoire</translation>
     </message>
     <message>
         <source>Coefficient of Induction Kin</source>
-        <translation>Coefficient d'Induction Kin</translation>
+        <translation>Coefficient d&apos;Induction Kin</translation>
     </message>
     <message>
         <source>Coefficient r0</source>
@@ -3249,11 +3249,11 @@
     </message>
     <message>
         <source>Coil Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air de la bobine</translation>
+        <translation>Nœud d&apos;entrée d&apos;air de la bobine</translation>
     </message>
     <message>
         <source>Coil Air Outlet Node</source>
-        <translation>Nœud de sortie d'air de la serpentine</translation>
+        <translation>Nœud de sortie d&apos;air de la serpentine</translation>
     </message>
     <message>
         <source>Coil Material Correction Factor</source>
@@ -3269,7 +3269,7 @@
     </message>
     <message>
         <source>Cold Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air froid</translation>
+        <translation>Nœud d&apos;entrée d&apos;air froid</translation>
     </message>
     <message>
         <source>Cold Node</source>
@@ -3281,7 +3281,7 @@
     </message>
     <message>
         <source>Cold Weather Operation Minimum Outdoor Air Temperature</source>
-        <translation>Température Minimale d'Air Extérieur pour Fonctionnement par Temps Froid</translation>
+        <translation>Température Minimale d&apos;Air Extérieur pour Fonctionnement par Temps Froid</translation>
     </message>
     <message>
         <source>Collector Side Height</source>
@@ -3289,7 +3289,7 @@
     </message>
     <message>
         <source>Collector Water Volume</source>
-        <translation>Volume d'eau du collecteur</translation>
+        <translation>Volume d&apos;eau du collecteur</translation>
     </message>
     <message>
         <source>Column Number</source>
@@ -3305,11 +3305,11 @@
     </message>
     <message>
         <source>Combustion Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air de combustion</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air de combustion</translation>
     </message>
     <message>
         <source>Combustion Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'air de combustion</translation>
+        <translation>Nom du nœud de sortie d&apos;air de combustion</translation>
     </message>
     <message>
         <source>Combustion Efficiency</source>
@@ -3349,11 +3349,11 @@
     </message>
     <message>
         <source>Component Override Loop Demand Side Inlet Node</source>
-        <translation>Nœud d'entrée côté demande de la boucle de remplacement du composant</translation>
+        <translation>Nœud d&apos;entrée côté demande de la boucle de remplacement du composant</translation>
     </message>
     <message>
         <source>Component Override Loop Supply Side Inlet Node</source>
-        <translation>Nœud d'entrée côté alimentation de la boucle de remplacement de composant</translation>
+        <translation>Nœud d&apos;entrée côté alimentation de la boucle de remplacement de composant</translation>
     </message>
     <message>
         <source>Component Setpoint Operation Scheme Schedule</source>
@@ -3377,7 +3377,7 @@
     </message>
     <message>
         <source>Composite Framing Size</source>
-        <translation>Dimension de l'ossature composite</translation>
+        <translation>Dimension de l&apos;ossature composite</translation>
     </message>
     <message>
         <source>Compressor Ambient Temperature Schedule</source>
@@ -3385,7 +3385,7 @@
     </message>
     <message>
         <source>Compressor Ambient Temperature Schedule Name</source>
-        <translation>Nom de l'horaire de température ambiante du compresseur</translation>
+        <translation>Nom de l&apos;horaire de température ambiante du compresseur</translation>
     </message>
     <message>
         <source>Compressor Evaporative Capacity Correction Factor</source>
@@ -3401,7 +3401,7 @@
     </message>
     <message>
         <source>Compressor Inverter Efficiency</source>
-        <translation>Rendement de l'inverseur du compresseur</translation>
+        <translation>Rendement de l&apos;inverseur du compresseur</translation>
     </message>
     <message>
         <source>Compressor Location</source>
@@ -3449,11 +3449,11 @@
     </message>
     <message>
         <source>Condensate Collection Water Storage Tank</source>
-        <translation>Réservoir de stockage de l'eau de condensation</translation>
+        <translation>Réservoir de stockage de l&apos;eau de condensation</translation>
     </message>
     <message>
         <source>Condensate Collection Water Storage Tank Name</source>
-        <translation>Nom du réservoir de stockage d'eau pour collecte de condensat</translation>
+        <translation>Nom du réservoir de stockage d&apos;eau pour collecte de condensat</translation>
     </message>
     <message>
         <source>Condensate Piping Refrigerant Inventory</source>
@@ -3473,23 +3473,23 @@
     </message>
     <message>
         <source>Condenser Air Flow Rate Fraction</source>
-        <translation>Fraction du Débit d'Air du Condenseur</translation>
+        <translation>Fraction du Débit d&apos;Air du Condenseur</translation>
     </message>
     <message>
         <source>Condenser Air Flow Sizing Factor</source>
-        <translation>Facteur de dimensionnement du débit d'air du condenseur</translation>
+        <translation>Facteur de dimensionnement du débit d&apos;air du condenseur</translation>
     </message>
     <message>
         <source>Condenser Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air du condenseur</translation>
+        <translation>Nœud d&apos;entrée d&apos;air du condenseur</translation>
     </message>
     <message>
         <source>Condenser Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air du condenseur</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air du condenseur</translation>
     </message>
     <message>
         <source>Condenser Air Outlet Node</source>
-        <translation>Nœud de sortie d'air du condenseur</translation>
+        <translation>Nœud de sortie d&apos;air du condenseur</translation>
     </message>
     <message>
         <source>Condenser Bottom Location</source>
@@ -3497,7 +3497,7 @@
     </message>
     <message>
         <source>Condenser Design Air Flow Rate</source>
-        <translation>Débit d'air de conception du condenseur</translation>
+        <translation>Débit d&apos;air de conception du condenseur</translation>
     </message>
     <message>
         <source>Condenser Fan Power Function of Temperature Curve Name</source>
@@ -3517,15 +3517,15 @@
     </message>
     <message>
         <source>Condenser Inlet Node</source>
-        <translation>Nœud d'entrée du condenseur</translation>
+        <translation>Nœud d&apos;entrée du condenseur</translation>
     </message>
     <message>
         <source>Condenser Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Condenseur</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Condenseur</translation>
     </message>
     <message>
         <source>Condenser Inlet Temperature Lower Limit</source>
-        <translation>Limite inférieure de température d'eau à l'entrée du condenseur</translation>
+        <translation>Limite inférieure de température d&apos;eau à l&apos;entrée du condenseur</translation>
     </message>
     <message>
         <source>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name</source>
@@ -3565,15 +3565,15 @@
     </message>
     <message>
         <source>Condenser Water Flow Rate</source>
-        <translation>Débit d'eau au condenseur</translation>
+        <translation>Débit d&apos;eau au condenseur</translation>
     </message>
     <message>
         <source>Condenser Water Inlet Node</source>
-        <translation>Nœud d'entrée d'eau de condenseur</translation>
+        <translation>Nœud d&apos;entrée d&apos;eau de condenseur</translation>
     </message>
     <message>
         <source>Condenser Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau du condenseur</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau du condenseur</translation>
     </message>
     <message>
         <source>Condenser Water Outlet Node</source>
@@ -3581,11 +3581,11 @@
     </message>
     <message>
         <source>Condenser Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'eau du condenseur</translation>
+        <translation>Nom du nœud de sortie d&apos;eau du condenseur</translation>
     </message>
     <message>
         <source>Condenser Water Pump Power</source>
-        <translation>Puissance de la pompe d'eau du condenseur</translation>
+        <translation>Puissance de la pompe d&apos;eau du condenseur</translation>
     </message>
     <message>
         <source>Condenser Zone</source>
@@ -3625,7 +3625,7 @@
     </message>
     <message>
         <source>Consider Transformer Loss for Utility Cost</source>
-        <translation>Considérer la perte du transformateur pour le coût de l'électricité</translation>
+        <translation>Considérer la perte du transformateur pour le coût de l&apos;électricité</translation>
     </message>
     <message>
         <source>Constant Skin Loss Rate</source>
@@ -3653,7 +3653,7 @@
     </message>
     <message>
         <source>Constant Temperature Schedule Name</source>
-        <translation>Nom de l'Horaire à Température Constante</translation>
+        <translation>Nom de l&apos;Horaire à Température Constante</translation>
     </message>
     <message>
         <source>Constituent Molar Fraction</source>
@@ -3673,7 +3673,7 @@
     </message>
     <message>
         <source>Construction Object Name</source>
-        <translation>Nom de l'objet Construction</translation>
+        <translation>Nom de l&apos;objet Construction</translation>
     </message>
     <message>
         <source>Construction Standard</source>
@@ -3693,7 +3693,7 @@
     </message>
     <message>
         <source>Consumption Unit Conversion Factor</source>
-        <translation>Facteur de conversion de l'unité de consommation</translation>
+        <translation>Facteur de conversion de l&apos;unité de consommation</translation>
     </message>
     <message>
         <source>Contingency</source>
@@ -3701,7 +3701,7 @@
     </message>
     <message>
         <source>Contractor Fee</source>
-        <translation>Frais d'entrepreneur</translation>
+        <translation>Frais d&apos;entrepreneur</translation>
     </message>
     <message>
         <source>Control Algorithm</source>
@@ -3709,11 +3709,11 @@
     </message>
     <message>
         <source>Control For Outdoor Air</source>
-        <translation>Contrôle de l'Air Extérieur</translation>
+        <translation>Contrôle de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Control High Indoor Humidity Based on Outdoor Humidity Ratio</source>
-        <translation>Contrôle de l'humidité intérieure élevée basé sur le rapport d'humidité extérieur</translation>
+        <translation>Contrôle de l&apos;humidité intérieure élevée basé sur le rapport d&apos;humidité extérieur</translation>
     </message>
     <message>
         <source>Control Method</source>
@@ -3721,11 +3721,11 @@
     </message>
     <message>
         <source>Control Object Name</source>
-        <translation>Nom de l'Objet de Contrôle</translation>
+        <translation>Nom de l&apos;Objet de Contrôle</translation>
     </message>
     <message>
         <source>Control Object Type</source>
-        <translation>Type d'objet de contrôle</translation>
+        <translation>Type d&apos;objet de contrôle</translation>
     </message>
     <message>
         <source>Control Option</source>
@@ -3797,7 +3797,7 @@
     </message>
     <message>
         <source>Convection Coefficient 1 Schedule Name</source>
-        <translation>Nom de l'horaire du coefficient de convection 1</translation>
+        <translation>Nom de l&apos;horaire du coefficient de convection 1</translation>
     </message>
     <message>
         <source>Convection Coefficient 1 Type</source>
@@ -3817,7 +3817,7 @@
     </message>
     <message>
         <source>Convection Coefficient 2 Schedule Name</source>
-        <translation>Nom de l'Horaire du Coefficient de Convection 2</translation>
+        <translation>Nom de l&apos;Horaire du Coefficient de Convection 2</translation>
     </message>
     <message>
         <source>Convection Coefficient 2 Type</source>
@@ -3829,11 +3829,11 @@
     </message>
     <message>
         <source>Convergence Acceleration Limit</source>
-        <translation>Limite d'accélération de la convergence</translation>
+        <translation>Limite d&apos;accélération de la convergence</translation>
     </message>
     <message>
         <source>Conversion Efficiency Input Mode</source>
-        <translation>Mode d'entrée du rendement de conversion</translation>
+        <translation>Mode d&apos;entrée du rendement de conversion</translation>
     </message>
     <message>
         <source>Conversion Factor Choice</source>
@@ -3869,7 +3869,7 @@
     </message>
     <message>
         <source>Cooler Unit Control Method</source>
-        <translation>Méthode de commande de l'unité de refroidisseur</translation>
+        <translation>Méthode de commande de l&apos;unité de refroidisseur</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Available</source>
@@ -3889,15 +3889,15 @@
     </message>
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Ratio d'Entrée Énergétique de l'Évaporateur en Mode de Refroidissement et de Charge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Ratio d&apos;Entrée Énergétique de l&apos;Évaporateur en Mode de Refroidissement et de Charge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de la fonction du rapport d'entrée énergétique de l'évaporateur en mode refroidissement et charge en fonction de la température</translation>
+        <translation>Courbe de la fonction du rapport d&apos;entrée énergétique de l&apos;évaporateur en mode refroidissement et charge en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve</source>
-        <translation>Courbe de Corrélation de la Fraction de Charge Partielle de l'Évaporateur en Mode de Refroidissement et de Charge</translation>
+        <translation>Courbe de Corrélation de la Fraction de Charge Partielle de l&apos;Évaporateur en Mode de Refroidissement et de Charge</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Rated Sensible Heat Ratio</source>
@@ -3909,7 +3909,7 @@
     </message>
     <message>
         <source>Cooling And Charge Mode Rated Total Evaporator Cooling Capacity</source>
-        <translation>Capacité de refroidissement totale de l'évaporateur en mode de refroidissement et de charge nominale</translation>
+        <translation>Capacité de refroidissement totale de l&apos;évaporateur en mode de refroidissement et de charge nominale</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
@@ -3929,27 +3929,27 @@
     </message>
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve</source>
-        <translation>Courbe de Capacité de Charge de Stockage en Mode Refroidissement et Charge en Fonction du PLR Total de l'Évaporateur</translation>
+        <translation>Courbe de Capacité de Charge de Stockage en Mode Refroidissement et Charge en Fonction du PLR Total de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Ratio d'Entrée Énergétique en Mode de Refroidissement et de Charge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Ratio d&apos;Entrée Énergétique en Mode de Refroidissement et de Charge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de la fonction du rapport d'entrée énergétique en mode refroidissement et charge en fonction de la température</translation>
+        <translation>Courbe de la fonction du rapport d&apos;entrée énergétique en mode refroidissement et charge en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve</source>
-        <translation>Courbe de Corrélation de la Fraction de Charge Partielle pour l'Énergie de Stockage en Mode Refroidissement et Charge</translation>
+        <translation>Courbe de Corrélation de la Fraction de Charge Partielle pour l&apos;Énergie de Stockage en Mode Refroidissement et Charge</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
-        <translation>Courbe de Capacité de Refroidissement Totale de l'Évaporateur en Mode Refroidissement et Charge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe de Capacité de Refroidissement Totale de l&apos;Évaporateur en Mode Refroidissement et Charge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
-        <translation>Courbe de la Capacité de Refroidissement Totale de l'Évaporateur en Mode Refroidissement et Charge en Fonction de la Température</translation>
+        <translation>Courbe de la Capacité de Refroidissement Totale de l&apos;Évaporateur en Mode Refroidissement et Charge en Fonction de la Température</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Available</source>
@@ -3965,19 +3965,19 @@
     </message>
     <message>
         <source>Cooling And Discharge Mode Evaporator Capacity Sizing Factor</source>
-        <translation>Facteur de dimensionnement de la capacité de l'évaporateur en mode refroidissement et décharge</translation>
+        <translation>Facteur de dimensionnement de la capacité de l&apos;évaporateur en mode refroidissement et décharge</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Rapport d'Entrée d'Énergie de l'Évaporateur en Mode Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Rapport d&apos;Entrée d&apos;Énergie de l&apos;Évaporateur en Mode Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de la fonction du rapport d'entrée énergétique de l'évaporateur en mode refroidissement et décharge en fonction de la température</translation>
+        <translation>Courbe de la fonction du rapport d&apos;entrée énergétique de l&apos;évaporateur en mode refroidissement et décharge en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve</source>
-        <translation>Courbe de corrélation de la fraction de charge partielle de l'évaporateur en mode refroidissement et décharge</translation>
+        <translation>Courbe de corrélation de la fraction de charge partielle de l&apos;évaporateur en mode refroidissement et décharge</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Rated Sensible Heat Ratio</source>
@@ -4009,7 +4009,7 @@
     </message>
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve</source>
-        <translation>Courbe de Capacité de Décharge de Stockage en Mode Refroidissement et Décharge en Fonction du PLR Total de l'Évaporateur</translation>
+        <translation>Courbe de Capacité de Décharge de Stockage en Mode Refroidissement et Décharge en Fonction du PLR Total de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor</source>
@@ -4017,23 +4017,23 @@
     </message>
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Rapport d'Entrée Énergétique du Stockage en Mode Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Rapport d&apos;Entrée Énergétique du Stockage en Mode Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de Fonction du Rapport d'Entrée Énergétique en Mode de Refroidissement et Décharge Thermique</translation>
+        <translation>Courbe de Fonction du Rapport d&apos;Entrée Énergétique en Mode de Refroidissement et Décharge Thermique</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve</source>
-        <translation>Courbe de corrélation de la fraction de charge partielle de l'énergie stockée en mode refroidissement et décharge</translation>
+        <translation>Courbe de corrélation de la fraction de charge partielle de l&apos;énergie stockée en mode refroidissement et décharge</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
-        <translation>Courbe de la Capacité de Refroidissement Totale de l'Évaporateur en Mode de Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe de la Capacité de Refroidissement Totale de l&apos;Évaporateur en Mode de Refroidissement et Décharge en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
-        <translation>Courbe de la capacité frigorifique totale de l'évaporateur en mode refroidissement et décharge en fonction de la température</translation>
+        <translation>Courbe de la capacité frigorifique totale de l&apos;évaporateur en mode refroidissement et décharge en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling Availability Schedule Name</source>
@@ -4073,7 +4073,7 @@
     </message>
     <message>
         <source>Cooling Coil Object Type</source>
-        <translation>Type d'objet bobine de refroidissement</translation>
+        <translation>Type d&apos;objet bobine de refroidissement</translation>
     </message>
     <message>
         <source>Cooling Combination Ratio Correction Factor Curve Name</source>
@@ -4089,7 +4089,7 @@
     </message>
     <message>
         <source>Cooling Control Throttling Range</source>
-        <translation>Plage d'Étranglement du Contrôle de Refroidissement</translation>
+        <translation>Plage d&apos;Étranglement du Contrôle de Refroidissement</translation>
     </message>
     <message>
         <source>Cooling Control Zone or Zone List Name</source>
@@ -4113,39 +4113,39 @@
     </message>
     <message>
         <source>Cooling Energy Input Ratio Boundary Curve Name</source>
-        <translation>Nom de la courbe limite du rapport d'entrée énergétique en refroidissement</translation>
+        <translation>Nom de la courbe limite du rapport d&apos;entrée énergétique en refroidissement</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Function of PLR Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée énergétique de refroidissement en fonction du PLR</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée énergétique de refroidissement en fonction du PLR</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe Ratio d'apport énergétique de refroidissement en fonction de la température</translation>
+        <translation>Nom de la courbe Ratio d&apos;apport énergétique de refroidissement en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de modificateur du ratio d'entrée énergétique de refroidissement en fonction du rapport de charge partielle élevée</translation>
+        <translation>Nom de la courbe de modificateur du ratio d&apos;entrée énergétique de refroidissement en fonction du rapport de charge partielle élevée</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction modificatrice du rapport d'entrée d'énergie de refroidissement à température élevée</translation>
+        <translation>Nom de la courbe de fonction modificatrice du rapport d&apos;entrée d&apos;énergie de refroidissement à température élevée</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
-        <translation>Nom de la courbe modificatrice du ratio d'entrée énergétique de refroidissement fonction du ratio de charge partielle faible</translation>
+        <translation>Nom de la courbe modificatrice du ratio d&apos;entrée énergétique de refroidissement fonction du ratio de charge partielle faible</translation>
     </message>
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
-        <translation>Nom de la courbe de modification du rapport d'entrée d'énergie de refroidissement en fonction de la température basse</translation>
+        <translation>Nom de la courbe de modification du rapport d&apos;entrée d&apos;énergie de refroidissement en fonction de la température basse</translation>
     </message>
     <message>
         <source>Cooling Fraction of Autosized Cooling Supply Air Flow Rate</source>
-        <translation>Fraction de refroidissement du débit d'air de refroidissement dimensionné automatiquement</translation>
+        <translation>Fraction de refroidissement du débit d&apos;air de refroidissement dimensionné automatiquement</translation>
     </message>
     <message>
         <source>Cooling Fuel Efficiency Schedule Name</source>
-        <translation>Nom de l'horaire d'efficacité énergétique du refroidissement</translation>
+        <translation>Nom de l&apos;horaire d&apos;efficacité énergétique du refroidissement</translation>
     </message>
     <message>
         <source>Cooling Fuel Type</source>
@@ -4153,11 +4153,11 @@
     </message>
     <message>
         <source>Cooling High Control Temperature Schedule Name</source>
-        <translation>Nom de l'horaire de température de contrôle élevée pour le refroidissement</translation>
+        <translation>Nom de l&apos;horaire de température de contrôle élevée pour le refroidissement</translation>
     </message>
     <message>
         <source>Cooling High Water Temperature Schedule Name</source>
-        <translation>Nom de l'Horaire de Température d'Eau Élevée pour le Refroidissement</translation>
+        <translation>Nom de l&apos;Horaire de Température d&apos;Eau Élevée pour le Refroidissement</translation>
     </message>
     <message>
         <source>Cooling Limit</source>
@@ -4169,7 +4169,7 @@
     </message>
     <message>
         <source>Cooling Loop Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de la boucle de refroidissement</translation>
+        <translation>Nom du nœud d&apos;entrée de la boucle de refroidissement</translation>
     </message>
     <message>
         <source>Cooling Loop Outlet Node Name</source>
@@ -4181,7 +4181,7 @@
     </message>
     <message>
         <source>Cooling Low Water Temperature Schedule Name</source>
-        <translation>Nom du calendrier de température basse de l'eau de refroidissement</translation>
+        <translation>Nom du calendrier de température basse de l&apos;eau de refroidissement</translation>
     </message>
     <message>
         <source>Cooling Mode Cooling Capacity Function of Temperature Curve Name</source>
@@ -4193,15 +4193,15 @@
     </message>
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de rapport d'entrée électrique au rendement frigorifique en fonction du taux de charge partielle – Mode refroidissement</translation>
+        <translation>Nom de la courbe de rapport d&apos;entrée électrique au rendement frigorifique en fonction du taux de charge partielle – Mode refroidissement</translation>
     </message>
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée électrique à sortie de refroidissement en mode refroidissement en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée électrique à sortie de refroidissement en mode refroidissement en fonction de la température</translation>
     </message>
     <message>
         <source>Cooling Mode Temperature Curve Condenser Water Independent Variable</source>
-        <translation>Variable Indépendante de Température d'Eau du Condenseur pour Courbes en Mode Refroidissement</translation>
+        <translation>Variable Indépendante de Température d&apos;Eau du Condenseur pour Courbes en Mode Refroidissement</translation>
     </message>
     <message>
         <source>Cooling Only Mode Available</source>
@@ -4209,11 +4209,11 @@
     </message>
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Rapport d'Entrée Énergétique en Mode Refroidissement Seul en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Rapport d&apos;Entrée Énergétique en Mode Refroidissement Seul en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de Fonction du Ratio d'Entrée Énergétique en Mode Refroidissement Seul</translation>
+        <translation>Courbe de Fonction du Ratio d&apos;Entrée Énergétique en Mode Refroidissement Seul</translation>
     </message>
     <message>
         <source>Cooling Only Mode Part Load Fraction Correlation Curve</source>
@@ -4229,7 +4229,7 @@
     </message>
     <message>
         <source>Cooling Only Mode Rated Total Evaporator Cooling Capacity</source>
-        <translation>Capacité de refroidissement totale de l'évaporateur nominale en mode refroidissement seul</translation>
+        <translation>Capacité de refroidissement totale de l&apos;évaporateur nominale en mode refroidissement seul</translation>
     </message>
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
@@ -4241,11 +4241,11 @@
     </message>
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
-        <translation>Courbe de Capacité de Refroidissement Totale de l'Évaporateur en Mode Refroidissement Seul en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe de Capacité de Refroidissement Totale de l&apos;Évaporateur en Mode Refroidissement Seul en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
-        <translation>Courbe de la Capacité de Refroidissement Totale de l'Évaporateur en Mode Refroidissement Seul en Fonction de la Température</translation>
+        <translation>Courbe de la Capacité de Refroidissement Totale de l&apos;Évaporateur en Mode Refroidissement Seul en Fonction de la Température</translation>
     </message>
     <message>
         <source>Cooling Operation Mode</source>
@@ -4273,23 +4273,23 @@
     </message>
     <message>
         <source>Cooling Speed Supply Air Flow Ratio</source>
-        <translation>Ratio de débit d'air soufflé à vitesse de refroidissement</translation>
+        <translation>Ratio de débit d&apos;air soufflé à vitesse de refroidissement</translation>
     </message>
     <message>
         <source>Cooling Stage Off Supply Air Setpoint Temperature</source>
-        <translation>Température de consigne de l'air soufflé à l'arrêt du refroidissement</translation>
+        <translation>Température de consigne de l&apos;air soufflé à l&apos;arrêt du refroidissement</translation>
     </message>
     <message>
         <source>Cooling Stage On Supply Air Setpoint Temperature</source>
-        <translation>Température de Consigne de l'Air Soufflé en Refroidissement Activé</translation>
+        <translation>Température de Consigne de l&apos;Air Soufflé en Refroidissement Activé</translation>
     </message>
     <message>
         <source>Cooling Supply Air Flow Rate Per Floor Area</source>
-        <translation>Débit d'air de soufflage de refroidissement par unité de surface</translation>
+        <translation>Débit d&apos;air de soufflage de refroidissement par unité de surface</translation>
     </message>
     <message>
         <source>Cooling Supply Air Flow Rate Per Unit Cooling Capacity</source>
-        <translation>Débit d'air de soufflage de refroidissement par unité de capacité de refroidissement</translation>
+        <translation>Débit d&apos;air de soufflage de refroidissement par unité de capacité de refroidissement</translation>
     </message>
     <message>
         <source>Cooling Temperature Setpoint Base Schedule</source>
@@ -4297,19 +4297,19 @@
     </message>
     <message>
         <source>Cooling Throttling Temperature Range</source>
-        <translation>Plage de température d'étranglement du refroidissement</translation>
+        <translation>Plage de température d&apos;étranglement du refroidissement</translation>
     </message>
     <message>
         <source>Cooling Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau froide</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau froide</translation>
     </message>
     <message>
         <source>Cooling Water Outlet Node Name</source>
-        <translation>Nom du Nœud de Sortie d'Eau Froide</translation>
+        <translation>Nom du Nœud de Sortie d&apos;Eau Froide</translation>
     </message>
     <message>
         <source>COP Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe COP en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe COP en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>COP Function of Temperature Curve Name</source>
@@ -4317,7 +4317,7 @@
     </message>
     <message>
         <source>COP Function of Water Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe Coefficient de performance en fonction de la fraction de débit d'eau</translation>
+        <translation>Nom de la courbe Coefficient de performance en fonction de la fraction de débit d&apos;eau</translation>
     </message>
     <message>
         <source>Cost</source>
@@ -4341,19 +4341,19 @@
     </message>
     <message>
         <source>Cover Evaporation Factor</source>
-        <translation>Facteur d'évaporation de la bâche</translation>
+        <translation>Facteur d&apos;évaporation de la bâche</translation>
     </message>
     <message>
         <source>Cover Long-Wavelength Radiation Factor</source>
-        <translation>Facteur de rayonnement grandes longueurs d'onde de la couverture</translation>
+        <translation>Facteur de rayonnement grandes longueurs d&apos;onde de la couverture</translation>
     </message>
     <message>
         <source>Cover Schedule Name</source>
-        <translation>Nom de l'horaire de couverture</translation>
+        <translation>Nom de l&apos;horaire de couverture</translation>
     </message>
     <message>
         <source>Cover Short-Wavelength Radiation Factor</source>
-        <translation>Facteur de rayonnement aux courtes longueurs d'onde de la couverture</translation>
+        <translation>Facteur de rayonnement aux courtes longueurs d&apos;onde de la couverture</translation>
     </message>
     <message>
         <source>Cover Spacing</source>
@@ -4361,15 +4361,15 @@
     </message>
     <message>
         <source>CPU End-Use Subcategory</source>
-        <translation>Sous-catégorie d'utilisation CPU</translation>
+        <translation>Sous-catégorie d&apos;utilisation CPU</translation>
     </message>
     <message>
         <source>CPU Loading Schedule Name</source>
-        <translation>Nom de l'agenda de charge CPU</translation>
+        <translation>Nom de l&apos;agenda de charge CPU</translation>
     </message>
     <message>
         <source>CPU Power Input Function of Loading and Air Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction de puissance CPU en fonction de la charge et de la température de l'air</translation>
+        <translation>Nom de la courbe de fonction de puissance CPU en fonction de la charge et de la température de l&apos;air</translation>
     </message>
     <message>
         <source>Crack Name</source>
@@ -4393,7 +4393,7 @@
     </message>
     <message>
         <source>Curve or Table Object Name</source>
-        <translation>Nom de l'objet courbe ou tableau</translation>
+        <translation>Nom de l&apos;objet courbe ou tableau</translation>
     </message>
     <message>
         <source>Curve Type</source>
@@ -4421,7 +4421,7 @@
     </message>
     <message>
         <source>CustomDay2 Schedule:Day Name</source>
-        <translation>Nom du jour de l'horaire personnalisé 2</translation>
+        <translation>Nom du jour de l&apos;horaire personnalisé 2</translation>
     </message>
     <message>
         <source>Customer Baseline Load Schedule Name</source>
@@ -4433,7 +4433,7 @@
     </message>
     <message>
         <source>Cut Out Wind Speed</source>
-        <translation>Vitesse du vent d'arrêt</translation>
+        <translation>Vitesse du vent d&apos;arrêt</translation>
     </message>
     <message>
         <source>Cycling Performance Degradation Coefficient</source>
@@ -4461,7 +4461,7 @@
     </message>
     <message>
         <source>Damper Air Outlet</source>
-        <translation>Registre de la sortie d'air</translation>
+        <translation>Registre de la sortie d&apos;air</translation>
     </message>
     <message>
         <source>Data</source>
@@ -4489,7 +4489,7 @@
     </message>
     <message>
         <source>Day Schedule Name</source>
-        <translation>Nom de l'emploi du temps journalier</translation>
+        <translation>Nom de l&apos;emploi du temps journalier</translation>
     </message>
     <message>
         <source>Day Type</source>
@@ -4501,7 +4501,7 @@
     </message>
     <message>
         <source>Daylight Saving Time Indicator</source>
-        <translation>Indicateur d'heure d'été</translation>
+        <translation>Indicateur d&apos;heure d&apos;été</translation>
     </message>
     <message>
         <source>DC System Capacity</source>
@@ -4541,7 +4541,7 @@
     </message>
     <message>
         <source>Dedicated Water Heating Coil</source>
-        <translation>Serpentin de chauffage d'eau dédié</translation>
+        <translation>Serpentin de chauffage d&apos;eau dédié</translation>
     </message>
     <message>
         <source>Deep Layer Penetration Depth</source>
@@ -4557,7 +4557,7 @@
     </message>
     <message>
         <source>Default Construction Set Name</source>
-        <translation>Nom de l'ensemble de construction par défaut</translation>
+        <translation>Nom de l&apos;ensemble de construction par défaut</translation>
     </message>
     <message>
         <source>Default Exterior SubSurface Constructions Name</source>
@@ -4585,7 +4585,7 @@
     </message>
     <message>
         <source>Default Schedule Set Name</source>
-        <translation>Nom de l'ensemble de calendriers par défaut</translation>
+        <translation>Nom de l&apos;ensemble de calendriers par défaut</translation>
     </message>
     <message>
         <source>Defrost 1 Hour Start Time</source>
@@ -4657,23 +4657,23 @@
     </message>
     <message>
         <source>Defrost Drip-Down Schedule Name</source>
-        <translation>Nom du Calendrier d'Égouttage après Dégivrage</translation>
+        <translation>Nom du Calendrier d&apos;Égouttage après Dégivrage</translation>
     </message>
     <message>
         <source>Defrost Energy Correction Curve Name</source>
-        <translation>Nom de la courbe de correction de l'énergie de dégivrage</translation>
+        <translation>Nom de la courbe de correction de l&apos;énergie de dégivrage</translation>
     </message>
     <message>
         <source>Defrost Energy Correction Curve Type</source>
-        <translation>Type de courbe de correction de l'énergie de dégivrage</translation>
+        <translation>Type de courbe de correction de l&apos;énergie de dégivrage</translation>
     </message>
     <message>
         <source>Defrost Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée énergétique de dégivrage en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée énergétique de dégivrage en fonction de la température</translation>
     </message>
     <message>
         <source>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de modificateur du rapport d'entrée d'énergie en dégivrage en fonction de la température</translation>
+        <translation>Nom de la courbe de modificateur du rapport d&apos;entrée d&apos;énergie en dégivrage en fonction de la température</translation>
     </message>
     <message>
         <source>Defrost Operation Time Fraction</source>
@@ -4685,7 +4685,7 @@
     </message>
     <message>
         <source>Defrost Schedule Name</source>
-        <translation>Nom de l'horaire de dégivrage</translation>
+        <translation>Nom de l&apos;horaire de dégivrage</translation>
     </message>
     <message>
         <source>Defrost Type</source>
@@ -4721,7 +4721,7 @@
     </message>
     <message>
         <source>Dehumidifying Relative Humidity Setpoint Schedule Name</source>
-        <translation>Nom de l'Horaire de Consigne d'Humidité Relative de Déshumidification</translation>
+        <translation>Nom de l&apos;Horaire de Consigne d&apos;Humidité Relative de Déshumidification</translation>
     </message>
     <message>
         <source>Delta Temperature</source>
@@ -4761,15 +4761,15 @@
     </message>
     <message>
         <source>Demand Side Inlet Node A</source>
-        <translation>Nœud d'entrée côté demande A</translation>
+        <translation>Nœud d&apos;entrée côté demande A</translation>
     </message>
     <message>
         <source>Demand Side Inlet Node B</source>
-        <translation>Nœud d'entrée côté demande B</translation>
+        <translation>Nœud d&apos;entrée côté demande B</translation>
     </message>
     <message>
         <source>Demand Side Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Côté Demande</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Côté Demande</translation>
     </message>
     <message>
         <source>Demand Side Outlet Node Name</source>
@@ -4801,11 +4801,11 @@
     </message>
     <message>
         <source>Depreciation Method</source>
-        <translation>Méthode d'amortissement</translation>
+        <translation>Méthode d&apos;amortissement</translation>
     </message>
     <message>
         <source>Design Air Flow Rate Fan Power</source>
-        <translation>Puissance du Ventilateur au Débit d'Air de Conception</translation>
+        <translation>Puissance du Ventilateur au Débit d&apos;Air de Conception</translation>
     </message>
     <message>
         <source>Design Air Flow Rate U-factor Times Area Value</source>
@@ -4813,19 +4813,19 @@
     </message>
     <message>
         <source>Design and Engineering Fees</source>
-        <translation>Frais de conception et d'ingénierie</translation>
+        <translation>Frais de conception et d&apos;ingénierie</translation>
     </message>
     <message>
         <source>Design Approach Temperature</source>
-        <translation>Température d'approche de conception</translation>
+        <translation>Température d&apos;approche de conception</translation>
     </message>
     <message>
         <source>Design Chilled Water Flow Rate</source>
-        <translation>Débit de conception de l'eau glacée</translation>
+        <translation>Débit de conception de l&apos;eau glacée</translation>
     </message>
     <message>
         <source>Design Chilled Water Volume Flow Rate</source>
-        <translation>Débit de conception d'eau glacée</translation>
+        <translation>Débit de conception d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Design Compressor Rack COP</source>
@@ -4837,11 +4837,11 @@
     </message>
     <message>
         <source>Design Condenser Inlet Temperature</source>
-        <translation>Température de Conception à l'Entrée du Condenseur</translation>
+        <translation>Température de Conception à l&apos;Entrée du Condenseur</translation>
     </message>
     <message>
         <source>Design Condenser Water Flow Rate</source>
-        <translation>Débit d'eau de condenseur à l'état de conception</translation>
+        <translation>Débit d&apos;eau de condenseur à l&apos;état de conception</translation>
     </message>
     <message>
         <source>Design Electric Power Consumption</source>
@@ -4849,35 +4849,35 @@
     </message>
     <message>
         <source>Design Electric Power Supply Efficiency</source>
-        <translation>Rendement de conception du système d'alimentation électrique</translation>
+        <translation>Rendement de conception du système d&apos;alimentation électrique</translation>
     </message>
     <message>
         <source>Design Entering Air Temperature</source>
-        <translation>Température d'Air Entrant à la Conception</translation>
+        <translation>Température d&apos;Air Entrant à la Conception</translation>
     </message>
     <message>
         <source>Design Entering Air Wet-bulb Temperature</source>
-        <translation>Température de bulbe humide de l'air entrant en conception</translation>
+        <translation>Température de bulbe humide de l&apos;air entrant en conception</translation>
     </message>
     <message>
         <source>Design Entering Air Wetbulb Temperature</source>
-        <translation>Température de Bulbe Humide de l'Air Entrant à la Conception</translation>
+        <translation>Température de Bulbe Humide de l&apos;Air Entrant à la Conception</translation>
     </message>
     <message>
         <source>Design Entering Water Temperature</source>
-        <translation>Température de l'eau entrant en conception</translation>
+        <translation>Température de l&apos;eau entrant en conception</translation>
     </message>
     <message>
         <source>Design Evaporative Condenser Water Pump Power</source>
-        <translation>Puissance de conception de la pompe d'eau du condenseur évaporatif</translation>
+        <translation>Puissance de conception de la pompe d&apos;eau du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Design Evaporator Temperature or Brine Inlet Temperature</source>
-        <translation>Température de conception de l'évaporateur ou température d'entrée de saumure</translation>
+        <translation>Température de conception de l&apos;évaporateur ou température d&apos;entrée de saumure</translation>
     </message>
     <message>
         <source>Design Fan Air Flow Rate per Power Input</source>
-        <translation>Débit d'air de refroidissement par unité de puissance à la conception</translation>
+        <translation>Débit d&apos;air de refroidissement par unité de puissance à la conception</translation>
     </message>
     <message>
         <source>Design Fan Power</source>
@@ -4893,11 +4893,11 @@
     </message>
     <message>
         <source>Design Heating Discharge Air Temperature</source>
-        <translation>Température de Soufflage de l'Air en Chauffage de Conception</translation>
+        <translation>Température de Soufflage de l&apos;Air en Chauffage de Conception</translation>
     </message>
     <message>
         <source>Design Hot Water Flow Rate</source>
-        <translation>Débit d'eau chaude de conception</translation>
+        <translation>Débit d&apos;eau chaude de conception</translation>
     </message>
     <message>
         <source>Design Hot Water Volume Flow Rate</source>
@@ -4905,11 +4905,11 @@
     </message>
     <message>
         <source>Design Inlet Air Dry-Bulb Temperature</source>
-        <translation>Température Sèche de l'Air à l'Entrée en Conception</translation>
+        <translation>Température Sèche de l&apos;Air à l&apos;Entrée en Conception</translation>
     </message>
     <message>
         <source>Design Inlet Air Wet-Bulb Temperature</source>
-        <translation>Température de Bulbe Humide de l'Air à l'Entrée en Conception</translation>
+        <translation>Température de Bulbe Humide de l&apos;Air à l&apos;Entrée en Conception</translation>
     </message>
     <message>
         <source>Design Level</source>
@@ -4921,15 +4921,15 @@
     </message>
     <message>
         <source>Design Liquid Inlet Temperature</source>
-        <translation>Température de Conception de l'Entrée du Liquide</translation>
+        <translation>Température de Conception de l&apos;Entrée du Liquide</translation>
     </message>
     <message>
         <source>Design Maximum Air Flow Rate</source>
-        <translation>Débit d'air maximal à la conception</translation>
+        <translation>Débit d&apos;air maximal à la conception</translation>
     </message>
     <message>
         <source>Design Maximum Continuous Input Power</source>
-        <translation>Puissance d'entrée continue maximale en conception</translation>
+        <translation>Puissance d&apos;entrée continue maximale en conception</translation>
     </message>
     <message>
         <source>Design Mode</source>
@@ -4941,15 +4941,15 @@
     </message>
     <message>
         <source>Design Outlet Water Temperature</source>
-        <translation>Température de sortie d'eau de conception</translation>
+        <translation>Température de sortie d&apos;eau de conception</translation>
     </message>
     <message>
         <source>Design Power Input Calculation Method</source>
-        <translation>Méthode de calcul de la puissance d'entrée nominale</translation>
+        <translation>Méthode de calcul de la puissance d&apos;entrée nominale</translation>
     </message>
     <message>
         <source>Design Power Input Schedule Name</source>
-        <translation>Nom de la Planification de la Puissance d'Entrée en Conception</translation>
+        <translation>Nom de la Planification de la Puissance d&apos;Entrée en Conception</translation>
     </message>
     <message>
         <source>Design Power Sizing Method</source>
@@ -4961,11 +4961,11 @@
     </message>
     <message>
         <source>Design Primary Air Volume Flow Rate</source>
-        <translation>Débit de conception du débit d'air primaire</translation>
+        <translation>Débit de conception du débit d&apos;air primaire</translation>
     </message>
     <message>
         <source>Design Range Temperature</source>
-        <translation>Température d'Approche Nominale</translation>
+        <translation>Température d&apos;Approche Nominale</translation>
     </message>
     <message>
         <source>Design Recirculation Fraction</source>
@@ -4973,19 +4973,19 @@
     </message>
     <message>
         <source>Design Specification Multispeed Object Name</source>
-        <translation>Nom de l'objet de spécification multivitesse</translation>
+        <translation>Nom de l&apos;objet de spécification multivitesse</translation>
     </message>
     <message>
         <source>Design Specification Outdoor Air Object</source>
-        <translation>Objet de Spécification de Conception d'Air Extérieur</translation>
+        <translation>Objet de Spécification de Conception d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Design Specification Outdoor Air Object Name</source>
-        <translation>Nom de l'objet Spécification Ventilation Extérieure</translation>
+        <translation>Nom de l&apos;objet Spécification Ventilation Extérieure</translation>
     </message>
     <message>
         <source>Design Specification Zone Air Distribution Object</source>
-        <translation>Spécification de Conception de la Distribution d'Air de Zone</translation>
+        <translation>Spécification de Conception de la Distribution d&apos;Air de Zone</translation>
     </message>
     <message>
         <source>Design Specification ZoneHVAC Sizing</source>
@@ -4993,11 +4993,11 @@
     </message>
     <message>
         <source>Design Specification ZoneHVAC Sizing Object Name</source>
-        <translation>Nom de l'objet Spécification de dimensionnement ZoneHVAC</translation>
+        <translation>Nom de l&apos;objet Spécification de dimensionnement ZoneHVAC</translation>
     </message>
     <message>
         <source>Design Spray Water Flow Rate</source>
-        <translation>Débit de conception de l'eau pulvérisée</translation>
+        <translation>Débit de conception de l&apos;eau pulvérisée</translation>
     </message>
     <message>
         <source>Design Storage Control Charge Power</source>
@@ -5009,19 +5009,19 @@
     </message>
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation</source>
-        <translation>Débit d'air neuf de conception par unité de capacité pendant le refroidissement</translation>
+        <translation>Débit d&apos;air neuf de conception par unité de capacité pendant le refroidissement</translation>
     </message>
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required</source>
-        <translation>Débit d'air fourni de conception par unité de capacité en fonctionnement refroidissement quand aucun refroidissement ou chauffage n'est requis</translation>
+        <translation>Débit d&apos;air fourni de conception par unité de capacité en fonctionnement refroidissement quand aucun refroidissement ou chauffage n&apos;est requis</translation>
     </message>
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation</source>
-        <translation>Débit d'air de soufflage de conception par unité de capacité en mode chauffage</translation>
+        <translation>Débit d&apos;air de soufflage de conception par unité de capacité en mode chauffage</translation>
     </message>
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required</source>
-        <translation>Débit d'air neuf de conception par unité de capacité pendant le fonctionnement de chauffage quand aucun refroidissement ou chauffage n'est requis</translation>
+        <translation>Débit d&apos;air neuf de conception par unité de capacité pendant le fonctionnement de chauffage quand aucun refroidissement ou chauffage n&apos;est requis</translation>
     </message>
     <message>
         <source>Design Supply Temperature</source>
@@ -5033,7 +5033,7 @@
     </message>
     <message>
         <source>Design Vapor Inlet Temperature</source>
-        <translation>Température de conception de l'entrée de vapeur</translation>
+        <translation>Température de conception de l&apos;entrée de vapeur</translation>
     </message>
     <message>
         <source>Design Volume Flow Rate</source>
@@ -5045,7 +5045,7 @@
     </message>
     <message>
         <source>Dewpoint Effectiveness Factor</source>
-        <translation>Facteur d'efficacité du point de rosée</translation>
+        <translation>Facteur d&apos;efficacité du point de rosée</translation>
     </message>
     <message>
         <source>Dewpoint Temperature Limit</source>
@@ -5065,15 +5065,15 @@
     </message>
     <message>
         <source>Diameter of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
-        <translation>Diamètre du conduit principal reliant l'unité extérieure à la première jonction de dérivation</translation>
+        <translation>Diamètre du conduit principal reliant l&apos;unité extérieure à la première jonction de dérivation</translation>
     </message>
     <message>
         <source>Diameter of Main Pipe for Discharge Gas</source>
-        <translation>Diamètre du tuyau principal pour gaz d'échappement</translation>
+        <translation>Diamètre du tuyau principal pour gaz d&apos;échappement</translation>
     </message>
     <message>
         <source>Diameter of Main Pipe for Suction Gas</source>
-        <translation>Diamètre du tuyau principal pour gaz d'aspiration</translation>
+        <translation>Diamètre du tuyau principal pour gaz d&apos;aspiration</translation>
     </message>
     <message>
         <source>Diesel Inflation</source>
@@ -5081,7 +5081,7 @@
     </message>
     <message>
         <source>Difference between Outdoor Unit Evaporating Temperature and Outdoor Air Temperature in Heat Recovery Mode</source>
-        <translation>Différence entre la température d'évaporation de l'unité extérieure et la température de l'air extérieur en mode récupération de chaleur</translation>
+        <translation>Différence entre la température d&apos;évaporation de l&apos;unité extérieure et la température de l&apos;air extérieur en mode récupération de chaleur</translation>
     </message>
     <message>
         <source>Diffuse Solar Day Schedule Name</source>
@@ -5105,15 +5105,15 @@
     </message>
     <message>
         <source>Dilution Air Flow Rate</source>
-        <translation>Débit d'air de dilution</translation>
+        <translation>Débit d&apos;air de dilution</translation>
     </message>
     <message>
         <source>Dilution Inlet Air Node Name</source>
-        <translation>Nom du nœud d'air d'admission de dilution</translation>
+        <translation>Nom du nœud d&apos;air d&apos;admission de dilution</translation>
     </message>
     <message>
         <source>Dilution Outlet Air Node Name</source>
-        <translation>Nom du nœud d'air de sortie de dilution</translation>
+        <translation>Nom du nœud d&apos;air de sortie de dilution</translation>
     </message>
     <message>
         <source>Dimensions for the CTF Calculation</source>
@@ -5149,11 +5149,11 @@
     </message>
     <message>
         <source>Disable Self-Shading From Shading Zone Groups to Other Zones</source>
-        <translation>Désactiver l'auto-ombrage des groupes de zones d'ombrage vers d'autres zones</translation>
+        <translation>Désactiver l&apos;auto-ombrage des groupes de zones d&apos;ombrage vers d&apos;autres zones</translation>
     </message>
     <message>
         <source>Disable Self-Shading Within Shading Zone Groups</source>
-        <translation>Désactiver l'auto-ombrage au sein des groupes de zones d'ombrage</translation>
+        <translation>Désactiver l&apos;auto-ombrage au sein des groupes de zones d&apos;ombrage</translation>
     </message>
     <message>
         <source>Discharge Coefficient</source>
@@ -5161,11 +5161,11 @@
     </message>
     <message>
         <source>Discharge Coefficient for Opening</source>
-        <translation>Coefficient de décharge pour l'ouverture</translation>
+        <translation>Coefficient de décharge pour l&apos;ouverture</translation>
     </message>
     <message>
         <source>Discharge Coefficient for Opening Factor</source>
-        <translation>Coefficient de décharge pour facteur d'ouverture</translation>
+        <translation>Coefficient de décharge pour facteur d&apos;ouverture</translation>
     </message>
     <message>
         <source>Discharge Only Mode Available</source>
@@ -5177,11 +5177,11 @@
     </message>
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Rapport d'Énergie Intégrée en Mode Evacuation Seule en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Rapport d&apos;Énergie Intégrée en Mode Evacuation Seule en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe de Rapport d'Entrée Énergétique en Mode Décharge Seule en Fonction de la Température</translation>
+        <translation>Courbe de Rapport d&apos;Entrée Énergétique en Mode Décharge Seule en Fonction de la Température</translation>
     </message>
     <message>
         <source>Discharge Only Mode Part Load Fraction Correlation Curve</source>
@@ -5225,7 +5225,7 @@
     </message>
     <message>
         <source>Discounting Convention</source>
-        <translation>Convention d'actualisation</translation>
+        <translation>Convention d&apos;actualisation</translation>
     </message>
     <message>
         <source>Distribution Piping Zone Name</source>
@@ -5241,7 +5241,7 @@
     </message>
     <message>
         <source>District Heating Water Efficiency</source>
-        <translation>Efficacité de l'eau de chauffage urbain</translation>
+        <translation>Efficacité de l&apos;eau de chauffage urbain</translation>
     </message>
     <message>
         <source>Divider Conductance</source>
@@ -5253,7 +5253,7 @@
     </message>
     <message>
         <source>Divider Outside Projection</source>
-        <translation>Projection du Diviseur Vers l'Extérieur</translation>
+        <translation>Projection du Diviseur Vers l&apos;Extérieur</translation>
     </message>
     <message>
         <source>Divider Solar Absorptance</source>
@@ -5285,11 +5285,11 @@
     </message>
     <message>
         <source>Do Space Heat Balance for Simulation</source>
-        <translation>Calculer l'équilibre thermique de l'espace pour la simulation</translation>
+        <translation>Calculer l&apos;équilibre thermique de l&apos;espace pour la simulation</translation>
     </message>
     <message>
         <source>Do Space Heat Balance for Sizing</source>
-        <translation>Effectuer l'équilibre thermique de l'espace pour le dimensionnement</translation>
+        <translation>Effectuer l&apos;équilibre thermique de l&apos;espace pour le dimensionnement</translation>
     </message>
     <message>
         <source>Do System Sizing Calculation</source>
@@ -5301,7 +5301,7 @@
     </message>
     <message>
         <source>DOAS DX Cooling Coil Leaving Minimum Air Temperature</source>
-        <translation>Température minimale de l'air à la sortie de la batterie de refroidissement DX DOAS</translation>
+        <translation>Température minimale de l&apos;air à la sortie de la batterie de refroidissement DX DOAS</translation>
     </message>
     <message>
         <source>Dome Name</source>
@@ -5317,7 +5317,7 @@
     </message>
     <message>
         <source>Drip Down Time</source>
-        <translation>Temps d'écoulement par gravité</translation>
+        <translation>Temps d&apos;écoulement par gravité</translation>
     </message>
     <message>
         <source>Dry Outdoor Correction Factor Curve Name</source>
@@ -5349,7 +5349,7 @@
     </message>
     <message>
         <source>Drybulb Effectiveness Flow Ratio Modifier Curve Name</source>
-        <translation>Nom de la courbe de modification de l'efficacité thermosèche en fonction du débit relatif</translation>
+        <translation>Nom de la courbe de modification de l&apos;efficacité thermosèche en fonction du débit relatif</translation>
     </message>
     <message>
         <source>Duct Length</source>
@@ -5385,7 +5385,7 @@
     </message>
     <message>
         <source>DX Cooling Coil System Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée du système de refroidissement DX</translation>
+        <translation>Nom du nœud d&apos;entrée du système de refroidissement DX</translation>
     </message>
     <message>
         <source>DX Cooling Coil System Outlet Node Name</source>
@@ -5417,7 +5417,7 @@
     </message>
     <message>
         <source>Effective Plenum Gap Thickness Behind PV Modules</source>
-        <translation>Épaisseur effective de l'espace de plénum derrière les modules PV</translation>
+        <translation>Épaisseur effective de l&apos;espace de plénum derrière les modules PV</translation>
     </message>
     <message>
         <source>Effective Thermal Resistance</source>
@@ -5425,7 +5425,7 @@
     </message>
     <message>
         <source>Effectiveness Flow Ratio Modifier Curve Name</source>
-        <translation>Nom de la courbe de modification de l'efficacité en fonction du rapport de débit</translation>
+        <translation>Nom de la courbe de modification de l&apos;efficacité en fonction du rapport de débit</translation>
     </message>
     <message>
         <source>Efficiency</source>
@@ -5457,7 +5457,7 @@
     </message>
     <message>
         <source>Efficiency Curve Mode</source>
-        <translation>Mode Courbe d'Efficacité</translation>
+        <translation>Mode Courbe d&apos;Efficacité</translation>
     </message>
     <message>
         <source>Efficiency Curve Name</source>
@@ -5477,15 +5477,15 @@
     </message>
     <message>
         <source>Electric Equipment Definition Name</source>
-        <translation>Nom de la définition d'équipement électrique</translation>
+        <translation>Nom de la définition d&apos;équipement électrique</translation>
     </message>
     <message>
         <source>Electric Equipment ITE AirCooled Definition Name</source>
-        <translation>Nom de la Définition de l'Équipement Électrique ITE Refroidi par Air</translation>
+        <translation>Nom de la Définition de l&apos;Équipement Électrique ITE Refroidi par Air</translation>
     </message>
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Type</source>
-        <translation>Type de courbe de fonction du rapport d'entrée électrique à rendement frigorifique en fonction du PLR</translation>
+        <translation>Type de courbe de fonction du rapport d&apos;entrée électrique à rendement frigorifique en fonction du PLR</translation>
     </message>
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</source>
@@ -5493,7 +5493,7 @@
     </message>
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
-        <translation>Courbe de modificateur du rapport d'entrée/sortie électrique en fonction de la température</translation>
+        <translation>Courbe de modificateur du rapport d&apos;entrée/sortie électrique en fonction de la température</translation>
     </message>
     <message>
         <source>Electric Power Function of Flow Fraction Curve Name</source>
@@ -5501,11 +5501,11 @@
     </message>
     <message>
         <source>Electric Power Minimum Flow Rate Fraction</source>
-        <translation>Fraction de débit d'air minimal pour la puissance électrique</translation>
+        <translation>Fraction de débit d&apos;air minimal pour la puissance électrique</translation>
     </message>
     <message>
         <source>Electric Power Per Unit Flow Rate</source>
-        <translation>Puissance électrique par unité de débit d'air</translation>
+        <translation>Puissance électrique par unité de débit d&apos;air</translation>
     </message>
     <message>
         <source>Electric Power Per Unit Flow Rate Per Unit Pressure</source>
@@ -5513,11 +5513,11 @@
     </message>
     <message>
         <source>Electric Power Supply Efficiency Function of Part Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de fonction d'efficacité de l'alimentation électrique en fonction du ratio de charge partielle</translation>
+        <translation>Nom de la courbe de fonction d&apos;efficacité de l&apos;alimentation électrique en fonction du ratio de charge partielle</translation>
     </message>
     <message>
         <source>Electric Power Supply End-Use Subcategory</source>
-        <translation>Sous-catégorie d'utilisation finale pour l'alimentation électrique</translation>
+        <translation>Sous-catégorie d&apos;utilisation finale pour l&apos;alimentation électrique</translation>
     </message>
     <message>
         <source>Electrical Buss Type</source>
@@ -5533,7 +5533,7 @@
     </message>
     <message>
         <source>Electrical Power Function of Temperature and Elevation Curve Name</source>
-        <translation>Nom de la courbe de puissance électrique en fonction de la température et de l'altitude</translation>
+        <translation>Nom de la courbe de puissance électrique en fonction de la température et de l&apos;altitude</translation>
     </message>
     <message>
         <source>Electrical Storage Name</source>
@@ -5541,15 +5541,15 @@
     </message>
     <message>
         <source>Electrical Storage Object Name</source>
-        <translation>Nom de l'objet de stockage électrique</translation>
+        <translation>Nom de l&apos;objet de stockage électrique</translation>
     </message>
     <message>
         <source>Electricity Inflation</source>
-        <translation>Inflation de l'électricité</translation>
+        <translation>Inflation de l&apos;électricité</translation>
     </message>
     <message>
         <source>Electronic Enthalpy Limit Curve Name</source>
-        <translation>Nom de la courbe de limite d'enthalpie électronique</translation>
+        <translation>Nom de la courbe de limite d&apos;enthalpie électronique</translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -5573,7 +5573,7 @@
     </message>
     <message>
         <source>EMS Runtime Language Debug Output Level</source>
-        <translation>Niveau de sortie de débogage du langage d'exécution EMS</translation>
+        <translation>Niveau de sortie de débogage du langage d&apos;exécution EMS</translation>
     </message>
     <message>
         <source>EMS Variable Name</source>
@@ -5597,11 +5597,11 @@
     </message>
     <message>
         <source>End-Use Category</source>
-        <translation>Catégorie de Fin d'Usage</translation>
+        <translation>Catégorie de Fin d&apos;Usage</translation>
     </message>
     <message>
         <source>Energy Conversion Factor</source>
-        <translation>Facteur de Conversion d'Énergie</translation>
+        <translation>Facteur de Conversion d&apos;Énergie</translation>
     </message>
     <message>
         <source>Energy Factor Curve Name</source>
@@ -5609,27 +5609,27 @@
     </message>
     <message>
         <source>Energy Input Ratio Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'apport énergétique en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;apport énergétique en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve</source>
-        <translation>Courbe du Rapport d'Entrée Énergétique en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe du Rapport d&apos;Entrée Énergétique en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Energy Input Ratio Function of Temperature Curve</source>
-        <translation>Courbe du Ratio d'Apport Énergétique en Fonction de la Température</translation>
+        <translation>Courbe du Ratio d&apos;Apport Énergétique en Fonction de la Température</translation>
     </message>
     <message>
         <source>Energy Input Ratio Function of Water Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de rapport d'énergie d'entrée en fonction de la fraction de débit d'eau</translation>
+        <translation>Nom de la courbe de rapport d&apos;énergie d&apos;entrée en fonction de la fraction de débit d&apos;eau</translation>
     </message>
     <message>
         <source>Energy Input Ratio Modifier Function of Air Flow Fraction Curve</source>
-        <translation>Courbe Modificatrice du Rapport Énergétique en Fonction de la Fraction de Débit d'Air</translation>
+        <translation>Courbe Modificatrice du Rapport Énergétique en Fonction de la Fraction de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Energy Input Ratio Modifier Function of Temperature Curve</source>
-        <translation>Fonction de correction du rapport d'entrée énergétique en fonction de la température</translation>
+        <translation>Fonction de correction du rapport d&apos;entrée énergétique en fonction de la température</translation>
     </message>
     <message>
         <source>Energy Part Load Fraction Curve Name</source>
@@ -5637,7 +5637,7 @@
     </message>
     <message>
         <source>EnergyPlus Model Calling Point</source>
-        <translation>Point d'appel du modèle EnergyPlus</translation>
+        <translation>Point d&apos;appel du modèle EnergyPlus</translation>
     </message>
     <message>
         <source>Enthalpy</source>
@@ -5649,11 +5649,11 @@
     </message>
     <message>
         <source>Enthalpy High Limit</source>
-        <translation>Limite Supérieure d'Enthalpie</translation>
+        <translation>Limite Supérieure d&apos;Enthalpie</translation>
     </message>
     <message>
         <source>Environment Type</source>
-        <translation>Type d'environnement</translation>
+        <translation>Type d&apos;environnement</translation>
     </message>
     <message>
         <source>Environmental Class</source>
@@ -5661,7 +5661,7 @@
     </message>
     <message>
         <source>Equivalent Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
-        <translation>Longueur équivalente de la conduite principale reliant l'unité extérieure au premier raccord de branchement</translation>
+        <translation>Longueur équivalente de la conduite principale reliant l&apos;unité extérieure au premier raccord de branchement</translation>
     </message>
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Cooling Mode</source>
@@ -5673,7 +5673,7 @@
     </message>
     <message>
         <source>Equivalent Rectangle Aspect Ratio</source>
-        <translation>Rapport d'aspect du rectangle équivalent</translation>
+        <translation>Rapport d&apos;aspect du rectangle équivalent</translation>
     </message>
     <message>
         <source>Equivalent Rectangle Method</source>
@@ -5681,23 +5681,23 @@
     </message>
     <message>
         <source>Escalation Start Month</source>
-        <translation>Mois de Début de l'Escalade</translation>
+        <translation>Mois de Début de l&apos;Escalade</translation>
     </message>
     <message>
         <source>Escalation Start Year</source>
-        <translation>Année de début de l'escalade</translation>
+        <translation>Année de début de l&apos;escalade</translation>
     </message>
     <message>
         <source>Euler Number at Maximum Fan Static Efficiency</source>
-        <translation>Nombre d'Euler à rendement statique maximal du ventilateur</translation>
+        <translation>Nombre d&apos;Euler à rendement statique maximal du ventilateur</translation>
     </message>
     <message>
         <source>Evaporative Capacity Multiplier Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe multiplicatrice de capacité d'évaporation en fonction de la température</translation>
+        <translation>Nom de la courbe multiplicatrice de capacité d&apos;évaporation en fonction de la température</translation>
     </message>
     <message>
         <source>Evaporative Condenser Availability Schedule Name</source>
-        <translation>Nom de l'horaire de disponibilité du condenseur évaporatif</translation>
+        <translation>Nom de l&apos;horaire de disponibilité du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Evaporative Condenser Basin Heater Capacity</source>
@@ -5717,11 +5717,11 @@
     </message>
     <message>
         <source>Evaporative Condenser Supply Water Storage Tank Name</source>
-        <translation>Nom du réservoir de stockage d'eau d'alimentation du condenseur évaporatif</translation>
+        <translation>Nom du réservoir de stockage d&apos;eau d&apos;alimentation du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Evaporative Operation Maximum Limit Drybulb Temperature</source>
-        <translation>Température Bulbe Sèche Limite Maximale d'Exploitation du Refroidisseur Évaporatif</translation>
+        <translation>Température Bulbe Sèche Limite Maximale d&apos;Exploitation du Refroidisseur Évaporatif</translation>
     </message>
     <message>
         <source>Evaporative Operation Maximum Limit Wetbulb Temperature</source>
@@ -5729,27 +5729,27 @@
     </message>
     <message>
         <source>Evaporative Operation Minimum Drybulb Temperature</source>
-        <translation>Température de bulbe sec minimale d'exploitation du refroidisseur par évaporation</translation>
+        <translation>Température de bulbe sec minimale d&apos;exploitation du refroidisseur par évaporation</translation>
     </message>
     <message>
         <source>Evaporative Water Supply Tank Name</source>
-        <translation>Nom du réservoir d'alimentation en eau pour refroidissement évaporatif</translation>
+        <translation>Nom du réservoir d&apos;alimentation en eau pour refroidissement évaporatif</translation>
     </message>
     <message>
         <source>Evaporator Air Flow Rate</source>
-        <translation>Débit d'air de l'évaporateur</translation>
+        <translation>Débit d&apos;air de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Air Flow Rate Fraction</source>
-        <translation>Fraction du débit d'air de l'évaporateur</translation>
+        <translation>Fraction du débit d&apos;air de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air de l'évaporateur</translation>
+        <translation>Nœud d&apos;entrée d&apos;air de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air de l'évaporateur</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Air Outlet Node</source>
@@ -5757,99 +5757,99 @@
     </message>
     <message>
         <source>Evaporator Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'air de l'évaporateur</translation>
+        <translation>Nom du nœud de sortie d&apos;air de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Air Temperature Type for Curve Objects</source>
-        <translation>Type de température de l'air évaporateur pour les courbes</translation>
+        <translation>Type de température de l&apos;air évaporateur pour les courbes</translation>
     </message>
     <message>
         <source>Evaporator Approach Temperature Difference</source>
-        <translation>Différence de Température d'Approche de l'Évaporateur</translation>
+        <translation>Différence de Température d&apos;Approche de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Capacity</source>
-        <translation>Capacité de l'évaporateur</translation>
+        <translation>Capacité de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Evaporating Temperature</source>
-        <translation>Température d'évaporation de l'évaporateur</translation>
+        <translation>Température d&apos;évaporation de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Fan Power Included in Rated COP</source>
-        <translation>Puissance du ventilateur d'évaporateur incluse dans le COP nominal</translation>
+        <translation>Puissance du ventilateur d&apos;évaporateur incluse dans le COP nominal</translation>
     </message>
     <message>
         <source>Evaporator Flow Rate for Secondary Fluid</source>
-        <translation>Débit d'évaporateur pour le fluide secondaire</translation>
+        <translation>Débit d&apos;évaporateur pour le fluide secondaire</translation>
     </message>
     <message>
         <source>Evaporator Inlet Node</source>
-        <translation>Nœud d'entrée de l'évaporateur</translation>
+        <translation>Nœud d&apos;entrée de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Outlet Node</source>
-        <translation>Nœud de sortie de l'évaporateur</translation>
+        <translation>Nœud de sortie de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Range Temperature Difference</source>
-        <translation>Différence de température de plage de l'évaporateur</translation>
+        <translation>Différence de température de plage de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Evaporator Refrigerant Inventory</source>
-        <translation>Inventaire de Réfrigérant de l'Évaporateur</translation>
+        <translation>Inventaire de Réfrigérant de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Evapotranspiration Ground Cover Parameter</source>
-        <translation>Paramètre de couverture du sol pour l'évapotranspiration</translation>
+        <translation>Paramètre de couverture du sol pour l&apos;évapotranspiration</translation>
     </message>
     <message>
         <source>Excess Air Ratio</source>
-        <translation>Rapport d'air excédentaire</translation>
+        <translation>Rapport d&apos;air excédentaire</translation>
     </message>
     <message>
         <source>Exhaust Air Enthalpy Limit</source>
-        <translation>Limite d'enthalpie de l'air extrait</translation>
+        <translation>Limite d&apos;enthalpie de l&apos;air extrait</translation>
     </message>
     <message>
         <source>Exhaust Air Fan Name</source>
-        <translation>Nom du ventilateur d'air d'échappement</translation>
+        <translation>Nom du ventilateur d&apos;air d&apos;échappement</translation>
     </message>
     <message>
         <source>Exhaust Air Flow Rate</source>
-        <translation>Débit volumique d'air d'extraction</translation>
+        <translation>Débit volumique d&apos;air d&apos;extraction</translation>
     </message>
     <message>
         <source>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de débit d'air d'extraction en fonction du rapport de charge partielle</translation>
+        <translation>Nom de la courbe de débit d&apos;air d&apos;extraction en fonction du rapport de charge partielle</translation>
     </message>
     <message>
         <source>Exhaust Air Flow Rate Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de débit d'air d'échappement en fonction de la température</translation>
+        <translation>Nom de la courbe de débit d&apos;air d&apos;échappement en fonction de la température</translation>
     </message>
     <message>
         <source>Exhaust Air Inlet Node</source>
-        <translation>Nœud d'Entrée d'Air Extrait</translation>
+        <translation>Nœud d&apos;Entrée d&apos;Air Extrait</translation>
     </message>
     <message>
         <source>Exhaust Air Outlet Node</source>
-        <translation>Nœud de sortie d'air d'échappement</translation>
+        <translation>Nœud de sortie d&apos;air d&apos;échappement</translation>
     </message>
     <message>
         <source>Exhaust Air Temperature Function of Part Load Ratio Curve Name</source>
-        <translation>Nom de la courbe fonction de température d'air d'extraction en fonction du taux de charge partielle</translation>
+        <translation>Nom de la courbe fonction de température d&apos;air d&apos;extraction en fonction du taux de charge partielle</translation>
     </message>
     <message>
         <source>Exhaust Air Temperature Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction de température de l'air d'extraction</translation>
+        <translation>Nom de la courbe de fonction de température de l&apos;air d&apos;extraction</translation>
     </message>
     <message>
         <source>Exhaust Air Temperature Limit</source>
-        <translation>Limite de Température de l'Air Soufflé</translation>
+        <translation>Limite de Température de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Exhaust Outlet Air Node Name</source>
-        <translation>Nom du nœud de sortie d'air d'échappement</translation>
+        <translation>Nom du nœud de sortie d&apos;air d&apos;échappement</translation>
     </message>
     <message>
         <source>Existing Fuel Resource Name</source>
@@ -5869,19 +5869,19 @@
     </message>
     <message>
         <source>Exterior Fuel Equipment Definition Name</source>
-        <translation>Nom de la Définition d'Équipement Combustible Extérieur</translation>
+        <translation>Nom de la Définition d&apos;Équipement Combustible Extérieur</translation>
     </message>
     <message>
         <source>Exterior Horizontal Insulation Depth</source>
-        <translation>Profondeur de l'isolation horizontale extérieure</translation>
+        <translation>Profondeur de l&apos;isolation horizontale extérieure</translation>
     </message>
     <message>
         <source>Exterior Horizontal Insulation Material Name</source>
-        <translation>Nom du matériau d'isolation horizontale extérieure</translation>
+        <translation>Nom du matériau d&apos;isolation horizontale extérieure</translation>
     </message>
     <message>
         <source>Exterior Horizontal Insulation Width</source>
-        <translation>Largeur de l'isolation horizontale extérieure</translation>
+        <translation>Largeur de l&apos;isolation horizontale extérieure</translation>
     </message>
     <message>
         <source>Exterior Lights Definition Name</source>
@@ -5893,15 +5893,15 @@
     </message>
     <message>
         <source>Exterior Vertical Insulation Depth</source>
-        <translation>Profondeur de l'Isolation Verticale Extérieure</translation>
+        <translation>Profondeur de l&apos;Isolation Verticale Extérieure</translation>
     </message>
     <message>
         <source>Exterior Vertical Insulation Material Name</source>
-        <translation>Nom du Matériau d'Isolation Verticale Extérieure</translation>
+        <translation>Nom du Matériau d&apos;Isolation Verticale Extérieure</translation>
     </message>
     <message>
         <source>Exterior Water Equipment Definition Name</source>
-        <translation>Nom de la Définition de l'Équipement Hydraulique Extérieur</translation>
+        <translation>Nom de la Définition de l&apos;Équipement Hydraulique Extérieur</translation>
     </message>
     <message>
         <source>Exterior Window Name</source>
@@ -5933,23 +5933,23 @@
     </message>
     <message>
         <source>External Shading Fraction Schedule Name</source>
-        <translation>Nom de l'agenda de fraction d'ombrage externe</translation>
+        <translation>Nom de l&apos;agenda de fraction d&apos;ombrage externe</translation>
     </message>
     <message>
         <source>Extinction Coefficient Times Thickness of Outer Cover</source>
-        <translation>Coefficient d'extinction multiplié par l'épaisseur du revêtement extérieur</translation>
+        <translation>Coefficient d&apos;extinction multiplié par l&apos;épaisseur du revêtement extérieur</translation>
     </message>
     <message>
         <source>Extinction Coefficient Times Thickness of the inner Cover</source>
-        <translation>Coefficient d'extinction multiplié par l'épaisseur de la vitre intérieure</translation>
+        <translation>Coefficient d&apos;extinction multiplié par l&apos;épaisseur de la vitre intérieure</translation>
     </message>
     <message>
         <source>Extra Crack Length or Height of Pivoting Axis</source>
-        <translation>Longueur de fissure supplémentaire ou hauteur de l'axe de pivotement</translation>
+        <translation>Longueur de fissure supplémentaire ou hauteur de l&apos;axe de pivotement</translation>
     </message>
     <message>
         <source>Extrapolation Method</source>
-        <translation>Méthode d'extrapolation</translation>
+        <translation>Méthode d&apos;extrapolation</translation>
     </message>
     <message>
         <source>F-Factor</source>
@@ -5969,19 +5969,19 @@
     </message>
     <message>
         <source>Fan Delay Time</source>
-        <translation>Délai d'arrêt du ventilateur</translation>
+        <translation>Délai d&apos;arrêt du ventilateur</translation>
     </message>
     <message>
         <source>Fan Efficiency Ratio Function of Speed Ratio Curve Name</source>
-        <translation>Nom de la courbe de rapport d'efficacité du ventilateur en fonction du rapport de vitesse</translation>
+        <translation>Nom de la courbe de rapport d&apos;efficacité du ventilateur en fonction du rapport de vitesse</translation>
     </message>
     <message>
         <source>Fan End-Use Subcategory</source>
-        <translation>Sous-catégorie de fin d'usage des ventilateurs</translation>
+        <translation>Sous-catégorie de fin d&apos;usage des ventilateurs</translation>
     </message>
     <message>
         <source>Fan Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée du ventilateur d'alimentation</translation>
+        <translation>Nom du nœud d&apos;entrée du ventilateur d&apos;alimentation</translation>
     </message>
     <message>
         <source>Fan Name</source>
@@ -5989,7 +5989,7 @@
     </message>
     <message>
         <source>Fan On Flow Fraction</source>
-        <translation>Fraction de débit d'activation du ventilateur</translation>
+        <translation>Fraction de débit d&apos;activation du ventilateur</translation>
     </message>
     <message>
         <source>Fan Outlet Area</source>
@@ -6005,11 +6005,11 @@
     </message>
     <message>
         <source>Fan Power Input Function of Flow Curve Name</source>
-        <translation>Nom de la courbe fonction de la puissance d'entrée du ventilateur en fonction du débit</translation>
+        <translation>Nom de la courbe fonction de la puissance d&apos;entrée du ventilateur en fonction du débit</translation>
     </message>
     <message>
         <source>Fan Power Ratio Function of Air Flow Rate Ratio Curve</source>
-        <translation>Courbe du Rapport de Puissance du Ventilateur en Fonction du Rapport de Débit d'Air</translation>
+        <translation>Courbe du Rapport de Puissance du Ventilateur en Fonction du Rapport de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Fan Power Ratio Function of Speed Ratio Curve Name</source>
@@ -6077,7 +6077,7 @@
     </message>
     <message>
         <source>Fenestration Assembly Context</source>
-        <translation>Contexte d'assemblage de fenêtre</translation>
+        <translation>Contexte d&apos;assemblage de fenêtre</translation>
     </message>
     <message>
         <source>Fenestration Divider Type</source>
@@ -6145,7 +6145,7 @@
     </message>
     <message>
         <source>Flow Fraction Schedule Name</source>
-        <translation>Nom de l'agenda de fraction de débit d'extraction</translation>
+        <translation>Nom de l&apos;agenda de fraction de débit d&apos;extraction</translation>
     </message>
     <message>
         <source>Flow Mode</source>
@@ -6169,7 +6169,7 @@
     </message>
     <message>
         <source>Fluid Inlet Node</source>
-        <translation>Nœud d'entrée du fluide</translation>
+        <translation>Nœud d&apos;entrée du fluide</translation>
     </message>
     <message>
         <source>Fluid Outlet Node</source>
@@ -6197,7 +6197,7 @@
     </message>
     <message>
         <source>FMU Instance Name</source>
-        <translation>Nom de l'instance FMU</translation>
+        <translation>Nom de l&apos;instance FMU</translation>
     </message>
     <message>
         <source>FMU LoggingOn</source>
@@ -6205,7 +6205,7 @@
     </message>
     <message>
         <source>FMU Timeout</source>
-        <translation>Délai d'expiration FMU</translation>
+        <translation>Délai d&apos;expiration FMU</translation>
     </message>
     <message>
         <source>FMU Variable Name</source>
@@ -6233,11 +6233,11 @@
     </message>
     <message>
         <source>Fraction of Air Flow Bypassed Around Coil</source>
-        <translation>Fraction du débit d'air contournant la batterie</translation>
+        <translation>Fraction du débit d&apos;air contournant la batterie</translation>
     </message>
     <message>
         <source>Fraction of Anti-Sweat Heater Energy to Case</source>
-        <translation>Fraction de l'énergie du réchauffeur anti-condensation vers le meuble</translation>
+        <translation>Fraction de l&apos;énergie du réchauffeur anti-condensation vers le meuble</translation>
     </message>
     <message>
         <source>Fraction of Autosized Cooling Design Capacity</source>
@@ -6245,19 +6245,19 @@
     </message>
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate</source>
-        <translation>Fraction du débit d'air soufflé de refroidissement dimensionné</translation>
+        <translation>Fraction du débit d&apos;air soufflé de refroidissement dimensionné</translation>
     </message>
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required</source>
-        <translation>Fraction du Débit d'Air Neuf de Refroidissement Dimensionné Automatiquement Quand Aucun Refroidissement ou Chauffage n'est Requis</translation>
+        <translation>Fraction du Débit d&apos;Air Neuf de Refroidissement Dimensionné Automatiquement Quand Aucun Refroidissement ou Chauffage n&apos;est Requis</translation>
     </message>
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate</source>
-        <translation>Fraction du débit d'air de soufflage de chauffage dimensionné automatiquement</translation>
+        <translation>Fraction du débit d&apos;air de soufflage de chauffage dimensionné automatiquement</translation>
     </message>
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required</source>
-        <translation>Fraction du débit d'air neuf de chauffage dimensionné automatiquement quand aucun refroidissement ni chauffage n'est requis</translation>
+        <translation>Fraction du débit d&apos;air neuf de chauffage dimensionné automatiquement quand aucun refroidissement ni chauffage n&apos;est requis</translation>
     </message>
     <message>
         <source>Fraction of Autosized Heating Design Capacity</source>
@@ -6277,7 +6277,7 @@
     </message>
     <message>
         <source>Fraction of Condenser Pump Heat to Water</source>
-        <translation>Fraction de chaleur de pompe de condenseur transférée à l'eau</translation>
+        <translation>Fraction de chaleur de pompe de condenseur transférée à l&apos;eau</translation>
     </message>
     <message>
         <source>Fraction of Eddy Current Losses</source>
@@ -6285,27 +6285,27 @@
     </message>
     <message>
         <source>Fraction of Electric Power Supply Losses to Zone</source>
-        <translation>Fraction des pertes du système d'alimentation électrique gagnées par la zone</translation>
+        <translation>Fraction des pertes du système d&apos;alimentation électrique gagnées par la zone</translation>
     </message>
     <message>
         <source>Fraction of Input Converted to Latent Energy</source>
-        <translation>Fraction d'énergie d'entrée convertie en énergie latente</translation>
+        <translation>Fraction d&apos;énergie d&apos;entrée convertie en énergie latente</translation>
     </message>
     <message>
         <source>Fraction of Input Converted to Radiant Energy</source>
-        <translation>Fraction de l'Entrée Convertie en Énergie Radiante</translation>
+        <translation>Fraction de l&apos;Entrée Convertie en Énergie Radiante</translation>
     </message>
     <message>
         <source>Fraction of Input that Is Lost</source>
-        <translation>Fraction d'entrée perdue</translation>
+        <translation>Fraction d&apos;entrée perdue</translation>
     </message>
     <message>
         <source>Fraction of Lighting Energy to Case</source>
-        <translation>Fraction de l'Énergie d'Éclairage au Meuble</translation>
+        <translation>Fraction de l&apos;Énergie d&apos;Éclairage au Meuble</translation>
     </message>
     <message>
         <source>Fraction of Pump Heat to Water</source>
-        <translation>Fraction de chaleur de pompe transférée à l'eau</translation>
+        <translation>Fraction de chaleur de pompe transférée à l&apos;eau</translation>
     </message>
     <message>
         <source>Fraction of PV Cell Area to PV Module Area</source>
@@ -6313,7 +6313,7 @@
     </message>
     <message>
         <source>Fraction of Radiant Energy Incident on People</source>
-        <translation>Fraction d'énergie rayonnante incidente sur les occupants</translation>
+        <translation>Fraction d&apos;énergie rayonnante incidente sur les occupants</translation>
     </message>
     <message>
         <source>Fraction of Surface Area with Active Solar Cells</source>
@@ -6329,11 +6329,11 @@
     </message>
     <message>
         <source>Fraction of Zone Controlled by Primary Daylighting Control</source>
-        <translation>Fraction de Zone Contrôlée par Commande d'Éclairage Naturel Primaire</translation>
+        <translation>Fraction de Zone Contrôlée par Commande d&apos;Éclairage Naturel Primaire</translation>
     </message>
     <message>
         <source>Fraction of Zone Controlled by Secondary Daylighting Control</source>
-        <translation>Fraction de Zone Contrôlée par le Contrôle d'Éclairage Naturel Secondaire</translation>
+        <translation>Fraction de Zone Contrôlée par le Contrôle d&apos;Éclairage Naturel Secondaire</translation>
     </message>
     <message>
         <source>Fraction Replaceable</source>
@@ -6377,7 +6377,7 @@
     </message>
     <message>
         <source>Free Convection Air Flow Rate Sizing Factor</source>
-        <translation>Facteur de dimensionnement du débit d'air en convection naturelle</translation>
+        <translation>Facteur de dimensionnement du débit d&apos;air en convection naturelle</translation>
     </message>
     <message>
         <source>Free Convection Nominal Capacity</source>
@@ -6389,11 +6389,11 @@
     </message>
     <message>
         <source>Free Convection Regime Air Flow Rate</source>
-        <translation>Débit d'air en régime de convection naturelle</translation>
+        <translation>Débit d&apos;air en régime de convection naturelle</translation>
     </message>
     <message>
         <source>Free Convection Regime Air Flow Rate Sizing Factor</source>
-        <translation>Facteur de dimensionnement du débit d'air en régime de convection naturelle</translation>
+        <translation>Facteur de dimensionnement du débit d&apos;air en régime de convection naturelle</translation>
     </message>
     <message>
         <source>Free Convection Regime U-Factor Times Area Value</source>
@@ -6461,11 +6461,11 @@
     </message>
     <message>
         <source>Fs-cogen Adjustment Factor</source>
-        <translation>Facteur d'ajustement Fs-cogénération</translation>
+        <translation>Facteur d&apos;ajustement Fs-cogénération</translation>
     </message>
     <message>
         <source>Fuel Energy Input Ratio Defrost Adjustment Curve Name</source>
-        <translation>Nom de la courbe d'ajustement du dégivrage du ratio d'apport énergétique du combustible</translation>
+        <translation>Nom de la courbe d&apos;ajustement du dégivrage du ratio d&apos;apport énergétique du combustible</translation>
     </message>
     <message>
         <source>Fuel Energy Input Ratio Function of PLR Curve Name</source>
@@ -6473,7 +6473,7 @@
     </message>
     <message>
         <source>Fuel Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de la fonction du ratio d'énergie combustible en fonction de la température</translation>
+        <translation>Nom de la courbe de la fonction du ratio d&apos;énergie combustible en fonction de la température</translation>
     </message>
     <message>
         <source>Fuel Higher Heating Value</source>
@@ -6485,7 +6485,7 @@
     </message>
     <message>
         <source>Fuel Supply Name</source>
-        <translation>Nom de l'approvisionnement en combustible</translation>
+        <translation>Nom de l&apos;approvisionnement en combustible</translation>
     </message>
     <message>
         <source>Fuel Temperature Modeling Mode</source>
@@ -6585,7 +6585,7 @@
     </message>
     <message>
         <source>Gas Equipment Definition Name</source>
-        <translation>Nom de la Définition de l'Équipement à Gaz</translation>
+        <translation>Nom de la Définition de l&apos;Équipement à Gaz</translation>
     </message>
     <message>
         <source>Gas Type</source>
@@ -6593,15 +6593,15 @@
     </message>
     <message>
         <source>Gasoline Inflation</source>
-        <translation>Inflation de l'essence</translation>
+        <translation>Inflation de l&apos;essence</translation>
     </message>
     <message>
         <source>Generator Heat Input Correction Function of Chilled Water Temperature Curve</source>
-        <translation>Courbe de correction de l'apport thermique du générateur en fonction de la température d'eau glacée</translation>
+        <translation>Courbe de correction de l&apos;apport thermique du générateur en fonction de la température d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Generator Heat Input Correction Function of Condenser Temperature Curve</source>
-        <translation>Courbe de Correction de l'Apport Thermique du Générateur en Fonction de la Température du Condenseur</translation>
+        <translation>Courbe de Correction de l&apos;Apport Thermique du Générateur en Fonction de la Température du Condenseur</translation>
     </message>
     <message>
         <source>Generator Heat Input Function of Part Load Ratio Curve</source>
@@ -6613,11 +6613,11 @@
     </message>
     <message>
         <source>Generator Inlet Node</source>
-        <translation>Nœud d'entrée du générateur</translation>
+        <translation>Nœud d&apos;entrée du générateur</translation>
     </message>
     <message>
         <source>Generator Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Générateur</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Générateur</translation>
     </message>
     <message>
         <source>Generator List Name</source>
@@ -6645,11 +6645,11 @@
     </message>
     <message>
         <source>Generic Contaminant Setpoint Schedule Name</source>
-        <translation>Nom de l'horaire de consigne de polluant générique</translation>
+        <translation>Nom de l&apos;horaire de consigne de polluant générique</translation>
     </message>
     <message>
         <source>Glare Control Is Active</source>
-        <translation>Contrôle de l'éblouissement actif</translation>
+        <translation>Contrôle de l&apos;éblouissement actif</translation>
     </message>
     <message>
         <source>Glass Door Construction Name</source>
@@ -6657,11 +6657,11 @@
     </message>
     <message>
         <source>Glass Extinction Coefficient</source>
-        <translation>Coefficient d'extinction du verre</translation>
+        <translation>Coefficient d&apos;extinction du verre</translation>
     </message>
     <message>
         <source>Glass Reach In Door Opening Schedule Name Facing Zone</source>
-        <translation>Nom de l'horaire d'ouverture de porte vitrée réfrigérée orientée vers la zone</translation>
+        <translation>Nom de l&apos;horaire d&apos;ouverture de porte vitrée réfrigérée orientée vers la zone</translation>
     </message>
     <message>
         <source>Glass Reach In Door U Value Facing Zone</source>
@@ -6749,7 +6749,7 @@
     </message>
     <message>
         <source>Ground Surfaces Object Name</source>
-        <translation>Nom de l'objet surfaces au sol</translation>
+        <translation>Nom de l&apos;objet surfaces au sol</translation>
     </message>
     <message>
         <source>Ground Temperature</source>
@@ -6761,7 +6761,7 @@
     </message>
     <message>
         <source>Ground Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de température du sol</translation>
+        <translation>Nom de l&apos;agenda de température du sol</translation>
     </message>
     <message>
         <source>Ground Thermal Absorptivity</source>
@@ -6785,7 +6785,7 @@
     </message>
     <message>
         <source>Group Rendering Name</source>
-        <translation>Nom d'affichage du groupe</translation>
+        <translation>Nom d&apos;affichage du groupe</translation>
     </message>
     <message>
         <source>Group Type</source>
@@ -6797,7 +6797,7 @@
     </message>
     <message>
         <source>Heat Exchange Model Type</source>
-        <translation>Type de Modèle d'Échangeur de Chaleur</translation>
+        <translation>Type de Modèle d&apos;Échangeur de Chaleur</translation>
     </message>
     <message>
         <source>Heat Exchanger</source>
@@ -6805,35 +6805,35 @@
     </message>
     <message>
         <source>Heat Exchanger Calculation Method</source>
-        <translation>Méthode de calcul de l'échangeur de chaleur</translation>
+        <translation>Méthode de calcul de l&apos;échangeur de chaleur</translation>
     </message>
     <message>
         <source>Heat Exchanger Name</source>
-        <translation>Nom de l'échangeur thermique</translation>
+        <translation>Nom de l&apos;échangeur thermique</translation>
     </message>
     <message>
         <source>Heat Exchanger Performance</source>
-        <translation>Performance de l'Échangeur Thermique</translation>
+        <translation>Performance de l&apos;Échangeur Thermique</translation>
     </message>
     <message>
         <source>Heat Exchanger Setpoint Node Name</source>
-        <translation>Nom du nœud de consigne de l'échangeur thermique</translation>
+        <translation>Nom du nœud de consigne de l&apos;échangeur thermique</translation>
     </message>
     <message>
         <source>Heat Exchanger Type</source>
-        <translation>Type d'échangeur de chaleur</translation>
+        <translation>Type d&apos;échangeur de chaleur</translation>
     </message>
     <message>
         <source>Heat Exchanger U-Factor Times Area Value</source>
-        <translation>Valeur de la Conductance Thermique Surfacique de l'Échangeur (UA)</translation>
+        <translation>Valeur de la Conductance Thermique Surfacique de l&apos;Échangeur (UA)</translation>
     </message>
     <message>
         <source>Heat Index Algorithm</source>
-        <translation>Algorithme d'indice de chaleur</translation>
+        <translation>Algorithme d&apos;indice de chaleur</translation>
     </message>
     <message>
         <source>Heat Pump Coil Water Flow Mode</source>
-        <translation>Mode de débit d'eau de la bobine de pompe à chaleur</translation>
+        <translation>Mode de débit d&apos;eau de la bobine de pompe à chaleur</translation>
     </message>
     <message>
         <source>Heat Pump Defrost Control</source>
@@ -6853,7 +6853,7 @@
     </message>
     <message>
         <source>Heat Reclaim Efficiency Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction d'efficacité de récupération de chaleur en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction d&apos;efficacité de récupération de chaleur en fonction de la température</translation>
     </message>
     <message>
         <source>Heat Reclaim Recovery Efficiency</source>
@@ -6873,15 +6873,15 @@
     </message>
     <message>
         <source>Heat Recovery Cooling Energy Modifier Curve Name</source>
-        <translation>Nom de la courbe de modification de l'énergie de refroidissement en mode récupération de chaleur</translation>
+        <translation>Nom de la courbe de modification de l&apos;énergie de refroidissement en mode récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Cooling Energy Time Constant</source>
-        <translation>Constante de temps d'énergie de refroidissement en récupération de chaleur</translation>
+        <translation>Constante de temps d&apos;énergie de refroidissement en récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de modification du rapport d'entrée électrique à sortie pour récupération de chaleur en fonction de la température</translation>
+        <translation>Nom de la courbe de modification du rapport d&apos;entrée électrique à sortie pour récupération de chaleur en fonction de la température</translation>
     </message>
     <message>
         <source>Heat Recovery Heating Capacity Modifier Curve Name</source>
@@ -6893,7 +6893,7 @@
     </message>
     <message>
         <source>Heat Recovery Heating Energy Modifier Curve Name</source>
-        <translation>Nom de la Courbe de Modificateur d'Énergie de Chauffage en Récupération de Chaleur</translation>
+        <translation>Nom de la Courbe de Modificateur d&apos;Énergie de Chauffage en Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Heating Energy Time Constant</source>
@@ -6901,11 +6901,11 @@
     </message>
     <message>
         <source>Heat Recovery Inlet High Temperature Limit Schedule Name</source>
-        <translation>Nom du calendrier de limite haute de température à l'entrée de la récupération de chaleur</translation>
+        <translation>Nom du calendrier de limite haute de température à l&apos;entrée de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de récupération de chaleur</translation>
+        <translation>Nom du nœud d&apos;entrée de récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Leaving Temperature Setpoint Node Name</source>
@@ -6917,7 +6917,7 @@
     </message>
     <message>
         <source>Heat Recovery Rate Function of Inlet Water Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du taux de récupération thermique en fonction de la température de l'eau d'entrée</translation>
+        <translation>Nom de la courbe de fonction du taux de récupération thermique en fonction de la température de l&apos;eau d&apos;entrée</translation>
     </message>
     <message>
         <source>Heat Recovery Rate Function of Part Load Ratio Curve Name</source>
@@ -6925,7 +6925,7 @@
     </message>
     <message>
         <source>Heat Recovery Rate Function of Water Flow Rate Curve Name</source>
-        <translation>Nom de la courbe de débit de récupération de chaleur en fonction du débit d'eau</translation>
+        <translation>Nom de la courbe de débit de récupération de chaleur en fonction du débit d&apos;eau</translation>
     </message>
     <message>
         <source>Heat Recovery Reference Flow Rate</source>
@@ -6937,31 +6937,31 @@
     </message>
     <message>
         <source>Heat Recovery Water Flow Operating Mode</source>
-        <translation>Mode de fonctionnement du débit d'eau de récupération de chaleur</translation>
+        <translation>Mode de fonctionnement du débit d&apos;eau de récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</source>
-        <translation>Nom de la courbe de débit d'eau de récupération thermique en fonction de la température et de la puissance</translation>
+        <translation>Nom de la courbe de débit d&apos;eau de récupération thermique en fonction de la température et de la puissance</translation>
     </message>
     <message>
         <source>Heat Recovery Water Inlet Node</source>
-        <translation>Nœud d'entrée d'eau de récupération thermique</translation>
+        <translation>Nœud d&apos;entrée d&apos;eau de récupération thermique</translation>
     </message>
     <message>
         <source>Heat Recovery Water Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée d'Eau de Récupération de Chaleur</translation>
+        <translation>Nom du Nœud d&apos;Entrée d&apos;Eau de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Water Maximum Flow Rate</source>
-        <translation>Débit d'eau maximal de récupération de chaleur</translation>
+        <translation>Débit d&apos;eau maximal de récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Water Outlet Node</source>
-        <translation>Nœud de sortie d'eau de récupération de chaleur</translation>
+        <translation>Nœud de sortie d&apos;eau de récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Recovery Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'eau de récupération de chaleur</translation>
+        <translation>Nom du nœud de sortie d&apos;eau de récupération de chaleur</translation>
     </message>
     <message>
         <source>Heat Rejection Capacity and Nominal Capacity Sizing Ratio</source>
@@ -6981,11 +6981,11 @@
     </message>
     <message>
         <source>Heat Transfer Integration Mode</source>
-        <translation>Mode d'intégration du transfert de chaleur</translation>
+        <translation>Mode d&apos;intégration du transfert de chaleur</translation>
     </message>
     <message>
         <source>Heat Transfer Metering End Use Type</source>
-        <translation>Type de fin d'utilisation de comptage de transfert de chaleur</translation>
+        <translation>Type de fin d&apos;utilisation de comptage de transfert de chaleur</translation>
     </message>
     <message>
         <source>Heat Transmittance Coefficient (U-Factor) for Duct Wall Construction</source>
@@ -6993,15 +6993,15 @@
     </message>
     <message>
         <source>Heater Ignition Delay</source>
-        <translation>Délai d'allumage du chauffage</translation>
+        <translation>Délai d&apos;allumage du chauffage</translation>
     </message>
     <message>
         <source>Heater Ignition Minimum Flow Rate</source>
-        <translation>Débit minimum d'allumage du brûleur</translation>
+        <translation>Débit minimum d&apos;allumage du brûleur</translation>
     </message>
     <message>
         <source>Heating Availability Schedule Name</source>
-        <translation>Nom de l'horaire de disponibilité pour le chauffage</translation>
+        <translation>Nom de l&apos;horaire de disponibilité pour le chauffage</translation>
     </message>
     <message>
         <source>Heating Capacity Curve Name</source>
@@ -7009,11 +7009,11 @@
     </message>
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve</source>
-        <translation>Courbe de la Capacité de Chauffage en Fonction de la Fraction de Débit d'Air</translation>
+        <translation>Courbe de la Capacité de Chauffage en Fonction de la Fraction de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de modification de la capacité de chauffage en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de modification de la capacité de chauffage en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Heating Capacity Function of Flow Fraction Curve Name</source>
@@ -7029,11 +7029,11 @@
     </message>
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve</source>
-        <translation>Courbe de Capacité de Chauffage en Fonction de la Fraction de Débit d'Eau</translation>
+        <translation>Courbe de Capacité de Chauffage en Fonction de la Fraction de Débit d&apos;Eau</translation>
     </message>
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe Fonction de la capacité de chauffage selon la fraction de débit d'eau</translation>
+        <translation>Nom de la courbe Fonction de la capacité de chauffage selon la fraction de débit d&apos;eau</translation>
     </message>
     <message>
         <source>Heating Capacity Modifier Function of Flow Fraction Curve</source>
@@ -7097,11 +7097,11 @@
     </message>
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve</source>
-        <translation>Courbe COP de chauffage en fonction de la fraction du débit d'air</translation>
+        <translation>Courbe COP de chauffage en fonction de la fraction du débit d&apos;air</translation>
     </message>
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de fonction COP chauffage en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de fonction COP chauffage en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Heating COP Function of Temperature Curve</source>
@@ -7113,7 +7113,7 @@
     </message>
     <message>
         <source>Heating COP Function of Water Flow Fraction Curve</source>
-        <translation>Courbe de COP Chauffage en Fonction de la Fraction de Débit d'Eau</translation>
+        <translation>Courbe de COP Chauffage en Fonction de la Fraction de Débit d&apos;Eau</translation>
     </message>
     <message>
         <source>Heating Design Capacity</source>
@@ -7129,43 +7129,43 @@
     </message>
     <message>
         <source>Heating Energy Input Ratio Boundary Curve Name</source>
-        <translation>Nom de la courbe limite du rapport d'énergie d'entrée en chauffage</translation>
+        <translation>Nom de la courbe limite du rapport d&apos;énergie d&apos;entrée en chauffage</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Function of PLR Curve Name</source>
-        <translation>Nom de la courbe - Fonction du rapport d'entrée énergétique de chauffage en fonction du PLR</translation>
+        <translation>Nom de la courbe - Fonction du rapport d&apos;entrée énergétique de chauffage en fonction du PLR</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de rapport d'entrée énergétique en chauffage en fonction de la température</translation>
+        <translation>Nom de la courbe de rapport d&apos;entrée énergétique en chauffage en fonction de la température</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
-        <translation>Nom de la courbe du modificateur du ratio d'entrée énergétique en chauffage en fonction du ratio de charge partielle élevée</translation>
+        <translation>Nom de la courbe du modificateur du ratio d&apos;entrée énergétique en chauffage en fonction du ratio de charge partielle élevée</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
-        <translation>Nom de la courbe de modification du rapport d'entrée énergétique en chauffage en fonction de la température élevée</translation>
+        <translation>Nom de la courbe de modification du rapport d&apos;entrée énergétique en chauffage en fonction de la température élevée</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
-        <translation>Nom de la courbe de modificateur du rapport d'entrée énergétique en chauffage en fonction du rapport de charge partielle faible</translation>
+        <translation>Nom de la courbe de modificateur du rapport d&apos;entrée énergétique en chauffage en fonction du rapport de charge partielle faible</translation>
     </message>
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
-        <translation>Nom de la courbe de modification du rapport d'entrée d'énergie de chauffage à basse température</translation>
+        <translation>Nom de la courbe de modification du rapport d&apos;entrée d&apos;énergie de chauffage à basse température</translation>
     </message>
     <message>
         <source>Heating Fraction of Autosized Cooling Supply Air Flow Rate</source>
-        <translation>Fraction de débit d'air de refroidissement dimensionné pour le chauffage</translation>
+        <translation>Fraction de débit d&apos;air de refroidissement dimensionné pour le chauffage</translation>
     </message>
     <message>
         <source>Heating Fraction of Autosized Heating Supply Air Flow Rate</source>
-        <translation>Fraction de débit d'air de chauffage autosisé pour l'air de chauffage</translation>
+        <translation>Fraction de débit d&apos;air de chauffage autosisé pour l&apos;air de chauffage</translation>
     </message>
     <message>
         <source>Heating Fuel Efficiency Schedule Name</source>
-        <translation>Nom de la planification d'efficacité énergétique de chauffage</translation>
+        <translation>Nom de la planification d&apos;efficacité énergétique de chauffage</translation>
     </message>
     <message>
         <source>Heating Fuel Type</source>
@@ -7177,7 +7177,7 @@
     </message>
     <message>
         <source>Heating High Water Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de température d'eau élevée en chauffage</translation>
+        <translation>Nom de l&apos;agenda de température d&apos;eau élevée en chauffage</translation>
     </message>
     <message>
         <source>Heating Limit</source>
@@ -7185,7 +7185,7 @@
     </message>
     <message>
         <source>Heating Loop Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de la boucle de chauffage</translation>
+        <translation>Nom du nœud d&apos;entrée de la boucle de chauffage</translation>
     </message>
     <message>
         <source>Heating Loop Outlet Node Name</source>
@@ -7197,7 +7197,7 @@
     </message>
     <message>
         <source>Heating Low Water Temperature Schedule Name</source>
-        <translation>Nom de l'échéancier de température basse de l'eau de chauffage</translation>
+        <translation>Nom de l&apos;échéancier de température basse de l&apos;eau de chauffage</translation>
     </message>
     <message>
         <source>Heating Mode Cooling Capacity Function of Temperature Curve Name</source>
@@ -7205,7 +7205,7 @@
     </message>
     <message>
         <source>Heating Mode Cooling Capacity Optimum Part Load Ratio</source>
-        <translation>Nom de la courbe du ratio d'entrée électrique en mode chauffage sur ratio de sortie de refroidissement en fonction du ratio de charge partielle</translation>
+        <translation>Nom de la courbe du ratio d&apos;entrée électrique en mode chauffage sur ratio de sortie de refroidissement en fonction du ratio de charge partielle</translation>
     </message>
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
@@ -7213,11 +7213,11 @@
     </message>
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée électrique à sortie de refroidissement en mode chauffage en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée électrique à sortie de refroidissement en mode chauffage en fonction de la température</translation>
     </message>
     <message>
         <source>Heating Mode Entering Chilled Water Temperature Low Limit</source>
-        <translation>Température minimale de l'eau glacée entrant en mode chauffage</translation>
+        <translation>Température minimale de l&apos;eau glacée entrant en mode chauffage</translation>
     </message>
     <message>
         <source>Heating Mode Temperature Curve Condenser Water Independent Variable</source>
@@ -7257,23 +7257,23 @@
     </message>
     <message>
         <source>Heating Speed Supply Air Flow Ratio</source>
-        <translation>Ratio de débit d'air soufflé à vitesse de chauffage</translation>
+        <translation>Ratio de débit d&apos;air soufflé à vitesse de chauffage</translation>
     </message>
     <message>
         <source>Heating Stage Off Supply Air Setpoint Temperature</source>
-        <translation>Température de Consigne de l'Air Soufflé à l'Arrêt du Chauffage</translation>
+        <translation>Température de Consigne de l&apos;Air Soufflé à l&apos;Arrêt du Chauffage</translation>
     </message>
     <message>
         <source>Heating Stage On Supply Air Setpoint Temperature</source>
-        <translation>Température de Consigne de l'Air Soufflé à l'Activation du Chauffage</translation>
+        <translation>Température de Consigne de l&apos;Air Soufflé à l&apos;Activation du Chauffage</translation>
     </message>
     <message>
         <source>Heating Supply Air Flow Rate Per Floor Area</source>
-        <translation>Débit d'air de soufflage de chauffage par surface de plancher</translation>
+        <translation>Débit d&apos;air de soufflage de chauffage par surface de plancher</translation>
     </message>
     <message>
         <source>Heating Supply Air Flow Rate Per Unit Heating Capacity</source>
-        <translation>Débit d'air de chauffage par unité de capacité thermique</translation>
+        <translation>Débit d&apos;air de chauffage par unité de capacité thermique</translation>
     </message>
     <message>
         <source>Heating Temperature Setpoint Schedule</source>
@@ -7285,7 +7285,7 @@
     </message>
     <message>
         <source>Heating Throttling Temperature Range</source>
-        <translation>Plage de température d'étranglement au chauffage</translation>
+        <translation>Plage de température d&apos;étranglement au chauffage</translation>
     </message>
     <message>
         <source>Heating To Cooling Capacity Sizing Ratio</source>
@@ -7293,11 +7293,11 @@
     </message>
     <message>
         <source>Heating Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau chaude</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Heating Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'eau chaude</translation>
+        <translation>Nom du nœud de sortie d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Heating Zone Fans Only Zone or Zone List Name</source>
@@ -7309,7 +7309,7 @@
     </message>
     <message>
         <source>Height Aspect Ratio</source>
-        <translation>Rapport d'aspect hauteur</translation>
+        <translation>Rapport d&apos;aspect hauteur</translation>
     </message>
     <message>
         <source>Height Dependence of External Node Temperature</source>
@@ -7321,11 +7321,11 @@
     </message>
     <message>
         <source>Height Difference Between Outdoor Unit and Indoor Units</source>
-        <translation>Différence de hauteur entre l'unité extérieure et les unités intérieures</translation>
+        <translation>Différence de hauteur entre l&apos;unité extérieure et les unités intérieures</translation>
     </message>
     <message>
         <source>Height Factor for Opening Factor</source>
-        <translation>Facteur de hauteur pour le facteur d'ouverture</translation>
+        <translation>Facteur de hauteur pour le facteur d&apos;ouverture</translation>
     </message>
     <message>
         <source>Height for Local Average Wind Speed</source>
@@ -7353,15 +7353,15 @@
     </message>
     <message>
         <source>Hg Emission Factor</source>
-        <translation>Facteur d'émission de Hg</translation>
+        <translation>Facteur d&apos;émission de Hg</translation>
     </message>
     <message>
         <source>Hg Emission Factor Schedule Name</source>
-        <translation>Nom du calendrier du facteur d'émission Hg</translation>
+        <translation>Nom du calendrier du facteur d&apos;émission Hg</translation>
     </message>
     <message>
         <source>High Fan Speed Air Flow Rate</source>
-        <translation>Débit d'air à vitesse élevée du ventilateur</translation>
+        <translation>Débit d&apos;air à vitesse élevée du ventilateur</translation>
     </message>
     <message>
         <source>High Fan Speed Fan Power</source>
@@ -7377,19 +7377,19 @@
     </message>
     <message>
         <source>High Humidity Control</source>
-        <translation>Contrôle de l'humidité élevée</translation>
+        <translation>Contrôle de l&apos;humidité élevée</translation>
     </message>
     <message>
         <source>High Humidity Control Flag</source>
-        <translation>Indicateur de contrôle de l'humidité élevée</translation>
+        <translation>Indicateur de contrôle de l&apos;humidité élevée</translation>
     </message>
     <message>
         <source>High Humidity Outdoor Air Flow Ratio</source>
-        <translation>Ratio de Débit d'Air Extérieur à Humidité Élevée</translation>
+        <translation>Ratio de Débit d&apos;Air Extérieur à Humidité Élevée</translation>
     </message>
     <message>
         <source>High Limit Heating Discharge Air Temperature</source>
-        <translation>Température limite maximale de l'air de soufflage en chauffage</translation>
+        <translation>Température limite maximale de l&apos;air de soufflage en chauffage</translation>
     </message>
     <message>
         <source>High Pressure CompressorList Name</source>
@@ -7397,7 +7397,7 @@
     </message>
     <message>
         <source>High Reference Humidity Ratio</source>
-        <translation>Ratio d'humidité de référence élevé</translation>
+        <translation>Ratio d&apos;humidité de référence élevé</translation>
     </message>
     <message>
         <source>High Reference Temperature</source>
@@ -7409,7 +7409,7 @@
     </message>
     <message>
         <source>High Speed Evaporative Condenser Air Flow Rate</source>
-        <translation>Débit d'air du condenseur évaporatif à vitesse élevée</translation>
+        <translation>Débit d&apos;air du condenseur évaporatif à vitesse élevée</translation>
     </message>
     <message>
         <source>High Speed Evaporative Condenser Effectiveness</source>
@@ -7417,7 +7417,7 @@
     </message>
     <message>
         <source>High Speed Evaporative Condenser Pump Rated Power Consumption</source>
-        <translation>Consommation d'Énergie Nominale de la Pompe du Condenseur Évaporatif à Vitesse Élevée</translation>
+        <translation>Consommation d&apos;Énergie Nominale de la Pompe du Condenseur Évaporatif à Vitesse Élevée</translation>
     </message>
     <message>
         <source>High Speed Nominal Capacity</source>
@@ -7433,7 +7433,7 @@
     </message>
     <message>
         <source>High Speed User Specified Design Capacity</source>
-        <translation>Capacité de Conception Spécifiée par l'Utilisateur à Vitesse Élevée</translation>
+        <translation>Capacité de Conception Spécifiée par l&apos;Utilisateur à Vitesse Élevée</translation>
     </message>
     <message>
         <source>High Temperature Difference of Freezing Curve</source>
@@ -7457,7 +7457,7 @@
     </message>
     <message>
         <source>Hot Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air chaud</translation>
+        <translation>Nœud d&apos;entrée d&apos;air chaud</translation>
     </message>
     <message>
         <source>Hot Node</source>
@@ -7465,15 +7465,15 @@
     </message>
     <message>
         <source>Hot Water Equipment Definition Name</source>
-        <translation>Nom de la Définition du Matériel d'Eau Chaude</translation>
+        <translation>Nom de la Définition du Matériel d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Hot Water Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée Eau Chaude</translation>
+        <translation>Nom du Nœud d&apos;Entrée Eau Chaude</translation>
     </message>
     <message>
         <source>Hot Water Outlet Node Name</source>
-        <translation>Nom du Nœud de Sortie d'Eau Chaude</translation>
+        <translation>Nom du Nœud de Sortie d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Hour to Simulate</source>
@@ -7481,11 +7481,11 @@
     </message>
     <message>
         <source>Humidification Control Type</source>
-        <translation>Type de contrôle de l'humidification</translation>
+        <translation>Type de contrôle de l&apos;humidification</translation>
     </message>
     <message>
         <source>Humidifying Relative Humidity Setpoint Schedule Name</source>
-        <translation>Nom de la consigne d'humidité relative pour l'humidification</translation>
+        <translation>Nom de la consigne d&apos;humidité relative pour l&apos;humidification</translation>
     </message>
     <message>
         <source>Humidistat Control Zone Name</source>
@@ -7505,47 +7505,47 @@
     </message>
     <message>
         <source>Humidity Condition Day Schedule Name</source>
-        <translation>Nom de la journée-type pour la condition d'humidité</translation>
+        <translation>Nom de la journée-type pour la condition d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Condition Type</source>
-        <translation>Type de condition d'humidité</translation>
+        <translation>Type de condition d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio at Maximum Dry-Bulb</source>
-        <translation>Rapport d'humidité à la température sèche maximale</translation>
+        <translation>Rapport d&apos;humidité à la température sèche maximale</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 1</source>
-        <translation>Coefficient 1 de l'équation du ratio d'humidité</translation>
+        <translation>Coefficient 1 de l&apos;équation du ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 2</source>
-        <translation>Coefficient 2 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 2 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 3</source>
-        <translation>Coefficient 3 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 3 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 4</source>
-        <translation>Coefficient 4 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 4 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 5</source>
-        <translation>Coefficient 5 de l'équation du ratio d'humidité</translation>
+        <translation>Coefficient 5 de l&apos;équation du ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 6</source>
-        <translation>Coefficient 6 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 6 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 7</source>
-        <translation>Coefficient 7 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 7 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Humidity Ratio Equation Coefficient 8</source>
-        <translation>Coefficient 8 de l'équation du rapport d'humidité</translation>
+        <translation>Coefficient 8 de l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>HVAC Component</source>
@@ -7589,11 +7589,11 @@
     </message>
     <message>
         <source>Illuminance Map Name</source>
-        <translation>Nom de la carte d'éclairement</translation>
+        <translation>Nom de la carte d&apos;éclairement</translation>
     </message>
     <message>
         <source>Illuminance Setpoint</source>
-        <translation>Point de consigne d'éclairement</translation>
+        <translation>Point de consigne d&apos;éclairement</translation>
     </message>
     <message>
         <source>Impeller Diameter</source>
@@ -7617,27 +7617,27 @@
     </message>
     <message>
         <source>Indoor Air Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée d'Air Intérieur</translation>
+        <translation>Nom du Nœud d&apos;Entrée d&apos;Air Intérieur</translation>
     </message>
     <message>
         <source>Indoor Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'air intérieur</translation>
+        <translation>Nom du nœud de sortie d&apos;air intérieur</translation>
     </message>
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor</source>
-        <translation>Limite inférieure de la différence d'enthalpie intérieure-extérieure pour le facteur d'ouverture de ventilation maximal</translation>
+        <translation>Limite inférieure de la différence d&apos;enthalpie intérieure-extérieure pour le facteur d&apos;ouverture de ventilation maximal</translation>
     </message>
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor</source>
-        <translation>Limite supérieure de la différence d'enthalpie intérieure-extérieure pour le facteur d'ouverture de ventilation minimale</translation>
+        <translation>Limite supérieure de la différence d&apos;enthalpie intérieure-extérieure pour le facteur d&apos;ouverture de ventilation minimale</translation>
     </message>
     <message>
         <source>Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor</source>
-        <translation>Différence de Température Intérieure-Extérieure Limite Inférieure pour Facteur d'Ouverture de Ventilation Maximal</translation>
+        <translation>Différence de Température Intérieure-Extérieure Limite Inférieure pour Facteur d&apos;Ouverture de Ventilation Maximal</translation>
     </message>
     <message>
         <source>Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor</source>
-        <translation>Limite supérieure de différence de température intérieure et extérieure pour le facteur d'ouverture de ventilation minimal</translation>
+        <translation>Limite supérieure de différence de température intérieure et extérieure pour le facteur d&apos;ouverture de ventilation minimal</translation>
     </message>
     <message>
         <source>Indoor Temperature Above Which WH Has Higher Priority</source>
@@ -7649,39 +7649,39 @@
     </message>
     <message>
         <source>Indoor Unit Condensing Temperature Function of Subcooling Curve</source>
-        <translation>Courbe Fonction de la Température de Condensation de l'Unité Intérieure en fonction du Sous-refroidissement</translation>
+        <translation>Courbe Fonction de la Température de Condensation de l&apos;Unité Intérieure en fonction du Sous-refroidissement</translation>
     </message>
     <message>
         <source>Indoor Unit Evaporating Temperature Function of Superheating Curve</source>
-        <translation>Courbe de la température d'évaporation de l'unité intérieure en fonction du surchauffage</translation>
+        <translation>Courbe de la température d&apos;évaporation de l&apos;unité intérieure en fonction du surchauffage</translation>
     </message>
     <message>
         <source>Indoor Unit Reference Subcooling</source>
-        <translation>Sous-refroidissement de Référence de l'Unité Intérieure</translation>
+        <translation>Sous-refroidissement de Référence de l&apos;Unité Intérieure</translation>
     </message>
     <message>
         <source>Indoor Unit Reference Superheating</source>
-        <translation>Surchauffe de Référence de l'Unité Intérieure</translation>
+        <translation>Surchauffe de Référence de l&apos;Unité Intérieure</translation>
     </message>
     <message>
         <source>Induced Air Inlet Node Name</source>
-        <translation>Nom du nœud d'admission d'air induit</translation>
+        <translation>Nom du nœud d&apos;admission d&apos;air induit</translation>
     </message>
     <message>
         <source>Induced Air Outlet Port List</source>
-        <translation>Liste des ports de sortie d'air induit</translation>
+        <translation>Liste des ports de sortie d&apos;air induit</translation>
     </message>
     <message>
         <source>Induction Ratio</source>
-        <translation>Rapport d'induction</translation>
+        <translation>Rapport d&apos;induction</translation>
     </message>
     <message>
         <source>Infiltration Balancing Method</source>
-        <translation>Méthode d'équilibrage de l'infiltration</translation>
+        <translation>Méthode d&apos;équilibrage de l&apos;infiltration</translation>
     </message>
     <message>
         <source>Infiltration Balancing Zones</source>
-        <translation>Zones d'équilibrage d'infiltration</translation>
+        <translation>Zones d&apos;équilibrage d&apos;infiltration</translation>
     </message>
     <message>
         <source>Inflation</source>
@@ -7689,7 +7689,7 @@
     </message>
     <message>
         <source>Inflation Approach</source>
-        <translation>Approche de l'inflation</translation>
+        <translation>Approche de l&apos;inflation</translation>
     </message>
     <message>
         <source>Infrared Hemispherical Emissivity</source>
@@ -7717,7 +7717,7 @@
     </message>
     <message>
         <source>Initial Heat Recovery Cooling Energy Fraction</source>
-        <translation>Fraction initiale d'énergie frigorifique en récupération de chaleur</translation>
+        <translation>Fraction initiale d&apos;énergie frigorifique en récupération de chaleur</translation>
     </message>
     <message>
         <source>Initial Heat Recovery Heating Capacity Fraction</source>
@@ -7725,15 +7725,15 @@
     </message>
     <message>
         <source>Initial Heat Recovery Heating Energy Fraction</source>
-        <translation>Fraction initiale d'énergie de chauffage de la récupération thermique</translation>
+        <translation>Fraction initiale d&apos;énergie de chauffage de la récupération thermique</translation>
     </message>
     <message>
         <source>Initial Indoor Air Temperature</source>
-        <translation>Température initiale de l'air intérieur</translation>
+        <translation>Température initiale de l&apos;air intérieur</translation>
     </message>
     <message>
         <source>Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity</source>
-        <translation>Taux d'évaporation initiale d'humidité divisé par la capacité de refroidissement latent en régime permanent</translation>
+        <translation>Taux d&apos;évaporation initiale d&apos;humidité divisé par la capacité de refroidissement latent en régime permanent</translation>
     </message>
     <message>
         <source>Initial State of Charge</source>
@@ -7757,115 +7757,115 @@
     </message>
     <message>
         <source>Initialization Simulation Program Name</source>
-        <translation>Nom du programme de simulation d'initialisation</translation>
+        <translation>Nom du programme de simulation d&apos;initialisation</translation>
     </message>
     <message>
         <source>Initialization Type</source>
-        <translation>Type d'initialisation</translation>
+        <translation>Type d&apos;initialisation</translation>
     </message>
     <message>
         <source>Inlet Air Configuration</source>
-        <translation>Configuration de l'air d'entrée</translation>
+        <translation>Configuration de l&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Air Humidity Schedule</source>
-        <translation>Calendrier d'humidité de l'air d'entrée</translation>
+        <translation>Calendrier d&apos;humidité de l&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Air Humidity Schedule Name</source>
-        <translation>Nom de la courbe de variation de l'humidité relative de l'air d'entrée</translation>
+        <translation>Nom de la courbe de variation de l&apos;humidité relative de l&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Air Mixer Schedule</source>
-        <translation>Agenda du Mélangeur d'Air d'Entrée</translation>
+        <translation>Agenda du Mélangeur d&apos;Air d&apos;Entrée</translation>
     </message>
     <message>
         <source>Inlet Air Mixer Schedule Name</source>
-        <translation>Nom de l'horaire du mélangeur d'air d'entrée</translation>
+        <translation>Nom de l&apos;horaire du mélangeur d&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Air Temperature Schedule</source>
-        <translation>Calendrier de Température de l'Air à l'Entrée</translation>
+        <translation>Calendrier de Température de l&apos;Air à l&apos;Entrée</translation>
     </message>
     <message>
         <source>Inlet Air Temperature Schedule Name</source>
-        <translation>Nom de la planification de température d'air d'entrée</translation>
+        <translation>Nom de la planification de température d&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Branch Name</source>
-        <translation>Nom de la Branche d'Entrée</translation>
+        <translation>Nom de la Branche d&apos;Entrée</translation>
     </message>
     <message>
         <source>Inlet Mode</source>
-        <translation>Mode d'entrée</translation>
+        <translation>Mode d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Node</source>
-        <translation>Nœud d'entrée</translation>
+        <translation>Nœud d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée</translation>
+        <translation>Nom du Nœud d&apos;Entrée</translation>
     </message>
     <message>
         <source>Inlet Port</source>
-        <translation>Port d'entrée</translation>
+        <translation>Port d&apos;entrée</translation>
     </message>
     <message>
         <source>Inlet Water Temperature Option</source>
-        <translation>Option de température d'eau d'entrée</translation>
+        <translation>Option de température d&apos;eau d&apos;entrée</translation>
     </message>
     <message>
         <source>Input Unit Type for v</source>
-        <translation>Type d'unité d'entrée pour v</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour v</translation>
     </message>
     <message>
         <source>Input Unit Type for w</source>
-        <translation>Type d'unité d'entrée pour w</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour w</translation>
     </message>
     <message>
         <source>Input Unit Type for X</source>
-        <translation>Type d'unité d'entrée pour X</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour X</translation>
     </message>
     <message>
         <source>Input Unit Type for x</source>
-        <translation>Type d'unité d'entrée pour x</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour x</translation>
     </message>
     <message>
         <source>Input Unit Type for X1</source>
-        <translation>Type d'unité d'entrée pour X1</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour X1</translation>
     </message>
     <message>
         <source>Input Unit Type for X2</source>
-        <translation>Unité d'entrée de type pour X2</translation>
+        <translation>Unité d&apos;entrée de type pour X2</translation>
     </message>
     <message>
         <source>Input Unit Type for X3</source>
-        <translation>Type d'unité d'entrée pour X3</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour X3</translation>
     </message>
     <message>
         <source>Input Unit Type for X4</source>
-        <translation>Type d'unité d'entrée pour X4</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour X4</translation>
     </message>
     <message>
         <source>Input Unit Type for X5</source>
-        <translation>Type d'unité d'entrée pour X5</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour X5</translation>
     </message>
     <message>
         <source>Input Unit Type for Y</source>
-        <translation>Type d'unité d'entrée pour Y</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour Y</translation>
     </message>
     <message>
         <source>Input Unit Type for y</source>
-        <translation>Type d'unité d'entrée pour y</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour y</translation>
     </message>
     <message>
         <source>Input Unit Type for z</source>
-        <translation>Type d'unité d'entrée pour z</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour z</translation>
     </message>
     <message>
         <source>Input Unit Type for Z</source>
-        <translation>Type d'unité d'entrée pour Z</translation>
+        <translation>Type d&apos;unité d&apos;entrée pour Z</translation>
     </message>
     <message>
         <source>Inside Convection Coefficient</source>
@@ -7885,7 +7885,7 @@
     </message>
     <message>
         <source>Inside Sill Depth</source>
-        <translation>Profondeur de l'appui intérieur</translation>
+        <translation>Profondeur de l&apos;appui intérieur</translation>
     </message>
     <message>
         <source>Inside Sill Solar Absorptance</source>
@@ -7893,11 +7893,11 @@
     </message>
     <message>
         <source>Installed Case Lighting Power per Door</source>
-        <translation>Puissance d'éclairage installée du boîtier par porte</translation>
+        <translation>Puissance d&apos;éclairage installée du boîtier par porte</translation>
     </message>
     <message>
         <source>Installed Case Lighting Power per Unit Length</source>
-        <translation>Puissance d'éclairage installée par unité de longueur du meuble frigorifique</translation>
+        <translation>Puissance d&apos;éclairage installée par unité de longueur du meuble frigorifique</translation>
     </message>
     <message>
         <source>Insulated Floor Surface Area</source>
@@ -7913,7 +7913,7 @@
     </message>
     <message>
         <source>Insulation Type</source>
-        <translation>Type d'isolation</translation>
+        <translation>Type d&apos;isolation</translation>
     </message>
     <message>
         <source>IntegralCollectorStorageParameters Name</source>
@@ -7925,19 +7925,19 @@
     </message>
     <message>
         <source>Intercooler Type</source>
-        <translation>Type d'Intercooler</translation>
+        <translation>Type d&apos;Intercooler</translation>
     </message>
     <message>
         <source>Interior Horizontal Insulation Depth</source>
-        <translation>Profondeur de l'isolant horizontal intérieur</translation>
+        <translation>Profondeur de l&apos;isolant horizontal intérieur</translation>
     </message>
     <message>
         <source>Interior Horizontal Insulation Material Name</source>
-        <translation>Nom du matériau d'isolation horizontale intérieure</translation>
+        <translation>Nom du matériau d&apos;isolation horizontale intérieure</translation>
     </message>
     <message>
         <source>Interior Horizontal Insulation Width</source>
-        <translation>Largeur de l'isolation horizontale intérieure</translation>
+        <translation>Largeur de l&apos;isolation horizontale intérieure</translation>
     </message>
     <message>
         <source>Interior Partition Construction Name</source>
@@ -7949,15 +7949,15 @@
     </message>
     <message>
         <source>Interior Vertical Insulation Depth</source>
-        <translation>Profondeur de l'Isolation Verticale Intérieure</translation>
+        <translation>Profondeur de l&apos;Isolation Verticale Intérieure</translation>
     </message>
     <message>
         <source>Interior Vertical Insulation Material Name</source>
-        <translation>Nom du matériau d'isolation verticale intérieure</translation>
+        <translation>Nom du matériau d&apos;isolation verticale intérieure</translation>
     </message>
     <message>
         <source>Internal Data Index Key Name</source>
-        <translation>Nom de Clé d'Index de Données Internes</translation>
+        <translation>Nom de Clé d&apos;Index de Données Internes</translation>
     </message>
     <message>
         <source>Internal Data Type</source>
@@ -7973,23 +7973,23 @@
     </message>
     <message>
         <source>Interpolation Method</source>
-        <translation>Méthode d'interpolation</translation>
+        <translation>Méthode d&apos;interpolation</translation>
     </message>
     <message>
         <source>Interval Length</source>
-        <translation>Durée de l'intervalle</translation>
+        <translation>Durée de l&apos;intervalle</translation>
     </message>
     <message>
         <source>Inverter Efficiency</source>
-        <translation>Rendement de l'onduleur</translation>
+        <translation>Rendement de l&apos;onduleur</translation>
     </message>
     <message>
         <source>Inverter Efficiency Calculation Mode</source>
-        <translation>Mode de Calcul du Rendement de l'Onduleur</translation>
+        <translation>Mode de Calcul du Rendement de l&apos;Onduleur</translation>
     </message>
     <message>
         <source>Inverter Name</source>
-        <translation>Nom de l'onduleur</translation>
+        <translation>Nom de l&apos;onduleur</translation>
     </message>
     <message>
         <source>Is Leap Year</source>
@@ -8001,11 +8001,11 @@
     </message>
     <message>
         <source>Item Name</source>
-        <translation>Nom de l'élément</translation>
+        <translation>Nom de l&apos;élément</translation>
     </message>
     <message>
         <source>Item Type</source>
-        <translation>Type d'article</translation>
+        <translation>Type d&apos;article</translation>
     </message>
     <message>
         <source>January Deep Ground Temperature</source>
@@ -8089,7 +8089,7 @@
     </message>
     <message>
         <source>Klems Sampling Density</source>
-        <translation>Densité d'échantillonnage KLEMS</translation>
+        <translation>Densité d&apos;échantillonnage KLEMS</translation>
     </message>
     <message>
         <source>Latent Case Credit Curve Name</source>
@@ -8101,23 +8101,23 @@
     </message>
     <message>
         <source>Latent Effectiveness at 100% Cooling Air Flow</source>
-        <translation>Efficacité Latente à 100% du Débit d'Air de Refroidissement</translation>
+        <translation>Efficacité Latente à 100% du Débit d&apos;Air de Refroidissement</translation>
     </message>
     <message>
         <source>Latent Effectiveness at 100% Heating Air Flow</source>
-        <translation>Efficacité latente à 100% du débit d'air de chauffage</translation>
+        <translation>Efficacité latente à 100% du débit d&apos;air de chauffage</translation>
     </message>
     <message>
         <source>Latent Effectiveness of Cooling Air Flow Curve Name</source>
-        <translation>Nom de la courbe d'efficacité latente du débit d'air de refroidissement</translation>
+        <translation>Nom de la courbe d&apos;efficacité latente du débit d&apos;air de refroidissement</translation>
     </message>
     <message>
         <source>Latent Effectiveness of Heating Air Flow Curve Name</source>
-        <translation>Nom de la courbe d'efficacité latente du débit d'air de chauffage</translation>
+        <translation>Nom de la courbe d&apos;efficacité latente du débit d&apos;air de chauffage</translation>
     </message>
     <message>
         <source>Latent Heat during the Entire Phase Change Process</source>
-        <translation>Chaleur latente pendant l'ensemble du processus de changement de phase</translation>
+        <translation>Chaleur latente pendant l&apos;ensemble du processus de changement de phase</translation>
     </message>
     <message>
         <source>Latent Heat Recovery Effectiveness</source>
@@ -8157,11 +8157,11 @@
     </message>
     <message>
         <source>Left Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté gauche</translation>
+        <translation>Multiplicateur d&apos;ouverture côté gauche</translation>
     </message>
     <message>
         <source>Left-Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté gauche</translation>
+        <translation>Multiplicateur d&apos;ouverture côté gauche</translation>
     </message>
     <message>
         <source>Length</source>
@@ -8169,11 +8169,11 @@
     </message>
     <message>
         <source>Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
-        <translation>Longueur de la tuyauterie principale reliant l'unité extérieure au premier raccord de distribution</translation>
+        <translation>Longueur de la tuyauterie principale reliant l&apos;unité extérieure au premier raccord de distribution</translation>
     </message>
     <message>
         <source>Length of Study Period in Years</source>
-        <translation>Durée de la période d'étude en années</translation>
+        <translation>Durée de la période d&apos;étude en années</translation>
     </message>
     <message>
         <source>Lifetime Model</source>
@@ -8181,19 +8181,19 @@
     </message>
     <message>
         <source>Lighting Control Type</source>
-        <translation>Type de commande d'éclairage</translation>
+        <translation>Type de commande d&apos;éclairage</translation>
     </message>
     <message>
         <source>Lighting Level</source>
-        <translation>Puissance d'éclairage</translation>
+        <translation>Puissance d&apos;éclairage</translation>
     </message>
     <message>
         <source>Lighting Power</source>
-        <translation>Puissance d'éclairage</translation>
+        <translation>Puissance d&apos;éclairage</translation>
     </message>
     <message>
         <source>Lights Definition Name</source>
-        <translation>Nom de la Définition d'Éclairage</translation>
+        <translation>Nom de la Définition d&apos;Éclairage</translation>
     </message>
     <message>
         <source>Limit Weight DMX</source>
@@ -8209,7 +8209,7 @@
     </message>
     <message>
         <source>Liquid Generic Fuel CO2 Emission Factor</source>
-        <translation>Facteur d'Émission de CO2 du Combustible Liquide Générique</translation>
+        <translation>Facteur d&apos;Émission de CO2 du Combustible Liquide Générique</translation>
     </message>
     <message>
         <source>Liquid Generic Fuel Higher Heating Value</source>
@@ -8225,15 +8225,15 @@
     </message>
     <message>
         <source>Liquid State Density</source>
-        <translation>Masse volumique à l'état liquide</translation>
+        <translation>Masse volumique à l&apos;état liquide</translation>
     </message>
     <message>
         <source>Liquid State Specific Heat</source>
-        <translation>Chaleur spécifique à l'état liquide</translation>
+        <translation>Chaleur spécifique à l&apos;état liquide</translation>
     </message>
     <message>
         <source>Liquid State Thermal Conductivity</source>
-        <translation>Conductivité thermique à l'état liquide</translation>
+        <translation>Conductivité thermique à l&apos;état liquide</translation>
     </message>
     <message>
         <source>Liquid Suction Design Subcooling Temperature Difference</source>
@@ -8253,11 +8253,11 @@
     </message>
     <message>
         <source>Load Schedule Name</source>
-        <translation>Nom de l'horaire de charge</translation>
+        <translation>Nom de l&apos;horaire de charge</translation>
     </message>
     <message>
         <source>Load Side Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée côté charge</translation>
+        <translation>Nom du nœud d&apos;entrée côté charge</translation>
     </message>
     <message>
         <source>Load Side Outlet Node Name</source>
@@ -8269,7 +8269,7 @@
     </message>
     <message>
         <source>Loading Index List</source>
-        <translation>Liste d'index de charge</translation>
+        <translation>Liste d&apos;index de charge</translation>
     </message>
     <message>
         <source>Loads Convergence Tolerance Value</source>
@@ -8285,7 +8285,7 @@
     </message>
     <message>
         <source>Loop Demand Side Inlet Node</source>
-        <translation>Nœud d'entrée côté demande de la boucle</translation>
+        <translation>Nœud d&apos;entrée côté demande de la boucle</translation>
     </message>
     <message>
         <source>Loop Demand Side Outlet Node</source>
@@ -8297,7 +8297,7 @@
     </message>
     <message>
         <source>Loop Supply Side Inlet Node</source>
-        <translation>Nœud d'entrée côté alimentation de la boucle</translation>
+        <translation>Nœud d&apos;entrée côté alimentation de la boucle</translation>
     </message>
     <message>
         <source>Loop Supply Side Outlet Node</source>
@@ -8309,11 +8309,11 @@
     </message>
     <message>
         <source>Low Fan Speed Air Flow Rate</source>
-        <translation>Débit d'air à vitesse ventilateur basse</translation>
+        <translation>Débit d&apos;air à vitesse ventilateur basse</translation>
     </message>
     <message>
         <source>Low Fan Speed Air Flow Rate Sizing Factor</source>
-        <translation>Facteur de dimensionnement du débit d'air à vitesse de ventilateur faible</translation>
+        <translation>Facteur de dimensionnement du débit d&apos;air à vitesse de ventilateur faible</translation>
     </message>
     <message>
         <source>Low Fan Speed Fan Power</source>
@@ -8333,7 +8333,7 @@
     </message>
     <message>
         <source>Low Fan Speed U-factor Times Area Value</source>
-        <translation>Valeur du coefficient d'échange thermique (UA) à vitesse de ventilateur basse</translation>
+        <translation>Valeur du coefficient d&apos;échange thermique (UA) à vitesse de ventilateur basse</translation>
     </message>
     <message>
         <source>Low Pressure CompressorList Name</source>
@@ -8341,7 +8341,7 @@
     </message>
     <message>
         <source>Low Reference Humidity Ratio</source>
-        <translation>Ratio d'humidité bas de référence</translation>
+        <translation>Ratio d&apos;humidité bas de référence</translation>
     </message>
     <message>
         <source>Low Reference Temperature</source>
@@ -8349,15 +8349,15 @@
     </message>
     <message>
         <source>Low Setpoint Schedule Name</source>
-        <translation>Nom de l'Ordonnance de Consigne Basse</translation>
+        <translation>Nom de l&apos;Ordonnance de Consigne Basse</translation>
     </message>
     <message>
         <source>Low Speed Energy Input Ratio Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction du rapport d'entrée énergétique à vitesse réduite en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction du rapport d&apos;entrée énergétique à vitesse réduite en fonction de la température</translation>
     </message>
     <message>
         <source>Low Speed Evaporative Condenser Air Flow Rate</source>
-        <translation>Débit d'air du condenseur évaporatif à vitesse basse</translation>
+        <translation>Débit d&apos;air du condenseur évaporatif à vitesse basse</translation>
     </message>
     <message>
         <source>Low Speed Evaporative Condenser Effectiveness</source>
@@ -8385,7 +8385,7 @@
     </message>
     <message>
         <source>Low Speed Supply Air Flow Ratio</source>
-        <translation>Rapport de débit d'air soufflé à faible vitesse</translation>
+        <translation>Rapport de débit d&apos;air soufflé à faible vitesse</translation>
     </message>
     <message>
         <source>Low Speed Total Cooling Capacity Function of Temperature Curve Name</source>
@@ -8393,11 +8393,11 @@
     </message>
     <message>
         <source>Low Speed User Specified Design Capacity</source>
-        <translation>Capacité de Conception Spécifiée par l'Utilisateur à Vitesse Réduite</translation>
+        <translation>Capacité de Conception Spécifiée par l&apos;Utilisateur à Vitesse Réduite</translation>
     </message>
     <message>
         <source>Low Speed User Specified Design Capacity Sizing Factor</source>
-        <translation>Facteur de dimensionnement de la capacité de conception spécifiée par l'utilisateur à vitesse réduite</translation>
+        <translation>Facteur de dimensionnement de la capacité de conception spécifiée par l&apos;utilisateur à vitesse réduite</translation>
     </message>
     <message>
         <source>Low Temp Radiant Constant Flow Cooling Coil Name</source>
@@ -8429,7 +8429,7 @@
     </message>
     <message>
         <source>Low Temperature Suction Piping Zone Name</source>
-        <translation>Nom de la zone de tuyauterie d'aspiration basse température</translation>
+        <translation>Nom de la zone de tuyauterie d&apos;aspiration basse température</translation>
     </message>
     <message>
         <source>Lower Limit Value</source>
@@ -8441,7 +8441,7 @@
     </message>
     <message>
         <source>Main Model Program Calling Manager Name</source>
-        <translation>Nom du gestionnaire d'appel du programme principal du modèle</translation>
+        <translation>Nom du gestionnaire d&apos;appel du programme principal du modèle</translation>
     </message>
     <message>
         <source>Main Model Program Name</source>
@@ -8449,15 +8449,15 @@
     </message>
     <message>
         <source>Main Pipe Insulation Thermal Conductivity</source>
-        <translation>Conductivité thermique de l'isolation du tuyau principal</translation>
+        <translation>Conductivité thermique de l&apos;isolation du tuyau principal</translation>
     </message>
     <message>
         <source>Main Pipe Insulation Thickness</source>
-        <translation>Épaisseur de l'isolation du tuyau principal</translation>
+        <translation>Épaisseur de l&apos;isolation du tuyau principal</translation>
     </message>
     <message>
         <source>Make-up Water Supply Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps d'Alimentation en Eau de Compensation</translation>
+        <translation>Nom de l&apos;Emploi du Temps d&apos;Alimentation en Eau de Compensation</translation>
     </message>
     <message>
         <source>March Deep Ground Temperature</source>
@@ -8505,11 +8505,11 @@
     </message>
     <message>
         <source>Maximum Allowable Daylight Glare Probability</source>
-        <translation>Probabilité maximale admissible d'éblouissement dû à la lumière du jour</translation>
+        <translation>Probabilité maximale admissible d&apos;éblouissement dû à la lumière du jour</translation>
     </message>
     <message>
         <source>Maximum Allowable Discomfort Glare Index</source>
-        <translation>Indice maximal de l'éblouissement inconfortable autorisé</translation>
+        <translation>Indice maximal de l&apos;éblouissement inconfortable autorisé</translation>
     </message>
     <message>
         <source>Maximum Ambient Temperature for Crankcase Heater Operation</source>
@@ -8517,11 +8517,11 @@
     </message>
     <message>
         <source>Maximum Approach Temperature</source>
-        <translation>Température d'Approche Maximale</translation>
+        <translation>Température d&apos;Approche Maximale</translation>
     </message>
     <message>
         <source>Maximum Belt Efficiency Curve Name</source>
-        <translation>Nom de la courbe d'efficacité maximale de la courroie</translation>
+        <translation>Nom de la courbe d&apos;efficacité maximale de la courroie</translation>
     </message>
     <message>
         <source>Maximum Capacity Factor</source>
@@ -8533,19 +8533,19 @@
     </message>
     <message>
         <source>Maximum Chilled Water Flow Rate</source>
-        <translation>Débit volumétrique maximal d'eau glacée</translation>
+        <translation>Débit volumétrique maximal d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Maximum Cold Water Flow</source>
-        <translation>Débit maximal d'eau froide</translation>
+        <translation>Débit maximal d&apos;eau froide</translation>
     </message>
     <message>
         <source>Maximum Cold Water Flow Rate</source>
-        <translation>Débit volumique maximal d'eau froide</translation>
+        <translation>Débit volumique maximal d&apos;eau froide</translation>
     </message>
     <message>
         <source>Maximum Cooling Air Flow Rate</source>
-        <translation>Débit d'Air Maximum en Refroidissement</translation>
+        <translation>Débit d&apos;Air Maximum en Refroidissement</translation>
     </message>
     <message>
         <source>Maximum Curve Output</source>
@@ -8553,11 +8553,11 @@
     </message>
     <message>
         <source>Maximum Damper Air Flow Rate</source>
-        <translation>Débit d'air maximal du registre</translation>
+        <translation>Débit d&apos;air maximal du registre</translation>
     </message>
     <message>
         <source>Maximum Difference In Monthly Average Outdoor Air Temperatures</source>
-        <translation>Différence Maximale des Températures Moyennes Mensuelles de l'Air Extérieur</translation>
+        <translation>Différence Maximale des Températures Moyennes Mensuelles de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Maximum Dimensionless Fan Airflow</source>
@@ -8581,7 +8581,7 @@
     </message>
     <message>
         <source>Maximum Figures in Shadow Overlap Calculations</source>
-        <translation>Nombre Maximum de Figures dans les Calculs de Chevauchement d'Ombres</translation>
+        <translation>Nombre Maximum de Figures dans les Calculs de Chevauchement d&apos;Ombres</translation>
     </message>
     <message>
         <source>Maximum Full Load Electrical Power Output</source>
@@ -8593,15 +8593,15 @@
     </message>
     <message>
         <source>Maximum Heat Recovery Water Flow Rate</source>
-        <translation>Débit d'eau maximal de récupération de chaleur</translation>
+        <translation>Débit d&apos;eau maximal de récupération de chaleur</translation>
     </message>
     <message>
         <source>Maximum Heat Recovery Water Temperature</source>
-        <translation>Température Maximale de l'Eau de Récupération de Chaleur</translation>
+        <translation>Température Maximale de l&apos;Eau de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Maximum Heating Air Flow Rate</source>
-        <translation>Débit d'air maximal en chauffage</translation>
+        <translation>Débit d&apos;air maximal en chauffage</translation>
     </message>
     <message>
         <source>Maximum Heating Capacity in Kmol per Second</source>
@@ -8617,23 +8617,23 @@
     </message>
     <message>
         <source>Maximum Heating Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité maximal de l'air soufflé en chauffage</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air soufflé en chauffage</translation>
     </message>
     <message>
         <source>Maximum Heating Supply Air Temperature</source>
-        <translation>Température maximale de l'air de soufflage pour chauffage</translation>
+        <translation>Température maximale de l&apos;air de soufflage pour chauffage</translation>
     </message>
     <message>
         <source>Maximum Hot Water Flow</source>
-        <translation>Débit maximal d'eau chaude</translation>
+        <translation>Débit maximal d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Maximum Hot Water Flow Rate</source>
-        <translation>Débit volumétrique d'eau chaude maximal</translation>
+        <translation>Débit volumétrique d&apos;eau chaude maximal</translation>
     </message>
     <message>
         <source>Maximum HVAC Iterations</source>
-        <translation>Nombre maximum d'itérations HVAC</translation>
+        <translation>Nombre maximum d&apos;itérations HVAC</translation>
     </message>
     <message>
         <source>Maximum Indoor Temperature</source>
@@ -8641,23 +8641,23 @@
     </message>
     <message>
         <source>Maximum Indoor Temperature Schedule Name</source>
-        <translation>Nom de l'Horaire de Température Intérieure Maximale</translation>
+        <translation>Nom de l&apos;Horaire de Température Intérieure Maximale</translation>
     </message>
     <message>
         <source>Maximum Inlet Air Temperature for Compressor Operation</source>
-        <translation>Température d'entrée maximale de l'air pour le fonctionnement du compresseur</translation>
+        <translation>Température d&apos;entrée maximale de l&apos;air pour le fonctionnement du compresseur</translation>
     </message>
     <message>
         <source>Maximum Inlet Air Wet-Bulb Temperature</source>
-        <translation>Température à Bulbe Humide de l'Air d'Entrée Maximale</translation>
+        <translation>Température à Bulbe Humide de l&apos;Air d&apos;Entrée Maximale</translation>
     </message>
     <message>
         <source>Maximum Inlet Water Temperature for Heat Reclaim</source>
-        <translation>Température maximale d'entrée d'eau pour la récupération de chaleur</translation>
+        <translation>Température maximale d&apos;entrée d&apos;eau pour la récupération de chaleur</translation>
     </message>
     <message>
         <source>Maximum Leaving Water Temperature Curve Name</source>
-        <translation>Nom de la courbe de température maximale de l'eau de sortie</translation>
+        <translation>Nom de la courbe de température maximale de l&apos;eau de sortie</translation>
     </message>
     <message>
         <source>Maximum Length of Simulation</source>
@@ -8693,7 +8693,7 @@
     </message>
     <message>
         <source>Maximum Number of Iterations</source>
-        <translation>Nombre Maximum d'Itérations</translation>
+        <translation>Nombre Maximum d&apos;Itérations</translation>
     </message>
     <message>
         <source>Maximum Number of People</source>
@@ -8717,11 +8717,11 @@
     </message>
     <message>
         <source>Maximum Other Side Temperature Limit</source>
-        <translation>Limite Maximale de Température de l'Autre Côté</translation>
+        <translation>Limite Maximale de Température de l&apos;Autre Côté</translation>
     </message>
     <message>
         <source>Maximum Outdoor Air Fraction or Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de fraction maximale d'air extérieur ou de température</translation>
+        <translation>Nom de l&apos;agenda de fraction maximale d&apos;air extérieur ou de température</translation>
     </message>
     <message>
         <source>Maximum Outdoor Air Temperature</source>
@@ -8785,7 +8785,7 @@
     </message>
     <message>
         <source>Maximum Outlet Air Temperature During Heating Operation</source>
-        <translation>Température de sortie d'air maximale pendant le chauffage</translation>
+        <translation>Température de sortie d&apos;air maximale pendant le chauffage</translation>
     </message>
     <message>
         <source>Maximum Output</source>
@@ -8809,7 +8809,7 @@
     </message>
     <message>
         <source>Maximum Power Input</source>
-        <translation>Puissance d'Entrée Maximale</translation>
+        <translation>Puissance d&apos;Entrée Maximale</translation>
     </message>
     <message>
         <source>Maximum Predicted Percentage of Dissatisfied Threshold</source>
@@ -8821,35 +8821,35 @@
     </message>
     <message>
         <source>Maximum Primary Air Flow Rate</source>
-        <translation>Débit d'air primaire maximal</translation>
+        <translation>Débit d&apos;air primaire maximal</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité maximal de l'air d'entrée du procédé pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air d&apos;entrée du procédé pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Temperature Equation</source>
-        <translation>Rapport d'humidité maximal de l'air d'entrée du processus pour l'équation de température</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air d&apos;entrée du processus pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
-        <translation>Humidité relative maximale de l'air d'entrée du processus pour l'équation du rapport d'humidité</translation>
+        <translation>Humidité relative maximale de l&apos;air d&apos;entrée du processus pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Temperature Equation</source>
-        <translation>Humidité Relative Maximale de l'Air Entrant du Processus pour l'Équation de Température</translation>
+        <translation>Humidité Relative Maximale de l&apos;Air Entrant du Processus pour l&apos;Équation de Température</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Temperature for Humidity Ratio Equation</source>
-        <translation>Température Maximale de l'Air à l'Entrée du Processus pour l'Équation du Ratio d'Humidité</translation>
+        <translation>Température Maximale de l&apos;Air à l&apos;Entrée du Processus pour l&apos;Équation du Ratio d&apos;Humidité</translation>
     </message>
     <message>
         <source>Maximum Process Inlet Air Temperature for Temperature Equation</source>
-        <translation>Température maximale d'entrée du flux de procédé pour l'équation de température</translation>
+        <translation>Température maximale d&apos;entrée du flux de procédé pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum Range Temperature</source>
-        <translation>Température d'écart maximal</translation>
+        <translation>Température d&apos;écart maximal</translation>
     </message>
     <message>
         <source>Maximum Receiving Temperature Schedule Name</source>
@@ -8857,43 +8857,43 @@
     </message>
     <message>
         <source>Maximum Regeneration Air Velocity for Humidity Ratio Equation</source>
-        <translation>Vitesse maximale de l'air de régénération pour l'équation du ratio d'humidité</translation>
+        <translation>Vitesse maximale de l&apos;air de régénération pour l&apos;équation du ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Regeneration Air Velocity for Temperature Equation</source>
-        <translation>Vitesse maximale de l'air de régénération pour l'équation de température</translation>
+        <translation>Vitesse maximale de l&apos;air de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité maximal de l'air d'entrée de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air d&apos;entrée de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
-        <translation>Rapport d'humidité maximal de l'air d'entrée de régénération pour l'équation de température</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air d&apos;entrée de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
-        <translation>Humidité Relative Maximale de l'Air d'Entrée de Régénération pour l'Équation du Rapport d'Humidité</translation>
+        <translation>Humidité Relative Maximale de l&apos;Air d&apos;Entrée de Régénération pour l&apos;Équation du Rapport d&apos;Humidité</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
-        <translation>Humidité Relative Maximale de l'Air d'Entrée de Régénération pour l'Équation de Température</translation>
+        <translation>Humidité Relative Maximale de l&apos;Air d&apos;Entrée de Régénération pour l&apos;Équation de Température</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
-        <translation>Température maximale de l'air d'entrée de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Température maximale de l&apos;air d&apos;entrée de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Temperature Equation</source>
-        <translation>Température d'entrée de régénération maximale pour l'équation de température</translation>
+        <translation>Température d&apos;entrée de régénération maximale pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité maximal de l'air de sortie de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité maximal de l&apos;air de sortie de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Maximum Regeneration Outlet Air Temperature for Temperature Equation</source>
-        <translation>Température maximale de sortie de l'air de régénération pour l'équation de température</translation>
+        <translation>Température maximale de sortie de l&apos;air de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Maximum RPM Schedule</source>
@@ -8905,7 +8905,7 @@
     </message>
     <message>
         <source>Maximum Secondary Air Flow Rate</source>
-        <translation>Débit d'air secondaire maximal</translation>
+        <translation>Débit d&apos;air secondaire maximal</translation>
     </message>
     <message>
         <source>Maximum Sensible Heating Capacity</source>
@@ -8913,7 +8913,7 @@
     </message>
     <message>
         <source>Maximum Setpoint Humidity Ratio</source>
-        <translation>Rapport d'humidité maximal du point de consigne</translation>
+        <translation>Rapport d&apos;humidité maximal du point de consigne</translation>
     </message>
     <message>
         <source>Maximum Slat Angle</source>
@@ -8921,7 +8921,7 @@
     </message>
     <message>
         <source>Maximum Source Inlet Temperature</source>
-        <translation>Température maximale d'entrée source</translation>
+        <translation>Température maximale d&apos;entrée source</translation>
     </message>
     <message>
         <source>Maximum Source Temperature Schedule Name</source>
@@ -8933,23 +8933,23 @@
     </message>
     <message>
         <source>Maximum Storage State of Charge Fraction</source>
-        <translation>Fraction d'État de Charge du Stockage Maximale</translation>
+        <translation>Fraction d&apos;État de Charge du Stockage Maximale</translation>
     </message>
     <message>
         <source>Maximum Supply Air Flow Rate</source>
-        <translation>Débit d'air soufflé maximal</translation>
+        <translation>Débit d&apos;air soufflé maximal</translation>
     </message>
     <message>
         <source>Maximum Supply Air Temperature from Supplemental Heater</source>
-        <translation>Température Maximale de l'Air Pulsé du Chauffage Supplémentaire</translation>
+        <translation>Température Maximale de l&apos;Air Pulsé du Chauffage Supplémentaire</translation>
     </message>
     <message>
         <source>Maximum Supply Air Temperature in Heating Mode</source>
-        <translation>Température maximale de l'air soufflé en mode chauffage</translation>
+        <translation>Température maximale de l&apos;air soufflé en mode chauffage</translation>
     </message>
     <message>
         <source>Maximum Supply Water Temperature Curve Name</source>
-        <translation>Nom de la courbe de température maximale de l'eau de distribution</translation>
+        <translation>Nom de la courbe de température maximale de l&apos;eau de distribution</translation>
     </message>
     <message>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
@@ -8961,7 +8961,7 @@
     </message>
     <message>
         <source>Maximum Temperature Difference Between Inlet Air and Evaporating Temperature</source>
-        <translation>Différence de Température Maximale entre l'Air d'Entrée et la Température d'Évaporation</translation>
+        <translation>Différence de Température Maximale entre l&apos;Air d&apos;Entrée et la Température d&apos;Évaporation</translation>
     </message>
     <message>
         <source>Maximum Temperature for Heat Recovery</source>
@@ -8969,19 +8969,19 @@
     </message>
     <message>
         <source>Maximum Terminal Air Flow Rate</source>
-        <translation>Débit d'air maximal au terminal</translation>
+        <translation>Débit d&apos;air maximal au terminal</translation>
     </message>
     <message>
         <source>Maximum Tip Speed Ratio</source>
-        <translation>Rapport de Vitesse d'Extrémité Maximum</translation>
+        <translation>Rapport de Vitesse d&apos;Extrémité Maximum</translation>
     </message>
     <message>
         <source>Maximum Total Air Flow Rate</source>
-        <translation>Débit d'air total maximal</translation>
+        <translation>Débit d&apos;air total maximal</translation>
     </message>
     <message>
         <source>Maximum Total Chilled Water Volumetric Flow Rate</source>
-        <translation>Débit volumétrique maximal d'eau glacée</translation>
+        <translation>Débit volumétrique maximal d&apos;eau glacée</translation>
     </message>
     <message>
         <source>Maximum Total Cooling Capacity</source>
@@ -8993,7 +8993,7 @@
     </message>
     <message>
         <source>Maximum Value for Optimum Start Time</source>
-        <translation>Valeur Maximale de l'Heure de Démarrage Optimum</translation>
+        <translation>Valeur Maximale de l&apos;Heure de Démarrage Optimum</translation>
     </message>
     <message>
         <source>Maximum Value of Psm</source>
@@ -9049,11 +9049,11 @@
     </message>
     <message>
         <source>Maximum Water Flow Rate Ratio</source>
-        <translation>Ratio Maximum de Débit d'Eau</translation>
+        <translation>Ratio Maximum de Débit d&apos;Eau</translation>
     </message>
     <message>
         <source>Maximum Water Flow Volume Before Switching From SCDWH To SCWH Mode</source>
-        <translation>Volume d'eau maximal avant commutation du mode SCDWH au mode SCWH</translation>
+        <translation>Volume d&apos;eau maximal avant commutation du mode SCDWH au mode SCWH</translation>
     </message>
     <message>
         <source>Maximum Wind Speed</source>
@@ -9089,7 +9089,7 @@
     </message>
     <message>
         <source>Medium Speed Supply Air Flow Ratio</source>
-        <translation>Rapport de Débit d'Air Soufflé à Vitesse Moyenne</translation>
+        <translation>Rapport de Débit d&apos;Air Soufflé à Vitesse Moyenne</translation>
     </message>
     <message>
         <source>Medium Temperature Refrigerated CaseAndWalkInList Name</source>
@@ -9097,11 +9097,11 @@
     </message>
     <message>
         <source>Medium Temperature Suction Piping Zone Name</source>
-        <translation>Nom de la Zone de Tuyauterie d'Aspiration Température Moyenne</translation>
+        <translation>Nom de la Zone de Tuyauterie d&apos;Aspiration Température Moyenne</translation>
     </message>
     <message>
         <source>Meter End Use Category</source>
-        <translation>Catégorie d'utilisation finale du compteur</translation>
+        <translation>Catégorie d&apos;utilisation finale du compteur</translation>
     </message>
     <message>
         <source>Meter File Only</source>
@@ -9109,7 +9109,7 @@
     </message>
     <message>
         <source>Meter Install Location</source>
-        <translation>Emplacement d'installation du compteur</translation>
+        <translation>Emplacement d&apos;installation du compteur</translation>
     </message>
     <message>
         <source>Meter Name</source>
@@ -9125,7 +9125,7 @@
     </message>
     <message>
         <source>Method 1 Heat Exchanger Effectiveness</source>
-        <translation>Efficacité de l'Échangeur de Chaleur Méthode 1</translation>
+        <translation>Efficacité de l&apos;Échangeur de Chaleur Méthode 1</translation>
     </message>
     <message>
         <source>Method 2 Parameter hxs0</source>
@@ -9149,7 +9149,7 @@
     </message>
     <message>
         <source>Method 3 F Adjustment Factor</source>
-        <translation>Facteur d'Ajustement Méthode 3 F</translation>
+        <translation>Facteur d&apos;Ajustement Méthode 3 F</translation>
     </message>
     <message>
         <source>Method 3 Gas Area</source>
@@ -9173,7 +9173,7 @@
     </message>
     <message>
         <source>Method 3 N dot Water ref Coefficient</source>
-        <translation>Coefficient de débit d'eau de référence Méthode 3</translation>
+        <translation>Coefficient de débit d&apos;eau de référence Méthode 3</translation>
     </message>
     <message>
         <source>Method 3 NdotGasRef Coefficient</source>
@@ -9181,7 +9181,7 @@
     </message>
     <message>
         <source>Method 3 Water Area</source>
-        <translation>Zone de captage d'eau Méthode 3</translation>
+        <translation>Zone de captage d&apos;eau Méthode 3</translation>
     </message>
     <message>
         <source>Method 4 Condensation Threshold</source>
@@ -9201,11 +9201,11 @@
     </message>
     <message>
         <source>Minimum Air Flow Rate Ratio</source>
-        <translation>Rapport Minimal de Débit d'Air</translation>
+        <translation>Rapport Minimal de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Minimum Air Flow Turndown Schedule Name</source>
-        <translation>Nom de la plage horaire de réduction du débit d'air minimum</translation>
+        <translation>Nom de la plage horaire de réduction du débit d&apos;air minimum</translation>
     </message>
     <message>
         <source>Minimum Air To Water Temperature Offset</source>
@@ -9221,7 +9221,7 @@
     </message>
     <message>
         <source>Minimum Approach Temperature</source>
-        <translation>Température d'Approche Minimale</translation>
+        <translation>Température d&apos;Approche Minimale</translation>
     </message>
     <message>
         <source>Minimum Capacity Factor</source>
@@ -9241,7 +9241,7 @@
     </message>
     <message>
         <source>Minimum Cold Water Flow Rate</source>
-        <translation>Débit volumétrique minimal d'eau froide</translation>
+        <translation>Débit volumétrique minimal d&apos;eau froide</translation>
     </message>
     <message>
         <source>Minimum Condensing Temperature</source>
@@ -9249,11 +9249,11 @@
     </message>
     <message>
         <source>Minimum Cooling Supply Air Humidity Ratio</source>
-        <translation>Rapport d'humidité minimal de l'air soufflé de refroidissement</translation>
+        <translation>Rapport d&apos;humidité minimal de l&apos;air soufflé de refroidissement</translation>
     </message>
     <message>
         <source>Minimum Cooling Supply Air Temperature</source>
-        <translation>Température minimale de l'air de refroidissement soufflé</translation>
+        <translation>Température minimale de l&apos;air de refroidissement soufflé</translation>
     </message>
     <message>
         <source>Minimum Curve Output</source>
@@ -9269,7 +9269,7 @@
     </message>
     <message>
         <source>Minimum Fan Air Flow Ratio</source>
-        <translation>Fraction minimale du débit d'air du ventilateur</translation>
+        <translation>Fraction minimale du débit d&apos;air du ventilateur</translation>
     </message>
     <message>
         <source>Minimum Fan Turn Down Ratio</source>
@@ -9289,7 +9289,7 @@
     </message>
     <message>
         <source>Minimum Heat Recovery Water Flow Rate</source>
-        <translation>Débit d'eau minimal de récupération de chaleur</translation>
+        <translation>Débit d&apos;eau minimal de récupération de chaleur</translation>
     </message>
     <message>
         <source>Minimum Heating Capacity in Kmol per Second</source>
@@ -9301,7 +9301,7 @@
     </message>
     <message>
         <source>Minimum Hot Water Flow Rate</source>
-        <translation>Débit volumétrique minimum d'eau chaude</translation>
+        <translation>Débit volumétrique minimum d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Minimum HVAC Operation Time</source>
@@ -9313,23 +9313,23 @@
     </message>
     <message>
         <source>Minimum Indoor Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de température intérieure minimale</translation>
+        <translation>Nom de l&apos;agenda de température intérieure minimale</translation>
     </message>
     <message>
         <source>Minimum Inlet Air Temperature for Compressor Operation</source>
-        <translation>Température minimale d'air à l'entrée pour le fonctionnement du compresseur</translation>
+        <translation>Température minimale d&apos;air à l&apos;entrée pour le fonctionnement du compresseur</translation>
     </message>
     <message>
         <source>Minimum Inlet Air Wet-Bulb Temperature</source>
-        <translation>Température de bulbe humide minimale de l'air d'entrée</translation>
+        <translation>Température de bulbe humide minimale de l&apos;air d&apos;entrée</translation>
     </message>
     <message>
         <source>Minimum Input Power Fraction for Continuous Dimming Control</source>
-        <translation>Fraction d'Énergie d'Entrée Minimale pour Commande d'Éclairage Continu</translation>
+        <translation>Fraction d&apos;Énergie d&apos;Entrée Minimale pour Commande d&apos;Éclairage Continu</translation>
     </message>
     <message>
         <source>Minimum Leaving Water Temperature Curve Name</source>
-        <translation>Nom de la courbe de température minimale de l'eau à la sortie</translation>
+        <translation>Nom de la courbe de température minimale de l&apos;eau à la sortie</translation>
     </message>
     <message>
         <source>Minimum Light Output Fraction for Continuous Dimming Control</source>
@@ -9357,7 +9357,7 @@
     </message>
     <message>
         <source>Minimum Opening Time</source>
-        <translation>Temps d'ouverture minimum</translation>
+        <translation>Temps d&apos;ouverture minimum</translation>
     </message>
     <message>
         <source>Minimum Operating Point</source>
@@ -9369,11 +9369,11 @@
     </message>
     <message>
         <source>Minimum Outdoor Air Temperature</source>
-        <translation>Température minimale de l'air extérieur</translation>
+        <translation>Température minimale de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Mode</source>
-        <translation>Température Minimale de l'Air Extérieur en Mode Refroidissement</translation>
+        <translation>Température Minimale de l&apos;Air Extérieur en Mode Refroidissement</translation>
     </message>
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Only Mode</source>
@@ -9409,11 +9409,11 @@
     </message>
     <message>
         <source>Minimum Outdoor Ventilation Air Schedule</source>
-        <translation>Calendrier de l'air de ventilation extérieure minimum</translation>
+        <translation>Calendrier de l&apos;air de ventilation extérieure minimum</translation>
     </message>
     <message>
         <source>Minimum Outlet Air Temperature During Cooling Operation</source>
-        <translation>Température minimale de l'air à la sortie en mode refroidissement</translation>
+        <translation>Température minimale de l&apos;air à la sortie en mode refroidissement</translation>
     </message>
     <message>
         <source>Minimum Output</source>
@@ -9429,35 +9429,35 @@
     </message>
     <message>
         <source>Minimum Primary Air Flow Fraction</source>
-        <translation>Fraction minimale du débit d'air primaire</translation>
+        <translation>Fraction minimale du débit d&apos;air primaire</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité minimal de l'air à l'entrée du processus pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité minimal de l&apos;air à l&apos;entrée du processus pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Temperature Equation</source>
-        <translation>Rapport d'humidité minimal de l'air d'entrée du processus pour l'équation de température</translation>
+        <translation>Rapport d&apos;humidité minimal de l&apos;air d&apos;entrée du processus pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
-        <translation>Humidité relative minimale de l'air d'entrée du processus pour l'équation du rapport d'humidité</translation>
+        <translation>Humidité relative minimale de l&apos;air d&apos;entrée du processus pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Temperature Equation</source>
-        <translation>Humidité Relative Minimale de l'Air d'Entrée du Processus pour l'Équation de Température</translation>
+        <translation>Humidité Relative Minimale de l&apos;Air d&apos;Entrée du Processus pour l&apos;Équation de Température</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Temperature for Humidity Ratio Equation</source>
-        <translation>Température minimale de l'air à l'entrée du procédé pour l'équation du ratio d'humidité</translation>
+        <translation>Température minimale de l&apos;air à l&apos;entrée du procédé pour l&apos;équation du ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Process Inlet Air Temperature for Temperature Equation</source>
-        <translation>Température minimale d'entrée d'air du processus pour l'équation de température</translation>
+        <translation>Température minimale d&apos;entrée d&apos;air du processus pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Minimum Range Temperature</source>
-        <translation>Température d'écart minimale</translation>
+        <translation>Température d&apos;écart minimale</translation>
     </message>
     <message>
         <source>Minimum Receiving Temperature Schedule Name</source>
@@ -9465,39 +9465,39 @@
     </message>
     <message>
         <source>Minimum Regeneration Air Velocity for Humidity Ratio Equation</source>
-        <translation>Vitesse minimale de l'air de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Vitesse minimale de l&apos;air de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Regeneration Air Velocity for Temperature Equation</source>
-        <translation>Vitesse minimale de l'air de régénération pour l'équation de température</translation>
+        <translation>Vitesse minimale de l&apos;air de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité minimum de l'air à l'entrée de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité minimum de l&apos;air à l&apos;entrée de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
-        <translation>Rapport d'humidité minimal de l'air d'entrée de régénération pour l'équation de température</translation>
+        <translation>Rapport d&apos;humidité minimal de l&apos;air d&apos;entrée de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
-        <translation>Humidité relative minimale de l'air d'entrée de régénération pour l'équation de rapport d'humidité</translation>
+        <translation>Humidité relative minimale de l&apos;air d&apos;entrée de régénération pour l&apos;équation de rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
-        <translation>Humidité Relative Minimale de l'Air d'Entrée de Régénération pour l'Équation de Température</translation>
+        <translation>Humidité Relative Minimale de l&apos;Air d&apos;Entrée de Régénération pour l&apos;Équation de Température</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
-        <translation>Température minimale d'entrée de l'air de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Température minimale d&apos;entrée de l&apos;air de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Temperature Equation</source>
-        <translation>Température minimale d'entrée d'air de régénération pour l'équation de température</translation>
+        <translation>Température minimale d&apos;entrée d&apos;air de régénération pour l&apos;équation de température</translation>
     </message>
     <message>
         <source>Minimum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
-        <translation>Rapport d'humidité minimum de l'air de sortie de régénération pour l'équation du rapport d'humidité</translation>
+        <translation>Rapport d&apos;humidité minimum de l&apos;air de sortie de régénération pour l&apos;équation du rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>Minimum Regeneration Outlet Air Temperature for Temperature Equation</source>
@@ -9509,11 +9509,11 @@
     </message>
     <message>
         <source>Minimum Runtime Before Operating Mode Change</source>
-        <translation>Durée minimale d'exécution avant changement de mode de fonctionnement</translation>
+        <translation>Durée minimale d&apos;exécution avant changement de mode de fonctionnement</translation>
     </message>
     <message>
         <source>Minimum Setpoint Humidity Ratio</source>
-        <translation>Rapport d'humidité minimal du consigne</translation>
+        <translation>Rapport d&apos;humidité minimal du consigne</translation>
     </message>
     <message>
         <source>Minimum Slat Angle</source>
@@ -9521,11 +9521,11 @@
     </message>
     <message>
         <source>Minimum Source Inlet Temperature</source>
-        <translation>Température minimale à l'entrée de la source</translation>
+        <translation>Température minimale à l&apos;entrée de la source</translation>
     </message>
     <message>
         <source>Minimum Source Temperature Schedule Name</source>
-        <translation>Nom de l'horaire de température minimale de la zone source</translation>
+        <translation>Nom de l&apos;horaire de température minimale de la zone source</translation>
     </message>
     <message>
         <source>Minimum Speed Level For SCDWH Mode</source>
@@ -9545,15 +9545,15 @@
     </message>
     <message>
         <source>Minimum Storage State of Charge Fraction</source>
-        <translation>Fraction minimale d'état de charge du stockage</translation>
+        <translation>Fraction minimale d&apos;état de charge du stockage</translation>
     </message>
     <message>
         <source>Minimum Supply Air Temperature in Cooling Mode</source>
-        <translation>Température minimale de l'air soufflé en mode refroidissement</translation>
+        <translation>Température minimale de l&apos;air soufflé en mode refroidissement</translation>
     </message>
     <message>
         <source>Minimum Supply Water Temperature Curve Name</source>
-        <translation>Nom de la courbe de température minimale de l'eau de départ</translation>
+        <translation>Nom de la courbe de température minimale de l&apos;eau de départ</translation>
     </message>
     <message>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
@@ -9569,7 +9569,7 @@
     </message>
     <message>
         <source>Minimum Temperature Difference to Activate Heat Exchanger</source>
-        <translation>Différence de Température Minimale pour Activer l'Échangeur de Chaleur</translation>
+        <translation>Différence de Température Minimale pour Activer l&apos;Échangeur de Chaleur</translation>
     </message>
     <message>
         <source>Minimum Temperature Limit</source>
@@ -9637,15 +9637,15 @@
     </message>
     <message>
         <source>Minimum Venting Open Factor</source>
-        <translation>Facteur d'ouverture minimal pour ventilation</translation>
+        <translation>Facteur d&apos;ouverture minimal pour ventilation</translation>
     </message>
     <message>
         <source>Minimum Water Flow Rate Ratio</source>
-        <translation>Rapport de débit d'eau minimal</translation>
+        <translation>Rapport de débit d&apos;eau minimal</translation>
     </message>
     <message>
         <source>Minimum Water Loop Temperature For Heat Recovery</source>
-        <translation>Température Minimale de la Boucle d'Eau pour la Récupération de Chaleur</translation>
+        <translation>Température Minimale de la Boucle d&apos;Eau pour la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Minimum Zone Temperature Limit Schedule Name</source>
@@ -9669,11 +9669,11 @@
     </message>
     <message>
         <source>Mixed Air Node Name</source>
-        <translation>Nom du Nœud d'Air Mélangé</translation>
+        <translation>Nom du Nœud d&apos;Air Mélangé</translation>
     </message>
     <message>
         <source>Mixed Air Stream Node Name</source>
-        <translation>Nom du nœud d'air mélangé</translation>
+        <translation>Nom du nœud d&apos;air mélangé</translation>
     </message>
     <message>
         <source>Mode of Operation</source>
@@ -9717,7 +9717,7 @@
     </message>
     <message>
         <source>Model Setup and Sizing Program Calling Manager Name</source>
-        <translation>Nom du gestionnaire d'appel du programme de configuration et dimensionnement du modèle</translation>
+        <translation>Nom du gestionnaire d&apos;appel du programme de configuration et dimensionnement du modèle</translation>
     </message>
     <message>
         <source>Model Type</source>
@@ -9745,23 +9745,23 @@
     </message>
     <message>
         <source>Moisture Diffusion Calculation Method</source>
-        <translation>Méthode de calcul de diffusion d'humidité</translation>
+        <translation>Méthode de calcul de diffusion d&apos;humidité</translation>
     </message>
     <message>
         <source>Moisture Equation Coefficient a</source>
-        <translation>Coefficient a de l'équation d'humidité</translation>
+        <translation>Coefficient a de l&apos;équation d&apos;humidité</translation>
     </message>
     <message>
         <source>Moisture Equation Coefficient b</source>
-        <translation>Coefficient b de l'équation d'humidité</translation>
+        <translation>Coefficient b de l&apos;équation d&apos;humidité</translation>
     </message>
     <message>
         <source>Moisture Equation Coefficient c</source>
-        <translation>Coefficient d'équation d'humidité c</translation>
+        <translation>Coefficient d&apos;équation d&apos;humidité c</translation>
     </message>
     <message>
         <source>Moisture Equation Coefficient d</source>
-        <translation>Coefficient d de l'équation d'humidité</translation>
+        <translation>Coefficient d de l&apos;équation d&apos;humidité</translation>
     </message>
     <message>
         <source>Molar Fraction</source>
@@ -9785,7 +9785,7 @@
     </message>
     <message>
         <source>Month Schedule Name</source>
-        <translation>Nom de l'Emploi du Temps Mensuel</translation>
+        <translation>Nom de l&apos;Emploi du Temps Mensuel</translation>
     </message>
     <message>
         <source>Monthly Charge or Variable Name</source>
@@ -9801,7 +9801,7 @@
     </message>
     <message>
         <source>Motor In Air Stream Fraction</source>
-        <translation>Fraction de Moteur dans le Flux d'Air</translation>
+        <translation>Fraction de Moteur dans le Flux d&apos;Air</translation>
     </message>
     <message>
         <source>Motor Loss Radiative Fraction</source>
@@ -9829,23 +9829,23 @@
     </message>
     <message>
         <source>N2O Emission Factor</source>
-        <translation>Facteur d'émission N2O</translation>
+        <translation>Facteur d&apos;émission N2O</translation>
     </message>
     <message>
         <source>N2O Emission Factor Schedule Name</source>
-        <translation>Nom de l'horaire du facteur d'émission N2O</translation>
+        <translation>Nom de l&apos;horaire du facteur d&apos;émission N2O</translation>
     </message>
     <message>
         <source>Name of a Python Plugin Variable</source>
-        <translation>Nom d'une variable de plugin Python</translation>
+        <translation>Nom d&apos;une variable de plugin Python</translation>
     </message>
     <message>
         <source>Name of External Interface</source>
-        <translation>Nom de l'Interface Externe</translation>
+        <translation>Nom de l&apos;Interface Externe</translation>
     </message>
     <message>
         <source>Name of Object</source>
-        <translation>Nom de l'objet</translation>
+        <translation>Nom de l&apos;objet</translation>
     </message>
     <message>
         <source>Nameplate Efficiency</source>
@@ -9857,15 +9857,15 @@
     </message>
     <message>
         <source>NFRC Product Type for Assembly Calculations</source>
-        <translation>Type de produit NFRC pour les calculs d'assemblage</translation>
+        <translation>Type de produit NFRC pour les calculs d&apos;assemblage</translation>
     </message>
     <message>
         <source>NH3 Emission Factor</source>
-        <translation>Facteur d'émission NH3</translation>
+        <translation>Facteur d&apos;émission NH3</translation>
     </message>
     <message>
         <source>NH3 Emission Factor Schedule Name</source>
-        <translation>Nom de l'horaire du facteur d'émission NH3</translation>
+        <translation>Nom de l&apos;horaire du facteur d&apos;émission NH3</translation>
     </message>
     <message>
         <source>Night Tare Loss Power</source>
@@ -9893,19 +9893,19 @@
     </message>
     <message>
         <source>NMVOC Emission Factor</source>
-        <translation>Facteur d'émission NMVOC</translation>
+        <translation>Facteur d&apos;émission NMVOC</translation>
     </message>
     <message>
         <source>NMVOC Emission Factor Schedule Name</source>
-        <translation>Nom de la planification du facteur d'émission COVNM</translation>
+        <translation>Nom de la planification du facteur d&apos;émission COVNM</translation>
     </message>
     <message>
         <source>No Load Supply Air Flow Rate Control Set To Low Speed</source>
-        <translation>Contrôle du débit d'air de soufflage à charge nulle réglé sur vitesse basse</translation>
+        <translation>Contrôle du débit d&apos;air de soufflage à charge nulle réglé sur vitesse basse</translation>
     </message>
     <message>
         <source>No Load Supply Air Flow Rate Ratio</source>
-        <translation>Fraction de débit d'air de soufflage à charge nulle</translation>
+        <translation>Fraction de débit d&apos;air de soufflage à charge nulle</translation>
     </message>
     <message>
         <source>Node 1 Additional Loss Coefficient</source>
@@ -9969,11 +9969,11 @@
     </message>
     <message>
         <source>Nominal Air Face Velocity</source>
-        <translation>Vitesse nominale de l'air en face d'échangeur</translation>
+        <translation>Vitesse nominale de l&apos;air en face d&apos;échangeur</translation>
     </message>
     <message>
         <source>Nominal Air Flow Rate</source>
-        <translation>Débit d'air nominal</translation>
+        <translation>Débit d&apos;air nominal</translation>
     </message>
     <message>
         <source>Nominal Auxiliary Electric Power</source>
@@ -9997,7 +9997,7 @@
     </message>
     <message>
         <source>Nominal Discount Rate</source>
-        <translation>Taux d'actualisation nominal</translation>
+        <translation>Taux d&apos;actualisation nominal</translation>
     </message>
     <message>
         <source>Nominal Efficiency</source>
@@ -10021,7 +10021,7 @@
     </message>
     <message>
         <source>Nominal Exhaust Air Outlet Temperature</source>
-        <translation>Température nominale de sortie d'air d'échappement</translation>
+        <translation>Température nominale de sortie d&apos;air d&apos;échappement</translation>
     </message>
     <message>
         <source>Nominal Floor to Ceiling Height</source>
@@ -10041,11 +10041,11 @@
     </message>
     <message>
         <source>Nominal Operating Cell Temperature Test Cell Temperature</source>
-        <translation>Température de Cellule Nominale de Fonctionnement - Température de Cellule d'Essai</translation>
+        <translation>Température de Cellule Nominale de Fonctionnement - Température de Cellule d&apos;Essai</translation>
     </message>
     <message>
         <source>Nominal Operating Cell Temperature Test Insolation</source>
-        <translation>Insolation d'essai de température nominale de fonctionnement des cellules</translation>
+        <translation>Insolation d&apos;essai de température nominale de fonctionnement des cellules</translation>
     </message>
     <message>
         <source>Nominal Pumping Power</source>
@@ -10065,11 +10065,11 @@
     </message>
     <message>
         <source>Nominal Supply Air Flow Rate</source>
-        <translation>Débit d'air nominal au primaire</translation>
+        <translation>Débit d&apos;air nominal au primaire</translation>
     </message>
     <message>
         <source>Nominal Tank Volume for Autosizing Plant Connections</source>
-        <translation>Volume nominal du réservoir pour l'autoajustement des connexions de boucle</translation>
+        <translation>Volume nominal du réservoir pour l&apos;autoajustement des connexions de boucle</translation>
     </message>
     <message>
         <source>Nominal Time for Condensate to Begin Leaving the Coil</source>
@@ -10077,7 +10077,7 @@
     </message>
     <message>
         <source>Nominal Voltage Input</source>
-        <translation>Tension d'entrée nominale</translation>
+        <translation>Tension d&apos;entrée nominale</translation>
     </message>
     <message>
         <source>Nominal Z Coordinate</source>
@@ -10113,7 +10113,7 @@
     </message>
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 2</source>
-        <translation>Nom de la courbe d'efficacité de la courroie normalisée - Région 2</translation>
+        <translation>Nom de la courbe d&apos;efficacité de la courroie normalisée - Région 2</translation>
     </message>
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 3</source>
@@ -10129,15 +10129,15 @@
     </message>
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Non-Stall Region</source>
-        <translation>Nom de la Courbe de Débit d'Air Adimensionnel Normalisé - Région Sans Décrochage</translation>
+        <translation>Nom de la Courbe de Débit d&apos;Air Adimensionnel Normalisé - Région Sans Décrochage</translation>
     </message>
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Stall Region</source>
-        <translation>Nom de la courbe de débit d'air adimensionnel normalisé - région de décrochage</translation>
+        <translation>Nom de la courbe de débit d&apos;air adimensionnel normalisé - région de décrochage</translation>
     </message>
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</source>
-        <translation>Nom de la courbe d'efficacité statique du ventilateur normalisée - Région sans décrochage</translation>
+        <translation>Nom de la courbe d&apos;efficacité statique du ventilateur normalisée - Région sans décrochage</translation>
     </message>
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Stall Region</source>
@@ -10149,7 +10149,7 @@
     </message>
     <message>
         <source>Normalized Motor Efficiency Curve Name</source>
-        <translation>Nom de la courbe d'efficacité moteur normalisée</translation>
+        <translation>Nom de la courbe d&apos;efficacité moteur normalisée</translation>
     </message>
     <message>
         <source>North Axis</source>
@@ -10177,27 +10177,27 @@
     </message>
     <message>
         <source>NOx Emission Factor</source>
-        <translation>Facteur d'émission NOx</translation>
+        <translation>Facteur d&apos;émission NOx</translation>
     </message>
     <message>
         <source>NOx Emission Factor Schedule Name</source>
-        <translation>Nom de l'Horaire du Facteur d'Émission NOx</translation>
+        <translation>Nom de l&apos;Horaire du Facteur d&apos;Émission NOx</translation>
     </message>
     <message>
         <source>Nuclear High Level Emission Factor</source>
-        <translation>Coefficient d'Émission Nucléaire de Haut Niveau</translation>
+        <translation>Coefficient d&apos;Émission Nucléaire de Haut Niveau</translation>
     </message>
     <message>
         <source>Nuclear High Level Emission Factor Schedule Name</source>
-        <translation>Nom de l'agenda du facteur d'émission des déchets nucléaires haute activité</translation>
+        <translation>Nom de l&apos;agenda du facteur d&apos;émission des déchets nucléaires haute activité</translation>
     </message>
     <message>
         <source>Nuclear Low Level Emission Factor</source>
-        <translation>Facteur d'émission nucléaire bas niveau</translation>
+        <translation>Facteur d&apos;émission nucléaire bas niveau</translation>
     </message>
     <message>
         <source>Nuclear Low Level Emission Factor Schedule Name</source>
-        <translation>Nom du calendrier du facteur d'émission faible niveau nucléaire</translation>
+        <translation>Nom du calendrier du facteur d&apos;émission faible niveau nucléaire</translation>
     </message>
     <message>
         <source>Number of Bathrooms</source>
@@ -10245,11 +10245,11 @@
     </message>
     <message>
         <source>Number of Constituents in Gaseous Constituent Fuel Supply</source>
-        <translation>Nombre de constituants dans l'approvisionnement en combustible gazeux</translation>
+        <translation>Nombre de constituants dans l&apos;approvisionnement en combustible gazeux</translation>
     </message>
     <message>
         <source>Number of Cooling Stages</source>
-        <translation>Nombre d'étapes de refroidissement</translation>
+        <translation>Nombre d&apos;étapes de refroidissement</translation>
     </message>
     <message>
         <source>Number of Covers</source>
@@ -10257,7 +10257,7 @@
     </message>
     <message>
         <source>Number of Daylighting Views</source>
-        <translation>Nombre de vues d'éclairage naturel</translation>
+        <translation>Nombre de vues d&apos;éclairage naturel</translation>
     </message>
     <message>
         <source>Number of Days in Billing Period</source>
@@ -10277,11 +10277,11 @@
     </message>
     <message>
         <source>Number of Glare View Vectors</source>
-        <translation>Nombre de vecteurs de vue pour l'éblouissement</translation>
+        <translation>Nombre de vecteurs de vue pour l&apos;éblouissement</translation>
     </message>
     <message>
         <source>Number of Heating Stages</source>
-        <translation>Nombre d'étapes de chauffage</translation>
+        <translation>Nombre d&apos;étapes de chauffage</translation>
     </message>
     <message>
         <source>Number of Horizontal Dividers</source>
@@ -10289,7 +10289,7 @@
     </message>
     <message>
         <source>Number of Hours of Data</source>
-        <translation>Nombre d'heures de données</translation>
+        <translation>Nombre d&apos;heures de données</translation>
     </message>
     <message>
         <source>Number of Independent Variables</source>
@@ -10297,7 +10297,7 @@
     </message>
     <message>
         <source>Number of Interpolation Points</source>
-        <translation>Nombre de points d'interpolation</translation>
+        <translation>Nombre de points d&apos;interpolation</translation>
     </message>
     <message>
         <source>Number of Modules in Parallel</source>
@@ -10325,7 +10325,7 @@
     </message>
     <message>
         <source>Number of Run Hours at Beginning of Simulation</source>
-        <translation>Nombre d'heures de fonctionnement au début de la simulation</translation>
+        <translation>Nombre d&apos;heures de fonctionnement au début de la simulation</translation>
     </message>
     <message>
         <source>Number of Speeds for Cooling</source>
@@ -10337,11 +10337,11 @@
     </message>
     <message>
         <source>Number of Stepped Control Steps</source>
-        <translation>Nombre d'étapes de contrôle progressif</translation>
+        <translation>Nombre d&apos;étapes de contrôle progressif</translation>
     </message>
     <message>
         <source>Number of Stops at Start of Simulation</source>
-        <translation>Nombre d'arrêts au début de la simulation</translation>
+        <translation>Nombre d&apos;arrêts au début de la simulation</translation>
     </message>
     <message>
         <source>Number of Strings in Parallel</source>
@@ -10357,7 +10357,7 @@
     </message>
     <message>
         <source>Number of Timesteps per Hour</source>
-        <translation>Nombre d'intervalles de temps par heure</translation>
+        <translation>Nombre d&apos;intervalles de temps par heure</translation>
     </message>
     <message>
         <source>Number of Timesteps to be Logged</source>
@@ -10369,11 +10369,11 @@
     </message>
     <message>
         <source>Number of Units</source>
-        <translation>Nombre d'unités</translation>
+        <translation>Nombre d&apos;unités</translation>
     </message>
     <message>
         <source>Number of UserDefined Constituents</source>
-        <translation>Nombre de constituants définis par l'utilisateur</translation>
+        <translation>Nombre de constituants définis par l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Number of Vertical Dividers</source>
@@ -10397,15 +10397,15 @@
     </message>
     <message>
         <source>Object Name</source>
-        <translation>Nom de l'Objet</translation>
+        <translation>Nom de l&apos;Objet</translation>
     </message>
     <message>
         <source>Occupancy Check</source>
-        <translation>Vérification de l'Occupation</translation>
+        <translation>Vérification de l&apos;Occupation</translation>
     </message>
     <message>
         <source>Occupant Diversity</source>
-        <translation>Diversité d'occupants</translation>
+        <translation>Diversité d&apos;occupants</translation>
     </message>
     <message>
         <source>Occupant Ventilation Control Name</source>
@@ -10433,7 +10433,7 @@
     </message>
     <message>
         <source>Off Cycle Flue Loss Coefficient to Ambient Temperature</source>
-        <translation>Coefficient de Perte de Gaz d'Échappement en Arrêt vers la Température Ambiante</translation>
+        <translation>Coefficient de Perte de Gaz d&apos;Échappement en Arrêt vers la Température Ambiante</translation>
     </message>
     <message>
         <source>Off Cycle Flue Loss Fraction to Zone</source>
@@ -10461,15 +10461,15 @@
     </message>
     <message>
         <source>Oil Cooler Design Flow Rate</source>
-        <translation>Débit de conception du refroidisseur d'huile</translation>
+        <translation>Débit de conception du refroidisseur d&apos;huile</translation>
     </message>
     <message>
         <source>Oil Cooler Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Refroidisseur d'Huile</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Refroidisseur d&apos;Huile</translation>
     </message>
     <message>
         <source>Oil Cooler Outlet Node Name</source>
-        <translation>Nom du nœud de sortie du refroidisseur d'huile</translation>
+        <translation>Nom du nœud de sortie du refroidisseur d&apos;huile</translation>
     </message>
     <message>
         <source>On Cycle Loss Fraction to Thermal Zone</source>
@@ -10489,27 +10489,27 @@
     </message>
     <message>
         <source>Opening Area</source>
-        <translation>Surface d'ouverture</translation>
+        <translation>Surface d&apos;ouverture</translation>
     </message>
     <message>
         <source>Opening Area Fraction Schedule Name</source>
-        <translation>Nom du calendrier de fraction de surface d'ouverture</translation>
+        <translation>Nom du calendrier de fraction de surface d&apos;ouverture</translation>
     </message>
     <message>
         <source>Opening Effectiveness</source>
-        <translation>Efficacité de l'ouverture</translation>
+        <translation>Efficacité de l&apos;ouverture</translation>
     </message>
     <message>
         <source>Opening Factor</source>
-        <translation>Facteur d'ouverture</translation>
+        <translation>Facteur d&apos;ouverture</translation>
     </message>
     <message>
         <source>Opening Factor Function of Wind Speed Curve</source>
-        <translation>Courbe du Facteur d'Ouverture en Fonction de la Vitesse du Vent</translation>
+        <translation>Courbe du Facteur d&apos;Ouverture en Fonction de la Vitesse du Vent</translation>
     </message>
     <message>
         <source>Opening Probability Schedule Name</source>
-        <translation>Nom de l'agenda de probabilité d'ouverture</translation>
+        <translation>Nom de l&apos;agenda de probabilité d&apos;ouverture</translation>
     </message>
     <message>
         <source>Operable Window Construction Name</source>
@@ -10533,7 +10533,7 @@
     </message>
     <message>
         <source>Operating Mode Control Schedule Name</source>
-        <translation>Nom de l'horaire de contrôle du mode de fonctionnement</translation>
+        <translation>Nom de l&apos;horaire de contrôle du mode de fonctionnement</translation>
     </message>
     <message>
         <source>Operating Temperature</source>
@@ -10565,7 +10565,7 @@
     </message>
     <message>
         <source>Option Type</source>
-        <translation>Type d'option</translation>
+        <translation>Type d&apos;option</translation>
     </message>
     <message>
         <source>Optional Initial Value</source>
@@ -10573,19 +10573,19 @@
     </message>
     <message>
         <source>Origin X-Coordinate</source>
-        <translation>Coordonnée X de l'origine</translation>
+        <translation>Coordonnée X de l&apos;origine</translation>
     </message>
     <message>
         <source>Origin Y-Coordinate</source>
-        <translation>Coordonnée Y d'origine</translation>
+        <translation>Coordonnée Y d&apos;origine</translation>
     </message>
     <message>
         <source>Origin Z-Coordinate</source>
-        <translation>Coordonnée Z de l'origine</translation>
+        <translation>Coordonnée Z de l&apos;origine</translation>
     </message>
     <message>
         <source>Other Equipment Definition Name</source>
-        <translation>Nom de la définition d'équipement supplémentaire</translation>
+        <translation>Nom de la définition d&apos;équipement supplémentaire</translation>
     </message>
     <message>
         <source>Other Perturbable Layer Type</source>
@@ -10605,67 +10605,67 @@
     </message>
     <message>
         <source>Outdoor Air Control Type</source>
-        <translation>Type de contrôle de l'air extérieur</translation>
+        <translation>Type de contrôle de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Economizer Type</source>
-        <translation>Type d'économiseur d'air extérieur</translation>
+        <translation>Type d&apos;économiseur d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Equipment List Name</source>
-        <translation>Nom de la liste d'équipements d'air extérieur</translation>
+        <translation>Nom de la liste d&apos;équipements d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Flow Rate Multiplier Schedule</source>
-        <translation>Calendrier de multiplicateur de débit d'air extérieur</translation>
+        <translation>Calendrier de multiplicateur de débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Inlet Node</source>
-        <translation>Nœud d'admission d'air extérieur</translation>
+        <translation>Nœud d&apos;admission d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air extérieur</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Mixer</source>
-        <translation>Mélangeur d'Air Extérieur</translation>
+        <translation>Mélangeur d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Mixer Name</source>
-        <translation>Nom du mélangeur d'air extérieur</translation>
+        <translation>Nom du mélangeur d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Mixer Object Type</source>
-        <translation>Type d'objet mélangeur d'air extérieur</translation>
+        <translation>Type d&apos;objet mélangeur d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Node</source>
-        <translation>Nœud d'air extérieur</translation>
+        <translation>Nœud d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Node Name</source>
-        <translation>Nom du nœud d'air extérieur</translation>
+        <translation>Nom du nœud d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Schedule Name</source>
-        <translation>Nom de la Programmation d'Air Extérieur</translation>
+        <translation>Nom de la Programmation d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Stream Node Name</source>
-        <translation>Nom du nœud du flux d'air extérieur</translation>
+        <translation>Nom du nœud du flux d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air System</source>
-        <translation>Système d'Air Extérieur</translation>
+        <translation>Système d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Outdoor Air Temperature Curve Input Variable</source>
-        <translation>Variable d'entrée de courbe de température de l'air extérieur</translation>
+        <translation>Variable d&apos;entrée de courbe de température de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
-        <translation>Nom de l'horaire de dioxyde de carbone extérieur</translation>
+        <translation>Nom de l&apos;horaire de dioxyde de carbone extérieur</translation>
     </message>
     <message>
         <source>Outdoor Dry-Bulb Temperature Sensor Node Name</source>
@@ -10693,39 +10693,39 @@
     </message>
     <message>
         <source>Outdoor Unit Condenser Rated Bypass Factor</source>
-        <translation>Facteur de contournement nominal du condenseur de l'unité extérieure</translation>
+        <translation>Facteur de contournement nominal du condenseur de l&apos;unité extérieure</translation>
     </message>
     <message>
         <source>Outdoor Unit Condenser Reference Subcooling</source>
-        <translation>Sous-refroidissement de référence du condenseur de l'unité extérieure</translation>
+        <translation>Sous-refroidissement de référence du condenseur de l&apos;unité extérieure</translation>
     </message>
     <message>
         <source>Outdoor Unit Condensing Temperature Function of Subcooling Curve Name</source>
-        <translation>Nom de la courbe de température de condensation de l'unité extérieure en fonction du sous-refroidissement</translation>
+        <translation>Nom de la courbe de température de condensation de l&apos;unité extérieure en fonction du sous-refroidissement</translation>
     </message>
     <message>
         <source>Outdoor Unit Evaporating Temperature Function of Superheating Curve Name</source>
-        <translation>Nom de la courbe de la température d'évaporation de l'unité extérieure en fonction du surchauffage</translation>
+        <translation>Nom de la courbe de la température d&apos;évaporation de l&apos;unité extérieure en fonction du surchauffage</translation>
     </message>
     <message>
         <source>Outdoor Unit Evaporator Rated Bypass Factor</source>
-        <translation>Facteur de Contournement Nominal de l'Évaporateur de l'Unité Extérieure</translation>
+        <translation>Facteur de Contournement Nominal de l&apos;Évaporateur de l&apos;Unité Extérieure</translation>
     </message>
     <message>
         <source>Outdoor Unit Evaporator Reference Superheating</source>
-        <translation>Surchauffe de Référence de l'Évaporateur de l'Unité Extérieure</translation>
+        <translation>Surchauffe de Référence de l&apos;Évaporateur de l&apos;Unité Extérieure</translation>
     </message>
     <message>
         <source>Outdoor Unit Fan Flow Rate Per Unit of Rated Evaporative Capacity</source>
-        <translation>Débit volumétrique du ventilateur de l'unité extérieure par unité de capacité évaporative nominale</translation>
+        <translation>Débit volumétrique du ventilateur de l&apos;unité extérieure par unité de capacité évaporative nominale</translation>
     </message>
     <message>
         <source>Outdoor Unit Fan Power Per Unit of Rated Evaporative Capacity</source>
-        <translation>Puissance du ventilateur de l'unité extérieure par unité de capacité évaporante nominale</translation>
+        <translation>Puissance du ventilateur de l&apos;unité extérieure par unité de capacité évaporante nominale</translation>
     </message>
     <message>
         <source>Outdoor Unit Heat Exchanger Capacity Ratio</source>
-        <translation>Rapport de Capacité de l'Échangeur Thermique de l'Unité Extérieure</translation>
+        <translation>Rapport de Capacité de l&apos;Échangeur Thermique de l&apos;Unité Extérieure</translation>
     </message>
     <message>
         <source>Outlet Branch Name</source>
@@ -10805,7 +10805,7 @@
     </message>
     <message>
         <source>Output External Shading Calculation Results</source>
-        <translation>Exporter les résultats de calcul d'ombrage externe</translation>
+        <translation>Exporter les résultats de calcul d&apos;ombrage externe</translation>
     </message>
     <message>
         <source>Output ExtShd</source>
@@ -10869,7 +10869,7 @@
     </message>
     <message>
         <source>Output Space Sizing</source>
-        <translation>Dimensionnement de l'espace de sortie</translation>
+        <translation>Dimensionnement de l&apos;espace de sortie</translation>
     </message>
     <message>
         <source>Output SQLite</source>
@@ -10889,7 +10889,7 @@
     </message>
     <message>
         <source>Output Unit Type</source>
-        <translation>Type d'unité de sortie</translation>
+        <translation>Type d&apos;unité de sortie</translation>
     </message>
     <message>
         <source>Output Value</source>
@@ -10901,7 +10901,7 @@
     </message>
     <message>
         <source>Output Variable or Output Meter Index Key Name</source>
-        <translation>Nom de clé d'index de variable de sortie ou compteur de sortie</translation>
+        <translation>Nom de clé d&apos;index de variable de sortie ou compteur de sortie</translation>
     </message>
     <message>
         <source>Output Variable or Output Meter Name</source>
@@ -10917,7 +10917,7 @@
     </message>
     <message>
         <source>Output:Variable Index Key Name</source>
-        <translation>Clé d'Index de Variable de Sortie</translation>
+        <translation>Clé d&apos;Index de Variable de Sortie</translation>
     </message>
     <message>
         <source>Output:Variable Name</source>
@@ -10925,7 +10925,7 @@
     </message>
     <message>
         <source>Outside Air Mixer</source>
-        <translation>Mélangeur d'air extérieur</translation>
+        <translation>Mélangeur d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Outside Boundary Condition</source>
@@ -10949,7 +10949,7 @@
     </message>
     <message>
         <source>Outside Shelf Name</source>
-        <translation>Nom de l'auvent extérieur</translation>
+        <translation>Nom de l&apos;auvent extérieur</translation>
     </message>
     <message>
         <source>Overall Height</source>
@@ -10957,11 +10957,11 @@
     </message>
     <message>
         <source>Overall Model Simulation Program Calling Manager Name</source>
-        <translation>Nom du gestionnaire d'appel de programme de simulation global du modèle</translation>
+        <translation>Nom du gestionnaire d&apos;appel de programme de simulation global du modèle</translation>
     </message>
     <message>
         <source>Overall Moisture Transmittance Coefficient from Air to Air</source>
-        <translation>Coefficient Global de Transmission de l'Humidité Air-Air</translation>
+        <translation>Coefficient Global de Transmission de l&apos;Humidité Air-Air</translation>
     </message>
     <message>
         <source>Overall Simulation Program Name</source>
@@ -11001,11 +11001,11 @@
     </message>
     <message>
         <source>Pb Emission Factor</source>
-        <translation>Facteur d'émission de Pb</translation>
+        <translation>Facteur d&apos;émission de Pb</translation>
     </message>
     <message>
         <source>Pb Emission Factor Schedule Name</source>
-        <translation>Nom de l'agenda du facteur d'émission de Pb</translation>
+        <translation>Nom de l&apos;agenda du facteur d&apos;émission de Pb</translation>
     </message>
     <message>
         <source>Peak Demand Unit</source>
@@ -11021,7 +11021,7 @@
     </message>
     <message>
         <source>Peak Use Flow Rate</source>
-        <translation>Débit d'utilisation maximal</translation>
+        <translation>Débit d&apos;utilisation maximal</translation>
     </message>
     <message>
         <source>People Heat Gain Schedule</source>
@@ -11029,7 +11029,7 @@
     </message>
     <message>
         <source>People Schedule</source>
-        <translation>Calendrier d'occupation</translation>
+        <translation>Calendrier d&apos;occupation</translation>
     </message>
     <message>
         <source>Per Person Ventilation Rate Mode</source>
@@ -11045,7 +11045,7 @@
     </message>
     <message>
         <source>Performance Interpolation Method</source>
-        <translation>Méthode d'interpolation des performances</translation>
+        <translation>Méthode d&apos;interpolation des performances</translation>
     </message>
     <message>
         <source>Performance Object</source>
@@ -11069,7 +11069,7 @@
     </message>
     <message>
         <source>Permits Bonding and Insurance</source>
-        <translation>Autorisations de cautionnement et d'assurance</translation>
+        <translation>Autorisations de cautionnement et d&apos;assurance</translation>
     </message>
     <message>
         <source>Perturbable Layer</source>
@@ -11089,11 +11089,11 @@
     </message>
     <message>
         <source>Phase Shift of Temperature Amplitude 1</source>
-        <translation>Déphasage de l'Amplitude de Température 1</translation>
+        <translation>Déphasage de l&apos;Amplitude de Température 1</translation>
     </message>
     <message>
         <source>Phase Shift of Temperature Amplitude 2</source>
-        <translation>Déphasage de l'amplitude de température 2</translation>
+        <translation>Déphasage de l&apos;amplitude de température 2</translation>
     </message>
     <message>
         <source>PhaseChange Circulating Rate</source>
@@ -11101,11 +11101,11 @@
     </message>
     <message>
         <source>Phi Rotation Around Z-Axis</source>
-        <translation>Rotation Phi autour de l'axe Z</translation>
+        <translation>Rotation Phi autour de l&apos;axe Z</translation>
     </message>
     <message>
         <source>Phi Rotation Around Z-axis</source>
-        <translation>Rotation Phi autour de l'axe Z</translation>
+        <translation>Rotation Phi autour de l&apos;axe Z</translation>
     </message>
     <message>
         <source>Photovoltaic Name</source>
@@ -11177,7 +11177,7 @@
     </message>
     <message>
         <source>Plant Connection Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée de Connexion au Circuit Hydronique</translation>
+        <translation>Nom du Nœud d&apos;Entrée de Connexion au Circuit Hydronique</translation>
     </message>
     <message>
         <source>Plant Connection Outlet Node Name</source>
@@ -11189,11 +11189,11 @@
     </message>
     <message>
         <source>Plant Equipment Operation Cooling Load</source>
-        <translation>Charge de Refroidissement de l'Équipement de Circuit Hydrique</translation>
+        <translation>Charge de Refroidissement de l&apos;Équipement de Circuit Hydrique</translation>
     </message>
     <message>
         <source>Plant Equipment Operation Cooling Load Schedule</source>
-        <translation>Calendrier de Charge de Refroidissement du Fonctionnement des Équipements de l'Installation</translation>
+        <translation>Calendrier de Charge de Refroidissement du Fonctionnement des Équipements de l&apos;Installation</translation>
     </message>
     <message>
         <source>Plant Equipment Operation Heating Load</source>
@@ -11201,19 +11201,19 @@
     </message>
     <message>
         <source>Plant Equipment Operation Heating Load Schedule</source>
-        <translation>Calendrier de Charge de Chauffage pour Fonctionnement de l'Équipement de la Centrale Thermique</translation>
+        <translation>Calendrier de Charge de Chauffage pour Fonctionnement de l&apos;Équipement de la Centrale Thermique</translation>
     </message>
     <message>
         <source>Plant Initialization Program Calling Manager Name</source>
-        <translation>Nom du gestionnaire d'appel du programme d'initialisation de la boucle</translation>
+        <translation>Nom du gestionnaire d&apos;appel du programme d&apos;initialisation de la boucle</translation>
     </message>
     <message>
         <source>Plant Initialization Program Name</source>
-        <translation>Nom du programme d'initialisation de boucle de chauffage</translation>
+        <translation>Nom du programme d&apos;initialisation de boucle de chauffage</translation>
     </message>
     <message>
         <source>Plant Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de la boucle</translation>
+        <translation>Nom du nœud d&apos;entrée de la boucle</translation>
     </message>
     <message>
         <source>Plant Loading Mode</source>
@@ -11261,7 +11261,7 @@
     </message>
     <message>
         <source>Plant Side Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée côté boucle</translation>
+        <translation>Nom du nœud d&apos;entrée côté boucle</translation>
     </message>
     <message>
         <source>Plant Side Outlet Node Name</source>
@@ -11269,7 +11269,7 @@
     </message>
     <message>
         <source>Plant Simulation Program Calling Manager Name</source>
-        <translation>Nom du gestionnaire d'appel du programme de simulation de circuit</translation>
+        <translation>Nom du gestionnaire d&apos;appel du programme de simulation de circuit</translation>
     </message>
     <message>
         <source>Plant Simulation Program Name</source>
@@ -11277,7 +11277,7 @@
     </message>
     <message>
         <source>Plenum or Mixer Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée du plenum ou du mélangeur</translation>
+        <translation>Nom du nœud d&apos;entrée du plenum ou du mélangeur</translation>
     </message>
     <message>
         <source>Plugin Class Name</source>
@@ -11285,27 +11285,27 @@
     </message>
     <message>
         <source>PM Emission Factor</source>
-        <translation>Facteur d'émission de PM</translation>
+        <translation>Facteur d&apos;émission de PM</translation>
     </message>
     <message>
         <source>PM Emission Factor Schedule Name</source>
-        <translation>Nom de l'horaire du facteur d'émission PM</translation>
+        <translation>Nom de l&apos;horaire du facteur d&apos;émission PM</translation>
     </message>
     <message>
         <source>PM10 Emission Factor</source>
-        <translation>Facteur d'émission PM10</translation>
+        <translation>Facteur d&apos;émission PM10</translation>
     </message>
     <message>
         <source>PM10 Emission Factor Schedule Name</source>
-        <translation>Nom du programme d'émission de PM10</translation>
+        <translation>Nom du programme d&apos;émission de PM10</translation>
     </message>
     <message>
         <source>PM2.5 Emission Factor</source>
-        <translation>Facteur d'émission PM2.5</translation>
+        <translation>Facteur d&apos;émission PM2.5</translation>
     </message>
     <message>
         <source>PM2.5 Emission Factor Schedule Name</source>
-        <translation>Nom de la programmation du facteur d'émission PM2.5</translation>
+        <translation>Nom de la programmation du facteur d&apos;émission PM2.5</translation>
     </message>
     <message>
         <source>Polygon Clipping Algorithm</source>
@@ -11313,7 +11313,7 @@
     </message>
     <message>
         <source>Pool Heating System Maximum Water Flow Rate</source>
-        <translation>Débit d'eau maximal du système de chauffage de piscine</translation>
+        <translation>Débit d&apos;eau maximal du système de chauffage de piscine</translation>
     </message>
     <message>
         <source>Pool Miscellaneous Equipment Power</source>
@@ -11321,11 +11321,11 @@
     </message>
     <message>
         <source>Pool Water Inlet Node</source>
-        <translation>Nœud d'entrée d'eau de la piscine</translation>
+        <translation>Nœud d&apos;entrée d&apos;eau de la piscine</translation>
     </message>
     <message>
         <source>Pool Water Outlet Node</source>
-        <translation>Nœud de sortie de l'eau de la piscine</translation>
+        <translation>Nœud de sortie de l&apos;eau de la piscine</translation>
     </message>
     <message>
         <source>Port</source>
@@ -11389,7 +11389,7 @@
     </message>
     <message>
         <source>Power Down Transient Limit</source>
-        <translation>Limite de transition à l'arrêt</translation>
+        <translation>Limite de transition à l&apos;arrêt</translation>
     </message>
     <message>
         <source>Power Module Name</source>
@@ -11405,7 +11405,7 @@
     </message>
     <message>
         <source>Pressure Control Availability Schedule Name</source>
-        <translation>Nom de l'Horaire de Disponibilité du Contrôle de Pression</translation>
+        <translation>Nom de l&apos;Horaire de Disponibilité du Contrôle de Pression</translation>
     </message>
     <message>
         <source>Pressure Difference Across the Component</source>
@@ -11425,43 +11425,43 @@
     </message>
     <message>
         <source>Primary Air Availability Schedule Name</source>
-        <translation>Nom du Calendrier de Disponibilité de l'Air Primaire</translation>
+        <translation>Nom du Calendrier de Disponibilité de l&apos;Air Primaire</translation>
     </message>
     <message>
         <source>Primary Air Design Flow Rate</source>
-        <translation>Débit de Conception d'Air Primaire</translation>
+        <translation>Débit de Conception d&apos;Air Primaire</translation>
     </message>
     <message>
         <source>Primary Air Inlet Node</source>
-        <translation>Nœud d'admission d'air primaire</translation>
+        <translation>Nœud d&apos;admission d&apos;air primaire</translation>
     </message>
     <message>
         <source>Primary Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air primaire</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air primaire</translation>
     </message>
     <message>
         <source>Primary Air Outlet Node</source>
-        <translation>Nœud de sortie d'air primaire</translation>
+        <translation>Nœud de sortie d&apos;air primaire</translation>
     </message>
     <message>
         <source>Primary Air Outlet Node Name</source>
-        <translation>Nom du Nœud de Sortie d'Air Primaire</translation>
+        <translation>Nom du Nœud de Sortie d&apos;Air Primaire</translation>
     </message>
     <message>
         <source>Primary Daylighting Control Name</source>
-        <translation>Nom du contrôle d'éclairage naturel principal</translation>
+        <translation>Nom du contrôle d&apos;éclairage naturel principal</translation>
     </message>
     <message>
         <source>Primary Design Air Flow Rate</source>
-        <translation>Débit d'air primaire de conception</translation>
+        <translation>Débit d&apos;air primaire de conception</translation>
     </message>
     <message>
         <source>Primary Plant Equipment Operation Scheme</source>
-        <translation>Schéma d'Exploitation des Équipements Principaux de la Boucle Hydrothermique</translation>
+        <translation>Schéma d&apos;Exploitation des Équipements Principaux de la Boucle Hydrothermique</translation>
     </message>
     <message>
         <source>Primary Plant Equipment Operation Scheme Schedule</source>
-        <translation>Calendrier du Schéma d'Exploitation de l'Équipement Principal de la Boucle Hydraulique</translation>
+        <translation>Calendrier du Schéma d&apos;Exploitation de l&apos;Équipement Principal de la Boucle Hydraulique</translation>
     </message>
     <message>
         <source>Priority Control Mode</source>
@@ -11469,15 +11469,15 @@
     </message>
     <message>
         <source>Probability Lighting will be Reset When Needed in Manual Stepped Control</source>
-        <translation>Probabilité que l'éclairage soit réajusté lorsque nécessaire dans la commande manuelle échelonnée</translation>
+        <translation>Probabilité que l&apos;éclairage soit réajusté lorsque nécessaire dans la commande manuelle échelonnée</translation>
     </message>
     <message>
         <source>Process Air Inlet Node</source>
-        <translation>Nœud d'entrée de l'air de procédé</translation>
+        <translation>Nœud d&apos;entrée de l&apos;air de procédé</translation>
     </message>
     <message>
         <source>Process Air Outlet Node</source>
-        <translation>Nœud de sortie d'air de traitement</translation>
+        <translation>Nœud de sortie d&apos;air de traitement</translation>
     </message>
     <message>
         <source>Program Line</source>
@@ -11493,11 +11493,11 @@
     </message>
     <message>
         <source>Psi Rotation Around X-Axis</source>
-        <translation>Angle de rotation autour de l'axe X</translation>
+        <translation>Angle de rotation autour de l&apos;axe X</translation>
     </message>
     <message>
         <source>Psi Rotation Around X-axis</source>
-        <translation>Angle de rotation autour de l'axe X</translation>
+        <translation>Angle de rotation autour de l&apos;axe X</translation>
     </message>
     <message>
         <source>Pump Curve</source>
@@ -11509,7 +11509,7 @@
     </message>
     <message>
         <source>Pump Drive Type</source>
-        <translation>Type d'Entraînement de la Pompe</translation>
+        <translation>Type d&apos;Entraînement de la Pompe</translation>
     </message>
     <message>
         <source>Pump Electric Input Function of Part Load Ratio Curve</source>
@@ -11585,19 +11585,19 @@
     </message>
     <message>
         <source>Range Equipment List Name</source>
-        <translation>Nom de la liste d'équipement de cuisson</translation>
+        <translation>Nom de la liste d&apos;équipement de cuisson</translation>
     </message>
     <message>
         <source>Rate of Defrost Time Fraction Increase</source>
-        <translation>Taux d'augmentation de la fraction de temps de dégivrage</translation>
+        <translation>Taux d&apos;augmentation de la fraction de temps de dégivrage</translation>
     </message>
     <message>
         <source>Rated Air Flow</source>
-        <translation>Débit d'air nominal</translation>
+        <translation>Débit d&apos;air nominal</translation>
     </message>
     <message>
         <source>Rated Air Flow Rate At Selected Nominal Speed Level</source>
-        <translation>Débit d'air nominal au niveau de vitesse nominal sélectionné</translation>
+        <translation>Débit d&apos;air nominal au niveau de vitesse nominal sélectionné</translation>
     </message>
     <message>
         <source>Rated Ambient Relative Humidity</source>
@@ -11609,11 +11609,11 @@
     </message>
     <message>
         <source>Rated Approach Temperature Difference</source>
-        <translation>Écart de température d'approche nominal</translation>
+        <translation>Écart de température d&apos;approche nominal</translation>
     </message>
     <message>
         <source>Rated Average Water Temperature</source>
-        <translation>Température moyenne de l'eau nominale</translation>
+        <translation>Température moyenne de l&apos;eau nominale</translation>
     </message>
     <message>
         <source>Rated Circulation Fan Power</source>
@@ -11629,19 +11629,19 @@
     </message>
     <message>
         <source>Rated Condenser Air Flow Rate</source>
-        <translation>Débit d'air nominal du condenseur</translation>
+        <translation>Débit d&apos;air nominal du condenseur</translation>
     </message>
     <message>
         <source>Rated Condenser Inlet Water Temperature</source>
-        <translation>Température d'eau à l'entrée du condenseur nominale</translation>
+        <translation>Température d&apos;eau à l&apos;entrée du condenseur nominale</translation>
     </message>
     <message>
         <source>Rated Condenser Water Flow Rate</source>
-        <translation>Débit d'eau du condenseur nominal</translation>
+        <translation>Débit d&apos;eau du condenseur nominal</translation>
     </message>
     <message>
         <source>Rated Condenser Water Temperature</source>
-        <translation>Température d'eau condenseur nominale</translation>
+        <translation>Température d&apos;eau condenseur nominale</translation>
     </message>
     <message>
         <source>Rated Condensing Temperature</source>
@@ -11689,19 +11689,19 @@
     </message>
     <message>
         <source>Rated Entering Air Dry-Bulb Temperature</source>
-        <translation>Température de bulbe sec de l'air entrant nominale</translation>
+        <translation>Température de bulbe sec de l&apos;air entrant nominale</translation>
     </message>
     <message>
         <source>Rated Entering Air Wet-Bulb Temperature</source>
-        <translation>Température de bulbe humide de l'air entrant à l'état nominal</translation>
+        <translation>Température de bulbe humide de l&apos;air entrant à l&apos;état nominal</translation>
     </message>
     <message>
         <source>Rated Entering Water Temperature</source>
-        <translation>Température d'eau entrante nominale</translation>
+        <translation>Température d&apos;eau entrante nominale</translation>
     </message>
     <message>
         <source>Rated Evaporative Capacity</source>
-        <translation>Capacité d'évaporation nominale</translation>
+        <translation>Capacité d&apos;évaporation nominale</translation>
     </message>
     <message>
         <source>Rated Evaporative Condenser Pump Power Consumption</source>
@@ -11709,15 +11709,15 @@
     </message>
     <message>
         <source>Rated Evaporator Air Flow Rate</source>
-        <translation>Débit d'air nominal à l'évaporateur</translation>
+        <translation>Débit d&apos;air nominal à l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Rated Evaporator Inlet Air Dry-Bulb Temperature</source>
-        <translation>Température de Bulbe Sec de l'Air à l'Entrée de l'Évaporateur en Conditions Nominales</translation>
+        <translation>Température de Bulbe Sec de l&apos;Air à l&apos;Entrée de l&apos;Évaporateur en Conditions Nominales</translation>
     </message>
     <message>
         <source>Rated Evaporator Inlet Air Wet-Bulb Temperature</source>
-        <translation>Température de bulbe humide de l'air à l'entrée de l'évaporateur aux conditions nominales</translation>
+        <translation>Température de bulbe humide de l&apos;air à l&apos;entrée de l&apos;évaporateur aux conditions nominales</translation>
     </message>
     <message>
         <source>Rated Fan Power</source>
@@ -11757,7 +11757,7 @@
     </message>
     <message>
         <source>Rated High Speed Air Flow Rate</source>
-        <translation>Débit d'air nominal à haut régime</translation>
+        <translation>Débit d&apos;air nominal à haut régime</translation>
     </message>
     <message>
         <source>Rated High Speed COP</source>
@@ -11765,11 +11765,11 @@
     </message>
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
-        <translation>Puissance du ventilateur de l'évaporateur à haut régime rapportée au débit volumique 2017</translation>
+        <translation>Puissance du ventilateur de l&apos;évaporateur à haut régime rapportée au débit volumique 2017</translation>
     </message>
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
-        <translation>Puissance nominale du ventilateur d'évaporateur à grande vitesse par débit volumique 2023</translation>
+        <translation>Puissance nominale du ventilateur d&apos;évaporateur à grande vitesse par débit volumique 2023</translation>
     </message>
     <message>
         <source>Rated High Speed Sensible Heat Ratio</source>
@@ -11781,7 +11781,7 @@
     </message>
     <message>
         <source>Rated Inlet Space Temperature</source>
-        <translation>Température nominale de l'air entrant</translation>
+        <translation>Température nominale de l&apos;air entrant</translation>
     </message>
     <message>
         <source>Rated Latent Heat Ratio</source>
@@ -11789,7 +11789,7 @@
     </message>
     <message>
         <source>Rated Leaving Water Temperature</source>
-        <translation>Température de l'eau de sortie nominale</translation>
+        <translation>Température de l&apos;eau de sortie nominale</translation>
     </message>
     <message>
         <source>Rated Liquid Temperature</source>
@@ -11801,7 +11801,7 @@
     </message>
     <message>
         <source>Rated Low Speed Air Flow Rate</source>
-        <translation>Débit d'air nominal à faible vitesse</translation>
+        <translation>Débit d&apos;air nominal à faible vitesse</translation>
     </message>
     <message>
         <source>Rated Low Speed COP</source>
@@ -11809,11 +11809,11 @@
     </message>
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
-        <translation>Puissance nominale du ventilateur d'évaporateur à basse vitesse par débit volumique 2017</translation>
+        <translation>Puissance nominale du ventilateur d&apos;évaporateur à basse vitesse par débit volumique 2017</translation>
     </message>
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
-        <translation>Puissance nominale du ventilateur d'évaporateur à bas régime par débit volumique 2023</translation>
+        <translation>Puissance nominale du ventilateur d&apos;évaporateur à bas régime par débit volumique 2023</translation>
     </message>
     <message>
         <source>Rated Low Speed Sensible Heat Ratio</source>
@@ -11841,7 +11841,7 @@
     </message>
     <message>
         <source>Rated Primary Air Flow Rate per Beam Length</source>
-        <translation>Débit d'air primaire nominal par unité de longueur de poutre</translation>
+        <translation>Débit d&apos;air primaire nominal par unité de longueur de poutre</translation>
     </message>
     <message>
         <source>Rated Relative Humidity</source>
@@ -11881,7 +11881,7 @@
     </message>
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2023</source>
-        <translation>Puissance du ventilateur d'air soufflé nominale par débit volumique 2023</translation>
+        <translation>Puissance du ventilateur d&apos;air soufflé nominale par débit volumique 2023</translation>
     </message>
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2017</source>
@@ -11921,7 +11921,7 @@
     </message>
     <message>
         <source>Rated Total Lighting Power</source>
-        <translation>Puissance d'éclairage totale nominale</translation>
+        <translation>Puissance d&apos;éclairage totale nominale</translation>
     </message>
     <message>
         <source>Rated Unit Load Factor</source>
@@ -11929,39 +11929,39 @@
     </message>
     <message>
         <source>Rated Waste Heat Fraction of Power Input</source>
-        <translation>Fraction de chaleur perdue nominale par rapport à la puissance d'entrée</translation>
+        <translation>Fraction de chaleur perdue nominale par rapport à la puissance d&apos;entrée</translation>
     </message>
     <message>
         <source>Rated Water Flow Rate</source>
-        <translation>Débit d'eau volumétrique nominal</translation>
+        <translation>Débit d&apos;eau volumétrique nominal</translation>
     </message>
     <message>
         <source>Rated Water Flow Rate At Selected Nominal Speed Level</source>
-        <translation>Débit d'eau nominal au régime nominal sélectionné</translation>
+        <translation>Débit d&apos;eau nominal au régime nominal sélectionné</translation>
     </message>
     <message>
         <source>Rated Water Heating Capacity</source>
-        <translation>Capacité nominale de chauffage d'eau</translation>
+        <translation>Capacité nominale de chauffage d&apos;eau</translation>
     </message>
     <message>
         <source>Rated Water Heating COP</source>
-        <translation>COP nominal de chauffage de l'eau</translation>
+        <translation>COP nominal de chauffage de l&apos;eau</translation>
     </message>
     <message>
         <source>Rated Water Inlet Temperature</source>
-        <translation>Température d'entrée d'eau nominale</translation>
+        <translation>Température d&apos;entrée d&apos;eau nominale</translation>
     </message>
     <message>
         <source>Rated Water Mass Flow Rate</source>
-        <translation>Débit massique d'eau nominal</translation>
+        <translation>Débit massique d&apos;eau nominal</translation>
     </message>
     <message>
         <source>Rated Water Pump Power</source>
-        <translation>Puissance nominale de la pompe d'eau</translation>
+        <translation>Puissance nominale de la pompe d&apos;eau</translation>
     </message>
     <message>
         <source>Rated Water Removal</source>
-        <translation>Enlèvement d'eau nominal</translation>
+        <translation>Enlèvement d&apos;eau nominal</translation>
     </message>
     <message>
         <source>Rated Wind Speed</source>
@@ -11969,7 +11969,7 @@
     </message>
     <message>
         <source>Ratio of Building Width Along Short Axis to Width Along Long Axis</source>
-        <translation>Rapport de la largeur du bâtiment selon l'axe court à la largeur selon l'axe long</translation>
+        <translation>Rapport de la largeur du bâtiment selon l&apos;axe court à la largeur selon l&apos;axe long</translation>
     </message>
     <message>
         <source>Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance</source>
@@ -11985,11 +11985,11 @@
     </message>
     <message>
         <source>Real Discount Rate</source>
-        <translation>Taux d'actualisation réel</translation>
+        <translation>Taux d&apos;actualisation réel</translation>
     </message>
     <message>
         <source>Real Time Pricing Charge Schedule Name</source>
-        <translation>Nom de l'horaire de tarification en temps réel</translation>
+        <translation>Nom de l&apos;horaire de tarification en temps réel</translation>
     </message>
     <message>
         <source>Receiver Pressure</source>
@@ -12001,15 +12001,15 @@
     </message>
     <message>
         <source>Recirculated Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air recirculé</translation>
+        <translation>Nœud d&apos;entrée d&apos;air recirculé</translation>
     </message>
     <message>
         <source>Recirculating Water Pump Power Consumption</source>
-        <translation>Consommation Électrique de la Pompe de Recirculation d'Eau</translation>
+        <translation>Consommation Électrique de la Pompe de Recirculation d&apos;Eau</translation>
     </message>
     <message>
         <source>Recirculation Function of Loading and Supply Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction de recirculation selon la charge et la température de l'air d'alimentation</translation>
+        <translation>Nom de la courbe de fonction de recirculation selon la charge et la température de l&apos;air d&apos;alimentation</translation>
     </message>
     <message>
         <source>Reclamation Water Storage Tank Name</source>
@@ -12037,11 +12037,11 @@
     </message>
     <message>
         <source>Reference Combustion Air Inlet Humidity Ratio</source>
-        <translation>Ratio d'humidité de l'air de combustion de référence à l'entrée</translation>
+        <translation>Ratio d&apos;humidité de l&apos;air de combustion de référence à l&apos;entrée</translation>
     </message>
     <message>
         <source>Reference Combustion Air Inlet Temperature</source>
-        <translation>Température de référence de l'air de combustion à l'entrée</translation>
+        <translation>Température de référence de l&apos;air de combustion à l&apos;entrée</translation>
     </message>
     <message>
         <source>Reference Condenser Fluid Flow Rate</source>
@@ -12049,7 +12049,7 @@
     </message>
     <message>
         <source>Reference Condensing Temperature for Indoor Unit</source>
-        <translation>Température de condensation de référence pour l'unité intérieure</translation>
+        <translation>Température de condensation de référence pour l&apos;unité intérieure</translation>
     </message>
     <message>
         <source>Reference Cooling Capacity</source>
@@ -12065,15 +12065,15 @@
     </message>
     <message>
         <source>Reference Cooling Mode Evaporator Capacity</source>
-        <translation>Capacité de référence de l'évaporateur en mode refroidissement</translation>
+        <translation>Capacité de référence de l&apos;évaporateur en mode refroidissement</translation>
     </message>
     <message>
         <source>Reference Cooling Mode Leaving Chilled Water Temperature</source>
-        <translation>Température de départ de l'eau glacée en mode refroidissement de référence</translation>
+        <translation>Température de départ de l&apos;eau glacée en mode refroidissement de référence</translation>
     </message>
     <message>
         <source>Reference Cooling Mode Leaving Condenser Water Temperature</source>
-        <translation>Température de Référence de l'Eau de Condensation en Mode Refroidissement à la Sortie</translation>
+        <translation>Température de Référence de l&apos;Eau de Condensation en Mode Refroidissement à la Sortie</translation>
     </message>
     <message>
         <source>Reference Cooling Power Consumption</source>
@@ -12097,19 +12097,19 @@
     </message>
     <message>
         <source>Reference Evaporating Temperature for Indoor Unit</source>
-        <translation>Température d'évaporation de référence pour l'unité intérieure</translation>
+        <translation>Température d&apos;évaporation de référence pour l&apos;unité intérieure</translation>
     </message>
     <message>
         <source>Reference Exhaust Air Mass Flow Rate</source>
-        <translation>Débit massique de référence de l'air d'extraction</translation>
+        <translation>Débit massique de référence de l&apos;air d&apos;extraction</translation>
     </message>
     <message>
         <source>Reference Ground Temperature Object Type</source>
-        <translation>Type d'Objet Température du Sol de Référence</translation>
+        <translation>Type d&apos;Objet Température du Sol de Référence</translation>
     </message>
     <message>
         <source>Reference Heat Recovery Water Flow Rate</source>
-        <translation>Débit d'eau de référence du récupérateur de chaleur</translation>
+        <translation>Débit d&apos;eau de référence du récupérateur de chaleur</translation>
     </message>
     <message>
         <source>Reference Heating Capacity</source>
@@ -12121,7 +12121,7 @@
     </message>
     <message>
         <source>Reference Heating Mode Cooling Power Input Ratio</source>
-        <translation>Ratio de Puissance d'Entrée en Mode de Chauffage de Référence</translation>
+        <translation>Ratio de Puissance d&apos;Entrée en Mode de Chauffage de Référence</translation>
     </message>
     <message>
         <source>Reference Heating Mode Entering Condenser Fluid Temperature</source>
@@ -12129,11 +12129,11 @@
     </message>
     <message>
         <source>Reference Heating Mode Leaving Chilled Water Temperature</source>
-        <translation>Température de Référence de l'Eau Glacée à la Sortie en Mode Chauffage</translation>
+        <translation>Température de Référence de l&apos;Eau Glacée à la Sortie en Mode Chauffage</translation>
     </message>
     <message>
         <source>Reference Heating Mode Leaving Condenser Water Temperature</source>
-        <translation>Température de référence de l'eau de condensation quittant le condenseur en mode chauffage</translation>
+        <translation>Température de référence de l&apos;eau de condensation quittant le condenseur en mode chauffage</translation>
     </message>
     <message>
         <source>Reference Heating Power Consumption</source>
@@ -12141,11 +12141,11 @@
     </message>
     <message>
         <source>Reference Humidity Ratio</source>
-        <translation>Rapport d'humidité de référence</translation>
+        <translation>Rapport d&apos;humidité de référence</translation>
     </message>
     <message>
         <source>Reference Inlet Water Temperature</source>
-        <translation>Température de Référence de l'Eau à l'Entrée</translation>
+        <translation>Température de Référence de l&apos;Eau à l&apos;Entrée</translation>
     </message>
     <message>
         <source>Reference Insolation</source>
@@ -12153,7 +12153,7 @@
     </message>
     <message>
         <source>Reference Leaving Condenser Water Temperature</source>
-        <translation>Température de Référence de l'Eau Sortante du Condenseur</translation>
+        <translation>Température de Référence de l&apos;Eau Sortante du Condenseur</translation>
     </message>
     <message>
         <source>Reference Load Side Flow Rate</source>
@@ -12165,11 +12165,11 @@
     </message>
     <message>
         <source>Reference Outdoor Unit Subcooling</source>
-        <translation>Sous-refroidissement de référence de l'unité extérieure</translation>
+        <translation>Sous-refroidissement de référence de l&apos;unité extérieure</translation>
     </message>
     <message>
         <source>Reference Outdoor Unit Superheating</source>
-        <translation>Surchauffe de référence de l'unité extérieure</translation>
+        <translation>Surchauffe de référence de l&apos;unité extérieure</translation>
     </message>
     <message>
         <source>Reference Pressure Difference</source>
@@ -12189,7 +12189,7 @@
     </message>
     <message>
         <source>Reference Temperature for Nameplate Efficiency</source>
-        <translation>Température de référence pour l'efficacité nominale</translation>
+        <translation>Température de référence pour l&apos;efficacité nominale</translation>
     </message>
     <message>
         <source>Reference Temperature Node Name</source>
@@ -12201,51 +12201,51 @@
     </message>
     <message>
         <source>Reference Unit Gross Rated Cooling COP</source>
-        <translation>COP de refroidissement nominal brut de l'unité de référence</translation>
+        <translation>COP de refroidissement nominal brut de l&apos;unité de référence</translation>
     </message>
     <message>
         <source>Reference Unit Gross Rated Heating Capacity</source>
-        <translation>Capacité de Chauffage Nominale Brute de l'Unité de Référence</translation>
+        <translation>Capacité de Chauffage Nominale Brute de l&apos;Unité de Référence</translation>
     </message>
     <message>
         <source>Reference Unit Gross Rated Heating COP</source>
-        <translation>COP nominal brut de l'unité de référence en chauffage</translation>
+        <translation>COP nominal brut de l&apos;unité de référence en chauffage</translation>
     </message>
     <message>
         <source>Reference Unit Gross Rated Sensible Heat Ratio</source>
-        <translation>Rapport de Chaleur Sensible Nominal Brut de l'Unité de Référence</translation>
+        <translation>Rapport de Chaleur Sensible Nominal Brut de l&apos;Unité de Référence</translation>
     </message>
     <message>
         <source>Reference Unit Gross Rated Total Cooling Capacity</source>
-        <translation>Capacité frigorifique brute nominale de l'unité de référence</translation>
+        <translation>Capacité frigorifique brute nominale de l&apos;unité de référence</translation>
     </message>
     <message>
         <source>Reference Unit Rated Air Flow</source>
-        <translation>Débit d'Air Nominal de l'Unité de Référence</translation>
+        <translation>Débit d&apos;Air Nominal de l&apos;Unité de Référence</translation>
     </message>
     <message>
         <source>Reference Unit Rated Air Flow Rate</source>
-        <translation>Débit d'air nominal de l'unité de référence</translation>
+        <translation>Débit d&apos;air nominal de l&apos;unité de référence</translation>
     </message>
     <message>
         <source>Reference Unit Rated Condenser Air Flow Rate</source>
-        <translation>Débit d'air du condenseur nominale de l'unité de référence</translation>
+        <translation>Débit d&apos;air du condenseur nominale de l&apos;unité de référence</translation>
     </message>
     <message>
         <source>Reference Unit Rated Pad Effectiveness of Evap Precooling</source>
-        <translation>Efficacité nominale du coussin d'évaporation refroidisseur de référence</translation>
+        <translation>Efficacité nominale du coussin d&apos;évaporation refroidisseur de référence</translation>
     </message>
     <message>
         <source>Reference Unit Rated Water Flow Rate</source>
-        <translation>Débit d'eau nominal de référence</translation>
+        <translation>Débit d&apos;eau nominal de référence</translation>
     </message>
     <message>
         <source>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</source>
-        <translation>Fraction des pertes thermiques de l'unité de référence à la puissance d'entrée aux conditions nominales</translation>
+        <translation>Fraction des pertes thermiques de l&apos;unité de référence à la puissance d&apos;entrée aux conditions nominales</translation>
     </message>
     <message>
         <source>Reference Unit Water Pump Input Power At Rated Conditions</source>
-        <translation>Puissance d'entrée de la pompe de référence aux conditions nominales</translation>
+        <translation>Puissance d&apos;entrée de la pompe de référence aux conditions nominales</translation>
     </message>
     <message>
         <source>Reflected Beam Transmittance Accounting Method</source>
@@ -12253,7 +12253,7 @@
     </message>
     <message>
         <source>Reformer Water Flow Rate Function of Fuel Rate Curve Name</source>
-        <translation>Nom de la Courbe de Débit d'Eau du Réformateur en Fonction du Débit de Carburant</translation>
+        <translation>Nom de la Courbe de Débit d&apos;Eau du Réformateur en Fonction du Débit de Carburant</translation>
     </message>
     <message>
         <source>Reformer Water Pump Power Function of Fuel Rate Curve Name</source>
@@ -12273,7 +12273,7 @@
     </message>
     <message>
         <source>Refrigerant Temperature Control Algorithm for Indoor Unit</source>
-        <translation>Algorithme de contrôle de la température du frigorigène pour l'unité intérieure</translation>
+        <translation>Algorithme de contrôle de la température du frigorigène pour l&apos;unité intérieure</translation>
     </message>
     <message>
         <source>Refrigerant Type</source>
@@ -12313,11 +12313,11 @@
     </message>
     <message>
         <source>Regeneration Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air de régénération</translation>
+        <translation>Nœud d&apos;entrée d&apos;air de régénération</translation>
     </message>
     <message>
         <source>Regeneration Air Outlet Node</source>
-        <translation>Nœud de sortie de l'air de régénération</translation>
+        <translation>Nœud de sortie de l&apos;air de régénération</translation>
     </message>
     <message>
         <source>Region number for Calculating HSPF</source>
@@ -12325,7 +12325,7 @@
     </message>
     <message>
         <source>Regional Adjustment Factor</source>
-        <translation>Facteur d'ajustement régional</translation>
+        <translation>Facteur d&apos;ajustement régional</translation>
     </message>
     <message>
         <source>Reheat Coil</source>
@@ -12333,11 +12333,11 @@
     </message>
     <message>
         <source>Reheat Coil Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air de la bobine de réchauffage</translation>
+        <translation>Nœud d&apos;entrée d&apos;air de la bobine de réchauffage</translation>
     </message>
     <message>
         <source>Reheat Coil Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée air de la bobine de réchauffage</translation>
+        <translation>Nom du nœud d&apos;entrée air de la bobine de réchauffage</translation>
     </message>
     <message>
         <source>Reheat Coil Name</source>
@@ -12345,27 +12345,27 @@
     </message>
     <message>
         <source>Relative Airflow Convergence Tolerance</source>
-        <translation>Tolérance de Convergence du Débit d'Air Relatif</translation>
+        <translation>Tolérance de Convergence du Débit d&apos;Air Relatif</translation>
     </message>
     <message>
         <source>Relative Humidity Range Lower Limit</source>
-        <translation>Limite Inférieure de la Plage d'Humidité Relative</translation>
+        <translation>Limite Inférieure de la Plage d&apos;Humidité Relative</translation>
     </message>
     <message>
         <source>Relative Humidity Range Upper Limit</source>
-        <translation>Limite supérieure de la plage d'humidité relative</translation>
+        <translation>Limite supérieure de la plage d&apos;humidité relative</translation>
     </message>
     <message>
         <source>Relief Air Inlet Node</source>
-        <translation>Nœud d'admission d'air de soulagement</translation>
+        <translation>Nœud d&apos;admission d&apos;air de soulagement</translation>
     </message>
     <message>
         <source>Relief Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie de l'air d'évacuation</translation>
+        <translation>Nom du nœud de sortie de l&apos;air d&apos;évacuation</translation>
     </message>
     <message>
         <source>Relief Air Stream Node Name</source>
-        <translation>Nom du nœud du courant d'air de soulagement</translation>
+        <translation>Nom du nœud du courant d&apos;air de soulagement</translation>
     </message>
     <message>
         <source>Relocatable</source>
@@ -12449,31 +12449,31 @@
     </message>
     <message>
         <source>Return Air Bypass Flow Temperature Setpoint Schedule Name</source>
-        <translation>Nom de la courbe de consigne de température de l'air de retour en dérivation</translation>
+        <translation>Nom de la courbe de consigne de température de l&apos;air de retour en dérivation</translation>
     </message>
     <message>
         <source>Return Air Fraction</source>
-        <translation>Fraction d'air de retour</translation>
+        <translation>Fraction d&apos;air de retour</translation>
     </message>
     <message>
         <source>Return Air Fraction Calculated from Plenum Temperature</source>
-        <translation>Fraction d'air de retour calculée à partir de la température du plénum</translation>
+        <translation>Fraction d&apos;air de retour calculée à partir de la température du plénum</translation>
     </message>
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 1</source>
-        <translation>Coefficient 1 de la Fraction d'Air de Retour en Fonction de la Température du Plénum</translation>
+        <translation>Coefficient 1 de la Fraction d&apos;Air de Retour en Fonction de la Température du Plénum</translation>
     </message>
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 2</source>
-        <translation>Coefficient 2 de la Fonction de Fraction d'Air de Retour en Fonction de la Température du Plénum</translation>
+        <translation>Coefficient 2 de la Fonction de Fraction d&apos;Air de Retour en Fonction de la Température du Plénum</translation>
     </message>
     <message>
         <source>Return Air Node Name</source>
-        <translation>Nom du nœud d'air de retour</translation>
+        <translation>Nom du nœud d&apos;air de retour</translation>
     </message>
     <message>
         <source>Return Air Stream Node Name</source>
-        <translation>Nom du nœud du flux d'air de reprise</translation>
+        <translation>Nom du nœud du flux d&apos;air de reprise</translation>
     </message>
     <message>
         <source>Return Temperature Difference</source>
@@ -12481,15 +12481,15 @@
     </message>
     <message>
         <source>Return Temperature Difference Schedule</source>
-        <translation>Calendrier de l'écart de température de retour</translation>
+        <translation>Calendrier de l&apos;écart de température de retour</translation>
     </message>
     <message>
         <source>Right Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté droit</translation>
+        <translation>Multiplicateur d&apos;ouverture côté droit</translation>
     </message>
     <message>
         <source>Right-Side Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture côté droit</translation>
+        <translation>Multiplicateur d&apos;ouverture côté droit</translation>
     </message>
     <message>
         <source>Roof Ceiling Construction Name</source>
@@ -12545,7 +12545,7 @@
     </message>
     <message>
         <source>Run Time Degradation Initiation Time Threshold</source>
-        <translation>Seuil de Temps d'Initiation de Dégradation en Fonction du Temps de Fonctionnement</translation>
+        <translation>Seuil de Temps d&apos;Initiation de Dégradation en Fonction du Temps de Fonctionnement</translation>
     </message>
     <message>
         <source>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</source>
@@ -12689,23 +12689,23 @@
     </message>
     <message>
         <source>SCDWH Water Heating Coil</source>
-        <translation>Serpentin de chauffage de l'eau SCDWH</translation>
+        <translation>Serpentin de chauffage de l&apos;eau SCDWH</translation>
     </message>
     <message>
         <source>Schedule Rendering Name</source>
-        <translation>Nom de rendu de l'horaire</translation>
+        <translation>Nom de rendu de l&apos;horaire</translation>
     </message>
     <message>
         <source>Schedule Ruleset Name</source>
-        <translation>Nom de l'ensemble de règles de calendrier</translation>
+        <translation>Nom de l&apos;ensemble de règles de calendrier</translation>
     </message>
     <message>
         <source>Screen Material Diameter</source>
-        <translation>Diamètre du matériau d'écran</translation>
+        <translation>Diamètre du matériau d&apos;écran</translation>
     </message>
     <message>
         <source>Screen Material Spacing</source>
-        <translation>Espacement du matériau d'écran</translation>
+        <translation>Espacement du matériau d&apos;écran</translation>
     </message>
     <message>
         <source>Screen to Glass Distance</source>
@@ -12733,7 +12733,7 @@
     </message>
     <message>
         <source>Season To</source>
-        <translation>Saison jusqu'à</translation>
+        <translation>Saison jusqu&apos;à</translation>
     </message>
     <message>
         <source>Second Evaporative Cooler</source>
@@ -12741,27 +12741,27 @@
     </message>
     <message>
         <source>Secondary Air Fan Design Power</source>
-        <translation>Puissance de conception du ventilateur d'air secondaire</translation>
+        <translation>Puissance de conception du ventilateur d&apos;air secondaire</translation>
     </message>
     <message>
         <source>Secondary Air Fan Power Modifier Curve Name</source>
-        <translation>Nom de la courbe de modification de la puissance du ventilateur d'air secondaire</translation>
+        <translation>Nom de la courbe de modification de la puissance du ventilateur d&apos;air secondaire</translation>
     </message>
     <message>
         <source>Secondary Air Flow Scaling Factor</source>
-        <translation>Facteur d'échelle du débit d'air secondaire</translation>
+        <translation>Facteur d&apos;échelle du débit d&apos;air secondaire</translation>
     </message>
     <message>
         <source>Secondary Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air secondaire</translation>
+        <translation>Nœud d&apos;entrée d&apos;air secondaire</translation>
     </message>
     <message>
         <source>Secondary Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air secondaire</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air secondaire</translation>
     </message>
     <message>
         <source>Secondary Daylighting Control Name</source>
-        <translation>Nom du Contrôle d'Éclairage Naturel Secondaire</translation>
+        <translation>Nom du Contrôle d&apos;Éclairage Naturel Secondaire</translation>
     </message>
     <message>
         <source>Secondary Fan Delta Pressure</source>
@@ -12785,19 +12785,19 @@
     </message>
     <message>
         <source>Sensible Effectiveness at 100% Cooling Air Flow</source>
-        <translation>Efficacité sensible à 100 % du débit d'air de refroidissement</translation>
+        <translation>Efficacité sensible à 100 % du débit d&apos;air de refroidissement</translation>
     </message>
     <message>
         <source>Sensible Effectiveness at 100% Heating Air Flow</source>
-        <translation>Efficacité Sensible à 100% du Débit d'Air de Chauffage</translation>
+        <translation>Efficacité Sensible à 100% du Débit d&apos;Air de Chauffage</translation>
     </message>
     <message>
         <source>Sensible Effectiveness of Cooling Air Flow Curve Name</source>
-        <translation>Nom de la courbe d'efficacité sensible du débit d'air de refroidissement</translation>
+        <translation>Nom de la courbe d&apos;efficacité sensible du débit d&apos;air de refroidissement</translation>
     </message>
     <message>
         <source>Sensible Effectiveness of Heating Air Flow Curve Name</source>
-        <translation>Nom de la courbe d'efficacité sensible du débit d'air de chauffage</translation>
+        <translation>Nom de la courbe d&apos;efficacité sensible du débit d&apos;air de chauffage</translation>
     </message>
     <message>
         <source>Sensible Heat Ratio Function of Flow Fraction Curve</source>
@@ -12809,7 +12809,7 @@
     </message>
     <message>
         <source>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</source>
-        <translation>Courbe Modificatrice du Coefficient d'Efficacité Sensible en Fonction de la Fraction de Débit</translation>
+        <translation>Courbe Modificatrice du Coefficient d&apos;Efficacité Sensible en Fonction de la Fraction de Débit</translation>
     </message>
     <message>
         <source>Sensible Heat Ratio Modifier Function of Temperature Curve</source>
@@ -12861,7 +12861,7 @@
     </message>
     <message>
         <source>Setpoint at High Reference Humidity Ratio</source>
-        <translation>Consigne à Ratio d'Humidité de Référence Élevée</translation>
+        <translation>Consigne à Ratio d&apos;Humidité de Référence Élevée</translation>
     </message>
     <message>
         <source>Setpoint at High Reference Temperature</source>
@@ -12869,7 +12869,7 @@
     </message>
     <message>
         <source>Setpoint at Low Reference Humidity Ratio</source>
-        <translation>Consigne à faible ratio d'humidité de référence</translation>
+        <translation>Consigne à faible ratio d&apos;humidité de référence</translation>
     </message>
     <message>
         <source>Setpoint at Low Reference Temperature</source>
@@ -12909,7 +12909,7 @@
     </message>
     <message>
         <source>Shaded Object Name</source>
-        <translation>Nom de l'objet ombragé</translation>
+        <translation>Nom de l&apos;objet ombragé</translation>
     </message>
     <message>
         <source>Shading Calculation Method</source>
@@ -12917,11 +12917,11 @@
     </message>
     <message>
         <source>Shading Calculation Update Frequency</source>
-        <translation>Fréquence de mise à jour du calcul d'ombrage</translation>
+        <translation>Fréquence de mise à jour du calcul d&apos;ombrage</translation>
     </message>
     <message>
         <source>Shading Calculation Update Frequency Method</source>
-        <translation>Méthode de Fréquence de Mise à Jour du Calcul d'Ombrage</translation>
+        <translation>Méthode de Fréquence de Mise à Jour du Calcul d&apos;Ombrage</translation>
     </message>
     <message>
         <source>Shading Control Is Scheduled</source>
@@ -12929,19 +12929,19 @@
     </message>
     <message>
         <source>Shading Control Type</source>
-        <translation>Type de contrôle d'ombrage</translation>
+        <translation>Type de contrôle d&apos;ombrage</translation>
     </message>
     <message>
         <source>Shading Device Material Name</source>
-        <translation>Nom du matériau de l'élément d'ombrage</translation>
+        <translation>Nom du matériau de l&apos;élément d&apos;ombrage</translation>
     </message>
     <message>
         <source>Shading Surface Group Name</source>
-        <translation>Nom du groupe de surface d'ombrage</translation>
+        <translation>Nom du groupe de surface d&apos;ombrage</translation>
     </message>
     <message>
         <source>Shading Surface Type</source>
-        <translation>Type de Surface d'Ombrage</translation>
+        <translation>Type de Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <source>Shading Type</source>
@@ -12949,7 +12949,7 @@
     </message>
     <message>
         <source>Shading Zone Group</source>
-        <translation>Groupe de zones d'ombrage</translation>
+        <translation>Groupe de zones d&apos;ombrage</translation>
     </message>
     <message>
         <source>SHDWH Heating Coil</source>
@@ -12957,15 +12957,15 @@
     </message>
     <message>
         <source>SHDWH Water Heating Coil</source>
-        <translation>Serpentin de Chauffage de l'Eau SHDWH</translation>
+        <translation>Serpentin de Chauffage de l&apos;Eau SHDWH</translation>
     </message>
     <message>
         <source>Shell-and-Coil Intercooler Effectiveness</source>
-        <translation>Efficacité de l'Échangeur Interrefroidisseur Serpentin-Coque</translation>
+        <translation>Efficacité de l&apos;Échangeur Interrefroidisseur Serpentin-Coque</translation>
     </message>
     <message>
         <source>Shelter Factor</source>
-        <translation>Facteur d'abri</translation>
+        <translation>Facteur d&apos;abri</translation>
     </message>
     <message>
         <source>Short Circuit Current</source>
@@ -12981,19 +12981,19 @@
     </message>
     <message>
         <source>Shut Down Electricity Consumption</source>
-        <translation>Consommation d'électricité à l'arrêt</translation>
+        <translation>Consommation d&apos;électricité à l&apos;arrêt</translation>
     </message>
     <message>
         <source>Shut Down Fuel</source>
-        <translation>Carburant à l'arrêt</translation>
+        <translation>Carburant à l&apos;arrêt</translation>
     </message>
     <message>
         <source>Shut Down Time</source>
-        <translation>Temps d'arrêt</translation>
+        <translation>Temps d&apos;arrêt</translation>
     </message>
     <message>
         <source>Shut Off Relative Humidity</source>
-        <translation>Humidité relative d'arrêt</translation>
+        <translation>Humidité relative d&apos;arrêt</translation>
     </message>
     <message>
         <source>Side Heat Loss Conductance</source>
@@ -13001,7 +13001,7 @@
     </message>
     <message>
         <source>Simple Airflow Control Type Schedule</source>
-        <translation>Calendrier de Type de Contrôle de Débit d'Air Simple</translation>
+        <translation>Calendrier de Type de Contrôle de Débit d&apos;Air Simple</translation>
     </message>
     <message>
         <source>Simple Fixed Efficiency</source>
@@ -13021,11 +13021,11 @@
     </message>
     <message>
         <source>Simple Mixing Air Changes per Hour</source>
-        <translation>Taux de renouvellement d'air par mélange simple [1/h]</translation>
+        <translation>Taux de renouvellement d&apos;air par mélange simple [1/h]</translation>
     </message>
     <message>
         <source>Simple Mixing Schedule Name</source>
-        <translation>Nom de l'horaire de mélange simple</translation>
+        <translation>Nom de l&apos;horaire de mélange simple</translation>
     </message>
     <message>
         <source>Simulation Timestep</source>
@@ -13045,7 +13045,7 @@
     </message>
     <message>
         <source>Site Shading Construction Name</source>
-        <translation>Nom de la construction d'ombrage de site</translation>
+        <translation>Nom de la construction d&apos;ombrage de site</translation>
     </message>
     <message>
         <source>Skin Loss Calculation Mode</source>
@@ -13101,7 +13101,7 @@
     </message>
     <message>
         <source>Slat Angle Schedule Name</source>
-        <translation>Nom de l'horaire d'angle des lames</translation>
+        <translation>Nom de l&apos;horaire d&apos;angle des lames</translation>
     </message>
     <message>
         <source>Slat Beam Solar Transmittance</source>
@@ -13153,11 +13153,11 @@
     </message>
     <message>
         <source>SO2 Emission Factor</source>
-        <translation>Facteur d'émission SO2</translation>
+        <translation>Facteur d&apos;émission SO2</translation>
     </message>
     <message>
         <source>SO2 Emission Factor Schedule Name</source>
-        <translation>Nom de la planification du facteur d'émission SO2</translation>
+        <translation>Nom de la planification du facteur d&apos;émission SO2</translation>
     </message>
     <message>
         <source>Soil Conductivity</source>
@@ -13209,7 +13209,7 @@
     </message>
     <message>
         <source>Solar Extinction Coefficient</source>
-        <translation>Coefficient d'extinction solaire</translation>
+        <translation>Coefficient d&apos;extinction solaire</translation>
     </message>
     <message>
         <source>Solar Heat Gain Coefficient</source>
@@ -13241,15 +13241,15 @@
     </message>
     <message>
         <source>Solid State Density</source>
-        <translation>Densité de l'état solide</translation>
+        <translation>Densité de l&apos;état solide</translation>
     </message>
     <message>
         <source>Solid State Specific Heat</source>
-        <translation>Chaleur Spécifique de l'État Solide</translation>
+        <translation>Chaleur Spécifique de l&apos;État Solide</translation>
     </message>
     <message>
         <source>Solid State Thermal Conductivity</source>
-        <translation>Conductivité thermique de l'état solide</translation>
+        <translation>Conductivité thermique de l&apos;état solide</translation>
     </message>
     <message>
         <source>Solver</source>
@@ -13257,15 +13257,15 @@
     </message>
     <message>
         <source>Source Energy Factor</source>
-        <translation>Facteur d'Énergie Primaire</translation>
+        <translation>Facteur d&apos;Énergie Primaire</translation>
     </message>
     <message>
         <source>Source Energy Schedule Name</source>
-        <translation>Nom de calendrier d'énergie source</translation>
+        <translation>Nom de calendrier d&apos;énergie source</translation>
     </message>
     <message>
         <source>Source Loop Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée de la boucle source</translation>
+        <translation>Nom du nœud d&apos;entrée de la boucle source</translation>
     </message>
     <message>
         <source>Source Loop Outlet Node Name</source>
@@ -13285,7 +13285,7 @@
     </message>
     <message>
         <source>Source Side Availability Schedule Name</source>
-        <translation>Nom de l'Horaire de Disponibilité du Côté Source</translation>
+        <translation>Nom de l&apos;Horaire de Disponibilité du Côté Source</translation>
     </message>
     <message>
         <source>Source Side Flow Control Mode</source>
@@ -13297,7 +13297,7 @@
     </message>
     <message>
         <source>Source Side Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Côté Source</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Côté Source</translation>
     </message>
     <message>
         <source>Source Side Outlet Node Name</source>
@@ -13313,7 +13313,7 @@
     </message>
     <message>
         <source>Source Temperature Schedule Name</source>
-        <translation>Nom de l'horaire de température de source</translation>
+        <translation>Nom de l&apos;horaire de température de source</translation>
     </message>
     <message>
         <source>Source Variable</source>
@@ -13321,7 +13321,7 @@
     </message>
     <message>
         <source>Source Zone or Space Name</source>
-        <translation>Nom de la zone ou de l'espace source</translation>
+        <translation>Nom de la zone ou de l&apos;espace source</translation>
     </message>
     <message>
         <source>Space Cooling Coil</source>
@@ -13333,15 +13333,15 @@
     </message>
     <message>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <source>Space Shading Construction Name</source>
-        <translation>Nom de la Construction d'Ombrage de l'Espace</translation>
+        <translation>Nom de la Construction d&apos;Ombrage de l&apos;Espace</translation>
     </message>
     <message>
         <source>Space Type Name</source>
-        <translation>Type d'espace</translation>
+        <translation>Type d&apos;espace</translation>
     </message>
     <message>
         <source>Special Day Type</source>
@@ -13385,35 +13385,35 @@
     </message>
     <message>
         <source>Speed 1 Supply Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air soufflé Vitesse 1 en mode refroidissement</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 1 en mode refroidissement</translation>
     </message>
     <message>
         <source>Speed 1 Supply Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air neuf vitesse 1 en mode chauffage</translation>
+        <translation>Débit d&apos;air neuf vitesse 1 en mode chauffage</translation>
     </message>
     <message>
         <source>Speed 2 Supply Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air soufflé Vitesse 2 en mode refroidissement</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 2 en mode refroidissement</translation>
     </message>
     <message>
         <source>Speed 2 Supply Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air soufflé Vitesse 2 pendant le mode chauffage</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 2 pendant le mode chauffage</translation>
     </message>
     <message>
         <source>Speed 3 Supply Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air soufflé Vitesse 3 en mode refroidissement</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 3 en mode refroidissement</translation>
     </message>
     <message>
         <source>Speed 3 Supply Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air soufflé Vitesse 3 en mode chauffage</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 3 en mode chauffage</translation>
     </message>
     <message>
         <source>Speed 4 Supply Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air soufflé Vitesse 4 en Mode de Refroidissement</translation>
+        <translation>Débit d&apos;air soufflé Vitesse 4 en Mode de Refroidissement</translation>
     </message>
     <message>
         <source>Speed 4 Supply Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air soufflé à la vitesse 4 lors du fonctionnement en chauffage</translation>
+        <translation>Débit d&apos;air soufflé à la vitesse 4 lors du fonctionnement en chauffage</translation>
     </message>
     <message>
         <source>Speed Control Method</source>
@@ -13433,11 +13433,11 @@
     </message>
     <message>
         <source>Stack Air Cooler Fan Coefficient f0</source>
-        <translation>Coefficient f0 du ventilateur du refroidisseur d'air par circulation naturelle</translation>
+        <translation>Coefficient f0 du ventilateur du refroidisseur d&apos;air par circulation naturelle</translation>
     </message>
     <message>
         <source>Stack Air Cooler Fan Coefficient f1</source>
-        <translation>Coefficient de Ventilateur de Refroidisseur d'Air à Tirage Naturel f1</translation>
+        <translation>Coefficient de Ventilateur de Refroidisseur d&apos;Air à Tirage Naturel f1</translation>
     </message>
     <message>
         <source>Stack Air Cooler Fan Coefficient f2</source>
@@ -13445,19 +13445,19 @@
     </message>
     <message>
         <source>Stack Cogeneration Exchanger Area</source>
-        <translation>Surface d'échange du générateur cogénératif en pile</translation>
+        <translation>Surface d&apos;échange du générateur cogénératif en pile</translation>
     </message>
     <message>
         <source>Stack Cogeneration Exchanger Nominal Flow Rate</source>
-        <translation>Débit Nominal de l'Échangeur de Cogénération par Pile</translation>
+        <translation>Débit Nominal de l&apos;Échangeur de Cogénération par Pile</translation>
     </message>
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</source>
-        <translation>Coefficient d'Échange Thermique Nominal de l'Échangeur de Cogénération à Pile</translation>
+        <translation>Coefficient d&apos;Échange Thermique Nominal de l&apos;Échangeur de Cogénération à Pile</translation>
     </message>
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</source>
-        <translation>Exposant du coefficient nominal de transfert thermique de l'échangeur de cogénération en pile</translation>
+        <translation>Exposant du coefficient nominal de transfert thermique de l&apos;échangeur de cogénération en pile</translation>
     </message>
     <message>
         <source>Stack Coolant Flow Rate</source>
@@ -13477,11 +13477,11 @@
     </message>
     <message>
         <source>Stack Cooler U-Factor Times Area Value</source>
-        <translation>Valeur du Coefficient Global d'Échange Times Aire pour Refroidisseur à Tirage Naturel</translation>
+        <translation>Valeur du Coefficient Global d&apos;Échange Times Aire pour Refroidisseur à Tirage Naturel</translation>
     </message>
     <message>
         <source>Stack Heat loss to Dilution Air</source>
-        <translation>Perte thermique de la cheminée vers l'air de dilution</translation>
+        <translation>Perte thermique de la cheminée vers l&apos;air de dilution</translation>
     </message>
     <message>
         <source>Stage</source>
@@ -13525,15 +13525,15 @@
     </message>
     <message>
         <source>Standard Case Fan Power per Unit Length</source>
-        <translation>Puissance nominale du ventilateur de l'armoire par unité de longueur</translation>
+        <translation>Puissance nominale du ventilateur de l&apos;armoire par unité de longueur</translation>
     </message>
     <message>
         <source>Standard Case Lighting Power per Door</source>
-        <translation>Puissance d'éclairage pour vitrine standard par porte</translation>
+        <translation>Puissance d&apos;éclairage pour vitrine standard par porte</translation>
     </message>
     <message>
         <source>Standard Case Lighting Power per Unit Length</source>
-        <translation>Puissance d'éclairage standard du meuble frigorifique par unité de longueur</translation>
+        <translation>Puissance d&apos;éclairage standard du meuble frigorifique par unité de longueur</translation>
     </message>
     <message>
         <source>Standard Design Capacity</source>
@@ -13557,19 +13557,19 @@
     </message>
     <message>
         <source>Standards Number of Above Ground Stories</source>
-        <translation>Nombre d'étages au-dessus du sol selon les normes</translation>
+        <translation>Nombre d&apos;étages au-dessus du sol selon les normes</translation>
     </message>
     <message>
         <source>Standards Number of Living Units</source>
-        <translation>Nombre normalisé d'unités d'habitation</translation>
+        <translation>Nombre normalisé d&apos;unités d&apos;habitation</translation>
     </message>
     <message>
         <source>Standards Number of Stories</source>
-        <translation>Nombre d'étages selon les normes</translation>
+        <translation>Nombre d&apos;étages selon les normes</translation>
     </message>
     <message>
         <source>Standards Space Type</source>
-        <translation>Type d'Espace Normalisé</translation>
+        <translation>Type d&apos;Espace Normalisé</translation>
     </message>
     <message>
         <source>Standards Template</source>
@@ -13601,7 +13601,7 @@
     </message>
     <message>
         <source>Start Height Factor for Opening Factor</source>
-        <translation>Facteur de Hauteur de Départ pour Facteur d'Ouverture</translation>
+        <translation>Facteur de Hauteur de Départ pour Facteur d&apos;Ouverture</translation>
     </message>
     <message>
         <source>Start Month</source>
@@ -13633,7 +13633,7 @@
     </message>
     <message>
         <source>Steam Equipment Definition Name</source>
-        <translation>Nom de Définition de l'Équipement à Vapeur</translation>
+        <translation>Nom de Définition de l&apos;Équipement à Vapeur</translation>
     </message>
     <message>
         <source>Steam Inflation</source>
@@ -13641,7 +13641,7 @@
     </message>
     <message>
         <source>Steam Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée de Vapeur</translation>
+        <translation>Nom du Nœud d&apos;Entrée de Vapeur</translation>
     </message>
     <message>
         <source>Steam Outlet Node Name</source>
@@ -13649,11 +13649,11 @@
     </message>
     <message>
         <source>Stocking Door Opening Protection Type Facing Zone</source>
-        <translation>Type de Protection à l'Ouverture de Porte de Stockage Orientée vers la Zone</translation>
+        <translation>Type de Protection à l&apos;Ouverture de Porte de Stockage Orientée vers la Zone</translation>
     </message>
     <message>
         <source>Stocking Door Opening Schedule Name Facing Zone</source>
-        <translation>Nom de l'agenda d'ouverture de porte de stockage pour la zone exposée</translation>
+        <translation>Nom de l&apos;agenda d&apos;ouverture de porte de stockage pour la zone exposée</translation>
     </message>
     <message>
         <source>Stocking Door U Value Facing Zone</source>
@@ -13685,7 +13685,7 @@
     </message>
     <message>
         <source>Storage Charge Power Fraction Schedule Name</source>
-        <translation>Nom de l'horaire de fraction de puissance de charge du stockage</translation>
+        <translation>Nom de l&apos;horaire de fraction de puissance de charge du stockage</translation>
     </message>
     <message>
         <source>Storage Control Track Meter Name</source>
@@ -13697,11 +13697,11 @@
     </message>
     <message>
         <source>Storage Control Utility Demand Target Fraction Schedule Name</source>
-        <translation>Nom de l'horaire de la fraction de demande électrique cible pour la commande du stockage</translation>
+        <translation>Nom de l&apos;horaire de la fraction de demande électrique cible pour la commande du stockage</translation>
     </message>
     <message>
         <source>Storage Converter Object Name</source>
-        <translation>Nom de l'objet convertisseur de stockage</translation>
+        <translation>Nom de l&apos;objet convertisseur de stockage</translation>
     </message>
     <message>
         <source>Storage Discharge Power Fraction Schedule Name</source>
@@ -13733,7 +13733,7 @@
     </message>
     <message>
         <source>Storage Tank Plant Connection Inlet Node</source>
-        <translation>Nœud d'entrée de raccordement de réservoir de stockage à la boucle</translation>
+        <translation>Nœud d&apos;entrée de raccordement de réservoir de stockage à la boucle</translation>
     </message>
     <message>
         <source>Storage Tank Plant Connection Outlet Node</source>
@@ -13741,7 +13741,7 @@
     </message>
     <message>
         <source>Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient</source>
-        <translation>Coefficient de transfert thermique (U*A) du réservoir de stockage vers l'ambiance</translation>
+        <translation>Coefficient de transfert thermique (U*A) du réservoir de stockage vers l&apos;ambiance</translation>
     </message>
     <message>
         <source>Storage Type</source>
@@ -13773,7 +13773,7 @@
     </message>
     <message>
         <source>Suction Piping Zone Name</source>
-        <translation>Nom de la zone de la tuyauterie d'aspiration</translation>
+        <translation>Nom de la zone de la tuyauterie d&apos;aspiration</translation>
     </message>
     <message>
         <source>Suction Temperature Control Type</source>
@@ -13789,7 +13789,7 @@
     </message>
     <message>
         <source>Sum UA Suction Piping</source>
-        <translation>Somme UA Tuyauterie d'Aspiration</translation>
+        <translation>Somme UA Tuyauterie d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Sum UA Suction Piping for Low Temperature Loads</source>
@@ -13797,11 +13797,11 @@
     </message>
     <message>
         <source>Sum UA Suction Piping for Medium Temperature Loads</source>
-        <translation>Somme UA Conduites d'Aspiration pour Charges Température Moyenne</translation>
+        <translation>Somme UA Conduites d&apos;Aspiration pour Charges Température Moyenne</translation>
     </message>
     <message>
         <source>SummerDesignDay Schedule:Day Name</source>
-        <translation>Nom du Jour d'Hiver de Conception / Jour Horaire</translation>
+        <translation>Nom du Jour d&apos;Hiver de Conception / Jour Horaire</translation>
     </message>
     <message>
         <source>Sun Exposure</source>
@@ -13821,11 +13821,11 @@
     </message>
     <message>
         <source>Supply Air Fan</source>
-        <translation>Ventilateur d'air soufflé</translation>
+        <translation>Ventilateur d&apos;air soufflé</translation>
     </message>
     <message>
         <source>Supply Air Fan Name</source>
-        <translation>Nom du ventilateur d'air soufflé</translation>
+        <translation>Nom du ventilateur d&apos;air soufflé</translation>
     </message>
     <message>
         <source>Supply Air Fan Operating Mode Schedule</source>
@@ -13837,63 +13837,63 @@
     </message>
     <message>
         <source>Supply Air Flow Rate</source>
-        <translation>Débit d'air de soufflage</translation>
+        <translation>Débit d&apos;air de soufflage</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Method During Cooling Operation</source>
-        <translation>Méthode de débit d'air soufflé pendant le refroidissement</translation>
+        <translation>Méthode de débit d&apos;air soufflé pendant le refroidissement</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Method During Heating Operation</source>
-        <translation>Méthode de débit d'air neuf pendant le chauffage</translation>
+        <translation>Méthode de débit d&apos;air neuf pendant le chauffage</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Method When No Cooling or Heating is Required</source>
-        <translation>Méthode de débit d'air neuf quand ni refroidissement ni chauffage n'est requis</translation>
+        <translation>Méthode de débit d&apos;air neuf quand ni refroidissement ni chauffage n&apos;est requis</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Per Floor Area During Cooling Operation</source>
-        <translation>Débit d'air soufflé par unité de surface pendant le refroidissement</translation>
+        <translation>Débit d&apos;air soufflé par unité de surface pendant le refroidissement</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Per Floor Area during Heating Operation</source>
-        <translation>Débit d'air fourni par unité de surface de plancher en mode chauffage</translation>
+        <translation>Débit d&apos;air fourni par unité de surface de plancher en mode chauffage</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required</source>
-        <translation>Débit d'air soufflé par unité de surface au sol sans refroidissement ni chauffage requis</translation>
+        <translation>Débit d&apos;air soufflé par unité de surface au sol sans refroidissement ni chauffage requis</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Needed</source>
-        <translation>Débit d'air fourni quand aucun refroidissement ou chauffage n'est nécessaire</translation>
+        <translation>Débit d&apos;air fourni quand aucun refroidissement ou chauffage n&apos;est nécessaire</translation>
     </message>
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Required</source>
-        <translation>Débit d'air neuf quand aucun refroidissement ou chauffage n'est requis</translation>
+        <translation>Débit d&apos;air neuf quand aucun refroidissement ou chauffage n&apos;est requis</translation>
     </message>
     <message>
         <source>Supply Air Inlet Node</source>
-        <translation>Nœud d'Entrée d'Air Fourni</translation>
+        <translation>Nœud d&apos;Entrée d&apos;Air Fourni</translation>
     </message>
     <message>
         <source>Supply Air Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'air primaire</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;air primaire</translation>
     </message>
     <message>
         <source>Supply Air Outlet Node</source>
-        <translation>Nœud de Sortie d'Air de Soufflage</translation>
+        <translation>Nœud de Sortie d&apos;Air de Soufflage</translation>
     </message>
     <message>
         <source>Supply Air Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'air de distribution</translation>
+        <translation>Nom du nœud de sortie d&apos;air de distribution</translation>
     </message>
     <message>
         <source>Supply Air Outlet Temperature Control</source>
-        <translation>Contrôle de la température de sortie d'air soufflé</translation>
+        <translation>Contrôle de la température de sortie d&apos;air soufflé</translation>
     </message>
     <message>
         <source>Supply Air Volumetric Flow Rate</source>
-        <translation>Débit volumétrique d'air de soufflage</translation>
+        <translation>Débit volumétrique d&apos;air de soufflage</translation>
     </message>
     <message>
         <source>Supply Fan Name</source>
@@ -13901,15 +13901,15 @@
     </message>
     <message>
         <source>Supply Hot Water Flow Sensor Node Name</source>
-        <translation>Nom du Nœud du Capteur de Débit d'Eau Chaude d'Alimentation</translation>
+        <translation>Nom du Nœud du Capteur de Débit d&apos;Eau Chaude d&apos;Alimentation</translation>
     </message>
     <message>
         <source>Supply Mixer Name</source>
-        <translation>Nom du Mélangeur d'Alimentation</translation>
+        <translation>Nom du Mélangeur d&apos;Alimentation</translation>
     </message>
     <message>
         <source>Supply Side Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Côté Soufflage</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Côté Soufflage</translation>
     </message>
     <message>
         <source>Supply Side Outlet Node A</source>
@@ -13921,23 +13921,23 @@
     </message>
     <message>
         <source>Supply Splitter Name</source>
-        <translation>Nom du diviseur d'alimentation</translation>
+        <translation>Nom du diviseur d&apos;alimentation</translation>
     </message>
     <message>
         <source>Supply Temperature Difference</source>
-        <translation>Écart de température d'alimentation</translation>
+        <translation>Écart de température d&apos;alimentation</translation>
     </message>
     <message>
         <source>Supply Temperature Difference Schedule</source>
-        <translation>Calendrier d'écart de température d'alimentation</translation>
+        <translation>Calendrier d&apos;écart de température d&apos;alimentation</translation>
     </message>
     <message>
         <source>Supply Water Storage Tank</source>
-        <translation>Réservoir de Stockage d'Eau Chaude</translation>
+        <translation>Réservoir de Stockage d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Supply Water Storage Tank Name</source>
-        <translation>Nom du réservoir de stockage d'eau d'alimentation</translation>
+        <translation>Nom du réservoir de stockage d&apos;eau d&apos;alimentation</translation>
     </message>
     <message>
         <source>Surface Area</source>
@@ -13997,7 +13997,7 @@
     </message>
     <message>
         <source>Surrounding Surfaces Object Name</source>
-        <translation>Nom de l'objet surfaces environnantes</translation>
+        <translation>Nom de l&apos;objet surfaces environnantes</translation>
     </message>
     <message>
         <source>Symmetric Wind Pressure Coefficient Curve</source>
@@ -14005,15 +14005,15 @@
     </message>
     <message>
         <source>System Air Flow Rate During Cooling Operation</source>
-        <translation>Débit d'air du système pendant le refroidissement</translation>
+        <translation>Débit d&apos;air du système pendant le refroidissement</translation>
     </message>
     <message>
         <source>System Air Flow Rate During Heating Operation</source>
-        <translation>Débit d'air du système en mode chauffage</translation>
+        <translation>Débit d&apos;air du système en mode chauffage</translation>
     </message>
     <message>
         <source>System Air Flow Rate When No Cooling or Heating is Needed</source>
-        <translation>Débit d'air du système quand aucun refroidissement ou chauffage n'est nécessaire</translation>
+        <translation>Débit d&apos;air du système quand aucun refroidissement ou chauffage n&apos;est nécessaire</translation>
     </message>
     <message>
         <source>System Availability Manager Coupling Mode</source>
@@ -14033,7 +14033,7 @@
     </message>
     <message>
         <source>Tank Element Control Logic</source>
-        <translation>Logique de Commande de l'Élément du Réservoir</translation>
+        <translation>Logique de Commande de l&apos;Élément du Réservoir</translation>
     </message>
     <message>
         <source>Tank Loss Coefficient</source>
@@ -14109,35 +14109,35 @@
     </message>
     <message>
         <source>Temperature Equation Coefficient 1</source>
-        <translation>Coefficient d'équation de température 1</translation>
+        <translation>Coefficient d&apos;équation de température 1</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 2</source>
-        <translation>Coefficient 2 de l'équation de température</translation>
+        <translation>Coefficient 2 de l&apos;équation de température</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 3</source>
-        <translation>Coefficient 3 de l'équation de température</translation>
+        <translation>Coefficient 3 de l&apos;équation de température</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 4</source>
-        <translation>Coefficient 4 de l'équation de température</translation>
+        <translation>Coefficient 4 de l&apos;équation de température</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 5</source>
-        <translation>Coefficient de l'équation de température 5</translation>
+        <translation>Coefficient de l&apos;équation de température 5</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 6</source>
-        <translation>Coefficient 6 de l'équation de température</translation>
+        <translation>Coefficient 6 de l&apos;équation de température</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 7</source>
-        <translation>Coefficient d'équation de température 7</translation>
+        <translation>Coefficient d&apos;équation de température 7</translation>
     </message>
     <message>
         <source>Temperature Equation Coefficient 8</source>
-        <translation>Coefficient d'équation de température 8</translation>
+        <translation>Coefficient d&apos;équation de température 8</translation>
     </message>
     <message>
         <source>Temperature High Limit</source>
@@ -14149,7 +14149,7 @@
     </message>
     <message>
         <source>Temperature Lower Limit Generator Inlet</source>
-        <translation>Limite Inférieure de Température à l'Entrée du Générateur</translation>
+        <translation>Limite Inférieure de Température à l&apos;Entrée du Générateur</translation>
     </message>
     <message>
         <source>Temperature Multiplier</source>
@@ -14161,7 +14161,7 @@
     </message>
     <message>
         <source>Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de température</translation>
+        <translation>Nom de l&apos;agenda de température</translation>
     </message>
     <message>
         <source>Temperature Sensor Height</source>
@@ -14185,27 +14185,27 @@
     </message>
     <message>
         <source>Terminal Unit Air Inlet Node</source>
-        <translation>Nœud d'entrée d'air de l'unité terminale</translation>
+        <translation>Nœud d&apos;entrée d&apos;air de l&apos;unité terminale</translation>
     </message>
     <message>
         <source>Terminal Unit Air Outlet Node</source>
-        <translation>Nœud de sortie d'air de l'unité terminale</translation>
+        <translation>Nœud de sortie d&apos;air de l&apos;unité terminale</translation>
     </message>
     <message>
         <source>Terminal Unit Availability schedule</source>
-        <translation>Calendrier de disponibilité de l'unité terminale</translation>
+        <translation>Calendrier de disponibilité de l&apos;unité terminale</translation>
     </message>
     <message>
         <source>Terminal Unit Outlet</source>
-        <translation>Sortie de l'Unité Terminale</translation>
+        <translation>Sortie de l&apos;Unité Terminale</translation>
     </message>
     <message>
         <source>Terminal Unit Primary Air Inlet</source>
-        <translation>Entrée d'air primaire de l'unité terminale</translation>
+        <translation>Entrée d&apos;air primaire de l&apos;unité terminale</translation>
     </message>
     <message>
         <source>Terminal Unit Secondary Air Inlet</source>
-        <translation>Entrée d'air secondaire du terminal</translation>
+        <translation>Entrée d&apos;air secondaire du terminal</translation>
     </message>
     <message>
         <source>Terrain</source>
@@ -14213,11 +14213,11 @@
     </message>
     <message>
         <source>Test Correlation Type</source>
-        <translation>Type de Corrélation d'Essai</translation>
+        <translation>Type de Corrélation d&apos;Essai</translation>
     </message>
     <message>
         <source>Test Flow Rate</source>
-        <translation>Débit Volumique d'Essai</translation>
+        <translation>Débit Volumique d&apos;Essai</translation>
     </message>
     <message>
         <source>Test Fluid</source>
@@ -14249,11 +14249,11 @@
     </message>
     <message>
         <source>Thermal Conversion Efficiency Input Mode Type</source>
-        <translation>Mode d'entrée du rendement de conversion thermique</translation>
+        <translation>Mode d&apos;entrée du rendement de conversion thermique</translation>
     </message>
     <message>
         <source>Thermal Conversion Efficiency Schedule Name</source>
-        <translation>Nom de la planification de l'efficacité de conversion thermique</translation>
+        <translation>Nom de la planification de l&apos;efficacité de conversion thermique</translation>
     </message>
     <message>
         <source>Thermal Efficiency</source>
@@ -14261,7 +14261,7 @@
     </message>
     <message>
         <source>Thermal Efficiency Function of Temperature and Elevation Curve Name</source>
-        <translation>Nom de la courbe d'efficacité thermique en fonction de la température et de l'altitude</translation>
+        <translation>Nom de la courbe d&apos;efficacité thermique en fonction de la température et de l&apos;altitude</translation>
     </message>
     <message>
         <source>Thermal Efficiency Modifier Curve Name</source>
@@ -14317,11 +14317,11 @@
     </message>
     <message>
         <source>Theta Rotation Around Y-Axis</source>
-        <translation>Rotation Theta autour de l'axe Y</translation>
+        <translation>Rotation Theta autour de l&apos;axe Y</translation>
     </message>
     <message>
         <source>Theta Rotation Around Y-axis</source>
-        <translation>Rotation Thêta autour de l'axe Y</translation>
+        <translation>Rotation Thêta autour de l&apos;axe Y</translation>
     </message>
     <message>
         <source>Thickness</source>
@@ -14349,7 +14349,7 @@
     </message>
     <message>
         <source>Tilt Angle</source>
-        <translation>Angle d'inclinaison</translation>
+        <translation>Angle d&apos;inclinaison</translation>
     </message>
     <message>
         <source>Time for Tank Recovery</source>
@@ -14357,11 +14357,11 @@
     </message>
     <message>
         <source>Time of Day Economizer Flow Control Schedule Name</source>
-        <translation>Nom de la Programmation de Contrôle du Débit du Récupérateur Économiseur en Fonction de l'Heure</translation>
+        <translation>Nom de la Programmation de Contrôle du Débit du Récupérateur Économiseur en Fonction de l&apos;Heure</translation>
     </message>
     <message>
         <source>Time of Use Period Schedule Name</source>
-        <translation>Nom de la Plage Horaire d'Utilisation</translation>
+        <translation>Nom de la Plage Horaire d&apos;Utilisation</translation>
     </message>
     <message>
         <source>Time Storage Can Meet Peak Draw</source>
@@ -14377,7 +14377,7 @@
     </message>
     <message>
         <source>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</source>
-        <translation>Nom de la courbe de fraction d'énergie d'apport calorifique pour dégivrage empirique temporisé</translation>
+        <translation>Nom de la courbe de fraction d&apos;énergie d&apos;apport calorifique pour dégivrage empirique temporisé</translation>
     </message>
     <message>
         <source>Timed Empirical Defrost Heat Load Penalty Curve Name</source>
@@ -14385,7 +14385,7 @@
     </message>
     <message>
         <source>Timestamp at Beginning of Interval</source>
-        <translation>Horodatage au début de l'intervalle</translation>
+        <translation>Horodatage au début de l&apos;intervalle</translation>
     </message>
     <message>
         <source>Timestep of the Curve Data</source>
@@ -14413,23 +14413,23 @@
     </message>
     <message>
         <source>Top Opening Multiplier</source>
-        <translation>Multiplicateur d'ouverture supérieure</translation>
+        <translation>Multiplicateur d&apos;ouverture supérieure</translation>
     </message>
     <message>
         <source>Total  Heating Capacity Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la Courbe de Fonction de Capacité de Chauffage Total en Fonction de la Fraction de Débit d'Air</translation>
+        <translation>Nom de la Courbe de Fonction de Capacité de Chauffage Total en Fonction de la Fraction de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Total Carbon Equivalent Emission Factor From CH4</source>
-        <translation>Facteur d'Émission Équivalent Carbone Total du CH4</translation>
+        <translation>Facteur d&apos;Émission Équivalent Carbone Total du CH4</translation>
     </message>
     <message>
         <source>Total Carbon Equivalent Emission Factor From CO2</source>
-        <translation>Facteur d'émission équivalent carbone total du CO2</translation>
+        <translation>Facteur d&apos;émission équivalent carbone total du CO2</translation>
     </message>
     <message>
         <source>Total Carbon Equivalent Emission Factor From N2O</source>
-        <translation>Facteur d'émission équivalent carbone total du N2O</translation>
+        <translation>Facteur d&apos;émission équivalent carbone total du N2O</translation>
     </message>
     <message>
         <source>Total Cooling Capacity Curve Name</source>
@@ -14437,7 +14437,7 @@
     </message>
     <message>
         <source>Total Cooling Capacity Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de capacité frigorifique totale en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de capacité frigorifique totale en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Total Cooling Capacity Function of Flow Fraction Curve</source>
@@ -14449,11 +14449,11 @@
     </message>
     <message>
         <source>Total Cooling Capacity Function of Water Flow Fraction Curve Name</source>
-        <translation>Nom de la Courbe de Fonction de la Capacité de Refroidissement Totale en Fonction de la Fraction de Débit d'Eau</translation>
+        <translation>Nom de la Courbe de Fonction de la Capacité de Refroidissement Totale en Fonction de la Fraction de Débit d&apos;Eau</translation>
     </message>
     <message>
         <source>Total Cooling Capacity Modifier Function of Air Flow Fraction Curve</source>
-        <translation>Courbe de Correction de la Capacité de Refroidissement Totale en Fonction de la Fraction de Débit d'Air</translation>
+        <translation>Courbe de Correction de la Capacité de Refroidissement Totale en Fonction de la Fraction de Débit d&apos;Air</translation>
     </message>
     <message>
         <source>Total Cooling Capacity Modifier Function of Temperature Curve</source>
@@ -14469,7 +14469,7 @@
     </message>
     <message>
         <source>Total Heating Capacity Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de fonction de la capacité de chauffage en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de fonction de la capacité de chauffage en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Total Heating Capacity Function of Flow Fraction Curve Name</source>
@@ -14505,15 +14505,15 @@
     </message>
     <message>
         <source>Total Water Heating Capacity Function of Air Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de capacité totale de chauffage de l'eau en fonction de la fraction de débit d'air</translation>
+        <translation>Nom de la courbe de capacité totale de chauffage de l&apos;eau en fonction de la fraction de débit d&apos;air</translation>
     </message>
     <message>
         <source>Total Water Heating Capacity Function of Temperature Curve Name</source>
-        <translation>Nom de la courbe de fonction de capacité totale de chauffage de l'eau en fonction de la température</translation>
+        <translation>Nom de la courbe de fonction de capacité totale de chauffage de l&apos;eau en fonction de la température</translation>
     </message>
     <message>
         <source>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</source>
-        <translation>Nom de la courbe de la capacité totale de chauffage de l'eau en fonction de la fraction du débit d'eau</translation>
+        <translation>Nom de la courbe de la capacité totale de chauffage de l&apos;eau en fonction de la fraction du débit d&apos;eau</translation>
     </message>
     <message>
         <source>Track Meter Scheme Meter Name</source>
@@ -14537,7 +14537,7 @@
     </message>
     <message>
         <source>Transformer Object Name</source>
-        <translation>Nom de l'objet Transformateur</translation>
+        <translation>Nom de l&apos;objet Transformateur</translation>
     </message>
     <message>
         <source>Transformer Usage</source>
@@ -14573,7 +14573,7 @@
     </message>
     <message>
         <source>Transmittance Schedule Name</source>
-        <translation>Nom de l'horaire de transmittance</translation>
+        <translation>Nom de l&apos;horaire de transmittance</translation>
     </message>
     <message>
         <source>Trench Length in Pipe Axial Direction</source>
@@ -14609,11 +14609,11 @@
     </message>
     <message>
         <source>Type of Rectangular Large Vertical Opening</source>
-        <translation>Type d'Ouverture Verticale Grande Rectangulaire</translation>
+        <translation>Type d&apos;Ouverture Verticale Grande Rectangulaire</translation>
     </message>
     <message>
         <source>Type of Slat Angle Control for Blinds</source>
-        <translation>Type de contrôle de l'angle des lames pour stores</translation>
+        <translation>Type de contrôle de l&apos;angle des lames pour stores</translation>
     </message>
     <message>
         <source>U-Factor</source>
@@ -14621,7 +14621,7 @@
     </message>
     <message>
         <source>U-factor Times Area Value at Design Air Flow Rate</source>
-        <translation>Valeur UA en débit d'air nominal</translation>
+        <translation>Valeur UA en débit d&apos;air nominal</translation>
     </message>
     <message>
         <source>U-Tube Distance</source>
@@ -14629,7 +14629,7 @@
     </message>
     <message>
         <source>Under Case HVAC Return Air Fraction</source>
-        <translation>Fraction d'air de retour HVAC sous l'armoire</translation>
+        <translation>Fraction d&apos;air de retour HVAC sous l&apos;armoire</translation>
     </message>
     <message>
         <source>Undisturbed Ground Temperature Model</source>
@@ -14637,19 +14637,19 @@
     </message>
     <message>
         <source>Unit Conversion</source>
-        <translation>Conversion d'unités</translation>
+        <translation>Conversion d&apos;unités</translation>
     </message>
     <message>
         <source>Unit Conversion for Tabular Data</source>
-        <translation>Conversion d'unités pour données tabulaires</translation>
+        <translation>Conversion d&apos;unités pour données tabulaires</translation>
     </message>
     <message>
         <source>Unit Internal Static Air Pressure</source>
-        <translation>Pression Statique Interne de l'Air de l'Unité</translation>
+        <translation>Pression Statique Interne de l&apos;Air de l&apos;Unité</translation>
     </message>
     <message>
         <source>Unit Type</source>
-        <translation>Type d'unité</translation>
+        <translation>Type d&apos;unité</translation>
     </message>
     <message>
         <source>Units</source>
@@ -14677,7 +14677,7 @@
     </message>
     <message>
         <source>Use Flow Rate Fraction Schedule Name</source>
-        <translation>Nom de l'emploi du temps de fraction du débit d'utilisation</translation>
+        <translation>Nom de l&apos;emploi du temps de fraction du débit d&apos;utilisation</translation>
     </message>
     <message>
         <source>Use Hot Gas Reheat</source>
@@ -14685,11 +14685,11 @@
     </message>
     <message>
         <source>Use Ideal Air Loads</source>
-        <translation>Utiliser les charges idéales d'air</translation>
+        <translation>Utiliser les charges idéales d&apos;air</translation>
     </message>
     <message>
         <source>Use NIST Fuel Escalation Rates</source>
-        <translation>Utiliser les taux d'escalade de carburant du NIST</translation>
+        <translation>Utiliser les taux d&apos;escalade de carburant du NIST</translation>
     </message>
     <message>
         <source>Use Representative Surfaces for Calculations</source>
@@ -14705,7 +14705,7 @@
     </message>
     <message>
         <source>Use Side Inlet Node Name</source>
-        <translation>Nom du Nœud d'Entrée du Côté Utilisation</translation>
+        <translation>Nom du Nœud d&apos;Entrée du Côté Utilisation</translation>
     </message>
     <message>
         <source>Use Side Outlet Node Name</source>
@@ -14713,7 +14713,7 @@
     </message>
     <message>
         <source>Use Weather File Daylight Saving Period</source>
-        <translation>Utiliser la Période d'Heure d'Été du Fichier Météorologique</translation>
+        <translation>Utiliser la Période d&apos;Heure d&apos;Été du Fichier Météorologique</translation>
     </message>
     <message>
         <source>Use Weather File Holidays and Special Days</source>
@@ -14737,11 +14737,11 @@
     </message>
     <message>
         <source>User Defined Fluid Type</source>
-        <translation>Type de Fluide Défini par l'Utilisateur</translation>
+        <translation>Type de Fluide Défini par l&apos;Utilisateur</translation>
     </message>
     <message>
         <source>User Specified Design Capacity</source>
-        <translation>Capacité de conception spécifiée par l'utilisateur</translation>
+        <translation>Capacité de conception spécifiée par l&apos;utilisateur</translation>
     </message>
     <message>
         <source>UUID</source>
@@ -14761,19 +14761,19 @@
     </message>
     <message>
         <source>Variable Condensing Temperature Maximum for Indoor Unit</source>
-        <translation>Température de Condensation Variable Maximum pour l'Unité Intérieure</translation>
+        <translation>Température de Condensation Variable Maximum pour l&apos;Unité Intérieure</translation>
     </message>
     <message>
         <source>Variable Condensing Temperature Minimum for Indoor Unit</source>
-        <translation>Température de condensation variable - Minimum pour l'unité intérieure</translation>
+        <translation>Température de condensation variable - Minimum pour l&apos;unité intérieure</translation>
     </message>
     <message>
         <source>Variable Evaporating Temperature Maximum for Indoor Unit</source>
-        <translation>Température d'évaporation variable - Maximum pour unité intérieure</translation>
+        <translation>Température d&apos;évaporation variable - Maximum pour unité intérieure</translation>
     </message>
     <message>
         <source>Variable Evaporating Temperature Minimum for Indoor Unit</source>
-        <translation>Température d'évaporation minimale de l'unité intérieure</translation>
+        <translation>Température d&apos;évaporation minimale de l&apos;unité intérieure</translation>
     </message>
     <message>
         <source>Variable Name</source>
@@ -14833,7 +14833,7 @@
     </message>
     <message>
         <source>Venting Availability Schedule Name</source>
-        <translation>Nom de l'Horaire de Disponibilité de Ventilation</translation>
+        <translation>Nom de l&apos;Horaire de Disponibilité de Ventilation</translation>
     </message>
     <message>
         <source>Version Identifier</source>
@@ -14869,11 +14869,11 @@
     </message>
     <message>
         <source>VFD Efficiency Curve Name</source>
-        <translation>Nom de la courbe d'efficacité VFD</translation>
+        <translation>Nom de la courbe d&apos;efficacité VFD</translation>
     </message>
     <message>
         <source>VFD Efficiency Type</source>
-        <translation>Type d'efficacité VFD</translation>
+        <translation>Type d&apos;efficacité VFD</translation>
     </message>
     <message>
         <source>VFD Sizing Factor</source>
@@ -14909,7 +14909,7 @@
     </message>
     <message>
         <source>Visible Extinction Coefficient</source>
-        <translation>Coefficient d'extinction visible</translation>
+        <translation>Coefficient d&apos;extinction visible</translation>
     </message>
     <message>
         <source>Visible Index of Refraction</source>
@@ -14973,7 +14973,7 @@
     </message>
     <message>
         <source>Water Coil Name</source>
-        <translation>Nom de la Batterie d'Eau</translation>
+        <translation>Nom de la Batterie d&apos;Eau</translation>
     </message>
     <message>
         <source>Water Condenser Volume Flow Rate</source>
@@ -14981,43 +14981,43 @@
     </message>
     <message>
         <source>Water Design Flow Rate</source>
-        <translation>Débit Volumique de Conception de l'Eau</translation>
+        <translation>Débit Volumique de Conception de l&apos;Eau</translation>
     </message>
     <message>
         <source>Water Emission Factor</source>
-        <translation>Facteur d'émission en eau</translation>
+        <translation>Facteur d&apos;émission en eau</translation>
     </message>
     <message>
         <source>Water Emission Factor Schedule Name</source>
-        <translation>Nom de la planification du facteur d'émission de l'eau</translation>
+        <translation>Nom de la planification du facteur d&apos;émission de l&apos;eau</translation>
     </message>
     <message>
         <source>Water Flow Rate</source>
-        <translation>Débit d'eau volumétrique</translation>
+        <translation>Débit d&apos;eau volumétrique</translation>
     </message>
     <message>
         <source>Water Inflation</source>
-        <translation>Inflation d'eau</translation>
+        <translation>Inflation d&apos;eau</translation>
     </message>
     <message>
         <source>Water Inlet Node</source>
-        <translation>Nœud d'entrée eau</translation>
+        <translation>Nœud d&apos;entrée eau</translation>
     </message>
     <message>
         <source>Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée d'eau</translation>
+        <translation>Nom du nœud d&apos;entrée d&apos;eau</translation>
     </message>
     <message>
         <source>Water Maximum Flow Rate</source>
-        <translation>Débit Maximum d'Eau</translation>
+        <translation>Débit Maximum d&apos;Eau</translation>
     </message>
     <message>
         <source>Water Maximum Water Outlet Temperature</source>
-        <translation>Température Maximale de Sortie de l'Eau</translation>
+        <translation>Température Maximale de Sortie de l&apos;Eau</translation>
     </message>
     <message>
         <source>Water Minimum Water Inlet Temperature</source>
-        <translation>Température minimale d'entrée d'eau</translation>
+        <translation>Température minimale d&apos;entrée d&apos;eau</translation>
     </message>
     <message>
         <source>Water Outlet Node</source>
@@ -15025,7 +15025,7 @@
     </message>
     <message>
         <source>Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie d'eau</translation>
+        <translation>Nom du nœud de sortie d&apos;eau</translation>
     </message>
     <message>
         <source>Water Outlet Temperature Schedule Name</source>
@@ -15033,7 +15033,7 @@
     </message>
     <message>
         <source>Water Pump Power</source>
-        <translation>Puissance de la pompe d'eau</translation>
+        <translation>Puissance de la pompe d&apos;eau</translation>
     </message>
     <message>
         <source>Water Pump Power Modifier Curve Name</source>
@@ -15041,7 +15041,7 @@
     </message>
     <message>
         <source>Water Pump Power Sizing Factor</source>
-        <translation>Facteur de dimensionnement de la puissance de la pompe d'eau</translation>
+        <translation>Facteur de dimensionnement de la puissance de la pompe d&apos;eau</translation>
     </message>
     <message>
         <source>Water Removal Curve Name</source>
@@ -15049,43 +15049,43 @@
     </message>
     <message>
         <source>Water Storage Tank Name</source>
-        <translation>Nom du Réservoir de Stockage d'Eau</translation>
+        <translation>Nom du Réservoir de Stockage d&apos;Eau</translation>
     </message>
     <message>
         <source>Water Supply Name</source>
-        <translation>Nom de l'alimentation en eau</translation>
+        <translation>Nom de l&apos;alimentation en eau</translation>
     </message>
     <message>
         <source>Water Supply Storage Tank Name</source>
-        <translation>Nom du réservoir de stockage d'eau d'alimentation</translation>
+        <translation>Nom du réservoir de stockage d&apos;eau d&apos;alimentation</translation>
     </message>
     <message>
         <source>Water Temperature Curve Input Variable</source>
-        <translation>Variable d'entrée de la courbe de température d'eau</translation>
+        <translation>Variable d&apos;entrée de la courbe de température d&apos;eau</translation>
     </message>
     <message>
         <source>Water Temperature Modeling Mode</source>
-        <translation>Mode de modélisation de la température de l'eau</translation>
+        <translation>Mode de modélisation de la température de l&apos;eau</translation>
     </message>
     <message>
         <source>Water Temperature Reference Node Name</source>
-        <translation>Nom du nœud de référence de température d'eau</translation>
+        <translation>Nom du nœud de référence de température d&apos;eau</translation>
     </message>
     <message>
         <source>Water Temperature Schedule Name</source>
-        <translation>Nom de l'agenda de température de l'eau</translation>
+        <translation>Nom de l&apos;agenda de température de l&apos;eau</translation>
     </message>
     <message>
         <source>Water Use Equipment Definition Name</source>
-        <translation>Nom de la Définition de l'Équipement de Consommation d'Eau</translation>
+        <translation>Nom de la Définition de l&apos;Équipement de Consommation d&apos;Eau</translation>
     </message>
     <message>
         <source>Water Use Equipment Name</source>
-        <translation>Nom de l'équipement de consommation d'eau</translation>
+        <translation>Nom de l&apos;équipement de consommation d&apos;eau</translation>
     </message>
     <message>
         <source>Water Vapor Diffusion Resistance Factor</source>
-        <translation>Facteur de résistance à la diffusion de vapeur d'eau</translation>
+        <translation>Facteur de résistance à la diffusion de vapeur d&apos;eau</translation>
     </message>
     <message>
         <source>Water-Cooled Condenser Design Flow Rate</source>
@@ -15093,7 +15093,7 @@
     </message>
     <message>
         <source>Water-Cooled Condenser Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée du condenseur refroidi à l'eau</translation>
+        <translation>Nom du nœud d&apos;entrée du condenseur refroidi à l&apos;eau</translation>
     </message>
     <message>
         <source>Water-Cooled Condenser Maximum Flow Rate</source>
@@ -15101,11 +15101,11 @@
     </message>
     <message>
         <source>Water-Cooled Condenser Maximum Water Outlet Temperature</source>
-        <translation>Température maximale de sortie d'eau du condenseur refroidi par eau</translation>
+        <translation>Température maximale de sortie d&apos;eau du condenseur refroidi par eau</translation>
     </message>
     <message>
         <source>Water-Cooled Condenser Minimum Water Inlet Temperature</source>
-        <translation>Température minimale d'entrée d'eau du condenseur refroidi par eau</translation>
+        <translation>Température minimale d&apos;entrée d&apos;eau du condenseur refroidi par eau</translation>
     </message>
     <message>
         <source>Water-Cooled Condenser Outlet Node Name</source>
@@ -15117,19 +15117,19 @@
     </message>
     <message>
         <source>Water-Cooled Loop Flow Type</source>
-        <translation>Type de débit de la boucle refroidie à l'eau</translation>
+        <translation>Type de débit de la boucle refroidie à l&apos;eau</translation>
     </message>
     <message>
         <source>Water-to-Refrigerant HX Water Inlet Node Name</source>
-        <translation>Nom du nœud d'entrée eau de l'échangeur eau-frigorigène</translation>
+        <translation>Nom du nœud d&apos;entrée eau de l&apos;échangeur eau-frigorigène</translation>
     </message>
     <message>
         <source>Water-to-Refrigerant HX Water Outlet Node Name</source>
-        <translation>Nom du nœud de sortie eau de l'échangeur eau-frigorigène</translation>
+        <translation>Nom du nœud de sortie eau de l&apos;échangeur eau-frigorigène</translation>
     </message>
     <message>
         <source>WaterHeater Name</source>
-        <translation>Nom du Ballon d'Eau Chaude</translation>
+        <translation>Nom du Ballon d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Watts per Person</source>
@@ -15145,7 +15145,7 @@
     </message>
     <message>
         <source>Wavelength</source>
-        <translation>Longueur d'onde</translation>
+        <translation>Longueur d&apos;onde</translation>
     </message>
     <message>
         <source>Wednesday Schedule:Day Name</source>
@@ -15165,7 +15165,7 @@
     </message>
     <message>
         <source>Wetbulb Effectiveness Flow Ratio Modifier Curve Name</source>
-        <translation>Nom de la courbe modificatrice du rapport de débit d'efficacité de température humide</translation>
+        <translation>Nom de la courbe modificatrice du rapport de débit d&apos;efficacité de température humide</translation>
     </message>
     <message>
         <source>Wetbulb or DewPoint at Maximum Dry-Bulb</source>
@@ -15173,11 +15173,11 @@
     </message>
     <message>
         <source>Width Factor for Opening Factor</source>
-        <translation>Facteur de largeur pour facteur d'ouverture</translation>
+        <translation>Facteur de largeur pour facteur d&apos;ouverture</translation>
     </message>
     <message>
         <source>Wind Angle Type</source>
-        <translation>Type d'angle de vent</translation>
+        <translation>Type d&apos;angle de vent</translation>
     </message>
     <message>
         <source>Wind Direction</source>
@@ -15205,7 +15205,7 @@
     </message>
     <message>
         <source>Window Glass Spectral Data Set Name</source>
-        <translation>Nom de l'ensemble de données spectrales du verre de fenêtre</translation>
+        <translation>Nom de l&apos;ensemble de données spectrales du verre de fenêtre</translation>
     </message>
     <message>
         <source>Window Material Glazing Name</source>
@@ -15217,7 +15217,7 @@
     </message>
     <message>
         <source>Window/Door Opening Factor or Crack Factor</source>
-        <translation>Facteur d'ouverture de fenêtre/porte ou facteur de fissure</translation>
+        <translation>Facteur d&apos;ouverture de fenêtre/porte ou facteur de fissure</translation>
     </message>
     <message>
         <source>WinterDesignDay Schedule:Day Name</source>
@@ -15269,35 +15269,35 @@
     </message>
     <message>
         <source>Zone Air Distribution Effectiveness in Cooling Mode</source>
-        <translation>Efficacité de distribution de l'air en mode refroidissement</translation>
+        <translation>Efficacité de distribution de l&apos;air en mode refroidissement</translation>
     </message>
     <message>
         <source>Zone Air Distribution Effectiveness in Heating Mode</source>
-        <translation>Efficacité de la Distribution de l'Air à la Zone en Mode Chauffage</translation>
+        <translation>Efficacité de la Distribution de l&apos;Air à la Zone en Mode Chauffage</translation>
     </message>
     <message>
         <source>Zone Air Distribution Effectiveness Schedule</source>
-        <translation>Calendrier d'efficacité de distribution d'air dans la zone</translation>
+        <translation>Calendrier d&apos;efficacité de distribution d&apos;air dans la zone</translation>
     </message>
     <message>
         <source>Zone Air Exhaust Port List</source>
-        <translation>Liste de Ports d'Extraction d'Air de Zone</translation>
+        <translation>Liste de Ports d&apos;Extraction d&apos;Air de Zone</translation>
     </message>
     <message>
         <source>Zone Air Inlet Port List</source>
-        <translation>Liste de ports d'entrée d'air de zone</translation>
+        <translation>Liste de ports d&apos;entrée d&apos;air de zone</translation>
     </message>
     <message>
         <source>Zone Air Node Name</source>
-        <translation>Nom du Nœud d'Air de la Zone</translation>
+        <translation>Nom du Nœud d&apos;Air de la Zone</translation>
     </message>
     <message>
         <source>Zone Air Temperature Coefficient</source>
-        <translation>Coefficient de Température de l'Air de la Zone</translation>
+        <translation>Coefficient de Température de l&apos;Air de la Zone</translation>
     </message>
     <message>
         <source>Zone Conditioning Equipment List Name</source>
-        <translation>Nom de la Liste d'Équipements de Conditionnement de Zone</translation>
+        <translation>Nom de la Liste d&apos;Équipements de Conditionnement de Zone</translation>
     </message>
     <message>
         <source>Zone Equipment</source>
@@ -15309,11 +15309,11 @@
     </message>
     <message>
         <source>Zone Equipment Heating or No-Load Sequence</source>
-        <translation>Séquence de chauffage ou sans charge de l'équipement de zone</translation>
+        <translation>Séquence de chauffage ou sans charge de l&apos;équipement de zone</translation>
     </message>
     <message>
         <source>Zone Exhaust Air Node Name</source>
-        <translation>Nom du nœud d'air d'extraction de zone</translation>
+        <translation>Nom du nœud d&apos;air d&apos;extraction de zone</translation>
     </message>
     <message>
         <source>Zone List</source>
@@ -15321,7 +15321,7 @@
     </message>
     <message>
         <source>Zone Minimum Air Flow Fraction</source>
-        <translation>Fraction minimale de débit d'air vers la zone</translation>
+        <translation>Fraction minimale de débit d&apos;air vers la zone</translation>
     </message>
     <message>
         <source>Zone Mixer Name</source>
@@ -15329,15 +15329,15 @@
     </message>
     <message>
         <source>Zone Name for Master Thermostat Location</source>
-        <translation>Nom de la Zone pour l'Emplacement du Thermostat Maître</translation>
+        <translation>Nom de la Zone pour l&apos;Emplacement du Thermostat Maître</translation>
     </message>
     <message>
         <source>Zone Name to Receive Skin Losses</source>
-        <translation>Zone Recevant les Pertes Thermiques de l'Enveloppe</translation>
+        <translation>Zone Recevant les Pertes Thermiques de l&apos;Enveloppe</translation>
     </message>
     <message>
         <source>Zone or Space Name</source>
-        <translation>Nom de la zone ou de l'espace</translation>
+        <translation>Nom de la zone ou de l&apos;espace</translation>
     </message>
     <message>
         <source>Zone or ZoneList Name</source>
@@ -15345,15 +15345,15 @@
     </message>
     <message>
         <source>Zone Radiant Exchange Algorithm</source>
-        <translation>Algorithme d'échange radiatif de zone</translation>
+        <translation>Algorithme d&apos;échange radiatif de zone</translation>
     </message>
     <message>
         <source>Zone Relief Air Node Name</source>
-        <translation>Nom du Nœud d'Air de Soulagement de Zone</translation>
+        <translation>Nom du Nœud d&apos;Air de Soulagement de Zone</translation>
     </message>
     <message>
         <source>Zone Return Air Port List</source>
-        <translation>Liste des ports d'air de retour de zone</translation>
+        <translation>Liste des ports d&apos;air de retour de zone</translation>
     </message>
     <message>
         <source>Zone Secondary Recirculation Fraction</source>
@@ -15361,11 +15361,11 @@
     </message>
     <message>
         <source>Zone Supply Air Node Name</source>
-        <translation>Nom du nœud de fourniture d'air à la zone</translation>
+        <translation>Nom du nœud de fourniture d&apos;air à la zone</translation>
     </message>
     <message>
         <source>Zone Terminal Unit List</source>
-        <translation>Liste d'unités terminales de zone</translation>
+        <translation>Liste d&apos;unités terminales de zone</translation>
     </message>
     <message>
         <source>Zone Timesteps in Averaging Window</source>
@@ -15467,51 +15467,51 @@
     <name>OutputVariables</name>
     <message>
         <source>Air System Component Model Simulation Calls</source>
-        <translation>Système d'air : Appels de simulation du modèle de composant</translation>
+        <translation>Système d&apos;air : Appels de simulation du modèle de composant</translation>
     </message>
     <message>
         <source>Air System Mixed Air Mass Flow Rate</source>
-        <translation>Système d'air: Débit massique d'air mélangé</translation>
+        <translation>Système d&apos;air: Débit massique d&apos;air mélangé</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Economizer Status</source>
-        <translation>Système de Ventilation: État de l'Économiseur d'Air Extérieur</translation>
+        <translation>Système de Ventilation: État de l&apos;Économiseur d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Flow Fraction</source>
-        <translation>Système d'air : Fraction du débit d'air extérieur</translation>
+        <translation>Système d&apos;air : Fraction du débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Heating Coil Activity Status</source>
-        <translation>Système d'air : État d'activité de la bobine de chauffage du contournement de récupération de chaleur de l'air extérieur</translation>
+        <translation>Système d&apos;air : État d&apos;activité de la bobine de chauffage du contournement de récupération de chaleur de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Minimum Outdoor Air Mixed Air Temperature</source>
-        <translation>Système de climatisation : Température de l'air mélangé du contournement de récupération de chaleur de l'air extérieur au débit d'air extérieur minimum</translation>
+        <translation>Système de climatisation : Température de l&apos;air mélangé du contournement de récupération de chaleur de l&apos;air extérieur au débit d&apos;air extérieur minimum</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Heat Recovery Bypass Status</source>
-        <translation>Système d'air: État du contournement de la récupération de chaleur de l'air extérieur</translation>
+        <translation>Système d&apos;air: État du contournement de la récupération de chaleur de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air High Humidity Control Status</source>
-        <translation>Système d'air: État du contrôle de l'humidité élevée de l'air extérieur</translation>
+        <translation>Système d&apos;air: État du contrôle de l&apos;humidité élevée de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Mass Flow Rate</source>
-        <translation>Système d'air: Débit massique d'air extérieur</translation>
+        <translation>Système d&apos;air: Débit massique d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Maximum Flow Fraction</source>
-        <translation>Système de climatisation: Fraction de débit d'air extérieur maximale</translation>
+        <translation>Système de climatisation: Fraction de débit d&apos;air extérieur maximale</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Mechanical Ventilation Requested Mass Flow Rate</source>
-        <translation>Système de Climatisation: Débit Massique Demandé de Ventilation Mécanique d'Air Extérieur</translation>
+        <translation>Système de Climatisation: Débit Massique Demandé de Ventilation Mécanique d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Air System Outdoor Air Minimum Flow Fraction</source>
-        <translation>Système d'air: Fraction minimale de débit d'air extérieur</translation>
+        <translation>Système d&apos;air: Fraction minimale de débit d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air System Simulation Cycle On Off Status</source>
@@ -15519,15 +15519,15 @@
     </message>
     <message>
         <source>Air System Simulation Iteration Count</source>
-        <translation>Air System: Nombre d'itérations de simulation</translation>
+        <translation>Air System: Nombre d&apos;itérations de simulation</translation>
     </message>
     <message>
         <source>Air System Simulation Maximum Iteration Count</source>
-        <translation>Système d'air: Nombre maximum d'itérations de simulation</translation>
+        <translation>Système d&apos;air: Nombre maximum d&apos;itérations de simulation</translation>
     </message>
     <message>
         <source>Air System Solver Iteration Count</source>
-        <translation>Système d'air : Nombre d'itérations du solveur</translation>
+        <translation>Système d&apos;air : Nombre d&apos;itérations du solveur</translation>
     </message>
     <message>
         <source>Baseboard Convective Heating Energy</source>
@@ -15611,7 +15611,7 @@
     </message>
     <message>
         <source>Boiler Gasoline Rate</source>
-        <translation>Chaudière : Débit de Consommation d'Essence</translation>
+        <translation>Chaudière : Débit de Consommation d&apos;Essence</translation>
     </message>
     <message>
         <source>Boiler Heating Energy</source>
@@ -15623,7 +15623,7 @@
     </message>
     <message>
         <source>Boiler Inlet Temperature</source>
-        <translation>Chaudière : Température d'entrée</translation>
+        <translation>Chaudière : Température d&apos;entrée</translation>
     </message>
     <message>
         <source>Boiler Mass Flow Rate</source>
@@ -15679,11 +15679,11 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 1</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Nœud 1</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température Finale du Nœud 1</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 10</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température Finale du Nœud 10</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée: Température Finale du Nœud 10</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 11</source>
@@ -15691,11 +15691,11 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 12</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température Finale du Nœud 12</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée: Température Finale du Nœud 12</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 2</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale du Nœud 2</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température Finale du Nœud 2</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 3</source>
@@ -15703,11 +15703,11 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 4</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale Nœud 4</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température Finale Nœud 4</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 5</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température Finale Nœud 5</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température Finale Nœud 5</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Final Temperature Node 6</source>
@@ -15727,27 +15727,27 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Heat Gain Energy</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Énergie de Gain Thermique</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Énergie de Gain Thermique</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Heat Gain Rate</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Débit de Gain Thermique</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée: Débit de Gain Thermique</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Heat Transfer Energy</source>
-        <translation>Réservoir de stockage thermique d'eau glacée : Énergie de transfert thermique côté source</translation>
+        <translation>Réservoir de stockage thermique d&apos;eau glacée : Énergie de transfert thermique côté source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Heat Transfer Rate</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie: Débit de Transfert Thermique du Côté Source</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie: Débit de Transfert Thermique du Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Inlet Temperature</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température d'Entrée du Côté Source</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée: Température d&apos;Entrée du Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Mass Flow Rate</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Débit Massique du Côté Source</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Débit Massique du Côté Source</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Source Side Outlet Temperature</source>
@@ -15759,15 +15759,15 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 1</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Nœud 1</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Température Nœud 1</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 10</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température au Nœud 10</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température au Nœud 10</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 11</source>
-        <translation>Réservoir de stockage thermique d'eau glacée : Température du nœud 11</translation>
+        <translation>Réservoir de stockage thermique d&apos;eau glacée : Température du nœud 11</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 12</source>
@@ -15783,7 +15783,7 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 4</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Nœud 4</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Température Nœud 4</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 5</source>
@@ -15791,15 +15791,15 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 6</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température du Nœud 6</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Température du Nœud 6</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 7</source>
-        <translation>Réservoir Thermique d'Eau Glacée : Température Nœud 7</translation>
+        <translation>Réservoir Thermique d&apos;Eau Glacée : Température Nœud 7</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 8</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Température Nœud 8</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Température Nœud 8</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Temperature Node 9</source>
@@ -15807,15 +15807,15 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Heat Transfer Energy</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Refroidie : Énergie de Transfert de Chaleur du Côté Utilisation</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Refroidie : Énergie de Transfert de Chaleur du Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Heat Transfer Rate</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Débit de Transfert Thermique Côté Utilisation</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Débit de Transfert Thermique Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Inlet Temperature</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée : Température d'Entrée Côté Utilisation</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée : Température d&apos;Entrée Côté Utilisation</translation>
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Mass Flow Rate</source>
@@ -15823,7 +15823,7 @@
     </message>
     <message>
         <source>Chilled Water Thermal Storage Tank Use Side Outlet Temperature</source>
-        <translation>Réservoir de Stockage Thermique d'Eau Glacée: Température de Sortie du Côté Utilisation</translation>
+        <translation>Réservoir de Stockage Thermique d&apos;Eau Glacée: Température de Sortie du Côté Utilisation</translation>
     </message>
     <message>
         <source>Chiller Basin Heater Electricity Energy</source>
@@ -15847,7 +15847,7 @@
     </message>
     <message>
         <source>Chiller Condenser Fan Electricity Rate</source>
-        <translation>Refroidisseur : Débit d'électricité du ventilateur du condenseur</translation>
+        <translation>Refroidisseur : Débit d&apos;électricité du ventilateur du condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Heat Transfer Energy</source>
@@ -15859,7 +15859,7 @@
     </message>
     <message>
         <source>Chiller Condenser Inlet Temperature</source>
-        <translation>Refroidisseur: Température à l'Entrée du Condenseur</translation>
+        <translation>Refroidisseur: Température à l&apos;Entrée du Condenseur</translation>
     </message>
     <message>
         <source>Chiller Condenser Mass Flow Rate</source>
@@ -15895,31 +15895,31 @@
     </message>
     <message>
         <source>Chiller Evaporative Condenser Mains Supply Water Volume</source>
-        <translation>Refroidisseur: Volume d'eau d'appoint du condenseur évaporatif</translation>
+        <translation>Refroidisseur: Volume d&apos;eau d&apos;appoint du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Chiller Evaporative Condenser Water Volume</source>
-        <translation>Refroidisseur : Volume d'eau du condenseur évaporatif</translation>
+        <translation>Refroidisseur : Volume d&apos;eau du condenseur évaporatif</translation>
     </message>
     <message>
         <source>Chiller Evaporator Cooling Energy</source>
-        <translation>Refroidisseur: Énergie de refroidissement de l'évaporateur</translation>
+        <translation>Refroidisseur: Énergie de refroidissement de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Cooling Rate</source>
-        <translation>Refroidisseur: Débit de refroidissement à l'évaporateur</translation>
+        <translation>Refroidisseur: Débit de refroidissement à l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Inlet Temperature</source>
-        <translation>Refroidisseur: Température d'entrée de l'évaporateur</translation>
+        <translation>Refroidisseur: Température d&apos;entrée de l&apos;évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Mass Flow Rate</source>
-        <translation>Refroidisseur : Débit Massique de l'Évaporateur</translation>
+        <translation>Refroidisseur : Débit Massique de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Chiller Evaporator Outlet Temperature</source>
-        <translation>Refroidisseur: Température de Sortie de l'Évaporateur</translation>
+        <translation>Refroidisseur: Température de Sortie de l&apos;Évaporateur</translation>
     </message>
     <message>
         <source>Chiller False Load Heat Transfer Energy</source>
@@ -15931,7 +15931,7 @@
     </message>
     <message>
         <source>Chiller Heat Recovery Inlet Temperature</source>
-        <translation>Refroidisseur : Température d'entrée de récupération de chaleur</translation>
+        <translation>Refroidisseur : Température d&apos;entrée de récupération de chaleur</translation>
     </message>
     <message>
         <source>Chiller Heat Recovery Mass Flow Rate</source>
@@ -15943,7 +15943,7 @@
     </message>
     <message>
         <source>Chiller Hot Water Mass Flow Rate</source>
-        <translation>Refroidisseur : Débit massique d'eau chaude</translation>
+        <translation>Refroidisseur : Débit massique d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Chiller Part Load Ratio</source>
@@ -15955,11 +15955,11 @@
     </message>
     <message>
         <source>Chiller Source Hot Water Energy</source>
-        <translation>Refroidisseur : Énergie de l'eau chaude source</translation>
+        <translation>Refroidisseur : Énergie de l&apos;eau chaude source</translation>
     </message>
     <message>
         <source>Chiller Source Hot Water Rate</source>
-        <translation>Refroidisseur : Débit d'eau chaude à la source</translation>
+        <translation>Refroidisseur : Débit d&apos;eau chaude à la source</translation>
     </message>
     <message>
         <source>Chiller Source Steam Energy</source>
@@ -15987,23 +15987,23 @@
     </message>
     <message>
         <source>Cooling Coil Air Inlet Humidity Ratio</source>
-        <translation>Serpentin de Refroidissement : Ratio d'Humidité de l'Air à l'Entrée</translation>
+        <translation>Serpentin de Refroidissement : Ratio d&apos;Humidité de l&apos;Air à l&apos;Entrée</translation>
     </message>
     <message>
         <source>Cooling Coil Air Inlet Temperature</source>
-        <translation>Serpentin de Refroidissement: Température de l'Air à l'Entrée</translation>
+        <translation>Serpentin de Refroidissement: Température de l&apos;Air à l&apos;Entrée</translation>
     </message>
     <message>
         <source>Cooling Coil Air Mass Flow Rate</source>
-        <translation>Serpentin de Refroidissement: Débit Massique d'Air</translation>
+        <translation>Serpentin de Refroidissement: Débit Massique d&apos;Air</translation>
     </message>
     <message>
         <source>Cooling Coil Air Outlet Humidity Ratio</source>
-        <translation>Serpentin de Refroidissement : Ratio d'Humidité de l'Air Sortant</translation>
+        <translation>Serpentin de Refroidissement : Ratio d&apos;Humidité de l&apos;Air Sortant</translation>
     </message>
     <message>
         <source>Cooling Coil Air Outlet Temperature</source>
-        <translation>Serpentin de Refroidissement : Température de Sortie d'Air</translation>
+        <translation>Serpentin de Refroidissement : Température de Sortie d&apos;Air</translation>
     </message>
     <message>
         <source>Cooling Coil Basin Heater Electricity Energy</source>
@@ -16023,7 +16023,7 @@
     </message>
     <message>
         <source>Cooling Coil Condenser Inlet Temperature</source>
-        <translation>Bobine de refroidissement: Température d'entrée du condenseur</translation>
+        <translation>Bobine de refroidissement: Température d&apos;entrée du condenseur</translation>
     </message>
     <message>
         <source>Cooling Coil Crankcase Heater Electricity Energy</source>
@@ -16043,11 +16043,11 @@
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Mains Supply Water Volume</source>
-        <translation>Serpentin de refroidissement : Volume d'eau d'alimentation du réseau pour condenseur à refroidissement évaporatif</translation>
+        <translation>Serpentin de refroidissement : Volume d&apos;eau d&apos;alimentation du réseau pour condenseur à refroidissement évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Mains Water Volume</source>
-        <translation>Serpentin de refroidissement : Volume d'eau du réseau pour condenseur avec refroidissement évaporatif</translation>
+        <translation>Serpentin de refroidissement : Volume d&apos;eau du réseau pour condenseur avec refroidissement évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Pump Electricity Energy</source>
@@ -16059,7 +16059,7 @@
     </message>
     <message>
         <source>Cooling Coil Evaporative Condenser Water Volume</source>
-        <translation>Serpentin de Refroidissement: Volume d'Eau du Condenseur à Refroidissement Évaporatif</translation>
+        <translation>Serpentin de Refroidissement: Volume d&apos;Eau du Condenseur à Refroidissement Évaporatif</translation>
     </message>
     <message>
         <source>Cooling Coil Latent Cooling Energy</source>
@@ -16147,7 +16147,7 @@
     </message>
     <message>
         <source>Cooling Tower Air Flow Rate Ratio</source>
-        <translation>Tour de refroidissement : Rapport du débit d'air</translation>
+        <translation>Tour de refroidissement : Rapport du débit d&apos;air</translation>
     </message>
     <message>
         <source>Cooling Tower Basin Heater Electric Energy</source>
@@ -16187,19 +16187,19 @@
     </message>
     <message>
         <source>Cooling Tower Inlet Temperature</source>
-        <translation>Tour de Refroidissement: Température d'Entrée</translation>
+        <translation>Tour de Refroidissement: Température d&apos;Entrée</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Mains Water Volume</source>
-        <translation>Tour de Refroidissement: Volume d'Eau d'Appoint Réseau</translation>
+        <translation>Tour de Refroidissement: Volume d&apos;Eau d&apos;Appoint Réseau</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Water Volume</source>
-        <translation>Cooling Tower: Volume d'eau d'appoint</translation>
+        <translation>Cooling Tower: Volume d&apos;eau d&apos;appoint</translation>
     </message>
     <message>
         <source>Cooling Tower Make Up Water Volume Flow Rate</source>
-        <translation>Tour de Refroidissement: Débit Volumique d'Eau d'Appoint</translation>
+        <translation>Tour de Refroidissement: Débit Volumique d&apos;Eau d&apos;Appoint</translation>
     </message>
     <message>
         <source>Cooling Tower Mass Flow Rate</source>
@@ -16215,19 +16215,19 @@
     </message>
     <message>
         <source>Daylighting Lighting Power Multiplier</source>
-        <translation>Éclairage naturel : Multiplicateur de puissance d'éclairage</translation>
+        <translation>Éclairage naturel : Multiplicateur de puissance d&apos;éclairage</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Daylight Illuminance Setpoint Exceeded Time</source>
-        <translation>Éclairage naturel : Temps de dépassement du point de référence 1 du point de consigne d'éclairement lumineux</translation>
+        <translation>Éclairage naturel : Temps de dépassement du point de référence 1 du point de consigne d&apos;éclairement lumineux</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Glare Index</source>
-        <translation>Éclairage naturel : Indice d'éblouissement du point de référence 1</translation>
+        <translation>Éclairage naturel : Indice d&apos;éblouissement du point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Glare Index Setpoint Exceeded Time</source>
-        <translation>Éclairage naturel : Temps de dépassement du consigne d'indice d'éblouissement du point de référence 1</translation>
+        <translation>Éclairage naturel : Temps de dépassement du consigne d&apos;indice d&apos;éblouissement du point de référence 1</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Illuminance</source>
@@ -16235,15 +16235,15 @@
     </message>
     <message>
         <source>Daylighting Reference Point 2 Daylight Illuminance Setpoint Exceeded Time</source>
-        <translation>Éclairage naturel : Temps de dépassement du point de référence 2 - Consigne d'illuminance lumineuse naturelle</translation>
+        <translation>Éclairage naturel : Temps de dépassement du point de référence 2 - Consigne d&apos;illuminance lumineuse naturelle</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Glare Index</source>
-        <translation>Éclairage naturel : Index d'éblouissement au point de référence 2</translation>
+        <translation>Éclairage naturel : Index d&apos;éblouissement au point de référence 2</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Glare Index Setpoint Exceeded Time</source>
-        <translation>Éclairage naturel : Temps de dépassement du point de référence 2 Indice d'éblouissement Consigne</translation>
+        <translation>Éclairage naturel : Temps de dépassement du point de référence 2 Indice d&apos;éblouissement Consigne</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 2 Illuminance</source>
@@ -16263,7 +16263,7 @@
     </message>
     <message>
         <source>District Cooling Water Inlet Temperature</source>
-        <translation>Eau de refroidissement urbain : Température à l'entrée</translation>
+        <translation>Eau de refroidissement urbain : Température à l&apos;entrée</translation>
     </message>
     <message>
         <source>District Cooling Water Mass Flow Rate</source>
@@ -16283,7 +16283,7 @@
     </message>
     <message>
         <source>District Heating Water Inlet Temperature</source>
-        <translation>Chauffage Urbain Eau: Température d'Entrée</translation>
+        <translation>Chauffage Urbain Eau: Température d&apos;Entrée</translation>
     </message>
     <message>
         <source>District Heating Water Mass Flow Rate</source>
@@ -16303,7 +16303,7 @@
     </message>
     <message>
         <source>Electric Load Center Produced Electricity Rate</source>
-        <translation>Centre de Charge Électrique: Débit d'Électricité Produite</translation>
+        <translation>Centre de Charge Électrique: Débit d&apos;Électricité Produite</translation>
     </message>
     <message>
         <source>Electric Load Center Produced Thermal Energy</source>
@@ -16331,7 +16331,7 @@
     </message>
     <message>
         <source>Evaporative Cooler Mains Water Volume</source>
-        <translation>Refroidisseur Évaporatif : Volume d'Eau de Réseau</translation>
+        <translation>Refroidisseur Évaporatif : Volume d&apos;Eau de Réseau</translation>
     </message>
     <message>
         <source>Evaporative Cooler Operating Mode Satus</source>
@@ -16343,23 +16343,23 @@
     </message>
     <message>
         <source>Evaporative Cooler Stage Effectiveness</source>
-        <translation>Refroidisseur Évaporatif: Efficacité de l'Étage</translation>
+        <translation>Refroidisseur Évaporatif: Efficacité de l&apos;Étage</translation>
     </message>
     <message>
         <source>Evaporative Cooler Total Stage Effectiveness</source>
-        <translation>Refroidisseur Évaporatif : Efficacité Totale de l'Étage</translation>
+        <translation>Refroidisseur Évaporatif : Efficacité Totale de l&apos;Étage</translation>
     </message>
     <message>
         <source>Evaporative Cooler Water Volume</source>
-        <translation>Refroidisseur évaporatif : Volume d'eau</translation>
+        <translation>Refroidisseur évaporatif : Volume d&apos;eau</translation>
     </message>
     <message>
         <source>Fan Air Mass Flow Rate</source>
-        <translation>Ventilateur: Débit massique d'air</translation>
+        <translation>Ventilateur: Débit massique d&apos;air</translation>
     </message>
     <message>
         <source>Fan Balanced Air Mass Flow Rate</source>
-        <translation>Ventilateur : Débit massique d'air équilibré</translation>
+        <translation>Ventilateur : Débit massique d&apos;air équilibré</translation>
     </message>
     <message>
         <source>Fan Electricity Energy</source>
@@ -16371,11 +16371,11 @@
     </message>
     <message>
         <source>Fan Heat Gain to Air</source>
-        <translation>Ventilateur : Gain de chaleur vers l'air</translation>
+        <translation>Ventilateur : Gain de chaleur vers l&apos;air</translation>
     </message>
     <message>
         <source>Fan Rise in Air Temperature</source>
-        <translation>Ventilateur : Augmentation de la température de l'air</translation>
+        <translation>Ventilateur : Augmentation de la température de l&apos;air</translation>
     </message>
     <message>
         <source>Fan Runtime Fraction</source>
@@ -16383,7 +16383,7 @@
     </message>
     <message>
         <source>Fan Unbalanced Air Mass Flow Rate</source>
-        <translation>Ventilateur : Débit massique d'air déséquilibré</translation>
+        <translation>Ventilateur : Débit massique d&apos;air déséquilibré</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Effectiveness</source>
@@ -16399,7 +16399,7 @@
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Demand Side Inlet Temperature</source>
-        <translation>Échangeur de Chaleur Fluide: Température d'Entrée Côté Demande de la Boucle</translation>
+        <translation>Échangeur de Chaleur Fluide: Température d&apos;Entrée Côté Demande de la Boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Demand Side Mass Flow Rate</source>
@@ -16411,7 +16411,7 @@
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Supply Side Inlet Temperature</source>
-        <translation>Échangeur de Chaleur Fluide : Température à l'Entrée du Côté Alimentation de la Boucle</translation>
+        <translation>Échangeur de Chaleur Fluide : Température à l&apos;Entrée du Côté Alimentation de la Boucle</translation>
     </message>
     <message>
         <source>Fluid Heat Exchanger Loop Supply Side Mass Flow Rate</source>
@@ -16435,11 +16435,11 @@
     </message>
     <message>
         <source>Generator Exhaust Air Mass Flow Rate</source>
-        <translation>Générateur: Débit massique de l'air d'échappement</translation>
+        <translation>Générateur: Débit massique de l&apos;air d&apos;échappement</translation>
     </message>
     <message>
         <source>Generator Exhaust Air Temperature</source>
-        <translation>Générateur : Température de l'Air d'Échappement</translation>
+        <translation>Générateur : Température de l&apos;Air d&apos;Échappement</translation>
     </message>
     <message>
         <source>Generator Fuel HHV Basis Energy</source>
@@ -16471,7 +16471,7 @@
     </message>
     <message>
         <source>Generator Produced AC Electricity Rate</source>
-        <translation>Générateur: Débit d'Électricité CA Produite</translation>
+        <translation>Générateur: Débit d&apos;Électricité CA Produite</translation>
     </message>
     <message>
         <source>Generator Propane HHV Basis Energy</source>
@@ -16511,7 +16511,7 @@
     </message>
     <message>
         <source>Ground Heat Exchanger Inlet Temperature</source>
-        <translation>Échangeur de Chaleur Souterrain: Température à l'Entrée</translation>
+        <translation>Échangeur de Chaleur Souterrain: Température à l&apos;Entrée</translation>
     </message>
     <message>
         <source>Ground Heat Exchanger Mass Flow Rate</source>
@@ -16523,7 +16523,7 @@
     </message>
     <message>
         <source>HVAC System Solver Iteration Count</source>
-        <translation>HVAC: Nombre d'itérations du solveur système</translation>
+        <translation>HVAC: Nombre d&apos;itérations du solveur système</translation>
     </message>
     <message>
         <source>Heat Exchanger Defrost Time Fraction</source>
@@ -16539,7 +16539,7 @@
     </message>
     <message>
         <source>Heat Exchanger Exhaust Air Bypass Mass Flow Rate</source>
-        <translation>Échangeur de Chaleur: Débit Massique de l'Air Échappé Contournant l'Échangeur</translation>
+        <translation>Échangeur de Chaleur: Débit Massique de l&apos;Air Échappé Contournant l&apos;Échangeur</translation>
     </message>
     <message>
         <source>Heat Exchanger Latent Cooling Energy</source>
@@ -16583,7 +16583,7 @@
     </message>
     <message>
         <source>Heat Exchanger Supply Air Bypass Mass Flow Rate</source>
-        <translation>Échangeur de Chaleur: Débit Massique d'Air Alimenté en Dérivation</translation>
+        <translation>Échangeur de Chaleur: Débit Massique d&apos;Air Alimenté en Dérivation</translation>
     </message>
     <message>
         <source>Heat Exchanger Total Cooling Energy</source>
@@ -16603,11 +16603,11 @@
     </message>
     <message>
         <source>Heating Coil Air Heating Energy</source>
-        <translation>Serpentin de Chauffage : Énergie de Chauffage de l'Air</translation>
+        <translation>Serpentin de Chauffage : Énergie de Chauffage de l&apos;Air</translation>
     </message>
     <message>
         <source>Heating Coil Air Heating Rate</source>
-        <translation>Serpentin de Chauffage: Puissance de Chauffage de l'Air</translation>
+        <translation>Serpentin de Chauffage: Puissance de Chauffage de l&apos;Air</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary Coal Energy</source>
@@ -16647,7 +16647,7 @@
     </message>
     <message>
         <source>Heating Coil Ancillary Gasoline Rate</source>
-        <translation>Serpentin de Chauffage: Consommation Auxiliaire d'Essence</translation>
+        <translation>Serpentin de Chauffage: Consommation Auxiliaire d&apos;Essence</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary NaturalGas Energy</source>
@@ -16663,7 +16663,7 @@
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel1 Rate</source>
-        <translation>Serpentin de Chauffage: Débit d'Énergie Auxiliaire OtherFuel1</translation>
+        <translation>Serpentin de Chauffage: Débit d&apos;Énergie Auxiliaire OtherFuel1</translation>
     </message>
     <message>
         <source>Heating Coil Ancillary OtherFuel2 Energy</source>
@@ -16679,7 +16679,7 @@
     </message>
     <message>
         <source>Heating Coil Ancillary Propane Rate</source>
-        <translation>Serpentin de Chauffage: Débit d'Appoint en Propane</translation>
+        <translation>Serpentin de Chauffage: Débit d&apos;Appoint en Propane</translation>
     </message>
     <message>
         <source>Heating Coil Coal Energy</source>
@@ -16775,7 +16775,7 @@
     </message>
     <message>
         <source>Heating Coil OtherFuel1 Rate</source>
-        <translation>Serpentin de Chauffage : Débit d'Autre Combustible 1</translation>
+        <translation>Serpentin de Chauffage : Débit d&apos;Autre Combustible 1</translation>
     </message>
     <message>
         <source>Heating Coil OtherFuel2 Energy</source>
@@ -16823,15 +16823,15 @@
     </message>
     <message>
         <source>Humidifier Mains Water Volume</source>
-        <translation>Humidificateur : Volume d'eau de réseau</translation>
+        <translation>Humidificateur : Volume d&apos;eau de réseau</translation>
     </message>
     <message>
         <source>Humidifier Water Volume</source>
-        <translation>Humidificateur : Volume d'eau</translation>
+        <translation>Humidificateur : Volume d&apos;eau</translation>
     </message>
     <message>
         <source>Humidifier Water Volume Flow Rate</source>
-        <translation>Humidificateur : Débit volumique d'eau</translation>
+        <translation>Humidificateur : Débit volumique d&apos;eau</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Ancillary Electricity Energy</source>
@@ -16879,7 +16879,7 @@
     </message>
     <message>
         <source>Ice Thermal Storage Fluid Inlet Temperature</source>
-        <translation>Stockage Thermique par Glace : Température d'Entrée du Fluide</translation>
+        <translation>Stockage Thermique par Glace : Température d&apos;Entrée du Fluide</translation>
     </message>
     <message>
         <source>Ice Thermal Storage Mass Flow Rate</source>
@@ -16899,11 +16899,11 @@
     </message>
     <message>
         <source>Performance Curve Input Variable 1 Value</source>
-        <translation>Courbe de Performance : Valeur de la Variable d'Entrée 1</translation>
+        <translation>Courbe de Performance : Valeur de la Variable d&apos;Entrée 1</translation>
     </message>
     <message>
         <source>Performance Curve Input Variable 2 Value</source>
-        <translation>Courbe de Performance : Valeur de la Variable d'Entrée 2</translation>
+        <translation>Courbe de Performance : Valeur de la Variable d&apos;Entrée 2</translation>
     </message>
     <message>
         <source>Performance Curve Output Value</source>
@@ -16911,7 +16911,7 @@
     </message>
     <message>
         <source>Plant Common Pipe Flow Direction Status</source>
-        <translation>Boucle de Circulation : État de la Direction d'Écoulement dans la Conduite Commune</translation>
+        <translation>Boucle de Circulation : État de la Direction d&apos;Écoulement dans la Conduite Commune</translation>
     </message>
     <message>
         <source>Plant Common Pipe Mass Flow Rate</source>
@@ -16967,11 +16967,11 @@
     </message>
     <message>
         <source>Plant Solver Half Loop Calls Count</source>
-        <translation>Boucle de circuit : Nombre d'appels du solveur demi-boucle</translation>
+        <translation>Boucle de circuit : Nombre d&apos;appels du solveur demi-boucle</translation>
     </message>
     <message>
         <source>Plant Solver Sub Iteration Count</source>
-        <translation>Boucle de fluide : Nombre d'itérations du solveur</translation>
+        <translation>Boucle de fluide : Nombre d&apos;itérations du solveur</translation>
     </message>
     <message>
         <source>Plant Supply Side Cooling Demand Rate</source>
@@ -16983,11 +16983,11 @@
     </message>
     <message>
         <source>Plant Supply Side Inlet Mass Flow Rate</source>
-        <translation>Boucle de Circulation : Débit Massique à l'Entrée du Côté Alimentation</translation>
+        <translation>Boucle de Circulation : Débit Massique à l&apos;Entrée du Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Inlet Temperature</source>
-        <translation>Boucle de Circulation : Température à l'Entrée du Côté Alimentation</translation>
+        <translation>Boucle de Circulation : Température à l&apos;Entrée du Côté Alimentation</translation>
     </message>
     <message>
         <source>Plant Supply Side Loop Pressure Difference</source>
@@ -17043,7 +17043,7 @@
     </message>
     <message>
         <source>Pump Shaft Power</source>
-        <translation>Pompe: Puissance d'arbre</translation>
+        <translation>Pompe: Puissance d&apos;arbre</translation>
     </message>
     <message>
         <source>Pump Zone Convective Heating Rate</source>
@@ -17063,75 +17063,75 @@
     </message>
     <message>
         <source>Refrigeration Air Chiller System Average Compressor COP</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : COP Moyen du Compresseur</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : COP Moyen du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Condensing Temperature</source>
-        <translation>Système de Refroidisseur d'Air Réfrigérant: Température de Condensation</translation>
+        <translation>Système de Refroidisseur d&apos;Air Réfrigérant: Température de Condensation</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated High Stage Refrigerant Mass Flow Rate</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Débit Massique Réfrigérant Étage Haute Estimé</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Débit Massique Réfrigérant Étage Haute Estimé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Low Stage Refrigerant Mass Flow Rate</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Débit Massique de Réfrigérant à Bas Étage Estimé</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Débit Massique de Réfrigérant à Bas Étage Estimé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Refrigerant Inventory Mass</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Masse du Fluide Frigorigène en Inventaire Estimée</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Masse du Fluide Frigorigène en Inventaire Estimée</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Estimated Refrigerant Mass Flow Rate</source>
-        <translation>Système de Refroidisseur d'Air à Réfrigération : Débit Massique de Réfrigérant Estimé</translation>
+        <translation>Système de Refroidisseur d&apos;Air à Réfrigération : Débit Massique de Réfrigérant Estimé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Evaporating Temperature</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Température d'Évaporation Saturée</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Température d&apos;Évaporation Saturée</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Intercooler Pressure</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Pression de l'Intercooler</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Pression de l&apos;Intercooler</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Intercooler Temperature</source>
-        <translation>Système de refroidisseur d'air de réfrigération : Température de l'Échangeur intermédiaire</translation>
+        <translation>Système de refroidisseur d&apos;air de réfrigération : Température de l&apos;Échangeur intermédiaire</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Liquid Suction Subcooler Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique: Énergie du Transfert Thermique du Sous-Refroidisseur Liquide-Aspiration</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique: Énergie du Transfert Thermique du Sous-Refroidisseur Liquide-Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Liquid Suction Subcooler Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Débit de Transfert de Chaleur du Sous-Refroidisseur Liquide-Aspiration</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Débit de Transfert de Chaleur du Sous-Refroidisseur Liquide-Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Net Rejected Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Énergie Nette de Transfert de Chaleur Rejetée</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Énergie Nette de Transfert de Chaleur Rejetée</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Net Rejected Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération : Débit de Transfert de Chaleur Rejetée Nette</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération : Débit de Transfert de Chaleur Rejetée Nette</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Suction Temperature</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique: Température d'Aspiration</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique: Température d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System TXV Liquid Temperature</source>
-        <translation>Système de Refroidisseur d'Air par Réfrigération : Température de Liquide à la Détente</translation>
+        <translation>Système de Refroidisseur d&apos;Air par Réfrigération : Température de Liquide à la Détente</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Air Chiller Heat Transfer Rate</source>
-        <translation>Système de refroidisseur d'air de réfrigération : Débit de transfert de chaleur total du refroidisseur d'air</translation>
+        <translation>Système de refroidisseur d&apos;air de réfrigération : Débit de transfert de chaleur total du refroidisseur d&apos;air</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Case and Walk In Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie Totale de Transfert de Chaleur des Meubles Réfrigérés et Chambres Froides</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération : Énergie Totale de Transfert de Chaleur des Meubles Réfrigérés et Chambres Froides</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Electricity Energy</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie Électrique Totale des Compresseurs</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération : Énergie Électrique Totale des Compresseurs</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Electricity Rate</source>
@@ -17139,63 +17139,63 @@
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie Totale de Transfert de Chaleur du Compresseur</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération : Énergie Totale de Transfert de Chaleur du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Compressor Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Débit de Transfert de Chaleur Total du Compresseur</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Débit de Transfert de Chaleur Total du Compresseur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Electricity Energy</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique: Énergie Électrique Totale du Compresseur d'Étage Supérieur</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique: Énergie Électrique Totale du Compresseur d&apos;Étage Supérieur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Electricity Rate</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique: Débit d'Électricité du Compresseur Haute Étage Total</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique: Débit d&apos;Électricité du Compresseur Haute Étage Total</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Heat Transfer Energy</source>
-        <translation>Système de refroidisseur d'air de réfrigération : Énergie totale de transfert de chaleur du compresseur d'étage supérieur</translation>
+        <translation>Système de refroidisseur d&apos;air de réfrigération : Énergie totale de transfert de chaleur du compresseur d&apos;étage supérieur</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total High Stage Compressor Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air pour Réfrigération : Débit de Transfert Thermique Total du Compresseur d'Étage Élevé</translation>
+        <translation>Système de Refroidisseur d&apos;Air pour Réfrigération : Débit de Transfert Thermique Total du Compresseur d&apos;Étage Élevé</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Electricity Energy</source>
-        <translation>Système de refroidisseur d'air frigorifique : Énergie électrique totale du compresseur d'étage bas</translation>
+        <translation>Système de refroidisseur d&apos;air frigorifique : Énergie électrique totale du compresseur d&apos;étage bas</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Electricity Rate</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Puissance Électrique Totale du Compresseur Basse Étage</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Puissance Électrique Totale du Compresseur Basse Étage</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Énergie Totale de Transfert de Chaleur du Compresseur Étage Basse</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Énergie Totale de Transfert de Chaleur du Compresseur Étage Basse</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low Stage Compressor Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air Réfrigération: Débit de Transfert Thermique Total du Compresseur d'Étage Bas</translation>
+        <translation>Système de Refroidisseur d&apos;Air Réfrigération: Débit de Transfert Thermique Total du Compresseur d&apos;Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Low and High Stage Compressor Electricity Energy</source>
-        <translation>Système de Refroidisseur d'Air pour Réfrigération : Énergie Électrique Totale des Compresseurs d'Étage Bas et Étage Haut</translation>
+        <translation>Système de Refroidisseur d&apos;Air pour Réfrigération : Énergie Électrique Totale des Compresseurs d&apos;Étage Bas et Étage Haut</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Suction Pipe Heat Gain Energy</source>
-        <translation>Système de Refroidissement Frigorifique d'Air: Énergie Totale de Gain Thermique de La Conduite d'Aspiration</translation>
+        <translation>Système de Refroidissement Frigorifique d&apos;Air: Énergie Totale de Gain Thermique de La Conduite d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Suction Pipe Heat Gain Rate</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération: Débit de Transfert Thermique Total dans la Tuyauterie d'Aspiration</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération: Débit de Transfert Thermique Total dans la Tuyauterie d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Transferred Load Heat Transfer Energy</source>
-        <translation>Système de Refroidisseur d'Air de Réfrigération : Énergie Transférée de la Charge Thermique Totale</translation>
+        <translation>Système de Refroidisseur d&apos;Air de Réfrigération : Énergie Transférée de la Charge Thermique Totale</translation>
     </message>
     <message>
         <source>Refrigeration Air Chiller System Total Transferred Load Heat Transfer Rate</source>
-        <translation>Système de Refroidisseur d'Air Frigorifique : Débit de Transfert de Chaleur de la Charge Transférée Totale</translation>
+        <translation>Système de Refroidisseur d&apos;Air Frigorifique : Débit de Transfert de Chaleur de la Charge Transférée Totale</translation>
     </message>
     <message>
         <source>Refrigeration System Average Compressor COP</source>
@@ -17207,7 +17207,7 @@
     </message>
     <message>
         <source>Refrigeration System Estimated High Stage Refrigerant Mass Flow Rate</source>
-        <translation>Système de Réfrigération : Débit Massique de Frigorigène Estimé de l'Étage Haute Pression</translation>
+        <translation>Système de Réfrigération : Débit Massique de Frigorigène Estimé de l&apos;Étage Haute Pression</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Low Stage Refrigerant Mass Flow Rate</source>
@@ -17219,7 +17219,7 @@
     </message>
     <message>
         <source>Refrigeration System Estimated Refrigerant Inventory Mass</source>
-        <translation>Système de Réfrigération : Masse d'Inventaire de Fluide Frigorigène Estimée</translation>
+        <translation>Système de Réfrigération : Masse d&apos;Inventaire de Fluide Frigorigène Estimée</translation>
     </message>
     <message>
         <source>Refrigeration System Estimated Refrigerant Mass Flow Rate</source>
@@ -17227,11 +17227,11 @@
     </message>
     <message>
         <source>Refrigeration System Evaporating Temperature</source>
-        <translation>Système de réfrigération : Température d'évaporation saturée</translation>
+        <translation>Système de réfrigération : Température d&apos;évaporation saturée</translation>
     </message>
     <message>
         <source>Refrigeration System Liquid Suction Subcooler Heat Transfer Energy</source>
-        <translation>Système de réfrigération : Énergie transférée par l'échangeur thermique liquide-aspiration</translation>
+        <translation>Système de réfrigération : Énergie transférée par l&apos;échangeur thermique liquide-aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Liquid Suction Subcooler Heat Transfer Rate</source>
@@ -17247,11 +17247,11 @@
     </message>
     <message>
         <source>Refrigeration System Suction Pipe Suction Temperature</source>
-        <translation>Système de Réfrigération : Température de Surchauffe à l'Aspiration</translation>
+        <translation>Système de Réfrigération : Température de Surchauffe à l&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Thermostatic Expansion Valve Liquid Temperature</source>
-        <translation>Système frigorifique : Température du liquide à la vanne d'expansion thermostique</translation>
+        <translation>Système frigorifique : Température du liquide à la vanne d&apos;expansion thermostique</translation>
     </message>
     <message>
         <source>Refrigeration System Total Cases and Walk Ins Heat Transfer Energy</source>
@@ -17287,7 +17287,7 @@
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Heat Transfer Energy</source>
-        <translation>Système de Réfrigération: Énergie de Transfert Thermique Total des Compresseurs d'Étage Supérieur</translation>
+        <translation>Système de Réfrigération: Énergie de Transfert Thermique Total des Compresseurs d&apos;Étage Supérieur</translation>
     </message>
     <message>
         <source>Refrigeration System Total High Stage Compressor Heat Transfer Rate</source>
@@ -17295,7 +17295,7 @@
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Electricity Energy</source>
-        <translation>Système de Réfrigération: Énergie Électrique Totale du Compresseur d'Étage Bas</translation>
+        <translation>Système de Réfrigération: Énergie Électrique Totale du Compresseur d&apos;Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Electricity Rate</source>
@@ -17303,11 +17303,11 @@
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Heat Transfer Energy</source>
-        <translation>Système de Réfrigération : Énergie Totale de Transfert de Chaleur des Compresseurs d'Étage Bas</translation>
+        <translation>Système de Réfrigération : Énergie Totale de Transfert de Chaleur des Compresseurs d&apos;Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low Stage Compressor Heat Transfer Rate</source>
-        <translation>Système de Réfrigération : Débit de Transfert de Chaleur Total du Compresseur d'Étage Bas</translation>
+        <translation>Système de Réfrigération : Débit de Transfert de Chaleur Total du Compresseur d&apos;Étage Bas</translation>
     </message>
     <message>
         <source>Refrigeration System Total Low and High Stage Compressor Electricity Energy</source>
@@ -17315,11 +17315,11 @@
     </message>
     <message>
         <source>Refrigeration System Total Suction Pipe Heat Gain Energy</source>
-        <translation>Système de Réfrigération : Énergie du Gain de Chaleur Total de la Tuyauterie d'Aspiration</translation>
+        <translation>Système de Réfrigération : Énergie du Gain de Chaleur Total de la Tuyauterie d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Total Suction Pipe Heat Gain Rate</source>
-        <translation>Système de Réfrigération : Débit de Gain de Chaleur Total de la Tuyauterie d'Aspiration</translation>
+        <translation>Système de Réfrigération : Débit de Gain de Chaleur Total de la Tuyauterie d&apos;Aspiration</translation>
     </message>
     <message>
         <source>Refrigeration System Total Transferred Load Heat Transfer Energy</source>
@@ -17355,39 +17355,39 @@
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Heating Energy</source>
-        <translation>Refroidisseur d'Air de Zone Réfrigérée: Énergie de Chauffage Auxiliaire</translation>
+        <translation>Refroidisseur d&apos;Air de Zone Réfrigérée: Énergie de Chauffage Auxiliaire</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Heating Rate</source>
-        <translation>Refroidisseur d'Air de Zone de Réfrigération : Flux de Chaleur de Chauffage</translation>
+        <translation>Refroidisseur d&apos;Air de Zone de Réfrigération : Flux de Chaleur de Chauffage</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Latent Cooling Energy</source>
-        <translation>Refroidisseur d'air en zone de réfrigération: Énergie de refroidissement latent</translation>
+        <translation>Refroidisseur d&apos;air en zone de réfrigération: Énergie de refroidissement latent</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Latent Cooling Rate</source>
-        <translation>Refroidisseur d'air frigorifique de zone : Puissance frigorifique latente</translation>
+        <translation>Refroidisseur d&apos;air frigorifique de zone : Puissance frigorifique latente</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Sensible Cooling Energy</source>
-        <translation>Refroidisseur d'air de zone frigorifique : Énergie de refroidissement sensible</translation>
+        <translation>Refroidisseur d&apos;air de zone frigorifique : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Sensible Cooling Rate</source>
-        <translation>Refroidisseur d'air de zone de réfrigération : Débit de refroidissement sensible</translation>
+        <translation>Refroidisseur d&apos;air de zone de réfrigération : Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Total Cooling Energy</source>
-        <translation>Refroidisseur d'air de zone de réfrigération : Énergie de refroidissement totale</translation>
+        <translation>Refroidisseur d&apos;air de zone de réfrigération : Énergie de refroidissement totale</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Total Cooling Rate</source>
-        <translation>Refroidisseur d'air de zone de réfrigération : Puissance de refroidissement totale</translation>
+        <translation>Refroidisseur d&apos;air de zone de réfrigération : Puissance de refroidissement totale</translation>
     </message>
     <message>
         <source>Refrigeration Zone Air Chiller Water Removed Mass Flow Rate</source>
-        <translation>Refroidisseur d'Air de Zone de Réfrigération : Débit Massique d'Eau Évacuée</translation>
+        <translation>Refroidisseur d&apos;Air de Zone de Réfrigération : Débit Massique d&apos;Eau Évacuée</translation>
     </message>
     <message>
         <source>Schedule Value</source>
@@ -17423,7 +17423,7 @@
     </message>
     <message>
         <source>Solar Collector Incident Angle Modifier</source>
-        <translation>Collecteur Solaire: Modificateur d'Angle d'Incidence</translation>
+        <translation>Collecteur Solaire: Modificateur d&apos;Angle d&apos;Incidence</translation>
     </message>
     <message>
         <source>Solar Collector Overall Top Heat Loss Coefficient</source>
@@ -17447,7 +17447,7 @@
     </message>
     <message>
         <source>Solar Collector Storage Water Temperature</source>
-        <translation>Capteur Solaire: Température de l'Eau du Stockage</translation>
+        <translation>Capteur Solaire: Température de l&apos;Eau du Stockage</translation>
     </message>
     <message>
         <source>Solar Collector Thermal Efficiency</source>
@@ -17479,7 +17479,7 @@
     </message>
     <message>
         <source>System Node Humidity Ratio</source>
-        <translation>Nœud Système: Rapport d'humidité</translation>
+        <translation>Nœud Système: Rapport d&apos;humidité</translation>
     </message>
     <message>
         <source>System Node Last Timestep Enthalpy</source>
@@ -17511,7 +17511,7 @@
     </message>
     <message>
         <source>System Node Setpoint Humidity Ratio</source>
-        <translation>Nœud Système: Consigne de Rapport d'Humidité</translation>
+        <translation>Nœud Système: Consigne de Rapport d&apos;Humidité</translation>
     </message>
     <message>
         <source>System Node Setpoint Low Temperature</source>
@@ -17523,7 +17523,7 @@
     </message>
     <message>
         <source>System Node Setpoint Minimum Humidity Ratio</source>
-        <translation>Nœud Système : Rapport d'Humidité Minimum de Consigne</translation>
+        <translation>Nœud Système : Rapport d&apos;Humidité Minimum de Consigne</translation>
     </message>
     <message>
         <source>System Node Setpoint Temperature</source>
@@ -17603,7 +17603,7 @@
     </message>
     <message>
         <source>Unitary System Heat Recovery Inlet Temperature</source>
-        <translation>Système Unitaire : Température d'Entrée de la Récupération de Chaleur</translation>
+        <translation>Système Unitaire : Température d&apos;Entrée de la Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Unitary System Heat Recovery Outlet Temperature</source>
@@ -17627,11 +17627,11 @@
     </message>
     <message>
         <source>Unitary System Predicted Moisture Load to Setpoint Heat Transfer Rate</source>
-        <translation>Système Unitaire : Débit de chaleur de transfert de charge d'humidité prédite au point de consigne</translation>
+        <translation>Système Unitaire : Débit de chaleur de transfert de charge d&apos;humidité prédite au point de consigne</translation>
     </message>
     <message>
         <source>Unitary System Predicted Sensible Load to Setpoint Heat Transfer Rate</source>
-        <translation>Système Unitaire : Charge Sensible Prédite pour le Débit de Transfert Thermique jusqu'au Point de Consigne</translation>
+        <translation>Système Unitaire : Charge Sensible Prédite pour le Débit de Transfert Thermique jusqu&apos;au Point de Consigne</translation>
     </message>
     <message>
         <source>Unitary System Requested Heating Rate</source>
@@ -17695,7 +17695,7 @@
     </message>
     <message>
         <source>VRF Heat Pump Condenser Inlet Temperature</source>
-        <translation>Pompe à chaleur VRF: Température d'entrée du condenseur</translation>
+        <translation>Pompe à chaleur VRF: Température d&apos;entrée du condenseur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Condenser Mass Flow Rate</source>
@@ -17747,11 +17747,11 @@
     </message>
     <message>
         <source>VRF Heat Pump Evaporative Condenser Water Use Volume</source>
-        <translation>VRF Pompe à Chaleur: Volume d'Eau Utilisé par le Condenseur Évaporatif</translation>
+        <translation>VRF Pompe à Chaleur: Volume d&apos;Eau Utilisé par le Condenseur Évaporatif</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heat Recovery Status Change Multiplier</source>
-        <translation>Pompe à chaleur VRF : Multiplicateur de changement d'état de récupération de chaleur</translation>
+        <translation>Pompe à chaleur VRF : Multiplicateur de changement d&apos;état de récupération de chaleur</translation>
     </message>
     <message>
         <source>VRF Heat Pump Heating COP</source>
@@ -17795,7 +17795,7 @@
     </message>
     <message>
         <source>VRF Heat Pump Terminal Unit Heating Load Rate</source>
-        <translation>Pompe à chaleur VRF : Débit de charge thermique de l'unité terminale</translation>
+        <translation>Pompe à chaleur VRF : Débit de charge thermique de l&apos;unité terminale</translation>
     </message>
     <message>
         <source>VRF Heat Pump Total Cooling Rate</source>
@@ -17819,7 +17819,7 @@
     </message>
     <message>
         <source>Water Heater Cycle On Count</source>
-        <translation>Chauffe-eau: Nombre de cycles d'enclenchement</translation>
+        <translation>Chauffe-eau: Nombre de cycles d&apos;enclenchement</translation>
     </message>
     <message>
         <source>Water Heater Diesel Energy</source>
@@ -17839,7 +17839,7 @@
     </message>
     <message>
         <source>Water Heater Final Tank Temperature</source>
-        <translation>Ballon d'Eau Chaude: Température Finale du Réservoir</translation>
+        <translation>Ballon d&apos;Eau Chaude: Température Finale du Réservoir</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 1</source>
@@ -17851,7 +17851,7 @@
     </message>
     <message>
         <source>Water Heater Final Temperature Node 11</source>
-        <translation>Ballon d'eau chaude: Température finale nœud 11</translation>
+        <translation>Ballon d&apos;eau chaude: Température finale nœud 11</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 12</source>
@@ -17915,7 +17915,7 @@
     </message>
     <message>
         <source>Water Heater Heat Loss Energy</source>
-        <translation>Ballon d'eau chaude : Énergie de déperdition thermique</translation>
+        <translation>Ballon d&apos;eau chaude : Énergie de déperdition thermique</translation>
     </message>
     <message>
         <source>Water Heater Heat Loss Rate</source>
@@ -17939,7 +17939,7 @@
     </message>
     <message>
         <source>Water Heater Heater 2 Cycle On Count</source>
-        <translation>Chauffe-eau : Décompte de Cycles d'Allumage du Réchauffeur 2</translation>
+        <translation>Chauffe-eau : Décompte de Cycles d&apos;Allumage du Réchauffeur 2</translation>
     </message>
     <message>
         <source>Water Heater Heater 2 Heating Energy</source>
@@ -17991,7 +17991,7 @@
     </message>
     <message>
         <source>Water Heater On Cycle Parasitic Tank Heat Transfer Rate</source>
-        <translation>Ballon d'eau chaude: Flux thermique du ballon dû aux auxiliaires en cycle actif</translation>
+        <translation>Ballon d&apos;eau chaude: Flux thermique du ballon dû aux auxiliaires en cycle actif</translation>
     </message>
     <message>
         <source>Water Heater OtherFuel1 Energy</source>
@@ -18035,7 +18035,7 @@
     </message>
     <message>
         <source>Water Heater Source Side Inlet Temperature</source>
-        <translation>Chauffe-eau: Température d'entrée côté source</translation>
+        <translation>Chauffe-eau: Température d&apos;entrée côté source</translation>
     </message>
     <message>
         <source>Water Heater Source Side Mass Flow Rate</source>
@@ -18047,7 +18047,7 @@
     </message>
     <message>
         <source>Water Heater Tank Temperature</source>
-        <translation>Ballon d'eau chaude : Température du ballon</translation>
+        <translation>Ballon d&apos;eau chaude : Température du ballon</translation>
     </message>
     <message>
         <source>Water Heater Temperature Node 1</source>
@@ -18123,11 +18123,11 @@
     </message>
     <message>
         <source>Water Heater Use Side Inlet Temperature</source>
-        <translation>Chauffe-Eau : Température d'Entrée du Côté Utilisation</translation>
+        <translation>Chauffe-Eau : Température d&apos;Entrée du Côté Utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Mass Flow Rate</source>
-        <translation>Ballon d'eau chaude : Débit massique côté utilisation</translation>
+        <translation>Ballon d&apos;eau chaude : Débit massique côté utilisation</translation>
     </message>
     <message>
         <source>Water Heater Use Side Outlet Temperature</source>
@@ -18139,75 +18139,75 @@
     </message>
     <message>
         <source>Water Heater Venting Heat Transfer Rate</source>
-        <translation>Chauffe-eau : Débit de transfert thermique d'évacuation</translation>
+        <translation>Chauffe-eau : Débit de transfert thermique d&apos;évacuation</translation>
     </message>
     <message>
         <source>Water Heater Water Volume</source>
-        <translation>Ballon d'eau chaude: Volume d'eau</translation>
+        <translation>Ballon d&apos;eau chaude: Volume d&apos;eau</translation>
     </message>
     <message>
         <source>Water Heater Water Volume Flow Rate</source>
-        <translation>Chauffe-eau : Débit volumique d'eau</translation>
+        <translation>Chauffe-eau : Débit volumique d&apos;eau</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Mass Flow Rate</source>
-        <translation>Connexions d'Utilisation d'Eau: Débit Massique d'Eau Froide</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau: Débit Massique d&apos;Eau Froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Temperature</source>
-        <translation>Connections d'utilisation d'eau : Température de l'eau froide</translation>
+        <translation>Connections d&apos;utilisation d&apos;eau : Température de l&apos;eau froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Volume</source>
-        <translation>Connexions d'Utilisation d'Eau : Volume d'Eau Froide</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau : Volume d&apos;Eau Froide</translation>
     </message>
     <message>
         <source>Water Use Connections Cold Water Volume Flow Rate</source>
-        <translation>Connexions d'Utilisation d'Eau : Débit Volumique d'Eau Froide</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau : Débit Volumique d&apos;Eau Froide</translation>
     </message>
     <message>
         <source>Water Use Connections Drain Water Mass Flow Rate</source>
-        <translation>Connexions d'Usage de l'Eau: Débit Massique des Eaux de Drainage</translation>
+        <translation>Connexions d&apos;Usage de l&apos;Eau: Débit Massique des Eaux de Drainage</translation>
     </message>
     <message>
         <source>Water Use Connections Drain Water Temperature</source>
-        <translation>Connexions d'Utilisation d'Eau: Température de l'Eau de Drainage</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau: Température de l&apos;Eau de Drainage</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Effectiveness</source>
-        <translation>Connexions d'utilisation de l'eau : Efficacité de la récupération de chaleur</translation>
+        <translation>Connexions d&apos;utilisation de l&apos;eau : Efficacité de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Energy</source>
-        <translation>Connections d'eau: Énergie de récupération thermique</translation>
+        <translation>Connections d&apos;eau: Énergie de récupération thermique</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Mass Flow Rate</source>
-        <translation>Connexions d'Utilisation d'Eau : Débit Massique de Récupération de Chaleur</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau : Débit Massique de Récupération de Chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Rate</source>
-        <translation>Raccordements d'Eau : Débit de Chaleur Récupérée</translation>
+        <translation>Raccordements d&apos;Eau : Débit de Chaleur Récupérée</translation>
     </message>
     <message>
         <source>Water Use Connections Heat Recovery Water Temperature</source>
-        <translation>Connexions d'utilisation de l'eau : Température de l'eau en récupération de chaleur</translation>
+        <translation>Connexions d&apos;utilisation de l&apos;eau : Température de l&apos;eau en récupération de chaleur</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Mass Flow Rate</source>
-        <translation>Raccordements de consommation d'eau : Débit massique d'eau chaude</translation>
+        <translation>Raccordements de consommation d&apos;eau : Débit massique d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Temperature</source>
-        <translation>Raccordements de Consommation d'Eau : Température de l'Eau Chaude</translation>
+        <translation>Raccordements de Consommation d&apos;Eau : Température de l&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Volume</source>
-        <translation>Connexions d'approvisionnement en eau : Volume d'eau chaude</translation>
+        <translation>Connexions d&apos;approvisionnement en eau : Volume d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Hot Water Volume Flow Rate</source>
-        <translation>Connexions d'Utilisation d'Eau : Débit Volumique d'Eau Chaude</translation>
+        <translation>Connexions d&apos;Utilisation d&apos;Eau : Débit Volumique d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Water Use Connections Plant Hot Water Energy</source>
@@ -18215,23 +18215,23 @@
     </message>
     <message>
         <source>Water Use Connections Return Water Temperature</source>
-        <translation>Connexions de Consommation d'Eau : Température de l'Eau de Retour</translation>
+        <translation>Connexions de Consommation d&apos;Eau : Température de l&apos;Eau de Retour</translation>
     </message>
     <message>
         <source>Water Use Connections Total Mass Flow Rate</source>
-        <translation>Raccordements d'eau: Débit massique total</translation>
+        <translation>Raccordements d&apos;eau: Débit massique total</translation>
     </message>
     <message>
         <source>Water Use Connections Total Volume</source>
-        <translation>Connexions d'utilisation d'eau : Volume total</translation>
+        <translation>Connexions d&apos;utilisation d&apos;eau : Volume total</translation>
     </message>
     <message>
         <source>Water Use Connections Total Volume Flow Rate</source>
-        <translation>Connexions d'Eau : Débit Volumique Total</translation>
+        <translation>Connexions d&apos;Eau : Débit Volumique Total</translation>
     </message>
     <message>
         <source>Water Use Connections Waste Water Temperature</source>
-        <translation>Water Use Connections: Température de l'eau usée</translation>
+        <translation>Water Use Connections: Température de l&apos;eau usée</translation>
     </message>
     <message>
         <source>Zone Air CO2 Concentration</source>
@@ -18243,43 +18243,43 @@
     </message>
     <message>
         <source>Zone Air Generic Air Contaminant Concentration</source>
-        <translation>Zone: Air: Concentration de Contaminant Générique de l'Air</translation>
+        <translation>Zone: Air: Concentration de Contaminant Générique de l&apos;Air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Air Energy Storage Rate</source>
-        <translation>Zone : Bilan Thermique de l'Air : Débit d'Accumulation d'Énergie de l'Air</translation>
+        <translation>Zone : Bilan Thermique de l&apos;Air : Débit d&apos;Accumulation d&apos;Énergie de l&apos;Air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Deviation Rate</source>
-        <translation>Zone: Écart du bilan thermique de l'air</translation>
+        <translation>Zone: Écart du bilan thermique de l&apos;air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Internal Convective Heat Gain Rate</source>
-        <translation>Zone: Bilan thermique de l'air: Débit du gain thermique convectif interne</translation>
+        <translation>Zone: Bilan thermique de l&apos;air: Débit du gain thermique convectif interne</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Interzone Air Transfer Rate</source>
-        <translation>Zone : Bilan Thermique de l'Air : Débit de Transfert Thermique d'Air Interzone</translation>
+        <translation>Zone : Bilan Thermique de l&apos;Air : Débit de Transfert Thermique d&apos;Air Interzone</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Outdoor Air Transfer Rate</source>
-        <translation>Zone: Bilan Thermique de l'Air: Débit de Transfert Thermique de l'Air Extérieur</translation>
+        <translation>Zone: Bilan Thermique de l&apos;Air: Débit de Transfert Thermique de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Surface Convection Rate</source>
-        <translation>Zone: Bilan thermique de l'air: Débit de convection des surfaces</translation>
+        <translation>Zone: Bilan thermique de l&apos;air: Débit de convection des surfaces</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance System Air Transfer Rate</source>
-        <translation>Zone: Bilan Thermique de l'Air: Débit de Transfert Thermique du Système d'Air</translation>
+        <translation>Zone: Bilan Thermique de l&apos;Air: Débit de Transfert Thermique du Système d&apos;Air</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance System Convective Heat Gain Rate</source>
-        <translation>Zone: Bilan thermique de l'air: Taux de gain thermique convectif du système</translation>
+        <translation>Zone: Bilan thermique de l&apos;air: Taux de gain thermique convectif du système</translation>
     </message>
     <message>
         <source>Zone Air Humidity Ratio</source>
-        <translation>Zone: Air: Ratio d'humidité</translation>
+        <translation>Zone: Air: Ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Zone Air Relative Humidity</source>
@@ -18287,7 +18287,7 @@
     </message>
     <message>
         <source>Zone Air System Sensible Cooling Energy</source>
-        <translation>Zone: Énergie frigorifique sensible du système d'air</translation>
+        <translation>Zone: Énergie frigorifique sensible du système d&apos;air</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Cooling Rate</source>
@@ -18295,11 +18295,11 @@
     </message>
     <message>
         <source>Zone Air System Sensible Heating Energy</source>
-        <translation>Zone: Système d'air: Énergie de chauffage sensible</translation>
+        <translation>Zone: Système d&apos;air: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Air System Sensible Heating Rate</source>
-        <translation>Zone: Système d'air: Débit de chauffage sensible</translation>
+        <translation>Zone: Système d&apos;air: Débit de chauffage sensible</translation>
     </message>
     <message>
         <source>Zone Air Temperature</source>
@@ -18307,19 +18307,19 @@
     </message>
     <message>
         <source>Zone Air Terminal Sensible Cooling Energy</source>
-        <translation>Zone : Terminal d'air : Énergie de refroidissement sensible</translation>
+        <translation>Zone : Terminal d&apos;air : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Cooling Rate</source>
-        <translation>Zone: Terminal d'air : Puissance frigorifique sensible</translation>
+        <translation>Zone: Terminal d&apos;air : Puissance frigorifique sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Heating Energy</source>
-        <translation>Zone: Terminaison d'Air: Énergie de Chauffage Sensible</translation>
+        <translation>Zone: Terminaison d&apos;Air: Énergie de Chauffage Sensible</translation>
     </message>
     <message>
         <source>Zone Air Terminal Sensible Heating Rate</source>
-        <translation>Zone: Débit de Chaleur Sensible du Terminal d'Air</translation>
+        <translation>Zone: Débit de Chaleur Sensible du Terminal d&apos;Air</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Electricity Energy</source>
@@ -18339,7 +18339,7 @@
     </message>
     <message>
         <source>Zone Dehumidifier Outlet Air Temperature</source>
-        <translation>Zone: Déshumidificateur: Température de l'air à la sortie</translation>
+        <translation>Zone: Déshumidificateur: Température de l&apos;air à la sortie</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Part Load Ratio</source>
@@ -18347,11 +18347,11 @@
     </message>
     <message>
         <source>Zone Dehumidifier Removed Water Mass</source>
-        <translation>Zone : Déshumidificateur : Masse d'eau extraite</translation>
+        <translation>Zone : Déshumidificateur : Masse d&apos;eau extraite</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Removed Water Mass Flow Rate</source>
-        <translation>Zone: Déshumidificateur: Débit massique d'eau évacuée</translation>
+        <translation>Zone: Déshumidificateur: Débit massique d&apos;eau évacuée</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Runtime Fraction</source>
@@ -18431,7 +18431,7 @@
     </message>
     <message>
         <source>Zone Gas Equipment Convective Heating Energy</source>
-        <translation>Zone: Énergie de chauffage convective de l'équipement à gaz</translation>
+        <translation>Zone: Énergie de chauffage convective de l&apos;équipement à gaz</translation>
     </message>
     <message>
         <source>Zone Gas Equipment Convective Heating Rate</source>
@@ -18483,19 +18483,19 @@
     </message>
     <message>
         <source>Zone Hot Water Equipment Convective Heating Energy</source>
-        <translation>Zone: Équipement d'eau chaude: Énergie de chauffage par convection</translation>
+        <translation>Zone: Équipement d&apos;eau chaude: Énergie de chauffage par convection</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Convective Heating Rate</source>
-        <translation>Zone : Équipement d'eau chaude : Débit de chaleur convective</translation>
+        <translation>Zone : Équipement d&apos;eau chaude : Débit de chaleur convective</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment District Heating Energy</source>
-        <translation>Zone: Énergie de Chauffage Urbain des Équipements d'Eau Chaude</translation>
+        <translation>Zone: Énergie de Chauffage Urbain des Équipements d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment District Heating Rate</source>
-        <translation>Zone : Débit de Chauffage Urbain en Équipement d'Eau Chaude</translation>
+        <translation>Zone : Débit de Chauffage Urbain en Équipement d&apos;Eau Chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Latent Gain Energy</source>
@@ -18503,19 +18503,19 @@
     </message>
     <message>
         <source>Zone Hot Water Equipment Latent Gain Rate</source>
-        <translation>Zone: Équipement d'Eau Chaude: Débit de Gain Latent</translation>
+        <translation>Zone: Équipement d&apos;Eau Chaude: Débit de Gain Latent</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Lost Heat Energy</source>
-        <translation>Zone: Équipement d'eau chaude sanitaire: Énergie thermique perdue</translation>
+        <translation>Zone: Équipement d&apos;eau chaude sanitaire: Énergie thermique perdue</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Lost Heat Rate</source>
-        <translation>Zone: Équipements d'eau chaude: Débit de chaleur perdue</translation>
+        <translation>Zone: Équipements d&apos;eau chaude: Débit de chaleur perdue</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Radiant Heating Energy</source>
-        <translation>Zone: Énergie de chauffage radiant par équipement d'eau chaude</translation>
+        <translation>Zone: Énergie de chauffage radiant par équipement d&apos;eau chaude</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Radiant Heating Rate</source>
@@ -18523,51 +18523,51 @@
     </message>
     <message>
         <source>Zone Hot Water Equipment Total Heating Energy</source>
-        <translation>Zone: Équipement d'eau chaude: Énergie de chauffage totale</translation>
+        <translation>Zone: Équipement d&apos;eau chaude: Énergie de chauffage totale</translation>
     </message>
     <message>
         <source>Zone Hot Water Equipment Total Heating Rate</source>
-        <translation>Zone: Équipement d'Eau Chaude: Débit de Chaleur Total</translation>
+        <translation>Zone: Équipement d&apos;Eau Chaude: Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>Zone ITE Adjusted Return Air Temperature </source>
-        <translation>Zone : ITE : Température de l'air de retour ajustée </translation>
+        <translation>Zone : ITE : Température de l&apos;air de retour ajustée </translation>
     </message>
     <message>
         <source>Zone ITE Air Mass Flow Rate </source>
-        <translation>Zone: ITE: Débit massique d'air </translation>
+        <translation>Zone: ITE: Débit massique d&apos;air </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>Zone: ITE: Durée de Température de Point de Rosée à l'Entrée d'Air au-dessus de la Plage de Fonctionnement </translation>
+        <translation>Zone: ITE: Durée de Température de Point de Rosée à l&apos;Entrée d&apos;Air au-dessus de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Zone: ITE: Temps en Fonctionnement avec Température du Point de Rosée d'Entrée d'Air en Dessous de la Plage Opérationnelle </translation>
+        <translation>Zone: ITE: Temps en Fonctionnement avec Température du Point de Rosée d&apos;Entrée d&apos;Air en Dessous de la Plage Opérationnelle </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>Zone: ITE: Temps de Température Sèche au Clapet d'Entrée d'Air au-Dessus de la Plage de Fonctionnement </translation>
+        <translation>Zone: ITE: Temps de Température Sèche au Clapet d&apos;Entrée d&apos;Air au-Dessus de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>Zone: ITE: Temps pendant lequel la température de bulbe sec à l'entrée d'air est inférieure à la plage de fonctionnement </translation>
+        <translation>Zone: ITE: Temps pendant lequel la température de bulbe sec à l&apos;entrée d&apos;air est inférieure à la plage de fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>Zone: ITE: Temps de Dépassement de la Plage de Fonctionnement des Arrivées d'Air </translation>
+        <translation>Zone: ITE: Temps de Dépassement de la Plage de Fonctionnement des Arrivées d&apos;Air </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>Zone: ITE: Durée d'exposition à l'humidité relative supérieure à la plage de fonctionnement à l'entrée d'air </translation>
+        <translation>Zone: ITE: Durée d&apos;exposition à l&apos;humidité relative supérieure à la plage de fonctionnement à l&apos;entrée d&apos;air </translation>
     </message>
     <message>
         <source>Zone ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>Zone: ITE: Durée du Taux d'Humidité Relative à l'Admission d'Air sous la Plage de Fonctionnement </translation>
+        <translation>Zone: ITE: Durée du Taux d&apos;Humidité Relative à l&apos;Admission d&apos;Air sous la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>Zone ITE Average Supply Heat Index </source>
-        <translation>Zone: ITE: Indice de Chaleur Moyen d'Alimentation </translation>
+        <translation>Zone: ITE: Indice de Chaleur Moyen d&apos;Alimentation </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy </source>
@@ -18575,7 +18575,7 @@
     </message>
     <message>
         <source>Zone ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone: ITE: Énergie électrique du processeur aux conditions de température d'entrée en conception </translation>
+        <translation>Zone: ITE: Énergie électrique du processeur aux conditions de température d&apos;entrée en conception </translation>
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate </source>
@@ -18583,7 +18583,7 @@
     </message>
     <message>
         <source>Zone ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone : ITE : Débit d'électricité CPU aux conditions d'entrée de conception </translation>
+        <translation>Zone : ITE : Débit d&apos;électricité CPU aux conditions d&apos;entrée de conception </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy </source>
@@ -18591,7 +18591,7 @@
     </message>
     <message>
         <source>Zone ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>Zone: ITE: Énergie électrique du ventilateur aux conditions de conception d'entrée </translation>
+        <translation>Zone: ITE: Énergie électrique du ventilateur aux conditions de conception d&apos;entrée </translation>
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate </source>
@@ -18599,11 +18599,11 @@
     </message>
     <message>
         <source>Zone ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>Zone: ITE: Puissance Électrique du Ventilateur aux Conditions d'Entrée Nominales </translation>
+        <translation>Zone: ITE: Puissance Électrique du Ventilateur aux Conditions d&apos;Entrée Nominales </translation>
     </message>
     <message>
         <source>Zone ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Zone: ITE: Débit volumétrique d'air à densité standard </translation>
+        <translation>Zone: ITE: Débit volumétrique d&apos;air à densité standard </translation>
     </message>
     <message>
         <source>Zone ITE Total Heat Gain to Zone Energy </source>
@@ -18619,7 +18619,7 @@
     </message>
     <message>
         <source>Zone ITE UPS Electricity Rate </source>
-        <translation>Zone: ITE: Taux d'électricité UPS </translation>
+        <translation>Zone: ITE: Taux d&apos;électricité UPS </translation>
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Energy </source>
@@ -18627,15 +18627,15 @@
     </message>
     <message>
         <source>Zone ITE UPS Heat Gain to Zone Rate </source>
-        <translation>Zone: ITE: Taux de gain thermique de l'UPS vers la zone </translation>
+        <translation>Zone: ITE: Taux de gain thermique de l&apos;UPS vers la zone </translation>
     </message>
     <message>
         <source>Zone Ideal Loads Economizer Active Time</source>
-        <translation>Zone : Charges Idéales : Durée d'Activation de l'Économiseur</translation>
+        <translation>Zone : Charges Idéales : Durée d&apos;Activation de l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Active Time</source>
-        <translation>Zone: Ideal Loads: Durée d'activité de la récupération de chaleur</translation>
+        <translation>Zone: Ideal Loads: Durée d&apos;activité de la récupération de chaleur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Latent Cooling Energy</source>
@@ -18695,31 +18695,31 @@
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Cooling Rate</source>
-        <translation>Zone: Charges Idéales: Puissance de Refroidissement Latent de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Puissance de Refroidissement Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Heating Energy</source>
-        <translation>Zone: Ideal Loads: Énergie de chauffage latent de l'air extérieur</translation>
+        <translation>Zone: Ideal Loads: Énergie de chauffage latent de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Latent Heating Rate</source>
-        <translation>Zone: Charges Idéales: Puissance de Chauffage Latent de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Puissance de Chauffage Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Mass Flow Rate</source>
-        <translation>Zone: Ideal Loads: Débit Massique d'Air Extérieur</translation>
+        <translation>Zone: Ideal Loads: Débit Massique d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Cooling Energy</source>
-        <translation>Zone : Charges Idéales : Énergie de Refroidissement Sensible de l'Air Extérieur</translation>
+        <translation>Zone : Charges Idéales : Énergie de Refroidissement Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Cooling Rate</source>
-        <translation>Zone Charges Idéales : Taux de Refroidissement Sensible de l'Air Extérieur</translation>
+        <translation>Zone Charges Idéales : Taux de Refroidissement Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Heating Energy</source>
-        <translation>Zone: Charges Idéales: Énergie de Chauffage Sensible de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Énergie de Chauffage Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Heating Rate</source>
@@ -18727,67 +18727,67 @@
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Standard Density Volume Flow Rate</source>
-        <translation>Zone : Charges Idéales : Débit Volumique d'Air Extérieur à Densité Standard</translation>
+        <translation>Zone : Charges Idéales : Débit Volumique d&apos;Air Extérieur à Densité Standard</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Cooling Energy</source>
-        <translation>Zone: Charges Idéales: Énergie Totale de Refroidissement de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Refroidissement de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Cooling Rate</source>
-        <translation>Zone: Charges Idéales: Débit de Refroidissement Total de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Débit de Refroidissement Total de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Heating Energy</source>
-        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Total Heating Rate</source>
-        <translation>Zone: Charges Idéales: Débit de Chauffage Total de l'Air Extérieur</translation>
+        <translation>Zone: Charges Idéales: Débit de Chauffage Total de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Cooling Energy</source>
-        <translation>Zone: Charges Idéales: Énergie de Refroidissement Latent de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Énergie de Refroidissement Latent de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Cooling Rate</source>
-        <translation>Zone: Charges Idéales: Débit de Refroidissement Latent de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Débit de Refroidissement Latent de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Heating Energy</source>
-        <translation>Zone: Charge Idéale: Énergie de Chauffage Latent de l'Air Soufflé</translation>
+        <translation>Zone: Charge Idéale: Énergie de Chauffage Latent de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Latent Heating Rate</source>
-        <translation>Zone: Charges Idéales: Débit de Chaleur Latente de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Débit de Chaleur Latente de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Mass Flow Rate</source>
-        <translation>Zone: Idéal Loads: Débit Massique d'Air de Soufflage</translation>
+        <translation>Zone: Idéal Loads: Débit Massique d&apos;Air de Soufflage</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Cooling Energy</source>
-        <translation>Zone: Charges Idéales: Énergie de Refroidissement Sensible de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Énergie de Refroidissement Sensible de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Cooling Rate</source>
-        <translation>Zone: Charges Idéales: Débit de Refroidissement Sensible de l'Air Neuf</translation>
+        <translation>Zone: Charges Idéales: Débit de Refroidissement Sensible de l&apos;Air Neuf</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Heating Energy</source>
-        <translation>Zone: Charges Idéales: Énergie de Chauffage Sensible de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Énergie de Chauffage Sensible de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Sensible Heating Rate</source>
-        <translation>Zone Ideal Loads: Débit énergétique sensible de chauffage de l'air soufflé</translation>
+        <translation>Zone Ideal Loads: Débit énergétique sensible de chauffage de l&apos;air soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Standard Density Volume Flow Rate</source>
-        <translation>Zone: Charges Idéales: Débit Volumique d'Air de Soufflage à Densité Standard</translation>
+        <translation>Zone: Charges Idéales: Débit Volumique d&apos;Air de Soufflage à Densité Standard</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Energy</source>
-        <translation>Zone: Charges Idéales: Énergie Totale de Refroidissement de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Refroidissement de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Fuel Energy</source>
@@ -18795,15 +18795,15 @@
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Fuel Energy Rate</source>
-        <translation>Zone: Ideal Loads: Débit énergétique total de refroidissement de l'air fourni</translation>
+        <translation>Zone: Ideal Loads: Débit énergétique total de refroidissement de l&apos;air fourni</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Cooling Rate</source>
-        <translation>Zone Ideal Loads: Débit énergétique total de refroidissement de l'air soufflé</translation>
+        <translation>Zone Ideal Loads: Débit énergétique total de refroidissement de l&apos;air soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Energy</source>
-        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l'Air Soufflé</translation>
+        <translation>Zone: Charges Idéales: Énergie Totale de Chauffage de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Fuel Energy</source>
@@ -18811,11 +18811,11 @@
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Fuel Energy Rate</source>
-        <translation>Zone: Ideal Loads: Débit énergétique total du carburant de chauffage de l'air fourni</translation>
+        <translation>Zone: Ideal Loads: Débit énergétique total du carburant de chauffage de l&apos;air fourni</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Supply Air Total Heating Rate</source>
-        <translation>Zone Ideal Loads : Débit Calorifique Total de l'Air Soufflé</translation>
+        <translation>Zone Ideal Loads : Débit Calorifique Total de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Cooling Fuel Energy</source>
@@ -18875,11 +18875,11 @@
     </message>
     <message>
         <source>Zone Infiltration Current Density Air Change Rate</source>
-        <translation>Zone: Infiltration: Débit volumique de changement d'air actuel</translation>
+        <translation>Zone: Infiltration: Débit volumique de changement d&apos;air actuel</translation>
     </message>
     <message>
         <source>Zone Infiltration Current Density Volume</source>
-        <translation>Zone: Infiltration: Débit volumique d'infiltration actuel</translation>
+        <translation>Zone: Infiltration: Débit volumique d&apos;infiltration actuel</translation>
     </message>
     <message>
         <source>Zone Infiltration Current Density Volume Flow Rate</source>
@@ -18903,11 +18903,11 @@
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Air Change Rate</source>
-        <translation>Zone: Infiltration: Débit de renouvellement d'air à densité extérieure</translation>
+        <translation>Zone: Infiltration: Débit de renouvellement d&apos;air à densité extérieure</translation>
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Volume Flow Rate</source>
-        <translation>Zone: Infiltration: Débit volumique basé sur la densité de l'air extérieur</translation>
+        <translation>Zone: Infiltration: Débit volumique basé sur la densité de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Zone Infiltration Sensible Heat Gain Energy</source>
@@ -18919,7 +18919,7 @@
     </message>
     <message>
         <source>Zone Infiltration Standard Density Air Change Rate</source>
-        <translation>Zone: Infiltration: Taux de renouvellement d'air à densité standard</translation>
+        <translation>Zone: Infiltration: Taux de renouvellement d&apos;air à densité standard</translation>
     </message>
     <message>
         <source>Zone Infiltration Standard Density Volume</source>
@@ -18979,11 +18979,11 @@
     </message>
     <message>
         <source>Zone Lights Return Air Heating Energy</source>
-        <translation>Zone: Éclairage: Énergie de chauffage de l'air de retour</translation>
+        <translation>Zone: Éclairage: Énergie de chauffage de l&apos;air de retour</translation>
     </message>
     <message>
         <source>Zone Lights Return Air Heating Rate</source>
-        <translation>Zone: Éclairage: Débit de chaleur vers l'air de retour</translation>
+        <translation>Zone: Éclairage: Débit de chaleur vers l&apos;air de retour</translation>
     </message>
     <message>
         <source>Zone Lights Total Heating Energy</source>
@@ -19003,11 +19003,11 @@
     </message>
     <message>
         <source>Zone Mean Air Dewpoint Temperature</source>
-        <translation>Zone: Moyenne: Température de Point de Rosée de l'Air</translation>
+        <translation>Zone: Moyenne: Température de Point de Rosée de l&apos;Air</translation>
     </message>
     <message>
         <source>Zone Mean Air Temperature</source>
-        <translation>Zone : Moyenne : Température de l'Air</translation>
+        <translation>Zone : Moyenne : Température de l&apos;Air</translation>
     </message>
     <message>
         <source>Zone Mean Radiant Temperature</source>
@@ -19015,7 +19015,7 @@
     </message>
     <message>
         <source>Zone Mechanical Ventilation Air Changes per Hour</source>
-        <translation>Zone: Ventilation Mécanique: Changements d'Air par Heure</translation>
+        <translation>Zone: Ventilation Mécanique: Changements d&apos;Air par Heure</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Decrease Energy</source>
@@ -19023,11 +19023,11 @@
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Increase Energy</source>
-        <translation>Zone : Ventilation Mécanique : Énergie d'Augmentation de la Charge de Refroidissement</translation>
+        <translation>Zone : Ventilation Mécanique : Énergie d&apos;Augmentation de la Charge de Refroidissement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Cooling Load Increase Energy Due to Overheating Energy</source>
-        <translation>Zone : Ventilation mécanique : Énergie d'augmentation de la charge de refroidissement due à l'énergie de surchauffe</translation>
+        <translation>Zone : Ventilation mécanique : Énergie d&apos;augmentation de la charge de refroidissement due à l&apos;énergie de surchauffe</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Current Density Volume</source>
@@ -19043,11 +19043,11 @@
     </message>
     <message>
         <source>Zone Mechanical Ventilation Heating Load Increase Energy</source>
-        <translation>Zone : Ventilation Mécanique : Énergie d'Augmentation de Charge de Chauffage</translation>
+        <translation>Zone : Ventilation Mécanique : Énergie d&apos;Augmentation de Charge de Chauffage</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Heating Load Increase Energy Due to Overcooling Energy</source>
-        <translation>Zone: Ventilation Mécanique: Énergie d'Augmentation de la Charge de Chauffage Due à l'Énergie de Surrefroidissement</translation>
+        <translation>Zone: Ventilation Mécanique: Énergie d&apos;Augmentation de la Charge de Chauffage Due à l&apos;Énergie de Surrefroidissement</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation Mass</source>
@@ -19059,7 +19059,7 @@
     </message>
     <message>
         <source>Zone Mechanical Ventilation No Load Heat Addition Energy</source>
-        <translation>Zone: Énergie d'ajout de chaleur par ventilation mécanique sans charge</translation>
+        <translation>Zone: Énergie d&apos;ajout de chaleur par ventilation mécanique sans charge</translation>
     </message>
     <message>
         <source>Zone Mechanical Ventilation No Load Heat Removal Energy</source>
@@ -19123,7 +19123,7 @@
     </message>
     <message>
         <source>Zone Outdoor Air Wetbulb Temperature</source>
-        <translation>Zone : Température de thermomètre mouillé de l'air extérieur</translation>
+        <translation>Zone : Température de thermomètre mouillé de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Zone Outdoor Air Wind Speed</source>
@@ -19147,7 +19147,7 @@
     </message>
     <message>
         <source>Zone People Occupant Count</source>
-        <translation>Zone: Personnes: Nombre d'occupants</translation>
+        <translation>Zone: Personnes: Nombre d&apos;occupants</translation>
     </message>
     <message>
         <source>Zone People Radiant Heating Energy</source>
@@ -19175,15 +19175,15 @@
     </message>
     <message>
         <source>Zone Predicted Moisture Load Moisture Transfer Rate</source>
-        <translation>Zone : Prédite : Taux de transfert de charge d'humidité</translation>
+        <translation>Zone : Prédite : Taux de transfert de charge d&apos;humidité</translation>
     </message>
     <message>
         <source>Zone Predicted Moisture Load to Dehumidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Zone: Humidité prédite: Débit de masse d'eau vers le point de consigne de déshumidification</translation>
+        <translation>Zone: Humidité prédite: Débit de masse d&apos;eau vers le point de consigne de déshumidification</translation>
     </message>
     <message>
         <source>Zone Predicted Moisture Load to Humidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Zone: Prédite: Charge d'humidité vers le point de consigne d'humidification Débit de transfert d'humidité</translation>
+        <translation>Zone: Prédite: Charge d&apos;humidité vers le point de consigne d&apos;humidification Débit de transfert d&apos;humidité</translation>
     </message>
     <message>
         <source>Zone Predicted Sensible Load to Cooling Setpoint Heat Transfer Rate</source>
@@ -19203,7 +19203,7 @@
     </message>
     <message>
         <source>Zone Radiant HVAC Electricity Rate</source>
-        <translation>Zone: Système Radiant HVAC: Débit d'Énergie Électrique</translation>
+        <translation>Zone: Système Radiant HVAC: Débit d&apos;Énergie Électrique</translation>
     </message>
     <message>
         <source>Zone Radiant HVAC Heating Energy</source>
@@ -19235,11 +19235,11 @@
     </message>
     <message>
         <source>Zone Steam Equipment District Heating Rate</source>
-        <translation>Zone : Débit de chaleur de l'équipement de chauffage urbain</translation>
+        <translation>Zone : Débit de chaleur de l&apos;équipement de chauffage urbain</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Latent Gain Energy</source>
-        <translation>Zone: Énergie de Gain Latent d'Équipement à Vapeur</translation>
+        <translation>Zone: Énergie de Gain Latent d&apos;Équipement à Vapeur</translation>
     </message>
     <message>
         <source>Zone Steam Equipment Latent Gain Rate</source>
@@ -19275,11 +19275,11 @@
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model 90% Acceptability Status</source>
-        <translation>Zone: Confort Thermique: Statut d'Acceptabilité à 90% du Modèle Adaptatif ASHRAE 55</translation>
+        <translation>Zone: Confort Thermique: Statut d&apos;Acceptabilité à 90% du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Zone: Confort Thermique: Température Moyenne Mobile de l'Air Extérieur du Modèle Adaptatif ASHRAE 55</translation>
+        <translation>Zone: Confort Thermique: Température Moyenne Mobile de l&apos;Air Extérieur du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort ASHRAE 55 Adaptive Model Temperature</source>
@@ -19299,7 +19299,7 @@
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Zone: Confort Thermique: Température Moyenne Mobile de l'Air Extérieur du Modèle Adaptatif CEN 15251</translation>
+        <translation>Zone: Confort Thermique: Température Moyenne Mobile de l&apos;Air Extérieur du Modèle Adaptatif CEN 15251</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort CEN 15251 Adaptive Model Temperature</source>
@@ -19307,7 +19307,7 @@
     </message>
     <message>
         <source>Zone Thermal Comfort Clothing Surface Temperature</source>
-        <translation>Zone : Confort Thermique : Température de Surface de l'Habillement</translation>
+        <translation>Zone : Confort Thermique : Température de Surface de l&apos;Habillement</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Fanger Model PMV</source>
@@ -19331,7 +19331,7 @@
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Discomfort Index</source>
-        <translation>Zone: Confort Thermique: Indice d'Inconfort du Modèle de Pierce</translation>
+        <translation>Zone: Confort Thermique: Indice d&apos;Inconfort du Modèle de Pierce</translation>
     </message>
     <message>
         <source>Zone Thermal Comfort Pierce Model Effective Temperature PMV</source>
@@ -19399,7 +19399,7 @@
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Availability Status</source>
-        <translation>Zone: Ventilateur d'appoint : État de disponibilité du ventilateur</translation>
+        <translation>Zone: Ventilateur d&apos;appoint : État de disponibilité du ventilateur</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Fan Electricity Energy</source>
@@ -19415,15 +19415,15 @@
     </message>
     <message>
         <source>Zone Unit Ventilator Heating Energy</source>
-        <translation>Zone: Ventilateur d'unité: Énergie de chauffage</translation>
+        <translation>Zone: Ventilateur d&apos;unité: Énergie de chauffage</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Heating Rate</source>
-        <translation>Zone: Ventilateur d'unité: Débit de chauffage</translation>
+        <translation>Zone: Ventilateur d&apos;unité: Débit de chauffage</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Sensible Cooling Energy</source>
-        <translation>Zone: Ventilateur d'unité: Énergie de refroidissement sensible</translation>
+        <translation>Zone: Ventilateur d&apos;unité: Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Sensible Cooling Rate</source>
@@ -19431,11 +19431,11 @@
     </message>
     <message>
         <source>Zone Unit Ventilator Total Cooling Energy</source>
-        <translation>Zone : Ventilateur d'unité : Énergie de refroidissement totale</translation>
+        <translation>Zone : Ventilateur d&apos;unité : Énergie de refroidissement totale</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Total Cooling Rate</source>
-        <translation>Zone: Ventilateur d'apport: Débit de refroidissement total</translation>
+        <translation>Zone: Ventilateur d&apos;apport: Débit de refroidissement total</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Cooling Electricity Energy</source>
@@ -19507,11 +19507,11 @@
     </message>
     <message>
         <source>Zone Ventilation Air Inlet Temperature</source>
-        <translation>Zone: Ventilation: Température d'air à l'entrée</translation>
+        <translation>Zone: Ventilation: Température d&apos;air à l&apos;entrée</translation>
     </message>
     <message>
         <source>Zone Ventilation Current Density Air Change Rate</source>
-        <translation>Zone: Ventilation: Taux actuel de renouvellement d'air par densité</translation>
+        <translation>Zone: Ventilation: Taux actuel de renouvellement d&apos;air par densité</translation>
     </message>
     <message>
         <source>Zone Ventilation Current Density Volume</source>
@@ -19543,11 +19543,11 @@
     </message>
     <message>
         <source>Zone Ventilation Outdoor Density Air Change Rate</source>
-        <translation>Zone: Ventilation: Taux de changement d'air à densité extérieure</translation>
+        <translation>Zone: Ventilation: Taux de changement d&apos;air à densité extérieure</translation>
     </message>
     <message>
         <source>Zone Ventilation Outdoor Density Volume Flow Rate</source>
-        <translation>Zone: Ventilation: Débit volumique en fonction de la densité de l'air extérieur</translation>
+        <translation>Zone: Ventilation: Débit volumique en fonction de la densité de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Zone Ventilation Sensible Heat Gain Energy</source>
@@ -19559,7 +19559,7 @@
     </message>
     <message>
         <source>Zone Ventilation Standard Density Air Change Rate</source>
-        <translation>Zone: Ventilation: Taux de changement d'air à densité standard</translation>
+        <translation>Zone: Ventilation: Taux de changement d&apos;air à densité standard</translation>
     </message>
     <message>
         <source>Zone Ventilation Standard Density Volume</source>
@@ -19579,19 +19579,19 @@
     </message>
     <message>
         <source>Zone Ventilator Electricity Energy</source>
-        <translation>Zone: Ventilateur de récupération d'énergie: Énergie électrique</translation>
+        <translation>Zone: Ventilateur de récupération d&apos;énergie: Énergie électrique</translation>
     </message>
     <message>
         <source>Zone Ventilator Electricity Rate</source>
-        <translation>Zone : Ventilateur de Récupération d'Énergie : Puissance Électrique Consommée</translation>
+        <translation>Zone : Ventilateur de Récupération d&apos;Énergie : Puissance Électrique Consommée</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Cooling Energy</source>
-        <translation>Zone: Ventilateur de Récupération d'Énergie: Énergie de Refroidissement Latent</translation>
+        <translation>Zone: Ventilateur de Récupération d&apos;Énergie: Énergie de Refroidissement Latent</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Cooling Rate</source>
-        <translation>Zone: Ventilateur de récupération d'énergie : Débit de refroidissement latent</translation>
+        <translation>Zone: Ventilateur de récupération d&apos;énergie : Débit de refroidissement latent</translation>
     </message>
     <message>
         <source>Zone Ventilator Latent Heating Energy</source>
@@ -19599,11 +19599,11 @@
     </message>
     <message>
         <source>Zone Ventilator Latent Heating Rate</source>
-        <translation>Zone: Ventilateur Récupérateur d'Énergie: Puissance de Chauffage Latente</translation>
+        <translation>Zone: Ventilateur Récupérateur d&apos;Énergie: Puissance de Chauffage Latente</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Cooling Energy</source>
-        <translation>Zone: Ventilateur de récupération d'énergie : Énergie de refroidissement sensible</translation>
+        <translation>Zone: Ventilateur de récupération d&apos;énergie : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Zone Ventilator Sensible Cooling Rate</source>
@@ -19615,11 +19615,11 @@
     </message>
     <message>
         <source>Zone Ventilator Sensible Heating Rate</source>
-        <translation>Zone: Ventilateur de Récupération d'Énergie: Puissance Sensible de Chauffage</translation>
+        <translation>Zone: Ventilateur de Récupération d&apos;Énergie: Puissance Sensible de Chauffage</translation>
     </message>
     <message>
         <source>Zone Ventilator Supply Fan Availability Status</source>
-        <translation>Zone : Ventilateur : État de disponibilité du ventilateur d'alimentation</translation>
+        <translation>Zone : Ventilateur : État de disponibilité du ventilateur d&apos;alimentation</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Cooling Energy</source>
@@ -19627,7 +19627,7 @@
     </message>
     <message>
         <source>Zone Ventilator Total Cooling Rate</source>
-        <translation>Zone: Ventilateur Récupérateur d'Énergie: Débit de Refroidissement Total</translation>
+        <translation>Zone: Ventilateur Récupérateur d&apos;Énergie: Débit de Refroidissement Total</translation>
     </message>
     <message>
         <source>Zone Ventilator Total Heating Energy</source>
@@ -19635,7 +19635,7 @@
     </message>
     <message>
         <source>Zone Ventilator Total Heating Rate</source>
-        <translation>Zone: Ventilateur de Récupération d'Énergie: Taux Total de Chauffage</translation>
+        <translation>Zone: Ventilateur de Récupération d&apos;Énergie: Taux Total de Chauffage</translation>
     </message>
     <message>
         <source>Zone Windows Total Heat Gain Energy</source>
@@ -19671,43 +19671,43 @@
     </message>
     <message>
         <source>Air Generic Air Contaminant Concentration</source>
-        <translation>Air : Concentration en Contaminant Générique de l'Air</translation>
+        <translation>Air : Concentration en Contaminant Générique de l&apos;Air</translation>
     </message>
     <message>
         <source>Air Heat Balance Air Energy Storage Rate</source>
-        <translation>Zone: Taux de Stockage d'Énergie de l'Air</translation>
+        <translation>Zone: Taux de Stockage d&apos;Énergie de l&apos;Air</translation>
     </message>
     <message>
         <source>Air Heat Balance Deviation Rate</source>
-        <translation>Bilan Thermique de l'Air : Taux d'Écart</translation>
+        <translation>Bilan Thermique de l&apos;Air : Taux d&apos;Écart</translation>
     </message>
     <message>
         <source>Air Heat Balance Internal Convective Heat Gain Rate</source>
-        <translation>Bilan thermique de l'air : Débit de gain de chaleur convective interne</translation>
+        <translation>Bilan thermique de l&apos;air : Débit de gain de chaleur convective interne</translation>
     </message>
     <message>
         <source>Air Heat Balance Interzone Air Transfer Rate</source>
-        <translation>Bilan thermique de l'air : Débit de transfert d'air interzones</translation>
+        <translation>Bilan thermique de l&apos;air : Débit de transfert d&apos;air interzones</translation>
     </message>
     <message>
         <source>Air Heat Balance Outdoor Air Transfer Rate</source>
-        <translation>Bilan thermique de l'air : Débit de transfert d'air extérieur</translation>
+        <translation>Bilan thermique de l&apos;air : Débit de transfert d&apos;air extérieur</translation>
     </message>
     <message>
         <source>Air Heat Balance Surface Convection Rate</source>
-        <translation>Bilan Thermique de l'Air : Débit de Convection de Surface</translation>
+        <translation>Bilan Thermique de l&apos;Air : Débit de Convection de Surface</translation>
     </message>
     <message>
         <source>Air Heat Balance System Air Transfer Rate</source>
-        <translation>Bilan Thermique de l'Air : Débit d'Air Transféré par le Système</translation>
+        <translation>Bilan Thermique de l&apos;Air : Débit d&apos;Air Transféré par le Système</translation>
     </message>
     <message>
         <source>Air Heat Balance System Convective Heat Gain Rate</source>
-        <translation>Bilan thermique de l'air : Flux de gain thermique convectif du système</translation>
+        <translation>Bilan thermique de l&apos;air : Flux de gain thermique convectif du système</translation>
     </message>
     <message>
         <source>Air Humidity Ratio</source>
-        <translation>Air : Ratio d'humidité</translation>
+        <translation>Air : Ratio d&apos;humidité</translation>
     </message>
     <message>
         <source>Air Relative Humidity</source>
@@ -19719,15 +19719,15 @@
     </message>
     <message>
         <source>Air System Sensible Cooling Rate</source>
-        <translation>Système d'air : Débit de refroidissement sensible</translation>
+        <translation>Système d&apos;air : Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Air System Sensible Heating Energy</source>
-        <translation>Système d'air : Énergie de chauffage sensible</translation>
+        <translation>Système d&apos;air : Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Air System Sensible Heating Rate</source>
-        <translation>Système d'air : Débit de chaleur sensible</translation>
+        <translation>Système d&apos;air : Débit de chaleur sensible</translation>
     </message>
     <message>
         <source>Air Temperature</source>
@@ -19735,19 +19735,19 @@
     </message>
     <message>
         <source>Air Terminal Sensible Cooling Energy</source>
-        <translation>Terminal d'air : Énergie de refroidissement sensible</translation>
+        <translation>Terminal d&apos;air : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Cooling Rate</source>
-        <translation>Terminaison d'air : Débit de refroidissement sensible</translation>
+        <translation>Terminaison d&apos;air : Débit de refroidissement sensible</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Heating Energy</source>
-        <translation>Terminal d'air: Énergie de chauffage sensible</translation>
+        <translation>Terminal d&apos;air: Énergie de chauffage sensible</translation>
     </message>
     <message>
         <source>Air Terminal Sensible Heating Rate</source>
-        <translation>Terminal d'air : Débit de chaleur sensible</translation>
+        <translation>Terminal d&apos;air : Débit de chaleur sensible</translation>
     </message>
     <message>
         <source>Dehumidifier Electricity Energy</source>
@@ -19759,7 +19759,7 @@
     </message>
     <message>
         <source>Dehumidifier Off Cycle Parasitic Electricity Energy</source>
-        <translation>Déshumidificateur : Énergie électrique parasite en cycle d'arrêt</translation>
+        <translation>Déshumidificateur : Énergie électrique parasite en cycle d&apos;arrêt</translation>
     </message>
     <message>
         <source>Dehumidifier Off Cycle Parasitic Electricity Rate</source>
@@ -19767,7 +19767,7 @@
     </message>
     <message>
         <source>Dehumidifier Outlet Air Temperature</source>
-        <translation>Déshumidificateur : Température de l'air à la sortie</translation>
+        <translation>Déshumidificateur : Température de l&apos;air à la sortie</translation>
     </message>
     <message>
         <source>Dehumidifier Part Load Ratio</source>
@@ -19775,11 +19775,11 @@
     </message>
     <message>
         <source>Dehumidifier Removed Water Mass</source>
-        <translation>Déshumidificateur: Masse d'eau extraite</translation>
+        <translation>Déshumidificateur: Masse d&apos;eau extraite</translation>
     </message>
     <message>
         <source>Dehumidifier Removed Water Mass Flow Rate</source>
-        <translation>Déshumidificateur: Débit massique d'eau extraite</translation>
+        <translation>Déshumidificateur: Débit massique d&apos;eau extraite</translation>
     </message>
     <message>
         <source>Dehumidifier Runtime Fraction</source>
@@ -19915,7 +19915,7 @@
     </message>
     <message>
         <source>Hot Water Equipment Convective Heating Rate</source>
-        <translation>Équipement d'eau chaude : Débit de chaleur convective</translation>
+        <translation>Équipement d&apos;eau chaude : Débit de chaleur convective</translation>
     </message>
     <message>
         <source>Hot Water Equipment District Heating Energy</source>
@@ -19931,7 +19931,7 @@
     </message>
     <message>
         <source>Hot Water Equipment Latent Gain Rate</source>
-        <translation>Équipement d'Eau Chaude: Taux de Gain Latent</translation>
+        <translation>Équipement d&apos;Eau Chaude: Taux de Gain Latent</translation>
     </message>
     <message>
         <source>Hot Water Equipment Lost Heat Energy</source>
@@ -19951,51 +19951,51 @@
     </message>
     <message>
         <source>Hot Water Equipment Total Heating Energy</source>
-        <translation>Équipement d'Eau Chaude : Énergie Thermique Totale</translation>
+        <translation>Équipement d&apos;Eau Chaude : Énergie Thermique Totale</translation>
     </message>
     <message>
         <source>Hot Water Equipment Total Heating Rate</source>
-        <translation>Équipement d'Eau Chaude: Débit de Chaleur Total</translation>
+        <translation>Équipement d&apos;Eau Chaude: Débit de Chaleur Total</translation>
     </message>
     <message>
         <source>ITE Adjusted Return Air Temperature </source>
-        <translation>ITE: Température de l'air de retour ajustée </translation>
+        <translation>ITE: Température de l&apos;air de retour ajustée </translation>
     </message>
     <message>
         <source>ITE Air Mass Flow Rate </source>
-        <translation>ITE : Débit Massique d'Air </translation>
+        <translation>ITE : Débit Massique d&apos;Air </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Above Operating Range Time </source>
-        <translation>ITE: Temps avec Température de Point de Rosée à l'Entrée d'Air au-dessus de la Plage de Fonctionnement </translation>
+        <translation>ITE: Temps avec Température de Point de Rosée à l&apos;Entrée d&apos;Air au-dessus de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dewpoint Temperature Below Operating Range Time </source>
-        <translation>Équipement Informatique : Temps avec Température de Point de Rosée de Prise d'Air en Dessous de la Plage de Fonctionnement </translation>
+        <translation>Équipement Informatique : Temps avec Température de Point de Rosée de Prise d&apos;Air en Dessous de la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Above Operating Range Time </source>
-        <translation>ITE: Durée pendant laquelle la Température Sèche à l'Entrée d'Air Dépasse la Plage de Fonctionnement </translation>
+        <translation>ITE: Durée pendant laquelle la Température Sèche à l&apos;Entrée d&apos;Air Dépasse la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Dry-Bulb Temperature Below Operating Range Time </source>
-        <translation>ITE: Temps d'entrée d'air à température sèche inférieure à la plage de fonctionnement </translation>
+        <translation>ITE: Temps d&apos;entrée d&apos;air à température sèche inférieure à la plage de fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Operating Range Exceeded Time </source>
-        <translation>ITE: Temps de Dépassement de la Plage de Fonctionnement d'Entrée d'Air </translation>
+        <translation>ITE: Temps de Dépassement de la Plage de Fonctionnement d&apos;Entrée d&apos;Air </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Above Operating Range Time </source>
-        <translation>ITE: Temps pendant lequel l'Humidité Relative à une Entrée d'Air quelconque dépasse la Plage de Fonctionnement </translation>
+        <translation>ITE: Temps pendant lequel l&apos;Humidité Relative à une Entrée d&apos;Air quelconque dépasse la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Any Air Inlet Relative Humidity Below Operating Range Time </source>
-        <translation>ITE: Temps Pendant Lequel l'Humidité Relative à Toute Prise d'Air est Inférieure à la Plage de Fonctionnement </translation>
+        <translation>ITE: Temps Pendant Lequel l&apos;Humidité Relative à Toute Prise d&apos;Air est Inférieure à la Plage de Fonctionnement </translation>
     </message>
     <message>
         <source>ITE Average Supply Heat Index </source>
-        <translation>ITE: Indice de Chaleur d'Alimentation Moyen </translation>
+        <translation>ITE: Indice de Chaleur d&apos;Alimentation Moyen </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Energy </source>
@@ -20003,7 +20003,7 @@
     </message>
     <message>
         <source>ITE CPU Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE: Énergie électrique du processeur aux conditions d'entrée de conception </translation>
+        <translation>ITE: Énergie électrique du processeur aux conditions d&apos;entrée de conception </translation>
     </message>
     <message>
         <source>ITE CPU Electricity Rate </source>
@@ -20011,7 +20011,7 @@
     </message>
     <message>
         <source>ITE CPU Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE: Débit Électrique du Processeur aux Conditions d'Entrée de Conception </translation>
+        <translation>ITE: Débit Électrique du Processeur aux Conditions d&apos;Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Energy </source>
@@ -20019,7 +20019,7 @@
     </message>
     <message>
         <source>ITE Fan Electricity Energy at Design Inlet Conditions </source>
-        <translation>ITE: Énergie Électrique du Ventilateur aux Conditions d'Entrée de Conception </translation>
+        <translation>ITE: Énergie Électrique du Ventilateur aux Conditions d&apos;Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE Fan Electricity Rate </source>
@@ -20027,11 +20027,11 @@
     </message>
     <message>
         <source>ITE Fan Electricity Rate at Design Inlet Conditions </source>
-        <translation>ITE: Puissance Électrique du Ventilateur aux Conditions d'Entrée de Conception </translation>
+        <translation>ITE: Puissance Électrique du Ventilateur aux Conditions d&apos;Entrée de Conception </translation>
     </message>
     <message>
         <source>ITE Standard Density Air Volume Flow Rate </source>
-        <translation>Équipement Informatique : Débit Volumique d'Air à Densité Standard </translation>
+        <translation>Équipement Informatique : Débit Volumique d&apos;Air à Densité Standard </translation>
     </message>
     <message>
         <source>ITE Total Heat Gain to Zone Energy </source>
@@ -20047,11 +20047,11 @@
     </message>
     <message>
         <source>ITE UPS Electricity Rate </source>
-        <translation>ITE: Taux d'Électricité UPS </translation>
+        <translation>ITE: Taux d&apos;Électricité UPS </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Energy </source>
-        <translation>ITE: Énergie du Gain de Chaleur de l'UPS à la Zone </translation>
+        <translation>ITE: Énergie du Gain de Chaleur de l&apos;UPS à la Zone </translation>
     </message>
     <message>
         <source>ITE UPS Heat Gain to Zone Rate </source>
@@ -20059,7 +20059,7 @@
     </message>
     <message>
         <source>Ideal Loads Economizer Active Time</source>
-        <translation>Charges Idéales: Temps d'Activité de l'Économiseur</translation>
+        <translation>Charges Idéales: Temps d&apos;Activité de l&apos;Économiseur</translation>
     </message>
     <message>
         <source>Ideal Loads Heat Recovery Active Time</source>
@@ -20119,47 +20119,47 @@
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Cooling Energy</source>
-        <translation>Charges Idéales : Énergie de Refroidissement Latent de l'Air Extérieur</translation>
+        <translation>Charges Idéales : Énergie de Refroidissement Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Cooling Rate</source>
-        <translation>Charges Idéales : Débit de Refroidissement Latent de l'Air Extérieur</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Heating Energy</source>
-        <translation>Zone à Charges Idéales : Énergie de Chauffage Latent de l'Air Extérieur</translation>
+        <translation>Zone à Charges Idéales : Énergie de Chauffage Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Latent Heating Rate</source>
-        <translation>Zone Ideal Loads: Taux de Chauffage Latent de l'Air Extérieur</translation>
+        <translation>Zone Ideal Loads: Taux de Chauffage Latent de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Mass Flow Rate</source>
-        <translation>Charges Idéales : Débit Massique d'Air Extérieur</translation>
+        <translation>Charges Idéales : Débit Massique d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Cooling Energy</source>
-        <translation>Charges Idéales: Énergie de Refroidissement Sensible de l'Air Extérieur</translation>
+        <translation>Charges Idéales: Énergie de Refroidissement Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Cooling Rate</source>
-        <translation>Charges Idéales : Débit de Refroidissement Sensible de l'Air Extérieur</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Heating Energy</source>
-        <translation>Zone Idéale: Énergie de Chauffage Sensible de l'Air Extérieur</translation>
+        <translation>Zone Idéale: Énergie de Chauffage Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Sensible Heating Rate</source>
-        <translation>Charges Idéales: Débit Calorifique Sensible de l'Air Extérieur</translation>
+        <translation>Charges Idéales: Débit Calorifique Sensible de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Standard Density Volume Flow Rate</source>
-        <translation>Charges Idéales: Débit Volumétrique Massique d'Air Extérieur</translation>
+        <translation>Charges Idéales: Débit Volumétrique Massique d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Cooling Energy</source>
-        <translation>Charges Idéales : Énergie Totale de Refroidissement d'Air Extérieur</translation>
+        <translation>Charges Idéales : Énergie Totale de Refroidissement d&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Cooling Rate</source>
@@ -20167,7 +20167,7 @@
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Heating Energy</source>
-        <translation>Charges Idéales: Énergie Totale de Chauffage de l'Air Extérieur</translation>
+        <translation>Charges Idéales: Énergie Totale de Chauffage de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <source>Ideal Loads Outdoor Air Total Heating Rate</source>
@@ -20175,75 +20175,75 @@
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Cooling Energy</source>
-        <translation>Charges Idéales : Énergie de Refroidissement Latent de l'Air de Soufflage</translation>
+        <translation>Charges Idéales : Énergie de Refroidissement Latent de l&apos;Air de Soufflage</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Cooling Rate</source>
-        <translation>Charges Idéales: Débit de Refroidissement Latent de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Débit de Refroidissement Latent de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Heating Energy</source>
-        <translation>Zone Idéale: Énergie de Chauffage Latent de l'Air Soufflé</translation>
+        <translation>Zone Idéale: Énergie de Chauffage Latent de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Latent Heating Rate</source>
-        <translation>Charges Idéales : Débit de Chaleur Latente de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Débit de Chaleur Latente de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Mass Flow Rate</source>
-        <translation>Charges Idéales: Débit Massique de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Débit Massique de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Cooling Energy</source>
-        <translation>Zone Ideal Loads: Énergie de refroidissement sensible de l'air de soufflage</translation>
+        <translation>Zone Ideal Loads: Énergie de refroidissement sensible de l&apos;air de soufflage</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Cooling Rate</source>
-        <translation>Charges Idéales : Débit de Refroidissement Sensible de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Débit de Refroidissement Sensible de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Heating Energy</source>
-        <translation>Charges Idéales : Énergie de Chauffage Sensible de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Énergie de Chauffage Sensible de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Sensible Heating Rate</source>
-        <translation>Idéal Loads : Débit de Chaleur Sensible de l'Air Soufflé</translation>
+        <translation>Idéal Loads : Débit de Chaleur Sensible de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Standard Density Volume Flow Rate</source>
-        <translation>Ideal Loads: Débit volumique d'air soufflé à densité standard</translation>
+        <translation>Ideal Loads: Débit volumique d&apos;air soufflé à densité standard</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Energy</source>
-        <translation>Charges Idéales: Énergie Totale de Refroidissement de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Énergie Totale de Refroidissement de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Fuel Energy</source>
-        <translation>Charges idéales : Énergie de combustible de refroidissement total de l'air soufflé</translation>
+        <translation>Charges idéales : Énergie de combustible de refroidissement total de l&apos;air soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Fuel Energy Rate</source>
-        <translation>Charges Idéales: Taux d'Énergie de Combustible de Refroidissement Total de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Taux d&apos;Énergie de Combustible de Refroidissement Total de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Rate</source>
-        <translation>Charges Idéales: Débit de Refroidissement Total de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Débit de Refroidissement Total de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Energy</source>
-        <translation>Charges Idéales : Énergie Totale de Chauffage de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Énergie Totale de Chauffage de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Fuel Energy</source>
-        <translation>Charges Idéales : Énergie Totale de Combustible de Chauffage de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Énergie Totale de Combustible de Chauffage de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Fuel Energy Rate</source>
-        <translation>Charges Idéales: Débit d'Énergie Totale de Combustible de Chauffage de l'Air Soufflé</translation>
+        <translation>Charges Idéales: Débit d&apos;Énergie Totale de Combustible de Chauffage de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Heating Rate</source>
-        <translation>Charges Idéales : Puissance Totale de Chauffage de l'Air Soufflé</translation>
+        <translation>Charges Idéales : Puissance Totale de Chauffage de l&apos;Air Soufflé</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Cooling Fuel Energy</source>
@@ -20311,7 +20311,7 @@
     </message>
     <message>
         <source>Infiltration Current Density Air Change Rate</source>
-        <translation>Infiltration : Taux de renouvellement d'air actuel en densité</translation>
+        <translation>Infiltration : Taux de renouvellement d&apos;air actuel en densité</translation>
     </message>
     <message>
         <source>Infiltration Current Density Volume</source>
@@ -20339,7 +20339,7 @@
     </message>
     <message>
         <source>Infiltration Outdoor Density Air Change Rate</source>
-        <translation>Infiltration : Débit de changement d'air de densité extérieure</translation>
+        <translation>Infiltration : Débit de changement d&apos;air de densité extérieure</translation>
     </message>
     <message>
         <source>Infiltration Outdoor Density Volume Flow Rate</source>
@@ -20355,7 +20355,7 @@
     </message>
     <message>
         <source>Infiltration Standard Density Air Change Rate</source>
-        <translation>Infiltration : Taux de renouvellement d'air à densité standard</translation>
+        <translation>Infiltration : Taux de renouvellement d&apos;air à densité standard</translation>
     </message>
     <message>
         <source>Infiltration Standard Density Volume</source>
@@ -20415,11 +20415,11 @@
     </message>
     <message>
         <source>Lights Return Air Heating Energy</source>
-        <translation>Éclairages : Énergie de Chauffage de l'Air de Reprise</translation>
+        <translation>Éclairages : Énergie de Chauffage de l&apos;Air de Reprise</translation>
     </message>
     <message>
         <source>Lights Return Air Heating Rate</source>
-        <translation>Éclairages: Débit thermique retourné à l'air</translation>
+        <translation>Éclairages: Débit thermique retourné à l&apos;air</translation>
     </message>
     <message>
         <source>Lights Total Heating Energy</source>
@@ -20439,11 +20439,11 @@
     </message>
     <message>
         <source>Mean Air Dewpoint Temperature</source>
-        <translation>Moyenne : Température de Point de Rosée de l'Air</translation>
+        <translation>Moyenne : Température de Point de Rosée de l&apos;Air</translation>
     </message>
     <message>
         <source>Mean Air Temperature</source>
-        <translation>Moyenne : Température de l'air</translation>
+        <translation>Moyenne : Température de l&apos;air</translation>
     </message>
     <message>
         <source>Mean Radiant Temperature</source>
@@ -20451,7 +20451,7 @@
     </message>
     <message>
         <source>Mechanical Ventilation Air Changes per Hour</source>
-        <translation>Ventilation Mécanique: Changements d'Air par Heure</translation>
+        <translation>Ventilation Mécanique: Changements d&apos;Air par Heure</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Decrease Energy</source>
@@ -20459,11 +20459,11 @@
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Increase Energy</source>
-        <translation>Ventilation Mécanique : Énergie d'Augmentation de la Charge de Refroidissement</translation>
+        <translation>Ventilation Mécanique : Énergie d&apos;Augmentation de la Charge de Refroidissement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Cooling Load Increase Energy Due to Overheating Energy</source>
-        <translation>Ventilation Mécanique: Énergie d'Augmentation de Charge de Refroidissement Due à l'Énergie de Surchauffe</translation>
+        <translation>Ventilation Mécanique: Énergie d&apos;Augmentation de Charge de Refroidissement Due à l&apos;Énergie de Surchauffe</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Current Density Volume</source>
@@ -20479,11 +20479,11 @@
     </message>
     <message>
         <source>Mechanical Ventilation Heating Load Increase Energy</source>
-        <translation>Ventilation Mécanique : Énergie d'Augmentation de la Charge de Chauffage</translation>
+        <translation>Ventilation Mécanique : Énergie d&apos;Augmentation de la Charge de Chauffage</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Heating Load Increase Energy Due to Overcooling Energy</source>
-        <translation>Ventilation Mécanique : Énergie d'Augmentation de la Charge de Chauffage Due à l'Énergie de Surrefroidissement</translation>
+        <translation>Ventilation Mécanique : Énergie d&apos;Augmentation de la Charge de Chauffage Due à l&apos;Énergie de Surrefroidissement</translation>
     </message>
     <message>
         <source>Mechanical Ventilation Mass</source>
@@ -20583,7 +20583,7 @@
     </message>
     <message>
         <source>People Occupant Count</source>
-        <translation>Occupants : Nombre d'occupants</translation>
+        <translation>Occupants : Nombre d&apos;occupants</translation>
     </message>
     <message>
         <source>People Radiant Heating Energy</source>
@@ -20611,15 +20611,15 @@
     </message>
     <message>
         <source>Predicted Moisture Load Moisture Transfer Rate</source>
-        <translation>Prédite : Débit de transfert d'humidité de la charge de masse d'eau</translation>
+        <translation>Prédite : Débit de transfert d&apos;humidité de la charge de masse d&apos;eau</translation>
     </message>
     <message>
         <source>Predicted Moisture Load to Dehumidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Zone Ideal Loads: Taux de Transfert d'Humidité vers le Point de Consigne de Déshumidification Prédite</translation>
+        <translation>Zone Ideal Loads: Taux de Transfert d&apos;Humidité vers le Point de Consigne de Déshumidification Prédite</translation>
     </message>
     <message>
         <source>Predicted Moisture Load to Humidifying Setpoint Moisture Transfer Rate</source>
-        <translation>Charge d'humidité prédite : Débit de transfert d'humidité vers le point de consigne d'humidification</translation>
+        <translation>Charge d&apos;humidité prédite : Débit de transfert d&apos;humidité vers le point de consigne d&apos;humidification</translation>
     </message>
     <message>
         <source>Predicted Sensible Load to Cooling Setpoint Heat Transfer Rate</source>
@@ -20639,7 +20639,7 @@
     </message>
     <message>
         <source>Radiant HVAC Electricity Rate</source>
-        <translation>Rayonnement HVAC : Débit d'électricité</translation>
+        <translation>Rayonnement HVAC : Débit d&apos;électricité</translation>
     </message>
     <message>
         <source>Radiant HVAC Heating Energy</source>
@@ -20707,15 +20707,15 @@
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model 80% Acceptability Status</source>
-        <translation>Confort thermique : État d'acceptabilité 80% du modèle adaptatif ASHRAE 55</translation>
+        <translation>Confort thermique : État d&apos;acceptabilité 80% du modèle adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model 90% Acceptability Status</source>
-        <translation>Confort Thermique: Statut d'Acceptabilité 90% du Modèle Adaptatif ASHRAE 55</translation>
+        <translation>Confort Thermique: Statut d&apos;Acceptabilité 90% du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model Running Average Outdoor Air Temperature</source>
-        <translation>Confort Thermique: Température Moyenne Mobile de l'Air Extérieur du Modèle Adaptatif ASHRAE 55</translation>
+        <translation>Confort Thermique: Température Moyenne Mobile de l&apos;Air Extérieur du Modèle Adaptatif ASHRAE 55</translation>
     </message>
     <message>
         <source>Thermal Comfort ASHRAE 55 Adaptive Model Temperature</source>
@@ -20767,7 +20767,7 @@
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Discomfort Index</source>
-        <translation>Confort Thermique : Indice d'Inconfort du Modèle Pierce</translation>
+        <translation>Confort Thermique : Indice d&apos;Inconfort du Modèle Pierce</translation>
     </message>
     <message>
         <source>Thermal Comfort Pierce Model Effective Temperature PMV</source>
@@ -20847,27 +20847,27 @@
     </message>
     <message>
         <source>Unit Ventilator Fan Part Load Ratio</source>
-        <translation>Ventilateur d'unité: Ratio de charge partielle du ventilateur</translation>
+        <translation>Ventilateur d&apos;unité: Ratio de charge partielle du ventilateur</translation>
     </message>
     <message>
         <source>Unit Ventilator Heating Energy</source>
-        <translation>Ventilateur d'unité : Énergie de chauffage</translation>
+        <translation>Ventilateur d&apos;unité : Énergie de chauffage</translation>
     </message>
     <message>
         <source>Unit Ventilator Heating Rate</source>
-        <translation>Ventilateur d'unité : Débit de chaleur</translation>
+        <translation>Ventilateur d&apos;unité : Débit de chaleur</translation>
     </message>
     <message>
         <source>Unit Ventilator Sensible Cooling Energy</source>
-        <translation>Ventilateur d'unité : Énergie de refroidissement sensible</translation>
+        <translation>Ventilateur d&apos;unité : Énergie de refroidissement sensible</translation>
     </message>
     <message>
         <source>Unit Ventilator Sensible Cooling Rate</source>
-        <translation>Ventilateur d'unité : Taux de refroidissement sensible</translation>
+        <translation>Ventilateur d&apos;unité : Taux de refroidissement sensible</translation>
     </message>
     <message>
         <source>Unit Ventilator Total Cooling Energy</source>
-        <translation>Ventilateur d'unité : Énergie de refroidissement totale</translation>
+        <translation>Ventilateur d&apos;unité : Énergie de refroidissement totale</translation>
     </message>
     <message>
         <source>Unit Ventilator Total Cooling Rate</source>
@@ -20943,11 +20943,11 @@
     </message>
     <message>
         <source>Ventilation Air Inlet Temperature</source>
-        <translation>Ventilation: Température d'entrée d'air</translation>
+        <translation>Ventilation: Température d&apos;entrée d&apos;air</translation>
     </message>
     <message>
         <source>Ventilation Current Density Air Change Rate</source>
-        <translation>Ventilation : Débit volumique actuel de renouvellement d'air</translation>
+        <translation>Ventilation : Débit volumique actuel de renouvellement d&apos;air</translation>
     </message>
     <message>
         <source>Ventilation Current Density Volume</source>
@@ -20979,7 +20979,7 @@
     </message>
     <message>
         <source>Ventilation Outdoor Density Air Change Rate</source>
-        <translation>Ventilation: Taux de changement d'air extérieur à densité réelle</translation>
+        <translation>Ventilation: Taux de changement d&apos;air extérieur à densité réelle</translation>
     </message>
     <message>
         <source>Ventilation Outdoor Density Volume Flow Rate</source>
@@ -20995,7 +20995,7 @@
     </message>
     <message>
         <source>Ventilation Standard Density Air Change Rate</source>
-        <translation>Ventilation: Taux de renouvellement d'air à densité standard</translation>
+        <translation>Ventilation: Taux de renouvellement d&apos;air à densité standard</translation>
     </message>
     <message>
         <source>Ventilation Standard Density Volume</source>
@@ -21055,7 +21055,7 @@
     </message>
     <message>
         <source>Ventilator Supply Fan Availability Status</source>
-        <translation>Ventilateur : État de Disponibilité du Ventilateur d'Alimentation</translation>
+        <translation>Ventilateur : État de Disponibilité du Ventilateur d&apos;Alimentation</translation>
     </message>
     <message>
         <source>Ventilator Total Cooling Energy</source>
@@ -21119,11 +21119,11 @@
     </message>
     <message>
         <source>Site Outdoor Air Drybulb Temperature</source>
-        <translation>Site: Température de bulbe sec de l'air extérieur</translation>
+        <translation>Site: Température de bulbe sec de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Site Outdoor Air Wetbulb Temperature</source>
-        <translation>Site: Température de bulbe humide de l'air extérieur</translation>
+        <translation>Site: Température de bulbe humide de l&apos;air extérieur</translation>
     </message>
     <message>
         <source>Site Sky Diffuse Solar Radiation Luminous Efficacy</source>
@@ -21143,7 +21143,7 @@
     </message>
     <message>
         <source>People Air Temperature</source>
-        <translation>Occupants : Température de l'air</translation>
+        <translation>Occupants : Température de l&apos;air</translation>
     </message>
     <message>
         <source>Daylighting Window Reference Point 1 Illuminance</source>
@@ -21171,7 +21171,7 @@
     </message>
     <message>
         <source>People Air Relative Humidity</source>
-        <translation>Personnes : Humidité relative de l'air</translation>
+        <translation>Personnes : Humidité relative de l&apos;air</translation>
     </message>
     <message>
         <source>Site Beam Solar Radiation Luminous Efficacy</source>
@@ -21187,11 +21187,11 @@
     </message>
     <message>
         <source>Site Daylighting Model Sky Brightness</source>
-        <translation>Site: Luminosité du Ciel du Modèle d'Éclairage Naturel</translation>
+        <translation>Site: Luminosité du Ciel du Modèle d&apos;Éclairage Naturel</translation>
     </message>
     <message>
         <source>Site Daylighting Model Sky Clearness</source>
-        <translation>Site : Clarté du ciel du modèle d'éclairage naturel</translation>
+        <translation>Site : Clarté du ciel du modèle d&apos;éclairage naturel</translation>
     </message>
 </context>
 <context>
@@ -21257,11 +21257,11 @@
     </message>
     <message>
         <source>Electric Lighting Controls</source>
-        <translation>Commandes d'éclairage électrique</translation>
+        <translation>Commandes d&apos;éclairage électrique</translation>
     </message>
     <message>
         <source>Lighting Equipment</source>
-        <translation>Équipements d'éclairage</translation>
+        <translation>Équipements d&apos;éclairage</translation>
     </message>
     <message>
         <source>Equipment</source>
@@ -21285,7 +21285,7 @@
     </message>
     <message>
         <source>People Schedules</source>
-        <translation>Calendriers d'Occupation</translation>
+        <translation>Calendriers d&apos;Occupation</translation>
     </message>
     <message>
         <source>Characteristics</source>
@@ -21313,7 +21313,7 @@
     </message>
     <message>
         <source>Energy Recovery</source>
-        <translation>Récupération d'énergie</translation>
+        <translation>Récupération d&apos;énergie</translation>
     </message>
     <message>
         <source>Distribution</source>
@@ -21353,19 +21353,19 @@
     </message>
     <message>
         <source>Service Water Heating</source>
-        <translation>Chauffage de l'eau de service</translation>
+        <translation>Chauffage de l&apos;eau de service</translation>
     </message>
     <message>
         <source>Water Use</source>
-        <translation>Utilisation de l'eau</translation>
+        <translation>Utilisation de l&apos;eau</translation>
     </message>
     <message>
         <source>Water Heating</source>
-        <translation>Chauffage de l'eau</translation>
+        <translation>Chauffage de l&apos;eau</translation>
     </message>
     <message>
         <source>Onsite Power Generation</source>
-        <translation>Génération d'électricité sur site</translation>
+        <translation>Génération d&apos;électricité sur site</translation>
     </message>
     <message>
         <source>Photovoltaic</source>
@@ -21377,11 +21377,11 @@
     </message>
     <message>
         <source>Whole Building Schedules</source>
-        <translation>Calendriers de l'ensemble du bâtiment</translation>
+        <translation>Calendriers de l&apos;ensemble du bâtiment</translation>
     </message>
     <message>
         <source>Space Types</source>
-        <translation>Types d'espaces</translation>
+        <translation>Types d&apos;espaces</translation>
     </message>
     <message>
         <source>Economics</source>
@@ -21409,7 +21409,7 @@
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63"/>
         <source>Electric Utility Bill</source>
-        <translation>Facture d'électricité de l'entreprise de distribution</translation>
+        <translation>Facture d&apos;électricité de l&apos;entreprise de distribution</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65"/>
@@ -21454,7 +21454,7 @@
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81"/>
         <source>Water Utility Bill</source>
-        <translation>Facture d'eau</translation>
+        <translation>Facture d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83"/>
@@ -21480,7 +21480,7 @@
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924"/>
         <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
-        <translation>La température de l'air soufflé est gérée par le composant « AirLoopHVACUnitaryHeatPumpAirToAir ».</translation>
+        <translation>La température de l&apos;air soufflé est gérée par le composant « AirLoopHVACUnitaryHeatPumpAirToAir ».</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931"/>
@@ -21586,12 +21586,12 @@
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
-        <translation>Nom d'affichage : </translation>
+        <translation>Nom d&apos;affichage : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
-        <translation>Identifiant d'objet CAO : </translation>
+        <translation>Identifiant d&apos;objet CAO : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
@@ -21621,12 +21621,12 @@
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
-        <translation>Nombre d'étages selon les normes : </translation>
+        <translation>Nombre d&apos;étages selon les normes : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
-        <translation>Normes - Nombre d'étages au-dessus du sol : </translation>
+        <translation>Normes - Nombre d&apos;étages au-dessus du sol : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
@@ -21646,7 +21646,7 @@
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
-        <translation>Type d'espace : </translation>
+        <translation>Type d&apos;espace : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
@@ -21665,7 +21665,7 @@
         <location filename="../src/shared_gui_components/Component.cpp" line="57"/>
         <location filename="../src/shared_gui_components/Component.cpp" line="134"/>
         <source>This measure is not compatible with the current version of OpenStudio</source>
-        <translation>Cette mesure n'est pas compatible avec la version actuelle d'OpenStudio</translation>
+        <translation>Cette mesure n&apos;est pas compatible avec la version actuelle d&apos;OpenStudio</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/Component.cpp" line="68"/>
@@ -21784,12 +21784,12 @@
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
-        <translation>Méthode d'échange d'air : </translation>
+        <translation>Méthode d&apos;échange d&apos;air : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
-        <translation>Taux de renouvellement d'air du mélange simple (en changements d'air par heure) : </translation>
+        <translation>Taux de renouvellement d&apos;air du mélange simple (en changements d&apos;air par heure) : </translation>
     </message>
 </context>
 <context>
@@ -21938,7 +21938,7 @@
     <message>
         <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34"/>
         <source>Air Boundary Constructions</source>
-        <translation>Constructions de limite d'air</translation>
+        <translation>Constructions de limite d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35"/>
@@ -22110,7 +22110,7 @@
     <message>
         <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319"/>
         <source>Space Shading</source>
-        <translation>Ombrage d'Espace</translation>
+        <translation>Ombrage d&apos;Espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330"/>
@@ -22175,17 +22175,17 @@ Précipitation</translation>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227"/>
         <source>Check to enable daylight saving time indicator.</source>
-        <translation>Cochez cette case pour activer l'indicateur d'heure d'été.</translation>
+        <translation>Cochez cette case pour activer l&apos;indicateur d&apos;heure d&apos;été.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231"/>
         <source>Check to enable rain indicator.</source>
-        <translation>Cocher pour activer l'indicateur de pluie.</translation>
+        <translation>Cocher pour activer l&apos;indicateur de pluie.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235"/>
         <source>Check to enable snow indicator.</source>
-        <translation>Cocher pour activer l'indicateur de neige.</translation>
+        <translation>Cocher pour activer l&apos;indicateur de neige.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239"/>
@@ -22432,7 +22432,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091"/>
         <source>Merge with Current OSM</source>
-        <translation>Fusionner avec l'OSM actuel</translation>
+        <translation>Fusionner avec l&apos;OSM actuel</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092"/>
@@ -22452,17 +22452,17 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259"/>
         <source>Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future.</source>
-        <translation>Votre géométrie peut contenir des modifications non fusionnées. Fusionner avec le modèle OSM actuel maintenant ? Choisissez Ignorer pour ignorer ce message à l'avenir.</translation>
+        <translation>Votre géométrie peut contenir des modifications non fusionnées. Fusionner avec le modèle OSM actuel maintenant ? Choisissez Ignorer pour ignorer ce message à l&apos;avenir.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514"/>
         <source>Units Change</source>
-        <translation>Changement d'unités</translation>
+        <translation>Changement d&apos;unités</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515"/>
         <source>Changing unit system for existing floorplan is not currently supported.  Reload tab to change units.</source>
-        <translation>La modification du système d'unités pour un plan existant n'est pas actuellement prise en charge. Rechargez l'onglet pour changer les unités.</translation>
+        <translation>La modification du système d&apos;unités pour un plan existant n&apos;est pas actuellement prise en charge. Rechargez l&apos;onglet pour changer les unités.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435"/>
@@ -22514,7 +22514,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Par Mètre Carré De Plancher De L'Espace : </translation>
+        <translation>Watts Par Mètre Carré De Plancher De L&apos;Espace : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
@@ -22557,7 +22557,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
-        <translation>Selectionner le chemin vers</translation>
+        <translation>Selectionner le chemin vers </translation>
     </message>
 </context>
 <context>
@@ -22581,7 +22581,7 @@ Zone</source>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
@@ -22595,7 +22595,7 @@ Zone</source>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224"/>
         <source>Exterior Lights Definition</source>
-        <translation>Définition d'éclairage extérieur</translation>
+        <translation>Définition d&apos;éclairage extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
@@ -22641,14 +22641,14 @@ Zone</source>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387"/>
         <source>End Use Subcategory</source>
-        <translation>Sous-catégorie de fin d'utilisation</translation>
+        <translation>Sous-catégorie de fin d&apos;utilisation</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291"/>
         <source>Exterior Fuel Equipment Definition</source>
-        <translation>Définition d'équipement de combustible extérieur</translation>
+        <translation>Définition d&apos;équipement de combustible extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
@@ -22662,7 +22662,7 @@ Zone</source>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347"/>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358"/>
         <source>Exterior Water Equipment Definition</source>
-        <translation>Définition d'équipement d'eau extérieure</translation>
+        <translation>Définition d&apos;équipement d&apos;eau extérieure</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205"/>
@@ -22713,7 +22713,7 @@ Exterior Equipment</source>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419"/>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420"/>
         <source>Shading Surface Group Name</source>
-        <translation>Nom du groupe de surfaces d'ombrage</translation>
+        <translation>Nom du groupe de surfaces d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
@@ -22727,7 +22727,7 @@ Exterior Equipment</source>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466"/>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
@@ -22758,7 +22758,7 @@ Exterior Equipment</source>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460"/>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461"/>
         <source>Shading Surface Name</source>
-        <translation>Nom de la Surface d'Ombrage</translation>
+        <translation>Nom de la Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392"/>
@@ -22776,15 +22776,15 @@ Exterior Equipment</source>
     </message>
     <message>
         <source>Shading Surface Type</source>
-        <translation>Type de surface d'ombrage</translation>
+        <translation>Type de surface d&apos;ombrage</translation>
     </message>
     <message>
         <source>Degrees Tilt &gt;</source>
-        <translation>Degrés d'inclinaison &gt;</translation>
+        <translation>Degrés d&apos;inclinaison &gt;</translation>
     </message>
     <message>
         <source>Degrees Tilt &lt;</source>
-        <translation>Degrés d'inclinaison &lt;</translation>
+        <translation>Degrés d&apos;inclinaison &lt;</translation>
     </message>
     <message>
         <source>Degrees Orientation &gt;</source>
@@ -22806,14 +22806,14 @@ Exterior Equipment</source>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60"/>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Shading Surface Group</source>
-        <translation>Groupe de surfaces d'ombrage</translation>
+        <translation>Groupe de surfaces d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Drop Shading
 Surface Group</source>
         <translation>Déposer le groupe
-de surface d'ombrage</translation>
+de surface d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78"/>
@@ -22823,12 +22823,12 @@ de surface d'ombrage</translation>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87"/>
         <source>Shading Surface Name</source>
-        <translation>Nom de la Surface d'Ombrage</translation>
+        <translation>Nom de la Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109"/>
         <source>Shading Surface Type</source>
-        <translation>Type de surface d'ombrage</translation>
+        <translation>Type de surface d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114"/>
@@ -22848,12 +22848,12 @@ de surface d'ombrage</translation>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131"/>
         <source>Degrees Tilt &gt;</source>
-        <translation>Degrés d'inclinaison &gt;</translation>
+        <translation>Degrés d&apos;inclinaison &gt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152"/>
         <source>Degrees Tilt &lt;</source>
-        <translation>Degrés d'inclinaison &lt;</translation>
+        <translation>Degrés d&apos;inclinaison &lt;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173"/>
@@ -22873,7 +22873,7 @@ de surface d'ombrage</translation>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242"/>
         <source>Story Name</source>
-        <translation>Nom d'étage</translation>
+        <translation>Nom d&apos;étage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
@@ -22887,7 +22887,7 @@ de surface d'ombrage</translation>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
@@ -22908,21 +22908,21 @@ de surface d'ombrage</translation>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268"/>
         <source>Nominal Floor to Floor Height</source>
-        <translation>Hauteur nominale d'étage</translation>
+        <translation>Hauteur nominale d&apos;étage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272"/>
         <source>Default Construction Set Name</source>
-        <translation>Nom de l'ensemble de construction par défaut</translation>
+        <translation>Nom de l&apos;ensemble de construction par défaut</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277"/>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278"/>
         <source>Default Schedule Set Name</source>
-        <translation>Nom de l'ensemble de calendriers par défaut</translation>
+        <translation>Nom de l&apos;ensemble de calendriers par défaut</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260"/>
@@ -23101,11 +23101,11 @@ Story</source>
     </message>
     <message>
         <source>Drag Water Use Equipment from Library</source>
-        <translation>Faites glisser Équipement d'utilisation d'eau depuis la bibliothèque</translation>
+        <translation>Faites glisser Équipement d&apos;utilisation d&apos;eau depuis la bibliothèque</translation>
     </message>
     <message>
         <source>Drag Water Use Connections from Library</source>
-        <translation>Glissez les connexions d'utilisation d'eau depuis la bibliothèque</translation>
+        <translation>Glissez les connexions d&apos;utilisation d&apos;eau depuis la bibliothèque</translation>
     </message>
 </context>
 <context>
@@ -23133,7 +23133,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97"/>
         <source>Water Mains Temperature</source>
-        <translation>Température de l'eau de réseau</translation>
+        <translation>Température de l&apos;eau de réseau</translation>
     </message>
 </context>
 <context>
@@ -23151,32 +23151,32 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225"/>
         <source>&lt;p&gt;The &lt;b&gt;%1&lt;/b&gt; Unique ModelObject is not present in this model.&lt;/p&gt;&lt;p&gt;Click Add to instantiate it.&lt;/p&gt;</source>
-        <translation>L'objet ModelObject unique %1 n'est pas présent dans ce modèle.Cliquez sur Ajouter pour l'instancier.</translation>
+        <translation>L&apos;objet ModelObject unique %1 n&apos;est pas présent dans ce modèle.Cliquez sur Ajouter pour l&apos;instancier.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239"/>
         <source>No weather file is associated with the model, so the object will be added with default values.</source>
-        <translation>Aucun fichier météorologique n'est associé au modèle, l'objet sera donc ajouté avec les valeurs par défaut.</translation>
+        <translation>Aucun fichier météorologique n&apos;est associé au modèle, l&apos;objet sera donc ajouté avec les valeurs par défaut.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255"/>
         <source>While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with default values.</source>
-        <translation>Bien qu'un fichier météorologique soit associé au modèle, le fichier EpwFile sous-jacent n'a pas pu être localisé, l'objet sera donc ajouté avec les valeurs par défaut.</translation>
+        <translation>Bien qu&apos;un fichier météorologique soit associé au modèle, le fichier EpwFile sous-jacent n&apos;a pas pu être localisé, l&apos;objet sera donc ajouté avec les valeurs par défaut.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263"/>
         <source>The weather file does not contain any ground temperature data, so the object will be added with default values.</source>
-        <translation>Le fichier météorologique ne contient pas de données de température du sol, l'objet sera donc ajouté avec des valeurs par défaut.</translation>
+        <translation>Le fichier météorologique ne contient pas de données de température du sol, l&apos;objet sera donc ajouté avec des valeurs par défaut.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275"/>
         <source>The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.</source>
-        <translation>Le fichier météorologique ne contient pas de données de température du sol à la profondeur attendue de %1 m, l'objet sera donc ajouté avec des valeurs par défaut.</translation>
+        <translation>Le fichier météorologique ne contient pas de données de température du sol à la profondeur attendue de %1 m, l&apos;objet sera donc ajouté avec des valeurs par défaut.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286"/>
         <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
-        <translation>Le fichier météorologique contient des données de température du sol à une profondeur de %1 m, vous pouvez donc choisir d'importer ces valeurs ou d'ajouter l'objet avec des valeurs par défaut.</translation>
+        <translation>Le fichier météorologique contient des données de température du sol à une profondeur de %1 m, vous pouvez donc choisir d&apos;importer ces valeurs ou d&apos;ajouter l&apos;objet avec des valeurs par défaut.</translation>
     </message>
 </context>
 <context>
@@ -23209,7 +23209,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382"/>
         <source>Follow the HVAC Operation Schedule</source>
-        <translation>Suivre le calendrier d'exploitation HVAC</translation>
+        <translation>Suivre le calendrier d&apos;exploitation HVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383"/>
@@ -23224,7 +23224,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396"/>
         <source>Supply Air Temperature</source>
-        <translation>Température de l'air soufflé</translation>
+        <translation>Température de l&apos;air soufflé</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409"/>
@@ -23353,7 +23353,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544"/>
         <source>Supply Water Temperature</source>
-        <translation>Température de l'eau de départ</translation>
+        <translation>Température de l&apos;eau de départ</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559"/>
@@ -23479,7 +23479,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Par Mètre Carré De Plancher De L'Espace : </translation>
+        <translation>Watts Par Mètre Carré De Plancher De L&apos;Espace : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
@@ -23507,7 +23507,7 @@ Story</source>
     <message>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555"/>
         <source>Go back to hot water supply system</source>
-        <translation>Revenir au système d'alimentation en eau chaude</translation>
+        <translation>Revenir au système d&apos;alimentation en eau chaude</translation>
     </message>
 </context>
 <context>
@@ -23577,7 +23577,7 @@ Story</source>
         <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="508"/>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
-        <translation>Les Mesures Python ne sont pas supportées dans l'interface CLI classique.
+        <translation>Les Mesures Python ne sont pas supportées dans l&apos;interface CLI classique.
 Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CLI classique ».</translation>
     </message>
 </context>
@@ -23604,12 +23604,12 @@ Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CL
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83"/>
         <source>Analysis Type</source>
-        <translation>Type d'analyse</translation>
+        <translation>Type d&apos;analyse</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91"/>
         <source>Federal Energy Management Program (FEMP)</source>
-        <translation>Programme fédéral de gestion de l'énergie (FEMP)</translation>
+        <translation>Programme fédéral de gestion de l&apos;énergie (FEMP)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95"/>
@@ -23619,17 +23619,17 @@ Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CL
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111"/>
         <source>Analysis Length (Years)</source>
-        <translation>Durée d'analyse (années)</translation>
+        <translation>Durée d&apos;analyse (années)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125"/>
         <source>Real Discount Rate (fraction)</source>
-        <translation>Taux d'actualisation réel (fraction)</translation>
+        <translation>Taux d&apos;actualisation réel (fraction)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145"/>
         <source>Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates</source>
-        <translation>Utiliser les taux d'escalade des carburants du National Institute of Standards and Technology (NIST)</translation>
+        <translation>Utiliser les taux d&apos;escalade des carburants du National Institute of Standards and Technology (NIST)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153"/>
@@ -23644,7 +23644,7 @@ Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CL
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190"/>
         <source>Inflation Rates (Relative to general inflation)</source>
-        <translation>Taux d'inflation (Relatifs à l'inflation générale)</translation>
+        <translation>Taux d&apos;inflation (Relatifs à l&apos;inflation générale)</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205"/>
@@ -23717,12 +23717,12 @@ Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CL
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Puissance d'éclairage : </translation>
+        <translation>Puissance d&apos;éclairage : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
-        <translation>Watts Par Mètre Carré De Plancher De L'Espace : </translation>
+        <translation>Watts Par Mètre Carré De Plancher De L&apos;Espace : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
@@ -23744,7 +23744,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
-        <translation>Fraction d'air de retour : </translation>
+        <translation>Fraction d&apos;air de retour : </translation>
     </message>
 </context>
 <context>
@@ -23757,7 +23757,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="46"/>
         <source>Lights Definitions</source>
-        <translation>Définitions d'éclairage</translation>
+        <translation>Définitions d&apos;éclairage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="47"/>
@@ -23772,17 +23772,17 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="49"/>
         <source>Gas Equipment Definitions</source>
-        <translation>Définitions d'équipement gaz</translation>
+        <translation>Définitions d&apos;équipement gaz</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="50"/>
         <source>Steam Equipment Definitions</source>
-        <translation>Définitions d'équipements vapeur</translation>
+        <translation>Définitions d&apos;équipements vapeur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="51"/>
         <source>Other Equipment Definitions</source>
-        <translation>Définitions d'autres équipements</translation>
+        <translation>Définitions d&apos;autres équipements</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="52"/>
@@ -23792,12 +23792,12 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="53"/>
         <source>Water Use Equipment Definitions</source>
-        <translation>Définitions des équipements de consommation d'eau</translation>
+        <translation>Définitions des équipements de consommation d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoadsView.cpp" line="54"/>
         <source>Hot Water Equipment Definitions</source>
-        <translation>Définitions d'équipements d'eau chaude sanitaire</translation>
+        <translation>Définitions d&apos;équipements d&apos;eau chaude sanitaire</translation>
     </message>
 </context>
 <context>
@@ -23805,12 +23805,12 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62"/>
         <source>Copy Selected Measure and Add to My Measures</source>
-        <translation>Copier la Mesure sélectionnée et l'ajouter à Mes Mesures</translation>
+        <translation>Copier la Mesure sélectionnée et l&apos;ajouter à Mes Mesures</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67"/>
         <source>Create a Measure from Template and add to My Measures</source>
-        <translation>Créer une Mesure à partir d'un modèle et l'ajouter à Mes Mesures</translation>
+        <translation>Créer une Mesure à partir d&apos;un modèle et l&apos;ajouter à Mes Mesures</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71"/>
@@ -23910,12 +23910,12 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277"/>
         <source>If enabled, this will write the Site:Location object that will keep the Elevation change for example.</source>
-        <translation>Si activé, cela écrira l'objet Site:Location qui conservera le changement d'Élévation par exemple.</translation>
+        <translation>Si activé, cela écrira l&apos;objet Site:Location qui conservera le changement d&apos;Élévation par exemple.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316"/>
         <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
-        <translation>L'élévation affecte la vitesse du vent sur le site et est définie par défaut à l'élévation du fichier météorologique</translation>
+        <translation>L&apos;élévation affecte la vitesse du vent sur le site et est définie par défaut à l&apos;élévation du fichier météorologique</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330"/>
@@ -23983,7 +23983,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
-        <translation>Impossible d&apos;attribuer le fichier météo suivant :</translation>
+        <translation>Impossible d&apos;attribuer le fichier météo suivant : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
@@ -24099,12 +24099,12 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="87"/>
         <source>Empty Air Loop</source>
-        <translation>Boucle d'air vide</translation>
+        <translation>Boucle d&apos;air vide</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="89"/>
         <source>Dual Duct Air Loop</source>
-        <translation>Boucle d'air à conduits jumelés</translation>
+        <translation>Boucle d&apos;air à conduits jumelés</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="91"/>
@@ -24114,7 +24114,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="93"/>
         <source>Service Hot Water Plant Loop</source>
-        <translation>Boucle de Production d'Eau Chaude Sanitaire</translation>
+        <translation>Boucle de Production d&apos;Eau Chaude Sanitaire</translation>
     </message>
 </context>
 <context>
@@ -24161,7 +24161,7 @@ Fraction Visible: </translation>
     </message>
     <message>
         <source>Remember that cloud charges may currently be accruing.</source>
-        <translation>Rappelez-vous que les frais infonuagiques peuvent s'accumuler actuellement.</translation>
+        <translation>Rappelez-vous que les frais infonuagiques peuvent s&apos;accumuler actuellement.</translation>
     </message>
     <message>
         <source>Options to correct the problem:</source>
@@ -24185,7 +24185,7 @@ Fraction Visible: </translation>
     </message>
     <message>
         <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation>Déconnecter du cloud.  Cette option rendra la session cloud défaillante indisponible pour Pat.  Toutes les données qui n'ont pas été téléchargées vers Pat seront perdues.  Utilisez la console AWS pour vérifier que les services Amazon ont été complètement arrêtés.</translation>
+        <translation>Déconnecter du cloud.  Cette option rendra la session cloud défaillante indisponible pour Pat.  Toutes les données qui n&apos;ont pas été téléchargées vers Pat seront perdues.  Utilisez la console AWS pour vérifier que les services Amazon ont été complètement arrêtés.</translation>
     </message>
     <message>
         <source>Launch AWS Console. </source>
@@ -24206,7 +24206,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
-        <translation>Puissance d'éclairage : </translation>
+        <translation>Puissance d&apos;éclairage : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
@@ -24223,7 +24223,7 @@ Fraction Visible: </translation>
     <message>
         <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
-        <translation>Fraction d'air de retour : </translation>
+        <translation>Fraction d&apos;air de retour : </translation>
     </message>
 </context>
 <context>
@@ -24673,7 +24673,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075"/>
         <source>Ruleset Schedules</source>
-        <translation>Calendriers de l'ensemble de règles</translation>
+        <translation>Calendriers de l&apos;ensemble de règles</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239"/>
@@ -24774,7 +24774,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894"/>
         <source>Air Boundary Constructions</source>
-        <translation>Constructions de limite d'air</translation>
+        <translation>Constructions de limite d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382"/>
@@ -24850,7 +24850,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519"/>
         <source>Air Gap Materials</source>
-        <translation>Matériaux de lames d'air</translation>
+        <translation>Matériaux de lames d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435"/>
@@ -24920,7 +24920,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507"/>
         <source>Screen Window Materials</source>
-        <translation>Matériaux d'écran de fenêtre</translation>
+        <translation>Matériaux d&apos;écran de fenêtre</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424"/>
@@ -24966,7 +24966,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915"/>
         <source>Lights Definitions</source>
-        <translation>Définitions d'éclairage</translation>
+        <translation>Définitions d&apos;éclairage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608"/>
@@ -24999,7 +24999,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912"/>
         <source>Gas Equipment Definitions</source>
-        <translation>Définitions d'équipement gaz</translation>
+        <translation>Définitions d&apos;équipement gaz</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603"/>
@@ -25010,7 +25010,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907"/>
         <source>Steam Equipment Definitions</source>
-        <translation>Définitions d'équipements vapeur</translation>
+        <translation>Définitions d&apos;équipements vapeur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602"/>
@@ -25021,7 +25021,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906"/>
         <source>Other Equipment Definitions</source>
-        <translation>Définitions d'autres équipements</translation>
+        <translation>Définitions d&apos;autres équipements</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601"/>
@@ -25043,7 +25043,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909"/>
         <source>Water Use Equipment Definitions</source>
-        <translation>Définitions des équipements de consommation d'eau</translation>
+        <translation>Définitions des équipements de consommation d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604"/>
@@ -25054,7 +25054,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908"/>
         <source>Hot Water Equipment Definitions</source>
-        <translation>Définitions d'équipements d'eau chaude sanitaire</translation>
+        <translation>Définitions d&apos;équipements d&apos;eau chaude sanitaire</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664"/>
@@ -25074,21 +25074,21 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919"/>
         <source>Design Specification Outdoor Air</source>
-        <translation>Spécification de conception de l'air extérieur</translation>
+        <translation>Spécification de conception de l&apos;air extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917"/>
         <source>Space Infiltration Design Flow Rates</source>
-        <translation>Débits de Conception des Infiltrations d'Air dans les Espaces</translation>
+        <translation>Débits de Conception des Infiltrations d&apos;Air dans les Espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918"/>
         <source>Space Infiltration Effective Leakage Areas</source>
-        <translation>Surfaces de Fuite Efficaces de l'Infiltration d'Air</translation>
+        <translation>Surfaces de Fuite Efficaces de l&apos;Infiltration d&apos;Air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702"/>
@@ -25097,13 +25097,13 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923"/>
         <source>Space Types</source>
-        <translation>Types d'espaces</translation>
+        <translation>Types d&apos;espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797"/>
         <source>Exterior Water Equipment Definitions</source>
-        <translation>Définitions des équipements d'eau extérieure</translation>
+        <translation>Définitions des équipements d&apos;eau extérieure</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749"/>
@@ -25222,7 +25222,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834"/>
         <source>Shading Surface</source>
-        <translation>Surface d'ombrage</translation>
+        <translation>Surface d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
@@ -25269,7 +25269,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097"/>
         <source>Water Uses</source>
-        <translation>Usages de l'eau</translation>
+        <translation>Usages de l&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030"/>
@@ -25388,12 +25388,12 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250"/>
         <source>Air Terminals</source>
-        <translation>Terminaux d'air</translation>
+        <translation>Terminaux d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257"/>
         <source>Air Loop HVAC</source>
-        <translation>Boucle d'air HVAC</translation>
+        <translation>Boucle d&apos;air HVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275"/>
@@ -25403,13 +25403,13 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023"/>
         <source>Water Use Equipment Definition</source>
-        <translation>Définition d'équipement d'utilisation d'eau</translation>
+        <translation>Définition d&apos;équipement d&apos;utilisation d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096"/>
         <source>Water Use Connections</source>
-        <translation>Connexions d'utilisation d'eau</translation>
+        <translation>Connexions d&apos;utilisation d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026"/>
@@ -25517,7 +25517,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190"/>
         <source>Unit Heater</source>
-        <translation>Radiateur d'appoint</translation>
+        <translation>Radiateur d&apos;appoint</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984"/>
@@ -25608,7 +25608,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226"/>
         <source>Coil Cooling DX TwoStage - Humidity Control</source>
-        <translation>Serpentin de Refroidissement DX Biétagé - Contrôle d'Humidité</translation>
+        <translation>Serpentin de Refroidissement DX Biétagé - Contrôle d&apos;Humidité</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
@@ -25652,7 +25652,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095"/>
         <source>Water Use Equipment</source>
-        <translation>Équipements d'utilisation d'eau</translation>
+        <translation>Équipements d&apos;utilisation d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109"/>
@@ -25682,7 +25682,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116"/>
         <source>Setpoint Manager Follow Outdoor Air Temperature</source>
-        <translation>Gestionnaire de Consigne Suivant la Température de l'Air Extérieur</translation>
+        <translation>Gestionnaire de Consigne Suivant la Température de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118"/>
@@ -25817,7 +25817,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159"/>
         <source>Plant Component - User Defined</source>
-        <translation>Composant de Boucle - Défini par l'Utilisateur</translation>
+        <translation>Composant de Boucle - Défini par l&apos;Utilisateur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161"/>
@@ -25852,7 +25852,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
         <source>Generator FuelCell - Exhaust Gas To Water Heat Exchanger</source>
-        <translation>Générateur Pile à Combustible - Échangeur de Chaleur Gaz d'Échappement vers Eau</translation>
+        <translation>Générateur Pile à Combustible - Échangeur de Chaleur Gaz d&apos;Échappement vers Eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
@@ -25957,42 +25957,42 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234"/>
         <source>Air Terminal Chilled Beam</source>
-        <translation>Terminal d'air pour poutre froide</translation>
+        <translation>Terminal d&apos;air pour poutre froide</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235"/>
         <source>Air Terminal Four Pipe Beam</source>
-        <translation>Terminal d'air quatre tuyaux avec poutre</translation>
+        <translation>Terminal d&apos;air quatre tuyaux avec poutre</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237"/>
         <source>AirTerminal Single Duct Constant Volume Reheat</source>
-        <translation>Terminal d'air Conduit unique Débit constant avec Réchauffage</translation>
+        <translation>Terminal d&apos;air Conduit unique Débit constant avec Réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238"/>
         <source>AirTerminal Single Duct VAV Reheat</source>
-        <translation>Terminal d'air monoconduit VAV avec réchauffage</translation>
+        <translation>Terminal d&apos;air monoconduit VAV avec réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239"/>
         <source>AirTerminal Single Duct Parallel PIU Reheat</source>
-        <translation>Terminal d'air simple conduit parallèle PIU avec réchauffage</translation>
+        <translation>Terminal d&apos;air simple conduit parallèle PIU avec réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240"/>
         <source>AirTerminal Single Duct Series PIU Reheat</source>
-        <translation>Terminal d'air monotube série PIU avec réchauffage</translation>
+        <translation>Terminal d&apos;air monotube série PIU avec réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241"/>
         <source>AirTerminal Inlet Side Mixer</source>
-        <translation>Mélangeur côté amont terminal d'air</translation>
+        <translation>Mélangeur côté amont terminal d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242"/>
         <source>AirTerminal Heat and Cool Reheat</source>
-        <translation>Terminal d'Air à Chauffage et Refroidissement avec Réchauffage</translation>
+        <translation>Terminal d&apos;Air à Chauffage et Refroidissement avec Réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243"/>
@@ -26002,37 +26002,37 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244"/>
         <source>AirTerminal Single Duct VAV NoReheat</source>
-        <translation>Terminal d'air conduit simple VAV sans réchauffage</translation>
+        <translation>Terminal d&apos;air conduit simple VAV sans réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246"/>
         <source>AirTerminal Single Duct Constant Volume No Reheat</source>
-        <translation>Terminaison d'air conduit unique débit constant sans réchauffage</translation>
+        <translation>Terminaison d&apos;air conduit unique débit constant sans réchauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247"/>
         <source>Air Terminal Dual Duct Constant Volume</source>
-        <translation>Terminal d'air à conduits doubles volume constant</translation>
+        <translation>Terminal d&apos;air à conduits doubles volume constant</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249"/>
         <source>Air Terminal Dual Duct VAV Outdoor Air</source>
-        <translation>Terminal d'Air Dual Duct VAV Air Extérieur</translation>
+        <translation>Terminal d&apos;Air Dual Duct VAV Air Extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248"/>
         <source>Air Terminal Dual Duct VAV</source>
-        <translation>Terminal d'air double conduit VAV</translation>
+        <translation>Terminal d&apos;air double conduit VAV</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251"/>
         <source>AirLoopHVAC Outdoor Air System</source>
-        <translation>Système d'air extérieur AirLoopHVAC</translation>
+        <translation>Système d&apos;air extérieur AirLoopHVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253"/>
         <source>AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed</source>
-        <translation>Pompe à chaleur air-air multivitest pour boucle d'air AirLoopHVAC</translation>
+        <translation>Pompe à chaleur air-air multivitest pour boucle d&apos;air AirLoopHVAC</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256"/>
@@ -26157,7 +26157,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983"/>
         <source>Fan Zone Exhaust</source>
-        <translation>Ventilateur d'extraction de zone</translation>
+        <translation>Ventilateur d&apos;extraction de zone</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987"/>
@@ -26217,12 +26217,12 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772"/>
         <source>Go back to water mains editor</source>
-        <translation>Retourner à l'éditeur de distribution d'eau</translation>
+        <translation>Retourner à l&apos;éditeur de distribution d&apos;eau</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782"/>
         <source>Go back to hot water supply system</source>
-        <translation>Revenir au système d'alimentation en eau chaude</translation>
+        <translation>Revenir au système d&apos;alimentation en eau chaude</translation>
     </message>
 </context>
 <context>
@@ -26414,7 +26414,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
-        <translation>Méthode de calcul de la diffusion d'humidité : </translation>
+        <translation>Méthode de calcul de la diffusion d&apos;humidité : </translation>
     </message>
 </context>
 <context>
@@ -26432,7 +26432,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47"/>
         <source>Air Gap Materials</source>
-        <translation>Matériaux de lames d'air</translation>
+        <translation>Matériaux de lames d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50"/>
@@ -26467,7 +26467,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57"/>
         <source>Screen Window Materials</source>
-        <translation>Matériaux d'écran de fenêtre</translation>
+        <translation>Matériaux d&apos;écran de fenêtre</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58"/>
@@ -26507,7 +26507,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
-        <translation>mesures ont été mises à jour sur la BCL par rapport à votre dossier BCL local.</translation>
+        <translation> mesures ont été mises à jour sur la BCL par rapport à votre dossier BCL local.</translation>
     </message>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
@@ -26520,7 +26520,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583"/>
         <source>Economizer</source>
-        <translation>Économiseur d'air</translation>
+        <translation>Économiseur d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589"/>
@@ -26550,17 +26550,17 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594"/>
         <source>Electronic Enthalpy</source>
-        <translation>Échangeur d'enthalpie électronique</translation>
+        <translation>Échangeur d&apos;enthalpie électronique</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595"/>
         <source>Differential Dry Bulb and Enthalpy</source>
-        <translation>Différence de Température Sèche et d'Enthalpie</translation>
+        <translation>Différence de Température Sèche et d&apos;Enthalpie</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596"/>
         <source>No Economizer</source>
-        <translation>Pas d'économiseur</translation>
+        <translation>Pas d&apos;économiseur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632"/>
@@ -26666,12 +26666,12 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305"/>
         <source>Summer Design Day Schedule</source>
-        <translation>Calendrier de jour de conception d'été</translation>
+        <translation>Calendrier de jour de conception d&apos;été</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309"/>
         <source>Winter Design Day Schedule</source>
-        <translation>Calendrier de jour de conception d'hiver</translation>
+        <translation>Calendrier de jour de conception d&apos;hiver</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313"/>
@@ -26681,24 +26681,24 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203"/>
         <source>The summer design day profile is not set, therefore the default run period profile will be used.</source>
-        <translation>Le profil du jour de conception estivale n'est pas défini, le profil de la période de simulation par défaut sera donc utilisé.</translation>
+        <translation>Le profil du jour de conception estivale n&apos;est pas défini, le profil de la période de simulation par défaut sera donc utilisé.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212"/>
         <source>The winter design day profile is not set, therefore the default run period profile will be used.</source>
-        <translation>Le profil du jour de conception hivernale n'est pas défini, par conséquent le profil de période de simulation par défaut sera utilisé.</translation>
+        <translation>Le profil du jour de conception hivernale n&apos;est pas défini, par conséquent le profil de période de simulation par défaut sera utilisé.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221"/>
         <source>The holiday profile is not set, therefore the default run period profile will be used.</source>
-        <translation>Le profil de vacances n'est pas configuré, par conséquent le profil de période de simulation par défaut sera utilisé.</translation>
+        <translation>Le profil de vacances n&apos;est pas configuré, par conséquent le profil de période de simulation par défaut sera utilisé.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
-        <translation>  Créer un nouveau profil pour remplacer le profil de période d'exécution par défaut.</translation>
+        <translation>  Créer un nouveau profil pour remplacer le profil de période d&apos;exécution par défaut.</translation>
     </message>
 </context>
 <context>
@@ -26714,7 +26714,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949"/>
         <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
-        <translation>Contrôle de température d'alimentation manquant. Essayez d'ajouter un gestionnaire de consigne au nœud de sortie d'alimentation de votre système.</translation>
+        <translation>Contrôle de température d&apos;alimentation manquant. Essayez d&apos;ajouter un gestionnaire de consigne au nœud de sortie d&apos;alimentation de votre système.</translation>
     </message>
 </context>
 <context>
@@ -26815,7 +26815,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="365"/>
         <source>Space Types</source>
-        <translation>Types d'espaces</translation>
+        <translation>Types d&apos;espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSDocument.cpp" line="369"/>
@@ -26902,7 +26902,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86"/>
         <source>Copy selected object</source>
-        <translation>Copier l'objet sélectionné</translation>
+        <translation>Copier l&apos;objet sélectionné</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96"/>
@@ -26944,7 +26944,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
-        <translation>Translation depuis la version</translation>
+        <translation>Translation depuis la version </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
@@ -27000,7 +27000,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
-        <translation>) et que tous les champs sont valides par rapport à Energy+.idd.</translation>
+        <translation>) et que tous les champs sont valides par rapport à Energy+.idd. </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
@@ -27015,7 +27015,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
-        <translation>Import de l&apos;IDF raté</translation>
+        <translation> Import de l&apos;IDF raté</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
@@ -27046,7 +27046,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
-        <translation>Sans nom</translation>
+        <translation>Sans nom </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
@@ -27066,7 +27066,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
-        <translation>Import</translation>
+        <translation>Import </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
@@ -27076,7 +27076,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
-        <translation>Des erreurs or avertissements ont été émis pendant l&apos;import du</translation>
+        <translation>Des erreurs or avertissements ont été émis pendant l&apos;import du </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
@@ -27086,12 +27086,12 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
-        <translation>Impossible d&apos;importer</translation>
+        <translation>Impossible d&apos;importer </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
-        <translation>au chemin</translation>
+        <translation> au chemin </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
@@ -27137,7 +27137,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
-        <translation>Serveur du Manager des Mesures :</translation>
+        <translation>Serveur du Manager des Mesures : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
@@ -27147,7 +27147,7 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
-        <translation>Dossier temporaire :</translation>
+        <translation>Dossier temporaire : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
@@ -27171,12 +27171,12 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
-        <translation>Ouverture d&apos;une version future</translation>
+        <translation>Ouverture d&apos;une version future </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
-        <translation>avec la version</translation>
+        <translation> avec la version </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
@@ -27193,7 +27193,7 @@ Les scrips Ruby sont désormais obsolètes et ont été remplacés par les Mesur
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
-        <translation>Impossible de charger le fichier</translation>
+        <translation>Impossible de charger le fichier </translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
@@ -27239,7 +27239,7 @@ Voulez-vous créer un nouveau modèle ?</translation>
     </message>
     <message>
         <source>Measure Manager has crashed</source>
-        <translation>Le Gestionnaire de mesures s'est arrêté de manière inattendue</translation>
+        <translation>Le Gestionnaire de mesures s&apos;est arrêté de manière inattendue</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421"/>
@@ -27354,7 +27354,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
-        <translation>Surface au sol de l'espace par personne : </translation>
+        <translation>Surface au sol de l&apos;espace par personne : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
@@ -27402,7 +27402,7 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233"/>
         <source>Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower</source>
-        <translation>Active les problèmes d'adjacence. Active les vérifications de convexité des surfaces/espaces, cela ralentit légèrement l'export ThreeJS</translation>
+        <translation>Active les problèmes d&apos;adjacence. Active les vérifications de convexité des surfaces/espaces, cela ralentit légèrement l&apos;export ThreeJS</translation>
     </message>
 </context>
 <context>
@@ -27719,7 +27719,7 @@ dans les Préférences</translation>
     </message>
     <message>
         <source>Units Conversion</source>
-        <translation>Conversion d'unités</translation>
+        <translation>Conversion d&apos;unités</translation>
     </message>
     <message>
         <source>Would you like to display your Energy+ data in IP units?</source>
@@ -27734,7 +27734,7 @@ dans les Préférences</translation>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="146"/>
         <source>DView was not found in the expected location:
 </source>
-        <translation>DView n'a pas été trouvé à l'emplacement prévu :</translation>
+        <translation>DView n&apos;a pas été trouvé à l&apos;emplacement prévu :</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="306"/>
@@ -27764,12 +27764,12 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
-        <translation>onRunProcessErrored: La simulation a échouée, QProcess::ProcessError :</translation>
+        <translation>onRunProcessErrored: La simulation a échouée, QProcess::ProcessError : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
-        <translation>La simulation a échouée, avec le code d&apos;erreur</translation>
+        <translation>La simulation a échouée, avec le code d&apos;erreur </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
@@ -27794,7 +27794,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Unable to open simulation</source>
-        <translation>Impossible d'ouvrir la simulation</translation>
+        <translation>Impossible d&apos;ouvrir la simulation</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
@@ -27804,12 +27804,12 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="318"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
-        <translation>Impossible d'établir une connexion socket avec l'interface en ligne de commande OpenStudio Classic.</translation>
+        <translation>Impossible d&apos;établir une connexion socket avec l&apos;interface en ligne de commande OpenStudio Classic.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="320"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
-        <translation>Recours à l'analyse stdout/stderr, les mises à jour en direct pourraient être plus lentes.</translation>
+        <translation>Recours à l&apos;analyse stdout/stderr, les mises à jour en direct pourraient être plus lentes.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/RunTabView.cpp" line="330"/>
@@ -27980,7 +27980,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
-        <translation>Chemin d'accès : </translation>
+        <translation>Chemin d&apos;accès : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
@@ -27995,7 +27995,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
-        <translation>Nombre d'heures de données : </translation>
+        <translation>Nombre d&apos;heures de données : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
@@ -28035,7 +28035,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
-        <translation>Ajuster la planification pour l'heure d'été : </translation>
+        <translation>Ajuster la planification pour l&apos;heure d&apos;été : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
@@ -28091,7 +28091,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35"/>
         <source>Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead</source>
-        <translation>La création de Schedule:Compact n'est pas supportée, vous devez utiliser une ScheduleRuleset à la place</translation>
+        <translation>La création de Schedule:Compact n&apos;est pas supportée, vous devez utiliser une ScheduleRuleset à la place</translation>
     </message>
 </context>
 <context>
@@ -28117,7 +28117,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552"/>
         <source>Schedule Rule Name:</source>
-        <translation>Nom de la règle d'horaire :</translation>
+        <translation>Nom de la règle d&apos;horaire :</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567"/>
@@ -28197,7 +28197,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598"/>
         <source>Please use the Schedules tab to inspect this object.</source>
-        <translation>Veuillez utiliser l'onglet Calendriers pour inspecter cet objet.</translation>
+        <translation>Veuillez utiliser l&apos;onglet Calendriers pour inspecter cet objet.</translation>
     </message>
 </context>
 <context>
@@ -28205,7 +28205,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768"/>
         <source>Schedule Name:</source>
-        <translation>Nom de l'horaire :</translation>
+        <translation>Nom de l&apos;horaire :</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782"/>
@@ -28258,7 +28258,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638"/>
         <source>Hot Water Equipment</source>
-        <translation>Équipements d'Eau Chaude</translation>
+        <translation>Équipements d&apos;Eau Chaude</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648"/>
@@ -28299,7 +28299,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875"/>
         <source>Click to add new run period profile</source>
-        <translation>Cliquez pour ajouter un nouveau profil de période d'exécution</translation>
+        <translation>Cliquez pour ajouter un nouveau profil de période d&apos;exécution</translation>
     </message>
 </context>
 <context>
@@ -28399,7 +28399,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62"/>
         <source>Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option</source>
-        <translation>Vérifier la Bibliothèque pour les versions plus récentes des Mesures de votre Projet et fournir l'option de Synchronisation</translation>
+        <translation>Vérifier la Bibliothèque pour les versions plus récentes des Mesures de votre Projet et fournir l&apos;option de Synchronisation</translation>
     </message>
 </context>
 <context>
@@ -28443,7 +28443,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="444"/>
         <source>Use Weather File Daylight Savings Period</source>
-        <translation>Utiliser la période d'heure d'été du fichier météorologique</translation>
+        <translation>Utiliser la période d&apos;heure d&apos;été du fichier météorologique</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="451"/>
@@ -28543,7 +28543,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1000"/>
         <source>Klems Sampling Density: </source>
-        <translation>Densité d'échantillonnage Klems : </translation>
+        <translation>Densité d&apos;échantillonnage Klems : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1002"/>
@@ -28578,7 +28578,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="668"/>
         <source>Number Of Timesteps Per Hour</source>
-        <translation>Nombre d'intervalles de temps par heure</translation>
+        <translation>Nombre d&apos;intervalles de temps par heure</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250"/>
@@ -28608,7 +28608,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="552"/>
         <source>Run Simulation For Weather File Run Periods</source>
-        <translation>Exécuter la simulation pour les périodes d'exécution du fichier météorologique</translation>
+        <translation>Exécuter la simulation pour les périodes d&apos;exécution du fichier météorologique</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="554"/>
@@ -28668,7 +28668,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="690"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
-        <translation>Tolérance pour la durée d'inactivité du point de consigne de refroidissement</translation>
+        <translation>Tolérance pour la durée d&apos;inactivité du point de consigne de refroidissement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262"/>
@@ -28703,12 +28703,12 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="743"/>
         <source>Shading Calculation Update Frequency</source>
-        <translation>Fréquence de mise à jour du calcul d'ombrage</translation>
+        <translation>Fréquence de mise à jour du calcul d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="747"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
-        <translation>Nombre Maximum De Figures Dans Les Calculs De Chevauchement D'Ombres</translation>
+        <translation>Nombre Maximum De Figures Dans Les Calculs De Chevauchement D&apos;Ombres</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="754"/>
@@ -28761,12 +28761,12 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282"/>
         <source>Zone Air Heat Balance Algorithm</source>
-        <translation>Algorithme d'équilibre thermique de l'air de zone</translation>
+        <translation>Algorithme d&apos;équilibre thermique de l&apos;air de zone</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286"/>
         <source>Zone Air Contaminant Balance</source>
-        <translation>Équilibre des contaminants de l'air de la zone</translation>
+        <translation>Équilibre des contaminants de l&apos;air de la zone</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="867"/>
@@ -28807,7 +28807,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1077"/>
         <source>Option Type</source>
-        <translation>Type d'option</translation>
+        <translation>Type d&apos;option</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1093"/>
@@ -28847,12 +28847,12 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1155"/>
         <source>Heat Index Algorithm</source>
-        <translation>Algorithme d'indice de chaleur</translation>
+        <translation>Algorithme d&apos;indice de chaleur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="482"/>
         <source>Run Control</source>
-        <translation>Contrôle de l'exécution</translation>
+        <translation>Contrôle de l&apos;exécution</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="491"/>
@@ -28885,7 +28885,7 @@ dans les Préférences</translation>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659"/>
         <source>Supply temperature is controlled by a &lt;strong&gt;%1&lt;/strong&gt; setpoint manager.</source>
-        <translation>La température d'alimentation est contrôlée par un gestionnaire de consigne %1.</translation>
+        <translation>La température d&apos;alimentation est contrôlée par un gestionnaire de consigne %1.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666"/>
@@ -29031,7 +29031,7 @@ dans les Préférences</translation>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
-        <translation>Différence Maximale Entre les Températures Moyennes Mensuelles de l'Air Extérieur</translation>
+        <translation>Différence Maximale Entre les Températures Moyennes Mensuelles de l&apos;Air Extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
@@ -29051,7 +29051,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407"/>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411"/>
         <source>Space Type Name</source>
-        <translation>Nom du Type d'Espace</translation>
+        <translation>Nom du Type d&apos;Espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
@@ -29089,7 +29089,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138"/>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139"/>
         <source>Design Specification Outdoor Air</source>
-        <translation>Spécification de conception de l'air extérieur</translation>
+        <translation>Spécification de conception de l&apos;air extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265"/>
@@ -29097,7 +29097,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175"/>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183"/>
         <source>Space Infiltration Design Flow Rates</source>
-        <translation>Débits de Conception des Infiltrations d'Air dans les Espaces</translation>
+        <translation>Débits de Conception des Infiltrations d&apos;Air dans les Espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266"/>
@@ -29105,7 +29105,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209"/>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218"/>
         <source>Space Infiltration Effective Leakage Areas</source>
-        <translation>Surfaces de Fuite Efficaces de l'Infiltration d'Air</translation>
+        <translation>Surfaces de Fuite Efficaces de l&apos;Infiltration d&apos;Air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
@@ -29148,7 +29148,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120"/>
         <source>Activity Schedule
 (People Only)</source>
-        <translation>Calendrier d'activité
+        <translation>Calendrier d&apos;activité
 (Personnes uniquement)</translation>
     </message>
     <message>
@@ -29173,7 +29173,7 @@ Outdoor Air Temperatures</source>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393"/>
         <source>Standards Space Type
 (Optional)</source>
-        <translation>Type d'espace selon les normes
+        <translation>Type d&apos;espace selon les normes
 (Facultatif)</translation>
     </message>
     <message>
@@ -29214,7 +29214,7 @@ Outdoor Air Temperatures</source>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326"/>
         <source>Hot Water Equipment</source>
-        <translation>Équipements d'Eau Chaude</translation>
+        <translation>Équipements d&apos;Eau Chaude</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330"/>
@@ -29229,12 +29229,12 @@ Outdoor Air Temperatures</source>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338"/>
         <source>Space Infiltration Design Flow Rate</source>
-        <translation>Débit d'infiltration de conception de l'espace</translation>
+        <translation>Débit d&apos;infiltration de conception de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342"/>
         <source>Space Infiltration Effective Leakage Area</source>
-        <translation>Aire de fuite effective de l'infiltration de l'espace</translation>
+        <translation>Aire de fuite effective de l&apos;infiltration de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415"/>
@@ -29273,14 +29273,14 @@ Mesure</translation>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107"/>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Space Types</source>
-        <translation>Types d'espaces</translation>
+        <translation>Types d&apos;espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Drop
 Space Type</source>
         <translation>Déposer
-Type d'espace</translation>
+Type d&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121"/>
@@ -29330,7 +29330,7 @@ Type d'espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176"/>
         <source>Hot Water Equipment</source>
-        <translation>Équipements d'Eau Chaude</translation>
+        <translation>Équipements d&apos;Eau Chaude</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182"/>
@@ -29345,12 +29345,12 @@ Type d'espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194"/>
         <source>Space Infiltration Design Flow Rate</source>
-        <translation>Débit d'infiltration de conception de l'espace</translation>
+        <translation>Débit d&apos;infiltration de conception de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200"/>
         <source>Space Infiltration Effective Leakage Area</source>
-        <translation>Aire de fuite effective de l'infiltration de l'espace</translation>
+        <translation>Aire de fuite effective de l&apos;infiltration de l&apos;espace</translation>
     </message>
 </context>
 <context>
@@ -29358,7 +29358,7 @@ Type d'espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10"/>
         <source>Space Types</source>
-        <translation>Types d'espaces</translation>
+        <translation>Types d&apos;espaces</translation>
     </message>
 </context>
 <context>
@@ -29381,7 +29381,7 @@ Type d'espace</translation>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116"/>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
@@ -29395,7 +29395,7 @@ Type d'espace</translation>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119"/>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
@@ -29492,7 +29492,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168"/>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
@@ -29506,7 +29506,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172"/>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
@@ -29550,7 +29550,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899"/>
         <source>Activity Schedule
 (People Only)</source>
-        <translation>Calendrier d'activité
+        <translation>Calendrier d&apos;activité
 (Personnes uniquement)</translation>
     </message>
     <message>
@@ -29592,7 +29592,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116"/>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
@@ -29606,7 +29606,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119"/>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
@@ -29620,7 +29620,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180"/>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181"/>
         <source>Shading Surface Group</source>
-        <translation>Groupe de surfaces d'ombrage</translation>
+        <translation>Groupe de surfaces d&apos;ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
@@ -29642,7 +29642,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177"/>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207"/>
         <source>Shading Surface Name</source>
-        <translation>Nom de la Surface d'Ombrage</translation>
+        <translation>Nom de la Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170"/>
@@ -29688,14 +29688,14 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
@@ -29730,7 +29730,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166"/>
         <source>Space Type</source>
-        <translation>Type d'espace</translation>
+        <translation>Type d&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
@@ -29759,7 +29759,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217"/>
         <source>Space Infiltration Design Flow Rates</source>
-        <translation>Débits de Conception des Infiltrations d'Air dans les Espaces</translation>
+        <translation>Débits de Conception des Infiltrations d&apos;Air dans les Espaces</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105"/>
@@ -29767,7 +29767,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253"/>
         <source>Space Infiltration Effective Leakage Areas</source>
-        <translation>Surfaces de Fuite Efficaces de l'Infiltration d'Air</translation>
+        <translation>Surfaces de Fuite Efficaces de l&apos;Infiltration d&apos;Air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149"/>
@@ -29789,7 +29789,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254"/>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256"/>
         <source>Design Specification Outdoor Air Object Name</source>
-        <translation>Nom de l'objet de spécification de conception de l'air extérieur</translation>
+        <translation>Nom de l&apos;objet de spécification de conception de l&apos;air extérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97"/>
@@ -29799,7 +29799,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107"/>
         <source>Airflow</source>
-        <translation>Débit d'air</translation>
+        <translation>Débit d&apos;air</translation>
     </message>
 </context>
 <context>
@@ -29825,7 +29825,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
@@ -29839,7 +29839,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
@@ -29899,7 +29899,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382"/>
         <source>Shading Surface Name</source>
-        <translation>Nom de la Surface d'Ombrage</translation>
+        <translation>Nom de la Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
@@ -29913,7 +29913,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411"/>
         <source>Shading Type</source>
-        <translation>Type d'occultation</translation>
+        <translation>Type d&apos;occultation</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416"/>
@@ -29930,14 +29930,14 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424"/>
         <source>Shading Control Type</source>
-        <translation>Type de Commande d'Occultation</translation>
+        <translation>Type de Commande d&apos;Occultation</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439"/>
         <source>Schedule Name</source>
-        <translation>Nom de l'emploi du temps</translation>
+        <translation>Nom de l&apos;emploi du temps</translation>
     </message>
     <message>
         <source>Setpoint</source>
@@ -30107,21 +30107,21 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646"/>
         <source>Inside Sill Depth</source>
-        <translation>Profondeur d'appui intérieur</translation>
+        <translation>Profondeur d&apos;appui intérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655"/>
         <source>Inside Sill Solar Absorptance</source>
-        <translation>Absorptance solaire de l'appui intérieur</translation>
+        <translation>Absorptance solaire de l&apos;appui intérieur</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664"/>
         <source>Inside Reveal Depth</source>
-        <translation>Profondeur de l'embrasure intérieure</translation>
+        <translation>Profondeur de l&apos;embrasure intérieure</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169"/>
@@ -30157,7 +30157,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688"/>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693"/>
         <source>Inside Shelf Name</source>
-        <translation>Nom de l'étagère intérieure</translation>
+        <translation>Nom de l&apos;étagère intérieure</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182"/>
@@ -30229,7 +30229,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130"/>
         <source>Space Type</source>
-        <translation>Type d'espace</translation>
+        <translation>Type d&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148"/>
@@ -30239,7 +30239,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277"/>
@@ -30340,7 +30340,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389"/>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631"/>
         <source>Hot Water Equipment</source>
-        <translation>Équipements d'Eau Chaude</translation>
+        <translation>Équipements d&apos;Eau Chaude</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395"/>
@@ -30358,13 +30358,13 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407"/>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643"/>
         <source>Space Infiltration Design Flow Rate</source>
-        <translation>Débit d'infiltration de conception de l'espace</translation>
+        <translation>Débit d&apos;infiltration de conception de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413"/>
         <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647"/>
         <source>Space Infiltration Effective Leakage Area</source>
-        <translation>Aire de fuite effective de l'infiltration de l'espace</translation>
+        <translation>Aire de fuite effective de l&apos;infiltration de l&apos;espace</translation>
     </message>
     <message>
         <source>WindExposed</source>
@@ -30412,7 +30412,7 @@ Espace</translation>
     </message>
     <message>
         <source>OtherSideCoefficients</source>
-        <translation>Coefficients de l'autre côté</translation>
+        <translation>Coefficients de l&apos;autre côté</translation>
     </message>
     <message>
         <source>OtherSideConditionsModel</source>
@@ -30491,7 +30491,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118"/>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151"/>
         <source>Space Name</source>
-        <translation>Nom de l'espace</translation>
+        <translation>Nom de l&apos;espace</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
@@ -30505,7 +30505,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120"/>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
@@ -30574,7 +30574,7 @@ Espace</translation>
     </message>
     <message>
         <source>Shading Surface Name</source>
-        <translation>Nom de la Surface d'Ombrage</translation>
+        <translation>Nom de la Surface d&apos;Ombrage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94"/>
@@ -30636,7 +30636,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419"/>
         <source>Summer design day profile.</source>
-        <translation>Profil de jour type d'été.</translation>
+        <translation>Profil de jour type d&apos;été.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437"/>
@@ -30684,7 +30684,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
-        <translation>Contexte d'assemblage de fenêtrage : </translation>
+        <translation>Contexte d&apos;assemblage de fenêtrage : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
@@ -30762,7 +30762,7 @@ Espace</translation>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
-        <translation>Dimension de l'ossature composite : </translation>
+        <translation>Dimension de l&apos;ossature composite : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
@@ -30941,7 +30941,7 @@ Espace</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547"/>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548"/>
         <source>Display Name</source>
-        <translation>Nom d'affichage</translation>
+        <translation>Nom d&apos;affichage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
@@ -30965,7 +30965,7 @@ Espace</translation>
 Ideal
 Air Loads</source>
         <translation>Activer
-Charges d'air
+Charges d&apos;air
 idéales</translation>
     </message>
     <message>
@@ -30973,7 +30973,7 @@ idéales</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561"/>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570"/>
         <source>Air Loop Name</source>
-        <translation>Nom de la boucle d'air</translation>
+        <translation>Nom de la boucle d&apos;air</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112"/>
@@ -31006,7 +31006,7 @@ de Chauffage</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
-        <translation>Calendrier de Consigne d'Humidification</translation>
+        <translation>Calendrier de Consigne d&apos;Humidification</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
@@ -31031,8 +31031,8 @@ Schedule</source>
 Design Supply
 Air Temperature</source>
         <translation>Température de Consigne
-de l'Air Soufflé en
-Refroidissement à l'Heure de Pointe</translation>
+de l&apos;Air Soufflé en
+Refroidissement à l&apos;Heure de Pointe</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126"/>
@@ -31041,7 +31041,7 @@ Refroidissement à l'Heure de Pointe</translation>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
-        <translation>Ratio d'humidité de l'air de
+        <translation>Ratio d&apos;humidité de l&apos;air de
 soufflage de conception
 du refroidissement de zone</translation>
     </message>
@@ -31059,7 +31059,7 @@ Sizing Factor</source>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Débit d'air minimum de refroidissement par zone rapporté à la surface de plancher</translation>
+        <translation>Débit d&apos;air minimum de refroidissement par zone rapporté à la surface de plancher</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129"/>
@@ -31068,7 +31068,7 @@ Floor Area</source>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
-        <translation>Efficacité de la Distribution de l'Air dans la Zone en Mode Refroidissement</translation>
+        <translation>Efficacité de la Distribution de l&apos;Air dans la Zone en Mode Refroidissement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130"/>
@@ -31076,7 +31076,7 @@ in Cooling Mode</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
-        <translation>Fraction minimale du débit d'air de refroidissement</translation>
+        <translation>Fraction minimale du débit d&apos;air de refroidissement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
@@ -31084,7 +31084,7 @@ Air Flow Fraction</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304"/>
         <source>Cooling Design
 Air Flow Method</source>
-        <translation>Méthode de débit d'air
+        <translation>Méthode de débit d&apos;air
 de conception en refroidissement</translation>
     </message>
     <message>
@@ -31093,7 +31093,7 @@ de conception en refroidissement</translation>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266"/>
         <source>Cooling Design
 Air Flow Rate</source>
-        <translation>Débit d'air de refroidissement
+        <translation>Débit d&apos;air de refroidissement
 à la conception</translation>
     </message>
     <message>
@@ -31102,7 +31102,7 @@ Air Flow Rate</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
-        <translation>Débit d'air minimum de refroidissement</translation>
+        <translation>Débit d&apos;air minimum de refroidissement</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
@@ -31121,8 +31121,8 @@ Conception de la Zone</translation>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
-        <translation>Rapport d'humidité
-de l'air soufflé
+        <translation>Rapport d&apos;humidité
+de l&apos;air soufflé
 en conditions de
 conception en chauffage</translation>
     </message>
@@ -31141,7 +31141,7 @@ Sizing Factor</source>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
-        <translation>Débit d'air maximal de chauffage par unité de surface de plancher de zone</translation>
+        <translation>Débit d&apos;air maximal de chauffage par unité de surface de plancher de zone</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
@@ -31150,7 +31150,7 @@ Floor Area</source>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
-        <translation>Efficacité de la Distribution d'Air dans la Zone en Mode Chauffage</translation>
+        <translation>Efficacité de la Distribution d&apos;Air dans la Zone en Mode Chauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146"/>
@@ -31158,7 +31158,7 @@ in Heating Mode</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288"/>
         <source>Heating Maximum
 Air Flow Fraction</source>
-        <translation>Fraction maximale du débit d'air en chauffage</translation>
+        <translation>Fraction maximale du débit d&apos;air en chauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147"/>
@@ -31166,7 +31166,7 @@ Air Flow Fraction</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239"/>
         <source>Heating Design
 Air Flow Method</source>
-        <translation>Méthode de Débit d'Air de Conception pour Chauffage</translation>
+        <translation>Méthode de Débit d&apos;Air de Conception pour Chauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148"/>
@@ -31174,7 +31174,7 @@ Air Flow Method</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230"/>
         <source>Heating Design
 Air Flow Rate</source>
-        <translation>Débit d'air de conception en chauffage</translation>
+        <translation>Débit d&apos;air de conception en chauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149"/>
@@ -31182,13 +31182,13 @@ Air Flow Rate</source>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234"/>
         <source>Heating Maximum
 Air Flow</source>
-        <translation>Débit d'air maximum
+        <translation>Débit d&apos;air maximum
 chauffage</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Check to enable ideal air loads.</source>
-        <translation>Cochez pour activer les charges d'air idéales.</translation>
+        <translation>Cochez pour activer les charges d&apos;air idéales.</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195"/>
@@ -31507,7 +31507,7 @@ Zone</source>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49"/>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188"/>
         <source>Go back to water mains editor</source>
-        <translation>Retourner à l'éditeur de distribution d'eau</translation>
+        <translation>Retourner à l&apos;éditeur de distribution d&apos;eau</translation>
     </message>
 </context>
 <context>
@@ -31515,7 +31515,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510"/>
         <source>Drag Water Use Connections from Library</source>
-        <translation>Glissez les connexions d'utilisation d'eau depuis la bibliothèque</translation>
+        <translation>Glissez les connexions d&apos;utilisation d&apos;eau depuis la bibliothèque</translation>
     </message>
 </context>
 <context>
@@ -31528,7 +31528,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
-        <translation>Sous-catégorie d'usage final : </translation>
+        <translation>Sous-catégorie d&apos;usage final : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
@@ -31556,7 +31556,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501"/>
         <source>Drag Water Use Equipment from Library</source>
-        <translation>Faites glisser Équipement d'utilisation d'eau depuis la bibliothèque</translation>
+        <translation>Faites glisser Équipement d&apos;utilisation d&apos;eau depuis la bibliothèque</translation>
     </message>
 </context>
 <context>
@@ -31679,22 +31679,22 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture supérieure du store : </translation>
+        <translation>Multiplicateur d&apos;ouverture supérieure du store : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture inférieure du store : </translation>
+        <translation>Multiplicateur d&apos;ouverture inférieure du store : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture du côté gauche du store : </translation>
+        <translation>Multiplicateur d&apos;ouverture du côté gauche du store : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture du côté droit du store : </translation>
+        <translation>Multiplicateur d&apos;ouverture du côté droit du store : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
@@ -31934,7 +31934,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
-        <translation>Coefficient d'extinction solaire : </translation>
+        <translation>Coefficient d&apos;extinction solaire : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
@@ -31944,7 +31944,7 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
-        <translation>Coefficient d'extinction visible : </translation>
+        <translation>Coefficient d&apos;extinction visible : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
@@ -32007,12 +32007,12 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
-        <translation>Espacement du matériau d'écran : </translation>
+        <translation>Espacement du matériau d&apos;écran : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
-        <translation>Diamètre du matériau de l'écran : </translation>
+        <translation>Diamètre du matériau de l&apos;écran : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
@@ -32022,27 +32022,27 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture supérieure : </translation>
+        <translation>Multiplicateur d&apos;ouverture supérieure : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture inférieure : </translation>
+        <translation>Multiplicateur d&apos;ouverture inférieure : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture du côté gauche : </translation>
+        <translation>Multiplicateur d&apos;ouverture du côté gauche : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture côté droit : </translation>
+        <translation>Multiplicateur d&apos;ouverture côté droit : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
-        <translation>Angle de résolution pour la carte de transmittance de l'écran : </translation>
+        <translation>Angle de résolution pour la carte de transmittance de l&apos;écran : </translation>
     </message>
 </context>
 <context>
@@ -32100,27 +32100,27 @@ Zone</source>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture supérieure : </translation>
+        <translation>Multiplicateur d&apos;ouverture supérieure : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture inférieure : </translation>
+        <translation>Multiplicateur d&apos;ouverture inférieure : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture côté gauche : </translation>
+        <translation>Multiplicateur d&apos;ouverture côté gauche : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
-        <translation>Multiplicateur d'ouverture du côté droit : </translation>
+        <translation>Multiplicateur d&apos;ouverture du côté droit : </translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
-        <translation>Perméabilité au flux d'air : </translation>
+        <translation>Perméabilité au flux d&apos;air : </translation>
     </message>
 </context>
 <context>
@@ -32407,7 +32407,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
-        <translation>Entrez le nom du projet :</translation>
+        <translation>Entrez le nom du projet : </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
@@ -32452,7 +32452,7 @@ Zone</source>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
-        <translation>Veuillez entrer les informations du BIMserver :</translation>
+        <translation>Veuillez entrer les informations du BIMserver : </translation>
     </message>
     <message>
         <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
@@ -32497,7 +32497,7 @@ Zone</source>
         <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581"/>
         <source>Python Measures are not supported in the Classic CLI.
 You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
-        <translation>Les Mesures Python ne sont pas supportées dans l'interface CLI classique.
+        <translation>Les Mesures Python ne sont pas supportées dans l&apos;interface CLI classique.
 Vous pouvez changer la version CLI en utilisant « Préférences-&gt;Utiliser CLI classique ».</translation>
     </message>
 </context>
