@@ -38,7 +38,7 @@ SDK_PLATFORM="Ubuntu-22.04-x86_64"   # matches FindOpenStudioSDK.cmake: ${LSB_RE
 SDK_BASENAME="OpenStudio-${SDK_VERSION}${SDK_SHA}-${SDK_PLATFORM}"
 SDK_DIR="build/OpenStudio-${SDK_VERSION}"            # created in workspace
 SDK_DEST="${SDK_DIR}/${SDK_BASENAME}"                # where CMake looks
-SDK_URL="https://github.com/NREL/OpenStudio/releases/download/v${SDK_VERSION}/${SDK_BASENAME}.tar.gz"
+SDK_URL="https://github.com/NatLabRockies/OpenStudio/releases/download/v${SDK_VERSION}/${SDK_BASENAME}.tar.gz"
 
 echo "  SDK_DEST: ${SDK_DEST}"
 echo "  SDK_URL:  ${SDK_URL}"

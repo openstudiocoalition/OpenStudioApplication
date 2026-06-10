@@ -1653,7 +1653,7 @@ void DaySchedulePlotArea::keyPressEvent(QKeyEvent* event) {
   if (m_currentHoverItem) {
     if (auto* calendarItem = dynamic_cast<CalendarSegmentItem*>(m_currentHoverItem)) {
       // Only allow entering numbers if you're not already dragging with the mouse...
-      // Fix for https://github.com/NREL/OpenStudio/issues/2357
+      // Fix for https://github.com/NatLabRockies/OpenStudio/issues/2357
       if ((event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) && !calendarItem->isMouseDown()) {
         bool ok = false;
         double value = m_keyboardInputValue.toDouble(&ok);
