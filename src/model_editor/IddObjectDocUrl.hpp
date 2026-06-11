@@ -14,7 +14,8 @@
 
 // Returns the BigLadder EnergyPlus I/O Reference URL for the given OS IDD type name
 // (e.g. "OS:ThermalZone"), or an empty string if none is known.
-// Base URL version is controlled by ENERGYPLUS_VERSION_MAJOR/MINOR in FindOpenStudioSDK.cmake.
+// Base URL version matches the EnergyPlus version bundled with the OpenStudio SDK
+// (see openstudio::bigladdersoftwareDocBaseUrl()).
 inline QString iddObjectDocUrl(const QString& iddTypeName) {
   static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
 

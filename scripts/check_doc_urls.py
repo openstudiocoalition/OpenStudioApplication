@@ -6,7 +6,14 @@ Scans source files for doc URL strings, fetches each unique page once, checks th
 every anchor referenced actually exists in the page HTML, and reports failures.
 
 Usage:
-    python scripts/check_doc_urls.py [--repo-root PATH] [--delay SEC]
+    python scripts/check_doc_urls.py [--repo-root PATH] [--delay SEC] [--openstudio-hxx PATH]
+
+The BigLadder doc version (eg "25-2") is auto-detected from the OpenStudio SDK's
+OpenStudio.hxx (energyPlusVersionMajor()/energyPlusVersionMinor()), the same values
+openstudio::bigladdersoftwareDocBaseUrl() uses at runtime. The SDK is located by
+searching for OpenStudio-*/*/include/openstudio/OpenStudio.hxx under --repo-root
+(covers both in-source and build/ out-of-source SDK downloads), or pass
+--openstudio-hxx to point at it directly.
 
 Exit codes:
     0  All URLs valid
@@ -75,7 +82,16 @@ SOURCE_FILES = [
     "src/openstudio_lib/BuildingInspectorView.cpp",
 ]
 
-BIGLADDERSOFTWARE_BASE = "https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/"
+# Where to look for the downloaded OpenStudio SDK's OpenStudio.hxx, relative to repo root.
+SDK_HXX_GLOBS = [
+    "OpenStudio-*/*/include/openstudio/OpenStudio.hxx",
+    "build*/OpenStudio-*/*/include/openstudio/OpenStudio.hxx",
+]
+
+ENERGYPLUS_VERSION_RE = {
+    "major": re.compile(r"energyPlusVersionMajor\(\)\s*\{\s*return\s*(\d+);"),
+    "minor": re.compile(r"energyPlusVersionMinor\(\)\s*\{\s*return\s*(\d+);"),
+}
 
 
 # ---------------------------------------------------------------------------
@@ -94,10 +110,39 @@ class AnchorCollector(HTMLParser):
 
 
 # ---------------------------------------------------------------------------
+# EnergyPlus version detection (mirrors openstudio::bigladdersoftwareDocBaseUrl())
+# ---------------------------------------------------------------------------
+
+def find_openstudio_hxx(repo_root: Path) -> Path | None:
+    for pattern in SDK_HXX_GLOBS:
+        matches = sorted(repo_root.glob(pattern))
+        if matches:
+            return matches[0]
+    return None
+
+
+def detect_bigladdersoftware_base(hxx_path: Path) -> str:
+    """
+    Parse energyPlusVersionMajor()/energyPlusVersionMinor() from the SDK's
+    OpenStudio.hxx and build the BigLadder I/O Reference base URL the same way
+    openstudio::bigladdersoftwareDocBaseUrl() does at runtime.
+    """
+    text = hxx_path.read_text(encoding="utf-8")
+    versions = {}
+    for part, pattern in ENERGYPLUS_VERSION_RE.items():
+        m = pattern.search(text)
+        if not m:
+            raise ValueError(f"Could not find energyPlusVersion{part.capitalize()}() in {hxx_path}")
+        versions[part] = m.group(1)
+
+    return f"https://bigladdersoftware.com/epx/docs/{versions['major']}-{versions['minor']}/input-output-reference/"
+
+
+# ---------------------------------------------------------------------------
 # URL extraction
 # ---------------------------------------------------------------------------
 
-def extract_fragments(repo_root: Path):
+def extract_fragments(repo_root: Path, base_url: str):
     """
     Returns a dict: page_url -> list of (anchor_or_None, source_file, line_no)
     """
@@ -125,7 +170,7 @@ def extract_fragments(repo_root: Path):
                     page_part, anchor = fragment.split("#", 1)
                 else:
                     page_part, anchor = fragment, None
-                page_url = BIGLADDERSOFTWARE_BASE + page_part
+                page_url = base_url + page_part
                 results[page_url].append((anchor, rel_path, lineno))
 
     return results
@@ -166,12 +211,29 @@ def main():
         default=0.5,
         help="Seconds to wait between page fetches (default: 0.5)",
     )
+    parser.add_argument(
+        "--openstudio-hxx",
+        help="Path to the OpenStudio SDK's OpenStudio.hxx (default: auto-detect under --repo-root)",
+    )
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
     print(f"Scanning repo: {repo_root}")
 
-    fragments = extract_fragments(repo_root)
+    hxx_path = Path(args.openstudio_hxx).resolve() if args.openstudio_hxx else find_openstudio_hxx(repo_root)
+    if hxx_path is None or not hxx_path.exists():
+        print(
+            "ERROR: Could not find the OpenStudio SDK's OpenStudio.hxx "
+            f"(looked for {SDK_HXX_GLOBS} under {repo_root}).\n"
+            "Build/configure the project first, or pass --openstudio-hxx explicitly.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
+
+    base_url = detect_bigladdersoftware_base(hxx_path)
+    print(f"Using EnergyPlus doc base URL: {base_url}\n  (from {hxx_path})")
+
+    fragments = extract_fragments(repo_root, base_url)
     if not fragments:
         print("No URLs found — check SOURCE_FILES list.", file=sys.stderr)
         sys.exit(2)

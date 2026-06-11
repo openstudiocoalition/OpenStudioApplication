@@ -206,7 +206,8 @@ bool isOpenStudioApplicationModuleRunningFromBuildDirectory() {
 }
 
 std::string bigladdersoftwareDocBaseUrl() {
-  return "${BIGLADDERSOFTWARE_DOC_BASE_URL}";
+  return "https://bigladdersoftware.com/epx/docs/" + std::to_string(energyPlusVersionMajor()) + "-" + std::to_string(energyPlusVersionMinor())
+         + "/input-output-reference/";
 }
 
 openstudio::path getOpenStudioCoreCLI() {
