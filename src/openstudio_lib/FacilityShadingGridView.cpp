@@ -484,7 +484,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                               DataSource(allShadingSurfaces, true)                                                // t_source
         );
       } else if (field == tr("Construction Name")) {
-        addDropZoneColumn(Heading(tr("Construction Name"), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),
+        addDropZoneColumn(Heading(tr("Construction Name"), true, true), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setConstruction),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::isConstructionDefaulted)),
@@ -497,7 +497,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
             return t_shadingSurface->setTransmittanceSchedule(copy);
           });
 
-        addDropZoneColumn(Heading(tr("Transmittance Schedule Name"), true, false),
+        addDropZoneColumn(Heading(tr("Transmittance Schedule Name"), true, true),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::transmittanceSchedule), setter,
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
                             CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::resetTransmittanceSchedule)),
