@@ -37,7 +37,7 @@ namespace openstudio {
 class OSAPP_UTILITIES_API RemoteQueryResponse
 {
  public:
-  RemoteQueryResponse(std::shared_ptr<pugi::xml_document>& domDocument);
+  explicit RemoteQueryResponse(std::shared_ptr<pugi::xml_document>& domDocument);
 
   pugi::xml_node root() const;
 
