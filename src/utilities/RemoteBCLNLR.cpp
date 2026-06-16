@@ -117,7 +117,7 @@ boost::optional<BCLMeasure> RemoteBCLNLR::getMeasure(const std::string& uid, con
 }
 
 boost::optional<BCLMetaSearchResult> RemoteBCLNLR::metaSearchComponentLibrary(const std::string& searchTerm, const std::string& componentType,
-                                                                           const std::string& filterType) const {
+                                                                              const std::string& filterType) const {
   bool searchStarted = const_cast<RemoteBCLNLR*>(this)->startComponentLibraryMetaSearch(searchTerm, componentType, filterType);
   if (searchStarted) {
     return waitForMetaSearch();
@@ -126,7 +126,7 @@ boost::optional<BCLMetaSearchResult> RemoteBCLNLR::metaSearchComponentLibrary(co
 }
 
 boost::optional<BCLMetaSearchResult> RemoteBCLNLR::metaSearchComponentLibrary(const std::string& searchTerm, const unsigned componentTypeTID,
-                                                                           const std::string& filterType) const {
+                                                                              const std::string& filterType) const {
   bool searchStarted = const_cast<RemoteBCLNLR*>(this)->startComponentLibraryMetaSearch(searchTerm, componentTypeTID, filterType);
   if (searchStarted) {
     return waitForMetaSearch();
@@ -135,7 +135,7 @@ boost::optional<BCLMetaSearchResult> RemoteBCLNLR::metaSearchComponentLibrary(co
 }
 
 std::vector<BCLSearchResult> RemoteBCLNLR::searchComponentLibrary(const std::string& searchTerm, const std::string& componentType,
-                                                               const unsigned page) const {
+                                                                  const unsigned page) const {
   // Perform metaSearch first
   metaSearchComponentLibrary(searchTerm, componentType, "nrel_component");
   if (lastTotalResults() == 0) {
@@ -150,7 +150,7 @@ std::vector<BCLSearchResult> RemoteBCLNLR::searchComponentLibrary(const std::str
 }
 
 std::vector<BCLSearchResult> RemoteBCLNLR::searchComponentLibrary(const std::string& searchTerm, const unsigned componentTypeTID,
-                                                               const unsigned page) const {
+                                                                  const unsigned page) const {
   // Perform metaSearch first
   metaSearchComponentLibrary(searchTerm, componentTypeTID, "nrel_component");
   if (lastTotalResults() == 0) {
@@ -165,7 +165,7 @@ std::vector<BCLSearchResult> RemoteBCLNLR::searchComponentLibrary(const std::str
 }
 
 std::vector<BCLSearchResult> RemoteBCLNLR::searchMeasureLibrary(const std::string& searchTerm, const std::string& componentType,
-                                                             const unsigned page) const {
+                                                                const unsigned page) const {
   // Perform metaSearch first
   metaSearchComponentLibrary(searchTerm, componentType, "nrel_measure");
   if (lastTotalResults() == 0) {
@@ -180,7 +180,7 @@ std::vector<BCLSearchResult> RemoteBCLNLR::searchMeasureLibrary(const std::strin
 }
 
 std::vector<BCLSearchResult> RemoteBCLNLR::searchMeasureLibrary(const std::string& searchTerm, const unsigned componentTypeTID,
-                                                             const unsigned page) const {
+                                                                const unsigned page) const {
   // Perform metaSearch first
   metaSearchComponentLibrary(searchTerm, componentTypeTID, "nrel_measure");
   if (lastTotalResults() == 0) {
@@ -506,10 +506,10 @@ boost::optional<BCLComponent> RemoteBCLNLR::waitForComponentDownload() const {
   return boost::none;
 }
 
-boost::optional<BCLComponent> RemoteBCLNLR::waitForComponentDownload(int) const {
-  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForComponentDownload() instead");
-  return waitForComponentDownload();
-}
+//boost::optional<BCLComponent> RemoteBCLNLR::waitForComponentDownload(int) const {
+//  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForComponentDownload() instead");
+//  return waitForComponentDownload();
+//}
 
 boost::optional<BCLMeasure> RemoteBCLNLR::waitForMeasureDownload() const {
   if (waitForLock()) {
@@ -518,10 +518,10 @@ boost::optional<BCLMeasure> RemoteBCLNLR::waitForMeasureDownload() const {
   return boost::none;
 }
 
-boost::optional<BCLMeasure> RemoteBCLNLR::waitForMeasureDownload(int) const {
-  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForMeasureDownload() instead");
-  return waitForMeasureDownload();
-}
+//boost::optional<BCLMeasure> RemoteBCLNLR::waitForMeasureDownload(int) const {
+//  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForMeasureDownload() instead");
+//  return waitForMeasureDownload();
+//}
 
 boost::optional<BCLMetaSearchResult> RemoteBCLNLR::waitForMetaSearch() const {
   if (waitForLock()) {
@@ -530,10 +530,10 @@ boost::optional<BCLMetaSearchResult> RemoteBCLNLR::waitForMetaSearch() const {
   return boost::none;
 }
 
-boost::optional<BCLMetaSearchResult> RemoteBCLNLR::waitForMetaSearch(int) const {
-  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForMetaSearch() instead");
-  return waitForMetaSearch();
-}
+//boost::optional<BCLMetaSearchResult> RemoteBCLNLR::waitForMetaSearch(int) const {
+//  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForMetaSearch() instead");
+//  return waitForMetaSearch();
+//}
 
 std::vector<BCLSearchResult> RemoteBCLNLR::waitForSearch() const {
   if (waitForLock()) {
@@ -542,10 +542,10 @@ std::vector<BCLSearchResult> RemoteBCLNLR::waitForSearch() const {
   return {};
 }
 
-std::vector<BCLSearchResult> RemoteBCLNLR::waitForSearch(int) const {
-  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForSearch() instead");
-  return waitForSearch();
-}
+//std::vector<BCLSearchResult> RemoteBCLNLR::waitForSearch(int) const {
+//  DEPRECATED_AT_MSG(3, 2, 1, "The int parameter is unused. Use waitForSearch() instead");
+//  return waitForSearch();
+//}
 
 ///////////////////////////////////////////////////////////////////////////
 /// Non-blocking class members
@@ -691,7 +691,7 @@ bool RemoteBCLNLR::startComponentLibraryMetaSearch(const std::string& searchTerm
 }
 
 bool RemoteBCLNLR::startComponentLibrarySearch(const std::string& searchTerm, const std::string& componentType, const std::string& filterType,
-                                            const unsigned page) {
+                                               const unsigned page) {
   // can't start another request until last one is done
   if (m_httpResponse && !m_httpResponse->is_done()) {
     return false;
@@ -733,7 +733,7 @@ bool RemoteBCLNLR::startComponentLibrarySearch(const std::string& searchTerm, co
 }
 
 bool RemoteBCLNLR::startComponentLibrarySearch(const std::string& searchTerm, const unsigned componentTypeTID, const std::string& filterType,
-                                            const unsigned page) {
+                                               const unsigned page) {
   // can't start another request until last one is done
   if (m_httpResponse && !m_httpResponse->is_done()) {
     return false;
