@@ -1328,7 +1328,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
 
-  // MeasureManager does not work in classic CLI https://github.com/NREL/OpenStudio/issues/5212
+  // MeasureManager does not work in classic CLI https://github.com/NatLabRockies/OpenStudio/issues/5212
   arguments << "measure";
   arguments << "-s";
   arguments << portString;

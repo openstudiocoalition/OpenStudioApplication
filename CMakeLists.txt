@@ -16,7 +16,7 @@ if(CCACHE_PROGRAM)
   set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.11.0)
+project(OpenStudioApplication VERSION 1.11.1)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -388,7 +388,7 @@ if(UNIX)
   if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -ftemplate-depth=1024")
 
-    # TODO: remove when bumping Boost to 1.81+, cf https://github.com/NREL/OpenStudio/issues/4978
+    # TODO: remove when bumping Boost to 1.81+, cf https://github.com/NatLabRockies/OpenStudio/issues/4978
     add_definitions(-DBOOST_NO_CXX98_FUNCTION_BASE)
     add_definitions(-D_HAS_AUTO_PTR_ETC=0)
   else()
