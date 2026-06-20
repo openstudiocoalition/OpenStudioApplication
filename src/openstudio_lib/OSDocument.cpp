@@ -58,7 +58,7 @@
 
 #include <openstudio/utilities/bcl/BCLComponent.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Checksum.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
@@ -1758,7 +1758,7 @@ void OSDocument::openBclDlg() {
     return;
   }
 
-  if (!RemoteBCL::isOnline()) {
+  if (!RemoteBCLNLR::isOnline()) {
     QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
                              QMessageBox::Ok);
     return;
@@ -1808,7 +1808,7 @@ void OSDocument::openMeasuresBclDlg() {
     return;
   }
 
-  if (!RemoteBCL::isOnline()) {
+  if (!RemoteBCLNLR::isOnline()) {
     QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
                              QMessageBox::Ok);
     return;

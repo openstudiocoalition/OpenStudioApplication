@@ -18,7 +18,7 @@
 
 #include <openstudio/utilities/bcl/BCL.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include "../model_editor/Application.hpp"
@@ -190,7 +190,7 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
     delete comp;
   }
 
-  RemoteBCL remoteBCL;
+  RemoteBCLNLR remoteBCL;
   remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
   std::vector<BCLSearchResult> responses;
   if (filterType == "components") {
@@ -330,7 +330,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
   if (m_remoteBCL) {
     // currently doing a download
     if (m_downloadTimer.isValid()) {
-      // RemoteBCL does not always call the call back for us if we timeout
+      // RemoteBCLNLR does not always call the call back for us if we timeout
       if (m_downloadTimer.elapsed() > static_cast<qint64>(1000) * m_timeoutSeconds) {
         m_timer->stop();
 
@@ -344,7 +344,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
         m_downloadTimer.invalidate();
         m_currentDownload.reset();
 
-        if (!RemoteBCL::isOnline()) {
+        if (!RemoteBCLNLR::isOnline()) {
           // if we have gone offline cancel the remaining pending downloads
           clearPendingDownloads(true);
         }
@@ -372,7 +372,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
     m_progressBar->setVisible(true);
 
     if (m_currentDownload->second == "components") {
-      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL = std::make_shared<RemoteBCLNLR>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
 
       // Connect to Nano Signal
@@ -388,7 +388,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
       }
 
     } else if (m_currentDownload->second == "measures") {
-      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL = std::make_shared<RemoteBCLNLR>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
 
       // Connect to Nano Signal

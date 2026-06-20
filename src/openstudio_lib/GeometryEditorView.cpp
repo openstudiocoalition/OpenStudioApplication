@@ -48,7 +48,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Checksum.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/geometry/FloorplanJS.hpp>
 #include <openstudio/utilities/geometry/ThreeJS.hpp>
 
@@ -259,7 +259,7 @@ void FloorspaceEditor::loadEditor() {
     }
 
     // DLM: need a better check here
-    if (openstudio::RemoteBCL::isOnline()) {
+    if (openstudio::RemoteBCLNLR::isOnline()) {
       config["online"] = true;
     } else {
       config["online"] = false;
