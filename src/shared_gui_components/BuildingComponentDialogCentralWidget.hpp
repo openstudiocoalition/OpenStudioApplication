@@ -28,7 +28,7 @@ namespace openstudio {
 class Component;
 class ComponentList;
 class CollapsibleComponentList;
-class RemoteBCL;
+class RemoteBCLNLR;
 
 class BuildingComponentDialogCentralWidget
   : public QWidget
@@ -64,7 +64,7 @@ class BuildingComponentDialogCentralWidget
   int m_pageIdx;
   QString m_searchString;
   bool m_showNewComponents;
-  std::shared_ptr<RemoteBCL> m_remoteBCL;
+  std::shared_ptr<RemoteBCLNLR> m_remoteBCL;
   QTimer* m_timer;
   QElapsedTimer m_downloadTimer;
   std::optional<std::pair<std::string, std::string>> m_currentDownload;
