@@ -269,12 +269,12 @@ void RunView::playButtonClicked(bool t_checked) {
     if (m_verboseOutputBox->isChecked()) {
       arguments << "--verbose";
     } else if (!m_useClassicCLIBox->isChecked()) {
-      // https://github.com/NREL/OpenStudio/issues/5069
+      // https://github.com/NatLabRockies/OpenStudio/issues/5069
       arguments << "--verbose";
     }
 
     arguments << "run";
-    // C++ CLI doesn't have working socket connection yet: https://github.com/NREL/OpenStudio/issues/5073
+    // C++ CLI doesn't have working socket connection yet: https://github.com/NatLabRockies/OpenStudio/issues/5073
     m_hasSocketConnection = false;
     if (m_useClassicCLIBox->isChecked()) {
       const unsigned port = m_runTcpServer->serverPort();
@@ -286,10 +286,7 @@ void RunView::playButtonClicked(bool t_checked) {
       }
       arguments << "-w" << workflowJSONPath;
     } else {
-      arguments << "run"
-                << "--show-stdout"
-                << "--style-stdout"
-                << "-w" << workflowJSONPath;
+      arguments << "run" << "--show-stdout" << "--style-stdout" << "-w" << workflowJSONPath;
     }
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments = " << arguments.join(";").toStdString());

@@ -60,13 +60,10 @@ using namespace openstudio;
 // a translation exists in the "IDD" context of the loaded .qm file;
 // otherwise returns the plain English field name.
 //
-// Format rationale: the translated term is shown first for readability in the
-// target language. The original English IDD field name is retained in
-// parentheses because these names are the canonical identifiers used in
-// EnergyPlus documentation, the OpenStudio SDK, and .idf/.osm model files.
-// A Spanish-speaking engineer who needs to cross-reference the EnergyPlus
-// I/O Reference or file a bug report can read the English name without
-// having to switch the application language and reload the model.
+// When translated, returns an HTML-formatted string with the translated name
+// on the first line and the original English name in smaller gray italics on
+// the second line — so a non-English speaker can cross-reference EnergyPlus
+// documentation or .idf/.osm files without switching the application language.
 //
 // To add or refine translations: add entries to the IDD context in
 // OpenStudioApp_<lang>.ts and recompile with lrelease — no C++ changes needed.
@@ -74,8 +71,9 @@ static QString iddFieldDisplayName(const std::string& englishName) {
   const QString qname = QString::fromStdString(englishName);
   if (QLocale().language() != QLocale::English) {
     const QString translated = QCoreApplication::translate("IDD", englishName.c_str());
-    if (translated != qname)
-      return translated + " (" + qname + ")";
+    if (translated != qname) {
+      return translated.toHtmlEscaped() + "<br><i style='color:gray'>" + qname.toHtmlEscaped() + "</i>";
+    }
   }
   return qname;
 }

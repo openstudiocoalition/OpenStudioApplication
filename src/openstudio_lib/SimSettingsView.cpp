@@ -287,7 +287,8 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneCapacitanceMultiplier:ResearchSpecial *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Zone Capacitance Multiple Research Special"), createZoneCapacitanceMultipleResearchSpecialWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Zone Capacitance Multiple Research Special"), createZoneCapacitanceMultipleResearchSpecialWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:JSON *******************

@@ -2,7 +2,7 @@
 
 This documents the process for adding HVAC components to the GUI.
 
-This assumes that the model object(s) already exist NREL/OpenStudio (core SDK)
+This assumes that the model object(s) already exist in the OpenStudio SDK
 
 ## Add icon:
 

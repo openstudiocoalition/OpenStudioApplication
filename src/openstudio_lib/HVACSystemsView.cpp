@@ -613,7 +613,7 @@ MechanicalVentilationView::MechanicalVentilationView() {
   ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure", "Standard62.1VentilationRateProcedure");
   ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure With Limit", "Standard62.1VentilationRateProcedureWithLimit");
   ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure", "IndoorAirQualityProcedure");
-  // TODO: OS 3.7.0 is missing some choices that E+ 23.2.0 has, pending https://github.com/NREL/OpenStudio/issues/5060
+  // TODO: OS 3.7.0 is missing some choices that E+ 23.2.0 has, pending https://github.com/NatLabRockies/OpenStudio/issues/5060
   // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Generic Contaminant", "IndoorAirQualityProcedureGenericContaminant");
   // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Combined", "IndoorAirQualityProcedureCombined");
   ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Design Occupancy", "ProportionalControlBasedOnDesignOccupancy");

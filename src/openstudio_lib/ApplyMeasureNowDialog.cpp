@@ -55,7 +55,6 @@
 #define LOADING_ARG_TEXT "<FONT COLOR = BLACK>Loading Arguments..."
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
-
 namespace openstudio {
 
 ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
@@ -102,7 +101,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   }
 
   // The openstudio-workflow gem will prepend the "generated_files" directory to the workflowJSON.filePaths, so match that
-  // cf: https://github.com/NREL/OpenStudio-workflow-gem/blob/e569f910be364d33c3ddb1a655570c85f1b24bfa/lib/openstudio/workflow/jobs/run_initialization.rb#L99
+  // cf: https://github.com/NatLabRockies/OpenStudio-workflow-gem/blob/e569f910be364d33c3ddb1a655570c85f1b24bfa/lib/openstudio/workflow/jobs/run_initialization.rb#L99
   // in requestReload, this directory gets copied over to the first filePath of m_modelWorkflowJSON, which is typically the files/ directory
   m_workingFilesDir = m_workingDir / openstudio::toPath("generated_files");
   // add the WorkingFiles directory as files files path, measures writing output files should be written here
