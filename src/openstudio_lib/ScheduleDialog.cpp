@@ -91,7 +91,7 @@ void ScheduleDialog::createLayout() {
 }
 
 void ScheduleDialog::createLayoutInternal() {
-  okButton()->setText("Apply");
+  okButton()->setText(tr("Apply"));
 
   // make all possible schedule type limits
   std::set<model::ScheduleType, ScheduleTypeCompare> scheduleTypes;
@@ -118,7 +118,7 @@ void ScheduleDialog::createLayoutInternal() {
 
   QLabel* label = nullptr;
 
-  label = new QLabel("Define New Schedule", this);
+  label = new QLabel(tr("Define New Schedule"), this);
   label->setObjectName("H1");
   upperLayout()->addWidget(label);
 
@@ -136,7 +136,7 @@ void ScheduleDialog::createLayoutInternal() {
     vLayout = new QVBoxLayout();
     vLayout->setSpacing(5);
 
-    label = new QLabel("Schedule Type", this);
+    label = new QLabel(tr("Schedule Type"), this);
     label->setObjectName("H2");
     vLayout->addWidget(label);
 
@@ -168,7 +168,7 @@ void ScheduleDialog::createLayoutInternal() {
     hLayout->setContentsMargins(0, 0, 10, 0);
     hLayout->setSpacing(5);
 
-    label = new QLabel("Numeric Type: ", this);
+    label = new QLabel(tr("Numeric Type: "), this);
     label->setObjectName("H2");
     hLayout->addWidget(label);
 
@@ -186,7 +186,7 @@ void ScheduleDialog::createLayoutInternal() {
     hLayout->setContentsMargins(0, 0, 10, 0);
     hLayout->setSpacing(5);
 
-    label = new QLabel("Lower Limit: ", this);
+    label = new QLabel(tr("Lower Limit: "), this);
     label->setObjectName("H2");
     hLayout->addWidget(label);
 
@@ -204,7 +204,7 @@ void ScheduleDialog::createLayoutInternal() {
     hLayout->setContentsMargins(0, 0, 10, 0);
     hLayout->setSpacing(5);
 
-    label = new QLabel("Upper Limit: ", this);
+    label = new QLabel(tr("Upper Limit: "), this);
     label->setObjectName("H2");
     hLayout->addWidget(label);
 
@@ -248,7 +248,7 @@ void ScheduleDialog::onCurrentIndexChanged(int index) {
 
     if (temp.isEmpty()) {
       unitsLabel.append(" (");
-      unitsLabel.append("unitless");
+      unitsLabel.append(tr("unitless"));
       unitsLabel.append(")");
     } else {
       unitsLabel.append(" (");
@@ -264,7 +264,7 @@ void ScheduleDialog::onCurrentIndexChanged(int index) {
   if (numericType) {
     numericTypeLabel.append(toQString(*numericType));
   } else {
-    numericTypeLabel.append("None");
+    numericTypeLabel.append(tr("None"));
   }
   numericTypeLabel.append(unitsLabel);
   m_numericTypeLabel->setText(numericTypeLabel);
@@ -288,7 +288,7 @@ void ScheduleDialog::onCurrentIndexChanged(int index) {
     lowerLimitLabel.append(unitsLabel);
 
   } else {
-    lowerLimitLabel.append("None");
+    lowerLimitLabel.append(tr("None"));
   }
   m_lowerLimitLabel->setText(lowerLimitLabel);
 
@@ -310,7 +310,7 @@ void ScheduleDialog::onCurrentIndexChanged(int index) {
     upperLimitLabel.append(unitsLabel);
 
   } else {
-    upperLimitLabel.append("None");
+    upperLimitLabel.append(tr("None"));
   }
   m_upperLimitLabel->setText(upperLimitLabel);
 }

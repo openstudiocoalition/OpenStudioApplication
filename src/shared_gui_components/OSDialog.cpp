@@ -52,19 +52,19 @@ void OSDialog::createLayoutInternal() {
 
   lowerLayout->addStretch();
 
-  m_backButton = new QPushButton("Back", this);
+  m_backButton = new QPushButton(tr("Back"), this);
   connect(m_backButton, &QPushButton::clicked, this, &OSDialog::on_backButton);
   connect(m_backButton, &QPushButton::clicked, this, &OSDialog::backButtonClicked);
   lowerLayout->addWidget(m_backButton);
   m_backButton->hide();
 
-  m_okButton = new QPushButton("OK", this);
+  m_okButton = new QPushButton(tr("OK"), this);
   m_okButton->setDefault(true);
   connect(m_okButton, &QPushButton::clicked, this, &OSDialog::on_okButton);
   connect(m_okButton, &QPushButton::clicked, this, &OSDialog::okButtonClicked);
   lowerLayout->addWidget(m_okButton);
 
-  m_cancelButton = new QPushButton("Cancel", this);
+  m_cancelButton = new QPushButton(tr("Cancel"), this);
   connect(m_cancelButton, &QPushButton::clicked, this, &OSDialog::on_cancelButton);
   connect(m_cancelButton, &QPushButton::clicked, this, &OSDialog::cancelButtonClicked);
   lowerLayout->addWidget(m_cancelButton);

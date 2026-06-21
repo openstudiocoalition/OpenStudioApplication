@@ -31,6 +31,7 @@
 
 #include <QBoxLayout>
 #include <QButtonGroup>
+#include <QCoreApplication>
 #include <QDate>
 #include <QDateEdit>
 #include <QLabel>
@@ -58,18 +59,30 @@ UtilityBillsView::~UtilityBillsView() = default;
 
 std::vector<std::pair<FuelType, std::string>> UtilityBillsView::utilityBillFuelTypesAndNames() {
   std::vector<std::pair<FuelType, std::string>> result;
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Electricity, "Electric Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Gas, "Gas Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::DistrictHeating, "District Heating Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::DistrictCooling, "District Cooling Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Gasoline, "Gasoline Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Diesel, "Diesel Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::FuelOil_1, "Fuel Oil #1 Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::FuelOil_2, "Fuel Oil #2 Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Propane, "Propane Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Water, "Water Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Steam, "Steam Utility Bill"));
-  result.push_back(std::make_pair<FuelType, std::string>(FuelType::EnergyTransfer, "Energy Transfer Utility Bill"));
+  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Electricity,
+                                                         QCoreApplication::translate("UtilityBillsView", "Electric Utility Bill").toStdString()));
+  result.push_back(
+    std::make_pair<FuelType, std::string>(FuelType::Gas, QCoreApplication::translate("UtilityBillsView", "Gas Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(
+    FuelType::DistrictHeating, QCoreApplication::translate("UtilityBillsView", "District Heating Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(
+    FuelType::DistrictCooling, QCoreApplication::translate("UtilityBillsView", "District Cooling Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(FuelType::Gasoline,
+                                                         QCoreApplication::translate("UtilityBillsView", "Gasoline Utility Bill").toStdString()));
+  result.push_back(
+    std::make_pair<FuelType, std::string>(FuelType::Diesel, QCoreApplication::translate("UtilityBillsView", "Diesel Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(FuelType::FuelOil_1,
+                                                         QCoreApplication::translate("UtilityBillsView", "Fuel Oil #1 Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(FuelType::FuelOil_2,
+                                                         QCoreApplication::translate("UtilityBillsView", "Fuel Oil #2 Utility Bill").toStdString()));
+  result.push_back(
+    std::make_pair<FuelType, std::string>(FuelType::Propane, QCoreApplication::translate("UtilityBillsView", "Propane Utility Bill").toStdString()));
+  result.push_back(
+    std::make_pair<FuelType, std::string>(FuelType::Water, QCoreApplication::translate("UtilityBillsView", "Water Utility Bill").toStdString()));
+  result.push_back(
+    std::make_pair<FuelType, std::string>(FuelType::Steam, QCoreApplication::translate("UtilityBillsView", "Steam Utility Bill").toStdString()));
+  result.push_back(std::make_pair<FuelType, std::string>(
+    FuelType::EnergyTransfer, QCoreApplication::translate("UtilityBillsView", "Energy Transfer Utility Bill").toStdString()));
 
   return result;
 }
@@ -128,13 +141,13 @@ boost::optional<QString> UtilityBillsInspectorView::runPeriodDates() {
           QString string;
           QString number;
 
-          string += "Start Date ";
+          string += tr("Start Date ");
           string += number.setNum(beginMonth);
           string += "/";
           string += number.setNum(beginDayOfMonth);
           string += "/";
           string += number.setNum(beginYear);
-          string += "   End Date ";
+          string += tr("   End Date ");
           string += number.setNum(endMonth);
           string += "/";
           string += number.setNum(endDayOfMonth);
@@ -191,7 +204,7 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   label = new QLabel();
-  label->setText("Name");
+  label->setText(tr("Name"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -213,7 +226,7 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   m_consumptionUnitsLabel = new QLabel();
-  m_consumptionUnitsLabel->setText("Consumption Units");
+  m_consumptionUnitsLabel->setText(tr("Consumption Units"));
   m_consumptionUnitsLabel->setObjectName("H2");
   vLayout->addWidget(m_consumptionUnitsLabel);
 
@@ -230,7 +243,7 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   m_peakDemandUnitsLabel = new QLabel();
-  m_peakDemandUnitsLabel->setText("Peak Demand Units");
+  m_peakDemandUnitsLabel->setText(tr("Peak Demand Units"));
   m_peakDemandUnitsLabel->setObjectName("H2");
   vLayout->addWidget(m_peakDemandUnitsLabel);
 
@@ -247,7 +260,7 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   m_windowTimestepsLabel = new QLabel();
-  m_windowTimestepsLabel->setText("Peak Demand Window Timesteps");
+  m_windowTimestepsLabel->setText(tr("Peak Demand Window Timesteps"));
   m_windowTimestepsLabel->setObjectName("H2");
   vLayout->addWidget(m_windowTimestepsLabel);
 
@@ -268,7 +281,7 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   label = new QLabel();
-  label->setText("Run Period");
+  label->setText(tr("Run Period"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -285,12 +298,12 @@ void UtilityBillsInspectorView::createWidgets() {
   vLayout->setSpacing(10);
 
   label = new QLabel();
-  label->setText("Billing Period");
+  label->setText(tr("Billing Period"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
   label = new QLabel();
-  label->setText("Select the best match for you utility bill");
+  label->setText(tr("Select the best match for you utility bill"));
   vLayout->addWidget(label);
 
   auto* buttonGroup = new QButtonGroup(this);
@@ -300,15 +313,15 @@ void UtilityBillsInspectorView::createWidgets() {
 
   QRadioButton* radioButton = nullptr;
 
-  radioButton = new QRadioButton("Start Date and End Date");
+  radioButton = new QRadioButton(tr("Start Date and End Date"));
   buttonGroup->addButton(radioButton, 0);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("Start Date and Number of Days in Billing Period");
+  radioButton = new QRadioButton(tr("Start Date and Number of Days in Billing Period"));
   buttonGroup->addButton(radioButton, 1);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("End Date and Number of Days in Billing Period");
+  radioButton = new QRadioButton(tr("End Date and Number of Days in Billing Period"));
   buttonGroup->addButton(radioButton, 2);
   vLayout->addWidget(radioButton);
 
@@ -336,7 +349,7 @@ void UtilityBillsInspectorView::createWidgets() {
   m_addBillingPeriod = new QPushButton();
   m_addBillingPeriod->setFlat(true);
   m_addBillingPeriod->setObjectName("AddButton");
-  m_addBillingPeriod->setToolTip("Add new object");
+  m_addBillingPeriod->setToolTip(tr("Add new object"));
   m_addBillingPeriod->setFixedSize(24, 24);
   hLayout->addWidget(m_addBillingPeriod, 0, Qt::AlignLeft | Qt::AlignVCenter);
 
@@ -344,7 +357,7 @@ void UtilityBillsInspectorView::createWidgets() {
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Add New Billing Period");
+  label->setText(tr("Add New Billing Period"));
   hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignVCenter);
   mainLayout->addLayout(hLayout);
 
@@ -469,37 +482,37 @@ void UtilityBillsInspectorView::createBillingPeriodHeaderWidget() {
     label = new QLabel();
     label->setFixedWidth(CALENDER_WIDTH);
     label->setObjectName("H2");
-    label->setText("Start Date");
+    label->setText(tr("Start Date"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
 
     label = new QLabel();
     label->setFixedWidth(CALENDER_WIDTH);
     label->setObjectName("H2");
-    label->setText("End Date");
+    label->setText(tr("End Date"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
   } else if (m_billFormat == STARTDATE_NUMDAYS) {
     label = new QLabel();
     label->setFixedWidth(CALENDER_WIDTH);
     label->setObjectName("H2");
-    label->setText("Start Date");
+    label->setText(tr("Start Date"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
 
     label = new QLabel();
     label->setFixedWidth(WIDTH);
     label->setObjectName("H2");
-    label->setText("Billing Period Days");
+    label->setText(tr("Billing Period Days"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
   } else if (m_billFormat == ENDDATE_NUMDAYS) {
     label = new QLabel();
     label->setFixedWidth(CALENDER_WIDTH);
     label->setObjectName("H2");
-    label->setText("End Date");
+    label->setText(tr("End Date"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
 
     label = new QLabel();
     label->setFixedWidth(WIDTH);
     label->setObjectName("H2");
-    label->setText("Billing Period Days");
+    label->setText(tr("Billing Period Days"));
     hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
   } else {
     OS_ASSERT(false);
@@ -524,7 +537,7 @@ void UtilityBillsInspectorView::createBillingPeriodHeaderWidget() {
   label = new QLabel();
   label->setFixedWidth(WIDTH);
   label->setObjectName("H2");
-  label->setText("Cost");
+  label->setText(tr("Cost"));
   hLayout->addWidget(label, 0, Qt::AlignLeft | Qt::AlignTop);
 
   label = new QLabel();
@@ -589,14 +602,14 @@ void UtilityBillsInspectorView::deleteAllWidgetsAndLayoutItems(QLayout* layout, 
 }
 
 QString UtilityBillsInspectorView::getEnergyUseLabelText() {
-  QString string("Energy Use (");
+  QString string(tr("Energy Use ("));
   string += m_energyUseUnits;
   string += ")";
   return string;
 }
 
 QString UtilityBillsInspectorView::getPeakLabelText() {
-  QString string("Peak (");
+  QString string(tr("Peak ("));
   string += m_peakUnits;
   string += ")";
   return string;

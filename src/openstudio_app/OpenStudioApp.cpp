@@ -1329,7 +1329,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
 
-  // MeasureManager does not work in classic CLI https://github.com/NREL/OpenStudio/issues/5212
+  // MeasureManager does not work in classic CLI https://github.com/NatLabRockies/OpenStudio/issues/5212
   arguments << "measure";
   arguments << "-s";
   arguments << portString;
@@ -1480,10 +1480,13 @@ bool OpenStudioApp::switchLanguage(const QString& rLanguage) {
     }
   }
 
-  if (m_currLang == QString("fa")) {
-    // Force Right to Left display. This is not done automatically like in Arabic because qt itself isn't translated (no qt_fa.qm / qt_base_fa.qm)
-    qDebug() << "Forcing RightToLeft";
+  if (m_currLang == "ar" || m_currLang == "fa" || m_currLang == "he") {
+    // Force Right to Left display for RTL languages that don't have qt_XX.qm files
+    // to trigger it automatically.
+    qDebug() << "Forcing RightToLeft for" << m_currLang;
     OpenStudioApp::setLayoutDirection(Qt::RightToLeft);
+  } else {
+    OpenStudioApp::setLayoutDirection(Qt::LeftToRight);
   }
 
   return true;

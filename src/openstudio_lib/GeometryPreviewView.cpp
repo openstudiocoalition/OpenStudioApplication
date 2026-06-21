@@ -40,6 +40,8 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QFile>
+#include <QLocale>
+#include <QWebEngineScript>
 #include <QWebEngineScriptCollection>
 #include <QWebChannel>
 #include <QtConcurrent>
@@ -169,7 +171,7 @@ GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Mod
 GeometryPreviewView::~GeometryPreviewView() = default;
 
 PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_parent)
-  : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new ProgressBarWithError()), m_refreshBtn(new QPushButton("Refresh")) {
+  : QWidget(t_parent), m_isIP(isIP), m_model(model), m_progressBar(new ProgressBarWithError()), m_refreshBtn(new QPushButton(tr("Refresh"))) {
 
   openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);
@@ -202,6 +204,16 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
+  // Inject locale so geometry_preview.html can select translations
+  {
+    QWebEngineScript langScript;
+    langScript.setName("os-lang-init");
+    langScript.setSourceCode(QString("window.osLanguage = '%1';").arg(QLocale().name().split('_').first()));
+    langScript.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    langScript.setWorldId(QWebEngineScript::MainWorld);
+    m_page->scripts().insert(langScript);
+  }
+
   auto* channel = new QWebChannel(m_page);
   m_bridge = new GeometryBridge(m_model, this);
   channel->registerObject(QStringLiteral("bridge"), m_bridge);
@@ -215,10 +227,10 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
   const bool verboseOutput = mainWindow->geometryDiagnostics();
   m_geometryDiagnosticsBox = new QCheckBox();
-  m_geometryDiagnosticsBox->setText("Geometry Diagnostics");
+  m_geometryDiagnosticsBox->setText(tr("Geometry Diagnostics"));
   m_geometryDiagnosticsBox->setChecked(verboseOutput);
   m_geometryDiagnosticsBox->setToolTip(
-    "Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower");
+    tr("Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower"));
   connect(m_geometryDiagnosticsBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleGeometryDiagnostics);
   connect(m_geometryDiagnosticsBox, &QCheckBox::checkStateChanged, [this](Qt::CheckState state) {
     if (state == Qt::Checked && !m_includeGeometryDiagnostics) {

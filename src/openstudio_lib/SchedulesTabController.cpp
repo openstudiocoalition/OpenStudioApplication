@@ -47,9 +47,9 @@ namespace openstudio {
 
 SchedulesTabController::SchedulesTabController(bool isIP, const model::Model& model)
   : MainTabController(new SchedulesTabView(model)), m_model(model), m_isIP(isIP) {
-  mainContentWidget()->addSubTab("Schedule Sets", SCHEDULE_SETS);
-  mainContentWidget()->addSubTab("Schedules", SCHEDULES);
-  mainContentWidget()->addSubTab("Other Schedules", SCHEDULESOTHER);
+  mainContentWidget()->addSubTab(tr("Schedule Sets"), SCHEDULE_SETS);
+  mainContentWidget()->addSubTab(tr("Schedules"), SCHEDULES);
+  mainContentWidget()->addSubTab(tr("Other Schedules"), SCHEDULESOTHER);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &SchedulesTabController::setSubTab);
 }

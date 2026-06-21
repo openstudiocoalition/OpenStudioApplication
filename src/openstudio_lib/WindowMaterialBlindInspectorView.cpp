@@ -47,7 +47,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -66,7 +66,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Orientation
 
-  label = new QLabel("Slat Orientation: ");
+  label = new QLabel(tr("Slat Orientation: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -77,7 +77,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Width
 
-  label = new QLabel("Slat Width: ");
+  label = new QLabel(tr("Slat Width: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -87,7 +87,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Separation
 
-  label = new QLabel("Slat Separation: ");
+  label = new QLabel(tr("Slat Separation: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -97,7 +97,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Thickness
 
-  label = new QLabel("Slat Thickness: ");
+  label = new QLabel(tr("Slat Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -107,7 +107,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Angle
 
-  label = new QLabel("Slat Angle: ");
+  label = new QLabel(tr("Slat Angle: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -117,7 +117,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Conductivity
 
-  label = new QLabel("Slat Conductivity: ");
+  label = new QLabel(tr("Slat Conductivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -127,7 +127,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Beam Solar Transmittance
 
-  label = new QLabel("Slat Beam Solar Transmittance: ");
+  label = new QLabel(tr("Slat Beam Solar Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -137,7 +137,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Front Side Slat Beam Solar Reflectance
 
-  label = new QLabel("Front Side Slat Beam Solar Reflectance: ");
+  label = new QLabel(tr("Front Side Slat Beam Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -147,7 +147,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Back Side Slat Beam Solar Reflectance
 
-  label = new QLabel("Back Side Slat Beam Solar Reflectance: ");
+  label = new QLabel(tr("Back Side Slat Beam Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -157,7 +157,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Diffuse Solar Transmittance
 
-  label = new QLabel("Slat Diffuse Solar Transmittance: ");
+  label = new QLabel(tr("Slat Diffuse Solar Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -167,7 +167,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Front Side Slat Diffuse Solar Reflectance
 
-  label = new QLabel("Front Side Slat Diffuse Solar Reflectance: ");
+  label = new QLabel(tr("Front Side Slat Diffuse Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -177,7 +177,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Back Side Slat Diffuse Solar Reflectance
 
-  label = new QLabel("Back Side Slat Diffuse Solar Reflectance: ");
+  label = new QLabel(tr("Back Side Slat Diffuse Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -187,7 +187,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Beam Visible Transmittance
 
-  label = new QLabel("Slat Beam Visible Transmittance: ");
+  label = new QLabel(tr("Slat Beam Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -197,7 +197,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Front Side Slat Beam Visible Reflectance
 
-  label = new QLabel("Front Side Slat Beam Visible Reflectance: ");
+  label = new QLabel(tr("Front Side Slat Beam Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -207,7 +207,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Back Side Slat Beam Visible Reflectance
 
-  label = new QLabel("Back Side Slat Beam Visible Reflectance: ");
+  label = new QLabel(tr("Back Side Slat Beam Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -217,7 +217,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Diffuse Visible Transmittance
 
-  label = new QLabel("Slat Diffuse Visible Transmittance: ");
+  label = new QLabel(tr("Slat Diffuse Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -227,7 +227,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Front Side Slat Diffuse Visible Reflectance
 
-  label = new QLabel("Front Side Slat Diffuse Visible Reflectance: ");
+  label = new QLabel(tr("Front Side Slat Diffuse Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -238,7 +238,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Back Side Slat Diffuse Visible Reflectance
 
-  label = new QLabel("Back Side Slat Diffuse Visible Reflectance: ");
+  label = new QLabel(tr("Back Side Slat Diffuse Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -248,7 +248,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Slat Infrared Hemispherical Transmittance
 
-  label = new QLabel("Slat Infrared Hemispherical Transmittance: ");
+  label = new QLabel(tr("Slat Infrared Hemispherical Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -259,7 +259,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Front Side Slat Infrared Hemispherical Emissivity
 
-  label = new QLabel("Front Side Slat Infrared Hemispherical Emissivity: ");
+  label = new QLabel(tr("Front Side Slat Infrared Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -270,7 +270,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Back Side Slat Infrared Hemispherical Emissivity
 
-  label = new QLabel("Back Side Slat Infrared Hemispherical Emissivity: ");
+  label = new QLabel(tr("Back Side Slat Infrared Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -281,7 +281,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Blind To Glass Distance
 
-  label = new QLabel("Blind To Glass Distance: ");
+  label = new QLabel(tr("Blind To Glass Distance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -291,7 +291,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Blind Top Opening Multiplier
 
-  label = new QLabel("Blind Top Opening Multiplier: ");
+  label = new QLabel(tr("Blind Top Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -301,7 +301,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Blind Bottom Opening Multiplier
 
-  label = new QLabel("Blind Bottom Opening Multiplier: ");
+  label = new QLabel(tr("Blind Bottom Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -311,7 +311,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Blind Left Side Opening Multiplier
 
-  label = new QLabel("Blind Left Side Opening Multiplier: ");
+  label = new QLabel(tr("Blind Left Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -321,7 +321,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Blind Right Side Opening Multiplier
 
-  label = new QLabel("Blind Right Side Opening Multiplier: ");
+  label = new QLabel(tr("Blind Right Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -331,7 +331,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Minimum Slat Angle
 
-  label = new QLabel("Minimum Slat Angle: ");
+  label = new QLabel(tr("Minimum Slat Angle: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -341,7 +341,7 @@ void WindowMaterialBlindInspectorView::createLayout() {
 
   // Maximum Slat Angle
 
-  label = new QLabel("Maximum Slat Angle: ");
+  label = new QLabel(tr("Maximum Slat Angle: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

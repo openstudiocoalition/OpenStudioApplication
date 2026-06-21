@@ -116,7 +116,7 @@ call deactivate_conanbuild.bat
 # Full Example
 
 ```
-git clone git@github.com/NREL/OpenStudio.git
+git clone git@github.com/NatLabRockies/OpenStudio.git
 cd OpenStudio
 conan install . --output-folder=../OSApp-build-release --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
 cmake --preset conan-release

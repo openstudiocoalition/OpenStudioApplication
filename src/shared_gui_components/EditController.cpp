@@ -24,7 +24,7 @@ namespace openstudio {
 
 EditController::EditController(bool applyMeasureNow) : editView(new OSViewSwitcher()) {
   if (applyMeasureNow) {
-    m_editNullView = new EditNullView("Select a Measure to Apply");
+    m_editNullView = new EditNullView(tr("Select a Measure to Apply"));
   } else {
     m_editNullView = new EditNullView();
   }

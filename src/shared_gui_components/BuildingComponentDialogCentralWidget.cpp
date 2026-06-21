@@ -15,7 +15,8 @@
 #include <openstudio/measure/OSArgument.hpp>
 
 #include <openstudio/utilities/bcl/BCL.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include <openstudio/utilities/bcl/LocalBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include "../openstudio_qt_utils/Application.hpp"
@@ -80,7 +81,7 @@ void BuildingComponentDialogCentralWidget::init() {
 
 void BuildingComponentDialogCentralWidget::createLayout() {
 
-  auto* label = new QLabel("Sort by:");
+  auto* label = new QLabel(tr("Sort by:"));
   label->hide();  // TODO remove this hack when we have sorts to do
 
   auto* comboBox = new QComboBox(this);
@@ -89,7 +90,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
-  auto* upperPushButton = new QPushButton("Check All");
+  auto* upperPushButton = new QPushButton(tr("Check All"));
   connect(upperPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::upperPushButtonClicked);
 
   auto* upperLayout = new QHBoxLayout();
@@ -136,7 +137,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   m_progressBar = new ProgressBarWithError(this);
   m_progressBar->setVisible(false);
 
-  auto* lowerPushButton = new QPushButton("Download");
+  auto* lowerPushButton = new QPushButton(tr("Download"));
   connect(lowerPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::lowerPushButtonClicked);
 
   auto* lowerLayout = new QHBoxLayout();
@@ -185,7 +186,7 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
     delete comp;
   }
 
-  RemoteBCL remoteBCL;
+  RemoteBCLNLR remoteBCL;
   remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
   std::vector<BCLSearchResult> responses;
   if (filterType == "components") {
@@ -325,7 +326,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
   if (m_remoteBCL) {
     // currently doing a download
     if (m_downloadTimer.isValid()) {
-      // RemoteBCL does not always call the call back for us if we timeout
+      // RemoteBCLNLR does not always call the call back for us if we timeout
       if (m_downloadTimer.elapsed() > static_cast<qint64>(1000) * m_timeoutSeconds) {
         m_timer->stop();
 
@@ -339,7 +340,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
         m_downloadTimer.invalidate();
         m_currentDownload.reset();
 
-        if (!RemoteBCL::isOnline()) {
+        if (!RemoteBCLNLR::isOnline()) {
           // if we have gone offline cancel the remaining pending downloads
           clearPendingDownloads(true);
         }
@@ -367,7 +368,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
     m_progressBar->setVisible(true);
 
     if (m_currentDownload->second == "components") {
-      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL = std::make_shared<RemoteBCLNLR>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
 
       // Connect to Nano Signal
@@ -383,7 +384,7 @@ void BuildingComponentDialogCentralWidget::downloadNextComponent() {
       }
 
     } else if (m_currentDownload->second == "measures") {
-      m_remoteBCL = std::make_shared<RemoteBCL>();
+      m_remoteBCL = std::make_shared<RemoteBCLNLR>();
       m_remoteBCL->setTimeOutSeconds(m_timeoutSeconds);
 
       // Connect to Nano Signal

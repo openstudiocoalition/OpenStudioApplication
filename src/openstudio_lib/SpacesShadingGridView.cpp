@@ -32,21 +32,7 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
-
-// GENERAL
-#define SHADINGSURFACEGROUP "Shading Surface Group"  // read only
-#define CONSTRUCTION "Construction"
-#define TRANSMITTANCESCHEDULE "Transmittance Schedule"
-#define SHADEDSURFACENAME "Shading Surface Name"       // DAN note: need model method for suggestions
-#define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"  // read only
+#include <QCoreApplication>
 
 namespace openstudio {
 
@@ -60,8 +46,8 @@ SpacesShadingGridView::SpacesShadingGridView(bool isIP, bool displayAdditionalPr
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesShadingGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesShadingGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -101,10 +87,10 @@ SpacesShadingGridController::SpacesShadingGridController(bool isIP, bool display
 void SpacesShadingGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      SHADEDSURFACENAME, SHADINGSURFACEGROUP, CONSTRUCTION, TRANSMITTANCESCHEDULE,
-      //DAYLIGHTINGSHELFNAME,
+      tr("Shading Surface Name"), tr("Shading Surface Group"), tr("Construction"), tr("Transmittance Schedule"),
+      //tr("Daylighting Shelf Name"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -118,27 +104,27 @@ void SpacesShadingGridController::onCategorySelected(int index) {
 void SpacesShadingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+    if (field == tr("Space Name")) {
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
@@ -179,33 +165,34 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
           return allModelObjects;
         });
 
-      if (field == SELECTED) {
+      if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
+        checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesShadingGridController::onSelectAllStateChanged);
         connect(this, &SpacesShadingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaceGroups, true));
-      } else if (field == SHADEDSURFACENAME) {
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(),
+                        DataSource(allShadingSurfaceGroups, true));
+      } else if (field == tr("Shading Surface Name")) {
         addNameLineEditColumn(
-          Heading(QString(SHADEDSURFACENAME), true, false), false, false, CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
+          Heading(tr("Shading Surface Name"), true, false), false, false, CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::name),
           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setName), boost::optional<std::function<void(model::ShadingSurface*)>>(),
           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
-      } else if (field == SHADINGSURFACEGROUP) {
-        addNameLineEditColumn(Heading(QString(SHADINGSURFACEGROUP), true, false), false, false,
+      } else if (field == tr("Shading Surface Group")) {
+        addNameLineEditColumn(Heading(tr("Shading Surface Group"), true, false), false, false,
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::name),
                               CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setName),
                               boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>(),
                               DataSource(allShadingSurfaceShadingSurfaceGroups, true));
-      } else if (field == CONSTRUCTION) {
+      } else if (field == tr("Construction")) {
         setConstructionColumn(4);
-        addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),
+        addDropZoneColumn(Heading(tr("Construction")), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),
                           CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::setConstruction),
                           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::isConstructionDefaulted)),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::ShadingSurface*)>>(),
                           DataSource(allShadingSurfaces, true));
-      } else if (field == TRANSMITTANCESCHEDULE) {
+      } else if (field == tr("Transmittance Schedule")) {
         std::function<bool(model::ShadingSurface*, const model::Schedule&)> setter(
           [](model::ShadingSurface* t_shadingSurface, const model::Schedule& t_arg) {
             auto copy = t_arg;
@@ -213,16 +200,16 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
           });
 
         addDropZoneColumn(
-          Heading(QString(TRANSMITTANCESCHEDULE)), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::transmittanceSchedule), setter,
+          Heading(tr("Transmittance Schedule")), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::transmittanceSchedule), setter,
           boost::optional<std::function<void(model::ShadingSurface*)>>(NullAdapter(&model::ShadingSurface::resetTransmittanceSchedule)),
           boost::optional<std::function<bool(model::ShadingSurface*)>>(),
           boost::optional<std::function<std::vector<model::ModelObject>(const model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
-      } else if (field == SHADEDSURFACENAME) {
+      } else if (field == tr("Shading Surface Name")) {
         //ShadingSurfaceGroup
         //boost::optional<Surface> shadedSurface() const;
         //bool setShadedSurface(const Surface& surface);
 
-      } else if (field == DAYLIGHTINGSHELFNAME) {
+      } else if (field == tr("Daylighting Shelf Name")) {
         //ShadingSurface
         //boost::optional<DaylightingDeviceShelf> daylightingDeviceShelf() const;
       } else {

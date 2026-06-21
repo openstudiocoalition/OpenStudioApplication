@@ -53,7 +53,7 @@ void ConstructionFfactorGroundFloorInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -74,7 +74,7 @@ void ConstructionFfactorGroundFloorInspectorView::createLayout() {
 
   // F-Factor
 
-  label = new QLabel("F-Factor: ");
+  label = new QLabel(tr("F-Factor: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -88,7 +88,7 @@ void ConstructionFfactorGroundFloorInspectorView::createLayout() {
 
   // Area
 
-  label = new QLabel("Area: ");
+  label = new QLabel(tr("Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -102,7 +102,7 @@ void ConstructionFfactorGroundFloorInspectorView::createLayout() {
 
   // Perimeter Exposed
 
-  label = new QLabel("Perimeter Exposed: ");
+  label = new QLabel(tr("Perimeter Exposed: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 

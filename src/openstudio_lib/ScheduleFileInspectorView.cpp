@@ -56,7 +56,7 @@ void ScheduleFileInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -68,7 +68,7 @@ void ScheduleFileInspectorView::createLayout() {
   // FilePath
   ++row;
 
-  label = new QLabel("FilePath: ");
+  label = new QLabel(tr("FilePath: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -85,7 +85,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Column Number
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Column Number: ");
+  label = new QLabel(tr("Column Number: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -97,7 +97,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Rows to Skip
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Rows to Skip at Top: ");
+  label = new QLabel(tr("Rows to Skip at Top: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -114,7 +114,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Number of Hours of Data
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Number of Hours of Data: ");
+  label = new QLabel(tr("Number of Hours of Data: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -126,15 +126,15 @@ void ScheduleFileInspectorView::createLayout() {
   // Column Separator
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Column Separator: ");
+  label = new QLabel(tr("Column Separator: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
   m_columnSeparator = new OSComboBox2();
-  m_columnSeparator->addItem("Comma");
-  m_columnSeparator->addItem("Tab");
-  m_columnSeparator->addItem("Space");
-  m_columnSeparator->addItem("Semicolon");
+  m_columnSeparator->addItem(tr("Comma"), QString("Comma"));
+  m_columnSeparator->addItem(tr("Tab"), QString("Tab"));
+  m_columnSeparator->addItem(tr("Space"), QString("Space"));
+  m_columnSeparator->addItem(tr("Semicolon"), QString("Semicolon"));
   m_columnSeparator->setEnabled(true);
   vLayout->addWidget(m_columnSeparator);
 
@@ -145,7 +145,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Interpolate
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Interpolate to Timestep: ");
+  label = new QLabel(tr("Interpolate to Timestep: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -157,14 +157,11 @@ void ScheduleFileInspectorView::createLayout() {
   // Minutes per Item
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Minutes per Item: ");
+  label = new QLabel(tr("Minutes per Item: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
   m_minutesperItem = new OSComboBox2();
-  for (const auto& val : model::ScheduleFile::minutesperItemValues()) {
-    m_minutesperItem->addItem(QString::fromStdString(val));
-  }
   m_minutesperItem->setEnabled(true);
   vLayout->addWidget(m_minutesperItem);
 
@@ -175,7 +172,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Adjust Schedule for Daylight Savings
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Adjust Schedule for Daylight Savings: ");
+  label = new QLabel(tr("Adjust Schedule for Daylight Savings: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -187,7 +184,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Translate File With Relative Path
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Translate File With Relative Path: ");
+  label = new QLabel(tr("Translate File With Relative Path: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -204,13 +201,13 @@ void ScheduleFileInspectorView::createLayout() {
   mainGridLayout->addWidget(line, row, 0, 1, -1);
   row++;
 
-  label = new QLabel("Content: ");
+  label = new QLabel(tr("Content: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
-  label = new QLabel("Number of Lines in file: ");
+  label = new QLabel(tr("Number of Lines in file: "));
   label->setObjectName("H3");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -225,7 +222,7 @@ void ScheduleFileInspectorView::createLayout() {
 
   ++row;
 
-  label = new QLabel("Display All File Content: ");
+  label = new QLabel(tr("Display All File Content: "));
   label->setObjectName("H3");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -318,21 +315,22 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
                                 return result;
                               }));
 
-  // OSComboBox2
-
-  m_columnSeparator->bind<std::string>(
-    *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
-    []() { return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"}; },
-    std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
-    [this](const std::string& value) -> bool {
-      bool result = m_sch->setColumnSeparator(value);
-      if (result) {
-        refreshContent();
+  // Column separator: use addItem(tr(display), englishValue) so translated text displays
+  // while the English string is used for the model setter via currentData().
+  {
+    const int idx = m_columnSeparator->findData(QString::fromStdString(m_sch->columnSeparator()));
+    if (idx >= 0) {
+      m_columnSeparator->setCurrentIndex(idx);
+    }
+    connect(m_columnSeparator, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int) {
+      if (m_sch) {
+        bool result = m_sch->setColumnSeparator(m_columnSeparator->currentData().toString().toStdString());
+        if (result) {
+          refreshContent();
+        }
       }
-      return result;
-    },
-    boost::none, boost::none);
+    });
+  }
 
   m_minutesperItem->bind<std::string>(
     *m_sch,
@@ -388,7 +386,7 @@ void ScheduleFileInspectorView::detach() {
   m_columnNumber->unbind();
   m_rowstoSkipatTop->unbind();
   m_numberofHoursofData->unbind();
-  m_columnSeparator->unbind();
+  disconnect(m_columnSeparator, nullptr, this, nullptr);
   m_interpolatetoTimestep->unbind();
   m_minutesperItem->unbind();
   m_adjustScheduleforDaylightSavings->unbind();

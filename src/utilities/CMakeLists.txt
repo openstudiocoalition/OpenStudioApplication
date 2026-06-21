@@ -8,6 +8,8 @@ CONFIGURE_FILE_WITH_CHECKSUM("OpenStudioApplicationPathHelpers.cxx.in" "${CMAKE_
 set(${target_name}_src
   OpenStudioApplicationPathHelpers.hpp
   ${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApplicationPathHelpers.cxx
+  RemoteBCLNLR.hpp
+  RemoteBCLNLR.cpp
 )
 
 # set up groups of source files for Visual Studio

@@ -55,9 +55,6 @@
 #define LOADING_ARG_TEXT "<FONT COLOR = BLACK>Loading Arguments..."
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
-#define ACCEPT_CHANGES "Accept Changes"
-#define APPLY_MEASURE "Apply Measure"
-
 namespace openstudio {
 
 ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
@@ -74,7 +71,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
     m_workingDir(openstudio::path()),
     m_workingFilesDir(openstudio::path()),
     m_advancedOutputDialog(nullptr) {
-  setWindowTitle("Apply Measure Now");
+  setWindowTitle(tr("Apply Measure Now"));
   setWindowModality(Qt::ApplicationModal);
   setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
   setSizeGripEnabled(true);
@@ -83,7 +80,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   OSAppBase* app = OSAppBase::instance();
   connect(this, &ApplyMeasureNowDialog::reloadFile, app, &OSAppBase::reloadFile, Qt::QueuedConnection);
 
-  m_advancedOutputDialog = new TextEditDialog("Advanced Output");
+  m_advancedOutputDialog = new TextEditDialog(tr("Advanced Output"));
 
   //m_workingDir = toPath("E:/test/ApplyMeasureNow");
   m_workingDir = openstudio::toPath(app->currentDocument()->modelTempDir()) / openstudio::toPath("ApplyMeasureNow");
@@ -104,7 +101,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
   }
 
   // The openstudio-workflow gem will prepend the "generated_files" directory to the workflowJSON.filePaths, so match that
-  // cf: https://github.com/NREL/OpenStudio-workflow-gem/blob/e569f910be364d33c3ddb1a655570c85f1b24bfa/lib/openstudio/workflow/jobs/run_initialization.rb#L99
+  // cf: https://github.com/NatLabRockies/OpenStudio-workflow-gem/blob/e569f910be364d33c3ddb1a655570c85f1b24bfa/lib/openstudio/workflow/jobs/run_initialization.rb#L99
   // in requestReload, this directory gets copied over to the first filePath of m_modelWorkflowJSON, which is typically the files/ directory
   m_workingFilesDir = m_workingDir / openstudio::toPath("generated_files");
   // add the WorkingFiles directory as files files path, measures writing output files should be written here
@@ -190,7 +187,7 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   // RUNNING
 
-  label = new QLabel("Running Measure");
+  label = new QLabel(tr("Running Measure"));
   label->setObjectName("H2");
 
   auto* busyWidget = new BusyWidget();
@@ -210,7 +207,7 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   // OUTPUT
 
-  label = new QLabel("Measure Output");
+  label = new QLabel(tr("Measure Output"));
   label->setObjectName("H1");
 
   m_jobItemView = new DataPointJobItemView();
@@ -228,7 +225,7 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   layout->addStretch();
 
-  m_showAdvancedOutput = new QPushButton("Advanced Output");
+  m_showAdvancedOutput = new QPushButton(tr("Advanced Output"));
   connect(m_showAdvancedOutput, &QPushButton::clicked, this, &ApplyMeasureNowDialog::showAdvancedOutput);
 
   //layout->addStretch();
@@ -255,7 +252,7 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   // BUTTONS
 
-  this->okButton()->setText(APPLY_MEASURE);
+  this->okButton()->setText(tr("Apply Measure"));
   this->okButton()->setEnabled(false);
 
   this->backButton()->show();
@@ -281,7 +278,7 @@ void ApplyMeasureNowDialog::displayMeasure() {
     return;
   }
 
-  this->okButton()->setText(APPLY_MEASURE);
+  this->okButton()->setText(tr("Apply Measure"));
   this->okButton()->show();
   this->okButton()->setEnabled(false);
 
@@ -404,7 +401,7 @@ void ApplyMeasureNowDialog::displayResults() {
   m_mainPaneStackedWidget->setCurrentIndex(m_outputPageIdx);
   m_timer->stop();
 
-  this->okButton()->setText(ACCEPT_CHANGES);
+  this->okButton()->setText(tr("Accept Changes"));
   this->okButton()->show();
   boost::system::error_code ec;
   if (boost::filesystem::exists(*m_reloadPath, ec)) {
@@ -520,7 +517,7 @@ void DataPointJobHeaderView::setLastRunTime(const boost::optional<openstudio::Da
     std::string s = lastRunTime->toString();
     m_lastRunTime->setText(toQString(s));
   } else {
-    m_lastRunTime->setText("Not Started");
+    m_lastRunTime->setText(tr("Not Started"));
   }
 }
 
@@ -528,7 +525,7 @@ void DataPointJobHeaderView::setStatus(const std::string& status, bool isCancele
   if (!isCanceled) {
     m_status->setText(toQString(status));
   } else {
-    m_status->setText("Canceled");
+    m_status->setText(tr("Canceled"));
   }
 }
 
@@ -548,7 +545,7 @@ void DataPointJobHeaderView::setNumWarnings(unsigned numWarnings) {
   if (numWarnings > 0) {
     warningsStyle = "QLabel { color : #C47B06; }";
   }
-  m_warnings->setText(QString::number(numWarnings) + QString(numWarnings == 1 ? " Warning" : " Warnings"));
+  m_warnings->setText(numWarnings == 1 ? tr("%1 Warning").arg(numWarnings) : tr("%1 Warnings").arg(numWarnings));
   m_warnings->setStyleSheet(warningsStyle);
 }
 
@@ -557,7 +554,7 @@ void DataPointJobHeaderView::setNumErrors(unsigned numErrors) {
   if (numErrors > 0) {
     errorsStyle = "QLabel { color : red; }";
   }
-  m_errors->setText(QString::number(numErrors) + QString(numErrors == 1 ? " Error" : " Errors"));
+  m_errors->setText(numErrors == 1 ? tr("%1 Error").arg(numErrors) : tr("%1 Errors").arg(numErrors));
   m_errors->setStyleSheet(errorsStyle);
 }
 
@@ -752,7 +749,7 @@ void ApplyMeasureNowDialog::on_backButton(bool checked) {
     // Nothing specific here
   } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
     this->okButton()->setEnabled(true);
-    this->okButton()->setText(APPLY_MEASURE);
+    this->okButton()->setText(tr("Apply Measure"));
     this->backButton()->setEnabled(false);
     m_mainPaneStackedWidget->setCurrentIndex(m_inputPageIdx);
   }
@@ -805,7 +802,7 @@ void ApplyMeasureNowDialog::disableOkButton(bool disable) {
 
 void ApplyMeasureNowDialog::showAdvancedOutput() {
   if (m_advancedOutput.isEmpty()) {
-    QMessageBox::information(this, QString("Advanced Output"), QString("No advanced output."));
+    QMessageBox::information(this, tr("Advanced Output"), tr("No advanced output."));
   } else {
     m_advancedOutputDialog->setText(m_advancedOutput);
     m_advancedOutputDialog->setSizeHint(QSize(this->geometry().width(), this->geometry().height()));

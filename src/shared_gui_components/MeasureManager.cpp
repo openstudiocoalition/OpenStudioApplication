@@ -25,7 +25,7 @@
 #include <openstudio/utilities/core/PathHelpers.hpp>
 #include <openstudio/utilities/core/System.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
@@ -951,7 +951,7 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 }
 
 void MeasureManager::checkForRemoteBCLUpdates() {
-  RemoteBCL remoteBCL;
+  RemoteBCLNLR remoteBCL;
   remoteBCL.checkForMeasureUpdates();
   std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
 

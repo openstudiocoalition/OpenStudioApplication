@@ -52,7 +52,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
       setCheckBoxEnabled(false);
       m_updateAvailable = false;
       if (m_msg) {
-        m_msg->setText("This measure is not compatible with the current version of OpenStudio");
+        m_msg->setText(tr("This measure is not compatible with the current version of OpenStudio"));
         m_msg->setVisible(true);
       }
     }
@@ -63,7 +63,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
     m_checkBox->setObjectName("Disabled");
     m_updateAvailable = false;
     if (m_msg) {
-      m_msg->setText("This measure cannot be updated because it has an error");
+      m_msg->setText(tr("This measure cannot be updated because it has an error"));
       m_msg->setVisible(true);
     }
   } else {
@@ -73,7 +73,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
     m_checkBox->setObjectName("UpdateAvailable");
     m_updateAvailable = true;
     if (m_msg) {
-      m_msg->setText("An update is available for this measure");
+      m_msg->setText(tr("An update is available for this measure"));
       m_msg->setVisible(true);
     }
   }
@@ -109,7 +109,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
         setCheckBoxUpdateAvailable(true);
         m_updateAvailable = true;
         if (m_msg) {
-          m_msg->setText("An update is available for this component");
+          m_msg->setText(tr("An update is available for this component"));
           m_msg->setVisible(true);
         }
       }
@@ -129,7 +129,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
         setCheckBoxEnabled(false);
         m_updateAvailable = false;
         if (m_msg) {
-          m_msg->setText("This measure is not compatible with the current version of OpenStudio");
+          m_msg->setText(tr("This measure is not compatible with the current version of OpenStudio"));
           m_msg->setVisible(true);
         }
       }
@@ -148,7 +148,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
           setCheckBoxUpdateAvailable(true);
           m_updateAvailable = true;
           if (m_msg) {
-            m_msg->setText("An update is available for this measure");
+            m_msg->setText(tr("An update is available for this measure"));
             m_msg->setVisible(true);
           }
         }
@@ -481,7 +481,7 @@ void Component::createCompleteLayout() {
 
   ///! Error
   if (m_error) {
-    auto* label = new QLabel("Errors");
+    auto* label = new QLabel(tr("Errors"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
 
@@ -496,7 +496,7 @@ void Component::createCompleteLayout() {
   // Description
   if (!m_description.isEmpty()) {
     {
-      auto* label = new QLabel("Description");
+      auto* label = new QLabel(tr("Description"));
       label->setObjectName("H1");
       mainLayout->addWidget(label);
     }
@@ -510,7 +510,7 @@ void Component::createCompleteLayout() {
 
   if (!m_modelerDescription.isEmpty()) {
     {
-      auto* label = new QLabel("Modeler Description");
+      auto* label = new QLabel(tr("Modeler Description"));
       label->setObjectName("H1");
       mainLayout->addWidget(label);
     }
@@ -564,7 +564,7 @@ void Component::createCompleteLayout() {
     ///! Attributes
     ///! Class BCL only stores double (optional units),
     ///! int (optional units), and string, with their names.
-    auto* label = new QLabel("Attributes");
+    auto* label = new QLabel(tr("Attributes"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
 
@@ -611,7 +611,7 @@ void Component::createCompleteLayout() {
   if (m_componentType != "component") {
     //if (!m_arguments.empty()){
 
-    auto* label = new QLabel("Arguments");
+    auto* label = new QLabel(tr("Arguments"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
 
@@ -641,7 +641,7 @@ void Component::createCompleteLayout() {
 
   /////! Files
   if (!m_files.empty()) {
-    auto* label = new QLabel("Files");
+    auto* label = new QLabel(tr("Files"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
     for (const BCLFile& file : m_files) {
@@ -678,7 +678,7 @@ void Component::createCompleteLayout() {
   ///! Provenances
   //if (!m_provenances.empty()){
   {
-    auto* label = new QLabel("Sources");
+    auto* label = new QLabel(tr("Sources"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
     if (m_provenances.empty() && m_org.isEmpty() && m_repo.isEmpty()) {
@@ -688,24 +688,24 @@ void Component::createCompleteLayout() {
     } else {
       auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
       if (!m_org.isEmpty()) {
-        addRowToTableWidget(tableWidget, "Organization", m_org);
+        addRowToTableWidget(tableWidget, tr("Organization"), m_org);
       }
       if (!m_repo.isEmpty()) {
-        addRowToTableWidget(tableWidget, "Repository", m_repo);
+        addRowToTableWidget(tableWidget, tr("Repository"), m_repo);
       }
       if (!m_releaseTag.isEmpty()) {
-        addRowToTableWidget(tableWidget, "Release Tag", m_releaseTag);
+        addRowToTableWidget(tableWidget, tr("Release Tag"), m_releaseTag);
       }
 
       for (const BCLProvenance& provenance : m_provenances) {
         if (!provenance.author().empty()) {
-          addRowToTableWidget(tableWidget, "Author", provenance.author().c_str());
+          addRowToTableWidget(tableWidget, tr("Author"), provenance.author().c_str());
         }
         if (!provenance.comment().empty()) {
-          addRowToTableWidget(tableWidget, "Comment", provenance.comment().c_str());
+          addRowToTableWidget(tableWidget, tr("Comment"), provenance.comment().c_str());
         }
         if (!provenance.datetime().empty()) {
-          addRowToTableWidget(tableWidget, "Date & time", provenance.datetime().c_str());
+          addRowToTableWidget(tableWidget, tr("Date & time"), provenance.datetime().c_str());
         }
         // TODO: add a separator?
         // addRowToTableWidget(tableWidget, "", "");
@@ -733,7 +733,7 @@ void Component::createCompleteLayout() {
   ///! Tags
   //if (!m_tags.empty())
   {
-    auto* label = new QLabel("Tags");
+    auto* label = new QLabel(tr("Tags"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
     for (const std::string& tag : m_tags) {
@@ -746,15 +746,15 @@ void Component::createCompleteLayout() {
   }
 
   {
-    auto* label = new QLabel("Version");
+    auto* label = new QLabel(tr("Version"));
     label->setObjectName("H1");
     mainLayout->addWidget(label);
 
     auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
-    addRowToTableWidget(tableWidget, "UID", m_uid);
-    addRowToTableWidget(tableWidget, "Version ID", m_versionId);
+    addRowToTableWidget(tableWidget, tr("UID"), m_uid);
+    addRowToTableWidget(tableWidget, tr("Version ID"), m_versionId);
     if (!m_versionModified.isEmpty()) {
-      addRowToTableWidget(tableWidget, "Version Modified", m_versionModified);
+      addRowToTableWidget(tableWidget, tr("Version Modified"), m_versionModified);
     }
     makeTableShowCompletely(tableWidget);
   }

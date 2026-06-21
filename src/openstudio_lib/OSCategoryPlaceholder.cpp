@@ -16,7 +16,7 @@
 
 namespace openstudio {
 
-OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent) : QWidget(parent) {
+OSCategoryPlaceholder::OSCategoryPlaceholder(const QString& text, QWidget* parent) : QWidget(parent) {
   setFixedHeight(40);
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCategoryPlaceholder");
@@ -30,7 +30,7 @@ OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* p
 
   // Label
 
-  m_textLabel = new QLabel(QString::fromStdString(text));
+  m_textLabel = new QLabel(text);
   m_textLabel->setWordWrap(true);
   m_textLabel->setObjectName("OSCategoryPlaceholderText");
   m_textLabel->setStyleSheet("QLabel#OSCategoryPlaceholderText { font-size: 14px; color: white; }");

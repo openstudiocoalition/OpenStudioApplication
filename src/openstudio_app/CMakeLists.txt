@@ -520,6 +520,7 @@ set(${target_name}_test_src
   test/OpenStudioAppFixture.hpp
   test/OpenStudioAppFixture.cpp
   test/Resources_GTest.cpp
+  test/Translation_GTest.cpp
   test/Units_GTest.cpp
   test/GithubReleases_GTest.cpp
   GithubReleases.hpp

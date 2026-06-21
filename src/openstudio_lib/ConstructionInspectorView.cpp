@@ -62,7 +62,7 @@ void ConstructionInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -83,20 +83,20 @@ void ConstructionInspectorView::createLayout() {
 
   // Layer
 
-  label = new QLabel("Layer: ");
+  label = new QLabel(tr("Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
-  label = new QLabel("Outside");
+  label = new QLabel(tr("Outside"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
   m_constructionVC = new ConstructionObjectVectorController(this);
-  m_constructionDZ = new OSDropZone(m_constructionVC, "Drag From Library", QSize(0, 0), false);
+  m_constructionDZ = new OSDropZone(m_constructionVC, tr("Drag From Library"), QSize(0, 0), false);
   m_constructionDZ->setMinItems(0);
   m_constructionDZ->setMaxItems(12);
   m_constructionDZ->setItemsRemoveable(true);
@@ -109,7 +109,7 @@ void ConstructionInspectorView::createLayout() {
 
   ++row;
 
-  label = new QLabel("Inside");
+  label = new QLabel(tr("Inside"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 

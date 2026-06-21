@@ -115,11 +115,11 @@ VRFSystemView::VRFSystemView()
 
   terminalDropZone->setParentItem(this);
   terminalDropZone->setSize(terminalDropZoneWidth, dropZoneHeight);
-  terminalDropZone->setText("Drop VRF Terminal");
+  terminalDropZone->setText(tr("Drop VRF Terminal"));
 
   zoneDropZone->setParentItem(this);
   zoneDropZone->setSize(zoneDropZoneWidth, dropZoneHeight);
-  zoneDropZone->setText("Drop Thermal Zone");
+  zoneDropZone->setText(tr("Drop Thermal Zone"));
 
   adjustLayout();
 }
@@ -301,7 +301,7 @@ void VRFTerminalView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /
 
 VRFThermalZoneDropZoneView::VRFThermalZoneDropZoneView() : m_hasZone(false) {
   setSize(600, 50);
-  setText("Drop Thermal Zone");
+  setText(tr("Drop Thermal Zone"));
 }
 
 void VRFThermalZoneDropZoneView::setHasZone(bool hasZone) {
@@ -433,7 +433,7 @@ void VRFSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   font.setPixelSize(12);
   font.setWeight(QFont::Normal);
   painter->setFont(font);
-  painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, QString("Terminals"));
+  painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, tr("Terminals"));
   x = x + m_length;
 
   painter->drawPixmap(x, y, m_vrfZonePix);
@@ -447,7 +447,7 @@ void VRFSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   font.setPixelSize(12);
   font.setWeight(QFont::Normal);
   painter->setFont(font);
-  painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, QString("Zones"));
+  painter->drawText(QRectF(x, y + m_length / 2.0, m_length, m_length / 2.0), Qt::AlignCenter, tr("Zones"));
   x = x + m_length;
 }
 
@@ -467,7 +467,7 @@ void VRFSystemDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsI
   font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop VRF System");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Drop VRF System"));
 }
 
 }  // namespace openstudio

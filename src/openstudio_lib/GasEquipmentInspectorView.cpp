@@ -33,7 +33,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -42,7 +42,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Design Level
 
-  label = new QLabel("Design Level: ");
+  label = new QLabel(tr("Design Level: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -52,7 +52,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Power Per Space Floor Area
 
-  label = new QLabel("Power Per Space Floor Area: ");
+  label = new QLabel(tr("Power Per Space Floor Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 1);
 
@@ -62,7 +62,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Power Per Person
 
-  label = new QLabel("Power Per Person: ");
+  label = new QLabel(tr("Power Per Person: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 2);
 
@@ -72,7 +72,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Fraction Latent
 
-  label = new QLabel("Fraction Latent: ");
+  label = new QLabel(tr("Fraction Latent: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -82,7 +82,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Fraction Radiant
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 1);
 
@@ -92,7 +92,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Fraction Lost
 
-  label = new QLabel("Fraction Lost: ");
+  label = new QLabel(tr("Fraction Lost: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 
@@ -102,7 +102,7 @@ GasEquipmentDefinitionInspectorView::GasEquipmentDefinitionInspectorView(bool is
 
   // Carbon Dioxide Generation Rate
 
-  label = new QLabel("Carbon Dioxide Generation Rate: ");
+  label = new QLabel(tr("Carbon Dioxide Generation Rate: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 8, 0);
 

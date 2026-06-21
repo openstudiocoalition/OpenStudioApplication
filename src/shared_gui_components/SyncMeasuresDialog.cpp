@@ -34,7 +34,7 @@ SyncMeasuresDialog::SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureMana
 }
 
 void SyncMeasuresDialog::createLayout() {
-  setWindowTitle("Updates Available in Library");
+  setWindowTitle(tr("Updates Available in Library"));
 
   setModal(true);
 

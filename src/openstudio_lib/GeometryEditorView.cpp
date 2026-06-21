@@ -48,7 +48,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Checksum.hpp>
-#include <openstudio/utilities/bcl/RemoteBCL.hpp>
+#include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/geometry/FloorplanJS.hpp>
 #include <openstudio/utilities/geometry/ThreeJS.hpp>
 
@@ -71,7 +71,10 @@
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QLocale>
 #include <QWebEnginePage>
+#include <QWebEngineScript>
+#include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
 #include <QTemporaryDir>
 #include <QProcess>
@@ -256,7 +259,7 @@ void FloorspaceEditor::loadEditor() {
     }
 
     // DLM: need a better check here
-    if (openstudio::RemoteBCL::isOnline()) {
+    if (openstudio::RemoteBCLNLR::isOnline()) {
       config["online"] = true;
     } else {
       config["online"] = false;
@@ -1081,12 +1084,12 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
     m_mergeWarn(false),
     m_model(model),
     m_geometrySourceComboBox(new QComboBox()),
-    m_newImportGeometry(new QPushButton("New")),
+    m_newImportGeometry(new QPushButton(tr("New"))),
     m_progressBar(new ProgressBarWithError()),
-    m_refreshBtn(new QPushButton("Refresh")),
-    m_previewBtn(new QPushButton("Preview OSM")),
-    m_mergeBtn(new QPushButton("Merge with Current OSM")),
-    m_debugBtn(new QPushButton("Debug")) {
+    m_refreshBtn(new QPushButton(tr("Refresh"))),
+    m_previewBtn(new QPushButton(tr("Preview OSM"))),
+    m_mergeBtn(new QPushButton(tr("Merge with Current OSM"))),
+    m_debugBtn(new QPushButton(tr("Debug"))) {
   openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);
   m_document = app->currentDocument();
@@ -1110,13 +1113,13 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   mainLayout->addLayout(hLayout);
 
   auto* label = new QLabel(this);
-  label->setText("Geometry Type");
+  label->setText(tr("Geometry Type"));
   hLayout->addWidget(label);
 
-  m_geometrySourceComboBox->addItem("FloorspaceJS");
-  m_geometrySourceComboBox->addItem("gbXML");
-  m_geometrySourceComboBox->addItem("IDF");
-  m_geometrySourceComboBox->addItem("OSM");
+  m_geometrySourceComboBox->addItem(tr("FloorspaceJS"));
+  m_geometrySourceComboBox->addItem(tr("gbXML"));
+  m_geometrySourceComboBox->addItem(tr("IDF"));
+  m_geometrySourceComboBox->addItem(tr("OSM"));
   m_geometrySourceComboBox->setCurrentIndex(0);
   hLayout->addWidget(m_geometrySourceComboBox);
 
@@ -1155,6 +1158,15 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
 
+  {
+    QWebEngineScript langScript;
+    langScript.setName("os-lang-init");
+    langScript.setSourceCode(QString("window.osLanguage = '%1';").arg(QLocale().name().split('_').first()));
+    langScript.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    langScript.setWorldId(QWebEngineScript::MainWorld);
+    m_page->scripts().insert(langScript);
+  }
+
   connect(m_page, &OSWebEnginePage::loadFinished, this, &EditorWebView::onLoadFinished);
   connect(m_page, &OSWebEnginePage::loadProgress, this, &EditorWebView::onLoadProgress);
   connect(m_page, &OSWebEnginePage::loadStarted, this, &EditorWebView::onLoadStarted);
@@ -1173,7 +1185,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // check if floorplan exists
   openstudio::path p = floorplanPath();
   if (exists(p)) {
-    m_geometrySourceComboBox->setCurrentText("FloorspaceJS");
+    m_geometrySourceComboBox->setCurrentText(tr("FloorspaceJS"));
     m_geometrySourceComboBox->setEnabled(false);
     m_newImportGeometry->setEnabled(false);
 
@@ -1186,7 +1198,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // check if gbXml exists
   p = gbXmlPath();
   if (exists(p)) {
-    m_geometrySourceComboBox->setCurrentText("gbXML");
+    m_geometrySourceComboBox->setCurrentText(tr("gbXML"));
     m_geometrySourceComboBox->setEnabled(false);
     m_newImportGeometry->setEnabled(true);
 
@@ -1199,7 +1211,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // check if idf exists
   p = idfPath();
   if (exists(p)) {
-    m_geometrySourceComboBox->setCurrentText("IDF");
+    m_geometrySourceComboBox->setCurrentText(tr("IDF"));
     m_geometrySourceComboBox->setEnabled(false);
     m_newImportGeometry->setEnabled(true);
 
@@ -1212,7 +1224,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   // check if osm exists
   p = osmPath();
   if (exists(p)) {
-    m_geometrySourceComboBox->setCurrentText("OSM");
+    m_geometrySourceComboBox->setCurrentText(tr("OSM"));
     m_geometrySourceComboBox->setEnabled(false);
     m_newImportGeometry->setEnabled(true);
 
@@ -1242,9 +1254,10 @@ EditorWebView::~EditorWebView() {
     QString mergeWarnKeyName("geometryMergeWarn");
     bool settingsMergeWarn = settings.value(mergeWarnKeyName, true).toBool();
     if (settingsMergeWarn) {
-      QMessageBox msg(QMessageBox::Question, "Unmerged Changes",
-                      "Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future.",
-                      QMessageBox::Yes | QMessageBox::No | QMessageBox::Ignore, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+      QMessageBox msg(
+        QMessageBox::Question, tr("Unmerged Changes"),
+        tr("Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future."),
+        QMessageBox::Yes | QMessageBox::No | QMessageBox::Ignore, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
       msg.setDefaultButton(QMessageBox::No);
       msg.setEscapeButton(QMessageBox::No);
       int result = msg.exec();
@@ -1263,10 +1276,10 @@ EditorWebView::~EditorWebView() {
 }
 
 void EditorWebView::geometrySourceChanged(const QString& text) {
-  if (text == "FloorspaceJS") {
-    m_newImportGeometry->setText("New");
-  } else if ((text == "gbXML") || (text == "IDF") || (text == "OSM")) {
-    m_newImportGeometry->setText("Import");
+  if (text == tr("FloorspaceJS")) {
+    m_newImportGeometry->setText(tr("New"));
+  } else if ((text == tr("gbXML")) || (text == tr("IDF")) || (text == tr("OSM"))) {
+    m_newImportGeometry->setText(tr("Import"));
   }
 }
 
@@ -1274,7 +1287,7 @@ void EditorWebView::newImportClicked() {
 
   delete m_baseEditor;
 
-  if (m_geometrySourceComboBox->currentText() == "FloorspaceJS") {
+  if (m_geometrySourceComboBox->currentText() == tr("FloorspaceJS")) {
     m_geometrySourceComboBox->setEnabled(false);
     m_newImportGeometry->setEnabled(false);
 
@@ -1286,7 +1299,7 @@ void EditorWebView::newImportClicked() {
     return;
   }
 
-  if (m_geometrySourceComboBox->currentText() == "gbXML") {
+  if (m_geometrySourceComboBox->currentText() == tr("gbXML")) {
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), m_document->savePath(), tr("gbXML (*.xml *.gbxml)"));
     if (fileName.isEmpty()) {
@@ -1312,7 +1325,7 @@ void EditorWebView::newImportClicked() {
     return;
   }
 
-  if (m_geometrySourceComboBox->currentText() == "IDF") {
+  if (m_geometrySourceComboBox->currentText() == tr("IDF")) {
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), m_document->savePath(), tr("IDF (*.idf)"));
     if (fileName.isEmpty()) {
@@ -1338,7 +1351,7 @@ void EditorWebView::newImportClicked() {
     return;
   }
 
-  if (m_geometrySourceComboBox->currentText() == "OSM") {
+  if (m_geometrySourceComboBox->currentText() == tr("OSM")) {
 
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), m_document->savePath(), tr("OSM (*.osm)"));
     if (fileName.isEmpty()) {
@@ -1419,7 +1432,7 @@ void EditorWebView::previewExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     }
 
     // do not update floorplan since this is not a real merge
@@ -1436,7 +1449,7 @@ void EditorWebView::previewExport() {
     // show preview in blocking dialog
     QDialog dialog(this, Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
     dialog.setModal(true);
-    dialog.setWindowTitle("Geometry Preview");
+    dialog.setWindowTitle(tr("Geometry Preview"));
     dialog.setLayout(layout);
     dialog.exec();
 
@@ -1471,10 +1484,10 @@ void EditorWebView::mergeExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     } else {
       // DLM: print out a better report
-      QMessageBox::information(this, "Merging Models", "Models Merged");
+      QMessageBox::information(this, tr("Merging Models"), tr("Models Merged"));
     }
 
     // update the editor with merged model (potentially has new handles)
@@ -1498,8 +1511,8 @@ void EditorWebView::onChanged() {
 
 void EditorWebView::onUnitSystemChange(bool t_isIP) {
   if (m_baseEditor) {
-    QMessageBox::warning(this, "Units Change",
-                         "Changing unit system for existing floorplan is not currently supported.  Reload tab to change units.");
+    QMessageBox::warning(this, tr("Units Change"),
+                         tr("Changing unit system for existing floorplan is not currently supported.  Reload tab to change units."));
   } else {
     m_isIP = t_isIP;
   }

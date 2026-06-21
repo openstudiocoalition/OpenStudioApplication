@@ -21,15 +21,15 @@ namespace openstudio {
 
 ScheduleOthersView::ScheduleOthersView(const openstudio::model::Model& model, QWidget* parent)
   : ModelSubTabView(
-    new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
-    new ScheduleOthersInspectorView(model, parent), false, parent) {}
+      new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new ScheduleOthersInspectorView(model, parent), false, parent) {}
 
-std::vector<std::pair<IddObjectType, std::string>> ScheduleOthersView::modelObjectTypesAndNames() {
-  return {{
-    {IddObjectType::OS_Schedule_Constant, "Schedule Constant"},
-    {IddObjectType::OS_Schedule_Compact, "Schedule Compact"},
-    {IddObjectType::OS_Schedule_File, "Schedule File"},
-  }};
+std::vector<std::pair<IddObjectType, QString>> ScheduleOthersView::modelObjectTypesAndNames() {
+  return {
+    {IddObjectType::OS_Schedule_Constant, tr("Schedule Constant")},
+    {IddObjectType::OS_Schedule_Compact, tr("Schedule Compact")},
+    {IddObjectType::OS_Schedule_File, tr("Schedule File")},
+  };
 }
 
 ScheduleOthersInspectorView::ScheduleOthersInspectorView(const model::Model& model, QWidget* parent)

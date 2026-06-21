@@ -42,7 +42,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   mainGridLayout->addWidget(line, row++, 0, 1, 3);
 
   label = new QLabel();
-  label->setText("Measure Tags (Optional):");
+  label->setText(tr("Measure Tags (Optional):"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -50,7 +50,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standard: ");
+  label->setText(tr("Standard: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -69,7 +69,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standard Source: ");
+  label->setText(tr("Standard Source: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -89,7 +89,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Category: ");
+  label->setText(tr("Standards Category: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -109,7 +109,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Identifier: ");
+  label->setText(tr("Standards Identifier: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -129,7 +129,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   m_compositeFramingMaterialLabel = new QLabel();
-  m_compositeFramingMaterialLabel->setText("Composite Framing Material: ");
+  m_compositeFramingMaterialLabel->setText(tr("Composite Framing Material: "));
   m_compositeFramingMaterialLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_compositeFramingMaterialLabel);
 
@@ -149,7 +149,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   m_compositeFramingConfigurationLabel = new QLabel();
-  m_compositeFramingConfigurationLabel->setText("Composite Framing Configuration: ");
+  m_compositeFramingConfigurationLabel->setText(tr("Composite Framing Configuration: "));
   m_compositeFramingConfigurationLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_compositeFramingConfigurationLabel);
 
@@ -169,7 +169,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   m_compositeFramingDepthLabel = new QLabel();
-  m_compositeFramingDepthLabel->setText("Composite Framing Depth: ");
+  m_compositeFramingDepthLabel->setText(tr("Composite Framing Depth: "));
   m_compositeFramingDepthLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_compositeFramingDepthLabel);
 
@@ -189,7 +189,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   m_compositeFramingSizeLabel = new QLabel();
-  m_compositeFramingSizeLabel->setText("Composite Framing Size: ");
+  m_compositeFramingSizeLabel->setText(tr("Composite Framing Size: "));
   m_compositeFramingSizeLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_compositeFramingSizeLabel);
 
@@ -209,7 +209,7 @@ StandardsInformationMaterialWidget::StandardsInformationMaterialWidget(bool isIP
   vLayout = new QVBoxLayout();
 
   m_compositeCavityInsulationLabel = new QLabel();
-  m_compositeCavityInsulationLabel->setText("Composite Cavity Insulation: ");
+  m_compositeCavityInsulationLabel->setText(tr("Composite Cavity Insulation: "));
   m_compositeCavityInsulationLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_compositeCavityInsulationLabel);
 

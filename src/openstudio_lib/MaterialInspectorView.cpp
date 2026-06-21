@@ -50,7 +50,7 @@ void MaterialInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -73,7 +73,7 @@ void MaterialInspectorView::createLayout() {
   // Roughness
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Roughness: ");
+  label = new QLabel(tr("Roughness: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -91,7 +91,7 @@ void MaterialInspectorView::createLayout() {
   // Thickness
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -104,7 +104,7 @@ void MaterialInspectorView::createLayout() {
   // Conductivity
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Conductivity: ");
+  label = new QLabel(tr("Conductivity: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -117,7 +117,7 @@ void MaterialInspectorView::createLayout() {
   // Density
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Density: ");
+  label = new QLabel(tr("Density: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -130,7 +130,7 @@ void MaterialInspectorView::createLayout() {
   // Specific Heat
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Specific Heat: ");
+  label = new QLabel(tr("Specific Heat: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -143,7 +143,7 @@ void MaterialInspectorView::createLayout() {
   // Thermal Absorptance
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Thermal Absorptance: ");
+  label = new QLabel(tr("Thermal Absorptance: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -156,7 +156,7 @@ void MaterialInspectorView::createLayout() {
   // Solar Absorptance
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Solar Absorptance: ");
+  label = new QLabel(tr("Solar Absorptance: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -169,7 +169,7 @@ void MaterialInspectorView::createLayout() {
   // Visible Absorptance
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Visible Absorptance: ");
+  label = new QLabel(tr("Visible Absorptance: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 

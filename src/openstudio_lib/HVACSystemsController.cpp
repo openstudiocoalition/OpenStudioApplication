@@ -249,9 +249,9 @@ void HVACSystemsController::repopulateSystemComboBox() {
   }
 
   // TODO: When addressing issue #961 - HVAC Toolbar review, that's where you start
-  systemComboBox->addItem("Service Hot Water", SHW);
-  systemComboBox->addItem("Refrigeration", REFRIGERATION);
-  systemComboBox->addItem("VRF", VRF);
+  systemComboBox->addItem(tr("Service Hot Water"), SHW);
+  systemComboBox->addItem(tr("Refrigeration"), REFRIGERATION);
+  systemComboBox->addItem(tr("VRF"), VRF);
 
   // Set system combo box current index
   QString handle = currentHandle();
@@ -1014,50 +1014,50 @@ void HVACControlsController::update() {
 
       // Cooling Type
 
-      m_hvacAirLoopControlsView->coolingTypeLabel->setText("Unclassified Cooling Type");
+      m_hvacAirLoopControlsView->coolingTypeLabel->setText(tr("Unclassified Cooling Type"));
 
       std::vector<model::ModelObject> modelObjects = t_airLoopHVAC->supplyComponents(model::CoilCoolingDXSingleSpeed::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->coolingTypeLabel->setText("DX Cooling");
+        m_hvacAirLoopControlsView->coolingTypeLabel->setText(tr("DX Cooling"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::CoilCoolingDXTwoSpeed::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->coolingTypeLabel->setText("DX Cooling");
+        m_hvacAirLoopControlsView->coolingTypeLabel->setText(tr("DX Cooling"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::CoilCoolingWater::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->coolingTypeLabel->setText("Chilled Water");
+        m_hvacAirLoopControlsView->coolingTypeLabel->setText(tr("Chilled Water"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->coolingTypeLabel->setText("DX Cooling");
+        m_hvacAirLoopControlsView->coolingTypeLabel->setText(tr("DX Cooling"));
       }
 
       // Heating Type
 
-      m_hvacAirLoopControlsView->heatingTypeLabel->setText("Unclassified Heating Type");
+      m_hvacAirLoopControlsView->heatingTypeLabel->setText(tr("Unclassified Heating Type"));
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::CoilHeatingGas::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->heatingTypeLabel->setText("Gas Heating");
+        m_hvacAirLoopControlsView->heatingTypeLabel->setText(tr("Gas Heating"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::CoilHeatingElectric::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->heatingTypeLabel->setText("Electric Heating");
+        m_hvacAirLoopControlsView->heatingTypeLabel->setText(tr("Electric Heating"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::CoilHeatingWater::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->heatingTypeLabel->setText("Hot Water");
+        m_hvacAirLoopControlsView->heatingTypeLabel->setText(tr("Hot Water"));
       }
 
       modelObjects = t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType());
       if (!modelObjects.empty()) {
-        m_hvacAirLoopControlsView->heatingTypeLabel->setText("Air Source Heat Pump");
+        m_hvacAirLoopControlsView->heatingTypeLabel->setText(tr("Air Source Heat Pump"));
       }
 
       // HVAC Operation Schedule
@@ -1351,7 +1351,7 @@ void HVACControlsController::update() {
       // AVM List
       auto* availabilityManagerObjectVectorController = new AvailabilityManagerObjectVectorController();
       availabilityManagerObjectVectorController->attach(t_airLoopHVAC.get());
-      m_availabilityManagerDropZone = new OSDropZone(availabilityManagerObjectVectorController, "Drag From Library", QSize(0, 0), false);
+      m_availabilityManagerDropZone = new OSDropZone(availabilityManagerObjectVectorController, tr("Drag From Library"), QSize(0, 0), false);
       m_availabilityManagerDropZone->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20, 10 * 50));
       m_availabilityManagerDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
       m_availabilityManagerDropZone->setMinItems(0);
@@ -1385,16 +1385,16 @@ void HVACControlsController::update() {
       const openstudio::ComponentType plType = t_plantLoop->componentType();
 
       if (plType == openstudio::ComponentType::Both) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Both");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Both"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : orange; }");
       } else if (plType == openstudio::ComponentType::Heating) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Heating");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Heating"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : red; }");
       } else if (plType == openstudio::ComponentType::Cooling) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Cooling");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Cooling"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : blue; }");
       } else if (plType == openstudio::ComponentType::None) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("None");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("None"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : black; }");
       }
 
@@ -1508,7 +1508,7 @@ void HVACControlsController::update() {
       auto* availabilityManagerObjectVectorController = new AvailabilityManagerObjectVectorController();
       availabilityManagerObjectVectorController->attach(t_plantLoop.get());
       // m_availabilityManagerDropZone = new OSDropZone(availabilityManagerObjectVectorController);
-      m_availabilityManagerDropZone = new OSDropZone(availabilityManagerObjectVectorController, "Drag From Library", QSize(0, 0), false);
+      m_availabilityManagerDropZone = new OSDropZone(availabilityManagerObjectVectorController, tr("Drag From Library"), QSize(0, 0), false);
 
       m_availabilityManagerDropZone->setFixedSize(QSize(OSItem::ITEM_WIDTH + 20, 10 * 50));
       m_availabilityManagerDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);

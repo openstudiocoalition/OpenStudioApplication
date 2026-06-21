@@ -52,7 +52,7 @@ OSDropZone::OSDropZone(OSVectorController* vectorController, const QString& text
     m_scrollArea(new QScrollArea()),
     m_growsHorizontally(growsHorizontally),
     m_useLargeIcon(false),
-    m_text(text),
+    m_text(text.isEmpty() ? tr("Drag From Library") : text),
     m_size(size) {
   auto* mainBox = new QWidget();
   mainBox->setObjectName("mainBox");

@@ -39,7 +39,7 @@ void SyncMeasuresDialogCentralWidget::init() {
 
 void SyncMeasuresDialogCentralWidget::createLayout() {
 
-  auto* upperPushButton = new QPushButton("Check All");
+  auto* upperPushButton = new QPushButton(tr("Check All"));
   connect(upperPushButton, &QPushButton::clicked, this, &SyncMeasuresDialogCentralWidget::upperPushButtonClicked);
 
   auto* upperLayout = new QHBoxLayout();
@@ -59,7 +59,7 @@ void SyncMeasuresDialogCentralWidget::createLayout() {
   m_componentList = new ComponentList();
 
   CollapsibleComponentHeader* collapsibleComponentHeader = nullptr;
-  collapsibleComponentHeader = new CollapsibleComponentHeader("Updates", 100, 5);
+  collapsibleComponentHeader = new CollapsibleComponentHeader(tr("Updates").toStdString(), 100, 5);
 
   CollapsibleComponent* collapsibleComponent = nullptr;
   collapsibleComponent = new CollapsibleComponent(collapsibleComponentHeader, m_componentList);
@@ -73,7 +73,7 @@ void SyncMeasuresDialogCentralWidget::createLayout() {
   progressBar->setVisible(false);
   progressBar->setTextVisible(false);
 
-  lowerPushButton = new QPushButton("Update");
+  lowerPushButton = new QPushButton(tr("Update"));
   connect(lowerPushButton, &QPushButton::clicked, this, &SyncMeasuresDialogCentralWidget::lowerPushButtonClicked);
 
   auto* lowerLayout = new QHBoxLayout();

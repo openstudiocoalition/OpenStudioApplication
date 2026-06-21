@@ -53,7 +53,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   // name
   auto* vLayout = new QVBoxLayout();
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -67,7 +67,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   // number of people, people per area, and area per person
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Number of People: ");
+  label = new QLabel(tr("Number of People: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -78,7 +78,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
 
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("People per Space Floor Area: ");
+  label = new QLabel(tr("People per Space Floor Area: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -90,7 +90,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
 
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Space Floor Area per Person: ");
+  label = new QLabel(tr("Space Floor Area per Person: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -104,7 +104,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   ++row;
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -115,7 +115,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
 
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Sensible Heat Fraction: ");
+  label = new QLabel(tr("Sensible Heat Fraction: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -126,7 +126,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
 
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Carbon Dioxide Generation Rate: ");
+  label = new QLabel(tr("Carbon Dioxide Generation Rate: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -149,7 +149,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   ++row;
 
   vLayout = new QVBoxLayout();
-  label = new QLabel("Enable ASHRAE 55 Comfort Warnings:");
+  label = new QLabel(tr("Enable ASHRAE 55 Comfort Warnings:"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
   m_enableASHRAE55ComfortWarningsSwitch = new OSSwitch2();
@@ -157,7 +157,7 @@ PeopleDefinitionInspectorView::PeopleDefinitionInspectorView(bool isIP, const op
   m_mainGridLayout->addLayout(vLayout, row, 0, Qt::AlignTop | Qt::AlignLeft);
 
   vLayout = new QVBoxLayout();
-  label = new QLabel("Mean Radiant Temperature Calculation Type:");
+  label = new QLabel(tr("Mean Radiant Temperature Calculation Type:"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
   m_meanRadiantTemperatureCalculationTypeComboBox = new OSComboBox2();
@@ -332,7 +332,7 @@ OSComboBox2* PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(i
   lastHBoxLayout = new QHBoxLayout(lastRowWidget);
   m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
-  auto* label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
+  auto* label = new QLabel(tr("Thermal Comfort Model Type") + " " + QString::number(groupIndex + 1));
   label->setObjectName("H2");
   lastHBoxLayout->addWidget(label);
 

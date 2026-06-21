@@ -43,7 +43,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   ++row;
 
   label = new QLabel();
-  label->setText("Measure Tags (Optional):");
+  label->setText(tr("Measure Tags (Optional):"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -53,7 +53,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standard: ");
+  label->setText(tr("Standard: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -74,7 +74,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standard Source: ");
+  label->setText(tr("Standard Source: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -97,7 +97,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Intended Surface Type: ");
+  label->setText(tr("Intended Surface Type: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -115,7 +115,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Construction Type: ");
+  label->setText(tr("Standards Construction Type: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -139,7 +139,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationTypeLabel = new QLabel();
-  m_fenestrationTypeLabel->setText("Fenestration Type: ");
+  m_fenestrationTypeLabel->setText(tr("Fenestration Type: "));
   m_fenestrationTypeLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationTypeLabel);
 
@@ -153,7 +153,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationAssemblyContextLabel = new QLabel();
-  m_fenestrationAssemblyContextLabel->setText("Fenestration Assembly Context: ");
+  m_fenestrationAssemblyContextLabel->setText(tr("Fenestration Assembly Context: "));
   m_fenestrationAssemblyContextLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationAssemblyContextLabel);
 
@@ -169,7 +169,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationNumberOfPanesLabel = new QLabel();
-  m_fenestrationNumberOfPanesLabel->setText("Fenestration Number of Panes: ");
+  m_fenestrationNumberOfPanesLabel->setText(tr("Fenestration Number of Panes: "));
   m_fenestrationNumberOfPanesLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationNumberOfPanesLabel);
 
@@ -183,7 +183,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationFrameTypeLabel = new QLabel();
-  m_fenestrationFrameTypeLabel->setText("Fenestration Frame Type: ");
+  m_fenestrationFrameTypeLabel->setText(tr("Fenestration Frame Type: "));
   m_fenestrationFrameTypeLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationFrameTypeLabel);
 
@@ -199,7 +199,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationDividerTypeLabel = new QLabel();
-  m_fenestrationDividerTypeLabel->setText("Fenestration Divider Type: ");
+  m_fenestrationDividerTypeLabel->setText(tr("Fenestration Divider Type: "));
   m_fenestrationDividerTypeLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationDividerTypeLabel);
 
@@ -213,7 +213,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationTintLabel = new QLabel();
-  m_fenestrationTintLabel->setText("Fenestration Tint: ");
+  m_fenestrationTintLabel->setText(tr("Fenestration Tint: "));
   m_fenestrationTintLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationTintLabel);
 
@@ -229,7 +229,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationGasFillLabel = new QLabel();
-  m_fenestrationGasFillLabel->setText("Fenestration Gas Fill: ");
+  m_fenestrationGasFillLabel->setText(tr("Fenestration Gas Fill: "));
   m_fenestrationGasFillLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationGasFillLabel);
 
@@ -243,7 +243,7 @@ StandardsInformationConstructionWidget::StandardsInformationConstructionWidget(b
   vLayout = new QVBoxLayout();
 
   m_fenestrationLowEmissivityCoatingLabel = new QLabel();
-  m_fenestrationLowEmissivityCoatingLabel->setText("Fenestration Low Emissivity Coating: ");
+  m_fenestrationLowEmissivityCoatingLabel->setText(tr("Fenestration Low Emissivity Coating: "));
   m_fenestrationLowEmissivityCoatingLabel->setObjectName("StandardsInfo");
   vLayout->addWidget(m_fenestrationLowEmissivityCoatingLabel);
 

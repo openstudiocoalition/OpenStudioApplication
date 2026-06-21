@@ -38,28 +38,9 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QRegularExpression>
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME "Story Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
-
-// GENERAL
-#define NOMINALZCOORDINATE "Nominal Z Coordinate"
-#define NOMINALFLOORTOFLOORHEIGHT "Nominal Floor to Floor Height"
-#define DEFAULTCONSTRUCTIONSETNAME "Default Construction Set Name"
-#define DEFAULTSCHEDULESETNAME "Default Schedule Set Name"
-#define GROUPRENDERINGNAME "Group Rendering Name"
-#define NOMINALFLOORTOCEILINGHEIGHT "Nominal Floor to Ceiling Height"
-
-// FILTERS
-#define NOMINALZCOORDINATEGREATERTHAN "Nominal Z Coordinate >"
-#define NOMINALZCOORDINATELESSTHAN "Nominal Z Coordinate <"
 
 namespace openstudio {
 
@@ -69,8 +50,8 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, bool displayAddition
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController =
-    new FacilityStoriesGridController(isIP, displayAdditionalProps, "Building Stories", IddObjectType::OS_BuildingStory, model, modelObjects);
-  m_gridView = new OSGridView(m_gridController, "Building Stories", "Drop\nStory", false, parent);
+    new FacilityStoriesGridController(isIP, displayAdditionalProps, tr("Building Stories"), IddObjectType::OS_BuildingStory, model, modelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Building Stories"), tr("Drop\nStory"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -86,16 +67,16 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, bool displayAddition
   filterGridLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Filters:");
+  label->setText(tr("Filters:"));
   label->setObjectName("H2");
   filterGridLayout->addWidget(label, filterGridLayout->rowCount(), filterGridLayout->columnCount(), Qt::AlignTop | Qt::AlignLeft);
 
-  // NOMINALZCOORDINATEGREATERTHAN
+  // tr("Nominal Z Coordinate >")
 
   layout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText(NOMINALZCOORDINATEGREATERTHAN);
+  label->setText(tr("Nominal Z Coordinate >"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -111,12 +92,12 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, bool displayAddition
   layout->addStretch();
   filterGridLayout->addLayout(layout, filterGridLayout->rowCount() - 1, filterGridLayout->columnCount());
 
-  // NOMINALZCOORDINATELESSTHAN
+  // tr("Nominal Z Coordinate <")
 
   layout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText(NOMINALZCOORDINATELESSTHAN);
+  label->setText(tr("Nominal Z Coordinate <"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -229,10 +210,11 @@ FacilityStoriesGridController::FacilityStoriesGridController(bool isIP, bool dis
 void FacilityStoriesGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      GROUPRENDERINGNAME,          NOMINALZCOORDINATE,         NOMINALFLOORTOFLOORHEIGHT,
-      NOMINALFLOORTOCEILINGHEIGHT, DEFAULTCONSTRUCTIONSETNAME, DEFAULTSCHEDULESETNAME,
+      tr("Group Rendering Name"),          tr("Nominal Z Coordinate"),
+      tr("Nominal Floor to Floor Height"), tr("Nominal Floor to Ceiling Height"),
+      tr("Default Construction Set Name"), tr("Default Schedule Set Name"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -246,62 +228,62 @@ void FacilityStoriesGridController::onCategorySelected(int index) {
 void FacilityStoriesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Story Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::BuildingStory>(&model::BuildingStory::name),
+    if (field == tr("Story Name")) {
+      addParentNameLineEditColumn(Heading(tr("Story Name"), false, false), false, CastNullAdapter<model::BuildingStory>(&model::BuildingStory::name),
                                   CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                                       // heading
                             false,                                                                           // isInspectable
                             false,                                                                           // isLocked
                             DisplayNameAdapter<model::BuildingStory>(&model::BuildingStory::displayName),    // getter
                             DisplayNameAdapter<model::BuildingStory>(&model::BuildingStory::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                                      // heading
                             false,                                                                           // isInspectable
                             false,                                                                           // isLocked
                             DisplayNameAdapter<model::BuildingStory>(&model::BuildingStory::cadObjectId),    // getter
                             DisplayNameAdapter<model::BuildingStory>(&model::BuildingStory::setCADObjectId)  // setter
       );
-    } else if (field == SELECTED) {
+    } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &FacilityStoriesGridController::onSelectAllStateChanged);
       connect(this, &FacilityStoriesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
-    } else if (field == NOMINALZCOORDINATE) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
+    } else if (field == tr("Nominal Z Coordinate")) {
+      addQuantityEditColumn(Heading(tr("Nominal Floor to Floor Height")), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalZCoordinate), NullAdapter(&model::BuildingStory::setNominalZCoordinate));
-    } else if (field == NOMINALFLOORTOFLOORHEIGHT) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOFLOORHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
+    } else if (field == tr("Nominal Floor to Floor Height")) {
+      addQuantityEditColumn(Heading(tr("Nominal Floor to Floor Height")), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalFloortoFloorHeight),
                             NullAdapter(&model::BuildingStory::setNominalFloortoFloorHeight));
-    } else if (field == DEFAULTCONSTRUCTIONSETNAME) {
-      addDropZoneColumn(Heading(QString(DEFAULTCONSTRUCTIONSETNAME)),
+    } else if (field == tr("Default Construction Set Name")) {
+      addDropZoneColumn(Heading(tr("Default Construction Set Name")),
                         CastNullAdapter<model::BuildingStory>(&model::BuildingStory::defaultConstructionSet),
                         CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setDefaultConstructionSet),
                         boost::optional<std::function<void(model::BuildingStory*)>>(
                           CastNullAdapter<model::BuildingStory>(&model::BuildingStory::resetDefaultConstructionSet)));
-    } else if (field == DEFAULTSCHEDULESETNAME) {
-      addDropZoneColumn(Heading(QString(DEFAULTSCHEDULESETNAME)), CastNullAdapter<model::BuildingStory>(&model::BuildingStory::defaultScheduleSet),
+    } else if (field == tr("Default Schedule Set Name")) {
+      addDropZoneColumn(Heading(tr("Default Schedule Set Name")), CastNullAdapter<model::BuildingStory>(&model::BuildingStory::defaultScheduleSet),
                         CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setDefaultScheduleSet),
                         boost::optional<std::function<void(model::BuildingStory*)>>(
                           CastNullAdapter<model::BuildingStory>(&model::BuildingStory::resetDefaultScheduleSet)));
-    } else if (field == GROUPRENDERINGNAME) {
-      addRenderingColorColumn(Heading(QString(GROUPRENDERINGNAME), true, false),
+    } else if (field == tr("Group Rendering Name")) {
+      addRenderingColorColumn(Heading(tr("Group Rendering Name"), true, false),
                               CastNullAdapter<model::BuildingStory>(&model::BuildingStory::renderingColor),
                               CastNullAdapter<model::BuildingStory>(&model::BuildingStory::setRenderingColor));
-    } else if (field == NOMINALFLOORTOCEILINGHEIGHT) {
-      addQuantityEditColumn(Heading(QString(NOMINALFLOORTOCEILINGHEIGHT)), QString("m"), QString("m"), QString("ft"), isIP(),
+    } else if (field == tr("Nominal Floor to Ceiling Height")) {
+      addQuantityEditColumn(Heading(tr("Nominal Floor to Ceiling Height")), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalFloortoCeilingHeight),
                             NullAdapter(&model::BuildingStory::setNominalFloortoCeilingHeight));
     } else {

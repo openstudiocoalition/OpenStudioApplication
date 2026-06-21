@@ -46,7 +46,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   auto* sewerItem = new SewerItem(this);
 
-  sewerItem->sewerButton()->setToolTip("Go back to water mains editor");
+  sewerItem->sewerButton()->setToolTip(tr("Go back to water mains editor"));
 
   connect(sewerItem->sewerButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
           &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
@@ -185,7 +185,7 @@ WaterUseConnectionsDetailItem::WaterUseConnectionsDetailItem(WaterUseConnections
 
   auto* mainsSupplyItem = new MainsSupplyItem(this);
 
-  mainsSupplyItem->mainsSupplyButton()->setToolTip("Go back to water mains editor");
+  mainsSupplyItem->mainsSupplyButton()->setToolTip(tr("Go back to water mains editor"));
 
   connect(mainsSupplyItem->mainsSupplyButton(), &ButtonItem::mouseClicked, waterUseConnectionsDetailScene,
           &WaterUseConnectionsDetailScene::goToServiceWaterSceneClicked);
@@ -498,7 +498,7 @@ WaterUseEquipmentDropZoneItem::WaterUseEquipmentDropZoneItem(QGraphicsItem* pare
 
   setHGridLength(2);
 
-  setText("Drag Water Use Equipment from Library");
+  setText(tr("Drag Water Use Equipment from Library"));
 }
 
 WaterUseConnectionsDropZoneItem::WaterUseConnectionsDropZoneItem(QGraphicsItem* parent)
@@ -507,7 +507,7 @@ WaterUseConnectionsDropZoneItem::WaterUseConnectionsDropZoneItem(QGraphicsItem* 
 
   setHGridLength(2);
 
-  setText("Drag Water Use Connections from Library");
+  setText(tr("Drag Water Use Connections from Library"));
 }
 
 SewerItem::SewerItem(QGraphicsItem* parent) : GridItem(parent) {
@@ -552,7 +552,7 @@ HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem* parent) : GridItem(parent)
 
   m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
-  m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
+  m_hotWaterSupplyButton->setToolTip(tr("Go back to hot water supply system"));
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &HotWaterSupplyItem::onHotWaterSupplyButtonClicked);
 
@@ -769,7 +769,7 @@ MakeupWaterItem::MakeupWaterItem(QGraphicsItem* parent) : GridItem(parent) {
 
   m_mainsSupplyButton = new ButtonItem(waterMainPixmap, waterMainPressPixmap, waterMainOverPixmap, this);
 
-  m_mainsSupplyButton->setToolTip("Go back to water mains editor");
+  m_mainsSupplyButton->setToolTip(tr("Go back to water mains editor"));
 
   m_mainsSupplyButton->setPos(75, 0);
 
@@ -779,7 +779,7 @@ MakeupWaterItem::MakeupWaterItem(QGraphicsItem* parent) : GridItem(parent) {
 
   m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
-  m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
+  m_hotWaterSupplyButton->setToolTip(tr("Go back to hot water supply system"));
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &MakeupWaterItem::onHotWaterSupplyButtonClicked);
 

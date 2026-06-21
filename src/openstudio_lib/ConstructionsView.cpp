@@ -28,17 +28,17 @@ ConstructionsView::ConstructionsView(bool isIP, const openstudio::model::Model& 
   connect(this, &ConstructionsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, std::string>> ConstructionsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, std::string>> result;
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction, "Constructions"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions"));
+std::vector<std::pair<IddObjectType, QString>> ConstructionsView::modelObjectTypesAndNames() {
+  std::vector<std::pair<IddObjectType, QString>> result;
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction, tr("Constructions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions")));
   result.push_back(
-    std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction_CfactorUndergroundWall, "C-factor Underground Wall Constructions"));
+    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions")));
   result.push_back(
-    std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions"));
+    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions")));
   // Not currently supported
-  //result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions"));
+  //result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions"));
 
   return result;
 }
