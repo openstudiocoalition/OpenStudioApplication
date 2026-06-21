@@ -6,8 +6,6 @@
 #ifndef MODELEDITOR_MODALDIALOGS_HPP
 #define MODELEDITOR_MODALDIALOGS_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include <openstudio/model/Model.hpp>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
@@ -33,7 +31,7 @@ class SpaceLoadInstance;
 }  // namespace model
 }  // namespace openstudio
 
-class MODELEDITOR_API ModelObjectSelectorDialog
+class ModelObjectSelectorDialog
   : public QDialog
   , public Nano::Observer
 {
@@ -92,7 +90,7 @@ class MODELEDITOR_API ModelObjectSelectorDialog
   void loadComboBoxData();
 };
 
-class MODELEDITOR_API ModelObjectSelectorDialogWatcher
+class ModelObjectSelectorDialogWatcher
   : public QObject
   , public Nano::Observer
 {
@@ -116,8 +114,8 @@ class MODELEDITOR_API ModelObjectSelectorDialogWatcher
   mutable boost::optional<openstudio::model::ModelObject> m_selectedModelObject;
 };
 
-MODELEDITOR_API void ensureThermalZone(openstudio::model::Space& space);
+void ensureThermalZone(openstudio::model::Space& space);
 
-MODELEDITOR_API void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance);
+void ensureSpaceLoadDefinition(openstudio::model::SpaceLoadInstance& instance);
 
 #endif  //MODELEDITOR_MODALDIALOGS_HPP

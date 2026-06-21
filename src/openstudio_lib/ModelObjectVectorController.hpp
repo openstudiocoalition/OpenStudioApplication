@@ -6,10 +6,10 @@
 #ifndef OPENSTUDIO_MODELOBJECTVECTORCONTROLLER_HPP
 #define OPENSTUDIO_MODELOBJECTVECTORCONTROLLER_HPP
 
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/Component.hpp>
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include <vector>
 
 namespace openstudio {

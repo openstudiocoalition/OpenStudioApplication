@@ -6,11 +6,11 @@
 #include "ThermalZonesGridView.hpp"
 
 #include "ModelObjectInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelSubTabView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"

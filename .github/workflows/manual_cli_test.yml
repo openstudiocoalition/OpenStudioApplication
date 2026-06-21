@@ -1,3 +1,7 @@
+# Manually triggered smoke test that downloads a previously built installer archive
+# and verifies the OpenStudio CLI works on all 5 platforms. Tests cover the classic
+# Ruby CLI and the C++ (labs) CLI including EnergyPlus and Python scripting.
+# Input: run_id - the numeric GitHub Actions run ID of the app_build workflow to test.
 name: Test OS SDK CLI from OpenStudio Application
 
 on:

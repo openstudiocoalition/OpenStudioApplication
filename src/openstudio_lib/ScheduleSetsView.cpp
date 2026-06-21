@@ -5,7 +5,7 @@
 
 #include "ScheduleSetsView.hpp"
 #include "ModelObjectListView.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "ScheduleSetInspectorView.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>

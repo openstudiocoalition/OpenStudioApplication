@@ -7,7 +7,7 @@
 #define OPENSTUDIO_OSITEMLIST_HPP
 
 #include "OSItemSelector.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 class QVBoxLayout;
 

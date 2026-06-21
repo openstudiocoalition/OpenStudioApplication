@@ -12,8 +12,6 @@
 #include "ComponentList.hpp"
 #include "BaseApp.hpp"
 #include "MeasureManager.hpp"
-
-#include <cstddef>
 #include <openstudio/measure/OSArgument.hpp>
 
 #include <openstudio/utilities/bcl/BCL.hpp>
@@ -21,9 +19,7 @@
 #include "../utilities/RemoteBCLNLR.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 
-#include "../model_editor/Application.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 #include <QApplication>
 #include <QBoxLayout>
@@ -263,7 +259,7 @@ void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString& t
 void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component) {
   if (component) {
     // remove outdated components
-    OSAppBase::instance()->currentDocument()->removeOutdatedLocalComponents(component->uid(), component->versionId());
+    BaseApp::instance()->removeOutdatedLocalComponents(component->uid(), component->versionId());
   } else {
     // error downloading component
     downloadFailed(uid);
@@ -277,7 +273,7 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
 void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure) {
   if (measure) {
     // remove outdated measures
-    OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(measure->uid(), measure->versionId());
+    BaseApp::instance()->removeOutdatedLocalMeasures(measure->uid(), measure->versionId());
   } else {
     // error downloading measure
     downloadFailed(uid);

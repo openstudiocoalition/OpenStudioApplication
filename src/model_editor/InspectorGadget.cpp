@@ -14,7 +14,7 @@
 #include <openstudio/model/ParentObject_Impl.hpp>
 #include <openstudio/model/AdditionalProperties.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>

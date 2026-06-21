@@ -9,11 +9,9 @@
 #include <QTableWidget>
 
 #include <openstudio/model/Building.hpp>
-#include "ModelEditorAPI.hpp"
-
 namespace modeleditor {
 
-class MODELEDITOR_API TableWidget : public QTableWidget
+class TableWidget : public QTableWidget
 {
   Q_OBJECT
 

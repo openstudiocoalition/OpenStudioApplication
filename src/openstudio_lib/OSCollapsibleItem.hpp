@@ -7,7 +7,7 @@
 #define OPENSTUDIO_OSCOLLAPSIBLEITEM_HPP
 
 #include <QWidget>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 class QButtonGroup;
 class QComboBox;

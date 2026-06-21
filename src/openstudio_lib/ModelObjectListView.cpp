@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "ModelObjectListView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "BCLComponentItem.hpp"
@@ -18,7 +18,7 @@
 #include <openstudio/model/UtilityBill.hpp>
 #include <openstudio/model/UtilityBill_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>

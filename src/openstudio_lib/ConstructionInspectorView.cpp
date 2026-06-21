@@ -7,10 +7,10 @@
 
 #include "StandardsInformationConstructionWidget.hpp"
 #include "ConstructionObjectVectorController.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"

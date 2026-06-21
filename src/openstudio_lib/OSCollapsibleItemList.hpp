@@ -7,7 +7,7 @@
 #define OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP
 
 #include "OSItemSelector.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSCategoryPlaceholder.hpp"
 
 class QVBoxLayout;

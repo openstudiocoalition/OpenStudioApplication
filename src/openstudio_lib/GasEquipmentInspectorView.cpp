@@ -6,7 +6,7 @@
 #include "GasEquipmentInspectorView.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include <openstudio/model/GasEquipmentDefinition.hpp>
 #include <openstudio/model/GasEquipmentDefinition_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>

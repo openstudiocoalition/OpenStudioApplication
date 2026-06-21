@@ -5,7 +5,7 @@
 
 #include <benchmark/benchmark.h>
 
-#include "../../model_editor/Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 #include "../SpacesSurfacesGridView.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -22,6 +22,7 @@ using namespace openstudio::model;
 
 int main(int argc, char* argv[]) {
   Q_INIT_RESOURCE(openstudio);
+  Q_INIT_RESOURCE(openstudio_shared_gui);
   auto app = openstudio::Application::instance().application(true);
 
   QTimer::singleShot(0, [&]() {

@@ -9,7 +9,7 @@
 #include "ModelObjectListView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "SchedulesTabController.hpp"
 
@@ -38,7 +38,7 @@
 #include <openstudio/model/WeatherFile_Impl.hpp>
 #include <openstudio/model/YearDescription_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/energyplus/ReverseTranslator.hpp>
 

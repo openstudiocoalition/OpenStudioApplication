@@ -5,9 +5,8 @@
 
 #include "FacilityStoriesGridView.hpp"
 
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
-#include "RenderingColorWidget.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"

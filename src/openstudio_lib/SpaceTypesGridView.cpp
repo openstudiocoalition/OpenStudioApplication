@@ -6,11 +6,11 @@
 #include "SpaceTypesGridView.hpp"
 
 #include "ModelObjectInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelSubTabView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
@@ -81,7 +81,7 @@
 #include <openstudio/model/SteamEquipmentDefinition_Impl.hpp>
 #include <openstudio/model/SteamEquipment_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>

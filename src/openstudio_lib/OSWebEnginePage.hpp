@@ -26,6 +26,11 @@ class OSUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor
   QByteArray m_userAgent;
 };
 
+/**
+ * OSWebEnginePage is a QWebEnginePage subclass that adds OpenStudio-specific URL interception and
+ * JavaScript bridge support. It is used by the Geometry tab's web view to communicate between the
+ * FloorspaceJS editor and the C++ model layer.
+ */
 class OSWebEnginePage : public QWebEnginePage
 {
   Q_OBJECT

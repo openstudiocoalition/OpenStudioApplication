@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_BCLCOMPONENTITEM_HPP
 #define OPENSTUDIO_BCLCOMPONENTITEM_HPP
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include <openstudio/utilities/bcl/BCLComponent.hpp>
 
 namespace openstudio {

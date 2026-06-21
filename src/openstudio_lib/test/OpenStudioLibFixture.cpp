@@ -5,11 +5,11 @@
 
 #include "OpenStudioLibFixture.hpp"
 
-#include "../../model_editor/Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 
 #include "../DesignDayGridView.hpp"
 #include "../GridViewSubTab.hpp"
-#include "../OSDropZone.hpp"
+#include "../../shared_gui_components/OSDropZone.hpp"
 #include "../../shared_gui_components/OSCellWrapper.hpp"
 #include "../../shared_gui_components/OSGridController.hpp"
 #include "../../shared_gui_components/OSGridView.hpp"
@@ -28,6 +28,7 @@ boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;
 
 int main(int argc, char* argv[]) {
   Q_INIT_RESOURCE(openstudio);
+  Q_INIT_RESOURCE(openstudio_shared_gui);
   auto app = openstudio::Application::instance().application(true);
 
   QTimer::singleShot(0, [&]() {

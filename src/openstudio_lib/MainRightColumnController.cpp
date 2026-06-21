@@ -17,7 +17,7 @@
 #include "OSCollapsibleItem.hpp"
 #include "OSCollapsibleItemHeader.hpp"
 #include "OSDocument.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSItemList.hpp"
 #include "SchedulesTabController.hpp"
 #include "SpaceTypeInspectorView.hpp"
@@ -123,7 +123,7 @@ void MainRightColumnController::inspectModelObjectByItem(OSItem* item, bool read
   m_item = item;
   if (m_item) {
     boost::optional<model::ModelObject> modelObject;
-    std::shared_ptr<OSDocument> currentDocument = OSAppBase::instance()->currentDocument();
+    OSDocument* currentDocument = OSAppBase::instance()->currentDocument();
     if (currentDocument) {
       modelObject = currentDocument->getModelObject(item->itemId());
     }
@@ -212,7 +212,7 @@ void MainRightColumnController::setLibraryView(QWidget* widget) {
 }
 
 void MainRightColumnController::configureForSiteSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -264,7 +264,7 @@ void MainRightColumnController::configureForSiteSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -360,7 +360,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -532,7 +532,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForGeometrySubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -553,7 +553,7 @@ void MainRightColumnController::configureForGeometrySubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   model::Model lib = doc->componentLibrary();
 
@@ -629,7 +629,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
 
   setEditView(nullptr);
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   // my model
   auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader, false);
@@ -709,7 +709,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
 void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   setEditView(nullptr);
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   // my model
   auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader, false);
@@ -818,7 +818,7 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
 void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   setEditView(nullptr);
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   // my model
   auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader, false);
@@ -931,7 +931,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
 
 void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -1007,7 +1007,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
 
 void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -1282,7 +1282,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForOutputVariablesSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -1293,7 +1293,7 @@ void MainRightColumnController::configureForOutputVariablesSubTab(int subTabID) 
 }
 
 void MainRightColumnController::configureForSimulationSettingsSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -1304,7 +1304,7 @@ void MainRightColumnController::configureForSimulationSettingsSubTab(int subTabI
 }
 
 void MainRightColumnController::configureForScriptsSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(m_measureLibraryController->localLibraryView.data());
   setMyModelView(nullptr);
@@ -1315,7 +1315,7 @@ void MainRightColumnController::configureForScriptsSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForRunSimulationSubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);
@@ -1326,7 +1326,7 @@ void MainRightColumnController::configureForRunSimulationSubTab(int subTabID) {
 }
 
 void MainRightColumnController::configureForResultsSummarySubTab(int subTabID) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   setLibraryView(nullptr);
   setMyModelView(nullptr);

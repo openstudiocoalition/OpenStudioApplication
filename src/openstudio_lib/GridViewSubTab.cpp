@@ -146,7 +146,7 @@ std::set<model::ModelObject> GridViewSubTab::selectedObjects() const {
 }
 
 void GridViewSubTab::onDropZoneItemClicked(OSItem* item) {
-  std::shared_ptr<OSDocument> currentDocument = OSAppBase::instance()->currentDocument();
+  OSDocument* currentDocument = OSAppBase::instance()->currentDocument();
   if (currentDocument) {
     if (!item) {
       emit dropZoneItemSelected(item, false);

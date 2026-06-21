@@ -17,7 +17,7 @@
 #include <openstudio/utilities/bcl/BCLComponent.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
-#include "../shared_gui_components/ProgressBarWithError.hpp"
+#include "ProgressBarWithError.hpp"
 
 #include <boost/optional.hpp>
 
