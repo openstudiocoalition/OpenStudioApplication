@@ -46,7 +46,20 @@ if(APPLE AND CPACK_GENERATOR STREQUAL "IFW")
       execute_process(COMMAND ${CMAKE_COMMAND} -E sleep 10)
 
       if(NOT EXISTS "${CPACK_PACKAGE_FILE}")
-        message(FATAL_ERROR "File still does not exist: ${CPACK_PACKAGE_FILE}")
+        # The IFW generator can produce a DMG whose name differs from the
+        # computed CPACK_PACKAGE_FILE (e.g. different arch/OS suffix tokens).
+        # Fall back to a glob of the IFW output directory.
+        get_filename_component(_IFW_DIR "${CPACK_PACKAGE_FILE}" DIRECTORY)
+        file(GLOB _DMG_CANDIDATES "${_IFW_DIR}/OpenStudioApplication-*.dmg")
+        list(LENGTH _DMG_CANDIDATES _N_CANDIDATES)
+        if (_N_CANDIDATES EQUAL 0)
+          message(FATAL_ERROR "File still does not exist and no DMG found in ${_IFW_DIR}: ${CPACK_PACKAGE_FILE}")
+        elseif (_N_CANDIDATES GREATER 1)
+          message(FATAL_ERROR "Multiple DMGs found in ${_IFW_DIR}; cannot determine which to sign:\n${_DMG_CANDIDATES}")
+        else ()
+          list(GET _DMG_CANDIDATES 0 CPACK_PACKAGE_FILE)
+          message(STATUS "DMG name mismatch — resolved to '${CPACK_PACKAGE_FILE}'")
+        endif ()
       endif()
     endif()
     list(APPEND _RESOLVED_PACKAGE_FILES "${CPACK_PACKAGE_FILE}")
