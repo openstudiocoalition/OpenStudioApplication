@@ -33,7 +33,30 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <utility>
 
+#include <QCoreApplication>
+#include <QLocale>
+
 namespace openstudio {
+
+static QString outputVarDisplayName(const std::string& englishName) {
+  const QString qname = QString::fromStdString(englishName);
+  if (QLocale().language() != QLocale::English) {
+    const QString translated = QCoreApplication::translate("OutputVariables", englishName.c_str());
+    if (translated != qname) return translated + " (" + qname + ")";
+  }
+  return qname;
+}
+
+static void populateFrequencyComboBox(QComboBox* combo) {
+  static const char ctx[] = "openstudio::VariablesList";
+  combo->addItem(QCoreApplication::translate(ctx, "Detailed"), QString("Detailed"));
+  combo->addItem(QCoreApplication::translate(ctx, "Timestep"), QString("Timestep"));
+  combo->addItem(QCoreApplication::translate(ctx, "Hourly"), QString("Hourly"));
+  combo->addItem(QCoreApplication::translate(ctx, "Daily"), QString("Daily"));
+  combo->addItem(QCoreApplication::translate(ctx, "Monthly"), QString("Monthly"));
+  combo->addItem(QCoreApplication::translate(ctx, "RunPeriod"), QString("RunPeriod"));
+  combo->addItem(QCoreApplication::translate(ctx, "Annual"), QString("Annual"));
+}
 
 VariableListItem::VariableListItem(const std::string& t_name, const std::string& t_keyValue,
                                    const boost::optional<openstudio::model::OutputVariable>& t_variable, const openstudio::model::Model& t_model)
@@ -56,21 +79,19 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
   hbox->addWidget(m_onOffButton);
   m_onOffButton->setChecked(m_variable.is_initialized());
 
-  hbox->addWidget(new QLabel(openstudio::toQString(m_name + ",")));
+  hbox->addWidget(new QLabel(outputVarDisplayName(m_name) + ","));
   hbox->addWidget(new QLabel(openstudio::toQString(m_keyValue)));
   hbox->addStretch(10);
   m_combobox = new OSComboBox2();
   m_combobox->setFixedWidth(200);
-  connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
+  populateFrequencyComboBox(m_combobox);
   if (m_variable) {
-    // m_combobox->bind(*m_variable, "reportingFrequency");
-    m_combobox->bind<std::string>(
-      *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-      std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
-      std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
-      boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
-      boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
+    const int idx = m_combobox->findData(QString::fromStdString(m_variable->reportingFrequency()));
+    if (idx >= 0) {
+      m_combobox->setCurrentIndex(idx);
+    }
   }
+  connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
 
   hbox->addWidget(m_combobox);
 
@@ -95,9 +116,9 @@ VariablesList::~VariablesList() {
   delete m_listLayout;
 }
 
-void VariableListItem::indexChanged(const QString& t_frequency) {
+void VariableListItem::indexChanged(const QString& /*t_frequency*/) {
   if (m_variable) {
-    m_variable->setReportingFrequency(openstudio::toString(t_frequency));
+    m_variable->setReportingFrequency(m_combobox->currentData().toString().toStdString());
   }
 }
 
@@ -127,16 +148,13 @@ void VariableListItem::onOffClicked(bool t_on) {
       outputVariable.setKeyValue(m_keyValue);
       m_variable = outputVariable;
 
-      m_combobox->bind<std::string>(
-        *m_variable, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-        std::bind(&model::OutputVariable::reportingFrequencyValues), std::bind(&model::OutputVariable::reportingFrequency, m_variable.get_ptr()),
-        std::bind(&model::OutputVariable::setReportingFrequency, m_variable.get_ptr(), std::placeholders::_1),
-        boost::optional<NoFailAction>(std::bind(&model::OutputVariable::resetReportingFrequency, m_variable.get_ptr())),
-        boost::optional<BasicQuery>(std::bind(&model::OutputVariable::isReportingFrequencyDefaulted, m_variable.get_ptr())));
+      const int idx = m_combobox->findData(QString("Hourly"));
+      if (idx >= 0) {
+        m_combobox->setCurrentIndex(idx);
+      }
     }
   } else {
     if (m_variable) {
-      m_combobox->unbind();
       m_variable->remove();
       m_variable = boost::none;
     }
@@ -341,9 +359,10 @@ struct PotentialOutputVariable
 };
 
 bool VariableListItem::matchesText(const QString& text, bool useRegex) const {
-
-  const auto qName = QString::fromStdString(m_name);
-  if (qName.contains(text, Qt::CaseInsensitive)) {
+  // displayName is "Target Language (English)" when locale is non-English, plain English otherwise.
+  // Searching it covers both the translated term and the original English name.
+  const QString displayName = outputVarDisplayName(m_name);
+  if (displayName.contains(text, Qt::CaseInsensitive)) {
     return true;
   }
   QString qKeyValue;
@@ -356,7 +375,7 @@ bool VariableListItem::matchesText(const QString& text, bool useRegex) const {
 
   if (useRegex) {
     const QRegularExpression re(text, QRegularExpression::CaseInsensitiveOption);
-    if (auto m = re.match(qName); m.hasMatch()) {
+    if (auto m = re.match(displayName); m.hasMatch()) {
       return true;
     }
     if (!qKeyValue.isEmpty()) {
@@ -462,7 +481,7 @@ void VariablesList::updateVariableList() {
 }
 
 VariablesTabView::VariablesTabView(openstudio::model::Model t_model, QWidget* parent)
-  : MainTabView("Output Variables", MainTabView::MAIN_TAB, parent) {
+  : MainTabView(tr("Output Variables"), MainTabView::MAIN_TAB, parent) {
   auto* scrollarea = new QScrollArea();
   auto* vl = new VariablesList(std::move(t_model));
   scrollarea->setWidget(vl);

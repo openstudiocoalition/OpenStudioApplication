@@ -644,7 +644,7 @@ std::vector<GridItem*> HorizontalBranchItem::itemFactory(const std::vector<model
 
 HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObject>, std::vector<model::ModelObject>> modelObjectsBeforeTerminal,
                                            const std::vector<model::ModelObject>& modelObjectsAfterTerminal, QGraphicsItem* parent)
-  : GridItem(parent), m_isDropZone(false), m_text("Drag From Library"), m_hasDualTwoRightSidePipes(false), m_dualDuct(true) {
+  : GridItem(parent), m_isDropZone(false), m_text(tr("Drag From Library")), m_hasDualTwoRightSidePipes(false), m_dualDuct(true) {
   std::vector<GridItem*> beforeTerminalItems;
 
   auto halfItemFactory = [&](const boost::optional<model::ModelObject>& modelObject, QGraphicsItem* parent) {
@@ -701,7 +701,7 @@ HorizontalBranchItem::HorizontalBranchItem(std::pair<std::vector<model::ModelObj
 }
 
 HorizontalBranchItem::HorizontalBranchItem(const std::vector<model::ModelObject>& modelObjects, QGraphicsItem* parent, bool dualDuct)
-  : GridItem(parent), m_isDropZone(false), m_text("Drag From Library"), m_hasDualTwoRightSidePipes(false), m_dualDuct(dualDuct) {
+  : GridItem(parent), m_isDropZone(false), m_text(tr("Drag From Library")), m_hasDualTwoRightSidePipes(false), m_dualDuct(dualDuct) {
   m_gridItems = itemFactory(modelObjects, this);
   layout();
 }
@@ -1413,7 +1413,7 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   }
 
   painter->setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
-  painter->drawLine(0, yOrigin + 50, (m_hLength)*100, yOrigin + 50);
+  painter->drawLine(0, yOrigin + 50, (m_hLength) * 100, yOrigin + 50);
 
   painter->rotate(180);
   painter->drawPixmap(-62, -(yOrigin + 75), 25, 25, QPixmap(":/images/arrow.png"));
@@ -1431,8 +1431,8 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   painter->setFont(font);
   painter->setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap));
   painter->setBrush(QBrush(Qt::black, Qt::SolidPattern));
-  painter->drawText(QRect(110, 21, 200, 25), Qt::AlignBottom, "Supply Equipment");
-  painter->drawText(QRect(110, 52, 200, 25), Qt::AlignTop, "Demand Equipment");
+  painter->drawText(QRect(110, 21, 200, 25), Qt::AlignBottom, tr("Supply Equipment"));
+  painter->drawText(QRect(110, 52, 200, 25), Qt::AlignTop, tr("Demand Equipment"));
 }
 
 SupplyPlenumItem::SupplyPlenumItem(const model::ModelObject& modelObject, QGraphicsItem* parent) : GridItem(parent) {

@@ -22,7 +22,7 @@
 
 namespace openstudio {
 
-ScriptsTabView::ScriptsTabView(QWidget* t_parent) : MainTabView("Measures", MainTabView::MAIN_TAB, t_parent) {
+ScriptsTabView::ScriptsTabView(QWidget* t_parent) : MainTabView(tr("Measures"), MainTabView::MAIN_TAB, t_parent) {
   //setTitle("Organize and Edit Measures for Project");
 
   // Main Content
@@ -58,8 +58,8 @@ ScriptsTabView::ScriptsTabView(QWidget* t_parent) : MainTabView("Measures", Main
   footer->setLayout(layout);
 
   m_updateMeasuresButton = new GrayButton();
-  m_updateMeasuresButton->setText("Sync Project Measures with Library");
-  m_updateMeasuresButton->setToolTip("Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option");
+  m_updateMeasuresButton->setText(tr("Sync Project Measures with Library"));
+  m_updateMeasuresButton->setToolTip(tr("Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option"));
   layout->addStretch();
   layout->addWidget(m_updateMeasuresButton);
 

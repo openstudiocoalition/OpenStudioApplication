@@ -49,7 +49,7 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -68,7 +68,7 @@ void WindowMaterialDaylightRedirectionDeviceInspectorView::createLayout() {
 
   // Daylight Redirection Device Type
 
-  label = new QLabel("Daylight Redirection Device Type: ");
+  label = new QLabel(tr("Daylight Redirection Device Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 

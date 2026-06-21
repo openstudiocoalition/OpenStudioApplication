@@ -532,7 +532,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
   label = new QLabel();
   label->setObjectName("H2");
   label->setWordWrap(true);
-  label->setText("Name");
+  label->setText(tr("Name"));
 
   m_nameEdit = new OSLineEdit2();
 
@@ -561,7 +561,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
   row++;
 
   label = new QLabel();
-  label->setText("Default Schedules");
+  label->setText(tr("Default Schedules"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, 0, 1, 2);
@@ -569,7 +569,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Hours of Operation");
+  label->setText(tr("Hours of Operation"));
   m_hoursOfOperationVC = new HoursOfOperationVC();
   m_vectorControllers.push_back(m_hoursOfOperationVC);
   m_hoursOfOperationDZ = new OSDropZone(m_hoursOfOperationVC);
@@ -579,7 +579,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Number of People");
+  label->setText(tr("Number of People"));
   m_numberOfPeopleVC = new NumberOfPeopleVC();
   m_vectorControllers.push_back(m_numberOfPeopleVC);
   m_numberOfPeopleDZ = new OSDropZone(m_numberOfPeopleVC);
@@ -591,7 +591,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("People Activity");
+  label->setText(tr("People Activity"));
   m_peopleActivityScheduleVC = new PeopleActivityScheduleVC();
   m_vectorControllers.push_back(m_peopleActivityScheduleVC);
   m_peopleActivityScheduleDZ = new OSDropZone(m_peopleActivityScheduleVC);
@@ -601,7 +601,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Lighting");
+  label->setText(tr("Lighting"));
   m_lightingScheduleVC = new LightingScheduleVC();
   m_vectorControllers.push_back(m_lightingScheduleVC);
   m_lightingScheduleDZ = new OSDropZone(m_lightingScheduleVC);
@@ -613,7 +613,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Electric Equipment");
+  label->setText(tr("Electric Equipment"));
   m_electricEquipmentScheduleVC = new ElectricEquipmentScheduleVC();
   m_vectorControllers.push_back(m_electricEquipmentScheduleVC);
   m_electricEquipmentScheduleDZ = new OSDropZone(m_electricEquipmentScheduleVC);
@@ -623,7 +623,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Gas Equipment");
+  label->setText(tr("Gas Equipment"));
   m_gasEquipmentScheduleVC = new GasEquipmentScheduleVC();
   m_vectorControllers.push_back(m_gasEquipmentScheduleVC);
   m_gasEquipmentScheduleDZ = new OSDropZone(m_gasEquipmentScheduleVC);
@@ -635,7 +635,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Hot Water Equipment");
+  label->setText(tr("Hot Water Equipment"));
   m_hotWaterEquipmentScheduleVC = new HotWaterEquipmentScheduleVC();
   m_vectorControllers.push_back(m_hotWaterEquipmentScheduleVC);
   m_hotWaterEquipmentScheduleDZ = new OSDropZone(m_hotWaterEquipmentScheduleVC);
@@ -645,7 +645,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Steam Equipment");
+  label->setText(tr("Steam Equipment"));
   m_steamEquipmentScheduleVC = new SteamEquipmentScheduleVC();
   m_vectorControllers.push_back(m_steamEquipmentScheduleVC);
   m_ventilationPerPersonScheduleDZ = new OSDropZone(m_steamEquipmentScheduleVC);
@@ -657,7 +657,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Other Equipment");
+  label->setText(tr("Other Equipment"));
   m_otherEquipmentScheduleVC = new OtherEquipmentScheduleVC();
   m_vectorControllers.push_back(m_otherEquipmentScheduleVC);
   m_ventilationPerFloorAreaScheduleDZ = new OSDropZone(m_otherEquipmentScheduleVC);
@@ -667,7 +667,7 @@ ScheduleSetInspectorView::ScheduleSetInspectorView(const model::Model& model, QW
 
   label = new QLabel();
   label->setObjectName("H2");
-  label->setText("Infiltration");
+  label->setText(tr("Infiltration"));
   m_infiltrationScheduleVC = new InfiltrationScheduleVC();
   m_vectorControllers.push_back(m_infiltrationScheduleVC);
   m_infiltrationScheduleDZ = new OSDropZone(m_infiltrationScheduleVC);

@@ -111,7 +111,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
   hLayout->setContentsMargins(MARGINLEFT, 0, 0, 0);
   hLayout->setSpacing(10);
 
-  auto* label = new QLabel("Schedule Day Name:");
+  auto* label = new QLabel(tr("Schedule Day Name:"));
   hLayout->addWidget(label);
 
   auto* lineEdit = new OSLineEdit2();
@@ -155,7 +155,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   zoomButtonGroup->addButton(hourlyZoomButton);
 
-  hourlyZoomButton->setText("Hourly");
+  hourlyZoomButton->setText(tr("Hourly"));
 
   connect(hourlyZoomButton, &QPushButton::clicked, this, &ScheduleDayView::setHourlyZoom);
   zoomButtonLayout->addWidget(hourlyZoomButton);
@@ -168,7 +168,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   zoomButtonGroup->addButton(quarterHourlyZoomButton);
 
-  quarterHourlyZoomButton->setText("15 Minutes");
+  quarterHourlyZoomButton->setText(tr("15 Minutes"));
 
   connect(quarterHourlyZoomButton, &QPushButton::clicked, this, &ScheduleDayView::setQuarterHourlyZoom);
   zoomButtonLayout->addWidget(quarterHourlyZoomButton);
@@ -181,7 +181,7 @@ ScheduleDayView::ScheduleDayView(bool isIP, const model::ScheduleDay& scheduleDa
 
   zoomButtonGroup->addButton(oneMinuteZommButton);
 
-  oneMinuteZommButton->setText("1 Minute");
+  oneMinuteZommButton->setText(tr("1 Minute"));
 
   connect(oneMinuteZommButton, &QPushButton::clicked, this, &ScheduleDayView::setOneMinuteZoom);
   zoomButtonLayout->addWidget(oneMinuteZommButton);
@@ -419,7 +419,7 @@ ScheduleLimitsView::ScheduleLimitsView(bool isIP, const boost::optional<model::S
   connect(m_lowerViewLimitSpinBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), scheduleDayView,
           &ScheduleDayView::onLowerViewLimitChanged);
 
-  label = new QLabel("Lower Limit: ");
+  label = new QLabel(tr("Lower Limit: "));
   mainHLayout->addWidget(label);
 
   mainHLayout->addWidget(m_lowerViewLimitSpinBox);
@@ -432,7 +432,7 @@ ScheduleLimitsView::ScheduleLimitsView(bool isIP, const boost::optional<model::S
   connect(m_upperViewLimitSpinBox, static_cast<void (QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged), scheduleDayView,
           &ScheduleDayView::onUpperViewLimitChanged);
 
-  label = new QLabel("Upper Limit: ");
+  label = new QLabel(tr("Upper Limit: "));
   mainHLayout->addWidget(label);
 
   mainHLayout->addWidget(m_upperViewLimitSpinBox);
@@ -771,7 +771,7 @@ CalendarSegmentItem::CalendarSegmentItem(QGraphicsItem* parent)
     m_isOutOfTypeLimits(false) {
   setAcceptHoverEvents(true);
 
-  setToolTip("Double click to cut segment");
+  setToolTip(tr("Double click to cut segment"));
 
   setZValue(100);
 }
@@ -973,7 +973,7 @@ void CalendarSegmentItem::setValue(double value) {
 VCalendarSegmentItem::VCalendarSegmentItem(QGraphicsItem* parent) : QGraphicsItem(parent), m_isHovering(false) {
   setAcceptHoverEvents(true);
 
-  setToolTip("Double click to delete segment");
+  setToolTip(tr("Double click to delete segment"));
 
   setLength(LINEWIDTH * 3.0);
 }
@@ -1147,7 +1147,7 @@ void VCalendarSegmentItem::setTime(double time) {
 ScheduleTypeLimitItem::ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem* parent) : QGraphicsItem(parent), m_isUpperLimit(isUpperLimit) {
   setAcceptHoverEvents(true);
 
-  setToolTip("Schedule Type Limit");
+  setToolTip(tr("Schedule Type Limit"));
 
   setZValue(90);
 }
@@ -1392,11 +1392,11 @@ void DaySchedulePlotArea::updateKeyboardPrompt() {
       //}
 
     } else if (dynamic_cast<VCalendarSegmentItem*>(m_currentHoverItem)) {
-      result = "Drag vertical line to adjust";
+      result = tr("Drag vertical line to adjust");
     }
 
   } else {
-    result = "Mouse over horizontal line to set value";
+    result = tr("Mouse over horizontal line to set value");
   }
 
   emit keyboardPromptChanged(result);

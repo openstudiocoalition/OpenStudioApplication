@@ -18,7 +18,7 @@
 
 namespace openstudio {
 
-OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type, QWidget* parent)
+OSCollapsibleItemHeader::OSCollapsibleItemHeader(const QString& text, const OSItemId& itemId, OSItemType type, QWidget* parent)
   : QWidget(parent), m_mouseDown(false) {
   setFixedHeight(50);
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
@@ -35,7 +35,7 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const 
 
   // Label
 
-  m_textLabel = new QLabel(QString::fromStdString(text));
+  m_textLabel = new QLabel(text);
   m_textLabel->setWordWrap(true);
   m_textLabel->setObjectName("H2");
   mainHLayout->addWidget(m_textLabel, 10);

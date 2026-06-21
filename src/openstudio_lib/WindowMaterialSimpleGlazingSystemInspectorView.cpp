@@ -47,7 +47,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -66,7 +66,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
 
   // U-Factor
 
-  label = new QLabel("U-Factor: ");
+  label = new QLabel(tr("U-Factor: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -76,7 +76,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
 
   // Solar Heat Gain Coefficient
 
-  label = new QLabel("Solar Heat Gain Coefficient: ");
+  label = new QLabel(tr("Solar Heat Gain Coefficient: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -87,7 +87,7 @@ void WindowMaterialSimpleGlazingSystemInspectorView::createLayout() {
 
   // Visible Transmittance
 
-  label = new QLabel("Visible Transmittance: ");
+  label = new QLabel(tr("Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

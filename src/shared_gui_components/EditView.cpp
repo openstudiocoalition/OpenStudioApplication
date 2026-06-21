@@ -45,7 +45,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   m_mainVLayout->setAlignment(Qt::AlignTop);
   scrollWidget->setLayout(m_mainVLayout);
 
-  auto* measureOptionTitleLabel = new QLabel("Name");
+  auto* measureOptionTitleLabel = new QLabel(tr("Name"));
   measureOptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(measureOptionTitleLabel);
 
@@ -56,7 +56,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   nameLineEdit->setValidator(validator);
   m_mainVLayout->addWidget(nameLineEdit);
 
-  auto* descriptionTitleLabel = new QLabel("Description");
+  auto* descriptionTitleLabel = new QLabel(tr("Description"));
   descriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(descriptionTitleLabel);
 
@@ -67,7 +67,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   descriptionTextEdit->setTabChangesFocus(true);
   m_mainVLayout->addWidget(descriptionTextEdit);
 
-  auto* modelerDescriptionTitleLabel = new QLabel("Modeler Description");
+  auto* modelerDescriptionTitleLabel = new QLabel(tr("Modeler Description"));
   modelerDescriptionTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(modelerDescriptionTitleLabel);
 
@@ -85,7 +85,7 @@ EditRubyMeasureView::EditRubyMeasureView(bool applyMeasureNow) : QWidget() {
   line2->setFrameShadow(QFrame::Sunken);
   m_mainVLayout->addWidget(line2);
 
-  auto* inputsTitleLabel = new QLabel("Inputs");
+  auto* inputsTitleLabel = new QLabel(tr("Inputs"));
   inputsTitleLabel->setObjectName("H2");
   m_mainVLayout->addWidget(inputsTitleLabel);
 

@@ -14,6 +14,7 @@
 #include <boost/optional.hpp>
 #include <boost/smart_ptr.hpp>
 
+#include <QCoreApplication>
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QWidget>
@@ -415,6 +416,7 @@ class DayScheduleOverview : public QWidget
 
 class VCalendarSegmentItem : public QGraphicsItem
 {
+  Q_DECLARE_TR_FUNCTIONS(VCalendarSegmentItem)
  public:
   explicit VCalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
@@ -473,6 +475,7 @@ class VCalendarSegmentItem : public QGraphicsItem
 
 class CalendarSegmentItem : public QGraphicsItem
 {
+  Q_DECLARE_TR_FUNCTIONS(CalendarSegmentItem)
  public:
   explicit CalendarSegmentItem(QGraphicsItem* parent = nullptr);
 
@@ -543,6 +546,7 @@ class CalendarSegmentItem : public QGraphicsItem
 
 class ScheduleTypeLimitItem : public QGraphicsItem
 {
+  Q_DECLARE_TR_FUNCTIONS(ScheduleTypeLimitItem)
  public:
   explicit ScheduleTypeLimitItem(bool isUpperLimit, QGraphicsItem* parent = nullptr);
 

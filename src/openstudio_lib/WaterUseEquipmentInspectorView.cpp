@@ -205,7 +205,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -213,7 +213,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // End Use Subcategory
 
-  label = new QLabel("End Use Subcategory: ");
+  label = new QLabel(tr("End Use Subcategory: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -221,7 +221,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // Peak Flow Rate
 
-  label = new QLabel("Peak Flow Rate: ");
+  label = new QLabel(tr("Peak Flow Rate: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -231,7 +231,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // Target Temperature Schedule
 
-  label = new QLabel("Target Temperature Schedule: ");
+  label = new QLabel(tr("Target Temperature Schedule: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 
@@ -243,7 +243,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // Sensible Fraction Schedule
 
-  label = new QLabel("Sensible Fraction Schedule: ");
+  label = new QLabel(tr("Sensible Fraction Schedule: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 8, 0);
 
@@ -255,7 +255,7 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
 
   // Latent Fraction Schedule
 
-  label = new QLabel("Latent Fraction Schedule: ");
+  label = new QLabel(tr("Latent Fraction Schedule: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 10, 0);
 

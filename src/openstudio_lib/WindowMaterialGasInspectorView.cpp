@@ -47,7 +47,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -66,7 +66,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Gas Type
 
-  label = new QLabel("Gas Type: ");
+  label = new QLabel(tr("Gas Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -80,7 +80,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -90,7 +90,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Conductivity Coefficient A
 
-  label = new QLabel("Conductivity Coefficient A: ");
+  label = new QLabel(tr("Conductivity Coefficient A: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -100,7 +100,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Conductivity Coefficient B
 
-  label = new QLabel("Conductivity Coefficient B: ");
+  label = new QLabel(tr("Conductivity Coefficient B: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -110,7 +110,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Viscosity Coefficient A
 
-  label = new QLabel("Viscosity Coefficient A: ");
+  label = new QLabel(tr("Viscosity Coefficient A: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -120,7 +120,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Viscosity Coefficient B
 
-  label = new QLabel("Viscosity Coefficient B: ");
+  label = new QLabel(tr("Viscosity Coefficient B: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -130,7 +130,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Specific Heat Coefficient A
 
-  label = new QLabel("Specific Heat Coefficient A: ");
+  label = new QLabel(tr("Specific Heat Coefficient A: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -140,7 +140,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Specific Heat Coefficient B
 
-  label = new QLabel("Specific Heat Coefficient B: ");
+  label = new QLabel(tr("Specific Heat Coefficient B: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
   m_specificHeatCoefficientB = new OSQuantityEdit2("J/kg*K^2", "J/kg*K^2", "Btu/lb*R^2", m_isIP);
@@ -149,7 +149,7 @@ void WindowMaterialGasInspectorView::createLayout() {
 
   // Molecular Weight
 
-  label = new QLabel("Molecular Weight: ");
+  label = new QLabel(tr("Molecular Weight: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

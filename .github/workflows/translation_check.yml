@@ -1,0 +1,46 @@
+name: Translation Check
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Qt6 lupdate
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y qt6-l10n-tools
+
+      - name: Run lupdate against all .ts files
+        run: |
+          # -locations none: suppress line-number comments so only genuine
+          # string additions/removals cause a git diff change.
+          lupdate6 src/ \
+            -ts translations/OpenStudioApp_*.ts \
+            -extensions cpp,hpp \
+            -locations none \
+            2>&1 | tee lupdate_output.txt
+
+      - name: Detect vanished or new unfinished strings
+        run: |
+          # If lupdate changed any .ts file, strings were either added to source
+          # (new type="unfinished" stubs) or removed from source (type="obsolete").
+          # Either way the commit that introduced the drift should not merge until
+          # the .ts files are updated and translations are provided.
+          python3 ci/check_translations.py
+
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-check-${{ github.sha }}
+          path: |
+            lupdate_output.txt
+            translation_check.patch

@@ -32,7 +32,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -40,7 +40,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Design Level
 
-  label = new QLabel("Design Level: ");
+  label = new QLabel(tr("Design Level: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -50,7 +50,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Watts Per Space Floor Area
 
-  label = new QLabel("Watts Per Space Floor Area: ");
+  label = new QLabel(tr("Watts Per Space Floor Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 1);
 
@@ -60,7 +60,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Watts Per Person
 
-  label = new QLabel("Watts Per Person: ");
+  label = new QLabel(tr("Watts Per Person: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 2);
 
@@ -70,7 +70,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Fraction Latent
 
-  label = new QLabel("Fraction Latent: ");
+  label = new QLabel(tr("Fraction Latent: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -80,7 +80,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Fraction Radiant
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 1);
 
@@ -90,7 +90,7 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   // Fraction Lost
 
-  label = new QLabel("Fraction Lost: ");
+  label = new QLabel(tr("Fraction Lost: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 

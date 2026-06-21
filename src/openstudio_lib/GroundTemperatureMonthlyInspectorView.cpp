@@ -150,7 +150,8 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
   auto* barSeries = new QBarSeries;
   barSeries->append(m_chartBarSet);
 
-  const QStringList monthAbbrevs = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+  const QStringList monthAbbrevs = {tr("Jan"), tr("Feb"), tr("Mar"), tr("Apr"), tr("May"), tr("Jun"),
+                                    tr("Jul"), tr("Aug"), tr("Sep"), tr("Oct"), tr("Nov"), tr("Dec")};
   auto* axisX = new QBarCategoryAxis;
   axisX->append(monthAbbrevs);
   axisX->setGridLineVisible(false);

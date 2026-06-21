@@ -18,12 +18,12 @@ namespace openstudio {
 
 SpacesTabController::SpacesTabController(bool isIP, bool displayAdditionalProps, const model::Model& model)
   : MainTabController(new SpacesTabView()), m_model(model), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
-  mainContentWidget()->addSubTab("Properties", SPACES);
-  mainContentWidget()->addSubTab("Loads", LOADS);
-  mainContentWidget()->addSubTab("Surfaces", SURFACES);
-  mainContentWidget()->addSubTab("Subsurfaces", SUBSURFACES);
-  mainContentWidget()->addSubTab("Interior Partitions", INTERIOR_PARTITIONS);
-  mainContentWidget()->addSubTab("Shading", SHADING);
+  mainContentWidget()->addSubTab(tr("Properties"), SPACES);
+  mainContentWidget()->addSubTab(tr("Loads"), LOADS);
+  mainContentWidget()->addSubTab(tr("Surfaces"), SURFACES);
+  mainContentWidget()->addSubTab(tr("Subsurfaces"), SUBSURFACES);
+  mainContentWidget()->addSubTab(tr("Interior Partitions"), INTERIOR_PARTITIONS);
+  mainContentWidget()->addSubTab(tr("Shading"), SHADING);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &SpacesTabController::setSubTab);
 

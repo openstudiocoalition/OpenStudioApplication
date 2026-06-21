@@ -85,7 +85,7 @@ void BuildingComponentDialogCentralWidget::init() {
 
 void BuildingComponentDialogCentralWidget::createLayout() {
 
-  auto* label = new QLabel("Sort by:");
+  auto* label = new QLabel(tr("Sort by:"));
   label->hide();  // TODO remove this hack when we have sorts to do
 
   auto* comboBox = new QComboBox(this);
@@ -94,7 +94,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   connect(comboBox, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this,
           &BuildingComponentDialogCentralWidget::comboBoxIndexChanged);
 
-  auto* upperPushButton = new QPushButton("Check All");
+  auto* upperPushButton = new QPushButton(tr("Check All"));
   connect(upperPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::upperPushButtonClicked);
 
   auto* upperLayout = new QHBoxLayout();
@@ -141,7 +141,7 @@ void BuildingComponentDialogCentralWidget::createLayout() {
   m_progressBar = new ProgressBarWithError(this);
   m_progressBar->setVisible(false);
 
-  auto* lowerPushButton = new QPushButton("Download");
+  auto* lowerPushButton = new QPushButton(tr("Download"));
   connect(lowerPushButton, &QPushButton::clicked, this, &BuildingComponentDialogCentralWidget::lowerPushButtonClicked);
 
   auto* lowerLayout = new QHBoxLayout();

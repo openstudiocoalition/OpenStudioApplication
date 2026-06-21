@@ -19,7 +19,7 @@ class OSCategoryPlaceholder : public QWidget
   Q_OBJECT
 
  public:
-  explicit OSCategoryPlaceholder(const std::string& text, QWidget* parent = nullptr);
+  explicit OSCategoryPlaceholder(const QString& text, QWidget* parent = nullptr);
 
   virtual ~OSCategoryPlaceholder() = default;
 

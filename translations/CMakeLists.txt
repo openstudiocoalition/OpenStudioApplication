@@ -22,6 +22,10 @@ set(TS_FILES
   OpenStudioApp_de.ts # German
   OpenStudioApp_ar.ts # Arabic
   OpenStudioApp_he.ts # Hebrew
+  OpenStudioApp_id.ts # Indonesian
+  OpenStudioApp_ko.ts # Korean
+  OpenStudioApp_pt.ts # Portuguese
+  OpenStudioApp_tr.ts # Turkish
 )
 
 set(target_names
@@ -144,5 +148,25 @@ add_custom_command(TARGET translations
   # German
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
   COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_de.qm $<TARGET_FILE_DIR:${target_name}>/translations/
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/vi.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/de.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+  # Indonesian: qt / qtbase not available, webengine only
+  # COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_id.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  # COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_id.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/id.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+  # Korean
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_ko.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_ko.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/ko.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+  # Portuguese (Qt ships pt_BR and pt_PT variants; no plain pt)
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_pt_BR.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_pt_BR.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/pt-BR.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
+
+  # Turkish
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qt_tr.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${QT_INSTALL_DIR}/translations/qtbase_tr.qm $<TARGET_FILE_DIR:${target_name}>/translations/
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different ${WEBENGINE_PAK_FOLDER}/tr.pak $<TARGET_FILE_DIR:${target_name}>/translations/qtwebengine_locales/
 )
