@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#include "../shared_gui_components/GraphicsItems.hpp"
-#include "../shared_gui_components/OSListController.hpp"
+#include "GraphicsItems.hpp"
+#include "OSListController.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>

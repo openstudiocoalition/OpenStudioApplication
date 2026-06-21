@@ -7,7 +7,7 @@
 
 namespace openstudio {
 
-FacilityTabView::FacilityTabView(QWidget* parent) : MainTabView("Facility", MainTabView::GRIDVIEW_SUB_TAB, parent) {}
+FacilityTabView::FacilityTabView(QWidget* parent) : MainTabView(tr("Facility"), MainTabView::GRIDVIEW_SUB_TAB, parent) {}
 
 void FacilityTabView::toggleUnits(bool displayIP) {}
 

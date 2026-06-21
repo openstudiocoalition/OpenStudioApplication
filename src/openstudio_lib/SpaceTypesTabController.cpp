@@ -5,7 +5,7 @@
 
 #include "SpaceTypesTabController.hpp"
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "SpaceTypeInspectorView.hpp"
 #include "SpaceTypesController.hpp"
 #include "SpaceTypesTabView.hpp"

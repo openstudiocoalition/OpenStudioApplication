@@ -10,7 +10,7 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <openstudio/model/ModelObject.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "GridItem.hpp"
 
 namespace openstudio {
@@ -30,6 +30,7 @@ class ServiceWaterItem : public GridItem
 
 class WaterUseConnectionsDetailItem : public GridItem
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::WaterUseConnectionsDetailItem)
  public:
   explicit WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene);
 

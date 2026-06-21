@@ -5,7 +5,7 @@
 
 #include "SpacesInteriorPartitionsGridView.hpp"
 
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
@@ -30,22 +30,7 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
-
-// GENERAL
-#define INTERIORPARTITIONGROUPNAME "Interior Partition Group Name"  // read only
-#define INTERIORPARTITIONNAME "Interior Partition Name"
-#define CONSTRUCTIONNAME "Construction Name"
-#define CONVERTTOINTERNALMASS "Convert to Internal Mass"
-#define SURFACEAREA "Surface Area"
-#define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"  // read only
+#include <QCoreApplication>
 
 namespace openstudio {
 
@@ -60,8 +45,8 @@ SpacesInteriorPartitionsGridView::SpacesInteriorPartitionsGridView(bool isIP, bo
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
   m_gridController =
-    new SpacesInteriorPartitionsGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+    new SpacesInteriorPartitionsGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -101,11 +86,11 @@ SpacesInteriorPartitionsGridController::SpacesInteriorPartitionsGridController(b
 void SpacesInteriorPartitionsGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      INTERIORPARTITIONNAME, INTERIORPARTITIONGROUPNAME, CONSTRUCTIONNAME, CONVERTTOINTERNALMASS,
-      //SURFACEAREA,
-      //DAYLIGHTINGSHELFNAME,
+      tr("Interior Partition Name"), tr("Interior Partition Group Name"), tr("Construction Name"), tr("Convert to Internal Mass"),
+      //tr("Surface Area"),
+      //tr("Daylighting Shelf Name"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -119,27 +104,27 @@ void SpacesInteriorPartitionsGridController::onCategorySelected(int index) {
 void SpacesInteriorPartitionsGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+    if (field == tr("Space Name")) {
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
@@ -183,32 +168,32 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           return allModelObjects;
         });
 
-      if (field == SELECTED) {
+      if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
+        checkbox->setToolTip(tr("Check to select all rows"));
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
         connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(),
                 &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(),
                         DataSource(allInteriorPartitionSurfaces, true));
-      } else if (field == INTERIORPARTITIONGROUPNAME) {
-        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONGROUPNAME), true, false), false, false,
+      } else if (field == tr("Interior Partition Group Name")) {
+        addNameLineEditColumn(Heading(tr("Interior Partition Group Name"), true, false), false, false,
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::name),
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurfaceGroup*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurfaceGroup*)>>(),
                               DataSource(allInteriorPartitionSurfaceInteriorPartitionSurfaceGroups, true));
-      } else if (field == INTERIORPARTITIONNAME) {
-        addNameLineEditColumn(Heading(QString(INTERIORPARTITIONNAME), true, false), false, false,
+      } else if (field == tr("Interior Partition Name")) {
+        addNameLineEditColumn(Heading(tr("Interior Partition Name"), true, false), false, false,
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::name),
                               CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::setName),
                               boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(),
                               boost::optional<std::function<bool(model::InteriorPartitionSurface*)>>(),
                               DataSource(allInteriorPartitionSurfaces, true));
-      } else if (field == CONSTRUCTIONNAME) {
+      } else if (field == tr("Construction Name")) {
         setConstructionColumn(4);
         addDropZoneColumn(
-          Heading(QString(CONSTRUCTIONNAME), true, false),
+          Heading(tr("Construction Name"), true, false),
           CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::construction),
           CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::setConstruction),
           boost::optional<std::function<void(model::InteriorPartitionSurface*)>>(NullAdapter(&model::InteriorPartitionSurface::resetConstruction)),
@@ -216,18 +201,18 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
             NullAdapter(&model::InteriorPartitionSurface::isConstructionDefaulted)),
           boost::optional<std::function<std::vector<model::ModelObject>(const model::InteriorPartitionSurface*)>>(),
           DataSource(allInteriorPartitionSurfaces, true));
-      } else if (field == CONVERTTOINTERNALMASS) {
+      } else if (field == tr("Convert to Internal Mass")) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-        addCheckBoxColumn(Heading(QString(CONVERTTOINTERNALMASS), true, true), std::string("Check to enable convert to InternalMass."),
+        addCheckBoxColumn(Heading(tr("Convert to Internal Mass"), true, true), tr("Check to enable convert to InternalMass.").toStdString(),
                           NullAdapter(&model::InteriorPartitionSurface::converttoInternalMass),
                           NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), DataSource(allInteriorPartitionSurfaces, true));
-      } else if (field == SURFACEAREA) {
+      } else if (field == tr("Surface Area")) {
         std::function<bool(model::InteriorPartitionSurface*, double)> setter(
           [](model::InteriorPartitionSurface* t_interiorPartitionSurface, double t_arg) {
             return t_interiorPartitionSurface->setSurfaceArea(t_arg);
           });
 
-        addValueEditColumn(Heading(QString(SURFACEAREA)),
+        addValueEditColumn(Heading(tr("Surface Area")),
                            CastNullAdapter<model::InteriorPartitionSurface>(&model::InteriorPartitionSurface::surfaceArea), setter
                            // boost::optional<std::function<void(model::ModelObject *)>>(),
                            // boost::optional<std::function<bool(model::ModelObject *)>>()//,
@@ -242,7 +227,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
         //bool setSurfaceArea(double surfaceArea);
         //void resetSurfaceArea();
 
-      } else if (field == DAYLIGHTINGSHELFNAME) {
+      } else if (field == tr("Daylighting Shelf Name")) {
         //boost::optional<DaylightingDeviceShelf> daylightingDeviceShelf() const;
 
       } else {

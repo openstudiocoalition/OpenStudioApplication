@@ -6,6 +6,7 @@
 #ifndef OPENSTUDIO_HVACSYSTEMSVIEW_HPP
 #define OPENSTUDIO_HVACSYSTEMSVIEW_HPP
 
+#include <QCoreApplication>
 #include <QWidget>
 #include <QScrollArea>
 #include <QGraphicsView>
@@ -39,6 +40,12 @@ class SetpointManagerWarmestTemperatureFlow;
 class SetpointManagerColdest;
 }  // namespace model
 
+/**
+ * HVACSystemsView is the top-level widget for the HVAC Systems tab. It hosts the system selector
+ * toolbar, the tabbed system scenes, and the mechanical ventilation/service water loops panels.
+ * The graphical system scenes are rendered by domain-specific scene widgets hosted in a
+ * QStackedWidget inside this view.
+ */
 class HVACSystemsView : public QWidget
 {
   Q_OBJECT
@@ -208,6 +215,7 @@ class NoMechanicalVentilationView : public QWidget
 
 class SingleZoneSPMView : public QWidget
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::SingleZoneSPMView)
  public:
   explicit SingleZoneSPMView(const QString& spmType = "SingleZoneReheat");
 
@@ -218,6 +226,7 @@ class SingleZoneSPMView : public QWidget
 
 class ScheduledSPMView : public QWidget
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::ScheduledSPMView)
  public:
   ScheduledSPMView();
 
@@ -244,6 +253,7 @@ class FollowGroundTempSPMView : public QWidget
 
 class OAResetSPMView : public QWidget
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::OAResetSPMView)
  public:
   explicit OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm);
   virtual ~OAResetSPMView() = default;
@@ -270,6 +280,7 @@ class WarmestColdestSPMView : public QWidget
 
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView)
  public:
   AirLoopHVACUnitaryHeatPumpAirToAirControlView();
 
@@ -280,6 +291,7 @@ class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
 
 class NoSupplyAirTempControlView : public QWidget
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::NoSupplyAirTempControlView)
  public:
   NoSupplyAirTempControlView();
 

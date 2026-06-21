@@ -3,10 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef MODEL_ACCESSPOLICYSTORE_HPP
-#define MODEL_ACCESSPOLICYSTORE_HPP
-
-#include "ModelEditorAPI.hpp"
+#ifndef MODELEDITOR_ACCESSPOLICYSTORE_HPP
+#define MODELEDITOR_ACCESSPOLICYSTORE_HPP
 
 #include <map>
 
@@ -22,8 +20,6 @@ class InspectorView;
 
 namespace model {
 
-class AccessParser;
-
 /*! Access Policy will tell ModelObjects witch fields to expose
      *
      * The Policy will restrict your access to ModelObject data.
@@ -34,9 +30,9 @@ class AccessParser;
      * data manipulation side of things. The idea is that each program might have its
      * own XML file that tells the AccessPolicy how to display fields.
      */
-class MODELEDITOR_API AccessPolicy
+class AccessPolicy
 {
-  friend class AccessParser;
+  friend class AccessPolicyStore;
   friend class openstudio::InspectorView;  // For overriding via setAccess
 
  public:
@@ -76,10 +72,8 @@ class MODELEDITOR_API AccessPolicy
    *
    *
    */
-class MODELEDITOR_API AccessPolicyStore
+class AccessPolicyStore
 {
-  friend class AccessParser;
-
  public:
   static AccessPolicyStore& Instance();
 

@@ -19,7 +19,7 @@
 #include "LocationTabView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSAppBase.hpp"
 #include "ResultsTabController.hpp"
@@ -46,8 +46,8 @@
 #include "../shared_gui_components/MeasureManager.hpp"
 #include "../shared_gui_components/WaitDialog.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 //#include "../analysis/Analysis.hpp"
 
@@ -82,7 +82,7 @@
 
 //#include "../runmanager/lib/WorkItem.hpp"
 
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 #include <openstudio/OpenStudio.hxx>
 
@@ -346,42 +346,43 @@ void OSDocument::weatherFileReset() {
 
 void OSDocument::createTabButtons() {
   // Location
-  m_mainWindow->addVerticalTabButton(SITE, "Site", ":/images/on_location_tab.png", ":/images/off_location_tab.png",
+  m_mainWindow->addVerticalTabButton(SITE, tr("Site"), ":/images/on_location_tab.png", ":/images/off_location_tab.png",
                                      ":/images/disabled_location_tab.png");
 
   // Schedules
-  m_mainWindow->addVerticalTabButton(SCHEDULES, "Schedules", ":/images/on_schedules_tab.png", ":/images/off_schedules_tab.png",
+  m_mainWindow->addVerticalTabButton(SCHEDULES, tr("Schedules"), ":/images/on_schedules_tab.png", ":/images/off_schedules_tab.png",
                                      ":/images/disabled_schedules_tab.png");
 
   // Constructions
-  m_mainWindow->addVerticalTabButton(CONSTRUCTIONS, "Constructions", ":/images/on_constructions_tab.png", ":/images/off_constructions_tab.png",
+  m_mainWindow->addVerticalTabButton(CONSTRUCTIONS, tr("Constructions"), ":/images/on_constructions_tab.png", ":/images/off_constructions_tab.png",
                                      ":/images/disabled_constructions_tab.png");
 
   // Loads
-  m_mainWindow->addVerticalTabButton(LOADS, "Loads", ":/images/on_loads_tab.png", ":/images/off_loads_tab.png", ":/images/disabled_loads_tab.png");
+  m_mainWindow->addVerticalTabButton(LOADS, tr("Loads"), ":/images/on_loads_tab.png", ":/images/off_loads_tab.png",
+                                     ":/images/disabled_loads_tab.png");
 
   // Space Types
-  m_mainWindow->addVerticalTabButton(SPACE_TYPES, "Space Types", ":/images/on_space_types_tab.png", ":/images/off_space_types_tab.png",
+  m_mainWindow->addVerticalTabButton(SPACE_TYPES, tr("Space Types"), ":/images/on_space_types_tab.png", ":/images/off_space_types_tab.png",
                                      ":/images/disabled_space_types_tab.png");
 
   // Geometry
-  m_mainWindow->addVerticalTabButton(GEOMETRY, "Geometry", ":/images/on_geometry_tab.png", ":/images/off_geometry_tab.png",
+  m_mainWindow->addVerticalTabButton(GEOMETRY, tr("Geometry"), ":/images/on_geometry_tab.png", ":/images/off_geometry_tab.png",
                                      ":/images/disabled_geometry_tab.png");
 
   // Facility
-  m_mainWindow->addVerticalTabButton(FACILITY, "Facility", ":/images/on_building_tab.png", ":/images/off_building_tab.png",
+  m_mainWindow->addVerticalTabButton(FACILITY, tr("Facility"), ":/images/on_building_tab.png", ":/images/off_building_tab.png",
                                      ":/images/disabled_building_tab.png");
 
   // Spaces
-  m_mainWindow->addVerticalTabButton(SPACES, "Spaces", ":/images/on_spaces_tab.png", ":/images/off_spaces_tab.png",
+  m_mainWindow->addVerticalTabButton(SPACES, tr("Spaces"), ":/images/on_spaces_tab.png", ":/images/off_spaces_tab.png",
                                      ":/images/disabled_spaces_tab.png");
 
   // Thermal Zones
-  m_mainWindow->addVerticalTabButton(THERMAL_ZONES, "Thermal Zones", ":/images/on_thermal_zone_tab.png", ":/images/off_thermal_zone_tab.png",
+  m_mainWindow->addVerticalTabButton(THERMAL_ZONES, tr("Thermal Zones"), ":/images/on_thermal_zone_tab.png", ":/images/off_thermal_zone_tab.png",
                                      ":/images/disabled_thermal_zone_tab.png");
 
   // HVAC Systems
-  m_mainWindow->addVerticalTabButton(HVAC_SYSTEMS, "HVAC Systems", ":/images/on_hvac_tab.png", ":/images/off_hvac_tab.png",
+  m_mainWindow->addVerticalTabButton(HVAC_SYSTEMS, tr("HVAC Systems"), ":/images/on_hvac_tab.png", ":/images/off_hvac_tab.png",
                                      ":/images/disabled_hvac_tab.png");
 
   //******************************************************************************************************
@@ -396,23 +397,23 @@ void OSDocument::createTabButtons() {
   //******************************************************************************************************
 
   // Variables
-  m_mainWindow->addVerticalTabButton(OUTPUT_VARIABLES, "Output Variables", ":/images/on_var_tab.png", ":/images/off_var_tab.png",
+  m_mainWindow->addVerticalTabButton(OUTPUT_VARIABLES, tr("Output Variables"), ":/images/on_var_tab.png", ":/images/off_var_tab.png",
                                      ":/images/disabled_var_tab.png");
 
   // Sim Settings
-  m_mainWindow->addVerticalTabButton(SIMULATION_SETTINGS, "Simulation Settings", ":/images/on_sim_settings_tab.png",
+  m_mainWindow->addVerticalTabButton(SIMULATION_SETTINGS, tr("Simulation Settings"), ":/images/on_sim_settings_tab.png",
                                      ":/images/off_sim_settings_tab.png", ":/images/disabled_sim_settings_tab.png");
 
   // Scripts
-  m_mainWindow->addVerticalTabButton(RUBY_SCRIPTS, "Measures", ":/images/on_scripts_tab.png", ":/images/off_scripts_tab.png",
+  m_mainWindow->addVerticalTabButton(RUBY_SCRIPTS, tr("Measures"), ":/images/on_scripts_tab.png", ":/images/off_scripts_tab.png",
                                      ":/images/disabled_scripts_tab.png");
 
   // Run
-  m_mainWindow->addVerticalTabButton(RUN_SIMULATION, "Run Simulation", ":/images/on_run_tab.png", ":/images/off_run_tab.png",
+  m_mainWindow->addVerticalTabButton(RUN_SIMULATION, tr("Run Simulation"), ":/images/on_run_tab.png", ":/images/off_run_tab.png",
                                      ":/images/disabled_run_tab.png");
 
   // Results
-  m_mainWindow->addVerticalTabButton(RESULTS_SUMMARY, "Results Summary", ":/images/on_results_tab.png", ":/images/off_results_tab.png",
+  m_mainWindow->addVerticalTabButton(RESULTS_SUMMARY, tr("Results Summary"), ":/images/on_results_tab.png", ":/images/off_results_tab.png",
                                      ":/images/disabled_results_tab.png");
 }
 

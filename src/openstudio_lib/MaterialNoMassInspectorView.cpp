@@ -47,7 +47,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -67,7 +67,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Roughness
 
-  label = new QLabel("Roughness: ");
+  label = new QLabel(tr("Roughness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -82,7 +82,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Thermal Resistance
 
-  label = new QLabel("Thermal Resistance: ");
+  label = new QLabel(tr("Thermal Resistance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -92,7 +92,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Thermal Absorptance
 
-  label = new QLabel("Thermal Absorptance: ");
+  label = new QLabel(tr("Thermal Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -102,7 +102,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Solar Absorptance
 
-  label = new QLabel("Solar Absorptance: ");
+  label = new QLabel(tr("Solar Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -112,7 +112,7 @@ void MaterialNoMassInspectorView::createLayout() {
 
   // Visible Absorptance
 
-  label = new QLabel("Visible Absorptance: ");
+  label = new QLabel(tr("Visible Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

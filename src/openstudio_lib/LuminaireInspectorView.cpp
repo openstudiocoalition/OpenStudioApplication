@@ -6,7 +6,7 @@
 #include "LuminaireInspectorView.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include <openstudio/model/LuminaireDefinition.hpp>
 #include <openstudio/model/LuminaireDefinition_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -33,7 +33,7 @@ LuminaireDefinitionInspectorView::LuminaireDefinitionInspectorView(bool isIP, co
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -42,7 +42,7 @@ LuminaireDefinitionInspectorView::LuminaireDefinitionInspectorView(bool isIP, co
 
   // Lighting Power
 
-  label = new QLabel("Lighting Power: ");
+  label = new QLabel(tr("Lighting Power: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -52,7 +52,7 @@ LuminaireDefinitionInspectorView::LuminaireDefinitionInspectorView(bool isIP, co
 
   // Fraction Radiant
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -62,7 +62,7 @@ LuminaireDefinitionInspectorView::LuminaireDefinitionInspectorView(bool isIP, co
 
   // Fraction Visible
 
-  label = new QLabel("Fraction Visible: ");
+  label = new QLabel(tr("Fraction Visible: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 1);
 
@@ -72,7 +72,7 @@ LuminaireDefinitionInspectorView::LuminaireDefinitionInspectorView(bool isIP, co
 
   // Return Air Fraction
 
-  label = new QLabel("Return Air Fraction: ");
+  label = new QLabel(tr("Return Air Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 

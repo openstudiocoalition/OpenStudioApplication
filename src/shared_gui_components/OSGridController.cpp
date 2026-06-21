@@ -5,20 +5,22 @@
 
 #include "OSGridController.hpp"
 
+// Register OSItemId metatypes for queued signal/slot connections.
+// Q_DECLARE_METATYPE is in OSItemId.hpp; qRegisterMetaType must run at startup.
+namespace {
+[[maybe_unused]] const int ositemid_meta_type_id = qRegisterMetaType<openstudio::OSItemId>("OSItemId");
+[[maybe_unused]] const int ositemid_vector_meta_type_id = qRegisterMetaType<std::vector<openstudio::OSItemId>>("std::vector<OSItemId>");
+}  // namespace
+
 #include "OSCellWrapper.hpp"
 #include "OSGridView.hpp"
 #include "OSObjectSelector.hpp"
 
-#include "../openstudio_lib/HorizontalTabWidget.hpp"
-#include "../openstudio_lib/MainRightColumnController.hpp"
-#include "../openstudio_lib/ModelObjectInspectorView.hpp"
-#include "../openstudio_lib/ModelObjectItem.hpp"
-//#include "../openstudio_lib/ModelSubTabView.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/OSDropZone.hpp"
-#include "../openstudio_lib/OSItemSelector.hpp"
-#include "../openstudio_lib/RenderingColorWidget.hpp"
+#include "ModelObjectItem.hpp"
+#include "OSItem.hpp"
+
+#include <QFocusEvent>
+#include <QLabel>
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
@@ -158,7 +160,7 @@ void OSGridController::resetCategoryAndFields() {
 
 void OSGridController::setCategoriesAndFields() {
   std::vector<QString> fields;
-  std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Custom"), fields);
+  std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Custom"), fields);
   addCategoryAndFields(categoryAndFields);
 
   setCustomCategoryAndFields();
@@ -464,13 +466,13 @@ void OSGridController::checkSelectedFields() {
 void OSGridController::setCustomCategoryAndFields() {
   // First, find and erase the old fields for custom
   std::vector<QString> cats = this->categories();
-  if (auto it = std::find(cats.begin(), cats.end(), QString("Custom")); it != cats.end()) {
+  if (auto it = std::find(cats.begin(), cats.end(), tr("Custom")); it != cats.end()) {
     int index = std::distance(cats.begin(), it);
     m_categoriesAndFields.erase(m_categoriesAndFields.begin() + index);
   }
 
   // Make a new set of fields for custom
-  std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Custom"), m_customFields);
+  std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Custom"), m_customFields);
   m_categoriesAndFields.push_back(categoryAndFields);
 }
 
@@ -696,10 +698,10 @@ void OSGridController::processNewModelObjects() {
   m_newModelObjects.clear();
 }
 
-void OSGridController::onSelectAllStateChanged(const int newState) const {
+void OSGridController::onSelectAllStateChanged(Qt::CheckState newState) const {
   LOG(Debug, "Select all state changed: " << newState);
 
-  if (newState == 0) {
+  if (newState == Qt::Unchecked) {
     m_objectSelector->clearSelection();
   } else {
     m_objectSelector->selectAll();
@@ -772,10 +774,10 @@ void OSGridController::onInFocus(bool inFocus, bool hasData, int modelRow, int g
 
     if (inFocus) {
       m_focusedCellLocation = std::make_tuple(gridRow, column, subrow);
-      button->setText("Apply to Selected");
+      button->setText(tr("Apply to Selected"));
     } else {
       // do not reset m_focusedCellLocation here because the focused cell goes out of focus when the apply button is clicked
-      button->setText("Apply to Selected");
+      button->setText(tr("Apply to Selected"));
     }
 
     m_applyToButtonStates.push_back(std::make_pair(column, inFocus && hasData));
@@ -873,7 +875,7 @@ HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget
   setLayout(mainLayout);
 
   mainLayout->addWidget(m_checkBox);
-  m_checkBox->setToolTip("Check to add this column to \"Custom\"");
+  m_checkBox->setToolTip(tr("Check to add this column to \"Custom\""));
   m_checkBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
   QString style = "\
     QPushButton {\
@@ -896,7 +898,7 @@ HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget
 
   mainLayout->addStretch();
 
-  m_pushButton->setText("Apply to Selected");
+  m_pushButton->setText(tr("Apply to Selected"));
   m_pushButton->setMaximumWidth(150);
   m_pushButton->setEnabled(false);
   connect(m_pushButton, &HorizontalHeaderPushButton::inFocus, this, &HorizontalHeaderWidget::inFocus);

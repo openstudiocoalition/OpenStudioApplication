@@ -1,0 +1,52 @@
+# Docker-based CI for pull requests.
+#
+# Builds the project inside the osapp-build Docker image and runs
+# CTest.  The Docker image layers are cached via the GitHub Actions cache
+# backend so the slow Qt/SDK bake step is only repeated when the Dockerfile
+# changes.
+#
+# Runs on: pull_request to master or develop (non-draft only)
+
+name: Docker CI
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+    types: [ opened, reopened, synchronize, ready_for_review ]
+
+jobs:
+  docker-build-test:
+    name: Build & Test (Docker / Ubuntu 22.04)
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v5
+
+    # BuildKit is required for the cache-from/cache-to directives below.
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    # Build the image and push layers into the GitHub Actions cache.
+    # The cache key is tied to the Dockerfile so the slow layers (Qt, SDK)
+    # are only rebuilt when the Dockerfile itself changes.
+    - name: Build Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: docker/
+        load: true
+        tags: osapp-build:latest
+        cache-from: type=gha,scope=osapp-build
+        cache-to:   type=gha,scope=osapp-build,mode=max
+
+    - name: Configure (Conan install + CMake configure)
+      run: make configure
+
+    - name: Build
+      run: make build
+
+    - name: Test
+      run: make test
+
+    - name: CppCheck
+      run: make cppcheck

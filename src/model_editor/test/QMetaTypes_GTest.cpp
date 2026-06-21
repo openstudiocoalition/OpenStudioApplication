@@ -10,7 +10,7 @@
 #include <openstudio/utilities/idd/IddEnums.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
-#include "../QMetaTypes.hpp"
+#include "../../openstudio_qt_utils/QMetaTypes.hpp"
 #include <QMetaType>
 #include <QVariant>
 

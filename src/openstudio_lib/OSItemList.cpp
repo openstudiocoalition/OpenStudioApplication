@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "OSItemList.hpp"
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -54,6 +54,8 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
+    scrollArea->viewport()->setAutoFillBackground(false);
+    outerWidget->setAutoFillBackground(false);
   } else {
     outerVLayout->addWidget(outerWidget);
   }

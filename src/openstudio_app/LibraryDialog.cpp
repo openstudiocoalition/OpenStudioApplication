@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "./LibraryDialog.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 #include <QVBoxLayout>
@@ -25,7 +25,7 @@ LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const s
   auto* mainLayout = new QVBoxLayout();
   setLayout(mainLayout);
 
-  auto* title = new QLabel("Change Default Libraries");
+  auto* title = new QLabel(tr("Change Default Libraries"));
   title->setObjectName("H1");
   mainLayout->addWidget(title);
 
@@ -39,17 +39,17 @@ LibraryDialog::LibraryDialog(const std::vector<openstudio::path>& paths, const s
   auto* addRemoveLayout = new QHBoxLayout();
   mainLayout->addLayout(addRemoveLayout);
 
-  auto* add = new QPushButton("Add");
+  auto* add = new QPushButton(tr("Add"));
   addRemoveLayout->addWidget(add, 0);
   connect(add, &QPushButton::clicked, this, &LibraryDialog::onAdd);
 
-  auto* remove = new QPushButton("Remove");
+  auto* remove = new QPushButton(tr("Remove"));
   addRemoveLayout->addWidget(remove, 0);
   connect(remove, &QPushButton::clicked, this, &LibraryDialog::onRemove);
 
   addRemoveLayout->addStretch(1);
 
-  auto* restore = new QPushButton("Restore Defaults");
+  auto* restore = new QPushButton(tr("Restore Defaults"));
   addRemoveLayout->addWidget(restore, 0, Qt::AlignRight);
   connect(restore, &QPushButton::clicked, this, &LibraryDialog::onRestore);
 

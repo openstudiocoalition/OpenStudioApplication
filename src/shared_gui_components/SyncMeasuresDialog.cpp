@@ -3,11 +3,11 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#include "../shared_gui_components/SyncMeasuresDialog.hpp"
+#include "SyncMeasuresDialog.hpp"
 
-#include "../shared_gui_components/Component.hpp"
-#include "../shared_gui_components/MeasureManager.hpp"
-#include "../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp"
+#include "Component.hpp"
+#include "MeasureManager.hpp"
+#include "SyncMeasuresDialogCentralWidget.hpp"
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -34,7 +34,7 @@ SyncMeasuresDialog::SyncMeasuresDialog(const WorkflowJSON& workflow, MeasureMana
 }
 
 void SyncMeasuresDialog::createLayout() {
-  setWindowTitle("Updates Available in Library");
+  setWindowTitle(tr("Updates Available in Library"));
 
   setModal(true);
 

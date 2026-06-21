@@ -23,7 +23,7 @@ class ConstructionsView : public ModelSubTabView
   virtual ~ConstructionsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
+  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
 };
 
 class ConstructionsInspectorView : public ModelObjectInspectorView

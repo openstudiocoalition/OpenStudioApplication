@@ -48,7 +48,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -67,7 +67,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -77,7 +77,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Solar Index Of Refraction
 
-  label = new QLabel("Solar Index Of Refraction: ");
+  label = new QLabel(tr("Solar Index Of Refraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -88,7 +88,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Solar Extinction Coefficient
 
-  label = new QLabel("Solar Extinction Coefficient: ");
+  label = new QLabel(tr("Solar Extinction Coefficient: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -99,7 +99,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Visible Index of Refraction
 
-  label = new QLabel("Visible Index of Refraction: ");
+  label = new QLabel(tr("Visible Index of Refraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -110,7 +110,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Visible Extinction Coefficient
 
-  label = new QLabel("Visible Extinction Coefficient: ");
+  label = new QLabel(tr("Visible Extinction Coefficient: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -121,7 +121,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Infrared Transmittance At Normal Incidence
 
-  label = new QLabel("Infrared Transmittance At Normal Incidence: ");
+  label = new QLabel(tr("Infrared Transmittance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -132,7 +132,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Infrared Hemispherical Emissivity
 
-  label = new QLabel("Infrared Hemispherical Emissivity: ");
+  label = new QLabel(tr("Infrared Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -143,7 +143,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Conductivity
 
-  label = new QLabel("Conductivity: ");
+  label = new QLabel(tr("Conductivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -154,7 +154,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Dirt Correction Factor For Solar And Visible Transmittance
 
-  label = new QLabel("Dirt Correction Factor For Solar And Visible Transmittance: ");
+  label = new QLabel(tr("Dirt Correction Factor For Solar And Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -165,7 +165,7 @@ void WindowMaterialGlazingRefractionExtinctionMethodInspectorView::createLayout(
 
   // Solar Diffusing
 
-  label = new QLabel("Solar Diffusing: ");
+  label = new QLabel(tr("Solar Diffusing: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

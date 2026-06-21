@@ -63,7 +63,7 @@ void RectangularDropZone::dragEnterEvent(QDragEnterEvent* event) {
 }
 
 NewMeasureDropZone::NewMeasureDropZone() {
-  nameLabel->setText("<i>Drop Measure From Library to Create a New Always Run Measure</i>");
+  nameLabel->setText(QString("<i>%1</i>").arg(tr("Drop Measure From Library to Create a New Always Run Measure")));
   nameLabel->setStyleSheet("QLabel {color: #7D7D7D; }");
 }
 

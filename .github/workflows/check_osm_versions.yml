@@ -1,3 +1,9 @@
+# Ensures all .osm template files bundled in src/openstudio_app/Resources/ have been
+# version-translated to the current OpenStudio SDK version before a PR merges to master.
+# Runs developer/ruby/CheckOSMVersions.rb which verifies each file's OS:Version object.
+#
+# On failure: run the export_standards_data workflow to regenerate the OSM files, or run
+# developer/ruby/UpdateOSMVersions.rb locally and commit the result.
 name: Check OSM Versions
 
 on:
@@ -9,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - uses: ruby/setup-ruby@v1
       with:

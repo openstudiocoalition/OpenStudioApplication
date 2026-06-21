@@ -14,7 +14,7 @@
 #include "VerticalTabWidget.hpp"
 
 #include "../shared_gui_components/NetworkProxyDialog.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -69,7 +69,11 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
 #endif
 
   setObjectName("MainWindow");
-  setStyleSheet("QWidget#MainWindow { background-color: #2C3233; }");
+  setStyleSheet("QWidget#MainWindow { background-color: #2C3233; } "
+                "QMenuBar { background-color: white; color: black; } "
+                "QMenuBar::item { background-color: transparent; } "
+                "QMenuBar::item:selected { background-color: #e0e0e0; } "
+                "QMenuBar::item:pressed { background-color: #d0d0d0; }");
 
   connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::verticalTabSelected);
   connect(m_verticalTabWidget, &VerticalTabWidget::tabSelected, this, &MainWindow::onVerticalTabSelected);

@@ -9,7 +9,7 @@
 #include "ModelObjectListView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "SchedulesTabController.hpp"
 
@@ -38,7 +38,7 @@
 #include <openstudio/model/WeatherFile_Impl.hpp>
 #include <openstudio/model/YearDescription_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/energyplus/ReverseTranslator.hpp>
 
@@ -66,7 +66,7 @@
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QPushButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QScrollArea>
 #include <QSettings>
 #include <QSizePolicy>
@@ -87,9 +87,9 @@ static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 namespace openstudio {
 
 SortableDesignDay::SortableDesignDay(const openstudio::model::DesignDay& designDay) : m_designDay(designDay) {
-  QRegExp regex("^.*Ann.*([\\d\\.]+)[\\s]?%.*$", Qt::CaseInsensitive);
-  if (regex.exactMatch(toQString(designDay.nameString())) && regex.captureCount() == 1) {
-    m_permil = qstringToPermil(regex.capturedTexts()[1]);
+  static const QRegularExpression regex(R"(^.*Ann.*?([\d\.]+)[\s]?%.*$)", QRegularExpression::CaseInsensitiveOption);
+  if (auto m = regex.match(toQString(designDay.nameString())); m.hasMatch()) {
+    m_permil = qstringToPermil(m.captured(1));
     if (m_permil > 500) {
       m_type = "Heating";
     } else {

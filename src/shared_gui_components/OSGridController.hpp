@@ -8,9 +8,9 @@
 
 #include "OSConcepts.hpp"
 #include "OSObjectSelector.hpp"
-#include "../model_editor/QMetaTypes.hpp"
-#include "../openstudio_lib/OSItem.hpp"
-#include "../openstudio_lib/OSVectorController.hpp"
+#include "OSItemId.hpp"
+#include "OSVectorController.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -31,6 +31,7 @@ class QButtonGroup;
 class QColor;
 class QLabel;
 class OpenStudioLibFixture;
+class OSItem;
 
 namespace openstudio {
 
@@ -133,6 +134,15 @@ class DataSourceAdapter : public BaseConcept
   QSharedPointer<BaseConcept> m_inner;
 };
 
+/**
+ * OSGridController is the abstract base class for all multi-column tabular model views. It
+ * provides a declarative column-definition API (addCheckBoxColumn, addComboBoxColumn,
+ * addDoubleEditColumn, addDropZoneColumn, addLineEditColumn, addIntegerEditColumn,
+ * addRenderingColorColumn) and manages row-object mapping, selection state, and cell widget
+ * creation on demand. Concrete subclasses declare their columns in their constructor; data is
+ * fetched lazily via std::function getters/setters. Columns can optionally be wrapped in a
+ * DataSource to display stacked sub-object widgets per cell.
+ */
 class OSGridController : public QObject
 {
   Q_OBJECT
@@ -626,7 +636,7 @@ class OSGridController : public QObject
 
  protected slots:
 
-  void onSelectAllStateChanged(const int newState) const;
+  void onSelectAllStateChanged(Qt::CheckState newState) const;
 
  private slots:
 

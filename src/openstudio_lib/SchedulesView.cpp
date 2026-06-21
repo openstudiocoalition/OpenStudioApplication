@@ -8,7 +8,7 @@
 #include "OSAppBase.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/ColorPalettes.hpp"
@@ -22,7 +22,7 @@
 #include <openstudio/model/ScheduleTypeLimits.hpp>
 #include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/time/Date.hpp>
 #include <openstudio/utilities/time/Time.hpp>
@@ -834,7 +834,7 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent
   mainVLayout->setSpacing(5);
   setLayout(mainVLayout);
 
-  auto* specialDayLabel = new QLabel("Special Day Profiles");
+  auto* specialDayLabel = new QLabel(tr("Special Day Profiles"));
   mainVLayout->addWidget(specialDayLabel);
 
   auto* summerDesignDayLayout = new QHBoxLayout();
@@ -862,7 +862,7 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent
   runPeriodLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->addLayout(runPeriodLayout);
   auto* runPeriodButton = new QPushButton();
-  runPeriodButton->setText("Run Period Profiles");
+  runPeriodButton->setText(tr("Run Period Profiles"));
   runPeriodButton->setObjectName("Button");
   QString style;
   style.append("QWidget#Button { ");
@@ -872,7 +872,7 @@ ScheduleTabContent::ScheduleTabContent(ScheduleTab* scheduleTab, QWidget* parent
   style.append("color: #2C3233;");
   style.append("}");
   runPeriodButton->setStyleSheet(style);
-  runPeriodButton->setToolTip("Click to add new run period profile");
+  runPeriodButton->setToolTip(tr("Click to add new run period profile"));
   runPeriodLayout->addWidget(runPeriodButton);
   runPeriodLayout->addStretch();
   connect(runPeriodButton, &QPushButton::clicked, this, &ScheduleTabContent::onScheduleRuleClicked);
@@ -1083,20 +1083,20 @@ ScheduleTabDefault::ScheduleTabDefault(ScheduleTab* scheduleTab, ScheduleTabDefa
 
   switch (m_type) {
     case SUMMER:
-      m_label = new QLabel("Summer Design Day");
-      setToolTip("Click to edit summer design day profile");
+      m_label = new QLabel(tr("Summer Design Day"));
+      setToolTip(tr("Click to edit summer design day profile"));
       break;
     case WINTER:
-      m_label = new QLabel("Winter Design Day");
-      setToolTip("Click to edit winter design day profile");
+      m_label = new QLabel(tr("Winter Design Day"));
+      setToolTip(tr("Click to edit winter design day profile"));
       break;
     case HOLIDAY:
-      m_label = new QLabel("Holiday");
-      setToolTip("Click to edit holiday profile");
+      m_label = new QLabel(tr("Holiday"));
+      setToolTip(tr("Click to edit holiday profile"));
       break;
     default:
-      m_label = new QLabel("Default");
-      setToolTip("Click to edit default profile");
+      m_label = new QLabel(tr("Default"));
+      setToolTip(tr("Click to edit default profile"));
   }
 
   m_label->setMouseTracking(true);
@@ -1200,10 +1200,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
   switch (m_type) {
     case SUMMER: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The summer design day profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The summer design day profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -1211,10 +1209,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
     }
     case WINTER: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The winter design day profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The winter design day profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -1222,10 +1218,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
     }
     case HOLIDAY: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The holiday profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The holiday profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -1249,14 +1243,14 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
 
   if (m_type == SCHEDULERULE) {
     auto* selectLabel = new QLabel();
-    selectLabel->setText("Create a new profile.");
+    selectLabel->setText(tr("Create a new profile."));
     innerVLayout->addWidget(selectLabel);
   }
 
   auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto* label = new QLabel("Make a New Profile Based on:");
+  auto* label = new QLabel(tr("Make a New Profile Based on:"));
   gridLayout->addWidget(label, 0, 0);
 
   m_scheduleRuleComboBox = new QComboBox();
@@ -1264,7 +1258,7 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
   gridLayout->addWidget(m_scheduleRuleComboBox, 0, 1);
 
   auto* addButton = new QPushButton();
-  addButton->setText("Add");
+  addButton->setText(tr("Add"));
   addButton->setObjectName("StandardBlueButton");
   gridLayout->addWidget(addButton, 1, 1);
 
@@ -1303,20 +1297,20 @@ void NewProfileView::onAddClicked() {
 
 void NewProfileView::populateComboBox(const model::ScheduleRuleset& scheduleRuleset) {
 
-  m_scheduleRuleComboBox->addItem("<New Profile>", toQString(UUID()));
+  m_scheduleRuleComboBox->addItem(tr("<New Profile>"), toQString(UUID()));
 
-  m_scheduleRuleComboBox->addItem("Default Day Schedule", toQString(scheduleRuleset.defaultDaySchedule().handle()));
+  m_scheduleRuleComboBox->addItem(tr("Default Day Schedule"), toQString(scheduleRuleset.defaultDaySchedule().handle()));
 
   if (!scheduleRuleset.isSummerDesignDayScheduleDefaulted()) {
-    m_scheduleRuleComboBox->addItem("Summer Design Day Schedule", toQString(scheduleRuleset.summerDesignDaySchedule().handle()));
+    m_scheduleRuleComboBox->addItem(tr("Summer Design Day Schedule"), toQString(scheduleRuleset.summerDesignDaySchedule().handle()));
   }
 
   if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted()) {
-    m_scheduleRuleComboBox->addItem("Winter Design Day Schedule", toQString(scheduleRuleset.winterDesignDaySchedule().handle()));
+    m_scheduleRuleComboBox->addItem(tr("Winter Design Day Schedule"), toQString(scheduleRuleset.winterDesignDaySchedule().handle()));
   }
 
   if (!scheduleRuleset.isHolidayScheduleDefaulted()) {
-    m_scheduleRuleComboBox->addItem("Holiday Design Day Schedule", toQString(scheduleRuleset.holidaySchedule().handle()));
+    m_scheduleRuleComboBox->addItem(tr("Holiday Design Day Schedule"), toQString(scheduleRuleset.holidaySchedule().handle()));
   }
 
   for (const auto& rule : scheduleRuleset.scheduleRules()) {
@@ -1366,7 +1360,7 @@ DefaultScheduleDayView::DefaultScheduleDayView(bool isIP, const model::ScheduleR
   auto* scheduleRulesetNameWidget = new ScheduleRulesetNameWidget(scheduleRuleset);
   mainVLayout->addWidget(scheduleRulesetNameWidget);
 
-  auto* label = new QLabel("Default day profile.");
+  auto* label = new QLabel(tr("Default day profile."));
   label->setObjectName("H2");
 
   auto* hLayout = new QHBoxLayout();
@@ -1422,7 +1416,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
 
   if (m_type == SUMMER) {
     if (!m_scheduleRuleset.isSummerDesignDayScheduleDefaulted()) {
-      auto* label = new QLabel("Summer design day profile.");
+      auto* label = new QLabel(tr("Summer design day profile."));
       label->setObjectName("H2");
 
       auto* hLayout = new QHBoxLayout();
@@ -1440,7 +1434,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
     }
   } else if (m_type == WINTER) {
     if (!scheduleRuleset.isWinterDesignDayScheduleDefaulted()) {
-      auto* label = new QLabel("Winter design day profile.");
+      auto* label = new QLabel(tr("Winter design day profile."));
       label->setObjectName("H2");
 
       auto* hLayout = new QHBoxLayout();
@@ -1458,7 +1452,7 @@ SpecialScheduleDayView::SpecialScheduleDayView(bool isIP, const model::ScheduleR
     }
   } else if (m_type == HOLIDAY) {
     if (!m_scheduleRuleset.isHolidayScheduleDefaulted()) {
-      auto* label = new QLabel("Holiday profile.");
+      auto* label = new QLabel(tr("Holiday profile."));
       label->setObjectName("H2");
 
       auto* hLayout = new QHBoxLayout();
@@ -1555,7 +1549,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   nameHLayout->addSpacing(10);
 
-  auto* label = new QLabel("Schedule Rule Name:");
+  auto* label = new QLabel(tr("Schedule Rule Name:"));
   nameHLayout->addWidget(label);
 
   m_nameEditField = new OSLineEdit2();
@@ -1570,7 +1564,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
 
   auto* dateHLayout = new QHBoxLayout();
 
-  auto* dateRangeLabel = new QLabel("Date Range:");
+  auto* dateRangeLabel = new QLabel(tr("Date Range:"));
   dateHLayout->addWidget(dateRangeLabel);
 
   m_startDateEdit = new QDateTimeEdit();
@@ -1588,13 +1582,13 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   ruleVLayout->addLayout(dateHLayout);
 
   auto* weekHLayout = new QHBoxLayout();
-  auto* applyToLabel = new QLabel("Apply to:");
+  auto* applyToLabel = new QLabel(tr("Apply to:"));
   weekHLayout->addWidget(applyToLabel);
 
   weekHLayout->addStretch();
 
   m_sundayButton = new OSGreyCheckBox2();
-  m_sundayButton->setText("S");
+  m_sundayButton->setText(tr("S", "Sunday abbreviation"));
   m_sundayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applySunday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplySundayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_sundayButton);
@@ -1602,7 +1596,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_mondayButton = new OSGreyCheckBox2();
-  m_mondayButton->setText("M");
+  m_mondayButton->setText(tr("M", "Monday abbreviation"));
   m_mondayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyMonday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyMondayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_mondayButton);
@@ -1610,7 +1604,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_tuesdayButton = new OSGreyCheckBox2();
-  m_tuesdayButton->setText("T");
+  m_tuesdayButton->setText(tr("T", "Tuesday abbreviation"));
   m_tuesdayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyTuesday, &m_scheduleRule),
                         boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyTuesdayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_tuesdayButton);
@@ -1618,7 +1612,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_wednesdayButton = new OSGreyCheckBox2();
-  m_wednesdayButton->setText("W");
+  m_wednesdayButton->setText(tr("W", "Wednesday abbreviation"));
   m_wednesdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyWednesday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyWednesdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1627,7 +1621,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_thursdayButton = new OSGreyCheckBox2();
-  m_thursdayButton->setText("T");
+  m_thursdayButton->setText(tr("T", "Thursday abbreviation"));
   m_thursdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyThursday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyThursdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1636,7 +1630,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_fridayButton = new OSGreyCheckBox2();
-  m_fridayButton->setText("F");
+  m_fridayButton->setText(tr("F", "Friday abbreviation"));
   m_fridayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyFriday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyFridayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_fridayButton);
@@ -1644,7 +1638,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_saturdayButton = new OSGreyCheckBox2();
-  m_saturdayButton->setText("S");
+  m_saturdayButton->setText(tr("S", "Saturday abbreviation"));
   m_saturdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applySaturday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplySaturdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1771,7 +1765,7 @@ ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRulese
   hLayout->setSpacing(10);
   mainVLayout->addLayout(hLayout);
 
-  auto* label = new QLabel("Schedule Name:");
+  auto* label = new QLabel(tr("Schedule Name:"));
   label->setObjectName("H2");
   hLayout->addWidget(label);
 
@@ -1785,7 +1779,7 @@ ScheduleRulesetNameWidget::ScheduleRulesetNameWidget(const model::ScheduleRulese
   hLayout->addWidget(lineEdit);
 
   // Schedule Type
-  label = new QLabel("Schedule Type:");
+  label = new QLabel(tr("Schedule Type:"));
   label->setObjectName("H2");
   hLayout->addWidget(label);
 
@@ -1989,7 +1983,7 @@ MonthView::MonthView(YearOverview* yearOverview)
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(0);
 
-  m_monthLabel = new QLabel("January");
+  m_monthLabel = new QLabel(tr("January"));
 
   mainVLayout->addWidget(m_monthLabel, 0, Qt::AlignCenter);
 
@@ -2020,9 +2014,9 @@ YearOverview* MonthView::yearOverview() const {
 void MonthView::setMonth(int month) {
   m_month = month;
 
-  std::string monthName = monthOfYear(month).valueName();
-
-  m_monthLabel->setText(QString::fromStdString(monthName));
+  const QStringList monthNames = {tr("January"), tr("February"), tr("March"),     tr("April"),   tr("May"),      tr("June"),
+                                  tr("July"),    tr("August"),   tr("September"), tr("October"), tr("November"), tr("December")};
+  m_monthLabel->setText((month >= 1 && month <= 12) ? monthNames[month - 1] : QString::fromStdString(monthOfYear(month).valueName()));
 
   update();
 }

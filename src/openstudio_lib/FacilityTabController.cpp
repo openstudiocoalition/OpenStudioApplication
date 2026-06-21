@@ -15,10 +15,10 @@ namespace openstudio {
 
 FacilityTabController::FacilityTabController(bool isIP, bool displayAdditionalProps, const model::Model& model)
   : MainTabController(new FacilityTabView()), m_model(model), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
-  mainContentWidget()->addSubTab("Building", BUILDING);
-  mainContentWidget()->addSubTab("Stories", STORIES);
-  mainContentWidget()->addSubTab("Shading", SHADING);
-  mainContentWidget()->addSubTab("Exterior Equipment", EXTERIOR_EQUIPMENT);
+  mainContentWidget()->addSubTab(tr("Building"), BUILDING);
+  mainContentWidget()->addSubTab(tr("Stories"), STORIES);
+  mainContentWidget()->addSubTab(tr("Shading"), SHADING);
+  mainContentWidget()->addSubTab(tr("Exterior Equipment"), EXTERIOR_EQUIPMENT);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &FacilityTabController::setSubTab);
 
@@ -46,7 +46,6 @@ void FacilityTabController::setSubTab(int index) {
   }
 
   if (m_currentView) {
-    m_currentView->disconnect();
     delete m_currentView;
   }
 

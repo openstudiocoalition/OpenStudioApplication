@@ -5,9 +5,13 @@
 
 #include <gtest/gtest.h>
 
+// OSDropZone is defined in shared_gui_components, but this test lives in openstudio_lib/test/
+// because it requires OpenStudioLibFixture, which sets up a live OSAppBase and OSDocument.
+// OSDropZone connects to OSAppBase::workspaceObjectAddedPtr/workspaceObjectRemovedPtr at
+// runtime; a BaseApp mock would be needed to host it in shared_gui_components tests.
 #include "OpenStudioLibFixture.hpp"
 
-#include "../OSDropZone.hpp"
+#include "../../shared_gui_components/OSDropZone.hpp"
 #include "../../shared_gui_components/OSConcepts.hpp"
 
 #include <openstudio/model/Model.hpp>

@@ -7,6 +7,6 @@
 
 namespace openstudio {
 
-SchedulesTabView::SchedulesTabView(const model::Model& model, QWidget* parent) : MainTabView("Schedules", MainTabView::SUB_TAB, parent) {}
+SchedulesTabView::SchedulesTabView(const model::Model& model, QWidget* parent) : MainTabView(tr("Schedules"), MainTabView::SUB_TAB, parent) {}
 
 }  // namespace openstudio

@@ -6,7 +6,7 @@
 #include "LightsInspectorView.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include <openstudio/model/LightsDefinition.hpp>
 #include <openstudio/model/LightsDefinition_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -33,7 +33,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -42,7 +42,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Lighting Level
 
-  label = new QLabel("Lighting Power: ");
+  label = new QLabel(tr("Lighting Power: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -52,7 +52,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Watts Per Space Floor Area
 
-  label = new QLabel("Watts Per Space Floor Area: ");
+  label = new QLabel(tr("Watts Per Space Floor Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 1);
 
@@ -62,7 +62,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Watts Per Person
 
-  label = new QLabel("Watts Per Person: ");
+  label = new QLabel(tr("Watts Per Person: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 2);
 
@@ -72,7 +72,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Fraction Radiant
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -82,7 +82,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Fraction Visible
 
-  label = new QLabel("Fraction Visible: ");
+  label = new QLabel(tr("Fraction Visible: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 1);
 
@@ -92,7 +92,7 @@ LightsDefinitionInspectorView::LightsDefinitionInspectorView(bool isIP, const op
 
   // Return Air Fraction
 
-  label = new QLabel("Return Air Fraction: ");
+  label = new QLabel(tr("Return Air Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 

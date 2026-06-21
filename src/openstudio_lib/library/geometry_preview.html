@@ -13,6 +13,8 @@
 
     <script src="js/TweenLite.2.1.3.min.js"></script>
 
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+
   </head>
   <body>
     <style type="text/css">
@@ -64,6 +66,117 @@
 .rotate .color-bar-text {
   transform:rotate(270deg);
 }
+#context-menu {
+  background-color:#f4f4f4;
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.15);
+  display:none;
+  min-width:200px;
+  opacity:0.97;
+  overflow:hidden;
+  padding-bottom:10px;
+  position:absolute;
+  text-align:left;
+  z-index:20;
+}
+#context-menu h2 {
+  background-color:#444;
+  color:#fff;
+  font-size:9pt;
+  letter-spacing:0.08em;
+  margin:0 0 8px;
+  padding:7px 12px;
+  text-transform:uppercase;
+}
+#context-menu h3 {
+  color:#333;
+  font-size:10pt;
+  margin:4px 12px 6px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.surface-info-panel {
+  border-top:1px solid #ddd;
+  padding-top:4px;
+}
+.surface-info-panel:first-of-type {
+  border-top:none;
+}
+.ctx-action-btn {
+  background:linear-gradient(to bottom, #4a90d9, #2f72b8);
+  border:none;
+  border-radius:5px;
+  box-shadow:0 2px 4px rgba(0,0,0,0.2);
+  color:#fff;
+  cursor:pointer;
+  display:block;
+  font:inherit;
+  margin:4px 12px 2px;
+  padding:5px 14px;
+  text-align:center;
+  user-select:none;
+  width:calc(100% - 24px);
+}
+.ctx-action-btn:hover {
+  background:linear-gradient(to bottom, #5aa0e8, #3d82c8);
+  box-shadow:0 3px 7px rgba(0,0,0,0.25);
+}
+.ctx-action-btn:active {
+  background:linear-gradient(to bottom, #2f72b8, #1f5490);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,0.25);
+  transform:translateY(1px);
+}
+.ctx-action-btn:disabled {
+  background:linear-gradient(to bottom, #c0c0c0, #a8a8a8);
+  box-shadow:none;
+  color:#787878;
+  cursor:not-allowed;
+  opacity:0.7;
+}
+.ctx-label {
+  color:#555;
+  display:block;
+  font-size:8pt;
+  letter-spacing:0.05em;
+  margin:6px 12px 2px;
+  text-transform:uppercase;
+}
+.ctx-btn-group {
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  margin:2px 12px 4px;
+}
+.ctx-btn-group .ctx-action-btn {
+  background:linear-gradient(to bottom, #c8c8c8, #b0b0b0);
+  box-shadow:0 1px 2px rgba(0,0,0,0.1);
+  color:#333;
+  cursor:pointer;
+  flex:1;
+  margin:0;
+  width:auto;
+}
+.ctx-btn-group .ctx-action-btn:hover {
+  background:linear-gradient(to bottom, #d8d8d8, #c0c0c0);
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+}
+.ctx-btn-group .ctx-action-btn.ctx-action-btn-active {
+  background:linear-gradient(to bottom, #4a90d9, #2f72b8);
+  box-shadow:0 2px 4px rgba(0,0,0,0.2);
+  color:#fff;
+  cursor:default;
+}
+.ctx-select {
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:4px;
+  color:#333;
+  flex:1;
+  font:inherit;
+  font-size:9pt;
+  padding:3px 6px;
+}
 </style>
 
 <script>
@@ -84,8 +197,42 @@ var dragXStart, dragYStart;
 var raycaster;
 var mouse;
 var headsUp;
+var contextMenu;
 var intersected = [];
 var selected_material, unknown_material, dot_material;
+
+var availableSpaceTypeNames = [];
+var availableConstructionNames = [];
+var availableThermalZoneNames = [];
+var surfacesWithSubSurfaces = new Set();
+var availableBuildingStoryNames = [];
+var bridge = null;
+window.addEventListener('load', function() {
+  new QWebChannel(qt.webChannelTransport, function(channel) {
+    bridge = channel.objects.bridge;
+  });
+});
+
+function saveViewStateToSessionStorage() {
+  try {
+    sessionStorage.setItem('os_renderBy', (typeof settings !== 'undefined' && settings.renderBy) ? settings.renderBy : '');
+    sessionStorage.setItem('os_showStory', (typeof settings !== 'undefined' && settings.showStory) ? settings.showStory : '');
+    sessionStorage.setItem('os_showAirLoop', (typeof settings !== 'undefined' && settings.showAirLoop) ? settings.showAirLoop : '');
+    if (typeof perspectiveCamera !== 'undefined' && typeof orthographicCamera !== 'undefined') {
+      var _p = perspectiveCamera, _pc = perspectiveControls;
+      var _o = orthographicCamera, _oc = orthographicControls;
+      sessionStorage.setItem('os_cameraState', JSON.stringify({
+        per_pos:    [_p.position.x,  _p.position.y,  _p.position.z],
+        per_up:     [_p.up.x,        _p.up.y,        _p.up.z],
+        per_target: [_pc.target.x,   _pc.target.y,   _pc.target.z],
+        ort_pos:    [_o.position.x,  _o.position.y,  _o.position.z],
+        ort_up:     [_o.up.x,        _o.up.y,        _o.up.z],
+        ort_target: [_oc.target.x,   _oc.target.y,   _oc.target.z],
+        ort_zoom:   _o.zoom
+      }));
+    }
+  } catch(e) {}
+}
 
 var getStringFromLocalStorage = function (key, defaultValue) {
   try {
@@ -157,7 +304,7 @@ var settings = {
   yView: function() {setAllCameraAngles(-90, 0, 1);},
   zView: function() {setAllCameraAngles(0, 90, 1);},
   reset: function() {setAllCameraAngles(-30, 30, 1);},
-  orthographic: getBoolFromLocalStorage('showWireframe', false),
+  orthographic: getBoolFromLocalStorage('orthographic', false),
   xSection: 0,
   ySection: 0,
   zSection: 0,
@@ -271,6 +418,7 @@ function updateBalloon(object) {
 function removeSelection() {
   selectObject(null);
   headsUp.style.display = 'none';
+  contextMenu.style.display = 'none';
   document.body.style.cursor = 'auto';
   document.getElementById('color-bar-selection-line').style.display = 'none';
   document.getElementById('color-bar-selection-text').style.display = 'none';
@@ -443,13 +591,17 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   // Heads Up
   headsUp = document.body.appendChild(document.createElement('div'));
-  headsUp.setAttribute('id', 'heads-up');
+  headsUp.id = 'heads-up';
+
+  // Context Menu
+  contextMenu = document.body.appendChild(document.createElement('div'));
+  contextMenu.id = 'context-menu';
 
   // Color Bar
   colorBarHeight = 40;
   colorBarWidth = 256;
   colorBar = document.createElement('canvas');
-  colorBar.setAttribute('id', 'color-bar');
+  colorBar.id = 'color-bar';
   colorBar.setAttribute('height', colorBarHeight);
   colorBar.setAttribute('width', colorBarWidth);
 
@@ -459,7 +611,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   var top = getFloatFromLocalStorage('colorBarTop', 0);
   var left = getFloatFromLocalStorage('colorBarLeft', 0);
   colorBarContainer = document.body.appendChild(document.createElement('div'));
-  colorBarContainer.setAttribute('id', 'color-bar-container');
+  colorBarContainer.id = 'color-bar-container';
   colorBarContainer.setAttribute('draggable', 'true');
   colorBarContainer.setAttribute('ondragstart', 'drag(event)');
   colorBarContainer.style.height = (colorBarHeight + 112) + 'px';
@@ -478,7 +630,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   bar.style.left = 20 + colorBarWidth + 'px';
   colorBarContainer.appendChild(bar);
   bar = bar.cloneNode();
-  bar.setAttribute('id', 'color-bar-selection-line');
+  bar.id = 'color-bar-selection-line';
   bar.style.display = 'none';
   bar.style.bottom = '20px';
   bar.style.height = '56px';
@@ -486,16 +638,16 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   var text = document.createElement('span');
   text.classList.add('color-bar-text');
-  text.setAttribute('id', 'color-bar-min');
+  text.id = 'color-bar-min';
   text.style.bottom = (colorBarHeight + 30) + 'px';
   text.style.left = 10 + 'px';
   colorBarContainer.appendChild(text);
   text = text.cloneNode();
-  text.setAttribute('id', 'color-bar-max');
+  text.id = 'color-bar-max';
   text.style.left = 10 + colorBarWidth + 'px';
   colorBarContainer.appendChild(text);
   text = text.cloneNode();
-  text.setAttribute('id', 'color-bar-selection-text');
+  text.id = 'color-bar-selection-text';
   colorBarContainer.appendChild(text);
 
   renderer = new THREE.WebGLRenderer({
@@ -583,6 +735,14 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
     temp[object.userData.handle] = object;
   });
 
+  // surfacesWithSubSurfaces: set of surface names that own at least one sub-surface mesh
+  surfacesWithSubSurfaces = new Set();
+  scene_objects.forEach(function(object) {
+    if (object.userData.surfaceName) {
+      surfacesWithSubSurfaces.add(object.userData.surfaceName);
+    }
+  });
+
   // coincident_objects store references between adjacent objects that are truly coincident, meaning that their vertices are completely the same
   // when an object's coincident object is visible we do not want to show the back object
   coincident_objects = {};
@@ -646,6 +806,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
   renderer.domElement.addEventListener('click', onDocumentMouseClick, false);
+  renderer.domElement.addEventListener('contextmenu', onDocumentContextMenu, false);
 }
 
 function setSelectedMaterial(object) {
@@ -782,6 +943,33 @@ function onDocumentMouseClick(event) {
   }
 }
 
+function onDocumentContextMenu(event) {
+  // Only act on the mouse click if it was an actual right-click, not a drag to pan the camera
+  if (mouseDownX == event.clientX && mouseDownY == event.clientY) {
+    mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+
+    if (settings.orthographic){
+      raycaster.setFromCamera(mouse, orthographicCamera);
+    }else{
+      raycaster.setFromCamera(mouse, perspectiveCamera);
+    }
+
+    // raycaster intersects invisible objects so filter first
+    var pickable = scene_objects.filter(function(x){return x.visible;});
+    intersects = raycaster.intersectObjects(pickable);
+    if (intersects.length) {
+
+      selectObject(intersects[0].object);
+      displaySelectedObjectContextMenu();
+
+    } else {
+      removeSelection();
+    }
+    requestRenderIfNotRequested();
+  }
+}
+
 function colorize_bool(b) {
   return "<span style='color: " + (b ? 'green' : 'red') + ";'>" + b + '</span>'
 }
@@ -865,6 +1053,309 @@ function displaySelectedObjectDetails() {
     txt += `<p>Not all matching objects details displayed (max: ${maxTiles})</p>`;
   }
   headsUp.innerHTML = txt;
+  document.body.style.cursor = 'pointer';
+}
+
+function createToggleButtons(label, surfaceName, values, currentValue, bridgeCall) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = label;
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  for (const value of values) {
+    const btn = document.createElement('button');
+    btn.className = 'ctx-action-btn' + (value === currentValue ? ' ctx-action-btn-active' : '');
+    btn.textContent = value;
+    btn.addEventListener('click', function() {
+      bridgeCall(surfaceName, value);
+      contextMenu.style.display = 'none';
+    });
+    group.appendChild(btn);
+  }
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createOutsideBoundaryConditionSelect(surfaceName, currentValue) {
+  const OBC_VALUES = [
+    'Adiabatic', 'Surface', 'Outdoors', 'Foundation', 'Ground',
+    'GroundFCfactorMethod', 'OtherSideCoefficients', 'OtherSideConditionsModel',
+    'GroundSlabPreprocessorAverage', 'GroundSlabPreprocessorCore', 'GroundSlabPreprocessorPerimeter',
+    'GroundBasementPreprocessorAverageWall', 'GroundBasementPreprocessorAverageFloor',
+    'GroundBasementPreprocessorUpperWall', 'GroundBasementPreprocessorLowerWall'
+  ];
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Outside Boundary Condition';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  for (const value of OBC_VALUES) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    option.selected = (value === currentValue);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setOutsideBoundaryCondition(surfaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createConstructionSelect(surfaceName, currentConstructionName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Construction';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentConstructionName;
+  select.appendChild(noneOption);
+  for (const name of availableConstructionNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentConstructionName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setConstruction(surfaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createThermalZoneSelect(spaceName, currentThermalZoneName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Thermal Zone';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentThermalZoneName;
+  select.appendChild(noneOption);
+  for (const name of availableThermalZoneNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentThermalZoneName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setThermalZone(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createBuildingStorySelect(spaceName, currentBuildingStoryName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Building Story';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentBuildingStoryName;
+  select.appendChild(noneOption);
+  for (const name of availableBuildingStoryNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentBuildingStoryName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setBuildingStory(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createSpaceTypeSelect(spaceName, currentSpaceTypeName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Space Type';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentSpaceTypeName;
+  select.appendChild(noneOption);
+  for (const name of availableSpaceTypeNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentSpaceTypeName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setSpaceType(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createReverseVerticesButton(surfaceName) {
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.textContent = 'Reverse Vertices';
+  btn.addEventListener('click', function() {
+    bridge.reverseSurfaceVertices(surfaceName);
+    contextMenu.style.display = 'none';
+  });
+  return btn;
+}
+
+function createTriangulateSurfaceButton(surfaceName) {
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.textContent = 'Triangulate Surface';
+  if (surfacesWithSubSurfaces.has(surfaceName)) {
+    btn.disabled = true;
+    btn.title = 'Cannot triangulate a surface that has sub-surfaces';
+  } else {
+    btn.addEventListener('click', function() {
+      bridge.triangulateSurface(surfaceName);
+      contextMenu.style.display = 'none';
+    });
+  }
+  return btn;
+}
+
+function displaySelectedObjectContextMenu() {
+
+  contextMenu.innerHTML = '<h2>Actions</h2>';
+  contextMenu.style.left = 10 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
+  contextMenu.style.top = -10 + 0.5 * window.innerHeight - mouse.y * 0.5 * window.innerHeight + 'px';
+  contextMenu.style.display = 'block';
+
+  let nbDisplayedTiles = 0, maxTiles = 1;
+  intersected.some(inter => {
+    const surfaceName = inter.userData.name;
+
+    const surfaceInfoPanel = document.createElement('div');
+    surfaceInfoPanel.className = 'surface-info-panel';
+    const title = document.createElement('h3');
+    title.textContent = `Name: ${surfaceName}`;
+    surfaceInfoPanel.appendChild(title);
+
+    // add action buttons depending on chosen renderBy value
+    switch (settings.renderBy) {
+      case "Surface Type":
+      case "Normal":
+        surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
+        surfaceInfoPanel.appendChild(createTriangulateSurfaceButton(surfaceName));
+        break;
+      case "Boundary":
+        surfaceInfoPanel.appendChild(createToggleButtons('Sun Exposure', surfaceName,
+          ['SunExposed', 'NoSun'], inter.userData.sunExposure,
+          (name, val) => bridge.setSunExposure(name, val)));
+        surfaceInfoPanel.appendChild(createToggleButtons('Wind Exposure', surfaceName,
+          ['WindExposed', 'NoWind'], inter.userData.windExposure,
+          (name, val) => bridge.setWindExposure(name, val)));
+        surfaceInfoPanel.appendChild(createOutsideBoundaryConditionSelect(surfaceName,
+          inter.userData.outsideBoundaryCondition));
+        break;
+      case "Construction":
+        surfaceInfoPanel.appendChild(createConstructionSelect(inter.userData.name, inter.userData.constructionName));
+        break;
+      case "Thermal Zone":
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createThermalZoneSelect(inter.userData.spaceName, inter.userData.thermalZoneName));
+        }
+        break;
+      case "Space Type":
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createSpaceTypeSelect(inter.userData.spaceName, inter.userData.spaceTypeName));
+        }
+        break;
+      case "Building Story":
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createBuildingStorySelect(inter.userData.spaceName, inter.userData.buildingStoryName));
+        }
+        break;
+      case "Data":
+        break;
+    }
+
+    contextMenu.appendChild(surfaceInfoPanel);
+    nbDisplayedTiles += 1;
+    return nbDisplayedTiles >= maxTiles;
+  });
+
+  if (nbDisplayedTiles < intersected.length) {
+    const warning = document.createElement('p');
+    warning.textContent = `Not all matching objects details displayed (max: ${maxTiles})`;
+    contextMenu.appendChild(warning);
+  }
   document.body.style.cursor = 'pointer';
 }
 
@@ -1360,14 +1851,14 @@ var initDatGui = function () {
   if (has_data){
     render_modes.push('Data');
   }
-  gui.add(settings, 'renderBy', render_modes).name('Render By').onChange(function(value) {
+  var renderByController = gui.add(settings, 'renderBy', render_modes).name('Render By').onChange(function(value) {
     removeSelection();
     update(value);
   });
 
   var building_story_names = os_data.metadata.buildingStoryNames;
   building_story_names.unshift('All Stories');
-  gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
+  var showStoryController = gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
     removeSelection();
     update(value);
   });
@@ -1377,10 +1868,11 @@ var initDatGui = function () {
     .filter(objMetaData => objMetaData.iddObjectType === "OS:AirLoopHVAC")
     .map(objMetaData => objMetaData.name)
     .sort();
+  var showAirLoopController = null;
   if (air_loop_names && air_loop_names.length > 0) {
     air_loop_names.unshift("All Loops");
     air_loop_names.unshift("No Loop");
-    gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
+    showAirLoopController = gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
       removeSelection();
       update(value);
     });
@@ -1524,6 +2016,27 @@ var initDatGui = function () {
   });
   f2.open();*/
 
+  // Restore settings from sessionStorage if available (after a model mutation refresh)
+  var storedRenderBy = sessionStorage.getItem('os_renderBy');
+  sessionStorage.removeItem('os_renderBy');
+  var storedShowStory = sessionStorage.getItem('os_showStory');
+  sessionStorage.removeItem('os_showStory');
+  var storedShowAirLoop = sessionStorage.getItem('os_showAirLoop');
+  sessionStorage.removeItem('os_showAirLoop');
+
+  if (storedRenderBy && render_modes.includes(storedRenderBy)) {
+    settings.renderBy = storedRenderBy;
+    renderByController.updateDisplay();
+  }
+  if (storedShowStory && building_story_names.includes(storedShowStory)) {
+    settings.showStory = storedShowStory;
+    showStoryController.updateDisplay();
+  }
+  if (storedShowAirLoop && showAirLoopController && air_loop_names.includes(storedShowAirLoop)) {
+    settings.showAirLoop = storedShowAirLoop;
+    showAirLoopController.updateDisplay();
+  }
+
   update();
 };
 
@@ -1533,6 +2046,26 @@ var initDatGui = function () {
  */
 function runFromJSON(data_str, includeGeometryDiagnostics=false) {
   init(data_str, includeGeometryDiagnostics);
+
+  // Restore camera position from sessionStorage if available (after a model mutation refresh)
+  try {
+    var storedCamera = sessionStorage.getItem('os_cameraState');
+    if (storedCamera) {
+      sessionStorage.removeItem('os_cameraState');
+      var cs = JSON.parse(storedCamera);
+      perspectiveCamera.position.set(cs.per_pos[0], cs.per_pos[1], cs.per_pos[2]);
+      perspectiveCamera.up.set(cs.per_up[0], cs.per_up[1], cs.per_up[2]);
+      perspectiveControls.target.set(cs.per_target[0], cs.per_target[1], cs.per_target[2]);
+      perspectiveControls.update();
+      orthographicCamera.position.set(cs.ort_pos[0], cs.ort_pos[1], cs.ort_pos[2]);
+      orthographicCamera.up.set(cs.ort_up[0], cs.ort_up[1], cs.ort_up[2]);
+      orthographicControls.target.set(cs.ort_target[0], cs.ort_target[1], cs.ort_target[2]);
+      orthographicCamera.zoom = cs.ort_zoom;
+      orthographicCamera.updateProjectionMatrix();
+      orthographicControls.update();
+    }
+  } catch(e) {}
+
   animate();
   initDatGui();
 }

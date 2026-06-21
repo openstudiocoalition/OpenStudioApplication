@@ -5,8 +5,9 @@
 
 #include "./ExternalToolsDialog.hpp"
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
+#include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/Path.hpp>
 
 #include <QGridLayout>
@@ -28,18 +29,18 @@ ExternalToolsDialog::ExternalToolsDialog(const openstudio::path& t_dviewPath) : 
   mainLayout->setColumnMinimumWidth(1, 400);
 
   int row = 0;
-  auto* title = new QLabel("Change External Tools");
+  auto* title = new QLabel(tr("Change External Tools"));
   title->setObjectName("H1");
   mainLayout->addWidget(title, row, 0, 1, 3);
 
   // Dview
   ++row;
-  mainLayout->addWidget(new QLabel("Path to DView"), row, 0);
+  mainLayout->addWidget(new QLabel(tr("Path to DView")), row, 0);
 
   m_dviewPathLineEdit->setText(QString::fromStdString(toString(t_dviewPath)));
   mainLayout->addWidget(m_dviewPathLineEdit, row, 1);
 
-  auto* changeDviewButton = new QPushButton("Change");
+  auto* changeDviewButton = new QPushButton(tr("Change"));
   connect(changeDviewButton, &QPushButton::clicked, this, [this] { ExternalToolsDialog::onChangeClicked(m_dviewPathLineEdit, "DView"); });
   mainLayout->addWidget(changeDviewButton, row, 2);
 

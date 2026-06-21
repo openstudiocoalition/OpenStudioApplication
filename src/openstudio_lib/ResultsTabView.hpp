@@ -9,7 +9,7 @@
 #include "MainTabView.hpp"
 #include "OSWebEnginePage.hpp"
 
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <openstudio/utilities/sql/SqlFile.hpp>
 #include <openstudio/utilities/units/Unit.hpp>

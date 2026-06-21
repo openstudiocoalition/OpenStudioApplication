@@ -9,12 +9,10 @@
 #include "MeasureManager.hpp"
 #include "EditController.hpp"
 #include "BaseApp.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/MainWindow.hpp"
+
 #include "LocalLibraryController.hpp"
 #include "WorkflowTools.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/energyplus/ForwardTranslator.hpp>
 
@@ -44,14 +42,15 @@ namespace measuretab {
 WorkflowController::WorkflowController(BaseApp* t_baseApp) {
   QSharedPointer<WorkflowSectionItem> workflowSectionItem;
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_baseApp));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, tr("OpenStudio Measures"), t_baseApp));
   addItem(workflowSectionItem);
 
   workflowSectionItem =
-    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_baseApp));
+    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, tr("EnergyPlus Measures"), t_baseApp));
   addItem(workflowSectionItem);
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_baseApp));
+  workflowSectionItem =
+    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, tr("Reporting Measures"), t_baseApp));
   addItem(workflowSectionItem);
 }
 
@@ -203,11 +202,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
 
   UUID id = measureDragData.id();
 
-  std::shared_ptr<OSDocument> document = nullptr;
-  if (dynamic_cast<OSAppBase*>(m_app)) {
-    document = dynamic_cast<OSAppBase*>(m_app)->currentDocument();
-    document->disable();
-  }
+  m_app->disableDocument();
 
   boost::optional<BCLMeasure> projectMeasure;
   try {
@@ -221,9 +216,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (document) {
-      document->enable();
-    }
+    m_app->enableDocument();
     return;
   }
   OS_ASSERT(projectMeasure);
@@ -232,9 +225,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     QString errorMessage("Failed to add measure at this workflow location.");
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (document) {
-      document->enable();
-    }
+    m_app->enableDocument();
     return;
   }
 
@@ -248,9 +239,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (document) {
-      document->enable();
-    }
+    m_app->enableDocument();
     return;
   }
 
@@ -277,9 +266,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
 
   //workflowJSON.save();
 
-  if (document) {
-    document->enable();
-  }
+  m_app->enableDocument();
 
   emit modelReset();
 }
@@ -573,11 +560,10 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    const bool useClassicCLI =
-      OSAppBase::instance()->currentDocument() == nullptr ? false : OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    const bool useClassicCLI = BaseApp::instance() != nullptr && BaseApp::instance()->useClassicCLI();
     if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
       workflowStepView->workflowStepButton->errorLabel->setToolTip(
-        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
+        tr("Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'."));
       workflowStepView->workflowStepButton->errorLabel->setVisible(true);
     } else {
       try {

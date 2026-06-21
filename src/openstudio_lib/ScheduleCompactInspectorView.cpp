@@ -7,7 +7,7 @@
 
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/ScheduleCompact.hpp>
 #include <openstudio/model/ScheduleCompact_Impl.hpp>
@@ -48,7 +48,7 @@ void ScheduleCompactInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -61,7 +61,7 @@ void ScheduleCompactInspectorView::createLayout() {
 
   // Value
 
-  label = new QLabel("Content: ");
+  label = new QLabel(tr("Content: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

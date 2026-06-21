@@ -16,18 +16,6 @@
 #include "OSUnsignedEdit.hpp"
 #include "OSWidgetHolder.hpp"
 
-#include "../openstudio_lib/HorizontalTabWidget.hpp"
-#include "../openstudio_lib/MainRightColumnController.hpp"
-#include "../openstudio_lib/ModelObjectInspectorView.hpp"
-#include "../openstudio_lib/ModelObjectItem.hpp"
-//#include "../openstudio_lib/ModelSubTabView.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/OSDropZone.hpp"
-#include "../openstudio_lib/OSItemSelector.hpp"
-#include "../openstudio_lib/RenderingColorWidget.hpp"
-#include "../openstudio_lib/SchedulesView.hpp"
-
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
 

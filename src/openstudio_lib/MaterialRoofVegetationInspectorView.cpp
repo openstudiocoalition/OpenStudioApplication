@@ -47,7 +47,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -66,7 +66,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Height Of Plants
 
-  label = new QLabel("Height Of Plants: ");
+  label = new QLabel(tr("Height Of Plants: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -76,7 +76,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Leaf Area Index
 
-  label = new QLabel("Leaf Area Index: ");
+  label = new QLabel(tr("Leaf Area Index: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -86,7 +86,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Leaf Reflectivity
 
-  label = new QLabel("Leaf Reflectivity: ");
+  label = new QLabel(tr("Leaf Reflectivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -96,7 +96,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Leaf Emissivity
 
-  label = new QLabel("Leaf Emissivity: ");
+  label = new QLabel(tr("Leaf Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -106,7 +106,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Minimum Stomatal Resistance
 
-  label = new QLabel("Minimum Stomatal Resistance: ");
+  label = new QLabel(tr("Minimum Stomatal Resistance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -116,7 +116,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Soil Layer Name
 
-  label = new QLabel("Soil Layer Name: ");
+  label = new QLabel(tr("Soil Layer Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -125,7 +125,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Roughness
 
-  label = new QLabel("Roughness: ");
+  label = new QLabel(tr("Roughness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -140,7 +140,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -150,7 +150,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Conductivity Of Dry Soil
 
-  label = new QLabel("Conductivity Of Dry Soil: ");
+  label = new QLabel(tr("Conductivity Of Dry Soil: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -160,7 +160,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Density Of Dry Soil
 
-  label = new QLabel("Density Of Dry Soil: ");
+  label = new QLabel(tr("Density Of Dry Soil: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -170,7 +170,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Specific Heat Of Dry Soil
 
-  label = new QLabel("Specific Heat Of Dry Soil: ");
+  label = new QLabel(tr("Specific Heat Of Dry Soil: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -180,7 +180,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Thermal Absorptance
 
-  label = new QLabel("Thermal Absorptance: ");
+  label = new QLabel(tr("Thermal Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -190,7 +190,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Solar Absorptance
 
-  label = new QLabel("Solar Absorptance: ");
+  label = new QLabel(tr("Solar Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -200,7 +200,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Visible Absorptance
 
-  label = new QLabel("Visible Absorptance: ");
+  label = new QLabel(tr("Visible Absorptance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -210,7 +210,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Saturation Volumetric Moisture Content Of The Soil Layer
 
-  label = new QLabel("Saturation Volumetric Moisture Content Of The Soil Layer: ");
+  label = new QLabel(tr("Saturation Volumetric Moisture Content Of The Soil Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -221,7 +221,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Residual Volumetric Moisture Content Of The Soil Layer
 
-  label = new QLabel("Residual Volumetric Moisture Content Of The Soil Layer: ");
+  label = new QLabel(tr("Residual Volumetric Moisture Content Of The Soil Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -232,7 +232,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Initial Volumetric Moisture Content Of The Soil Layer
 
-  label = new QLabel("Initial Volumetric Moisture Content Of The Soil Layer: ");
+  label = new QLabel(tr("Initial Volumetric Moisture Content Of The Soil Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -243,7 +243,7 @@ void MaterialRoofVegetationInspectorView::createLayout() {
 
   // Moisture Diffusion Calculation Method
 
-  label = new QLabel("Moisture Diffusion Calculation Method: ");
+  label = new QLabel(tr("Moisture Diffusion Calculation Method: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

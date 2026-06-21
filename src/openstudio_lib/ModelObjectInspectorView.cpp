@@ -4,9 +4,9 @@
 ***********************************************************************************************************************/
 
 #include "ModelObjectInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>

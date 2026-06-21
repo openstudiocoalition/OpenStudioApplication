@@ -9,7 +9,7 @@
 #include <QGraphicsScene>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/model/ModelObject.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 namespace openstudio {
 

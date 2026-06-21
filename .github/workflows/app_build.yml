@@ -1,3 +1,21 @@
+# Main build pipeline. Builds the OpenStudio Application on 5 platforms (ubuntu-22.04,
+# ubuntu-24.04, windows-2022, macos-15-intel, macos-15 arm64), runs CTest and benchmarks,
+# applies code signing on tag pushes, and uploads installers to GitHub Releases.
+#
+# Two jobs:
+#   build         - matrix over all 5 platforms
+#   test_package_macos - downloads and verifies the signed macOS DMG (macos-15-intel + arm64)
+#
+# Caching: three independent caches keyed by OS + Conan profile + CACHE_KEY secret:
+#   1. ccache (compiler output cache)
+#   2. Conan package cache
+#   3. Qt + OpenStudio SDK download cache
+# Rotate the CACHE_KEY secret to bust all caches immediately.
+#
+# Required secrets: MACOS_DEVELOPER_ID_APPLICATION_CERTIFICATE_P12_BASE64,
+#   MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_PASSWORD, MACOS_KEYCHAIN_PASSWORD,
+#   NOTARIZATION_API_KEY, NOTARIZATION_API_TEAM_ID, NOTARIZATION_API_ISSUER_ID,
+#   SIGNPATH_CI_TOKEN, ANALYTICS_API_SECRET, ANALYTICS_MEASUREMENT_ID, CACHE_KEY
 name: C++ CI for OpenStudioApplication
 
 on:
@@ -16,7 +34,7 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  QT_VERSION: 6.5.2
+  QT_VERSION: 6.11.0
   QT_DEBUG_PLUGINS: 1
 
 jobs:
@@ -42,7 +60,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: ubuntu-24.04
           SELF_HOSTED: false
@@ -52,7 +70,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: windows-2022
           SELF_HOSTED: false
@@ -62,7 +80,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/win64/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
-          QT_ARCH: win64_msvc2019_64
+          QT_ARCH: win64_msvc2022_64
           arch: x86_64
         - os: macos-15-intel
           SELF_HOSTED: false
@@ -91,9 +109,9 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       if: ${{ !matrix.SELF_HOSTED }}
       with:
         python-version: '3.12.x'
@@ -185,6 +203,9 @@ jobs:
           else
             echo "Setting Xcode version"
             sudo xcode-select -s "/Applications/Xcode_16.4.app/Contents/Developer/"
+
+            echo "Untapping unused taps to avoid Homebrew trust warnings"
+            brew untap aws/tap azure/bicep || true
 
             echo "Using brew to install ninja"
             brew install md5sha1sum ccache
@@ -330,7 +351,7 @@ jobs:
     # Note: I'm picking up the ccache before I do the conan cache, otherwise on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
     # To prevent problems, changing to multiple more specific glob patterns
     - name: Setup CCache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cacheccache
       if: ${{ !matrix.SELF_HOSTED }}
       with:
@@ -349,7 +370,7 @@ jobs:
         ccache --zero-stats
 
     - name: Setup Conan Cache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cacheconan
       if: ${{ !matrix.SELF_HOSTED }}
       with:
@@ -384,7 +405,7 @@ jobs:
     - name: Cache Qt and SDK
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
-      uses: actions/cache@v3
+      uses: actions/cache@v5
       with:
         path: |
           build/Qt-install
@@ -418,12 +439,12 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "Windows" ]; then
-          # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
-          QT_INSTALL_DIR="$(cmd.exe //c cd)\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
+          # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2022_64"
+          QT_INSTALL_DIR="$(cmd.exe //c cd)\build\Qt-install\${{ env.QT_VERSION }}\msvc2022_64"
         elif [ "$RUNNER_OS" == "macOS" ]; then
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/macos"
         else
-          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/gcc_64"
         fi
 
         if [ -d "$QT_INSTALL_DIR" ]; then
@@ -432,10 +453,14 @@ jobs:
           echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
           pip show setuptools || true
           pip install setuptools --upgrade
-          pip3 install aqtinstall
+          # TODO: temporary, pending a new release after 3.3.0, need to download a fix, download.qt.io changed the directory structure for Qt 6.11.0 on windows:
+          # * Issue: https://github.com/miurahr/aqtinstall/issues/1007
+          # * Fixed via https://github.com/miurahr/aqtinstall/pull/1000
+          # pip install aqtinstall
+          pip install git+https://github.com/miurahr/aqtinstall.git@master
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --arch $QT_VERSION
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --modules $QT_VERSION ${{ matrix.QT_ARCH }}
-          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning qtcharts
+          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qtpositioning qtcharts
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
@@ -719,7 +744,7 @@ jobs:
           arch: arm64
 
     steps:
-    - uses: actions/checkout@v4  # Still need code checked out to get testing scripts
+    - uses: actions/checkout@v5  # Still need code checked out to get testing scripts
       with:
         path: checkout
 

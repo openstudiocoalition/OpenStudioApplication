@@ -7,7 +7,7 @@
 #include "EditView.hpp"
 #include "OSViewSwitcher.hpp"
 #include "WorkflowController.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -24,7 +24,7 @@ namespace openstudio {
 
 EditController::EditController(bool applyMeasureNow) : editView(new OSViewSwitcher()) {
   if (applyMeasureNow) {
-    m_editNullView = new EditNullView("Select a Measure to Apply");
+    m_editNullView = new EditNullView(tr("Select a Measure to Apply"));
   } else {
     m_editNullView = new EditNullView();
   }
@@ -98,8 +98,8 @@ void EditController::reset() {
   m_measureStepItem = nullptr;
 
   if (editRubyMeasureView != nullptr) {
-    editRubyMeasureView->nameLineEdit->disconnect();
-    editRubyMeasureView->descriptionTextEdit->disconnect();
+    disconnect(editRubyMeasureView->nameLineEdit, &QLineEdit::textEdited, nullptr, nullptr);
+    disconnect(editRubyMeasureView->descriptionTextEdit, &QTextEdit::textChanged, nullptr, nullptr);
   }
 }
 

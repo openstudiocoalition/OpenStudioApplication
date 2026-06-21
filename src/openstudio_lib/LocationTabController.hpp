@@ -36,7 +36,8 @@ class LocationTabController : public MainTabController
   {
     WEATHER_FILE,
     LIFE_CYCLE_COSTS,
-    UTILITY_BILLS
+    UTILITY_BILLS,
+    GROUND_TEMPERATURES
   };
 
  private:

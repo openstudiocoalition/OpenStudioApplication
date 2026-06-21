@@ -6,7 +6,7 @@
 #include "ElectricEquipmentInspectorView.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include <openstudio/model/ElectricEquipmentDefinition.hpp>
 #include <openstudio/model/ElectricEquipmentDefinition_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -33,7 +33,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -42,7 +42,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Design Level
 
-  label = new QLabel("Design Level: ");
+  label = new QLabel(tr("Design Level: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -52,7 +52,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Watts Per Space Floor Area
 
-  label = new QLabel("Watts Per Space Floor Area: ");
+  label = new QLabel(tr("Watts Per Space Floor Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 1);
 
@@ -62,7 +62,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Watts Per Person
 
-  label = new QLabel("Watts Per Person: ");
+  label = new QLabel(tr("Watts Per Person: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 2);
 
@@ -72,7 +72,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Fraction Latent
 
-  label = new QLabel("Fraction Latent: ");
+  label = new QLabel(tr("Fraction Latent: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 
@@ -82,7 +82,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Fraction Radiant
 
-  label = new QLabel("Fraction Radiant: ");
+  label = new QLabel(tr("Fraction Radiant: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 1);
 
@@ -92,7 +92,7 @@ ElectricEquipmentDefinitionInspectorView::ElectricEquipmentDefinitionInspectorVi
 
   // Fraction Lost
 
-  label = new QLabel("Fraction Lost: ");
+  label = new QLabel(tr("Fraction Lost: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 6, 0);
 

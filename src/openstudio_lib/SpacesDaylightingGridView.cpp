@@ -5,7 +5,7 @@
 
 #include "SpacesDaylightingGridView.hpp"
 
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
@@ -206,10 +206,10 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
     } else {
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
+        checkbox->setToolTip(tr("Check to select all rows"));
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
         connect(this, &SpacesDaylightingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), tr("Check to select this row").toStdString());
         //addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",
         //  DataSource(
         //  allLoads,

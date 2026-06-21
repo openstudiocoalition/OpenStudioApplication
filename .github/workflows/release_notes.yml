@@ -1,3 +1,7 @@
+# Automatically generates and appends a changelog to a GitHub Release when it is created.
+# Runs developer/ruby/GitHubIssueStats.rb which queries the GitHub Issues API for all
+# issues closed since the previous release tag, formats them as Markdown, and patches
+# the release body via the GitHub API.
 name: Create release notes changelog
 on:
   release:
@@ -9,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
         python-version: '3.8.x'
 

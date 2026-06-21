@@ -5,7 +5,7 @@
 
 #include "SpacesSpacesGridView.hpp"
 
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
@@ -39,27 +39,7 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME "Space Name"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
-#define SELECTED "All"
-
-// GENERAL
-#define STORY "Story"
-#define THERMALZONE "Thermal Zone"
-#define SPACETYPE "Space Type"
-#define DEFAULTCONSTRUCTIONSET "Default Construction Set"
-#define DEFAULTSCHEDULESET "Default Schedule Set"
-#define PARTOFTOTALFLOORAREA "Part of Total Floor Area"
-
-// AIRFLOW
-#define SPACEINFILTRATIONDESIGNFLOWRATES "Space Infiltration Design Flow Rates"
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS "Space Infiltration Effective Leakage Areas"
-#define DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME "Design Specification Outdoor Air Object Name"
+#include <QCoreApplication>
 
 namespace openstudio {
 
@@ -72,8 +52,8 @@ SpacesSpacesGridView::SpacesSpacesGridView(bool isIP, bool displayAdditionalProp
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSpacesGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesSpacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -112,19 +92,19 @@ SpacesSpacesGridController::SpacesSpacesGridController(bool isIP, bool displayAd
 void SpacesSpacesGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      STORY, THERMALZONE, SPACETYPE, DEFAULTCONSTRUCTIONSET, DEFAULTSCHEDULESET, PARTOFTOTALFLOORAREA,
+      tr("Story"), tr("Thermal Zone"), tr("Space Type"), tr("Default Construction Set"), tr("Default Schedule Set"), tr("Part of Total Floor Area"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
     std::vector<QString> fields{
-      DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME,
-      SPACEINFILTRATIONDESIGNFLOWRATES,
-      SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
+      tr("Design Specification Outdoor Air Object Name"),
+      tr("Space Infiltration Design Flow Rates"),
+      tr("Space Infiltration Effective Leakage Areas"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Airflow"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Airflow"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -138,70 +118,70 @@ void SpacesSpacesGridController::onCategorySelected(int index) {
 void SpacesSpacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+    if (field == tr("Space Name")) {
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setCADObjectId)  // setter
       );
-    } else if (field == SELECTED) {
+    } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
+      checkbox->setToolTip(tr("Check to select all rows"));
+      connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
       connect(this, &SpacesSpacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
-    } else if (field == STORY) {
-      addDropZoneColumn(Heading(QString(STORY)), CastNullAdapter<model::Space>(&model::Space::buildingStory),
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
+    } else if (field == tr("Story")) {
+      addDropZoneColumn(Heading(tr("Story")), CastNullAdapter<model::Space>(&model::Space::buildingStory),
                         CastNullAdapter<model::Space>(&model::Space::setBuildingStory),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetBuildingStory)));
-    } else if (field == THERMALZONE) {
+    } else if (field == tr("Thermal Zone")) {
       std::function<bool(model::Space*, const model::ThermalZone&)> set([](model::Space* s, const model::ThermalZone& tz) {
         model::ThermalZone copy = tz;
         return s->setThermalZone(copy);
       });
 
-      addDropZoneColumn(Heading(QString(THERMALZONE)), CastNullAdapter<model::Space>(&model::Space::thermalZone), set,
+      addDropZoneColumn(Heading(tr("Thermal Zone")), CastNullAdapter<model::Space>(&model::Space::thermalZone), set,
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetThermalZone)));
-    } else if (field == SPACETYPE) {
-      addDropZoneColumn(Heading(QString(SPACETYPE)), CastNullAdapter<model::Space>(&model::Space::spaceType),
+    } else if (field == tr("Space Type")) {
+      addDropZoneColumn(Heading(tr("Space Type")), CastNullAdapter<model::Space>(&model::Space::spaceType),
                         CastNullAdapter<model::Space>(&model::Space::setSpaceType),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetSpaceType)),
                         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isSpaceTypeDefaulted)),
                         boost::optional<std::function<std::vector<model::ModelObject>(const model::Space*)>>(), boost::optional<DataSource>());
-    } else if (field == DEFAULTCONSTRUCTIONSET) {
+    } else if (field == tr("Default Construction Set")) {
       addDropZoneColumn(
-        Heading(QString(DEFAULTCONSTRUCTIONSET)), CastNullAdapter<model::Space>(&model::Space::defaultConstructionSet),
+        Heading(tr("Default Construction Set")), CastNullAdapter<model::Space>(&model::Space::defaultConstructionSet),
         CastNullAdapter<model::Space>(&model::Space::setDefaultConstructionSet),
         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetDefaultConstructionSet)));
-    } else if (field == DEFAULTSCHEDULESET) {
-      addDropZoneColumn(Heading(QString(DEFAULTSCHEDULESET)), CastNullAdapter<model::Space>(&model::Space::defaultScheduleSet),
+    } else if (field == tr("Default Schedule Set")) {
+      addDropZoneColumn(Heading(tr("Default Schedule Set")), CastNullAdapter<model::Space>(&model::Space::defaultScheduleSet),
                         CastNullAdapter<model::Space>(&model::Space::setDefaultScheduleSet),
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetDefaultScheduleSet)));
-    } else if (field == PARTOFTOTALFLOORAREA) {
+    } else if (field == tr("Part of Total Floor Area")) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(QString(PARTOFTOTALFLOORAREA), true, true), std::string("Check to enable part of total floor area."),
+      addCheckBoxColumn(Heading(tr("Part of Total Floor Area"), true, true), tr("Check to enable part of total floor area.").toStdString(),
                         NullAdapter(&model::Space::partofTotalFloorArea), NullAdapter(&model::Space::setPartofTotalFloorArea));
-    } else if (field == SPACEINFILTRATIONDESIGNFLOWRATES) {
+    } else if (field == tr("Space Infiltration Design Flow Rates")) {
       std::function<boost::optional<model::SpaceInfiltrationDesignFlowRate>(model::Space*)> getter;
 
       std::function<bool(model::Space*, const model::SpaceInfiltrationDesignFlowRate&)> setter(
@@ -225,7 +205,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONDESIGNFLOWRATES)), true, false,
+        Heading(tr("Space Infiltration Design Flow Rates")), true, false,
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::name),
         CastNullAdapter<model::SpaceInfiltrationDesignFlowRate>(&model::SpaceInfiltrationDesignFlowRate::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationDesignFlowRate*)>>(
@@ -234,8 +214,8 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
           [](model::SpaceInfiltrationDesignFlowRate* t_fr) { return t_fr->spaceType().is_initialized(); })),
         DataSource(flowRates, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationDesignFlowRate, model::Space>(
-                     Heading(SPACEINFILTRATIONDESIGNFLOWRATES), getter, setter, boost::none, boost::none, boost::none))));
-    } else if (field == SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS) {
+                     Heading(tr("Space Infiltration Design Flow Rates")), getter, setter, boost::none, boost::none, boost::none))));
+    } else if (field == tr("Space Infiltration Effective Leakage Areas")) {
       std::function<boost::optional<model::SpaceInfiltrationEffectiveLeakageArea>(model::Space*)> getter;
 
       std::function<bool(model::Space*, const model::SpaceInfiltrationEffectiveLeakageArea&)> setter(
@@ -259,7 +239,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       });
 
       addNameLineEditColumn(
-        Heading(QString(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS)), true, false,
+        Heading(tr("Space Infiltration Effective Leakage Areas")), true, false,
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::name),
         CastNullAdapter<model::SpaceInfiltrationEffectiveLeakageArea>(&model::SpaceInfiltrationEffectiveLeakageArea::setName),
         boost::optional<std::function<void(model::SpaceInfiltrationEffectiveLeakageArea*)>>(
@@ -270,10 +250,10 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
             [](model::SpaceInfiltrationEffectiveLeakageArea* t_la) { return t_la->spaceType().is_initialized(); })),
         DataSource(leakageAreas, false,
                    QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceInfiltrationEffectiveLeakageArea, model::Space>(
-                     Heading(SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS), getter, setter, boost::none, boost::none, boost::none))));
-    } else if (field == DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME) {
+                     Heading(tr("Space Infiltration Effective Leakage Areas")), getter, setter, boost::none, boost::none, boost::none))));
+    } else if (field == tr("Design Specification Outdoor Air Object Name")) {
       addDropZoneColumn(
-        Heading(QString(DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME)), CastNullAdapter<model::Space>(&model::Space::designSpecificationOutdoorAir),
+        Heading(tr("Design Specification Outdoor Air Object Name")), CastNullAdapter<model::Space>(&model::Space::designSpecificationOutdoorAir),
         CastNullAdapter<model::Space>(&model::Space::setDesignSpecificationOutdoorAir),
         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetDesignSpecificationOutdoorAir)),
         boost::optional<std::function<bool(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::isDesignSpecificationOutdoorAirDefaulted)));

@@ -4,9 +4,9 @@
 ***********************************************************************************************************************/
 
 #include "DefaultConstructionSetInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
@@ -975,7 +975,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   QLabel* label = nullptr;
 
   label = new QLabel();
-  label->setText("Name");
+  label->setText(tr("Name"));
   label->setObjectName("H2");
 
   gridLayout->addWidget(label, row, leftCol);
@@ -1001,14 +1001,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Exterior Surface Constructions");
+  label->setText(tr("Exterior Surface Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Walls");
+  label->setText(tr("Walls"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorWallConstructionVC = new WallConstructionVC();
@@ -1019,7 +1019,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_exteriorWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Floors");
+  label->setText(tr("Floors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorFloorConstructionVC = new FloorConstructionVC();
@@ -1030,7 +1030,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_exteriorFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Roofs");
+  label->setText(tr("Roofs"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorRoofConstructionVC = new RoofConstructionVC();
@@ -1050,14 +1050,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Interior Surface Constructions");
+  label->setText(tr("Interior Surface Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Walls");
+  label->setText(tr("Walls"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorWallConstructionVC = new WallConstructionVC();
@@ -1068,7 +1068,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_interiorWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Floors");
+  label->setText(tr("Floors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorFloorConstructionVC = new FloorConstructionVC();
@@ -1079,7 +1079,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_interiorFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Ceilings");
+  label->setText(tr("Ceilings"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorRoofConstructionVC = new RoofConstructionVC();
@@ -1099,14 +1099,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Ground Contact Surface Constructions");
+  label->setText(tr("Ground Contact Surface Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Walls");
+  label->setText(tr("Walls"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_groundWallConstructionVC = new WallConstructionVC();
@@ -1117,7 +1117,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_groundWallConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Floors");
+  label->setText(tr("Floors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_groundFloorConstructionVC = new FloorConstructionVC();
@@ -1128,7 +1128,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_groundFloorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Ceilings");
+  label->setText(tr("Ceilings"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_groundRoofConstructionVC = new RoofConstructionVC();
@@ -1154,14 +1154,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Exterior Sub Surface Constructions");
+  label->setText(tr("Exterior Sub Surface Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Fixed Windows");
+  label->setText(tr("Fixed Windows"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorFixedWindowVC = new FixedWindowVC();
@@ -1172,7 +1172,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_exteriorFixedWindowDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Operable Windows");
+  label->setText(tr("Operable Windows"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorOperableWindowVC = new OperableWindowVC();
@@ -1183,7 +1183,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_exteriorOperableWindowDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Doors");
+  label->setText(tr("Doors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_exteriorDoorVC = new DoorVC();
@@ -1196,7 +1196,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row += 2;
 
   label = new QLabel();
-  label->setText("Glass Doors");
+  label->setText(tr("Glass Doors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_glassDoorConstructionVC = new GlassDoorConstructionVC();
@@ -1207,7 +1207,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_glassDoorConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Overhead Doors");
+  label->setText(tr("Overhead Doors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_overheadDoorConstructionVC = new OverheadDoorConstructionVC();
@@ -1218,7 +1218,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_overheadDoorConstructionDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Skylights");
+  label->setText(tr("Skylights"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_skylightConstructionVC = new SkylightConstructionVC();
@@ -1231,7 +1231,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row += 2;
 
   label = new QLabel();
-  label->setText("Tubular Daylight Domes");
+  label->setText(tr("Tubular Daylight Domes"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_tubularDaylightDomeConstructionVC = new TubularDaylightDomeConstructionVC();
@@ -1242,7 +1242,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_tubularDaylightDomeConstructionDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Tubular Daylight Diffusers");
+  label->setText(tr("Tubular Daylight Diffusers"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_tubularDaylightDiffuserConstructionVC = new TubularDaylightDiffuserConstructionVC();
@@ -1261,14 +1261,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Interior Sub Surface Constructions");
+  label->setText(tr("Interior Sub Surface Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Fixed Windows");
+  label->setText(tr("Fixed Windows"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorFixedWindowVC = new FixedWindowVC();
@@ -1279,7 +1279,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_interiorFixedWindowDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Operable Windows");
+  label->setText(tr("Operable Windows"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorOperableWindowVC = new OperableWindowVC();
@@ -1290,7 +1290,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_interiorOperableWindowDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Doors");
+  label->setText(tr("Doors"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorDoorVC = new DoorVC();
@@ -1309,14 +1309,14 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row++;
 
   label = new QLabel();
-  label->setText("Other Constructions");
+  label->setText(tr("Other Constructions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   gridLayout->addWidget(label, row, leftCol, 1, 3);
   row++;
 
   label = new QLabel();
-  label->setText("Space Shading");
+  label->setText(tr("Space Shading"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_spaceShadingVC = new SpaceShadingVC();
@@ -1327,7 +1327,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_spaceShadingDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Building Shading");
+  label->setText(tr("Building Shading"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_buildingShadingVC = new BuildingShadingVC();
@@ -1338,7 +1338,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_buildingShadingDZ, row + 1, middleCol);
 
   label = new QLabel();
-  label->setText("Site Shading");
+  label->setText(tr("Site Shading"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_siteShadingVC = new SiteShadingVC();
@@ -1351,7 +1351,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   row += 2;
 
   label = new QLabel();
-  label->setText("Interior Partitions");
+  label->setText(tr("Interior Partitions"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_interiorPartitionsVC = new InteriorPartitionsVC();
@@ -1362,7 +1362,7 @@ DefaultConstructionSetInspectorView::DefaultConstructionSetInspectorView(const m
   gridLayout->addWidget(m_interiorPartitionsDZ, row + 1, leftCol);
 
   label = new QLabel();
-  label->setText("Adiabatic Surfaces");
+  label->setText(tr("Adiabatic Surfaces"));
   label->setObjectName("H2");
   //label->setContentsMargins(padding,0,padding,0);
   m_adiabaticSurfaceVC = new AdiabaticSurfaceVC();

@@ -38,6 +38,13 @@ class LibraryItem;
 
 // TODO: Perhaps generalize LibraryGroupItem, LibrarySubGroupItem, LibraryItem and related classes into one tree like set of class.
 
+/**
+ * LocalLibraryController manages the "Library" tab of the right-column sidebar. It provides a
+ * searchable, filterable browser of all locally available OpenStudio Measures (from both
+ * myMeasures and the BCL cache), organized by taxonomy category. Users can browse, search, and
+ * select measures; the selected measure can be dragged into the workflow or applied immediately
+ * via ApplyMeasureNowDialog.
+ */
 class LocalLibraryController : public QObject
 {
   Q_OBJECT

@@ -26,6 +26,11 @@ class WaterToAirComponent;
 
 class InspectorView;
 
+/**
+ * InspectorController manages the right-column inspector panel. When an OSItem is selected anywhere
+ * in the application, InspectorController instantiates or updates the appropriate
+ * ModelObjectInspectorView subclass and displays it in the right column.
+ */
 class InspectorController : public QObject
 {
   Q_OBJECT

@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_YEARSETTINGSWIDGET_HPP
 #define OPENSTUDIO_YEARSETTINGSWIDGET_HPP
 
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/YearDescription.hpp>

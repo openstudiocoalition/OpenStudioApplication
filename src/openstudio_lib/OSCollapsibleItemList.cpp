@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "OSCollapsibleItemList.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSItemList.hpp"
 #include "OSCollapsibleItem.hpp"
 #include "OSCollapsibleItemHeader.hpp"
@@ -54,6 +54,8 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
+    scrollArea->viewport()->setAutoFillBackground(false);
+    outerWidget->setAutoFillBackground(false);
   } else {
     outerVLayout->addWidget(outerWidget);
   }

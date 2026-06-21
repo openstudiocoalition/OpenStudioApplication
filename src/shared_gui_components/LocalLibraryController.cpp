@@ -13,15 +13,10 @@
 #include "OSListView.hpp"
 #include "OSViewSwitcher.hpp"
 
-#include "../openstudio_lib/MainWindow.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/OSItem.hpp"
-
 #include "MeasureBadge.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -45,6 +40,10 @@
 #include <map>
 
 namespace openstudio {
+
+static QString trTaxonomy(const QString& name) {
+  return QCoreApplication::translate("TaxonomyCategories", name.toUtf8().constData());
+}
 
 LocalLibraryController::LocalLibraryController(BaseApp* t_app, bool onlyShowModelMeasures)
   : m_app(t_app), m_onlyShowModelMeasures(onlyShowModelMeasures) {
@@ -206,7 +205,7 @@ QWidget* LibraryTypeItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     auto* groupCollapsibleView = new OSCollapsibleView();
 
     auto* header = new DarkGradientHeader();
-    header->label->setText(item->name());
+    header->label->setText(trTaxonomy(item->name()));
     groupCollapsibleView->setHeader(header);
 
     QSharedPointer<LibraryGroupListController> groupListController = item->libraryGroupListController();
@@ -260,7 +259,7 @@ QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     auto* groupCollapsibleView = new OSCollapsibleView();
 
     auto* header = new LibraryGroupItemHeader();
-    header->label->setText(item->name());
+    header->label->setText(trTaxonomy(item->name()));
 
     connect(item->librarySubGroupListController().data(), &LibrarySubGroupListController::libraryItemCountChanged, header,
             &LibraryGroupItemHeader::setCount);
@@ -321,7 +320,7 @@ QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource
 
     auto* header = new LibrarySubGroupItemHeader();
 
-    header->label->setText(item->name());
+    header->label->setText(trTaxonomy(item->name()));
 
     connect(item->libraryListController().data(), &LibraryListController::countChanged, header, &LibrarySubGroupItemHeader::setCount);
 
@@ -497,10 +496,10 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     // Name
 
     widget->label->setText(libraryItem->displayName());
-    const bool useClassicCLI =
-      OSAppBase::instance()->currentDocument() == nullptr ? false : OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    const bool useClassicCLI = BaseApp::instance() != nullptr && BaseApp::instance()->useClassicCLI();
     if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
-      widget->setToolTip("Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
+      widget->setToolTip(
+        tr("Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'."));
       widget->errorLabel->setVisible(true);
     } else if (libraryItem->hasError()) {
       widget->setToolTip(libraryItem->error());

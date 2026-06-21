@@ -6,7 +6,7 @@
 #include "ResultsTabView.hpp"
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <QFile>
 #include <QBoxLayout>
@@ -17,7 +17,7 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QString>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 
@@ -48,8 +48,8 @@ ResultsView::ResultsView(QWidget* t_parent)
   : QWidget(t_parent),
     m_isIP(true),
     m_progressBar(new ProgressBarWithError()),
-    m_refreshBtn(new QPushButton("Refresh")),
-    m_openDViewBtn(new QPushButton("Open DView for\nDetailed Reports")),
+    m_refreshBtn(new QPushButton(tr("Refresh"))),
+    m_openDViewBtn(new QPushButton(tr("Open DView for\nDetailed Reports"))),
     m_comboBox(new QComboBox(this)) {
 
   auto* mainLayout = new QVBoxLayout;
@@ -60,7 +60,7 @@ ResultsView::ResultsView(QWidget* t_parent)
   // Prepare the top portion inside a QHBoxLayout
   auto* hLayout = new QHBoxLayout(this);
 
-  m_reportLabel = new QLabel("Reports: ", this);
+  m_reportLabel = new QLabel(tr("Reports: "), this);
   m_reportLabel->setObjectName("H2");
   m_reportLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
   hLayout->addWidget(m_reportLabel, 0, Qt::AlignLeft | Qt::AlignVCenter);
@@ -81,7 +81,7 @@ ResultsView::ResultsView(QWidget* t_parent)
   openstudio::OSAppBase* app = OSAppBase::instance();
   m_dviewPath = app->dviewPath();
   if (m_dviewPath.empty()) {
-    m_openDViewBtn->setText("Set Path to DView\nin Preferences");
+    m_openDViewBtn->setText(tr("Set Path to DView\nin Preferences"));
     connect(m_openDViewBtn, &QPushButton::clicked, app, &OSAppBase::configureExternalTools);
   } else {
     connect(m_openDViewBtn, &QPushButton::clicked, this, &ResultsView::openDViewClicked);
@@ -122,18 +122,19 @@ void ResultsView::refreshClicked() {
 void ResultsView::openDViewClicked() {
   LOG(Debug, "openDViewClicked");
 
-  //#ifdef Q_OS_DARWIN
-  //openstudio::path dview
-  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
-  //#else
-  //openstudio::path dview
-  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
-  //#endif
-
   QStringList args;
 
   if (!m_sqlFilePath.empty()) {
     args.push_back(openstudio::toQString(m_sqlFilePath));
+
+    // TODO: uncomment once DView is updated to support --ip / --si flags
+    // (see Ski90Moo/wex feat/ip-units-cli-flag). The translated dialog replaces
+    // DView's own English prompt and forwards the answer via CLI arg.
+    //
+    // auto reply = QMessageBox::question(this, tr("Units Conversion"),
+    //                                    tr("Would you like to display your Energy+ data in IP units?"),
+    //                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    // args.push_back(reply == QMessageBox::Yes ? QStringLiteral("--ip") : QStringLiteral("--si"));
   }
 
   if (!m_radianceResultsPath.empty()) {
@@ -141,7 +142,8 @@ void ResultsView::openDViewClicked() {
   }
 
   if (!QProcess::startDetached(openstudio::toQString(m_dviewPath), args)) {
-    QMessageBox::critical(this, "Unable to launch DView", "DView was not found in the expected location:\n" + openstudio::toQString(m_dviewPath));
+    QMessageBox::critical(this, tr("Unable to launch DView"),
+                          tr("DView was not found in the expected location:\n") + openstudio::toQString(m_dviewPath));
   }
 }
 
@@ -158,20 +160,16 @@ struct ResultsPathSorter
     openstudio::path leftParent = left.parent_path().stem();
     openstudio::path rightParent = right.parent_path().stem();
 
-    QRegExp regexp("^(\\d)+.*");
+    static const QRegularExpression regexp(QRegularExpression::anchoredPattern("(\\d+).*"));
 
     boost::optional<int> leftInt;
-    if (regexp.exactMatch(toQString(leftParent))) {
-      QStringList leftParts = regexp.capturedTexts();
-      OS_ASSERT(leftParts.size() == 2);
-      leftInt = leftParts[1].toInt();
+    if (auto m = regexp.match(toQString(leftParent)); m.hasMatch()) {
+      leftInt = m.captured(1).toInt();
     }
 
     boost::optional<int> rightInt;
-    if (regexp.exactMatch(toQString(rightParent))) {
-      QStringList rightParts = regexp.capturedTexts();
-      OS_ASSERT(rightParts.size() == 2);
-      rightInt = rightParts[1].toInt();
+    if (auto m = regexp.match(toQString(rightParent)); m.hasMatch()) {
+      rightInt = m.captured(1).toInt();
     }
 
     if (leftInt && rightInt) {
@@ -295,7 +293,7 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
   m_comboBox->clear();
   for (const openstudio::path& report : reports) {
 
-    // Here we DO want to call MODELEDITOR_API QString toQString(const path&) overload, which should automatically
+    // Here we DO want to call the QString toQString(const path&) overload, which should automatically
     // convert that to a unix-style path (with forward slashes) which is what we do want here.
     // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
     // (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)
@@ -305,7 +303,7 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
 
     if (openstudio::toString(report.filename()) == "eplustbl.html" || openstudio::toString(report.filename()) == "eplustbl.htm") {
 
-      m_comboBox->addItem("EnergyPlus Results", fullPathString);
+      m_comboBox->addItem(tr("EnergyPlus Results"), fullPathString);
 
     } else {
 
@@ -319,7 +317,7 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
         int startingIndex = string.indexOf("<title>");
         int endingIndex = string.indexOf("</title>");
         if ((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)) {
-          m_comboBox->addItem(QString("Custom Report ") + QString::number(num), fullPathString);
+          m_comboBox->addItem(tr("Custom Report %1").arg(num), fullPathString);
         } else {
           // length of "<title>" = 7
           QString title = string.mid(startingIndex + 7, endingIndex - startingIndex - 7);

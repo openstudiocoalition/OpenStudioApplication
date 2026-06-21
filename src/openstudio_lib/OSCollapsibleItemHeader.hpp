@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP
 #define OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 class QLabel;
 class QVBoxLayout;
@@ -20,7 +20,7 @@ class OSCollapsibleItemHeader : public QWidget
   Q_OBJECT
 
  public:
-  OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
+  OSCollapsibleItemHeader(const QString& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
                           QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleItemHeader() = default;

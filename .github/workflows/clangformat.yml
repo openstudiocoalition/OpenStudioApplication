@@ -1,3 +1,8 @@
+# Enforces .clang-format style on all C/C++ files changed in a PR.
+# Runs ci/clang-format.sh which diffs HEAD against the base branch, formats only
+# changed files, and exits 1 if any changes were needed.
+# On failure: download the clang_format.patch artifact and apply with 'git apply clang_format.patch'.
+# Install ci/pre-commit.sh as a git pre-commit hook to catch violations locally.
 name: Clang Format
 
 on:
@@ -8,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Run clang-format against C++ files touched by the PR
       shell: bash

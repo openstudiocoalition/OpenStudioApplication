@@ -4,9 +4,9 @@
 ***********************************************************************************************************************/
 
 #include "OSItemSelectorButtons.hpp"
-#include "OSDropZone.hpp"
-#include "OSItem.hpp"
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -73,7 +73,7 @@ OSItemSelectorButtons::OSItemSelectorButtons(QWidget* parent) : QWidget(parent) 
   m_addButton = new QPushButton();
   m_addButton->setFlat(true);
   m_addButton->setObjectName("AddButton");
-  m_addButton->setToolTip("Add new object");
+  m_addButton->setToolTip(tr("Add new object"));
   m_addButton->setFixedSize(24, 24);
   buttonLayout->addWidget(m_addButton);
 
@@ -83,7 +83,7 @@ OSItemSelectorButtons::OSItemSelectorButtons(QWidget* parent) : QWidget(parent) 
   m_copyButton->setEnabled(false);
   m_copyButton->setFlat(true);
   m_copyButton->setObjectName("CopyButton");
-  m_copyButton->setToolTip("Copy selected object");
+  m_copyButton->setToolTip(tr("Copy selected object"));
   m_copyButton->setFixedSize(24, 24);
   buttonLayout->addWidget(m_copyButton);
 
@@ -93,7 +93,7 @@ OSItemSelectorButtons::OSItemSelectorButtons(QWidget* parent) : QWidget(parent) 
   m_removeButton->setEnabled(false);
   m_removeButton->setFlat(true);
   m_removeButton->setObjectName("DeleteButton");
-  m_removeButton->setToolTip("Remove selected objects");
+  m_removeButton->setToolTip(tr("Remove selected objects"));
   m_removeButton->setFixedSize(24, 24);
   buttonLayout->addWidget(m_removeButton);
 
@@ -104,7 +104,7 @@ OSItemSelectorButtons::OSItemSelectorButtons(QWidget* parent) : QWidget(parent) 
   m_purgeButton = new QPushButton();
   m_purgeButton->setFlat(true);
   m_purgeButton->setObjectName("PurgeButton");
-  m_purgeButton->setToolTip("Purge unused objects");
+  m_purgeButton->setToolTip(tr("Purge unused objects"));
   m_purgeButton->setFixedSize(24, 24);
   buttonLayout->addWidget(m_purgeButton);
 
