@@ -223,9 +223,25 @@ function(codesign_files_macos)
       message(FATAL_ERROR "Can't sign ${path}, no file exists at that path.")
     endif ()
 
-    execute_process(COMMAND ${cmd} "${path}" RESULT_VARIABLE res)
-    if (NOT res EQUAL 0)
-      message(FATAL_ERROR "Can't sign ${path}, command '${cmd}' failed")
+    # Retry codesign up to 5 times with a delay, since Apple's timestamp server can be flaky
+    set(_CODESIGN_SUCCESS FALSE)
+    foreach(_ATTEMPT RANGE 1 5)
+      execute_process(
+        COMMAND ${cmd} "${path}"
+        RESULT_VARIABLE _CODESIGN_RESULT
+        OUTPUT_VARIABLE _CODESIGN_OUTPUT
+        ERROR_VARIABLE  _CODESIGN_ERROR
+      )
+      if (_CODESIGN_RESULT EQUAL 0)
+        set(_CODESIGN_SUCCESS TRUE)
+        break()
+      endif ()
+      message(WARNING "codesign attempt ${_ATTEMPT} failed: ${_CODESIGN_ERROR}. Retrying in 15s...")
+      execute_process(COMMAND ${CMAKE_COMMAND} -E sleep 15)
+    endforeach()
+
+    if (NOT _CODESIGN_SUCCESS)
+      message(FATAL_ERROR "Can't sign ${path}, command '${cmd}' failed after 5 attempts:\n${_CODESIGN_ERROR}")
     endif ()
   endforeach()
 
