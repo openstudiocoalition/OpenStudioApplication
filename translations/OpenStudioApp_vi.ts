@@ -15441,35 +15441,6 @@ Tải Điện Phụ Trợ Trong Quá Trình Sạc</translation>
     </message>
 </context>
 <context>
-    <name>InspectorDialog</name>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
-        <source>OpenStudio Inspector</source>
-        <translation>Mở bảng kiểm thuộc tính</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
-        <source>Add new object</source>
-        <translation>Thêm đối tượng mới</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
-        <source>Copy selected object</source>
-        <translation>Copy những đối tượng được chọn</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
-        <source>Remove selected objects</source>
-        <translation>Bỏ những đối tượng được chọn</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
-        <source>Purge unused objects</source>
-        <translation>Dọn sạch những đối tượng không dùng</translation>
-    </message>
-</context>
-<context>
     <name>InspectorGadget</name>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="656"/>

@@ -4,12 +4,10 @@
 ***********************************************************************************************************************/
 
 #include "SpaceTypesView.hpp"
-
 #include "ModelObjectListView.hpp"
-#include "OSItem.hpp"
 #include "SpaceTypeInspectorView.hpp"
 
-#include "../openstudio_lib/OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 

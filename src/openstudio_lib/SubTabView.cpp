@@ -8,7 +8,7 @@
 #include "OSItemSelectorButtons.hpp"
 #include "ModelObjectListView.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectInspectorView.hpp"
 
 #include <openstudio/model/Model.hpp>

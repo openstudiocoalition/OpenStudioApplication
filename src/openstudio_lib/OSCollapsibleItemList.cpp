@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "OSCollapsibleItemList.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSItemList.hpp"
 #include "OSCollapsibleItem.hpp"
 #include "OSCollapsibleItemHeader.hpp"

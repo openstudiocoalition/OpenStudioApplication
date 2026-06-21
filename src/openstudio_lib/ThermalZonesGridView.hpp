@@ -7,7 +7,7 @@
 #define OPENSTUDIO_THERMALZONESGRIDVIEW_HPP
 
 #include "../shared_gui_components/OSGridController.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <openstudio/model/Model.hpp>
 

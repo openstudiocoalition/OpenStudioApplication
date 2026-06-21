@@ -5,7 +5,7 @@
 
 #include "ThermalZonesTabController.hpp"
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "ThermalZonesController.hpp"
 #include "ThermalZonesTabView.hpp"
 #include "ThermalZonesView.hpp"

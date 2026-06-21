@@ -20,6 +20,11 @@ class Model;
 
 class ResultsTabView;
 
+/**
+ * ResultsTabController manages the Results tab. After a simulation completes, it loads the
+ * EnergyPlus SQL output database and displays summary results tables and charts. It listens for
+ * the resultsGenerated signal from RunTabController to trigger the load.
+ */
 class ResultsTabController : public MainTabController
 {
   Q_OBJECT

@@ -8,8 +8,6 @@
 #include "Buttons.hpp"
 #include "OSViewSwitcher.hpp"
 
-#include "../openstudio_lib/OSItem.hpp"
-
 #include "MeasureBadge.hpp"
 
 #include <QApplication>

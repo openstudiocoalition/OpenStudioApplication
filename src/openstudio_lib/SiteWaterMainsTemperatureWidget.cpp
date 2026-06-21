@@ -5,8 +5,8 @@
 
 #include "SiteWaterMainsTemperatureWidget.hpp"
 
-#include "OSDropZone.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"

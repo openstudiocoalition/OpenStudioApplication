@@ -13,15 +13,10 @@
 #include "OSListView.hpp"
 #include "OSViewSwitcher.hpp"
 
-#include "../openstudio_lib/MainWindow.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/OSItem.hpp"
-
 #include "MeasureBadge.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -501,8 +496,7 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     // Name
 
     widget->label->setText(libraryItem->displayName());
-    const bool useClassicCLI =
-      OSAppBase::instance()->currentDocument() == nullptr ? false : OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    const bool useClassicCLI = BaseApp::instance() != nullptr && BaseApp::instance()->useClassicCLI();
     if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
       widget->setToolTip(
         tr("Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'."));

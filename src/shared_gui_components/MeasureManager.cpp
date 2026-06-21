@@ -13,9 +13,9 @@
 #include "BuildingComponentDialog.hpp"
 #include "OSDialog.hpp"
 
-#include "../model_editor/Application.hpp"
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
+#include "UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/measure/OSArgument.hpp>
 
@@ -31,8 +31,6 @@
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <json/json.h>

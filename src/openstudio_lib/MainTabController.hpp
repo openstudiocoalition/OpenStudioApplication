@@ -16,6 +16,11 @@ namespace openstudio {
 class MainTabView;
 class OSItem;
 
+/**
+ * MainTabController is the abstract base class for all main-content-area tab controllers
+ * (Constructions, HVAC Systems, Schedules, etc.). Each subclass owns one or more MainTabView
+ * subclasses and handles the sub-tab switching logic for its domain.
+ */
 class MainTabController : public OSQObjectController
 {
   Q_OBJECT
@@ -50,7 +55,7 @@ class MainTabController : public OSQObjectController
 
  public slots:
 
-  virtual void setSubTab(int index){};
+  virtual void setSubTab(int index) {};
 };
 
 }  // namespace openstudio

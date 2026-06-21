@@ -13,8 +13,6 @@
 #include "AccessPolicyStore.hpp"
 #include <openstudio/model/ModelObject.hpp>
 
-#include "ModelEditorAPI.hpp"
-
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/utilities/idd/IddField.hpp>
@@ -34,7 +32,7 @@ class QVBoxLayout;
 
 class ComboHighlightBridge;
 
-class MODELEDITOR_API IGWidget
+class IGWidget
   : public QWidget
   , public Nano::Observer
 {
@@ -70,7 +68,7 @@ class IGComboBox : public QComboBox
  * Choice is displayed as a ComboBox
  *
  */
-class MODELEDITOR_API InspectorGadget
+class InspectorGadget
   : public QWidget
   , public Nano::Observer
 {
