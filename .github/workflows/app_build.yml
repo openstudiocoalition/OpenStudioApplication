@@ -91,9 +91,9 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       if: ${{ !matrix.SELF_HOSTED }}
       with:
         python-version: '3.12.x'
@@ -185,6 +185,9 @@ jobs:
           else
             echo "Setting Xcode version"
             sudo xcode-select -s "/Applications/Xcode_16.4.app/Contents/Developer/"
+
+            echo "Untapping unused taps to avoid Homebrew trust warnings"
+            brew untap aws/tap azure/bicep || true
 
             echo "Using brew to install ninja"
             brew install md5sha1sum ccache
@@ -330,7 +333,7 @@ jobs:
     # Note: I'm picking up the ccache before I do the conan cache, otherwise on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
     # To prevent problems, changing to multiple more specific glob patterns
     - name: Setup CCache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cacheccache
       if: ${{ !matrix.SELF_HOSTED }}
       with:
@@ -349,7 +352,7 @@ jobs:
         ccache --zero-stats
 
     - name: Setup Conan Cache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       id: cacheconan
       if: ${{ !matrix.SELF_HOSTED }}
       with:
@@ -384,7 +387,7 @@ jobs:
     - name: Cache Qt and SDK
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
-      uses: actions/cache@v3
+      uses: actions/cache@v5
       with:
         path: |
           build/Qt-install
@@ -723,7 +726,7 @@ jobs:
           arch: arm64
 
     steps:
-    - uses: actions/checkout@v4  # Still need code checked out to get testing scripts
+    - uses: actions/checkout@v5  # Still need code checked out to get testing scripts
       with:
         path: checkout
 

@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     # BuildKit is required for the cache-from/cache-to directives below.
     - name: Set up Docker Buildx
