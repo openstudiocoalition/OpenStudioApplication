@@ -32,7 +32,13 @@ if(APPLE AND CPACK_GENERATOR STREQUAL "IFW")
     message(FATAL_ERROR "CPACK_CODESIGNING_MACOS_IDENTIFIER is required, this should not have happened")
   endif()
 
+  # CPACK_PACKAGE_FILES can contain relative paths; resolve them to absolute so
+  # EXISTS checks and codesign/notarize steps work regardless of cwd.
+  set(_RESOLVED_PACKAGE_FILES "")
   foreach(CPACK_PACKAGE_FILE ${CPACK_PACKAGE_FILES})
+    if(NOT IS_ABSOLUTE "${CPACK_PACKAGE_FILE}")
+      set(CPACK_PACKAGE_FILE "${CPACK_TOPLEVEL_DIRECTORY}/${CPACK_PACKAGE_FILE}")
+    endif()
     if(NOT EXISTS "${CPACK_PACKAGE_FILE}")
       message(STATUS "File does not exist: ${CPACK_PACKAGE_FILE}")
 
@@ -42,12 +48,12 @@ if(APPLE AND CPACK_GENERATOR STREQUAL "IFW")
       if(NOT EXISTS "${CPACK_PACKAGE_FILE}")
         message(FATAL_ERROR "File still does not exist: ${CPACK_PACKAGE_FILE}")
       endif()
-
     endif()
+    list(APPEND _RESOLVED_PACKAGE_FILES "${CPACK_PACKAGE_FILE}")
   endforeach()
 
   codesign_files_macos(
-    FILES ${CPACK_PACKAGE_FILES}
+    FILES ${_RESOLVED_PACKAGE_FILES}
     SIGNING_IDENTITY ${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}
     IDENTIFIER "${CPACK_CODESIGNING_MACOS_IDENTIFIER}.DmgInstaller"
     FORCE
@@ -56,7 +62,7 @@ if(APPLE AND CPACK_GENERATOR STREQUAL "IFW")
 
   if(CPACK_CODESIGNING_NOTARY_PROFILE_NAME)
     notarize_files_macos(
-      FILES ${CPACK_PACKAGE_FILES}
+      FILES ${_RESOLVED_PACKAGE_FILES}
       NOTARY_PROFILE_NAME ${CPACK_CODESIGNING_NOTARY_PROFILE_NAME}
       STAPLE
       VERIFY
