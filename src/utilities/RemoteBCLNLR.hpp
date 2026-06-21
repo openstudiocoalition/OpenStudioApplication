@@ -6,8 +6,6 @@
 #ifndef UTILITIES_BCL_REMOTEBCL_HPP
 #define UTILITIES_BCL_REMOTEBCL_HPP
 
-#include "OpenStudioApplicationUtilitiesAPI.hpp"
-
 #include <openstudio/utilities/bcl/BCL.hpp>
 #include <openstudio/utilities/core/Path.hpp>
 #include <openstudio/utilities/core/Deprecated.hpp>
@@ -34,7 +32,7 @@
 namespace openstudio {
 
 /// This class is used to capture the xml response of a query and store it for later processing.
-class OSAPP_UTILITIES_API RemoteQueryResponse
+class RemoteQueryResponse
 {
  public:
   explicit RemoteQueryResponse(std::shared_ptr<pugi::xml_document>& domDocument);
@@ -46,7 +44,7 @@ class OSAPP_UTILITIES_API RemoteQueryResponse
 };
 
 /// Class for accessing the remote BCL.
-class OSAPP_UTILITIES_API RemoteBCLNLR : public BCL
+class RemoteBCLNLR : public BCL
 {
  public:
   /** @name Constructor */
