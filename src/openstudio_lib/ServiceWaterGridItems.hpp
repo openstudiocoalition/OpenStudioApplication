@@ -10,7 +10,7 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <openstudio/model/ModelObject.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "GridItem.hpp"
 
 namespace openstudio {

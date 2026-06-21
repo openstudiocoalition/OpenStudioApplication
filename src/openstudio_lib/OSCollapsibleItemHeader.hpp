@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP
 #define OPENSTUDIO_OSCOLLAPSIBLEITEMHEADER_HPP
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <QString>
 

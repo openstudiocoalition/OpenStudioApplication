@@ -3,7 +3,7 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "RefrigerationGraphicsItems.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"

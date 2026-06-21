@@ -25,15 +25,9 @@ relwithdebinfo/
 profile/
 /super-build-shared/
 /super-build-static/
-
 *.sublime-workspace
-
-# Qt-generated files
-src/openstudio_lib/moc_*.cpp
-
 *.sublime-project
 cmake-build-debug
-
 developer/msvc/Visualizers/all_concat.natvis
 .vscode/
 .vs/
@@ -45,3 +39,4 @@ clang_format.patch
 conan-cache
 .ccache
 CMakeUserPresets.json
+__pycache__

@@ -8,6 +8,8 @@ set(${target_name}_SRC
   main.cpp
   OpenStudioApp.cpp
   OpenStudioApp.hpp
+  GithubReleases.hpp
+  GithubReleases.cpp
   StartupView.hpp
   StartupView.cpp
   StartupMenu.hpp
@@ -16,13 +18,6 @@ set(${target_name}_SRC
   LibraryDialog.cpp
   ExternalToolsDialog.hpp
   ExternalToolsDialog.cpp
-
-  ../shared_gui_components/BusyWidget.cpp
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/OSDialog.cpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/WaitDialog.cpp
-  ../shared_gui_components/WaitDialog.hpp
 )
 
 # moc files
@@ -32,10 +27,6 @@ set(${target_name}_moc
   StartupMenu.hpp
   LibraryDialog.hpp
   ExternalToolsDialog.hpp
-
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/WaitDialog.hpp
 )
 
 ## Qt UI generation
@@ -127,10 +118,6 @@ add_executable(${target_name}
   ${${target_name}_moc}
   ${ICON_SRC}
 )
-
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
 
 if(WIN32)
   # increase stack size
@@ -294,10 +281,6 @@ endif()
 set(depends
   openstudio_lib
   openstudio_bimserver
-  openstudio_modeleditor
-  openstudioapp_utilities
-  openstudio::openstudiolib
-  ${QT_WEB_LIBS}
 )
 
 target_link_libraries(${target_name} ${depends})
@@ -539,6 +522,9 @@ set(${target_name}_test_src
   test/Resources_GTest.cpp
   test/Translation_GTest.cpp
   test/Units_GTest.cpp
+  test/GithubReleases_GTest.cpp
+  GithubReleases.hpp
+  GithubReleases.cpp
 )
 
 CREATE_SRC_GROUPS("${${target_name}_test_src}")

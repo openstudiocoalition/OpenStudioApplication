@@ -10,7 +10,7 @@
 #include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/OutputVariable_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 #include "../shared_gui_components/OSDialog.hpp"
 #include "../shared_gui_components/ProgressBarWithError.hpp"
 

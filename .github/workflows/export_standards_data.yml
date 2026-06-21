@@ -1,3 +1,11 @@
+# Manually triggered workflow that downloads the OpenStudio SDK, runs the Ruby script
+# that generates OpenStudio Standards template .osm files, and commits the results back
+# to the repository. This keeps src/openstudio_app/Resources/*.osm up to date.
+#
+# Run this workflow when:
+#   - A new OpenStudio SDK version is released
+#   - The check_osm_versions gate is failing on a master PR
+# After the workflow completes, open a PR from the target branch to develop/master.
 name: Export OpenStudio Standards Data
 
 on:
@@ -216,4 +224,3 @@ jobs:
         else
           echo "${Red}No logs to commit, that's very strange...${Color_Off}"
         fi
-

@@ -8,7 +8,7 @@
 #include <QDomElement>
 #include <QDomText>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 namespace openstudio {
 

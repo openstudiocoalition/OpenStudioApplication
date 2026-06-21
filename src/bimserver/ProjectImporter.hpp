@@ -6,7 +6,6 @@
 #ifndef BIMSERVER_PROJECTIMPORTER_HPP
 #define BIMSERVER_PROJECTIMPORTER_HPP
 
-#include "BIMserverAPI.hpp"
 #include "BIMserverConnection.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -23,7 +22,7 @@ namespace openstudio {
 namespace bimserver {
 
 /// This shows a input dialog to gather project id for import
-class BIMSERVER_API ProjectImporter : public QDialog
+class ProjectImporter : public QDialog
 {
   Q_OBJECT
 

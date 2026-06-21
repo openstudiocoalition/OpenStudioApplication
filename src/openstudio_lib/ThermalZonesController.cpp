@@ -8,7 +8,7 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "OSItemSelectorButtons.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "ThermalZonesView.hpp"
 
 #include <openstudio/model/AirLoopHVAC.hpp>

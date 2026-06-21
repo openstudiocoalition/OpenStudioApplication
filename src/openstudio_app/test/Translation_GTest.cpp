@@ -7,7 +7,7 @@
 
 #include "OpenStudioAppFixture.hpp"
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
-#include "../../model_editor/Utilities.hpp"
+#include "../../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/idd/IddFactory.hxx>
 #include <openstudio/utilities/idd/IddField.hpp>

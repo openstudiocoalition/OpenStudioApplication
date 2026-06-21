@@ -18,6 +18,11 @@ namespace openstudio {
 
 class TemplateListModel;
 
+/**
+ * StartupView is the welcome/startup dialog shown when no project is open. It presents recent files,
+ * new-file and open-file buttons, and links to online resources. It is shown at launch and after a
+ * project is closed.
+ */
 class StartupView : public QWidget
 {
   Q_OBJECT

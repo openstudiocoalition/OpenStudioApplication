@@ -6,7 +6,7 @@
 #include "ScriptItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 //#include "../runmanager/lib/RunManager.hpp"
 //#include "../runmanager/lib/RubyJobUtils.hpp"
@@ -42,7 +42,7 @@ ScriptItem::ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget*
   //  }
   //}
 
-  //std::shared_ptr<OSDocument> osDoc = OSAppBase::instance()->currentDocument();
+  //OSDocument* osDoc = OSAppBase::instance()->currentDocument();
   //connect(this, &ScriptItem::argChanged, osDoc.get(), &OSDocument::markAsModified);
 }
 

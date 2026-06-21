@@ -5,6 +5,9 @@
 
 #include "TableWidget.hpp"
 
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/idf/WorkspaceObject.hpp>
+
 using namespace openstudio::model;
 using namespace openstudio;
 

@@ -1,3 +1,8 @@
+# Runs cppcheck static analysis on the entire src/ tree.
+# Builds cppcheck 2.9 from source (the Ubuntu package is too old) to ensure
+# consistent results. Uses --enable=all --library=qt --std=c++20 --inconclusive
+# and suppresses useStlAlgorithm.
+# Output is colorized by ci/colorize_cppcheck_results.py and uploaded as an artifact.
 name: cppcheck
 
 on:
@@ -43,7 +48,6 @@ jobs:
             --library=qt \
             --template='[{file}:{line}]:({severity}),[{id}],{message}' \
             --force -q -j $(nproc) \
-            -i ./src/qtwinmigrate \
             ./src 2>&1 | tee cppcheck.txt
 
     - name: Parse and colorize cppcheck

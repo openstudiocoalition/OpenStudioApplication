@@ -6,10 +6,9 @@
 #ifndef OPENSTUDIO_OSDOCUMENT_HPP
 #define OPENSTUDIO_OSDOCUMENT_HPP
 
-#include "OpenStudioAPI.hpp"
-
 #include "../shared_gui_components/OSQObjectController.hpp"
-#include "../model_editor/QMetaTypes.hpp"
+#include "../shared_gui_components/BaseDocument.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -44,7 +43,15 @@ class ApplyMeasureNowDialog;
 
 class Workspace;
 
-class OPENSTUDIO_API OSDocument : public OSQObjectController
+/**
+ * OSDocument manages the full lifecycle of an OpenStudio model within the application: loading
+ * from disk, saving, reverting, and closing. It owns all the domain tab controllers and their
+ * views, constructs the complete tab bar layout, and coordinates undo/redo, units (IP/SI), and
+ * weather file management.
+ */
+class OSDocument
+  : public OSQObjectController
+  , public BaseDocument
 {
   Q_OBJECT
 
@@ -54,81 +61,70 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   virtual ~OSDocument();
 
-  // Returns the main window associated with this document.
-  MainWindow* mainWindow();
+  // -------------------------------------------------------------------------
+  // BaseDocument interface — pure virtual overrides
+  // -------------------------------------------------------------------------
 
   // Returns the model associated with this document.
-  model::Model model();
-
-  // Sets the model associated with this document.
-  // This will close all current windows, make sure to call app->setQuitOnLastWindowClosed(false) before calling this
-  void setModel(const model::Model& model, bool modified, bool saveCurrentTabs);
-
-  // Returns the Workspace associated with this document's model
-  //boost::optional<Workspace> workspace();
-
-  // Set the Workspace associated with this document's model.
-  // Workspace is created by idf translator when the scripts tab is shown.
-  // This is used to populate idf measure arguments.
-  //void setWorkspace(const boost::optional<Workspace>& workspace);
-
+  model::Model model() override;
   // Returns true if the document has unsaved changes.
-  bool modified() const;
-
+  bool modified() const override;
   // Returns the string path to the location where the document is saved.
   // If the document is unsaved an empty string will be returned.
-  QString savePath() const;
-
-  // Returns the path to the directory where model resources are stored
-  QString modelTempDir() const;
-
+  QString savePath() const override;
+  // Returns the path to the directory where model resources are stored.
+  QString modelTempDir() const override;
   // Returns the component library associated with this document.
-  openstudio::model::Model componentLibrary() const;
+  model::Model componentLibrary() const override;
+  // Returns true if OSItemId's source is the model.
+  bool fromModel(const OSItemId& itemId) const override;
+  // Returns true if OSItemId's source is the componentLibrary.
+  bool fromComponentLibrary(const OSItemId& itemId) const override;
+  // Returns true if OSItemId's source is the BCL.
+  bool fromBCL(const OSItemId& itemId) const override;
+  std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const override;
+  // Returns IddObjectType from either model, componentLibrary, or BCL.
+  boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const override;
+  // Returns the model object from either model or componentLibrary if possible.
+  // Does not return model object from BCL.
+  boost::optional<model::ModelObject> getModelObject(const OSItemId& itemId) const override;
+  // Returns the component from BCL identified by itemId.
+  boost::optional<model::Component> getComponent(const OSItemId& itemId) const override;
+
+  // -------------------------------------------------------------------------
+  // OSDocument-specific API
+  // -------------------------------------------------------------------------
+
+  // TODO: create a BaseMainWindow interface in shared_gui_components and change this
+  // to a virtual method `BaseMainWindow* mainWindow()` in BaseDocument.
+  // This will allow us to split up openstudio_lib into domain-specific libraries
+  // (e.g. constructions_gui, hvac_gui, etc.) which need to call mainWindow().
+  MainWindow* mainWindow();
+
+  // Sets the model — closes all current windows.
+  // Call app->setQuitOnLastWindowClosed(false) before calling this.
+  void setModel(const model::Model& model, bool modified, bool saveCurrentTabs);
 
   // Sets the component library associated with this document.
   void setComponentLibrary(const openstudio::model::Model& model);
 
-  // Returns true if OSItemId's source is the model
-  bool fromModel(const OSItemId& itemId) const;
-
-  // Returns true if OSItemId's source is the componentLibrary
-  bool fromComponentLibrary(const OSItemId& itemId) const;
-
-  // Returns true if OSItemId's source is the BCL
-  bool fromBCL(const OSItemId& itemId) const;
-
-  // returns false if the LocalBCL cannot be accessed
+  // Returns false if the LocalBCL cannot be accessed.
   bool haveLocalBCL() const;
 
   boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const;
   boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const;
-
   std::vector<BCLComponent> getLocalComponents() const;
   std::vector<BCLMeasure> getLocalMeasures() const;
 
-  // Removes all components with uid but NOT currentVersionId
+  // Removes all components with uid but NOT currentVersionId.
   size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const;
-  // Removes all measures with uid but NOT currentVersionId
+  // Removes all measures with uid but NOT currentVersionId.
   size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const;
-
-  std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;
-
-  // Returns IddObjectType from either model, componentLibrary, or BCL
-  boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const;
-
-  // Returns the model object from either model or componentLibrary if possible
-  // does not return model object from BCL
-  boost::optional<model::ModelObject> getModelObject(const OSItemId& itemId) const;
-
-  // Retrieves the Component identified by itemId from the local bcl library,
-  // updates it to the current version and returns it.
-  boost::optional<model::Component> getComponent(const OSItemId& itemId) const;
 
   // Returns the index of the current tab.
   int verticalTabIndex();
 
-  // Returns the index of the current sub tab.
-  // Returns -1 if there are no sub tabs.
+  // Returns the index of the current sub tab, or -1 if there are no sub tabs.
   int subTabIndex() const;
 
   enum VerticalTabID
@@ -157,6 +153,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
     EDIT
   };
 
+  // TODO: promote to BaseDocument once MainRightColumnController is extracted into an
+  // IMainRightColumnController interface with no openstudio_lib dependency.
   std::shared_ptr<MainRightColumnController> mainRightColumnController() const;
 
   // DLM: would like for this to not be a member variable since it is only used as a modal dialog with a well defined lifetime
@@ -221,36 +219,29 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
  public slots:
 
-  void markAsModified();
+  // BaseDocument interface — pure virtual overrides
+  void markAsModified() override;
+  void markAsUnmodified() override;
+  void enable() override;
+  void disable() override;
+  void openSidebar() override;
 
-  void markAsUnmodified();
-
+  // OSDocument-specific slots
   void exportIdf();
-
   void exportgbXML();
-
   void exportSDD();
 
   // returns if a file was saved
   bool save();
-
   // returns if a file was saved
   bool saveAs();
 
   void showRunManagerPreferences();
-
   void scanForTools();
-
   void closeSidebar();
-
-  void openSidebar();
-
   void openBclDlg();
-
   void openMeasuresBclDlg();
-
   void openMeasuresDlg();
-
   void openChangeMeasuresDirDlg();
 
  private slots:
@@ -279,14 +270,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
  public slots:
 
-  void enable();
-
-  void disable();
-
   void enableTabsAfterRun();
-
   void disableTabsDuringRun();
-
   void weatherFileReset();
 
  private:

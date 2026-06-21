@@ -5,7 +5,7 @@
 
 #include "ProcessEventsProgressBar.hpp"
 
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 namespace openstudio {
 

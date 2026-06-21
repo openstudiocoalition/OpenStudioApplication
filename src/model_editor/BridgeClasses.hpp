@@ -6,11 +6,9 @@
 #ifndef MODELEDITOR_BRIDGECLASSES_HPP
 #define MODELEDITOR_BRIDGECLASSES_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include <QObject>
 
-class MODELEDITOR_API ComboHighlightBridge : public QObject
+class ComboHighlightBridge : public QObject
 {
 
   Q_OBJECT;

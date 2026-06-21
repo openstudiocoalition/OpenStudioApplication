@@ -10,6 +10,12 @@
 
 namespace openstudio {
 
+/**
+ * SpaceTypesController manages the Space Types tab, which shows all space type objects in the
+ * model in a grid view. Each row is a space type; columns show its name, default construction set,
+ * default schedule set, lighting power density, people density, equipment, outdoor air, and
+ * rendering color.
+ */
 class SpaceTypesController : public ModelSubTabController
 {
   Q_OBJECT
