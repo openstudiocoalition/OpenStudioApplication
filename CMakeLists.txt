@@ -76,6 +76,10 @@ endif()
 # Or it'll download a zip/tar.gz for you
 include(FindOpenStudioSDK.cmake)
 
+# Downloads a local copy of the EnergyPlus Input Output Reference HTML documentation,
+# so doc links in the app can point at it instead of a live website.
+include(FindEnergyPlusDocs.cmake)
+
 ###############################################################################
 #                                C O N A N                                    #
 ###############################################################################
@@ -786,6 +790,7 @@ endif()
 install(DIRECTORY "${openstudio_ROOT_DIR}/Radiance" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Ruby" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/EnergyPlus" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
+install(DIRECTORY "${ENERGYPLUS_DOCS_DIR}" DESTINATION "EnergyPlus/doc" COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Examples" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Python" USE_SOURCE_PERMISSIONS)
 

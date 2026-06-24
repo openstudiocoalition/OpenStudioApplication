@@ -8,7 +8,6 @@
 // Include the core one as well
 #include <openstudio/utilities/core/PathHelpers.hpp>
 #include <openstudio/utilities/core/Logger.hpp>
-#include <openstudio/OpenStudio.hxx>
 
 #include <sstream>
 #include <boost/regex.hpp>
@@ -205,9 +204,11 @@ bool isOpenStudioApplicationModuleRunningFromBuildDirectory() {
   return pathBeginsWith(buildDir, runDir);
 }
 
-std::string bigladdersoftwareDocBaseUrl() {
-  return "https://bigladdersoftware.com/epx/docs/" + std::to_string(energyPlusVersionMajor()) + "-" + std::to_string(energyPlusVersionMinor())
-         + "/input-output-reference/";
+openstudio::path energyPlusDocDirectory() {
+  if (isOpenStudioApplicationRunningFromBuildDirectory()) {
+    return getOpenStudioApplicationBuildDirectory() / toPath("EnergyPlus/doc/input-output-reference");
+  }
+  return getOpenStudioApplicationDirectory() / toPath("../EnergyPlus/doc/input-output-reference");
 }
 
 openstudio::path getOpenStudioCoreCLI() {
