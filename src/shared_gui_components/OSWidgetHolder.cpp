@@ -16,8 +16,7 @@
 #include "OSQuantityEdit.hpp"
 #include "OSUnsignedEdit.hpp"
 
-#include "../openstudio_lib/OSDropZone.hpp"
-#include "../openstudio_lib/RenderingColorWidget.hpp"
+#include "OSDropZone.hpp"
 
 #include <QPainter>
 #include <QStyleOption>

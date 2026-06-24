@@ -6,7 +6,7 @@
 #include "ModelSubTabController.hpp"
 #include "ModelSubTabView.hpp"
 #include "ModelObjectInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectListView.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSItemSelector.hpp"

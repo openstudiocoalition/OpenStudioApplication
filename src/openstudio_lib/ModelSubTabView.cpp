@@ -6,7 +6,7 @@
 #include "ModelSubTabView.hpp"
 
 #include "ModelObjectInspectorView.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectListView.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSAppBase.hpp"
@@ -51,7 +51,7 @@ ModelObjectInspectorView* ModelSubTabView::modelObjectInspectorView() {
 }
 
 void ModelSubTabView::onDropZoneItemClicked(OSItem* item) {
-  std::shared_ptr<OSDocument> currentDocument = OSAppBase::instance()->currentDocument();
+  OSDocument* currentDocument = OSAppBase::instance()->currentDocument();
   if (currentDocument) {
     if (!item) {
       emit dropZoneItemSelected(item, false);

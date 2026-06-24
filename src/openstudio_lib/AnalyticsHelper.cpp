@@ -6,8 +6,8 @@
 #include "AnalyticsHelper.hpp"
 #include "AnalyticsHelperSecrets.hxx"
 
-#include "../model_editor/Application.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <QByteArray>

@@ -6,6 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# All internal libraries are static. Qt is always linked dynamically via its own
+# IMPORTED SHARED targets from find_package(Qt6) and is unaffected by this setting.
+# This fulfils the Qt LGPL requirement: Qt shared libraries remain replaceable at runtime.
+set(BUILD_SHARED_LIBS OFF)
+
 # Use ccache if available, has to be before "project()"
 find_program(CCACHE_PROGRAM NAMES ccache sccache)
 if(CCACHE_PROGRAM)
@@ -96,9 +101,6 @@ find_package(cpprestsdk)
 find_package(websocketpp)
 find_package(Boost)
 find_package(geographiclib)
-find_package(SWIG 4.1.1 EXACT REQUIRED CONFIG)
-message("SWIG_EXECUTABLE=${SWIG_EXECUTABLE}")
-message("SWIG_DIR=${SWIG_DIR}")
 find_package(TinyGLTF)
 find_package(minizip)
 find_package(OpenSSL)
@@ -585,16 +587,11 @@ if(NOT APPLE)
     find_package(Qt6QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::QmlModels)
 
-    # Qt 6.11+ splits QmlMeta and QmlWorkerScript into their own libraries (required by QtWebEngineProcess)
-    find_package(Qt6QmlMeta ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    if(Qt6QmlMeta_FOUND)
-      list(APPEND QT_WEB_LIBS Qt6::QmlMeta)
-    endif()
+    find_package(Qt6QmlMeta ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QmlMeta)
 
-    find_package(Qt6QmlWorkerScript ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    if(Qt6QmlWorkerScript_FOUND)
-      list(APPEND QT_WEB_LIBS Qt6::QmlWorkerScript)
-    endif()
+    find_package(Qt6QmlWorkerScript ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QmlWorkerScript)
 
     find_package(Qt6Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::Positioning)
@@ -727,8 +724,10 @@ get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
 get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
 
 list(APPEND project_directories "utilities")
+list(APPEND project_directories "openstudio_qt_utils")
 list(APPEND project_directories "model_editor")
 list(APPEND project_directories "bimserver")
+list(APPEND project_directories "shared_gui_components")
 list(APPEND project_directories "openstudio_lib")
 list(APPEND project_directories "openstudio_app")
 
@@ -744,8 +743,11 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
+list(APPEND all_lib_targets "openstudioapp_utilities")
+list(APPEND all_lib_targets "openstudio_qt_utils")
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")
+list(APPEND all_lib_targets "openstudio_shared_gui")
 list(APPEND all_lib_targets "openstudio_lib")
 
 list(APPEND all_exe_targets "OpenStudioApp")
@@ -1048,7 +1050,7 @@ cpack_add_component(Python
 
 cpack_add_component(RubyAPI
   DISPLAY_NAME "Ruby API"
-  DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
+  DESCRIPTION "The Ruby openstudio modeleditor stub for Sketchup"
 )
 
 cpack_add_component(

@@ -1,0 +1,208 @@
+set(target_name openstudio_shared_gui)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${QT_INCLUDES})
+
+set(${target_name}_src
+  BaseApp.hpp
+  BaseDocument.hpp
+  BCLMeasureDialog.cpp
+  BCLMeasureDialog.hpp
+  BuildingComponentDialog.cpp
+  BuildingComponentDialog.hpp
+  BuildingComponentDialogCentralWidget.cpp
+  BuildingComponentDialogCentralWidget.hpp
+  BusyWidget.cpp
+  BusyWidget.hpp
+  Buttons.cpp
+  Buttons.hpp
+  CollapsibleComponent.cpp
+  CollapsibleComponent.hpp
+  CollapsibleComponentHeader.cpp
+  CollapsibleComponentHeader.hpp
+  CollapsibleComponentList.cpp
+  CollapsibleComponentList.hpp
+  ColorPalettes.hpp
+  Component.cpp
+  Component.hpp
+  ComponentList.cpp
+  ComponentList.hpp
+  EditController.cpp
+  EditController.hpp
+  EditView.cpp
+  EditView.hpp
+  FieldMethodTypedefs.hpp
+  GraphicsItems.cpp
+  GraphicsItems.hpp
+  HeaderViews.cpp
+  HeaderViews.hpp
+  IconLibrary.cpp
+  IconLibrary.hpp
+  LocalLibrary.hpp
+  LocalLibraryController.cpp
+  LocalLibraryController.hpp
+  LocalLibraryView.cpp
+  LocalLibraryView.hpp
+  MeasureBadge.cpp
+  MeasureBadge.hpp
+  MeasureDragData.cpp
+  MeasureDragData.hpp
+  MeasureManager.cpp
+  MeasureManager.hpp
+  NetworkProxyDialog.cpp
+  NetworkProxyDialog.hpp
+  RenderingColorWidget2.cpp
+  RenderingColorWidget2.hpp
+  OSCellWrapper.cpp
+  OSCellWrapper.hpp
+  OSCheckBox.cpp
+  OSCheckBox.hpp
+  OSCollapsibleView.cpp
+  OSCollapsibleView.hpp
+  OSComboBox.cpp
+  OSComboBox.hpp
+  OSConcepts.hpp
+  OSDialog.cpp
+  OSDialog.hpp
+  OSDoubleEdit.cpp
+  OSDoubleEdit.hpp
+  OSDragableView.cpp
+  OSDragableView.hpp
+  OSGridController.cpp
+  OSGridController.hpp
+  OSGridView.cpp
+  OSGridView.hpp
+  OSItem.cpp
+  OSItem.hpp
+  OSItemId.cpp
+  OSItemId.hpp
+  OSDropZone.cpp
+  OSDropZone.hpp
+  ModelObjectItem.cpp
+  ModelObjectItem.hpp
+  OSIntegerEdit.cpp
+  OSIntegerEdit.hpp
+  OSLineEdit.cpp
+  OSLineEdit.hpp
+  OSListController.cpp
+  OSListController.hpp
+  OSListView.cpp
+  OSListView.hpp
+  OSLoadNamePixmapLineEdit.cpp
+  OSLoadNamePixmapLineEdit.hpp
+  OSObjectSelector.cpp
+  OSObjectSelector.hpp
+  OSQObjectController.cpp
+  OSQObjectController.hpp
+  OSQuantityEdit.cpp
+  OSQuantityEdit.hpp
+  OSVectorController.cpp
+  OSVectorController.hpp
+  OSSwitch.cpp
+  OSSwitch.hpp
+  OSUnsignedEdit.cpp
+  OSUnsignedEdit.hpp
+  OSViewSwitcher.cpp
+  OSViewSwitcher.hpp
+  OSWidgetHolder.cpp
+  OSWidgetHolder.hpp
+  PageNavigator.cpp
+  PageNavigator.hpp
+  ProcessEventsProgressBar.cpp
+  ProcessEventsProgressBar.hpp
+  ProgressBarWithError.cpp
+  ProgressBarWithError.hpp
+  SyncMeasuresDialog.cpp
+  SyncMeasuresDialog.hpp
+  SyncMeasuresDialogCentralWidget.cpp
+  SyncMeasuresDialogCentralWidget.hpp
+  TextEditDialog.cpp
+  TextEditDialog.hpp
+  TIDItemModel.cpp
+  TIDItemModel.hpp
+  UserSettings.cpp
+  UserSettings.hpp
+  WaitDialog.cpp
+  WaitDialog.hpp
+  WorkflowController.cpp
+  WorkflowController.hpp
+  WorkflowTools.cpp
+  WorkflowTools.hpp
+  WorkflowView.cpp
+  WorkflowView.hpp
+)
+
+set(${target_name}_moc
+  BCLMeasureDialog.hpp
+  BuildingComponentDialog.hpp
+  BuildingComponentDialogCentralWidget.hpp
+  BusyWidget.hpp
+  Buttons.hpp
+  CollapsibleComponent.hpp
+  CollapsibleComponentHeader.hpp
+  CollapsibleComponentList.hpp
+  Component.hpp
+  ComponentList.hpp
+  EditController.hpp
+  EditView.hpp
+  GraphicsItems.hpp
+  HeaderViews.hpp
+  LocalLibraryController.hpp
+  LocalLibraryView.hpp
+  MeasureBadge.hpp
+  MeasureDragData.hpp
+  MeasureManager.hpp
+  NetworkProxyDialog.hpp
+  RenderingColorWidget2.hpp
+  OSCellWrapper.hpp
+  OSCheckBox.hpp
+  OSCollapsibleView.hpp
+  OSComboBox.hpp
+  OSDialog.hpp
+  OSDoubleEdit.hpp
+  OSDragableView.hpp
+  OSGridController.hpp
+  OSGridView.hpp
+  OSItem.hpp
+  OSDropZone.hpp
+  ModelObjectItem.hpp
+  OSIntegerEdit.hpp
+  OSLineEdit.hpp
+  OSListController.hpp
+  OSListView.hpp
+  OSLoadNamePixmapLineEdit.hpp
+  OSObjectSelector.hpp
+  OSQObjectController.hpp
+  OSQuantityEdit.hpp
+  OSVectorController.hpp
+  OSSwitch.hpp
+  OSUnsignedEdit.hpp
+  OSViewSwitcher.hpp
+  OSWidgetHolder.hpp
+  PageNavigator.hpp
+  ProgressBarWithError.hpp
+  SyncMeasuresDialog.hpp
+  SyncMeasuresDialogCentralWidget.hpp
+  TextEditDialog.hpp
+  TIDItemModel.hpp
+  WaitDialog.hpp
+  WorkflowController.hpp
+  WorkflowView.hpp
+)
+
+## Qt MOC generation
+qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
+
+set(${target_name}_qrc openstudio_shared_gui.qrc)
+qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
+
+set(${target_name}_depends
+  openstudio_qt_utils
+)
+
+add_library(${target_name} STATIC ${${target_name}_src} ${${target_name}_moc_src} ${${target_name}_qrcs})
+
+target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
+
+CREATE_SRC_GROUPS("${${target_name}_src}")

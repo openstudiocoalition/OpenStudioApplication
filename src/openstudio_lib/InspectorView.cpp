@@ -10,9 +10,9 @@
 #include "LibraryTabWidget.hpp"
 #include "LoopChooserView.hpp"
 #include "MainRightColumnController.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSDocument.hpp"
 #include "ZoneChooserView.hpp"
 #include "EMSInspectorView.hpp"
@@ -114,7 +114,7 @@
 #include <openstudio/model/ZoneHVACWaterToAirHeatPump_Impl.hpp>
 
 #include "../model_editor/InspectorGadget.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -929,7 +929,7 @@ NewPlenumDialog::NewPlenumDialog(QWidget* parent) : QDialog(parent) {
 
   mainVLayout->addSpacing(20);
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   model::Model model = doc->model();
 
   std::vector<model::ThermalZone> allZones = model.getModelObjects<model::ThermalZone>();
@@ -1180,7 +1180,7 @@ void ThermalZoneInspectorView::update() {
     return;
   }
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   std::shared_ptr<MainRightColumnController> mrc = doc->mainRightColumnController();
   SystemItem* systemItem = mrc->systemItem(t_airLoopHVAC->handle());
   // if there is t_airLoopHVAC but no systemItem then we are probably showing this view from the grid.

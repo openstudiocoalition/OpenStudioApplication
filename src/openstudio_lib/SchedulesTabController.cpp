@@ -8,7 +8,7 @@
 #include "MainTabView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "ScheduleDialog.hpp"
 #include "ScheduleSetsController.hpp"
 #include "ScheduleSetsView.hpp"

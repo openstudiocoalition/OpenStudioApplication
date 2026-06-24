@@ -5,11 +5,11 @@
 
 #include "ModelObjectTypeListView.hpp"
 #include "ModelObjectTypeItem.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectListView.hpp"
 #include "OSCollapsibleItemHeader.hpp"
 #include "OSCategoryPlaceholder.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>

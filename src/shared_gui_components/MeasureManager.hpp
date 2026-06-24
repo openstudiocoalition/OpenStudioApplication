@@ -62,12 +62,7 @@ class LocalLibraryController;
 * In this case only one of the measures is displayed.
 *
 **/
-#if defined(openstudio_lib_EXPORTS) || defined(COMPILING_FROM_OSAPP)
-#  include "../openstudio_lib/OpenStudioAPI.hpp"
-class OPENSTUDIO_API MeasureManager : public QObject
-#else
 class MeasureManager : public QObject
-#endif
 {
   Q_OBJECT;
 

@@ -40,8 +40,8 @@
 
 #include <openstudio/energyplus/ForwardTranslator.hpp>
 
-#include "../model_editor/Application.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 #include "MainWindow.hpp"
 
 #include <QButtonGroup>
@@ -216,7 +216,7 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
-  const std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
+  OSDocument* osdocument = OSAppBase::instance()->currentDocument();
   osdocument->save();
   osdocument->enableTabsAfterRun();
   m_openSimDirButton->setEnabled(true);
@@ -228,7 +228,7 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
 void RunView::playButtonClicked(bool t_checked) {
   LOG(Debug, "playButtonClicked " << t_checked);
 
-  const std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
+  OSDocument* osdocument = OSAppBase::instance()->currentDocument();
 
   if (t_checked) {
     // run

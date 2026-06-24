@@ -40,7 +40,7 @@
 #include <openstudio/model/ThermalZone.hpp>
 #include <openstudio/model/ThermalZone_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/gbxml/ReverseTranslator.hpp>
 #include <openstudio/energyplus/ReverseTranslator.hpp>
@@ -1101,7 +1101,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
-  connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &EditorWebView::onUnitSystemChange);
+  connect(m_document, &OSDocument::toggleUnitsClicked, this, &EditorWebView::onUnitSystemChange);
   connect(m_geometrySourceComboBox, &QComboBox::currentTextChanged, this, &EditorWebView::geometrySourceChanged);
   connect(m_newImportGeometry, &QPushButton::clicked, this, &EditorWebView::newImportClicked);
   connect(m_refreshBtn, &QPushButton::clicked, this, &EditorWebView::refreshClicked);
@@ -1180,7 +1180,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   //mainLayout->addWidget(m_view, 10, Qt::AlignTop);
   mainLayout->addWidget(m_view);
 
-  connect(m_document.get(), &OSDocument::modelSaving, this, &EditorWebView::saveClickedBlocking);
+  connect(m_document, &OSDocument::modelSaving, this, &EditorWebView::saveClickedBlocking);
 
   // check if floorplan exists
   openstudio::path p = floorplanPath();

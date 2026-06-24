@@ -8,9 +8,7 @@
 
 #include <QObject>
 
-#include "ModelEditorAPI.hpp"
-
-class MODELEDITOR_API TestButton : public QObject
+class TestButton : public QObject
 {
   Q_OBJECT
 

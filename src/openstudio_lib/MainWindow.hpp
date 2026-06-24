@@ -24,6 +24,11 @@ class VerticalTabWidget;
 
 class MainMenu;
 
+/**
+ * MainWindow is the application main window QMainWindow. It hosts the vertical tab bar (left side),
+ * the main content stack widget for each tab, the vertical toolbar, and the status bar. It routes
+ * tab-switching signals to OSDocument and wires up the menu bar.
+ */
 class MainWindow : public QMainWindow
 {
   Q_OBJECT

@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_SCRIPTITEM_HPP
 #define OPENSTUDIO_SCRIPTITEM_HPP
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <openstudio/measure/OSArgument.hpp>
 #include <openstudio/measure/OSMeasureInfoGetter.hpp>

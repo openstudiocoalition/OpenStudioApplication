@@ -5,8 +5,8 @@
 
 #include "ModalDialogs.hpp"
 
-#include "Application.hpp"
-#include "Utilities.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>

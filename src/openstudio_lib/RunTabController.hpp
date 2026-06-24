@@ -22,6 +22,11 @@ class Model;
 
 class RunView;
 
+/**
+ * RunTabController manages the Run/Simulation tab. It saves the model to a temporary directory,
+ * spawns the OpenStudio CLI as a QProcess with the saved workflow file, streams stdout/stderr to
+ * the RunView log pane, and emits resultsGenerated when the simulation succeeds.
+ */
 class RunTabController : public MainTabController
 {
   Q_OBJECT

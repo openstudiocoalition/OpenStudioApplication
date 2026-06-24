@@ -9,7 +9,7 @@
 #include <QObject>
 #include <boost/optional.hpp>
 #include "../shared_gui_components/OSListController.hpp"
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include <openstudio/model/RefrigerationSystem.hpp>
 
 class QGraphicsScene;

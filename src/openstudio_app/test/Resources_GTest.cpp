@@ -14,7 +14,7 @@
 #include <openstudio/model/SpaceLoad_Impl.hpp>
 #include <openstudio/model/SpaceType.hpp>
 
-#include "../../model_editor/Utilities.hpp"
+#include "../../openstudio_qt_utils/Utilities.hpp"
 
 // Include our OS App specific one
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"

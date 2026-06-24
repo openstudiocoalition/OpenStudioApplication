@@ -19,8 +19,8 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "MainWindow.hpp"
-#include "OSItem.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>

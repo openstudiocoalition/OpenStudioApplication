@@ -5,7 +5,7 @@
 
 #include "ConstructionFfactorGroundFloorInspectorView.hpp"
 #include "StandardsInformationConstructionWidget.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"

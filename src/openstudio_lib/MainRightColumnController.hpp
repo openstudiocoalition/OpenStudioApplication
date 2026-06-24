@@ -14,6 +14,8 @@
 
 #include <QSharedPointer>
 
+#include "../shared_gui_components/OSItem.hpp"
+
 class QStackedWidget;
 
 namespace openstudio {
@@ -23,8 +25,13 @@ class HorizontalTabWidget;
 class InspectorController;
 class LocalLibraryController;
 class SystemItem;
-class OSItem;
 
+/**
+ * MainRightColumnController manages the right-column sidebar, which has three tabs: Inspector
+ * (shows properties of the selected model object), Library (the local BCL/measure browser), and
+ * Edit (apply-measure-now and workflow edit). It owns an InspectorController and a
+ * LocalLibraryController and routes switching between them.
+ */
 class MainRightColumnController : public OSQObjectController
 {
   Q_OBJECT
