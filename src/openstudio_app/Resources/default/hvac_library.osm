@@ -1866,7 +1866,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
   0.16666700000000001,                    !- Defrost Time Period Fraction
-  2000;                                   !- Resistive Defrost Heater Capacity {W}
+  autosize;                               !- Resistive Defrost Heater Capacity {W}
 
 OS:Curve:Biquadratic,
   {b43603f6-17c3-480d-9004-483799d9253d}, ! Handle
@@ -4054,7 +4054,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
   0.16666700000000001,                    !- Defrost Time Period Fraction
-  2000;                                   !- Resistive Defrost Heater Capacity {W}
+  autosize;                               !- Resistive Defrost Heater Capacity {W}
 
 OS:Curve:Biquadratic,
   {af3d4a9f-eefe-47f5-917b-3db4f451b2d4}, ! Handle
@@ -5327,7 +5327,7 @@ OS:AirConditioner:VariableRefrigerantFlow,
   Timed,                                  !- Defrost Control
   ,                                       !- Defrost Energy Input Ratio Modifier Function of Temperature Curve Name
   0.058333,                               !- Defrost Time Period Fraction {dimensionless}
-  1e-07,                                  !- Resistive Defrost Heater Capacity {W}
+  autosize,                               !- Resistive Defrost Heater Capacity {W}
   7,                                      !- Maximum Outdoor Dry-bulb Temperature for Defrost Operation {C}
   ,                                       !- Condenser Type
   ,                                       !- Condenser Inlet Node
@@ -6095,7 +6095,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
   0.166667,                               !- Defrost Time Period Fraction
-  2000;                                   !- Resistive Defrost Heater Capacity {W}
+  autosize;                               !- Resistive Defrost Heater Capacity {W}
 
 OS:Curve:Cubic,
   {82a69b59-67f5-4e1e-bd60-460390e4890a}, !- Handle
@@ -6357,7 +6357,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
   0.166667,                               !- Defrost Time Period Fraction
-  2000;                                   !- Resistive Defrost Heater Capacity {W}
+  autosize;                               !- Resistive Defrost Heater Capacity {W}
 
 OS:Curve:Cubic,
   {9c9999d6-4027-41c1-808f-f1f41f3715c6}, !- Handle
