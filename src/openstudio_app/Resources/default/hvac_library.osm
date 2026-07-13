@@ -13200,7 +13200,7 @@ OS:Coil:Cooling:DX:MultiSpeed,
   0,                                      !- Basin Heater Capacity {W/K}
   2,                                      !- Basin Heater Setpoint Temperature {C}
   ,                                       !- Basin Heater Operating Schedule
-  NaturalGas,                             !- Fuel Type
+  Electricity,                            !- Fuel Type
   {50738a90-85a3-4703-9820-56af03d8c2e0}, !- Stage 1
   {8d55def1-6653-4fd2-a9f9-f1454b277cd2}; !- Stage 2
 
@@ -13499,7 +13499,7 @@ OS:Coil:Cooling:DX:MultiSpeed,
   0,                                      !- Basin Heater Capacity {W/K}
   2,                                      !- Basin Heater Setpoint Temperature {C}
   ,                                       !- Basin Heater Operating Schedule
-  NaturalGas,                             !- Fuel Type
+  Electricity,                            !- Fuel Type
   {f6b6ceb0-f987-4d07-8388-d055b404d9f6}, !- Stage 1
   {80406cd2-d15b-4ddd-b8c0-ced6646c7b45}; !- Stage 2
 
