@@ -92,6 +92,12 @@
 #include <openstudio/model/CoilHeatingElectric_Impl.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
 #include <openstudio/model/CoilHeatingWater_Impl.hpp>
+#include <openstudio/model/CoilHeatingDesuperheater.hpp>
+#include <openstudio/model/CoilHeatingDesuperheater_Impl.hpp>
+#include <openstudio/model/AirLoopHVACUnitarySystem.hpp>
+#include <openstudio/model/AirLoopHVACUnitarySystem_Impl.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/Node.hpp>
@@ -519,6 +525,34 @@ void HVACLayoutController::addLibraryObjectToTopLevel(const OSItemId& itemId) {
   message.exec();
 }
 
+namespace {
+  // ModelObject::clone() only remaps true parent-child ownership (children()), so it correctly
+  // duplicates a UnitarySystem's fan/coils. But CoilHeatingDesuperheater::heatingSource() is a
+  // lateral reference to a sibling coil rather than a child, so it is left unset by the clone.
+  // If that sibling is the unitary system's own cooling coil, re-link the clone to it.
+  // Walks the full cloned subtree since the UnitarySystem may be nested (e.g. cloning a whole
+  // AirLoopHVAC via "copy system") rather than being the clone root itself.
+  void fixupClonedDesuperheaterHeatingSource(model::ModelObject clonedObject) {
+    if (boost::optional<model::AirLoopHVACUnitarySystem> unitary = clonedObject.optionalCast<model::AirLoopHVACUnitarySystem>()) {
+      if (boost::optional<model::HVACComponent> supplementalCoil = unitary->supplementalHeatingCoil()) {
+        boost::optional<model::CoilHeatingDesuperheater> desuperheater = supplementalCoil->optionalCast<model::CoilHeatingDesuperheater>();
+        if (desuperheater && !desuperheater->heatingSource()) {
+          if (boost::optional<model::HVACComponent> coolingCoil = unitary->coolingCoil()) {
+            desuperheater->setHeatingSource(coolingCoil.get());
+          }
+        }
+      }
+    }
+
+    // children() is declared on ParentObject, not the generic ModelObject, so cast before recursing.
+    if (boost::optional<model::ParentObject> parent = clonedObject.optionalCast<model::ParentObject>()) {
+      for (const model::ModelObject& child : parent->children()) {
+        fixupClonedDesuperheaterHeatingSource(child);
+      }
+    }
+  }
+}  // namespace
+
 void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, model::HVACComponent& comp) {
   model::OptionalModelObject object;
   bool remove = false;
@@ -528,6 +562,7 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
   if (object) {
     if (!doc->fromModel(itemId)) {
       object = object->clone(comp.model());
+      fixupClonedDesuperheaterHeatingSource(object.get());
       remove = true;
     }
   }
@@ -893,6 +928,7 @@ void HVACSystemsController::onCopySystemClicked() {
   auto loop = currentLoop();
   if (loop) {
     auto clone = loop->clone(loop->model());
+    fixupClonedDesuperheaterHeatingSource(clone);
     setCurrentHandle(toQString(clone.handle()));
   }
 }
