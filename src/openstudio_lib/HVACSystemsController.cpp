@@ -92,10 +92,6 @@
 #include <openstudio/model/CoilHeatingElectric_Impl.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
 #include <openstudio/model/CoilHeatingWater_Impl.hpp>
-#include <openstudio/model/CoilHeatingDesuperheater.hpp>
-#include <openstudio/model/CoilHeatingDesuperheater_Impl.hpp>
-#include <openstudio/model/AirLoopHVACUnitarySystem.hpp>
-#include <openstudio/model/AirLoopHVACUnitarySystem_Impl.hpp>
 #include <openstudio/model/ParentObject.hpp>
 #include <openstudio/model/ParentObject_Impl.hpp>
 #include <openstudio/model/Model.hpp>
@@ -131,6 +127,8 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/OS_ComponentData_FieldEnums.hxx>
+
+#include <map>
 
 #include <QMessageBox>
 #include <QTimer>
@@ -526,30 +524,65 @@ void HVACLayoutController::addLibraryObjectToTopLevel(const OSItemId& itemId) {
 }
 
 namespace {
-  // ModelObject::clone() only remaps true parent-child ownership (children()), so it correctly
-  // duplicates a UnitarySystem's fan/coils. But CoilHeatingDesuperheater::heatingSource() is a
-  // lateral reference to a sibling coil rather than a child, so it is left unset by the clone.
-  // If that sibling is the unitary system's own cooling coil, re-link the clone to it.
-  // Walks the full cloned subtree since the UnitarySystem may be nested (e.g. cloning a whole
-  // AirLoopHVAC via "copy system") rather than being the clone root itself.
-  void fixupClonedDesuperheaterHeatingSource(model::ModelObject clonedObject) {
-    if (boost::optional<model::AirLoopHVACUnitarySystem> unitary = clonedObject.optionalCast<model::AirLoopHVACUnitarySystem>()) {
-      if (boost::optional<model::HVACComponent> supplementalCoil = unitary->supplementalHeatingCoil()) {
-        boost::optional<model::CoilHeatingDesuperheater> desuperheater = supplementalCoil->optionalCast<model::CoilHeatingDesuperheater>();
-        if (desuperheater && !desuperheater->heatingSource()) {
-          if (boost::optional<model::HVACComponent> coolingCoil = unitary->coolingCoil()) {
-            desuperheater->setHeatingSource(coolingCoil.get());
-          }
+  // ModelObject::clone() clones each child individually and reattaches it via setParent(), so
+  // true parent-child edges are correctly remapped to point within the new subtree. But children
+  // are cloned one at a time rather than as a batch sharing a single old->new handle table, so any
+  // *lateral* object-list reference between two siblings in the cloned subtree (e.g.
+  // CoilHeatingDesuperheater::heatingSource() pointing at a sibling cooling coil, or a
+  // SetpointManager's node references) is left pointing at the original objects instead of their
+  // clones. The functions below fix that up generically, for any object type, rather than special
+  // casing each lateral-reference field as it's discovered.
+
+  // Walks `original` and `clone` in parallel -- children() order is deterministic and preserved by
+  // clone() -- building a map from each original object's handle to its corresponding clone.
+  void buildCloneHandleMap(const model::ModelObject& original, const model::ModelObject& clone,
+                            std::map<Handle, model::ModelObject>& handleMap) {
+    handleMap.emplace(original.handle(), clone);
+
+    boost::optional<model::ParentObject> originalParent = original.optionalCast<model::ParentObject>();
+    boost::optional<model::ParentObject> cloneParent = clone.optionalCast<model::ParentObject>();
+    if (originalParent && cloneParent) {
+      std::vector<model::ModelObject> originalChildren = originalParent->children();
+      std::vector<model::ModelObject> cloneChildren = cloneParent->children();
+      if (originalChildren.size() == cloneChildren.size()) {
+        for (size_t i = 0; i < originalChildren.size(); ++i) {
+          buildCloneHandleMap(originalChildren[i], cloneChildren[i], handleMap);
         }
       }
     }
+  }
 
-    // children() is declared on ParentObject, not the generic ModelObject, so cast before recursing.
-    if (boost::optional<model::ParentObject> parent = clonedObject.optionalCast<model::ParentObject>()) {
-      for (const model::ModelObject& child : parent->children()) {
-        fixupClonedDesuperheaterHeatingSource(child);
+  // Rewrites every object-list field on clonedObject (and recursively its children) that still
+  // points at an object handleMap has a clone for, to point at that clone instead.
+  void remapLateralReferences(model::ModelObject clonedObject, const std::map<Handle, model::ModelObject>& handleMap) {
+    IddObject iddObject = clonedObject.iddObject();
+    for (unsigned index = 0; index < clonedObject.numFields(); ++index) {
+      if (iddObject.objectLists(index).empty()) {
+        continue;
+      }
+      boost::optional<WorkspaceObject> target = clonedObject.getTarget(index);
+      if (!target) {
+        continue;
+      }
+      auto it = handleMap.find(target->handle());
+      if (it != handleMap.end() && it->second.handle() != target->handle()) {
+        clonedObject.setPointer(index, it->second.handle());
       }
     }
+
+    if (boost::optional<model::ParentObject> parent = clonedObject.optionalCast<model::ParentObject>()) {
+      for (const model::ModelObject& child : parent->children()) {
+        remapLateralReferences(child, handleMap);
+      }
+    }
+  }
+
+  // `original` is the subtree that was cloned; `clonedObject` is its clone. Re-links any lateral
+  // reference in the clone that still points into the original subtree.
+  void fixupClonedReferences(const model::ModelObject& original, model::ModelObject clonedObject) {
+    std::map<Handle, model::ModelObject> handleMap;
+    buildCloneHandleMap(original, clonedObject, handleMap);
+    remapLateralReferences(clonedObject, handleMap);
   }
 }  // namespace
 
@@ -561,8 +594,9 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
   object = doc->getModelObject(itemId);
   if (object) {
     if (!doc->fromModel(itemId)) {
+      model::ModelObject original = object.get();
       object = object->clone(comp.model());
-      fixupClonedDesuperheaterHeatingSource(object.get());
+      fixupClonedReferences(original, object.get());
       remove = true;
     }
   }
@@ -928,7 +962,7 @@ void HVACSystemsController::onCopySystemClicked() {
   auto loop = currentLoop();
   if (loop) {
     auto clone = loop->clone(loop->model());
-    fixupClonedDesuperheaterHeatingSource(clone);
+    fixupClonedReferences(loop.get(), clone);
     setCurrentHandle(toQString(clone.handle()));
   }
 }
