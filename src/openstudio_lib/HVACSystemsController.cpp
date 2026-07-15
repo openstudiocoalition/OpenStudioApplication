@@ -536,22 +536,27 @@ namespace {
 
   // ParentObject::children() is true ownership (e.g. a UnitarySystem's fan/coils) but does *not*
   // include HVACComponents placed on a Loop's supply/demand branches -- a UnitarySystem sitting on
-  // an AirLoopHVAC's supply branch is reachable via supplyComponents(), not children(). Cloning a
-  // whole loop (the "copy system" toolbar action) needs both, or the branch equipment -- and
-  // anything lateral-referenced from inside it, like the desuperheater's heating source -- is
-  // never visited at all.
+  // an AirLoopHVAC's supply branch is reachable via supplyComponents(), not children(). The same
+  // gap exists one level deeper: equipment on an AirLoopHVACOutdoorAirSystem's outdoor-air/relief
+  // branches (e.g. an evaporative cooler, or a SetpointManager:MixedAir sitting on one of those
+  // nodes) is reachable only via oaComponents()/reliefComponents(), not children() either. Cloning
+  // a whole loop (the "copy system" toolbar action) needs all of these, or the branch equipment --
+  // and anything lateral-referenced from inside it -- is never visited at all.
   //
-  // Returned as separate groups (children / supplyComponents / demandComponents), each matched and
-  // recursed into independently: cloning a loop does not carry over the connected thermal zones on
-  // the demand side, so original vs. clone demandComponents() can legitimately have different
-  // sizes. Treating everything as one combined list would let a benign demand-side mismatch abort
-  // recursion into the supply side too, where the equipment (and lateral references like the
-  // desuperheater's heating source) *does* line up 1:1 with the original.
+  // Returned as separate groups, each matched and recursed into independently: cloning a loop does
+  // not carry over the connected thermal zones on the demand side, so original vs. clone
+  // demandComponents() can legitimately have different sizes. Treating everything as one combined
+  // list would let a benign demand-side mismatch abort recursion into the other groups too, where
+  // the equipment (and any lateral references inside it) *does* line up 1:1 with the original.
   std::vector<std::vector<model::ModelObject>> childSubtreeObjectGroups(const model::ModelObject& object) {
     std::vector<std::vector<model::ModelObject>> groups;
     if (boost::optional<model::Loop> loop = object.optionalCast<model::Loop>()) {
       groups.push_back(loop->supplyComponents());
       groups.push_back(loop->demandComponents());
+    }
+    if (boost::optional<model::AirLoopHVACOutdoorAirSystem> oaSystem = object.optionalCast<model::AirLoopHVACOutdoorAirSystem>()) {
+      groups.push_back(oaSystem->oaComponents());
+      groups.push_back(oaSystem->reliefComponents());
     }
     if (boost::optional<model::ParentObject> parent = object.optionalCast<model::ParentObject>()) {
       groups.push_back(parent->children());
