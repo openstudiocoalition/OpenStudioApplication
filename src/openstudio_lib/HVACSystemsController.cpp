@@ -534,17 +534,43 @@ namespace {
   // cleared to empty outright. The functions below fix that up generically, for any object type,
   // rather than special casing each lateral-reference field as it's discovered.
 
-  // Walks `original` and `clone` in parallel -- children() order is deterministic and preserved by
-  // clone() -- building a map from each original object's handle to its corresponding clone.
+  // ParentObject::children() is true ownership (e.g. a UnitarySystem's fan/coils) but does *not*
+  // include HVACComponents placed on a Loop's supply/demand branches -- a UnitarySystem sitting on
+  // an AirLoopHVAC's supply branch is reachable via supplyComponents(), not children(). Cloning a
+  // whole loop (the "copy system" toolbar action) needs both, or the branch equipment -- and
+  // anything lateral-referenced from inside it, like the desuperheater's heating source -- is
+  // never visited at all.
+  //
+  // Returned as separate groups (children / supplyComponents / demandComponents), each matched and
+  // recursed into independently: cloning a loop does not carry over the connected thermal zones on
+  // the demand side, so original vs. clone demandComponents() can legitimately have different
+  // sizes. Treating everything as one combined list would let a benign demand-side mismatch abort
+  // recursion into the supply side too, where the equipment (and lateral references like the
+  // desuperheater's heating source) *does* line up 1:1 with the original.
+  std::vector<std::vector<model::ModelObject>> childSubtreeObjectGroups(const model::ModelObject& object) {
+    std::vector<std::vector<model::ModelObject>> groups;
+    if (boost::optional<model::Loop> loop = object.optionalCast<model::Loop>()) {
+      groups.push_back(loop->supplyComponents());
+      groups.push_back(loop->demandComponents());
+    }
+    if (boost::optional<model::ParentObject> parent = object.optionalCast<model::ParentObject>()) {
+      groups.push_back(parent->children());
+    }
+    return groups;
+  }
+
+  // Walks `original` and `clone` in parallel -- childSubtreeObjectGroups() order is deterministic
+  // and preserved by clone() -- building a map from each original object's handle to its
+  // corresponding clone.
   void buildCloneHandleMap(const model::ModelObject& original, const model::ModelObject& clone,
                             std::map<Handle, model::ModelObject>& handleMap) {
     handleMap.emplace(original.handle(), clone);
 
-    boost::optional<model::ParentObject> originalParent = original.optionalCast<model::ParentObject>();
-    boost::optional<model::ParentObject> cloneParent = clone.optionalCast<model::ParentObject>();
-    if (originalParent && cloneParent) {
-      std::vector<model::ModelObject> originalChildren = originalParent->children();
-      std::vector<model::ModelObject> cloneChildren = cloneParent->children();
+    std::vector<std::vector<model::ModelObject>> originalGroups = childSubtreeObjectGroups(original);
+    std::vector<std::vector<model::ModelObject>> cloneGroups = childSubtreeObjectGroups(clone);
+    for (size_t g = 0; g < originalGroups.size() && g < cloneGroups.size(); ++g) {
+      const std::vector<model::ModelObject>& originalChildren = originalGroups[g];
+      const std::vector<model::ModelObject>& cloneChildren = cloneGroups[g];
       if (originalChildren.size() == cloneChildren.size()) {
         for (size_t i = 0; i < originalChildren.size(); ++i) {
           buildCloneHandleMap(originalChildren[i], cloneChildren[i], handleMap);
@@ -581,11 +607,11 @@ namespace {
       clonedObject.setPointer(index, it->second.handle());
     }
 
-    boost::optional<model::ParentObject> originalParent = original.optionalCast<model::ParentObject>();
-    boost::optional<model::ParentObject> cloneParent = clonedObject.optionalCast<model::ParentObject>();
-    if (originalParent && cloneParent) {
-      std::vector<model::ModelObject> originalChildren = originalParent->children();
-      std::vector<model::ModelObject> cloneChildren = cloneParent->children();
+    std::vector<std::vector<model::ModelObject>> originalGroups = childSubtreeObjectGroups(original);
+    std::vector<std::vector<model::ModelObject>> cloneGroups = childSubtreeObjectGroups(clonedObject);
+    for (size_t g = 0; g < originalGroups.size() && g < cloneGroups.size(); ++g) {
+      const std::vector<model::ModelObject>& originalChildren = originalGroups[g];
+      const std::vector<model::ModelObject>& cloneChildren = cloneGroups[g];
       if (originalChildren.size() == cloneChildren.size()) {
         for (size_t i = 0; i < originalChildren.size(); ++i) {
           remapLateralReferences(originalChildren[i], cloneChildren[i], handleMap);
