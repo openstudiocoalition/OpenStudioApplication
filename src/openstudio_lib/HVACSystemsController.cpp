@@ -529,9 +529,10 @@ namespace {
   // are cloned one at a time rather than as a batch sharing a single old->new handle table, so any
   // *lateral* object-list reference between two siblings in the cloned subtree (e.g.
   // CoilHeatingDesuperheater::heatingSource() pointing at a sibling cooling coil, or a
-  // SetpointManager's node references) is left pointing at the original objects instead of their
-  // clones. The functions below fix that up generically, for any object type, rather than special
-  // casing each lateral-reference field as it's discovered.
+  // SetpointManager's node references) is left broken on the clone -- for some field/type
+  // combinations still pointing at the original object, for others (empirically, heatingSource())
+  // cleared to empty outright. The functions below fix that up generically, for any object type,
+  // rather than special casing each lateral-reference field as it's discovered.
 
   // Walks `original` and `clone` in parallel -- children() order is deterministic and preserved by
   // clone() -- building a map from each original object's handle to its corresponding clone.
@@ -552,37 +553,53 @@ namespace {
     }
   }
 
-  // Rewrites every object-list field on clonedObject (and recursively its children) that still
-  // points at an object handleMap has a clone for, to point at that clone instead.
-  void remapLateralReferences(model::ModelObject clonedObject, const std::map<Handle, model::ModelObject>& handleMap) {
-    IddObject iddObject = clonedObject.iddObject();
-    for (unsigned index = 0; index < clonedObject.numFields(); ++index) {
+  // For every lateral object-list field on `original` whose target was itself cloned (i.e. has an
+  // entry in handleMap), forces the corresponding field on `clonedObject` to point at that clone.
+  // Fields are read from `original`, not from `clonedObject`: clone() doesn't necessarily leave a
+  // lateral reference pointing at the stale original object -- for CoilHeatingDesuperheater's
+  // heatingSource() it clears the field outright -- so the only reliable source of "what this
+  // field is supposed to point at" is the original.
+  void remapLateralReferences(const model::ModelObject& original, model::ModelObject clonedObject,
+                               const std::map<Handle, model::ModelObject>& handleMap) {
+    IddObject iddObject = original.iddObject();
+    for (unsigned index = 0; index < original.numFields(); ++index) {
       if (iddObject.objectLists(index).empty()) {
         continue;
       }
-      boost::optional<WorkspaceObject> target = clonedObject.getTarget(index);
-      if (!target) {
+      boost::optional<WorkspaceObject> originalTarget = original.getTarget(index);
+      if (!originalTarget) {
         continue;
       }
-      auto it = handleMap.find(target->handle());
-      if (it != handleMap.end() && it->second.handle() != target->handle()) {
-        clonedObject.setPointer(index, it->second.handle());
+      auto it = handleMap.find(originalTarget->handle());
+      if (it == handleMap.end()) {
+        continue;
       }
+      boost::optional<WorkspaceObject> clonedTarget = clonedObject.getTarget(index);
+      if (clonedTarget && clonedTarget->handle() == it->second.handle()) {
+        continue;
+      }
+      clonedObject.setPointer(index, it->second.handle());
     }
 
-    if (boost::optional<model::ParentObject> parent = clonedObject.optionalCast<model::ParentObject>()) {
-      for (const model::ModelObject& child : parent->children()) {
-        remapLateralReferences(child, handleMap);
+    boost::optional<model::ParentObject> originalParent = original.optionalCast<model::ParentObject>();
+    boost::optional<model::ParentObject> cloneParent = clonedObject.optionalCast<model::ParentObject>();
+    if (originalParent && cloneParent) {
+      std::vector<model::ModelObject> originalChildren = originalParent->children();
+      std::vector<model::ModelObject> cloneChildren = cloneParent->children();
+      if (originalChildren.size() == cloneChildren.size()) {
+        for (size_t i = 0; i < originalChildren.size(); ++i) {
+          remapLateralReferences(originalChildren[i], cloneChildren[i], handleMap);
+        }
       }
     }
   }
 
   // `original` is the subtree that was cloned; `clonedObject` is its clone. Re-links any lateral
-  // reference in the clone that still points into the original subtree.
+  // reference in the clone that still points into (or should point into) the original subtree.
   void fixupClonedReferences(const model::ModelObject& original, model::ModelObject clonedObject) {
     std::map<Handle, model::ModelObject> handleMap;
     buildCloneHandleMap(original, clonedObject, handleMap);
-    remapLateralReferences(clonedObject, handleMap);
+    remapLateralReferences(original, clonedObject, handleMap);
   }
 }  // namespace
 

@@ -7011,7 +7011,7 @@ OS:Coil:Heating:Desuperheater,
 
 OS:AirLoopHVAC:UnitarySystem,
   {dbc42aea-40d9-42a6-9016-87cc16813b11}, !- Handle
-  Unitary - Single Speed DX cooling - Elec heat - CAV - Hotgas reheat, !- Name
+  Unitary - Single Speed DX cooling - Elec heat - CAV - Desuperheater reheat, !- Name
   Load,                                   !- Control Type
   ,                                       !- Controlling Zone or Thermostat Location
   CoolReheat,                             !- Dehumidification Control Type
