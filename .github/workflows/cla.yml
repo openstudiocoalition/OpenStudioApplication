@@ -1,3 +1,9 @@
+# Enforces the Contributor License Agreement for all external contributors.
+# Uses pull_request_target (runs in base branch context) so it has write access
+# even from fork PRs. Signatures are stored in signatures/version1/cla.json on the
+# develop branch. Contributors sign by commenting the magic phrase on their PR.
+# Organization members and bots are automatically excluded.
+# Required secret: CLA_SECRET (GitHub PAT with repo scope)
 name: "CLA Assistant"
 on:
   issue_comment:

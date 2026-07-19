@@ -9,38 +9,23 @@ include_directories(${QT_INCLUDES})
 
 # lib files
 set(${target_name}_src
-  Application.hpp
-  Application.cpp
   AccessPolicyStore.hpp
   AccessPolicyStore.cpp
+  mainpage.hpp
   BridgeClasses.hpp
   BridgeClasses.cpp
-  GithubReleases.hpp
-  GithubReleases.cpp
-  InspectorDialog.hpp
-  InspectorDialog.cpp
   InspectorGadget.hpp
   InspectorGadget.cpp
   ListWidget.hpp
   ListWidget.cpp
   ModalDialogs.hpp
   ModalDialogs.cpp
-  OSProgressBar.hpp
-  OSProgressBar.cpp
-  PathWatcher.hpp
-  PathWatcher.cpp
-  QMetaTypes.hpp
-  QMetaTypes.cpp
   TableView.hpp
   TableView.cpp
   TableWidget.hpp
   TableWidget.cpp
   TestButton.hpp
   TestButton.cpp
-  UserSettings.hpp
-  UserSettings.cpp
-  Utilities.hpp
-  Utilities.cpp
   IGLineEdit.hpp
   IGLineEdit.cpp
   IGSpinBoxes.hpp
@@ -49,11 +34,9 @@ set(${target_name}_src
 
 # lib moc files
 set(${target_name}_moc
-  InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
   ModalDialogs.hpp
-  PathWatcher.hpp
   TableView.hpp
   TableWidget.hpp
   TestButton.hpp
@@ -78,7 +61,7 @@ qt6_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
 qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
 # make the shared library
-add_library(${target_name}
+add_library(${target_name} STATIC
   ${${target_name}_src}
   ${${target_name}_moc}
   ${${target_name}_mocs}
@@ -88,31 +71,19 @@ add_library(${target_name}
 
 # lib dependencies
 set(${target_name}_depends
-  openstudio::openstudiolib
-  openstudioapp_utilities
-  ${QT_LIBS}
-  #Ruby::Ruby
+  openstudio_qt_utils
 )
 
 add_dependencies(${target_name} ${${target_name}_depends})
-target_link_libraries(${target_name} ${${target_name}_depends})
-
-if(BUILD_SHARED_LIBS)
-  #target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
-else()
-  target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
-endif()
+target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 
 set(${target_name}_test_src
   test/ModelEditorFixture.hpp
   test/ModelEditorFixture.cpp
   test/IGLineEdit_GTest.cpp
-  test/InspectorDialog_GTest.cpp
   test/ModalDialogs_GTest.cpp
-  test/PathWatcher_GTest.cpp
   test/QMetaTypes_GTest.cpp
   test/Utilities_GTest.cpp
-  test/GithubReleases_GTest.cpp
 )
 
 set(${target_name}_test_depends

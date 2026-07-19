@@ -5,7 +5,7 @@
 
 #include "ConstructionObjectVectorController.hpp"
 
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 

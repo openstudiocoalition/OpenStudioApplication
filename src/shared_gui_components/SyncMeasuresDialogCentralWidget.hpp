@@ -11,7 +11,7 @@
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 
-#include "../shared_gui_components/ProgressBarWithError.hpp"
+#include "ProgressBarWithError.hpp"
 
 class QPushButton;
 

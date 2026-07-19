@@ -1,3 +1,7 @@
+# Automatically generates and appends a changelog to a GitHub Release when it is created.
+# Runs developer/ruby/GitHubIssueStats.rb which queries the GitHub Issues API for all
+# issues closed since the previous release tag, formats them as Markdown, and patches
+# the release body via the GitHub API.
 name: Create release notes changelog
 on:
   release:
@@ -7,6 +11,10 @@ jobs:
   release-notes:
     name: Create changelog
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+      pull-requests: read
 
     steps:
     - uses: actions/checkout@v5
@@ -24,7 +32,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        gem install github_api
+        gem install octokit
         pip install requests
         ruby ./developer/ruby/GitHubIssueStats.rb > changelog.txt
 

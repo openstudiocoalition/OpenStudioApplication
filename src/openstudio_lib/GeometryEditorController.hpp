@@ -13,6 +13,11 @@ namespace model {
 class Model;
 }
 
+/**
+ * GeometryEditorController manages the Geometry tab, which embeds a web-based 3D geometry editor
+ * (FloorspaceJS) via a QWebEngineView. It bridges JSON geometry edits from the web view back to
+ * the OpenStudio model and handles save/load of the floorplan JSON.
+ */
 class GeometryEditorController : public OSQObjectController
 {
   Q_OBJECT

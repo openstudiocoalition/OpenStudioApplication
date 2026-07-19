@@ -10,6 +10,11 @@
 
 namespace openstudio {
 
+/**
+ * MaterialsController manages the Materials sub-tab within the Constructions tab. It shows all
+ * material objects in the model in a list and provides an inspector for editing material thermal
+ * and optical properties.
+ */
 class MaterialsController : public ModelSubTabController
 {
   Q_OBJECT

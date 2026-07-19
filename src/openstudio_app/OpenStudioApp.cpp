@@ -13,8 +13,8 @@
 #include "../openstudio_lib/OSDocument.hpp"
 
 #include "../model_editor/AccessPolicyStore.hpp"
-#include "../model_editor/GithubReleases.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "GithubReleases.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include "../shared_gui_components/WaitDialog.hpp"
 #include "../shared_gui_components/MeasureManager.hpp"
@@ -462,8 +462,8 @@ void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum)
   waitDialog()->hide();
 }
 
-std::shared_ptr<OSDocument> OpenStudioApp::currentDocument() const {
-  return m_osDocument;
+OSDocument* OpenStudioApp::currentDocument() const {
+  return m_osDocument.get();
 }
 
 void OpenStudioApp::importIdf() {
@@ -931,8 +931,8 @@ void OpenStudioApp::showHelp() {
 void OpenStudioApp::checkForUpdate() {
   QWidget* parent = nullptr;
 
-  if (currentDocument()) {
-    parent = currentDocument()->mainWindow();
+  if (auto* doc = currentDocument()) {
+    parent = doc->mainWindow();
   }
 
   modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
@@ -974,12 +974,14 @@ void OpenStudioApp::debugWebgl() {
 void OpenStudioApp::showAbout() {
   QWidget* parent = nullptr;
 
-  if (currentDocument()) {
-    parent = currentDocument()->mainWindow();
+  if (auto* doc = currentDocument()) {
+    parent = doc->mainWindow();
   }
   QString details = tr("Measure Manager Server: ") + measureManager().url().toString() + "\n";
   details += tr("Chrome Debugger: http://localhost:") + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
-  details += tr("Temp Directory: ") + currentDocument()->modelTempDir();
+  if (auto* doc = currentDocument()) {
+    details += tr("Temp Directory: ") + doc->modelTempDir();
+  }
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);

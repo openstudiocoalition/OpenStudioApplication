@@ -33,9 +33,7 @@ ruby_copyright += "#############################################################
 # first do c++
 
 # exclusions are files that are not part of OpenStudio
-folder_exclusions = [
-  ROOT_DIR / 'src/qtwinmigrate',
-]
+folder_exclusions = []
 filename_exclusions = [
   'mainpage.hpp',
 ]

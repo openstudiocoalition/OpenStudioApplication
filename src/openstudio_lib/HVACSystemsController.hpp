@@ -9,18 +9,18 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/Loop.hpp>
-#include "OSDropZone.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectVectorController.hpp"
 #include <boost/smart_ptr.hpp>
 #include "SOConstants.hpp"
 #include "../shared_gui_components/OSQObjectController.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include <QAbstractListModel>
 #include <QPointer>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 class QMutex;
 
@@ -64,6 +64,11 @@ class RefrigerationGridController;
 class RefrigerationGridView;
 class VRFController;
 
+/**
+ * HVACSystemsController manages the HVAC Systems tab. It maintains a set of scene controllers
+ * (one per HVAC system or loop in the model) and routes user interactions to the appropriate scene.
+ * It also manages the system selector dropdown and the "Add System" toolbar.
+ */
 class HVACSystemsController
   : public QObject
   , public Nano::Observer

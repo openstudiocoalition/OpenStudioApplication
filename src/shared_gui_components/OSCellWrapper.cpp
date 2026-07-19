@@ -17,8 +17,8 @@
 #include "OSUnsignedEdit.hpp"
 #include "OSWidgetHolder.hpp"
 
-#include "../openstudio_lib/OSDropZone.hpp"
-#include "../openstudio_lib/RenderingColorWidget.hpp"
+#include "OSDropZone.hpp"
+#include "RenderingColorWidget2.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>

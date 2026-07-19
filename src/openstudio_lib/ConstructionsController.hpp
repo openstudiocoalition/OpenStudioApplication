@@ -10,6 +10,11 @@
 
 namespace openstudio {
 
+/**
+ * ConstructionsController manages the Constructions domain tab. It displays all construction objects
+ * in the model in a list, and provides a tabbed sub-tab layout for constructions, construction sets,
+ * and materials with an inspector that shows layers and thermal properties.
+ */
 class ConstructionsController : public ModelSubTabController
 {
   Q_OBJECT

@@ -7,7 +7,7 @@
 #define OPENSTUDIO_VARIABLESTABVIEW_HPP
 
 #include "MainTabView.hpp"
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/OutputVariable.hpp>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement

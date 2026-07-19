@@ -5,6 +5,9 @@
 
 #include <gtest/gtest.h>
 
+// OSLineEdit is defined in shared_gui_components, but this test lives in openstudio_lib/test/
+// because it requires OpenStudioLibFixture, which provides a live OSAppBase, OSDocument, and
+// model::Model. A BaseApp mock would be needed to host it in shared_gui_components tests.
 #include "OpenStudioLibFixture.hpp"
 
 #include "../../shared_gui_components/OSLineEdit.hpp"

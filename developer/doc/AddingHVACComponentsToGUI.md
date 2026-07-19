@@ -17,7 +17,7 @@ Add two entries to the file `./src/openstudio_lib/openstudio.qrc`.
 This file registers the image files so that they become resources in the executable.
 Add one entry for the full size icon and one for the mini icon.
 
-Add two entries to the file `./src/openstudio_lib/IconLibrary.cpp`.
+Add two entries to the file `./src/shared_gui_components/IconLibrary.cpp`.
 This file contains a big map of the new OS type to the proper icon.
 
 ## Make the library aware of the new type:

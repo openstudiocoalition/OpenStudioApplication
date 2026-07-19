@@ -6,7 +6,7 @@
 #ifndef OPENSTUDIO_SCHEDULESVIEW_HPP
 #define OPENSTUDIO_SCHEDULESVIEW_HPP
 
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ScheduleDay.hpp>

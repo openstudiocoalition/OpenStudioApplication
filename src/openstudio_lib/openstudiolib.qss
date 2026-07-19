@@ -12,6 +12,46 @@ QAbstractItemView {
   background: #E6E6E6;
 }
 
+QMenuBar {
+  background-color: #F0F0F0;
+  color: #000000;
+}
+
+QMenuBar::item {
+  background-color: transparent;
+  padding: 4px 8px;
+}
+
+QMenuBar::item:selected {
+  background-color: #D0D0D0;
+}
+
+QMenuBar::item:pressed {
+  background-color: #C0C0C0;
+}
+
+QMenu {
+  background-color: #F0F0F0;
+  color: #000000;
+  border: 1px solid #B0B0B0;
+}
+
+QMenu::item:selected {
+  background-color: #0078D4;
+  color: #FFFFFF;
+}
+
+QMenu::item:disabled {
+  color: #808080;
+}
+
+QMenu::separator {
+  height: 1px;
+  background: #C0C0C0;
+  margin: 2px 4px;
+}
+
+
 QCheckBox::indicator {
   width: 15px; height: 15px;
 }

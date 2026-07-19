@@ -11,10 +11,10 @@
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 
-#include "ModelObjectItem.hpp"
-#include "OSDropZone.hpp"
-#include "OSVectorController.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Building.hpp>
 #include <openstudio/model/Building_Impl.hpp>

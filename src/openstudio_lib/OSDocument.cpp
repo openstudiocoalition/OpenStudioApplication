@@ -19,7 +19,7 @@
 #include "LocationTabView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSAppBase.hpp"
 #include "ResultsTabController.hpp"
@@ -46,8 +46,8 @@
 #include "../shared_gui_components/MeasureManager.hpp"
 #include "../shared_gui_components/WaitDialog.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 //#include "../analysis/Analysis.hpp"
 
@@ -82,7 +82,7 @@
 
 //#include "../runmanager/lib/WorkItem.hpp"
 
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 #include <openstudio/OpenStudio.hxx>
 

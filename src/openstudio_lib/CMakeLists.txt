@@ -105,8 +105,6 @@ set(${target_name}_SRC
   HVACSystemsView.hpp
   HVACTemplateHelperDialog.cpp
   HVACTemplateHelperDialog.hpp
-  IconLibrary.cpp
-  IconLibrary.hpp
   InspectorController.cpp
   InspectorController.hpp
   InspectorView.cpp
@@ -165,14 +163,8 @@ set(${target_name}_SRC
   MaterialsView.hpp
   ModelObjectInspectorView.cpp
   ModelObjectInspectorView.hpp
-  ModelObjectItem.cpp
-  ModelObjectItem.hpp
   ModelObjectListView.cpp
   ModelObjectListView.hpp
-  ModelObjectTreeItems.cpp
-  ModelObjectTreeItems.hpp
-  ModelObjectTreeWidget.cpp
-  ModelObjectTreeWidget.hpp
   ModelObjectTypeItem.cpp
   ModelObjectTypeItem.hpp
   ModelObjectTypeListView.cpp
@@ -183,7 +175,6 @@ set(${target_name}_SRC
   ModelSubTabController.hpp
   ModelSubTabView.cpp
   ModelSubTabView.hpp
-  OpenStudioAPI.hpp
   OSAppBase.cpp
   OSAppBase.hpp
   OSCategoryPlaceholder.cpp
@@ -196,12 +187,8 @@ set(${target_name}_SRC
   OSCollapsibleItemList.hpp
   OSDocument.cpp
   OSDocument.hpp
-  OSDropZone.cpp
-  OSDropZone.hpp
   OSInspectorView.cpp
   OSInspectorView.hpp
-  OSItem.cpp
-  OSItem.hpp
   OSItemList.cpp
   OSItemList.hpp
   OSItemSelector.cpp
@@ -210,8 +197,6 @@ set(${target_name}_SRC
   OSItemSelectorButtons.hpp
   OSWebEnginePage.cpp
   OSWebEnginePage.hpp
-  OSVectorController.cpp
-  OSVectorController.hpp
   OtherEquipmentInspectorView.cpp
   OtherEquipmentInspectorView.hpp
   PeopleInspectorView.cpp
@@ -230,8 +215,6 @@ set(${target_name}_SRC
   RefrigerationGridView.hpp
   RefrigerationScene.cpp
   RefrigerationScene.hpp
-  RenderingColorWidget.cpp
-  RenderingColorWidget.hpp
   ResultsTabController.cpp
   ResultsTabController.hpp
   ResultsTabView.cpp
@@ -288,6 +271,7 @@ set(${target_name}_SRC
   SimSettingsTabView.hpp
   SimSettingsView.cpp
   SimSettingsView.hpp
+  SOConstants.hpp
   SpaceLoadInstancesWidget.cpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.cpp
@@ -395,116 +379,6 @@ set(${target_name}_SRC
   ZoneChooserView.cpp
   ZoneChooserView.hpp
 
-  ../shared_gui_components/BCLMeasureDialog.cpp
-  ../shared_gui_components/BCLMeasureDialog.hpp
-  ../shared_gui_components/BuildingComponentDialog.cpp
-  ../shared_gui_components/BuildingComponentDialog.hpp
-  ../shared_gui_components/BuildingComponentDialogCentralWidget.cpp
-  ../shared_gui_components/BuildingComponentDialogCentralWidget.hpp
-  ../shared_gui_components/BusyWidget.cpp
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/Buttons.cpp
-  ../shared_gui_components/Buttons.hpp
-  ../shared_gui_components/CollapsibleComponent.cpp
-  ../shared_gui_components/CollapsibleComponent.hpp
-  ../shared_gui_components/CollapsibleComponentHeader.cpp
-  ../shared_gui_components/CollapsibleComponentHeader.hpp
-  ../shared_gui_components/CollapsibleComponentList.cpp
-  ../shared_gui_components/CollapsibleComponentList.hpp
-  ../shared_gui_components/ColorPalettes.hpp
-  ../shared_gui_components/Component.cpp
-  ../shared_gui_components/Component.hpp
-  ../shared_gui_components/ComponentList.cpp
-  ../shared_gui_components/ComponentList.hpp
-  ../shared_gui_components/EditController.cpp
-  ../shared_gui_components/EditController.hpp
-  ../shared_gui_components/EditView.cpp
-  ../shared_gui_components/EditView.hpp
-  ../shared_gui_components/FieldMethodTypedefs.hpp
-  ../shared_gui_components/GraphicsItems.cpp
-  ../shared_gui_components/GraphicsItems.hpp
-  ../shared_gui_components/HeaderViews.cpp
-  ../shared_gui_components/HeaderViews.hpp
-  ../shared_gui_components/LocalLibrary.hpp
-  ../shared_gui_components/LocalLibraryController.cpp
-  ../shared_gui_components/LocalLibraryController.hpp
-  ../shared_gui_components/LocalLibraryView.cpp
-  ../shared_gui_components/LocalLibraryView.hpp
-  ../shared_gui_components/MeasureBadge.cpp
-  ../shared_gui_components/MeasureBadge.hpp
-  ../shared_gui_components/MeasureDragData.cpp
-  ../shared_gui_components/MeasureDragData.hpp
-  ../shared_gui_components/MeasureManager.cpp
-  ../shared_gui_components/MeasureManager.hpp
-  ../shared_gui_components/NetworkProxyDialog.cpp
-  ../shared_gui_components/NetworkProxyDialog.hpp
-  ../shared_gui_components/OSCellWrapper.cpp
-  ../shared_gui_components/OSCellWrapper.hpp
-  ../shared_gui_components/OSCheckBox.cpp
-  ../shared_gui_components/OSCheckBox.hpp
-  ../shared_gui_components/OSCollapsibleView.cpp
-  ../shared_gui_components/OSCollapsibleView.hpp
-  ../shared_gui_components/OSComboBox.cpp
-  ../shared_gui_components/OSComboBox.hpp
-  ../shared_gui_components/OSConcepts.hpp
-  ../shared_gui_components/OSDialog.cpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/OSDoubleEdit.cpp
-  ../shared_gui_components/OSDoubleEdit.hpp
-  ../shared_gui_components/OSDragableView.cpp
-  ../shared_gui_components/OSDragableView.hpp
-  ../shared_gui_components/OSGridController.cpp
-  ../shared_gui_components/OSGridController.hpp
-  ../shared_gui_components/OSGridView.cpp
-  ../shared_gui_components/OSGridView.hpp
-  ../shared_gui_components/OSIntegerEdit.cpp
-  ../shared_gui_components/OSIntegerEdit.hpp
-  ../shared_gui_components/OSLineEdit.cpp
-  ../shared_gui_components/OSLineEdit.hpp
-  ../shared_gui_components/OSListController.cpp
-  ../shared_gui_components/OSListController.hpp
-  ../shared_gui_components/OSListView.cpp
-  ../shared_gui_components/OSListView.hpp
-  ../shared_gui_components/OSLoadNamePixmapLineEdit.cpp
-  ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
-  ../shared_gui_components/OSObjectSelector.cpp
-  ../shared_gui_components/OSObjectSelector.hpp
-  ../shared_gui_components/OSQObjectController.cpp
-  ../shared_gui_components/OSQObjectController.hpp
-  ../shared_gui_components/OSQuantityEdit.cpp
-  ../shared_gui_components/OSQuantityEdit.hpp
-  ../shared_gui_components/OSSwitch.cpp
-  ../shared_gui_components/OSSwitch.hpp
-  ../shared_gui_components/OSUnsignedEdit.cpp
-  ../shared_gui_components/OSUnsignedEdit.hpp
-  ../shared_gui_components/OSViewSwitcher.cpp
-  ../shared_gui_components/OSViewSwitcher.hpp
-  ../shared_gui_components/OSWidgetHolder.cpp
-  ../shared_gui_components/OSWidgetHolder.hpp
-  ../shared_gui_components/PageNavigator.cpp
-  ../shared_gui_components/PageNavigator.hpp
-  ../shared_gui_components/ProcessEventsProgressBar.cpp
-  ../shared_gui_components/ProcessEventsProgressBar.hpp
-  ../shared_gui_components/ProgressBarWithError.cpp
-  ../shared_gui_components/ProgressBarWithError.hpp
-  ../shared_gui_components/SyncMeasuresDialog.cpp
-  ../shared_gui_components/SyncMeasuresDialog.hpp
-  ../shared_gui_components/SyncMeasuresDialogCentralWidget.cpp
-  ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp
-  ../shared_gui_components/TextEditDialog.cpp
-  ../shared_gui_components/TextEditDialog.hpp
-  ../shared_gui_components/TIDItemModel.cpp
-  ../shared_gui_components/TIDItemModel.hpp
-  ../shared_gui_components/WorkflowController.cpp
-  ../shared_gui_components/WorkflowController.hpp
-  ../shared_gui_components/WorkflowView.cpp
-  ../shared_gui_components/WorkflowView.hpp
-  ../shared_gui_components/WaitDialog.cpp
-  ../shared_gui_components/WaitDialog.hpp
-  ../shared_gui_components/WorkflowTools.cpp
-  ../shared_gui_components/WorkflowTools.hpp
-
-  #"${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
 )
 
 # moc files
@@ -583,10 +457,7 @@ set(${target_name}_moc
   MaterialsController.hpp
   MaterialsView.hpp
   ModelObjectInspectorView.hpp
-  ModelObjectItem.hpp
   ModelObjectListView.hpp
-  ModelObjectTreeItems.hpp
-  ModelObjectTreeWidget.hpp
   ModelObjectTypeItem.hpp
   ModelObjectTypeListView.hpp
   ModelObjectVectorController.hpp
@@ -598,14 +469,11 @@ set(${target_name}_moc
   OSCollapsibleItemHeader.hpp
   OSCollapsibleItemList.hpp
   OSDocument.hpp
-  OSDropZone.hpp
   OSInspectorView.hpp
-  OSItem.hpp
   OSItemList.hpp
   OSItemSelector.hpp
   OSItemSelectorButtons.hpp
   OSWebEnginePage.hpp
-  OSVectorController.hpp
   OtherEquipmentInspectorView.hpp
   PeopleInspectorView.hpp
   PlanarSurfaceWidget.hpp
@@ -615,7 +483,6 @@ set(${target_name}_moc
   RefrigerationGridController.hpp
   RefrigerationGridView.hpp
   RefrigerationScene.hpp
-  RenderingColorWidget.hpp
   ResultsTabController.hpp
   ResultsTabView.hpp
   RunTabController.hpp
@@ -698,59 +565,7 @@ set(${target_name}_moc
   YearSettingsWidget.hpp
   ZoneChooserView.hpp
 
-  ../shared_gui_components/BCLMeasureDialog.hpp
-  ../shared_gui_components/BuildingComponentDialog.hpp
-  ../shared_gui_components/BuildingComponentDialogCentralWidget.hpp
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/Buttons.hpp
-  ../shared_gui_components/CollapsibleComponent.hpp
-  ../shared_gui_components/CollapsibleComponentHeader.hpp
-  ../shared_gui_components/CollapsibleComponentList.hpp
-  ../shared_gui_components/Component.hpp
-  ../shared_gui_components/ComponentList.hpp
-  ../shared_gui_components/EditController.hpp
-  ../shared_gui_components/EditView.hpp
-  ../shared_gui_components/GraphicsItems.hpp
-  ../shared_gui_components/HeaderViews.hpp
-  ../shared_gui_components/LocalLibraryController.hpp
-  ../shared_gui_components/LocalLibraryView.hpp
-  ../shared_gui_components/MeasureBadge.hpp
-  ../shared_gui_components/MeasureDragData.hpp
-  ../shared_gui_components/MeasureManager.hpp
-  ../shared_gui_components/OSCellWrapper.hpp
-  ../shared_gui_components/OSCheckBox.hpp
-  ../shared_gui_components/OSCollapsibleView.hpp
-  ../shared_gui_components/OSComboBox.hpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/OSDoubleEdit.hpp
-  ../shared_gui_components/OSDragableView.hpp
-  ../shared_gui_components/OSGridController.hpp
-  ../shared_gui_components/OSGridView.hpp
-  ../shared_gui_components/OSIntegerEdit.hpp
-  ../shared_gui_components/OSLineEdit.hpp
-  ../shared_gui_components/OSListController.hpp
-  ../shared_gui_components/OSListView.hpp
-  ../shared_gui_components/OSLoadNamePixmapLineEdit.hpp
-  ../shared_gui_components/OSObjectSelector.hpp
-  ../shared_gui_components/OSQObjectController.hpp
-  ../shared_gui_components/OSQuantityEdit.hpp
-  ../shared_gui_components/OSSwitch.hpp
-  ../shared_gui_components/OSUnsignedEdit.hpp
-  ../shared_gui_components/OSViewSwitcher.hpp
-  ../shared_gui_components/OSWidgetHolder.hpp
-  ../shared_gui_components/PageNavigator.hpp
-  ../shared_gui_components/ProgressBarWithError.hpp
-  ../shared_gui_components/SyncMeasuresDialog.hpp
-  ../shared_gui_components/SyncMeasuresDialogCentralWidget.hpp
-  ../shared_gui_components/TextEditDialog.hpp
-  ../shared_gui_components/TIDItemModel.hpp
-  ../shared_gui_components/WorkflowController.hpp
-  ../shared_gui_components/WorkflowView.hpp
-  ../shared_gui_components/WaitDialog.hpp
-  ../shared_gui_components/NetworkProxyDialog.hpp
 )
-
-#include_directories(SYSTEM ${Ruby_INCLUDE_DIRS})
 
 # resource files
 set(${target_name}_qrc
@@ -767,25 +582,20 @@ qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 # add_custom_target(resources DEPENDS ${target_name}_qrcs)
 # add_dependencies(resources translations)
 
-add_library(${target_name}
+add_library(${target_name} STATIC
   ${${target_name}_SRC}
   ${${target_name}_moc_src}
   ${${target_name}_moc}
   ${${target_name}_qrcs}
 )
 
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
-
 set(${target_name}_depends
+  openstudio_shared_gui
   openstudio_modeleditor
-  openstudio::openstudiolib
-  ${QT_LIBS}
   ${QT_WEB_LIBS}
 )
 
-target_link_libraries(${target_name} ${${target_name}_depends})
+target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 
 AddPCH(${target_name})
 
@@ -828,7 +638,8 @@ if(BUILD_BENCHMARK)
     get_filename_component(bench_name ${bench_file} NAME_WE)
     message("bench_name=${bench_name}")
     add_executable( ${bench_name} ${bench_file} )
-    target_link_libraries(${bench_name}
+    target_link_libraries(${bench_name} 
+      PUBLIC 
       benchmark::benchmark
       ${target_name}
       ${${target_name}_test_depends}
@@ -836,5 +647,3 @@ if(BUILD_BENCHMARK)
   endforeach()
 
 endif()
-
-

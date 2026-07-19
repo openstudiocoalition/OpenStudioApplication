@@ -18,7 +18,7 @@
 #include <openstudio/model/Mixer.hpp>
 #include <openstudio/model/Splitter.hpp>
 #include <openstudio/model/Loop.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "shared_gui_components/GraphicsItems.hpp"
 
 class QMenu;

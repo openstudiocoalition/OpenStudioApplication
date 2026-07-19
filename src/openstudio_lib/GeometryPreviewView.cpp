@@ -8,7 +8,7 @@
 #include "OSDocument.hpp"
 #include "MainWindow.hpp"
 
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/PlanarSurface.hpp>
@@ -181,7 +181,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   auto* mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
-  connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &PreviewWebView::onUnitSystemChange);
+  connect(m_document, &OSDocument::toggleUnitsClicked, this, &PreviewWebView::onUnitSystemChange);
   connect(m_refreshBtn, &QPushButton::clicked, this, &PreviewWebView::refreshClicked);
 
   auto* hLayout = new QHBoxLayout();

@@ -9,7 +9,7 @@
 #include "../shared_gui_components/OSIntegerEdit.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/ScheduleFile.hpp>
 #include <openstudio/model/ScheduleFile_Impl.hpp>

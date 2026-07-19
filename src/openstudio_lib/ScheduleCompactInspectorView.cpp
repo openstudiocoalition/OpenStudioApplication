@@ -7,7 +7,7 @@
 
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/ScheduleCompact.hpp>
 #include <openstudio/model/ScheduleCompact_Impl.hpp>

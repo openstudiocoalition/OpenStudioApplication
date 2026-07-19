@@ -100,7 +100,7 @@ class PreviewWebView : public QWidget
 
   QWebEngineView* m_view;
   OSWebEnginePage* m_page;
-  std::shared_ptr<OSDocument> m_document;
+  OSDocument* m_document = nullptr;
   GeometryBridge* m_bridge;
 
   QString m_json;
