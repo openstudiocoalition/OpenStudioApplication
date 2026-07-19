@@ -37,7 +37,7 @@ jobs:
         load: true
         tags: osapp-build:latest
         cache-from: type=gha,scope=osapp-build
-        cache-to:   type=gha,scope=osapp-build,mode=max
+        cache-to:   ${{ github.event.pull_request.head.repo.full_name == github.repository && 'type=gha,scope=osapp-build,mode=max' || '' }}
 
     - name: Configure (Conan install + CMake configure)
       run: make configure
