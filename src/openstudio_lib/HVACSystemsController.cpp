@@ -626,7 +626,7 @@ void remapLateralReferences(const model::ModelObject& original, model::ModelObje
 
 // `original` is the subtree that was cloned; `clonedObject` is its clone. Re-links any lateral
 // reference in the clone that still points into (or should point into) the original subtree.
-void fixupClonedReferences(const model::ModelObject& original, model::ModelObject clonedObject) {
+void fixupClonedReferences(const model::ModelObject& original, const model::ModelObject& clonedObject) {
   std::map<Handle, model::ModelObject> handleMap;
   buildCloneHandleMap(original, clonedObject, handleMap);
   remapLateralReferences(original, clonedObject, handleMap);
