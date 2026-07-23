@@ -106,7 +106,7 @@ void remapLateralReferences(const model::ModelObject& original, model::ModelObje
 }
 }  // namespace
 
-void fixupClonedReferences(const model::ModelObject& original, model::ModelObject& clonedObject) {
+void fixupClonedReferences(const model::ModelObject& original, const model::ModelObject& clonedObject) {
   std::vector<std::pair<model::ModelObject, model::ModelObject>> pairs;
   collectClonedObjectPairs(original, clonedObject, pairs);
 
