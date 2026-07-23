@@ -22,6 +22,7 @@
 #include "HorizontalTabWidget.hpp"
 #include "MainRightColumnController.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
+#include "../utilities/CloneFixup.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
@@ -522,116 +523,6 @@ void HVACLayoutController::addLibraryObjectToTopLevel(const OSItemId& itemId) {
 
   message.exec();
 }
-
-namespace {
-// ModelObject::clone() clones each child individually and reattaches it via setParent(), so
-// true parent-child edges are correctly remapped to point within the new subtree. But children
-// are cloned one at a time rather than as a batch sharing a single old->new handle table, so any
-// *lateral* object-list reference between two siblings in the cloned subtree (e.g.
-// CoilHeatingDesuperheater::heatingSource() pointing at a sibling cooling coil, or a
-// SetpointManager's node references) is left broken on the clone -- for some field/type
-// combinations still pointing at the original object, for others (empirically, heatingSource())
-// cleared to empty outright. The functions below fix that up generically, for any object type,
-// rather than special casing each lateral-reference field as it's discovered.
-
-// ParentObject::children() is true ownership (e.g. a UnitarySystem's fan/coils) but does *not*
-// include HVACComponents placed on a Loop's supply/demand branches -- a UnitarySystem sitting on
-// an AirLoopHVAC's supply branch is reachable via supplyComponents(), not children(). The same
-// gap exists one level deeper: equipment on an AirLoopHVACOutdoorAirSystem's outdoor-air/relief
-// branches (e.g. an evaporative cooler, or a SetpointManager:MixedAir sitting on one of those
-// nodes) is reachable only via oaComponents()/reliefComponents(), not children() either. Cloning
-// a whole loop (the "copy system" toolbar action) needs all of these, or the branch equipment --
-// and anything lateral-referenced from inside it -- is never visited at all.
-//
-// Returned as separate groups, each matched and recursed into independently: cloning a loop does
-// not carry over the connected thermal zones on the demand side, so original vs. clone
-// demandComponents() can legitimately have different sizes. Treating everything as one combined
-// list would let a benign demand-side mismatch abort recursion into the other groups too, where
-// the equipment (and any lateral references inside it) *does* line up 1:1 with the original.
-std::vector<std::vector<model::ModelObject>> childSubtreeObjectGroups(const model::ModelObject& object) {
-  std::vector<std::vector<model::ModelObject>> groups;
-  if (boost::optional<model::Loop> loop = object.optionalCast<model::Loop>()) {
-    groups.push_back(loop->supplyComponents());
-    groups.push_back(loop->demandComponents());
-  }
-  if (boost::optional<model::AirLoopHVACOutdoorAirSystem> oaSystem = object.optionalCast<model::AirLoopHVACOutdoorAirSystem>()) {
-    groups.push_back(oaSystem->oaComponents());
-    groups.push_back(oaSystem->reliefComponents());
-  }
-  if (boost::optional<model::ParentObject> parent = object.optionalCast<model::ParentObject>()) {
-    groups.push_back(parent->children());
-  }
-  return groups;
-}
-
-// Walks `original` and `clone` in parallel -- childSubtreeObjectGroups() order is deterministic
-// and preserved by clone() -- building a map from each original object's handle to its
-// corresponding clone.
-void buildCloneHandleMap(const model::ModelObject& original, const model::ModelObject& clone, std::map<Handle, model::ModelObject>& handleMap) {
-  handleMap.emplace(original.handle(), clone);
-
-  std::vector<std::vector<model::ModelObject>> originalGroups = childSubtreeObjectGroups(original);
-  std::vector<std::vector<model::ModelObject>> cloneGroups = childSubtreeObjectGroups(clone);
-  for (size_t g = 0; g < originalGroups.size() && g < cloneGroups.size(); ++g) {
-    const std::vector<model::ModelObject>& originalChildren = originalGroups[g];
-    const std::vector<model::ModelObject>& cloneChildren = cloneGroups[g];
-    if (originalChildren.size() == cloneChildren.size()) {
-      for (size_t i = 0; i < originalChildren.size(); ++i) {
-        buildCloneHandleMap(originalChildren[i], cloneChildren[i], handleMap);
-      }
-    }
-  }
-}
-
-// For every lateral object-list field on `original` whose target was itself cloned (i.e. has an
-// entry in handleMap), forces the corresponding field on `clonedObject` to point at that clone.
-// Fields are read from `original`, not from `clonedObject`: clone() doesn't necessarily leave a
-// lateral reference pointing at the stale original object -- for CoilHeatingDesuperheater's
-// heatingSource() it clears the field outright -- so the only reliable source of "what this
-// field is supposed to point at" is the original.
-void remapLateralReferences(const model::ModelObject& original, model::ModelObject clonedObject,
-                            const std::map<Handle, model::ModelObject>& handleMap) {
-  IddObject iddObject = original.iddObject();
-  for (unsigned index = 0; index < original.numFields(); ++index) {
-    if (iddObject.objectLists(index).empty()) {
-      continue;
-    }
-    boost::optional<WorkspaceObject> originalTarget = original.getTarget(index);
-    if (!originalTarget) {
-      continue;
-    }
-    auto it = handleMap.find(originalTarget->handle());
-    if (it == handleMap.end()) {
-      continue;
-    }
-    boost::optional<WorkspaceObject> clonedTarget = clonedObject.getTarget(index);
-    if (clonedTarget && clonedTarget->handle() == it->second.handle()) {
-      continue;
-    }
-    clonedObject.setPointer(index, it->second.handle());
-  }
-
-  std::vector<std::vector<model::ModelObject>> originalGroups = childSubtreeObjectGroups(original);
-  std::vector<std::vector<model::ModelObject>> cloneGroups = childSubtreeObjectGroups(clonedObject);
-  for (size_t g = 0; g < originalGroups.size() && g < cloneGroups.size(); ++g) {
-    const std::vector<model::ModelObject>& originalChildren = originalGroups[g];
-    const std::vector<model::ModelObject>& cloneChildren = cloneGroups[g];
-    if (originalChildren.size() == cloneChildren.size()) {
-      for (size_t i = 0; i < originalChildren.size(); ++i) {
-        remapLateralReferences(originalChildren[i], cloneChildren[i], handleMap);
-      }
-    }
-  }
-}
-
-// `original` is the subtree that was cloned; `clonedObject` is its clone. Re-links any lateral
-// reference in the clone that still points into (or should point into) the original subtree.
-void fixupClonedReferences(const model::ModelObject& original, const model::ModelObject& clonedObject) {
-  std::map<Handle, model::ModelObject> handleMap;
-  buildCloneHandleMap(original, clonedObject, handleMap);
-  remapLateralReferences(original, clonedObject, handleMap);
-}
-}  // namespace
 
 void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, model::HVACComponent& comp) {
   model::OptionalModelObject object;
