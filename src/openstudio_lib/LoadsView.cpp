@@ -5,6 +5,7 @@
 
 #include "LoadsView.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 #include "PeopleInspectorView.hpp"
 #include "InternalMassInspectorView.hpp"
 #include "LightsInspectorView.hpp"
@@ -20,6 +21,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 
+#include <QStringLiteral>
 #include <QStyleOption>
 #include <QPainter>
 #include <QVBoxLayout>
@@ -28,32 +30,33 @@
 #include <QStackedWidget>
 #include <QScrollArea>
 #include <sstream>
+#include <tuple>
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 
 LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectTypeListView(LoadsView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
-                    new LoadsInspectorView(isIP, model, parent), false, parent) {
+  : ModelSubTabView(
+      new ModelObjectTypeListView(LoadsView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new LoadsInspectorView(isIP, model, parent), false, parent) {
   connect(this, &LoadsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, QString>> LoadsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, QString>> result;
-
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_People_Definition, tr("People Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Lights_Definition, tr("Lights Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions")));
-
-  return result;
+std::vector<std::tuple<IddObjectType, QString, QString>> LoadsView::modelObjectTypesNamesAndUrls() {
+  using T = std::tuple<IddObjectType, QString, QString>;
+  return {
+    T{IddObjectType::OS_People_Definition, tr("People Definitions"), iddObjectDocUrl(QStringLiteral("OS:People"))},
+    T{IddObjectType::OS_Lights_Definition, tr("Lights Definitions"), iddObjectDocUrl(QStringLiteral("OS:Lights"))},
+    T{IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions"), {}},
+    T{IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:ElectricEquipment"))},
+    T{IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:GasEquipment"))},
+    T{IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:SteamEquipment"))},
+    T{IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:OtherEquipment"))},
+    T{IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions"), iddObjectDocUrl(QStringLiteral("OS:InternalMass"))},
+    T{IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:WaterUse:Equipment"))},
+    T{IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions"), iddObjectDocUrl(QStringLiteral("OS:HotWaterEquipment"))},
+  };
 }
 
 void LoadsView::toggleUnits(bool displayIP) {}

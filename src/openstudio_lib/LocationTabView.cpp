@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "LocationTabView.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "DesignDayGridView.hpp"
 #include "ModelObjectListView.hpp"
@@ -209,8 +210,15 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   mainHLine->setFrameShadow(QFrame::Sunken);
 
   // ***** Weather File *****
-  auto* label = new QLabel(tr("Weather File"));
+  auto* label = new QLabel();
   label->setObjectName("H2");
+  label->setTextFormat(Qt::RichText);
+  label->setOpenExternalLinks(true);
+  {
+    static const QString url = iddGroupDocUrl(QStringLiteral("OpenStudio Site"));
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Weather File")));
+  }
 
   m_weatherFileBtn = new QPushButton(this);
   m_weatherFileBtn->setFlat(true);
@@ -456,8 +464,15 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   scrollLayout->addWidget(mainHLine);
 
   // ***** Design Days *****
-  label = new QLabel(tr("Design Days"));
+  label = new QLabel();
   label->setObjectName("H2");
+  label->setTextFormat(Qt::RichText);
+  label->setOpenExternalLinks(true);
+  {
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:SizingPeriod:DesignDay"));
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Design Days")));
+  }
 
   auto* btn = new QPushButton(tr("Import From DDY"), this);
   btn->setFlat(true);

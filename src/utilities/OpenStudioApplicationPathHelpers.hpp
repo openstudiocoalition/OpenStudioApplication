@@ -59,6 +59,9 @@ bool isOpenStudioApplicationModuleRunningFromBuildDirectory();
 /// \returns The path to the OpenStudio Command Line Interface  if it exists.
 openstudio::path getOpenStudioCoreCLI();
 
+/// \returns The directory containing the local EnergyPlus Input Output Reference HTML documentation
+openstudio::path energyPlusDocDirectory();
+
 }  // namespace openstudio
 
 #endif  //OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP

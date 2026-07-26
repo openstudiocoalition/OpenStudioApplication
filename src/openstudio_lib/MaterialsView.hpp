@@ -11,6 +11,9 @@
 
 #include <openstudio/model/Model.hpp>
 
+#include <QString>
+#include <tuple>
+
 class QStackedWidget;
 
 namespace openstudio {
@@ -25,7 +28,7 @@ class MaterialsView : public ModelSubTabView
   virtual ~MaterialsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
+  static std::vector<std::tuple<IddObjectType, QString, QString>> modelObjectTypesNamesAndUrls();
 };
 
 class MaterialsInspectorView : public ModelObjectInspectorView

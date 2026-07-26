@@ -12,6 +12,7 @@
 #include <openstudio/model/Model.hpp>
 
 #include <QWidget>
+#include <QString>
 
 class QLabel;
 class QPushButton;
@@ -36,7 +37,7 @@ class GroundTemperatureEntry : public QWidget
   Q_OBJECT
 
  public:
-  explicit GroundTemperatureEntry(const QString& label, QWidget* parent = nullptr);
+  explicit GroundTemperatureEntry(const QString& label, const QString& url = {}, QWidget* parent = nullptr);
 
   void setSelected(bool selected);
 

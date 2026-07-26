@@ -38,8 +38,18 @@ ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<Idd
   selectFirstCollapsibleItem();
 }
 
-void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const QString& name) {
-  auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
+ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::tuple<IddObjectType, QString, QString>>& modelObjectTypesNamesAndUrls,
+                                                 const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary,
+                                                 QWidget* parent)
+  : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType), m_isLibrary(isLibrary) {
+  for (auto it = modelObjectTypesNamesAndUrls.rbegin(); it != modelObjectTypesNamesAndUrls.rend(); ++it) {
+    addModelObjectType(std::get<0>(*it), std::get<1>(*it), std::get<2>(*it));
+  }
+  selectFirstCollapsibleItem();
+}
+
+void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const QString& name, const QString& url) {
+  auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType, url);
   auto* modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, m_isLibrary);
   auto* modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
 

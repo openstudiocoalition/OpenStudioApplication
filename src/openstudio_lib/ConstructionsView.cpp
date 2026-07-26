@@ -12,6 +12,7 @@
 #include "ConstructionInternalSourceInspectorView.hpp"
 #include "ConstructionWindowDataFileInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 
@@ -19,28 +20,31 @@
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <QStackedWidget>
+#include <QStringLiteral>
+#include <tuple>
 
 namespace openstudio {
 
 ConstructionsView::ConstructionsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectTypeListView(ConstructionsView::modelObjectTypesAndNames(), model, true, OSItemType::ListItem, false, parent),
+  : ModelSubTabView(new ModelObjectTypeListView(ConstructionsView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::ListItem, false, parent),
                     new ConstructionsInspectorView(isIP, model, parent), false, parent) {
   connect(this, &ConstructionsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, QString>> ConstructionsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, QString>> result;
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction, tr("Constructions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions")));
-  result.push_back(
-    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions")));
-  result.push_back(
-    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions")));
-  // Not currently supported
-  //result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions"));
-
-  return result;
+std::vector<std::tuple<IddObjectType, QString, QString>> ConstructionsView::modelObjectTypesNamesAndUrls() {
+  using T = std::tuple<IddObjectType, QString, QString>;
+  return {
+    T{IddObjectType::OS_Construction, tr("Constructions"), iddObjectDocUrl(QStringLiteral("OS:Construction"))},
+    T{IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions"), iddObjectDocUrl(QStringLiteral("OS:Construction:AirBoundary"))},
+    T{IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions"),
+      iddObjectDocUrl(QStringLiteral("OS:Construction:InternalSource"))},
+    T{IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions"),
+      iddObjectDocUrl(QStringLiteral("OS:Construction:CfactorUndergroundWall"))},
+    T{IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions"),
+      iddObjectDocUrl(QStringLiteral("OS:Construction:FfactorGroundFloor"))},
+    // Not currently supported
+    // T{IddObjectType::OS_Construction_WindowDataFile, tr("Window Data File Constructions"), {}},
+  };
 }
 
 ConstructionsInspectorView::ConstructionsInspectorView(bool isIP, const model::Model& model, QWidget* parent)
