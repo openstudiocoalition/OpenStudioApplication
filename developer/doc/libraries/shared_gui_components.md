@@ -12,7 +12,7 @@ Key responsibilities:
 - **Grid system** — a generic multi-column tabular view for OpenStudio model objects
 - **Form controls** — typed input widgets for real, integer, boolean, and string model fields
 - **Measure management** — discovery, update-checking, and execution of OpenStudio Measures
-- **BCL integration** — browse and download building components and measures from NREL's BCL
+- **BCL integration** — browse and download building components and measures from NLR's BCL
 - **Common dialogs** — network proxy, progress bars, wait dialogs
 
 ---

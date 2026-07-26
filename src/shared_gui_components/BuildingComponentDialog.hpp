@@ -28,7 +28,7 @@ class Component;
 
 /**
  * BuildingComponentDialog is a modal dialog for browsing and downloading building components
- * (constructions, materials, schedules, etc.) from the NREL Building Component Library (BCL).
+ * (constructions, materials, schedules, etc.) from the NLR Building Component Library (BCL).
  * Once downloaded, the component is available for drag-and-drop into the relevant model views.
  * It is analogous to BCLMeasureDialog but targets BCL components rather than measures.
  */
