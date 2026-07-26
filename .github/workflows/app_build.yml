@@ -156,6 +156,14 @@ jobs:
         echo "There are $N threads available"
         echo "N=$N" >> $GITHUB_ENV
 
+        # Detect fork PRs — secrets are unavailable for external forks, so
+        # codesigning and artifact upload steps must be skipped for them.
+        if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.pull_request.head.repo.full_name }}" != "${{ github.repository }}" ]]; then
+          echo "IS_FORK_PR=true" >> $GITHUB_ENV
+        else
+          echo "IS_FORK_PR=false" >> $GITHUB_ENV
+        fi
+
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
@@ -232,7 +240,7 @@ jobs:
 
     - name: "Configure for codesigning"
       id: codesigning
-      if: runner.os == 'macOS'
+      if: runner.os == 'macOS' && env.IS_FORK_PR != 'true'
       run: |
         set -x
         cd $RUNNER_TEMP
@@ -274,8 +282,13 @@ jobs:
 
         cd .. && rm -Rf codesigning
 
+    - name: "Install patched QtIFW (macOS)"
+      if: runner.os == 'macOS'
+      run: |
+        set -x
+        brew list aria2 || brew install aria2
+        mkdir $RUNNER_TEMP/QtIFW && cd $RUNNER_TEMP/QtIFW
         # Download my patched QtIFW
-        mkdir QtIFW && cd QtIFW
         aria2c https://github.com/jmarrec/QtIFW-fixup/releases/download/v5.0.0-dev-with-fixup/QtIFW-5.0.0-${{ matrix.arch }}.zip
         xattr -r -d com.apple.quarantine ./QtIFW-5.0.0-${{ matrix.arch }}.zip
         unzip QtIFW-5.0.0-${{ matrix.arch }}.zip
@@ -540,15 +553,21 @@ jobs:
         fi
 
         if [ "$RUNNER_OS" == "macOS" ]; then
+          CODESIGNING_ARGS=()
+          if [ "$IS_FORK_PR" != "true" ]; then
+            CODESIGNING_ARGS=(
+              "-DCPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION:STRING=Developer ID Application: The Energy Coalition (UG9S5ZLM34)"
+              "-DCPACK_CODESIGNING_NOTARY_PROFILE_NAME:STRING=OpenStudioApplication"
+              "-DCPACK_CODESIGNING_MACOS_IDENTIFIER:STRING=org.openstudiocoalition.OpenStudioApplication"
+            )
+          fi
           cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
               -DCPACK_BINARY_TGZ:BOOL=ON \
               -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
               -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} \
-              -DCPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION:STRING="Developer ID Application: The Energy Coalition (UG9S5ZLM34)" \
-              -DCPACK_CODESIGNING_NOTARY_PROFILE_NAME:STRING=OpenStudioApplication \
-              -DCPACK_CODESIGNING_MACOS_IDENTIFIER:STRING=org.openstudiocoalition.OpenStudioApplication
+              "${CODESIGNING_ARGS[@]}"
         else
           cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
                 -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
@@ -605,6 +624,7 @@ jobs:
           -WaitForCompletion -Force
 
     - name: Archive binary artifacts
+      if: env.IS_FORK_PR != 'true'
       uses: actions/upload-artifact@v4
       # build/_CPack_Packages/win64/IFW/*.exe
       # build/_CPack_Packages/Linux/DEB/*.deb
@@ -614,13 +634,14 @@ jobs:
         path: build/${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}
 
     - name: Archive TGZ or ZIP artifacts
+      if: env.IS_FORK_PR != 'true'
       uses: actions/upload-artifact@v4
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
         path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
     - name: Full Test Package signing for IFW and TGZ
-      if: runner.os == 'macOS'
+      if: runner.os == 'macOS' && env.IS_FORK_PR != 'true'
       working-directory: ./build
       shell: bash
       run: |
@@ -632,7 +653,7 @@ jobs:
         echo "::endgroup::"
 
     - name: Upload otool info as artifact
-      if: runner.os == 'macOS'
+      if: runner.os == 'macOS' && env.IS_FORK_PR != 'true'
       uses: actions/upload-artifact@v4
       with:
         name: otool_infos_cpack_${{ matrix.os }}_${{ matrix.arch }}
@@ -656,6 +677,7 @@ jobs:
         $XVFBCMD ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
+      if: env.IS_FORK_PR != 'true'
       uses: actions/upload-artifact@v4
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
@@ -678,6 +700,7 @@ jobs:
         $XVFBCMD Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
+      if: env.IS_FORK_PR != 'true'
       uses: actions/upload-artifact@v4
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
@@ -723,6 +746,7 @@ jobs:
   test_package_macos:
     name: Test Built Package on macOS
     needs: build
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ${{ matrix.os }}
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others

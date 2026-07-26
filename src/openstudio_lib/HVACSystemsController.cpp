@@ -22,6 +22,7 @@
 #include "HorizontalTabWidget.hpp"
 #include "MainRightColumnController.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
+#include "../utilities/CloneFixup.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
@@ -92,6 +93,8 @@
 #include <openstudio/model/CoilHeatingElectric_Impl.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
 #include <openstudio/model/CoilHeatingWater_Impl.hpp>
+#include <openstudio/model/ParentObject.hpp>
+#include <openstudio/model/ParentObject_Impl.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/Node.hpp>
@@ -125,6 +128,8 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/OS_ComponentData_FieldEnums.hxx>
+
+#include <map>
 
 #include <QMessageBox>
 #include <QTimer>
@@ -527,7 +532,9 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
   object = doc->getModelObject(itemId);
   if (object) {
     if (!doc->fromModel(itemId)) {
+      model::ModelObject original = object.get();
       object = object->clone(comp.model());
+      fixupClonedReferences(original, object.get());
       remove = true;
     }
   }
@@ -893,6 +900,7 @@ void HVACSystemsController::onCopySystemClicked() {
   auto loop = currentLoop();
   if (loop) {
     auto clone = loop->clone(loop->model());
+    fixupClonedReferences(loop.get(), clone);
     setCurrentHandle(toQString(clone.handle()));
   }
 }
