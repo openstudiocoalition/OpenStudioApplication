@@ -19,7 +19,7 @@
 
 ## 1. Project Purpose
 
-The **OpenStudio Application** is a cross-platform (Windows, macOS, Linux) graphical user interface for whole-building energy modeling. It provides a Qt 6 GUI on top of the **[OpenStudio SDK](https://github.com/NREL/OpenStudio)** (NREL), which in turn drives EnergyPlus simulations and Radiance daylighting analysis.
+The **OpenStudio Application** is a cross-platform (Windows, macOS, Linux) graphical user interface for whole-building energy modeling. It provides a Qt 6 GUI on top of the **[OpenStudio SDK](https://github.com/NatLabRockies/OpenStudio)** (NLR), which in turn drives EnergyPlus simulations and Radiance daylighting analysis.
 
 Users model building envelopes, thermal zones, HVAC systems, loads, schedules, geometry, and OpenStudio Measures through a tab-based interface. The application is maintained by the **OpenStudio Coalition** and is fully open source.
 
@@ -40,7 +40,7 @@ C4Context
   Person(user, "Energy Modeler", "Uses the GUI to create, configure, and simulate building energy models")
 
   System(app, "OpenStudio Application", "Qt 6 GUI for whole-building energy modeling (.osm files)")
-  System_Ext(bcl, "Building Component Library (BCL)", "Remote library of measures and components (NREL hosted)")
+  System_Ext(bcl, "Building Component Library (BCL)", "Remote library of measures and components (NLR hosted)")
   System_Ext(sdk, "OpenStudio SDK", "C++ library providing the model layer, geometry, HVAC objects, workflow execution, Ruby/Python bindings")
   System_Ext(eplus, "EnergyPlus", "Whole-building energy simulation engine (launched as a subprocess by the SDK)")
   System_Ext(radiance, "Radiance", "Daylight simulation engine (optional, invoked by SDK workflows)")
@@ -144,8 +144,8 @@ The project uses **CMake Presets** with **Conan 2** for reproducible builds acro
 
 ```bash
 # 1. Install Conan 2, CMake ≥3.10.2, Qt 6.5.2 (via aqtinstall), compiler
-# 2. Add NREL Conan remote
-conan remote add -f nrel-v2 http://conan.openstudio.net/artifactory/api/conan/conan-v2
+# 2. Add NLR Conan remote
+conan remote add -f nlr-v2 http://conan.openstudio.net/artifactory/api/conan/conan-v2
 
 # 3. Install dependencies
 conan install . --output-folder=../OSApp-build-release --build=missing \

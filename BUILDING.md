@@ -1,10 +1,10 @@
 # Building with conan v2
 
-Check you have `conan >= 2`, and add the `nrel-v2` remote to grab `ruby`.
+Check you have `conan >= 2`, and add the `nlr-v2` remote to grab `ruby`.
 
 ```shell
 conan --version
-conan remote add -f nrel-v2 http://conan.openstudio.net/artifactory/api/conan/conan-v2
+conan remote add -f nlr-v2 http://conan.openstudio.net/artifactory/api/conan/conan-v2
 ```
 
 ## Install the conan dependencies into a build folder

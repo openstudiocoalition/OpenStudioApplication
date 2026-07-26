@@ -21,7 +21,7 @@ namespace openstudio {
 
 /**
  * BCLMeasureDialog is a modal dialog that lets users search and download OpenStudio Measures from
- * the NREL Building Component Library (BCL). It queries the BCL REST API, displays results with
+ * the NLR Building Component Library (BCL). It queries the BCL REST API, displays results with
  * taxonomy filtering and free-text search, and downloads selected measures to the local BCL cache.
  */
 class BCLMeasureDialog : public OSDialog

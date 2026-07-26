@@ -82,8 +82,8 @@ if [ ! -f "${CONAN_HOME}/profiles/default" ]; then
     sed -i 's/build_type=.*$/build_type=Release/' "${CONAN_HOME}/profiles/default"
     echo "    Profile after edits:"
     cat "${CONAN_HOME}/profiles/default"
-    # NREL custom remote (hosts ruby/3.2.2 and other project packages).
-    conan remote add --force nrel-v2 \
+    # NLR custom remote (hosts ruby/3.2.2 and other project packages).
+    conan remote add --force nlr-v2 \
         https://conan.openstudio.net/artifactory/api/conan/conan-v2
     echo "    Conan profile created."
 else
@@ -91,16 +91,16 @@ else
     cat "${CONAN_HOME}/profiles/default"
 fi
 
-# -- Ensure nrel-v2 remote is registered -------------------------------------
-echo "    Checking for nrel-v2 remote ..."
-if conan remote list 2>/dev/null | grep -q 'nrel-v2'; then
-    echo "    nrel-v2 remote found - ensuring it is enabled ..."
-    conan remote enable nrel-v2
-    conan remote update nrel-v2 \
+# -- Ensure nlr-v2 remote is registered --------------------------------------
+echo "    Checking for nlr-v2 remote ..."
+if conan remote list 2>/dev/null | grep -q 'nlr-v2'; then
+    echo "    nlr-v2 remote found - ensuring it is enabled ..."
+    conan remote enable nlr-v2
+    conan remote update nlr-v2 \
         --url https://conan.openstudio.net/artifactory/api/conan/conan-v2
 else
-    echo "    nrel-v2 remote not registered - adding ..."
-    conan remote add nrel-v2 \
+    echo "    nlr-v2 remote not registered - adding ..."
+    conan remote add nlr-v2 \
         https://conan.openstudio.net/artifactory/api/conan/conan-v2
 fi
 echo "    Active Conan remotes:"

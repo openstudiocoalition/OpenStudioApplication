@@ -342,7 +342,7 @@ jobs:
         echo "::endgroup::"
 
         begin_group "Remotes"
-        conan remote add --force nrel-v2 https://conan.openstudio.net/artifactory/api/conan/conan-v2
+        conan remote add --force nlr-v2 https://conan.openstudio.net/artifactory/api/conan/conan-v2
         conan remote list
         echo "::endgroup::"
 

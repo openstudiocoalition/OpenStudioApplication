@@ -345,7 +345,7 @@
   },
   "Online BCL": {
     "category": "openstudio_specific",
-    "definition": "The online Building Component Library (BCL) is a web-based repository hosted by NREL where users can search for, download, and manage pre-built energy modeling components (constructions, schedules, Measures, etc.) and add them to their OpenStudio models."
+    "definition": "The online Building Component Library (BCL) is a web-based repository hosted by NLR where users can search for, download, and manage pre-built energy modeling components (constructions, schedules, Measures, etc.) and add them to their OpenStudio models."
   },
   "Local Library": {
     "category": "openstudio_specific",

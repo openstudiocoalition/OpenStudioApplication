@@ -16,7 +16,7 @@ BEGIN
             VALUE "FileVersion",      "${OPENSTUDIOAPPLICATION_VERSION}\0"
             VALUE "InternalName",     "OpenStudioApp\0"
             VALUE "LegalCopyright",   "Copyright (c) 2020-${CURRENT_YEAR}, OpenStudio Coalition and other contributors. All rights reserved..\0"
-            VALUE "LegalTrademarks",  "OpenStudio (TM) is a trademark of NREL\0"
+            VALUE "LegalTrademarks",  "OpenStudio (TM) is a trademark of the National Laboratory of the Rockies\0"
             VALUE "OriginalFilename", "OpenStudioApp.exe\0"
             VALUE "ProductName",      "OpenStudioApplication\0"
             VALUE "ProductVersion",   "${OPENSTUDIOAPPLICATION_LONG_VERSION}\0"
