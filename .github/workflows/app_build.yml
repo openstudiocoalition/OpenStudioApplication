@@ -213,6 +213,7 @@ jobs:
             sudo xcode-select -s "/Applications/Xcode_16.4.app/Contents/Developer/"
 
             echo "Untapping unused taps to avoid Homebrew trust warnings"
+            brew uninstall --force bicep || true
             brew untap aws/tap azure/bicep || true
 
             echo "Using brew to install ninja"
@@ -625,7 +626,7 @@ jobs:
 
     - name: Archive binary artifacts
       if: env.IS_FORK_PR != 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       # build/_CPack_Packages/win64/IFW/*.exe
       # build/_CPack_Packages/Linux/DEB/*.deb
       # build/_CPack_Packages/Darwin/IFW/*.dmg
@@ -635,7 +636,7 @@ jobs:
 
     - name: Archive TGZ or ZIP artifacts
       if: env.IS_FORK_PR != 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
         path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
@@ -654,7 +655,7 @@ jobs:
 
     - name: Upload otool info as artifact
       if: runner.os == 'macOS' && env.IS_FORK_PR != 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: otool_infos_cpack_${{ matrix.os }}_${{ matrix.arch }}
         path: build/otool*json
@@ -678,7 +679,7 @@ jobs:
 
     - name: Archive test results?
       if: env.IS_FORK_PR != 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-Test.xml
         path: build/Testing/**/*.xml
@@ -701,7 +702,7 @@ jobs:
 
     - name: Archive benchmark results?
       if: env.IS_FORK_PR != 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}-bench_results.csv
         path: build/bench_results_*.csv
@@ -773,13 +774,13 @@ jobs:
         path: checkout
 
     #- name: Gather Test Package from Artifacts
-    #  uses: actions/download-artifact@v4
+    #  uses: actions/download-artifact@v5
     #  with:
     #    name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.COMPRESSED_EXT }}
     #    path: package
 
     - name: Gather Dmg Package from Artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v5
       with:
         name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.BINARY_EXT }}
         path: dmg
@@ -834,7 +835,7 @@ jobs:
         hdiutil detach ./temp_mount/
 
     - name: Upload otool info as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: otool_info_dmg_${{ matrix.os }}_${{ matrix.arch }}
         path: dmg/otool*json
