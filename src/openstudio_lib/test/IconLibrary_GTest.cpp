@@ -213,3 +213,52 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
     EXPECT_TRUE(pixmap) << "Could not find mini-icon for IddObjectType = '" << iddObjectType.valueName() << "'";
   }
 }
+
+TEST_F(OpenStudioLibFixture, IconLibrary_PlantLoopHeatPumps) {
+  // findIcon/findMiniIcon fall back to the Catchall "missing icon" rather than returning null, so
+  // check the plant loop heat pump types are actually mapped and their images load
+  const std::vector<IddObjectType> iddObjectTypes{
+    IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating,
+    IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling,
+    IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating,
+    IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling,
+    IddObjectType::OS_HeatPump_AirToWater,
+    IddObjectType::OS_HeatPump_AirToWater_Heating,
+    IddObjectType::OS_HeatPump_AirToWater_Cooling,
+  };
+  const QPixmap* missingIcon = IconLibrary::Instance().findIcon(IddObjectType(IddObjectType::Catchall).value());
+  const QPixmap* missingMiniIcon = IconLibrary::Instance().findMiniIcon(IddObjectType(IddObjectType::Catchall).value());
+
+  for (const IddObjectType& iddObjectType : iddObjectTypes) {
+    const QPixmap* icon = IconLibrary::Instance().findIcon(iddObjectType.value());
+    EXPECT_NE(missingIcon, icon) << "No icon mapped for IddObjectType = '" << iddObjectType.valueName() << "'";
+    EXPECT_FALSE(icon->isNull()) << "Icon failed to load for IddObjectType = '" << iddObjectType.valueName() << "'";
+
+    const QPixmap* miniIcon = IconLibrary::Instance().findMiniIcon(iddObjectType.value());
+    EXPECT_NE(missingMiniIcon, miniIcon) << "No mini-icon mapped for IddObjectType = '" << iddObjectType.valueName() << "'";
+    EXPECT_FALSE(miniIcon->isNull()) << "Mini-icon failed to load for IddObjectType = '" << iddObjectType.valueName() << "'";
+  }
+}
+
+TEST_F(OpenStudioLibFixture, IconLibrary_PlantLoopHeatPumpsDistinct) {
+  auto icon = [](IddObjectType t) { return IconLibrary::Instance().findIcon(t.value())->toImage(); };
+  auto miniIcon = [](IddObjectType t) { return IconLibrary::Instance().findMiniIcon(t.value())->toImage(); };
+
+  // HeatPumpAirToWater and its operation modes are one physical unit, so they share one icon
+  for (const IddObjectType& mode :
+       {IddObjectType(IddObjectType::OS_HeatPump_AirToWater_Heating), IddObjectType(IddObjectType::OS_HeatPump_AirToWater_Cooling)}) {
+    EXPECT_EQ(icon(IddObjectType::OS_HeatPump_AirToWater), icon(mode)) << mode.valueName();
+    EXPECT_EQ(miniIcon(IddObjectType::OS_HeatPump_AirToWater), miniIcon(mode)) << mode.valueName();
+  }
+
+  // Each heating / cooling pair must be told apart
+  const std::vector<std::pair<IddObjectType, IddObjectType>> pairs{
+    {IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling},
+    {IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating, IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling},
+    {IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating, IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling},
+  };
+  for (const auto& [heating, cooling] : pairs) {
+    EXPECT_NE(icon(heating), icon(cooling)) << heating.valueName();
+    EXPECT_NE(miniIcon(heating), miniIcon(cooling)) << heating.valueName();
+  }
+}

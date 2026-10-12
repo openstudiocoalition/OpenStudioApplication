@@ -12,6 +12,8 @@ set(${target_name}_src
   RemoteBCLNLR.cpp
   CloneFixup.hpp
   CloneFixup.cpp
+  HeatPumpAirToWaterPlacement.hpp
+  HeatPumpAirToWaterPlacement.cpp
 )
 
 # set up groups of source files for Visual Studio
@@ -20,6 +22,7 @@ source_group(${target_name} FILES ${target_name}_src)
 set(${target_name}_test_src
   test/OpenStudioApplicationPathHelpers_GTest.cpp
   test/CloneFixup_GTest.cpp
+  test/HeatPumpAirToWaterPlacement_GTest.cpp
 )
 
 set(${target_name}_depends

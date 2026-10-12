@@ -170,6 +170,19 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/heatpump_watertowater_equationfit_cooling.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating).value()] =
     new QPixmap(":/images/heatpump_watertowater_equationfit_heating.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling).value()] =
+    new QPixmap(":/images/heatpump_plantloop_eir_cooling.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating).value()] =
+    new QPixmap(":/images/heatpump_plantloop_eir_heating.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling).value()] =
+    new QPixmap(":/images/heatpump_airtowater_fuelfired_cooling.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating).value()] =
+    new QPixmap(":/images/heatpump_airtowater_fuelfired_heating.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater).value()] = new QPixmap(":/images/heatpump_airtowater.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_Cooling).value()] =
+    new QPixmap(":/images/heatpump_airtowater.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_Heating).value()] =
+    new QPixmap(":/images/heatpump_airtowater.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Humidifier_Steam_Electric).value()] =
     new QPixmap(":/images/electric_humidifier.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Humidifier_Steam_Gas).value()] = new QPixmap(":/images/gas_humidifier.png");
@@ -624,6 +637,20 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/heatpump_watertowater_equationfit_cooling.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating).value()] =
     new QPixmap(":/images/mini_icons/heatpump_watertowater_equationfit_heating.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_plantloop_eir_cooling.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_plantloop_eir_heating.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_airtowater_fuelfired_cooling.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_airtowater_fuelfired_heating.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_airtowater.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_Cooling).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_airtowater.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatPump_AirToWater_Heating).value()] =
+    new QPixmap(":/images/mini_icons/heatpump_airtowater.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_LoadProfile_Plant).value()] =
     new QPixmap(":/images/mini_icons/mini_plant_profile.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Pipe_Adiabatic).value()] = new QPixmap(":/images/mini_icons/pipe.png");
