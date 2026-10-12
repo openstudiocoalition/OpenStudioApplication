@@ -25598,16 +25598,6 @@ Se vuoi vedere OpenStudioApplication tradotto nel tuo linguaggio preferito, appr
         <translation>Pompa di Calore - Aria-Acqua</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
-        <source>Heat Pump - Air to Water - Heating Mode</source>
-        <translation>Pompa di Calore - Aria-Acqua - Modalità Riscaldamento</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
-        <source>Heat Pump - Air to Water - Cooling Mode</source>
-        <translation>Pompa di Calore - Aria-Acqua - Modalità Raffreddamento</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>

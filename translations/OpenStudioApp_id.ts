@@ -25648,16 +25648,6 @@ Jika Anda ingin melihat OpenStudio Application diterjemahkan ke bahasa pilihan A
         <translation>Pompa Panas - Udara ke Air</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
-        <source>Heat Pump - Air to Water - Heating Mode</source>
-        <translation>Pompa Panas - Udara ke Air - Mode Pemanasan</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
-        <source>Heat Pump - Air to Water - Cooling Mode</source>
-        <translation>Pompa Panas - Udara ke Air - Mode Pendinginan</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>

@@ -34,6 +34,16 @@ boost::optional<HeatPumpAirToWaterMode> suggestedHeatPumpAirToWaterMode(const mo
 /// model unchanged, if the wrapper has no such mode or the mode cannot be added at `target`.
 bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, HeatPumpAirToWaterMode mode, const model::HVACComponent& target);
 
+/// If `modelObject` is a HeatPumpAirToWater heating or cooling operation mode that belongs to a wrapper,
+/// returns that wrapper; otherwise none.
+boost::optional<model::HeatPumpAirToWater> heatPumpAirToWaterForMode(const model::ModelObject& modelObject);
+
+/// A mode owned by a wrapper can't be removed on its own (isRemovable() is false), so deleting it from a loop
+/// disconnects it instead, leaving the wrapper and its other mode intact. Once neither mode is on a loop, the
+/// wrapper is removed together with both modes and their speed data, since the GUI has no other way to delete it.
+/// Returns true if `modelObject` is such a mode; false for anything else, which should be removed as usual.
+bool removeHeatPumpAirToWaterModeFromLoop(const model::ModelObject& modelObject);
+
 }  // namespace openstudio
 
 #endif  // OSAPP_UTILITIES_HEATPUMPAIRTOWATERPLACEMENT_HPP

@@ -25601,16 +25601,6 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>Αντλία Θερμότητας - Αέρα-Νερού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
-        <source>Heat Pump - Air to Water - Heating Mode</source>
-        <translation>Αντλία Θερμότητας - Αέρα-Νερού - Λειτουργία Θέρμανσης</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
-        <source>Heat Pump - Air to Water - Cooling Mode</source>
-        <translation>Αντλία Θερμότητας - Αέρα-Νερού - Λειτουργία Ψύξης</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>

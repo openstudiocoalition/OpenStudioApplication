@@ -25621,16 +25621,6 @@ Se gostaria de ver o OpenStudio Application traduzido para o seu idioma preferid
         <translation>Bomba de Calor - Ar para Água</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
-        <source>Heat Pump - Air to Water - Heating Mode</source>
-        <translation>Bomba de Calor - Ar para Água - Modo Aquecimento</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
-        <source>Heat Pump - Air to Water - Cooling Mode</source>
-        <translation>Bomba de Calor - Ar para Água - Modo Resfriamento</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>
