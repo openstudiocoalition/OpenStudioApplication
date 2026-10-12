@@ -23305,6 +23305,34 @@ Story</translation>
     </message>
 </context>
 <context>
+    <name>openstudio::HVACLayoutController</name>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="159"/>
+        <source>Air to Water Heat Pump</source>
+        <translation>Pompa di Calore Aria-Acqua</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="160"/>
+        <source>Which operation mode of this air to water heat pump should be placed on this loop?</source>
+        <translation>Quale modalità di funzionamento di questa pompa di calore aria-acqua deve essere inserita in questo circuito?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="162"/>
+        <source>The other mode can be placed on another plant loop later by dragging it from the My Model tab.</source>
+        <translation>L&apos;altra modalità può essere inserita in seguito in un altro circuito idronico trascinandola dalla scheda Il mio modello.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="165"/>
+        <source>Heating</source>
+        <translation>Riscaldamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="167"/>
+        <source>Cooling</source>
+        <translation>Raffreddamento</translation>
+    </message>
+</context>
+<context>
     <name>openstudio::HVACPlantLoopControlsView</name>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452"/>
@@ -25235,10 +25263,10 @@ Se vuoi vedere OpenStudioApplication tradotto nel tuo linguaggio preferito, appr
         <translation>Serpentini</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172"/>
-        <source>Heat Pumps</source>
-        <translation>Pompe di Calore</translation>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184"/>
+        <source>Plant Loop Heat Pumps</source>
+        <translation>Pompe di Calore per Circuito Idronico</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053"/>
@@ -25538,6 +25566,36 @@ Se vuoi vedere OpenStudioApplication tradotto nel tuo linguaggio preferito, appr
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171"/>
         <source>Heat Pump - Water to Water - Cooling</source>
         <translation>Pompa di Calore - Acqua-Acqua - Raffreddamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1176"/>
+        <source>Heat Pump - Plant Loop EIR - Heating</source>
+        <translation>Pompa di Calore - Circuito Idronico EIR - Riscaldamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
+        <source>Heat Pump - Plant Loop EIR - Cooling</source>
+        <translation>Pompa di Calore - Circuito Idronico EIR - Raffreddamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
+        <source>Heat Pump - Air to Water Fuel Fired - Heating</source>
+        <translation>Pompa di Calore - Aria-Acqua a Combustibile - Riscaldamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179"/>
+        <source>Heat Pump - Air to Water Fuel Fired - Cooling</source>
+        <translation>Pompa di Calore - Aria-Acqua a Combustibile - Raffreddamento</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183"/>
+        <source>Heat Pump - Air to Water</source>
+        <translation>Pompa di Calore - Aria-Acqua</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>

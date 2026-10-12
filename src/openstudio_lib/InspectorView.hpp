@@ -806,6 +806,25 @@ class ScheduleRulesetInspectorView : public BaseInspectorView
   virtual void layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
+// For a HeatPumpAirToWater heating or cooling operation mode: shows the owning HeatPumpAirToWater first,
+// then the selected mode, since the two are edited as one piece of equipment
+class HeatPumpAirToWaterModeInspectorView : public BaseInspectorView
+{
+  Q_OBJECT;
+
+ public:
+  explicit HeatPumpAirToWaterModeInspectorView(QWidget* parent = nullptr);
+
+  virtual ~HeatPumpAirToWaterModeInspectorView() {}
+
+  void layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
+
+ private:
+  QVBoxLayout* m_gadgetsLayout;
+  EMSInspectorView* m_emsActuatorView;
+  EMSInspectorView* m_emsSensorView;
+};
+
 }  // namespace openstudio
 
 #endif  // OPENSTUDIO_INSPECTORVIEW_HPP

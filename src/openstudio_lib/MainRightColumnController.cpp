@@ -1047,15 +1047,20 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->addModelObjectCategoryPlaceholder(tr("Zone HVAC"));
 
   // Central components and coils
-  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, tr("Heat Pump - Water to Water - Heating"));
-  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, tr("Heat Pump - Water to Water - Cooling"));
   myModelList->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, tr("Heat Exchanger Fluid To Fluid"));
   myModelList->addModelObjectCategoryPlaceholder(tr("Heat Exchangers"));
   myModelList->addModelObjectType(IddObjectType::OS_Coil_Heating_Water, tr("Coil Heating Water"));
   myModelList->addModelObjectType(IddObjectType::OS_Coil_Cooling_Water, tr("Coil Cooling Water"));
   myModelList->addModelObjectCategoryPlaceholder(tr("Coils"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, tr("Heat Pump - Water to Water - Heating"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, tr("Heat Pump - Water to Water - Cooling"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating, tr("Heat Pump - Plant Loop EIR - Heating"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling, tr("Heat Pump - Plant Loop EIR - Cooling"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating, tr("Heat Pump - Air to Water Fuel Fired - Heating"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling, tr("Heat Pump - Air to Water Fuel Fired - Cooling"));
+  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater, tr("Heat Pump - Air to Water"));
   myModelList->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, tr("Central Heat Pump System"));
-  myModelList->addModelObjectCategoryPlaceholder(tr("Heat Pumps"));
+  myModelList->addModelObjectCategoryPlaceholder(tr("Plant Loop Heat Pumps"));
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Electric_EIR, tr("Chiller - Electric EIR"));
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Absorption, tr("Chiller - Absorption"));
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Absorption_Indirect, tr("Chiller - Indirect Absorption"));
@@ -1169,7 +1174,12 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectCategoryPlaceholder(tr("Humidifiers"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, tr("Heat Pump - Water to Water - Heating"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, tr("Heat Pump - Water to Water - Cooling"));
-  libraryWidget->addModelObjectCategoryPlaceholder(tr("Heat Pumps"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_PlantLoop_EIR_Heating, tr("Heat Pump - Plant Loop EIR - Heating"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_PlantLoop_EIR_Cooling, tr("Heat Pump - Plant Loop EIR - Cooling"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating, tr("Heat Pump - Air to Water Fuel Fired - Heating"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling, tr("Heat Pump - Air to Water Fuel Fired - Cooling"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater, tr("Heat Pump - Air to Water"));
+  libraryWidget->addModelObjectCategoryPlaceholder(tr("Plant Loop Heat Pumps"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, tr("Heat Exchanger Fluid To Fluid"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_AirToAir_SensibleAndLatent, tr("Heat Exchanger Air To Air Sensible and Latent"));
   libraryWidget->addModelObjectCategoryPlaceholder(tr("Heat Exchangers"));

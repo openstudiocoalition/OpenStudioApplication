@@ -23,10 +23,13 @@
 #include "MainRightColumnController.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../utilities/CloneFixup.hpp"
+#include "../utilities/HeatPumpAirToWaterPlacement.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/HeatPumpAirToWater.hpp>
+#include <openstudio/model/HeatPumpAirToWater_Impl.hpp>
 #include <openstudio/model/WaterHeaterMixed.hpp>
 #include <openstudio/model/WaterHeaterMixed_Impl.hpp>
 #include <openstudio/model/WaterHeaterSizing.hpp>
@@ -131,6 +134,7 @@
 
 #include <map>
 
+#include <QCoreApplication>
 #include <QMessageBox>
 #include <QTimer>
 #include <QPushButton>
@@ -146,6 +150,40 @@ namespace openstudio {
 const QString SHW = "SHW";
 const QString REFRIGERATION = "REFRIGERATION";
 const QString VRF = "VRF";
+
+namespace {
+// Asks which of a HeatPumpAirToWater's operation modes to place on `plantLoop`, preselecting the one
+// suggested by the loop's sizing type. Returns none if the user cancels.
+boost::optional<HeatPumpAirToWaterMode> askHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop, QWidget* parent) {
+  QMessageBox message(parent);
+  message.setWindowTitle(QCoreApplication::translate("openstudio::HVACLayoutController", "Air to Water Heat Pump"));
+  message.setText(QCoreApplication::translate("openstudio::HVACLayoutController",
+                                              "Which operation mode of this air to water heat pump should be placed on this loop?"));
+  message.setInformativeText(QCoreApplication::translate(
+    "openstudio::HVACLayoutController", "The other mode can be placed on another plant loop later by dragging it from the My Model tab."));
+  QAbstractButton* heatingButton =
+    message.addButton(QCoreApplication::translate("openstudio::HVACLayoutController", "Heating"), QMessageBox::AcceptRole);
+  QAbstractButton* coolingButton =
+    message.addButton(QCoreApplication::translate("openstudio::HVACLayoutController", "Cooling"), QMessageBox::AcceptRole);
+  message.addButton(QMessageBox::Cancel);
+
+  const auto suggested = suggestedHeatPumpAirToWaterMode(plantLoop);
+  if (suggested && suggested.get() == HeatPumpAirToWaterMode::Cooling) {
+    message.setDefaultButton(qobject_cast<QPushButton*>(coolingButton));
+  } else {
+    message.setDefaultButton(qobject_cast<QPushButton*>(heatingButton));
+  }
+
+  message.exec();
+  if (message.clickedButton() == heatingButton) {
+    return HeatPumpAirToWaterMode::Heating;
+  }
+  if (message.clickedButton() == coolingButton) {
+    return HeatPumpAirToWaterMode::Cooling;
+  }
+  return boost::none;
+}
+}  // namespace
 
 HVACSystemsController::HVACSystemsController(bool isIP, const model::Model& model)
   : m_hvacSystemsView(new HVACSystemsView()), m_updateMutex(new QMutex()), m_model(model), m_isIP(isIP) {
@@ -554,7 +592,19 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
 
   bool added = false;
 
-  if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
+  if (boost::optional<model::HeatPumpAirToWater> heatPump = object->optionalCast<model::HeatPumpAirToWater>()) {
+    // The wrapper can't be placed on a loop itself: one of its heating/cooling operation modes goes there instead
+    if (boost::optional<model::PlantLoop> plant = comp.plantLoop()) {
+      boost::optional<HeatPumpAirToWaterMode> mode = askHeatPumpAirToWaterMode(plant.get(), m_hvacSystemsController->hvacSystemsView());
+      if (!mode) {
+        if (remove) {
+          object->remove();
+        }
+        return;
+      }
+      added = addHeatPumpAirToWaterModeToLoop(heatPump.get(), mode.get(), comp);
+    }
+  } else if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
     if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
       // Note: Julien Marrec, 2018-01-04
       // When you have a WaterToWaterComponent that has a tertiaryPlantLoop, you should override the addToNode method
@@ -633,6 +683,10 @@ void HVACLayoutController::removeModelObject(model::ModelObject& modelObject) {
   OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectModelObject(mo, false);
 
   boost::optional<model::Loop> loop = m_hvacSystemsController->currentLoop();
+
+  if (removeHeatPumpAirToWaterModeFromLoop(modelObject)) {
+    return;
+  }
 
   if (loop) {
     if (boost::optional<model::WaterToWaterComponent> comp = modelObject.optionalCast<model::WaterToWaterComponent>()) {
