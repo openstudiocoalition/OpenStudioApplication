@@ -684,6 +684,10 @@ void HVACLayoutController::removeModelObject(model::ModelObject& modelObject) {
 
   boost::optional<model::Loop> loop = m_hvacSystemsController->currentLoop();
 
+  if (removeHeatPumpAirToWaterModeFromLoop(modelObject)) {
+    return;
+  }
+
   if (loop) {
     if (boost::optional<model::WaterToWaterComponent> comp = modelObject.optionalCast<model::WaterToWaterComponent>()) {
       boost::optional<model::PlantLoop> plant = comp->plantLoop();

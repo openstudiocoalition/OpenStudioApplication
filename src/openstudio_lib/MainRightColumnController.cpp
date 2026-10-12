@@ -1059,8 +1059,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating, tr("Heat Pump - Air to Water Fuel Fired - Heating"));
   myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling, tr("Heat Pump - Air to Water Fuel Fired - Cooling"));
   myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater, tr("Heat Pump - Air to Water"));
-  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_Heating, tr("Heat Pump - Air to Water - Heating Mode"));
-  myModelList->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_Cooling, tr("Heat Pump - Air to Water - Cooling Mode"));
   myModelList->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, tr("Central Heat Pump System"));
   myModelList->addModelObjectCategoryPlaceholder(tr("Plant Loop Heat Pumps"));
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Electric_EIR, tr("Chiller - Electric EIR"));

@@ -15,6 +15,8 @@
 #include <openstudio/model/HeatPumpAirToWaterCooling_Impl.hpp>
 #include <openstudio/model/HeatPumpAirToWaterHeating.hpp>
 #include <openstudio/model/HeatPumpAirToWaterHeating_Impl.hpp>
+#include <openstudio/model/HeatPumpAirToWaterHeatingSpeedData.hpp>
+#include <openstudio/model/HeatPumpAirToWaterHeatingSpeedData_Impl.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Node.hpp>
 #include <openstudio/model/Node_Impl.hpp>
@@ -128,4 +130,84 @@ TEST(HeatPumpAirToWaterPlacement, NonNodeNonSplitterTargetIsRejected) {
 
   EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Heating, boiler));
   EXPECT_FALSE(heatPump.heatingLoop());
+}
+
+TEST(HeatPumpAirToWaterPlacement, ModeFindsItsWrapper) {
+  Model model;
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+
+  auto heatingWrapper = heatPumpAirToWaterForMode(heatPump.heatingOperationMode().get());
+  ASSERT_TRUE(heatingWrapper);
+  EXPECT_EQ(heatPump.handle(), heatingWrapper->handle());
+
+  auto coolingWrapper = heatPumpAirToWaterForMode(heatPump.coolingOperationMode().get());
+  ASSERT_TRUE(coolingWrapper);
+  EXPECT_EQ(heatPump.handle(), coolingWrapper->handle());
+
+  // The wrapper itself, an orphaned mode, and unrelated objects have no wrapper
+  EXPECT_FALSE(heatPumpAirToWaterForMode(heatPump));
+  HeatPumpAirToWaterHeating orphan(model);
+  EXPECT_FALSE(heatPumpAirToWaterForMode(orphan));
+  BoilerHotWater boiler(model);
+  EXPECT_FALSE(heatPumpAirToWaterForMode(boiler));
+}
+
+TEST(HeatPumpAirToWaterPlacement, RemovingFirstModeDisconnectsItFromItsLoopOnly) {
+  Model model;
+  PlantLoop hotWaterLoop(model);
+  PlantLoop chilledWaterLoop(model);
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+  HeatPumpAirToWaterHeating heating = heatPump.heatingOperationMode().get();
+  HeatPumpAirToWaterCooling cooling = heatPump.coolingOperationMode().get();
+  ASSERT_TRUE(hotWaterLoop.addSupplyBranchForComponent(heating));
+  ASSERT_TRUE(chilledWaterLoop.addSupplyBranchForComponent(cooling));
+
+  EXPECT_TRUE(removeHeatPumpAirToWaterModeFromLoop(heating));
+  EXPECT_FALSE(heating.plantLoop());
+  EXPECT_TRUE(cooling.plantLoop());
+  // The mode stays in the model, still attached to its wrapper
+  ASSERT_TRUE(heatPump.heatingOperationMode());
+  EXPECT_EQ(heating.handle(), heatPump.heatingOperationMode()->handle());
+
+  // Anything else is left for the normal removal
+  BoilerHotWater boiler(model);
+  EXPECT_FALSE(removeHeatPumpAirToWaterModeFromLoop(boiler));
+  EXPECT_FALSE(removeHeatPumpAirToWaterModeFromLoop(heatPump));
+  EXPECT_FALSE(boiler.handle().isNull());
+  EXPECT_FALSE(heatPump.handle().isNull());
+}
+
+TEST(HeatPumpAirToWaterPlacement, RemovingLastModeOnALoopRemovesTheWholeUnit) {
+  Model model;
+  PlantLoop hotWaterLoop(model);
+  PlantLoop chilledWaterLoop(model);
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+  HeatPumpAirToWaterHeating heating = heatPump.heatingOperationMode().get();
+  HeatPumpAirToWaterCooling cooling = heatPump.coolingOperationMode().get();
+  ASSERT_TRUE(heating.addSpeed(HeatPumpAirToWaterHeatingSpeedData(model)));
+  ASSERT_TRUE(hotWaterLoop.addSupplyBranchForComponent(heating));
+  ASSERT_TRUE(chilledWaterLoop.addSupplyBranchForComponent(cooling));
+
+  EXPECT_TRUE(removeHeatPumpAirToWaterModeFromLoop(cooling));
+  EXPECT_FALSE(heatPump.handle().isNull());
+  EXPECT_TRUE(removeHeatPumpAirToWaterModeFromLoop(heating));
+
+  EXPECT_TRUE(heatPump.handle().isNull());
+  EXPECT_TRUE(heating.handle().isNull());
+  EXPECT_TRUE(cooling.handle().isNull());
+  EXPECT_TRUE(model.getConcreteModelObjects<HeatPumpAirToWaterHeatingSpeedData>().empty());
+  EXPECT_FALSE(hotWaterLoop.handle().isNull());
+  EXPECT_FALSE(chilledWaterLoop.handle().isNull());
+}
+
+TEST(HeatPumpAirToWaterPlacement, RemovingOnlyPlacedModeRemovesTheWholeUnit) {
+  Model model;
+  PlantLoop hotWaterLoop(model);
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+  HeatPumpAirToWaterHeating heating = heatPump.heatingOperationMode().get();
+  ASSERT_TRUE(hotWaterLoop.addSupplyBranchForComponent(heating));
+
+  EXPECT_TRUE(removeHeatPumpAirToWaterModeFromLoop(heating));
+  EXPECT_TRUE(heatPump.handle().isNull());
+  EXPECT_TRUE(model.getConcreteModelObjects<HeatPumpAirToWaterCooling>().empty());
 }

@@ -25666,16 +25666,6 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
         <translation>Bơm Nhiệt - Không Khí sang Nước</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
-        <source>Heat Pump - Air to Water - Heating Mode</source>
-        <translation>Bơm Nhiệt - Không Khí sang Nước - Chế Độ Sưởi</translation>
-    </message>
-    <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
-        <source>Heat Pump - Air to Water - Cooling Mode</source>
-        <translation>Bơm Nhiệt - Không Khí sang Nước - Chế Độ Làm Lạnh</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>

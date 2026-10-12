@@ -16,6 +16,7 @@
 #include "OSDocument.hpp"
 #include "ZoneChooserView.hpp"
 #include "EMSInspectorView.hpp"
+#include "../utilities/HeatPumpAirToWaterPlacement.hpp"
 
 #include <openstudio/model/AirLoopHVACReturnPlenum.hpp>
 #include <openstudio/model/AirLoopHVACReturnPlenum_Impl.hpp>
@@ -129,6 +130,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QPushButton>
+#include <QScrollArea>
 #include <QTimer>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -593,6 +595,18 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       connect(static_cast<ZoneHVACPackagedTerminalHeatPumpInspectorView*>(m_currentView),
               &ZoneHVACPackagedTerminalHeatPumpInspectorView::removeFromLoopClicked, this, &InspectorView::removeFromLoopClicked);
+    } else if (heatPumpAirToWaterForMode(modelObject.get())) {
+      if (m_currentView) {
+        delete m_currentView;
+      }
+
+      m_currentView = new HeatPumpAirToWaterModeInspectorView();
+      connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
+
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP, displayAdditionalProps);
+
+      m_vLayout->addWidget(m_currentView);
     } else if (boost::optional<model::WaterHeaterHeatPump> component = modelObject->optionalCast<model::WaterHeaterHeatPump>())
 
     {
@@ -904,6 +918,74 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
   }
   m_inspectorGadget->setDisplayAdditionalProps(displayAdditionalProps);
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
+  m_emsActuatorView->layoutModelObject(modelObject);
+  m_emsSensorView->layoutModelObject(modelObject);
+}
+
+namespace {
+
+// An InspectorGadget without its own scroll area, so several can be stacked in one scrolling page
+class StackedInspectorGadget : public InspectorGadget
+{
+ public:
+  StackedInspectorGadget(openstudio::WorkspaceObject& workspaceObj, bool locked)
+    : InspectorGadget(workspaceObj, 0, nullptr, false, true, true, locked) {}
+};
+
+}  // namespace
+
+HeatPumpAirToWaterModeInspectorView::HeatPumpAirToWaterModeInspectorView(QWidget* parent) : BaseInspectorView(parent) {
+  auto* scrollArea = new QScrollArea();
+  scrollArea->setWidgetResizable(true);
+  scrollArea->setFrameStyle(QFrame::NoFrame);
+
+  auto* gadgetsWidget = new QWidget();
+  m_gadgetsLayout = new QVBoxLayout(gadgetsWidget);
+  m_gadgetsLayout->setSpacing(0);
+  m_gadgetsLayout->setContentsMargins(0, 0, 0, 0);
+  m_gadgetsLayout->addStretch();
+  scrollArea->setWidget(gadgetsWidget);
+
+  m_libraryTabWidget->addTab(scrollArea, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
+
+  m_emsActuatorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::ACTUATOR);
+  m_libraryTabWidget->addTab(m_emsActuatorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
+
+  m_emsSensorView = new EMSInspectorView(nullptr, EMSInspectorView::Type::SENSOR);
+  m_libraryTabWidget->addTab(m_emsSensorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
+}
+
+void HeatPumpAirToWaterModeInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                            bool displayAdditionalProps) {
+  const bool force = true;
+  const bool recursive = true;
+  int insertIndex = 0;
+
+  auto addGadget = [&](model::ModelObject object, bool hideChildren) {
+    auto* gadget = new StackedInspectorGadget(object, readOnly);
+    // The gadget lays the object out in IP without additional properties when constructed; each change below rebuilds it
+    if (!displayIP) {
+      gadget->setUnitSystem(InspectorGadget::SI);
+    }
+    if (displayAdditionalProps) {
+      gadget->setDisplayAdditionalProps(true);
+    }
+    if (hideChildren) {
+      gadget->layoutModelObj(object, force, recursive, readOnly, hideChildren);
+    }
+    connect(this, &HeatPumpAirToWaterModeInspectorView::toggleUnitsClicked, gadget, &InspectorGadget::toggleUnitsClicked);
+    connect(this, &HeatPumpAirToWaterModeInspectorView::toggleDisplayAdditionalPropsClicked, gadget,
+            &InspectorGadget::toggleDisplayAdditionalPropsClicked);
+    connect(gadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
+    m_gadgetsLayout->insertWidget(insertIndex++, gadget);
+  };
+
+  // The wrapper's own children are both operation modes, so hide them and show only the selected mode
+  if (boost::optional<model::HeatPumpAirToWater> heatPump = heatPumpAirToWaterForMode(modelObject)) {
+    addGadget(heatPump.get(), true);
+  }
+  addGadget(modelObject, false);
+
   m_emsActuatorView->layoutModelObject(modelObject);
   m_emsSensorView->layoutModelObject(modelObject);
 }
