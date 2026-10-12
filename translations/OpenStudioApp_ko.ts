@@ -23408,6 +23408,34 @@ Story를 여기에 놓기
     </message>
 </context>
 <context>
+    <name>openstudio::HVACLayoutController</name>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="159"/>
+        <source>Air to Water Heat Pump</source>
+        <translation>공기-물 히트펌프</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="160"/>
+        <source>Which operation mode of this air to water heat pump should be placed on this loop?</source>
+        <translation>이 공기-물 히트펌프의 어떤 운전 모드를 이 루프에 배치하시겠습니까?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="162"/>
+        <source>The other mode can be placed on another plant loop later by dragging it from the My Model tab.</source>
+        <translation>다른 모드는 나중에 내 모델 탭에서 끌어서 다른 플랜트 루프에 배치할 수 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="165"/>
+        <source>Heating</source>
+        <translation>난방</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="167"/>
+        <source>Cooling</source>
+        <translation>냉방</translation>
+    </message>
+</context>
+<context>
     <name>openstudio::HVACPlantLoopControlsView</name>
     <message>
         <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452"/>
@@ -25344,10 +25372,10 @@ OpenStudio Application이 선택하신 언어로 번역되기를 원하신다면
         <translation>코일</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172"/>
-        <source>Heat Pumps</source>
-        <translation>히트펌프</translation>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184"/>
+        <source>Plant Loop Heat Pumps</source>
+        <translation>플랜트 루프 히트펌프</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053"/>
@@ -25647,6 +25675,46 @@ OpenStudio Application이 선택하신 언어로 번역되기를 원하신다면
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171"/>
         <source>Heat Pump - Water to Water - Cooling</source>
         <translation>히트펌프 - 물-물 - 냉각</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1176"/>
+        <source>Heat Pump - Plant Loop EIR - Heating</source>
+        <translation>히트펌프 - 플랜트 루프 EIR - 난방</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
+        <source>Heat Pump - Plant Loop EIR - Cooling</source>
+        <translation>히트펌프 - 플랜트 루프 EIR - 냉방</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
+        <source>Heat Pump - Air to Water Fuel Fired - Heating</source>
+        <translation>히트펌프 - 공기-물 연료 연소식 - 난방</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179"/>
+        <source>Heat Pump - Air to Water Fuel Fired - Cooling</source>
+        <translation>히트펌프 - 공기-물 연료 연소식 - 냉방</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183"/>
+        <source>Heat Pump - Air to Water</source>
+        <translation>히트펌프 - 공기-물</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
+        <source>Heat Pump - Air to Water - Heating Mode</source>
+        <translation>히트펌프 - 공기-물 - 난방 모드</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1063"/>
+        <source>Heat Pump - Air to Water - Cooling Mode</source>
+        <translation>히트펌프 - 공기-물 - 냉방 모드</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
