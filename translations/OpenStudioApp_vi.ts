@@ -25459,11 +25459,6 @@ Nếu bạn muốn thấy OpenStudioApplication được dịch sang ngôn ngữ
         <translation>Tháp làm mát</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Hệ Thống Bơm Nhiệt Trung Tâm</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Lò hơi</translation>

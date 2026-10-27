@@ -25391,11 +25391,6 @@ Se vuoi vedere OpenStudioApplication tradotto nel tuo linguaggio preferito, appr
         <translation>Torri di Raffreddamento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Sistemi di Pompe di Calore Centralizzati</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Caldaie</translation>

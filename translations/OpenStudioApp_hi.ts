@@ -25868,11 +25868,6 @@ or more descriptively:
         <translation>शीतलन टावर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>केंद्रीय ताप पंप प्रणालियाँ</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>बॉयलर</translation>

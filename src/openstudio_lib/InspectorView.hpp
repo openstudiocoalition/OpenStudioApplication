@@ -807,7 +807,7 @@ class ScheduleRulesetInspectorView : public BaseInspectorView
 };
 
 // For a HeatPumpAirToWater heating or cooling operation mode: shows the owning HeatPumpAirToWater first,
-// then the selected mode, since the two are edited as one piece of equipment
+// then the selected mode, then the other mode, since all three are edited as one piece of equipment
 class HeatPumpAirToWaterModeInspectorView : public BaseInspectorView
 {
   Q_OBJECT;

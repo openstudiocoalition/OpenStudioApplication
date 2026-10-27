@@ -25419,11 +25419,6 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>Rückkühlwerke</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Zentrale Wärmepumpensysteme</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Kessel</translation>

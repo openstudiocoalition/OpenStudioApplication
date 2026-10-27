@@ -154,7 +154,7 @@ const QString VRF = "VRF";
 namespace {
 // Asks which of a HeatPumpAirToWater's operation modes to place on `plantLoop`, preselecting the one
 // suggested by the loop's sizing type. Returns none if the user cancels.
-boost::optional<HeatPumpAirToWaterMode> askHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop, QWidget* parent) {
+boost::optional<HeatPumpAirToWaterType> askHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop, QWidget* parent) {
   QMessageBox message(parent);
   message.setWindowTitle(QCoreApplication::translate("openstudio::HVACLayoutController", "Air to Water Heat Pump"));
   message.setText(QCoreApplication::translate("openstudio::HVACLayoutController",
@@ -168,7 +168,7 @@ boost::optional<HeatPumpAirToWaterMode> askHeatPumpAirToWaterMode(const model::P
   message.addButton(QMessageBox::Cancel);
 
   const auto suggested = suggestedHeatPumpAirToWaterMode(plantLoop);
-  if (suggested && suggested.get() == HeatPumpAirToWaterMode::Cooling) {
+  if (suggested && suggested.get() == HeatPumpAirToWaterType::Cooling) {
     message.setDefaultButton(qobject_cast<QPushButton*>(coolingButton));
   } else {
     message.setDefaultButton(qobject_cast<QPushButton*>(heatingButton));
@@ -176,10 +176,10 @@ boost::optional<HeatPumpAirToWaterMode> askHeatPumpAirToWaterMode(const model::P
 
   message.exec();
   if (message.clickedButton() == heatingButton) {
-    return HeatPumpAirToWaterMode::Heating;
+    return HeatPumpAirToWaterType::Heating;
   }
   if (message.clickedButton() == coolingButton) {
-    return HeatPumpAirToWaterMode::Cooling;
+    return HeatPumpAirToWaterType::Cooling;
   }
   return boost::none;
 }
@@ -595,7 +595,7 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
   if (boost::optional<model::HeatPumpAirToWater> heatPump = object->optionalCast<model::HeatPumpAirToWater>()) {
     // The wrapper can't be placed on a loop itself: one of its heating/cooling operation modes goes there instead
     if (boost::optional<model::PlantLoop> plant = comp.plantLoop()) {
-      boost::optional<HeatPumpAirToWaterMode> mode = askHeatPumpAirToWaterMode(plant.get(), m_hvacSystemsController->hvacSystemsView());
+      boost::optional<HeatPumpAirToWaterType> mode = askHeatPumpAirToWaterMode(plant.get(), m_hvacSystemsController->hvacSystemsView());
       if (!mode) {
         if (remove) {
           object->remove();

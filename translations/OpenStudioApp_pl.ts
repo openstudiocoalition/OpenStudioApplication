@@ -25415,11 +25415,6 @@ Jeśli chcesz zobaczyć aplikację OpenStudio przetłumaczoną na wybrany przez 
         <translation>Wieże chłodnicze</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Centralne Systemy Pomp Ciepła</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Kotły</translation>

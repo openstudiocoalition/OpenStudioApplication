@@ -1179,6 +1179,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Heating, tr("Heat Pump - Air to Water Fuel Fired - Heating"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater_FuelFired_Cooling, tr("Heat Pump - Air to Water Fuel Fired - Cooling"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_AirToWater, tr("Heat Pump - Air to Water"));
+  libraryWidget->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, tr("Central Heat Pump System"));
   libraryWidget->addModelObjectCategoryPlaceholder(tr("Plant Loop Heat Pumps"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, tr("Heat Exchanger Fluid To Fluid"));
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_AirToAir_SensibleAndLatent, tr("Heat Exchanger Air To Air Sensible and Latent"));
@@ -1220,8 +1221,6 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_SingleSpeed, tr("Cooling Tower Single Speed"));
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_VariableSpeed, tr("Cooling Tower Variable Speed"));
   libraryWidget->addModelObjectCategoryPlaceholder(tr("Cooling Towers"));
-  libraryWidget->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, tr("Central Heat Pump System"));
-  libraryWidget->addModelObjectCategoryPlaceholder(tr("Central Heat Pump Systems"));
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Electric_EIR, tr("Chiller - Electric EIR"));
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Absorption_Indirect, tr("Chiller - Indirect Absorption"));
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Absorption, tr("Chiller - Absorption"));

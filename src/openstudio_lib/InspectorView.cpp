@@ -76,6 +76,10 @@
 #include <openstudio/model/FanSystemModel_Impl.hpp>
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/HeatPumpAirToWaterCooling.hpp>
+#include <openstudio/model/HeatPumpAirToWaterCooling_Impl.hpp>
+#include <openstudio/model/HeatPumpAirToWaterHeating.hpp>
+#include <openstudio/model/HeatPumpAirToWaterHeating_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/RefrigerationWalkIn.hpp>
 #include <openstudio/model/RefrigerationWalkInZoneBoundary.hpp>
@@ -980,11 +984,24 @@ void HeatPumpAirToWaterModeInspectorView::layoutModelObject(model::ModelObject& 
     m_gadgetsLayout->insertWidget(insertIndex++, gadget);
   };
 
-  // The wrapper's own children are both operation modes, so hide them and show only the selected mode
-  if (boost::optional<model::HeatPumpAirToWater> heatPump = heatPumpAirToWaterForMode(modelObject)) {
+  // The wrapper's own children are both operation modes, so hide them there and show the selected mode right
+  // under the wrapper, followed by the other mode
+  boost::optional<model::HeatPumpAirToWater> heatPump = heatPumpAirToWaterForMode(modelObject);
+  if (heatPump) {
     addGadget(heatPump.get(), true);
   }
   addGadget(modelObject, false);
+  if (heatPump) {
+    boost::optional<model::ModelObject> otherMode;
+    if (heatPumpAirToWaterType(modelObject) == HeatPumpAirToWaterType::Heating) {
+      otherMode = heatPump->coolingOperationMode();
+    } else {
+      otherMode = heatPump->heatingOperationMode();
+    }
+    if (otherMode) {
+      addGadget(otherMode.get(), false);
+    }
+  }
 
   m_emsActuatorView->layoutModelObject(modelObject);
   m_emsSensorView->layoutModelObject(modelObject);

@@ -25414,11 +25414,6 @@ Se gostaria de ver o OpenStudio Application traduzido para o seu idioma preferid
         <translation>Torres de Resfriamento</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Sistemas de Bomba de Calor Central</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Caldeiras</translation>

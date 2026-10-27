@@ -25500,11 +25500,6 @@ OpenStudio Application이 선택하신 언어로 번역되기를 원하신다면
         <translation>냉각탑</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>중앙 열펌프 시스템</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>보일러</translation>

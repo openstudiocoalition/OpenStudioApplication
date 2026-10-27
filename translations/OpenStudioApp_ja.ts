@@ -25403,11 +25403,6 @@ OpenStudio の日本語ローカライゼーションでは **無熱量材料** 
         <translation>冷却塔</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>中央ヒートポンプシステム</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>ボイラー</translation>
