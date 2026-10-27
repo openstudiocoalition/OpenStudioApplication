@@ -19,28 +19,44 @@
 #include <openstudio/model/StraightComponent_Impl.hpp>
 
 #include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 
-boost::optional<HeatPumpAirToWaterMode> suggestedHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop) {
+boost::optional<HeatPumpAirToWaterType> heatPumpAirToWaterType(const model::ModelObject& modelObject) {
+  switch (modelObject.iddObjectType().value()) {
+    case IddObjectType::OS_HeatPump_AirToWater:
+      return HeatPumpAirToWaterType::Wrapper;
+    case IddObjectType::OS_HeatPump_AirToWater_Heating:
+      return HeatPumpAirToWaterType::Heating;
+    case IddObjectType::OS_HeatPump_AirToWater_Cooling:
+      return HeatPumpAirToWaterType::Cooling;
+    default:
+      return boost::none;
+  }
+}
+
+boost::optional<HeatPumpAirToWaterType> suggestedHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop) {
   const std::string loopType = plantLoop.sizingPlant().loopType();
   if (istringEqual(loopType, "Heating")) {
-    return HeatPumpAirToWaterMode::Heating;
+    return HeatPumpAirToWaterType::Heating;
   }
   if (istringEqual(loopType, "Cooling")) {
-    return HeatPumpAirToWaterMode::Cooling;
+    return HeatPumpAirToWaterType::Cooling;
   }
   return boost::none;
 }
 
-bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, HeatPumpAirToWaterMode mode, const model::HVACComponent& target) {
+bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, HeatPumpAirToWaterType mode, const model::HVACComponent& target) {
   boost::optional<model::StraightComponent> modeComponent;
-  if (mode == HeatPumpAirToWaterMode::Heating) {
+  if (mode == HeatPumpAirToWaterType::Heating) {
     if (auto heating = heatPump.heatingOperationMode()) {
       modeComponent = heating.get();
     }
-  } else if (auto cooling = heatPump.coolingOperationMode()) {
-    modeComponent = cooling.get();
+  } else if (mode == HeatPumpAirToWaterType::Cooling) {
+    if (auto cooling = heatPump.coolingOperationMode()) {
+      modeComponent = cooling.get();
+    }
   }
   if (!modeComponent) {
     return false;
@@ -62,11 +78,12 @@ bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, 
 }
 
 boost::optional<model::HeatPumpAirToWater> heatPumpAirToWaterForMode(const model::ModelObject& modelObject) {
-  if (auto heating = modelObject.optionalCast<model::HeatPumpAirToWaterHeating>()) {
-    return heating->heatPumpAirToWater();
+  const boost::optional<HeatPumpAirToWaterType> type = heatPumpAirToWaterType(modelObject);
+  if (type == HeatPumpAirToWaterType::Heating) {
+    return modelObject.cast<model::HeatPumpAirToWaterHeating>().heatPumpAirToWater();
   }
-  if (auto cooling = modelObject.optionalCast<model::HeatPumpAirToWaterCooling>()) {
-    return cooling->heatPumpAirToWater();
+  if (type == HeatPumpAirToWaterType::Cooling) {
+    return modelObject.cast<model::HeatPumpAirToWaterCooling>().heatPumpAirToWater();
   }
   return boost::none;
 }
@@ -81,15 +98,15 @@ bool removeHeatPumpAirToWaterModeFromLoop(const model::ModelObject& modelObject)
     mode.removeFromLoop();
   }
 
-  bool otherModeOnLoop = false;
-  if (modelObject.optionalCast<model::HeatPumpAirToWaterHeating>()) {
+  boost::optional<model::StraightComponent> otherMode;
+  if (heatPumpAirToWaterType(modelObject) == HeatPumpAirToWaterType::Heating) {
     if (auto cooling = heatPump->coolingOperationMode()) {
-      otherModeOnLoop = cooling->loop().has_value();
+      otherMode = cooling.get();
     }
   } else if (auto heating = heatPump->heatingOperationMode()) {
-    otherModeOnLoop = heating->loop().has_value();
+    otherMode = heating.get();
   }
-  if (!otherModeOnLoop) {
+  if (!otherMode || !otherMode->loop()) {
     heatPump->remove();
   }
   return true;

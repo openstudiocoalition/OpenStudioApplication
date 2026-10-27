@@ -18,21 +18,27 @@ namespace openstudio {
 /// returns false): its heating and cooling operation modes are the StraightComponents that sit on
 /// the hot water and chilled water loops, and the wrapper is only forward translated through them.
 /// Dropping a wrapper onto a loop therefore means placing one of its modes there instead.
-enum class HeatPumpAirToWaterMode
+enum class HeatPumpAirToWaterType
 {
+  Wrapper,
   Heating,
   Cooling
 };
 
-/// The mode suggested by the loop's Sizing:Plant loop type ("Heating" or "Cooling"), or none for
-/// any other loop type. Only a suggestion: a new PlantLoop defaults to "Heating" until its sizing
-/// is edited, so an untouched chilled water loop also reports "Heating".
-boost::optional<HeatPumpAirToWaterMode> suggestedHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop);
+/// Which of the three HeatPumpAirToWater object types `modelObject` is, or none for anything else.
+/// Only compares the IddObjectType, so it is cheap enough to call on every object of a loop.
+boost::optional<HeatPumpAirToWaterType> heatPumpAirToWaterType(const model::ModelObject& modelObject);
 
-/// Places the wrapper's `mode` operation mode on `target`, which is either a plant loop supply-side
-/// Node or a plant loop supply-side Splitter (adding a new supply branch). Returns false, leaving the
-/// model unchanged, if the wrapper has no such mode or the mode cannot be added at `target`.
-bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, HeatPumpAirToWaterMode mode, const model::HVACComponent& target);
+/// The mode (Heating or Cooling) suggested by the loop's Sizing:Plant loop type, or none for any other
+/// loop type. Only a suggestion: a new PlantLoop defaults to "Heating" until its sizing is edited, so an
+/// untouched chilled water loop also reports "Heating".
+boost::optional<HeatPumpAirToWaterType> suggestedHeatPumpAirToWaterMode(const model::PlantLoop& plantLoop);
+
+/// Places the wrapper's `mode` (Heating or Cooling) operation mode on `target`, which is either a plant
+/// loop supply-side Node or a plant loop supply-side Splitter (adding a new supply branch). Returns false,
+/// leaving the model unchanged, if `mode` is Wrapper, the wrapper has no such mode, or the mode cannot be
+/// added at `target`.
+bool addHeatPumpAirToWaterModeToLoop(const model::HeatPumpAirToWater& heatPump, HeatPumpAirToWaterType mode, const model::HVACComponent& target);
 
 /// If `modelObject` is a HeatPumpAirToWater heating or cooling operation mode that belongs to a wrapper,
 /// returns that wrapper; otherwise none.

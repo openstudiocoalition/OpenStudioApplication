@@ -48,12 +48,12 @@ TEST(HeatPumpAirToWaterPlacement, SuggestedModeFollowsSizingPlantLoopType) {
   // A new PlantLoop's Sizing:Plant defaults to "Heating"
   auto suggested = suggestedHeatPumpAirToWaterMode(plantLoop);
   ASSERT_TRUE(suggested);
-  EXPECT_EQ(HeatPumpAirToWaterMode::Heating, suggested.get());
+  EXPECT_EQ(HeatPumpAirToWaterType::Heating, suggested.get());
 
   ASSERT_TRUE(plantLoop.sizingPlant().setLoopType("Cooling"));
   suggested = suggestedHeatPumpAirToWaterMode(plantLoop);
   ASSERT_TRUE(suggested);
-  EXPECT_EQ(HeatPumpAirToWaterMode::Cooling, suggested.get());
+  EXPECT_EQ(HeatPumpAirToWaterType::Cooling, suggested.get());
 
   ASSERT_TRUE(plantLoop.sizingPlant().setLoopType("Condenser"));
   EXPECT_FALSE(suggestedHeatPumpAirToWaterMode(plantLoop));
@@ -73,13 +73,13 @@ TEST(HeatPumpAirToWaterPlacement, PlacesBothModesOfOneWrapperOnSeparateLoops) {
   EXPECT_NE(libraryHeatPump.heatingOperationMode()->handle(), heatPump.heatingOperationMode()->handle());
 
   Node hotWaterNode = hotWaterLoop.supplyOutletNode();
-  EXPECT_TRUE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Heating, hotWaterNode));
+  EXPECT_TRUE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Heating, hotWaterNode));
   ASSERT_TRUE(heatPump.heatingLoop());
   EXPECT_EQ(hotWaterLoop.handle(), heatPump.heatingLoop()->handle());
   EXPECT_FALSE(heatPump.coolingLoop());
 
   Splitter chilledWaterSplitter = chilledWaterLoop.supplySplitter();
-  EXPECT_TRUE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Cooling, chilledWaterSplitter));
+  EXPECT_TRUE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Cooling, chilledWaterSplitter));
   ASSERT_TRUE(heatPump.coolingLoop());
   EXPECT_EQ(chilledWaterLoop.handle(), heatPump.coolingLoop()->handle());
 
@@ -101,7 +101,7 @@ TEST(HeatPumpAirToWaterPlacement, MissingModeIsRejected) {
 
   Node node = plantLoop.supplyOutletNode();
   const auto supplyComponentCount = plantLoop.supplyComponents().size();
-  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Cooling, node));
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Cooling, node));
   EXPECT_EQ(supplyComponentCount, plantLoop.supplyComponents().size());
   EXPECT_FALSE(heatPump.coolingLoop());
 }
@@ -112,10 +112,10 @@ TEST(HeatPumpAirToWaterPlacement, DemandSideIsRejected) {
   HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
 
   Node demandNode = plantLoop.demandInletNode();
-  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Heating, demandNode));
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Heating, demandNode));
 
   Splitter demandSplitter = plantLoop.demandSplitter();
-  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Heating, demandSplitter));
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Heating, demandSplitter));
 
   EXPECT_FALSE(heatPump.heatingLoop());
 }
@@ -128,7 +128,7 @@ TEST(HeatPumpAirToWaterPlacement, NonNodeNonSplitterTargetIsRejected) {
   ASSERT_TRUE(boiler.addToNode(node));
   HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
 
-  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterMode::Heating, boiler));
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Heating, boiler));
   EXPECT_FALSE(heatPump.heatingLoop());
 }
 
@@ -210,4 +210,29 @@ TEST(HeatPumpAirToWaterPlacement, RemovingOnlyPlacedModeRemovesTheWholeUnit) {
   EXPECT_TRUE(removeHeatPumpAirToWaterModeFromLoop(heating));
   EXPECT_TRUE(heatPump.handle().isNull());
   EXPECT_TRUE(model.getConcreteModelObjects<HeatPumpAirToWaterCooling>().empty());
+}
+
+TEST(HeatPumpAirToWaterPlacement, TypeIsFoundFromIddObjectType) {
+  Model model;
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+  HeatPumpAirToWaterHeating orphan(model);
+  BoilerHotWater boiler(model);
+
+  EXPECT_TRUE(heatPumpAirToWaterType(heatPump) == HeatPumpAirToWaterType::Wrapper);
+  EXPECT_TRUE(heatPumpAirToWaterType(heatPump.heatingOperationMode().get()) == HeatPumpAirToWaterType::Heating);
+  EXPECT_TRUE(heatPumpAirToWaterType(heatPump.coolingOperationMode().get()) == HeatPumpAirToWaterType::Cooling);
+  // The type doesn't depend on the mode belonging to a wrapper
+  EXPECT_TRUE(heatPumpAirToWaterType(orphan) == HeatPumpAirToWaterType::Heating);
+  EXPECT_FALSE(heatPumpAirToWaterType(boiler));
+}
+
+TEST(HeatPumpAirToWaterPlacement, WrapperIsNotAModeToPlace) {
+  Model model;
+  PlantLoop plantLoop(model);
+  HeatPumpAirToWater heatPump = makeHeatPumpWithBothModes(model);
+
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Wrapper, plantLoop.supplyOutletNode()));
+  EXPECT_FALSE(addHeatPumpAirToWaterModeToLoop(heatPump, HeatPumpAirToWaterType::Wrapper, plantLoop.supplySplitter()));
+  EXPECT_FALSE(heatPump.heatingLoop());
+  EXPECT_FALSE(heatPump.coolingLoop());
 }

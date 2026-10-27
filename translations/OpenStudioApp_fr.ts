@@ -25404,11 +25404,6 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <translation>Tours de refroidissement</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Systèmes de Pompes à Chaleur Centralisées</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Chaudières</translation>

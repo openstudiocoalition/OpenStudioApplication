@@ -25394,11 +25394,6 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>Πύργοι Ψύξης</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Κεντρικά Συστήματα Αντλιών Θερμότητας</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Λέβητες</translation>

@@ -25443,11 +25443,6 @@ OpenStudio Application'ın seçtiğiniz dilinize çevrilmiş halini görmek iste
         <translation>Soğutma Kuleleri</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
-        <source>Central Heat Pump Systems</source>
-        <translation>Merkezi Isı Pompa Sistemleri</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Kazanlar</translation>
