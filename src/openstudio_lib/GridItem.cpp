@@ -96,6 +96,7 @@
 #include <openstudio/model/ZoneHVACTerminalUnitVariableRefrigerantFlow_Impl.hpp>
 
 #include "../openstudio_qt_utils/Utilities.hpp"
+#include "../utilities/HeatPumpAirToWaterPlacement.hpp"
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
@@ -241,7 +242,8 @@ void ModelObjectGraphicsItem::setModelObject(model::OptionalModelObject modelObj
 
   if (auto comp_ = m_modelObject->optionalCast<model::HVACComponent>()) {
     setAcceptDrops(true);
-    setDeletable(comp_->isRemovable());
+    // A HeatPumpAirToWater operation mode isn't removable by itself, but can be taken off its loop
+    setDeletable(comp_->isRemovable() || heatPumpAirToWaterForMode(comp_.get()));
     if (isNotSplitterMixerNodesPred(comp_.get())) {
       setDraggable(true);
     }

@@ -682,6 +682,16 @@
     <file>images/heatpump_watertowater_equationfit_cooling@2x.png</file>
     <file>images/heatpump_watertowater_equationfit_heating.png</file>
     <file>images/heatpump_watertowater_equationfit_heating@2x.png</file>
+    <file>images/heatpump_plantloop_eir_heating.png</file>
+    <file>images/heatpump_plantloop_eir_heating@2x.png</file>
+    <file>images/heatpump_plantloop_eir_cooling.png</file>
+    <file>images/heatpump_plantloop_eir_cooling@2x.png</file>
+    <file>images/heatpump_airtowater_fuelfired_heating.png</file>
+    <file>images/heatpump_airtowater_fuelfired_heating@2x.png</file>
+    <file>images/heatpump_airtowater_fuelfired_cooling.png</file>
+    <file>images/heatpump_airtowater_fuelfired_cooling@2x.png</file>
+    <file>images/heatpump_airtowater.png</file>
+    <file>images/heatpump_airtowater@2x.png</file>
 
     <file>library/OpenStudioPolicy.xml</file>
 
@@ -1141,6 +1151,16 @@
     <file>images/mini_icons/heatpump_watertowater_equationfit_cooling@2x.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_heating.png</file>
     <file>images/mini_icons/heatpump_watertowater_equationfit_heating@2x.png</file>
+    <file>images/mini_icons/heatpump_plantloop_eir_heating.png</file>
+    <file>images/mini_icons/heatpump_plantloop_eir_heating@2x.png</file>
+    <file>images/mini_icons/heatpump_plantloop_eir_cooling.png</file>
+    <file>images/mini_icons/heatpump_plantloop_eir_cooling@2x.png</file>
+    <file>images/mini_icons/heatpump_airtowater_fuelfired_heating.png</file>
+    <file>images/mini_icons/heatpump_airtowater_fuelfired_heating@2x.png</file>
+    <file>images/mini_icons/heatpump_airtowater_fuelfired_cooling.png</file>
+    <file>images/mini_icons/heatpump_airtowater_fuelfired_cooling@2x.png</file>
+    <file>images/mini_icons/heatpump_airtowater.png</file>
+    <file>images/mini_icons/heatpump_airtowater@2x.png</file>
 
     <file>library/tid_api.xml</file>
     <file>library/embeddable_geometry_editor.html</file>
