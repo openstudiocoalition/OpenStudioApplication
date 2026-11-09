@@ -25,6 +25,7 @@ set(${target_name}_test_src
 set(${target_name}_depends
   openstudio::openstudiolib
   boost::boost
+  cpprestsdk::cpprestsdk
 )
 
 add_library(${target_name} STATIC
