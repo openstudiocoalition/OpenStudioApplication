@@ -13,6 +13,9 @@
 
 #include <openstudio/utilities/idf/WorkspaceObject_Impl.hpp>
 
+#include <QString>
+#include <tuple>
+
 class QStackedWidget;
 
 namespace openstudio {
@@ -27,7 +30,7 @@ class LoadsView : public ModelSubTabView
   virtual ~LoadsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
+  static std::vector<std::tuple<IddObjectType, QString, QString>> modelObjectTypesNamesAndUrls();
 
  public slots:
 

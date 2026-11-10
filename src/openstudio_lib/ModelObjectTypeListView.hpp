@@ -14,6 +14,10 @@
 
 #include <boost/optional.hpp>
 
+#include <QString>
+
+#include <tuple>
+
 class QVBoxLayout;
 
 class QHBoxLayout;
@@ -30,9 +34,12 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
   ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, QString>>& modelObjectTypesAndNames, const model::Model& model,
                           bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
 
+  ModelObjectTypeListView(const std::vector<std::tuple<IddObjectType, QString, QString>>& modelObjectTypesNamesAndUrls,
+                          const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
+
   virtual ~ModelObjectTypeListView() {}
 
-  void addModelObjectType(const IddObjectType& iddObjectType, const QString& name);
+  void addModelObjectType(const IddObjectType& iddObjectType, const QString& name, const QString& url = {});
 
   void addModelObjectCategoryPlaceholder(const QString& name);
 

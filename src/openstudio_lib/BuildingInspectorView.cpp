@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "BuildingInspectorView.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSIntegerEdit.hpp"
@@ -41,6 +42,7 @@
 #include <QPushButton>
 #include <QScrollArea>
 #include <QStackedWidget>
+#include <QStringLiteral>
 
 namespace openstudio {
 
@@ -437,8 +439,14 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText(tr("North Axis: "));
   label->setStyleSheet("QLabel { font: bold; }");
+  label->setTextFormat(Qt::RichText);
+  label->setOpenExternalLinks(true);
+  {
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:Building"));
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc;">%2</a>)").arg(url, tr("North Axis: ")));
+  }
   vLayout->addWidget(label);
 
   m_northAxisEdit = new OSQuantityEdit2("deg", "deg", "deg", m_isIP);

@@ -8,6 +8,8 @@
 
 #include "../shared_gui_components/OSItem.hpp"
 
+#include <QString>
+
 class QLabel;
 class QVBoxLayout;
 class QPaintEvent;
@@ -21,7 +23,7 @@ class OSCollapsibleItemHeader : public QWidget
 
  public:
   OSCollapsibleItemHeader(const QString& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
-                          QWidget* parent = nullptr);
+                          const QString& url = {}, QWidget* parent = nullptr);
 
   virtual ~OSCollapsibleItemHeader() = default;
 
@@ -49,6 +51,7 @@ class OSCollapsibleItemHeader : public QWidget
 
   QLabel* m_arrowLabel;
   QLabel* m_textLabel;
+  QString m_plainText;
 
   bool m_expanded;
   bool m_selected;
