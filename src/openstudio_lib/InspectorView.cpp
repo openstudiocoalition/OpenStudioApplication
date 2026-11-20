@@ -926,18 +926,6 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
   m_emsSensorView->layoutModelObject(modelObject);
 }
 
-namespace {
-
-// An InspectorGadget without its own scroll area, so several can be stacked in one scrolling page
-class StackedInspectorGadget : public InspectorGadget
-{
- public:
-  StackedInspectorGadget(openstudio::WorkspaceObject& workspaceObj, bool locked)
-    : InspectorGadget(workspaceObj, 0, nullptr, false, true, true, locked) {}
-};
-
-}  // namespace
-
 HeatPumpAirToWaterModeInspectorView::HeatPumpAirToWaterModeInspectorView(QWidget* parent) : BaseInspectorView(parent) {
   auto* scrollArea = new QScrollArea();
   scrollArea->setWidgetResizable(true);
@@ -966,7 +954,9 @@ void HeatPumpAirToWaterModeInspectorView::layoutModelObject(model::ModelObject& 
   int insertIndex = 0;
 
   auto addGadget = [&](model::ModelObject object, bool hideChildren) {
-    auto* gadget = new StackedInspectorGadget(object, readOnly);
+    // This constructor builds a gadget without its own scroll area, so several can be stacked in one scrolling page.
+    // Arguments: no indent, no bridge, hide comments, show all fields, recursive, locked if read only
+    auto* gadget = new InspectorGadget(object, 0, nullptr, false, true, true, readOnly);
     // The gadget lays the object out in IP without additional properties when constructed; each change below rebuilds it
     if (!displayIP) {
       gadget->setUnitSystem(InspectorGadget::SI);

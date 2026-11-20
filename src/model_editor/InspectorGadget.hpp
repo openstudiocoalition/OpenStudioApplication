@@ -103,6 +103,21 @@ class InspectorGadget
    */
   ~InspectorGadget();
 
+  /*! \brief constructor
+    \param workspaceObj the current workspace
+    \param indent indentation for the child frame
+    \param bridge pass in a bridge here if you need signals to get out of the IG (or the IG's children)
+    \param showComments show or hide idf comment field
+    \param showAllFields show or hide all fields
+    \param recursive recursively create and show fields
+    \param locked if true, lock all fields the ACCESS_POLICY sets to FREE
+    If model has children, those children will get their own InspectorGadget, indent
+    will be passed again to that constructor so the frames will nest.
+    Unlike the other constructor, the gadget has no scroll area of its own.
+  */
+  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
+                  bool recursive, bool locked);
+
   /*! \brief lays out the WorkspaceObj
    *
    * \param workObj the current workspace
@@ -216,19 +231,6 @@ class InspectorGadget
   void onWorkspaceObjectRemoved(const openstudio::Handle&);
 
  protected:
-  /*! \brief constructor
-    \param workspaceObj the current workspace
-    \param indent indentation for the child frame
-    \param bridge pass in a bridge here if you need signals to get out of the IG (or the IG's children)
-    \param showComments show or hide idf comment field
-    \param showAllFields show or hide all fields
-    \param recursive recursively create and show fields
-    \param locked if true, lock all fields the ACCESS_POLICY sets to FREE
-    If model has children, those children will get their own InspectorGadget, indent
-    will be passed again to that constructor so the frames will nest.
-  */
-  InspectorGadget(openstudio::WorkspaceObject& workspaceObj, int indent, ComboHighlightBridge* bridge, bool showComments, bool showAllFields,
-                  bool recursive, bool locked);
   /*!
     \param layout the layout to attach the items to
     \param parent the widget that owns all the items that will be created.
