@@ -25,6 +25,8 @@ relwithdebinfo/
 profile/
 /super-build-shared/
 /super-build-static/
+/Products/
+
 *.sublime-workspace
 *.sublime-project
 cmake-build-debug
@@ -40,3 +42,6 @@ conan-cache
 .ccache
 CMakeUserPresets.json
 __pycache__
+
+# Local working notes, not for commit
+ENERGYPLUS_DOCS_WORKFLOW.md

@@ -11,6 +11,9 @@
 
 #include <openstudio/model/Model.hpp>
 
+#include <QString>
+#include <tuple>
+
 namespace openstudio {
 
 class ConstructionsView : public ModelSubTabView
@@ -23,7 +26,7 @@ class ConstructionsView : public ModelSubTabView
   virtual ~ConstructionsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
+  static std::vector<std::tuple<IddObjectType, QString, QString>> modelObjectTypesNamesAndUrls();
 };
 
 class ConstructionsInspectorView : public ModelObjectInspectorView

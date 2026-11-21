@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "YearSettingsWidget.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
@@ -102,8 +103,15 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   dstHLayout1->setContentsMargins(0, 0, 0, 0);
   dstHLayout1->setSpacing(10);
 
-  auto* dstLabel = new QLabel(tr("Daylight Savings Time:"));
+  auto* dstLabel = new QLabel();
   dstLabel->setObjectName("H2");
+  dstLabel->setTextFormat(Qt::RichText);
+  dstLabel->setOpenExternalLinks(true);
+  {
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:RunPeriodControl:DaylightSavingTime"));
+    dstLabel->setToolTip(url);
+    dstLabel->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Daylight Savings Time:")));
+  }
   dstHLayout1->addWidget(dstLabel);
 
   m_dstOnOffButton = new OSSwitch2();

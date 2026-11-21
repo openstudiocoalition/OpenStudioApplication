@@ -20,6 +20,11 @@ CollapsibleInspector::CollapsibleInspector(QString text, QWidget* inspector, QWi
   createLayout();
 }
 
+CollapsibleInspector::CollapsibleInspector(QString text, QString url, QWidget* inspector, QWidget* parent)
+  : QWidget(parent), m_header(new CollapsibleInspectorHeader(std::move(text), std::move(url))), m_inspector(inspector) {
+  createLayout();
+}
+
 void CollapsibleInspector::createLayout() {
   setContentsMargins(0, 0, 0, 0);
 
@@ -46,7 +51,8 @@ void CollapsibleInspector::on_headerToggled(bool checked) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QWidget* parent) : QAbstractButton(parent), m_text(std::move(text)) {
+CollapsibleInspectorHeader::CollapsibleInspectorHeader(QString text, QString url, QWidget* parent)
+  : QAbstractButton(parent), m_text(std::move(text)), m_url(std::move(url)) {
   createLayout();
 }
 
@@ -67,9 +73,17 @@ void CollapsibleInspectorHeader::createLayout() {
   mainHLayout->addWidget(m_arrowLabel, 0, Qt::AlignLeft);
 
   // Name
-  auto* textLabel = new QLabel(m_text);
+  auto* textLabel = new QLabel();
   textLabel->setWordWrap(false);
   textLabel->setObjectName("H2");
+  if (!m_url.isEmpty()) {
+    textLabel->setTextFormat(Qt::RichText);
+    textLabel->setOpenExternalLinks(true);
+    textLabel->setToolTip(m_url);
+    textLabel->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(m_url, m_text.toHtmlEscaped()));
+  } else {
+    textLabel->setText(m_text);
+  }
   mainHLayout->addWidget(textLabel, 0, Qt::AlignLeft);
 
   // Stretch

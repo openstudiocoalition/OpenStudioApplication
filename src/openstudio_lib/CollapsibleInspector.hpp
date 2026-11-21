@@ -22,6 +22,7 @@ class CollapsibleInspector : public QWidget
 
  public:
   CollapsibleInspector(QString text, QWidget* inspector, QWidget* parent = nullptr);
+  CollapsibleInspector(QString text, QString url, QWidget* inspector, QWidget* parent = nullptr);
 
   virtual ~CollapsibleInspector() {}
 
@@ -42,7 +43,7 @@ class CollapsibleInspectorHeader : public QAbstractButton
   Q_OBJECT
 
  public:
-  explicit CollapsibleInspectorHeader(QString text, QWidget* parent = nullptr);
+  explicit CollapsibleInspectorHeader(QString text, QString url = {}, QWidget* parent = nullptr);
 
   void setChecked(bool isChecked);
 
@@ -57,6 +58,7 @@ class CollapsibleInspectorHeader : public QAbstractButton
   void setImage(bool isChecked);
 
   QString m_text;
+  QString m_url;
 
   QLabel* m_arrowLabel;
 
